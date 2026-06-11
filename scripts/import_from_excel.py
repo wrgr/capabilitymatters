@@ -21,10 +21,9 @@ Routing rules, in order (first match wins):
        collection based on sub-section (default: community/ for org sub-sections,
        reading-list/ otherwise).
 
-Run from the repo root:
+Run from the repo root (needs openpyxl — see scripts/requirements.txt):
 
-    source venv/bin/activate
-    python3 site/scripts/import_from_excel.py
+    python3 scripts/import_from_excel.py
 """
 
 from __future__ import annotations
@@ -35,12 +34,11 @@ from pathlib import Path
 
 try:
     import openpyxl
-except ImportError as exc:  # keep the error explicit so users activate venv first
-    raise SystemExit("openpyxl missing. Run: source venv/bin/activate") from exc
+except ImportError as exc:  # keep the error explicit so users install deps first
+    raise SystemExit("openpyxl missing. Run: pip install -r scripts/requirements.txt") from exc
 
-ROOT = Path(__file__).resolve().parents[2]
-SITE = ROOT / "site"
-CONTENT = SITE / "src" / "content"
+ROOT = Path(__file__).resolve().parents[1]
+CONTENT = ROOT / "src" / "content"
 XLSX = Path.home() / "Downloads" / "Learning-Engineering-Resources.xlsx"
 
 # Sub-section headers that represent an org / community / recurring venue.

@@ -4,12 +4,15 @@ Maps landscape records into the five practice sections (process, methods, tools,
 community) based on content_type and primary_topic. Idempotent — skips files that already
 exist so human edits survive re-runs.
 
+Reads registries from a wrgr/lecommons checkout (set LECOMMONS_DIR, default
+../lecommons next to this repo).
+
 Data flow:
-  landscape/resources/**/*.yaml  →  scripts/build_registry.py
-                                 →  site/src/data/programs_people_registry.json  (PROGRAMS_REG)
+  lecommons landscape/resources/**/*.yaml  →  scripts/build_registry.py
+                                            →  src/data/programs_people_registry.json  (PROGRAMS_REG)
 
 Run from the repo root:
-    python3 scripts/build_registry.py && python3 site/scripts/import_from_archive.py
+    python3 scripts/build_registry.py && python3 scripts/import_from_archive.py
 """
 
 from __future__ import annotations
@@ -18,16 +21,20 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-ARCHIVE = ROOT / "archive"
-SITE = ROOT / "site"
-CONTENT = SITE / "src" / "content"
+from lecommons_paths import lecommons_dir
+
+ROOT = Path(__file__).resolve().parents[1]
+# Exits with a clear message when no lecommons checkout is available; this
+# one-shot seeder cannot do anything useful without one.
+LECOMMONS = lecommons_dir()
+ARCHIVE = LECOMMONS / "archive"
+CONTENT = ROOT / "src" / "content"
 
 ICICLE_REG = ARCHIVE / "corpus" / "tables" / "icicle_resources_registry.json"
-# Canonical source: built from landscape/resources/**/*.yaml via scripts/build_registry.py
-PROGRAMS_REG = SITE / "src" / "data" / "programs_people_registry.json"
+# Canonical source: built from lecommons landscape/resources/**/*.yaml via scripts/build_registry.py
+PROGRAMS_REG = ROOT / "src" / "data" / "programs_people_registry.json"
 PAPERS = ARCHIVE / "corpus" / "academic_papers.jsonl"
-PEOPLE = ROOT / "titlesearch" / "data" / "people.json"
+PEOPLE = LECOMMONS / "titlesearch" / "data" / "people.json"
 
 # Map ICICLE content_type to our `kind` enum.
 ICICLE_KIND = {

@@ -2,10 +2,10 @@
 """Import a plain-text LEBOK-style citation list into reading-list MDX stubs.
 
 Usage (dry-run by default):
-    python3 site/scripts/import_lebok_refs.py --input /path/to/citations.txt
+    python3 scripts/import_lebok_refs.py --input /path/to/citations.txt
 
 Write new files:
-    python3 site/scripts/import_lebok_refs.py --input /path/to/citations.txt --write
+    python3 scripts/import_lebok_refs.py --input /path/to/citations.txt --write
 
 Input format:
 - One citation per line (or wrapped paragraph blocks separated by blank lines).
@@ -23,9 +23,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List
 
-ROOT = Path(__file__).resolve().parents[2]
-READING_LIST_DIR = ROOT / "site" / "src" / "content" / "reading-list"
-DEFAULT_REPORT_DIR = ROOT / "site" / "data" / "import_reports"
+ROOT = Path(__file__).resolve().parents[1]
+READING_LIST_DIR = ROOT / "src" / "content" / "reading-list"
+DEFAULT_REPORT_DIR = ROOT / "data" / "import_reports"
 
 
 def slugify(text: str) -> str:

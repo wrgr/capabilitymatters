@@ -13,8 +13,7 @@ is rewritten on each run.
 
 Run from the repo root:
 
-    source venv/bin/activate
-    python3 site/scripts/derive_institutions_and_associations.py
+    python3 scripts/derive_institutions_and_associations.py
 """
 
 from __future__ import annotations
@@ -23,8 +22,8 @@ import re
 from pathlib import Path
 from collections import defaultdict
 
-ROOT = Path(__file__).resolve().parents[2]
-CONTENT = ROOT / "site" / "src" / "content"
+ROOT = Path(__file__).resolve().parents[1]
+CONTENT = ROOT / "src" / "content"
 COMMUNITY = CONTENT / "community"
 READING = CONTENT / "reading-list"
 
