@@ -5,7 +5,7 @@ An editorial lens site on learning engineering for next-generation systems, buil
 
 This repository was extracted from [`wrgr/lecommons`](https://github.com/wrgr/lecommons) (site history
 preserved) so the site is owned and hosted separately from the shared IEEE ICICLE / Learning
-Engineering Commons research corpus that remains there.
+Engineering Commons research corpus that remains there.  
 
 ## Layout
 
