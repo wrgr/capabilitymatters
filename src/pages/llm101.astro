@@ -1,0 +1,270 @@
+---
+// LLM101 page — embeds the interactive llm101 app at the top, then frames it
+// with a Capability Matters editorial lens connecting LLM mechanics to
+// practitioner capability development.
+import Base from "../layouts/Base.astro";
+import SectionHero from "../components/SectionHero.astro";
+
+const LLM101_URL = "https://wrgr.github.io/llm101/";
+---
+
+<Base
+  title="LLM101 · LENS"
+  description="One mechanism. Five depths. An interactive guide to how large language models actually work — for everyone from curious beginners to ML practitioners."
+  active="llm101"
+>
+  <SectionHero
+    eyebrow="Interactive Learning"
+    title="LLM101"
+    claim="One mechanism. Five depths. An interactive guide to how large language models actually work — from a single metaphor to graduate-level formalism."
+    question="How does next-token prediction become something that looks like intelligence?"
+  />
+
+  <section class="app-section">
+    <div class="container-wide">
+      <div class="embed-wrapper">
+        <div class="embed-toolbar">
+          <span class="embed-label">Interactive Explorer</span>
+          <a
+            href={LLM101_URL}
+            class="embed-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open LLM101 in a new tab"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="13"
+              height="13"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            Open full screen
+          </a>
+        </div>
+        <div class="embed-frame">
+          <iframe
+            src={LLM101_URL}
+            title="LLM101: How Large Language Models Actually Work"
+            loading="lazy"
+            allow="clipboard-write"
+            scrolling="yes"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vignette-section">
+    <div class="container">
+      <header class="vignette-header">
+        <p class="eyebrow">Capability Matters Lens</p>
+        <h2>Why the mechanism matters to practitioners</h2>
+      </header>
+      <div class="vignette-body">
+        <p class="lead">
+          Understanding how large language models actually work is not a technical
+          luxury — it is a capability prerequisite for anyone designing systems,
+          teams, or learning environments that rely on them.
+        </p>
+
+        <p>
+          LLM101 was built around a single observation: next-token prediction,
+          repeated at enormous scale, generates behavior that looks remarkably
+          like reasoning, comprehension, and creativity. Everything else — the
+          architecture, the training, the alignment work — is infrastructure for
+          making that prediction extraordinarily good. Practitioners who
+          understand this are better positioned than those who don't, not because
+          they need to implement a transformer, but because the mechanism shapes
+          what these systems can and cannot reliably do.
+        </p>
+
+        <p>
+          The five depth levels in LLM101 map onto different capability roles.
+          A leader or commissioner needs "The Picture" — a reliable mental model
+          sufficient to avoid the category errors that plague high-stakes
+          deployment decisions. A practitioner working with LLMs daily benefits
+          from the "Overview" view: enough mechanistic grounding to interpret
+          surprising outputs and set realistic expectations with stakeholders.
+          Engineers and curriculum designers need the "Under the Hood" view to
+          make sound integration and evaluation choices. Only a small fraction of
+          roles require the "Formal" level — and that fraction is not the whole
+          capability ecosystem.
+        </p>
+
+        <p>
+          What capability matters most here is calibration: knowing which depth
+          you need, and being able to move between depths when the context
+          demands it. LLM101 is designed to let you do exactly that — to dial
+          from metaphor to mathematics and back again without losing the thread.
+        </p>
+
+        <h3>Questions this tool helps practitioners answer</h3>
+        <ul>
+          <li>
+            When an LLM "hallucinates," what is actually happening — and who in
+            your organization needs to understand it well enough to respond?
+          </li>
+          <li>
+            What makes a prompt work? How does the prediction mechanism explain
+            prompt sensitivity, context limits, and chain-of-thought behavior?
+          </li>
+          <li>
+            Why does scale matter, and where are its limits? What should
+            capability leaders expect from successive model generations?
+          </li>
+          <li>
+            What does alignment mean technically — and how does that shape
+            responsible deployment decisions?
+          </li>
+        </ul>
+
+        <p>
+          These are not purely technical questions. They require a conceptual
+          bridge between mechanism and organizational consequence. LLM101
+          provides that bridge, at the depth appropriate to each role.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ── App embed ───────────────────────────────────────────────────────── */
+  .app-section {
+    padding: 2rem 0 0;
+  }
+
+  .embed-wrapper {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .embed-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .45rem .9rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--tint);
+  }
+
+  .embed-label {
+    font-family: var(--sans);
+    font-size: .72rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .embed-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    font-family: var(--sans);
+    font-size: .8rem;
+    color: var(--accent);
+    border: none;
+    white-space: nowrap;
+  }
+  .embed-link:hover {
+    color: var(--accent-2);
+    border: none;
+  }
+
+  .embed-frame {
+    width: 100%;
+    height: 740px;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    background: #fff;
+  }
+
+  .embed-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  @media (max-width: 700px) {
+    .embed-frame { height: 620px; }
+  }
+
+  @media (max-width: 460px) {
+    .embed-frame { height: 560px; }
+  }
+
+  /* ── Vignette ─────────────────────────────────────────────────────────── */
+  .vignette-section {
+    border-top: 1px solid var(--border);
+    margin-top: 2.5rem;
+    background: linear-gradient(to bottom, var(--tint) 0%, var(--bg) 5rem);
+  }
+
+  .vignette-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .vignette-header .eyebrow {
+    display: block;
+    margin-bottom: .75rem;
+  }
+
+  .vignette-header h2 {
+    margin: 0;
+    max-width: 30rem;
+  }
+
+  .vignette-body .lead {
+    font-family: var(--serif);
+    font-size: clamp(1.05rem, 1.5vw, 1.18rem);
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: var(--measure);
+    margin-bottom: 1.25rem;
+  }
+
+  .vignette-body p {
+    font-size: 1rem;
+    line-height: 1.68;
+    color: var(--ink-soft);
+    max-width: var(--measure);
+  }
+
+  .vignette-body h3 {
+    margin-top: 2rem;
+    margin-bottom: .8rem;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+
+  .vignette-body ul {
+    padding-left: 1.4rem;
+    max-width: var(--measure);
+    margin: 0 0 1.2rem;
+  }
+
+  .vignette-body li {
+    font-family: var(--serif);
+    font-size: 1rem;
+    line-height: 1.62;
+    color: var(--ink-soft);
+    margin-bottom: .6rem;
+  }
+
+  @media (max-width: 560px) {
+    .vignette-section { margin-top: 1.5rem; }
+    .vignette-body .lead { font-size: 1.02rem; }
+  }
+</style>
