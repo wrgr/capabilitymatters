@@ -1,7 +1,7 @@
 ---
-// LLM101 page — embeds the interactive llm101 app at the top, then frames it
-// with a Capability Matters editorial lens connecting LLM mechanics to
-// practitioner capability development.
+// LLM101 page — embeds the interactive llm101 app at the top, then presents
+// a Capability Matters case exemplar showing how the authoring flywheel and
+// human-AI loop work in practice.
 import Base from "../layouts/Base.astro";
 import SectionHero from "../components/SectionHero.astro";
 
@@ -10,13 +10,13 @@ const LLM101_URL = "https://wrgr.github.io/llm101/";
 
 <Base
   title="LLM101 · LENS"
-  description="One mechanism. Five depths. An interactive guide to how large language models actually work — for everyone from curious beginners to ML practitioners."
+  description="One mechanism. Five depths. A depth-adjustable LLM explainer and a worked example of capability-first design with an explicit human-AI verification gate."
   active="llm101"
 >
   <SectionHero
     eyebrow="Interactive Learning"
     title="LLM101"
-    claim="One mechanism. Five depths. An interactive guide to how large language models actually work — from a single metaphor to graduate-level formalism."
+    claim="One mechanism. Five depths. A depth-adjustable explainer for large language models — and a worked example of capability-first design."
     question="How does next-token prediction become something that looks like intelligence?"
   />
 
@@ -63,74 +63,235 @@ const LLM101_URL = "https://wrgr.github.io/llm101/";
     </div>
   </section>
 
-  <section class="vignette-section">
+  <section class="exemplar-section">
     <div class="container">
-      <header class="vignette-header">
+      <header class="exemplar-header">
         <p class="eyebrow">Capability Matters Lens</p>
-        <h2>Why the mechanism matters to practitioners</h2>
+        <h2>Case Exemplar: Building an LLM explainer as a capability problem</h2>
+        <p class="method-note">
+          <em>Method exemplar. Not an incident case: this shows how the flywheel and the
+          human-AI authoring loop work in practice, rather than diagnosing a failure.</em>
+        </p>
       </header>
-      <div class="vignette-body">
+
+      <div class="exemplar-body">
         <p class="lead">
-          Understanding how large language models actually work is not a technical
-          luxury — it is a capability prerequisite for anyone designing systems,
-          teams, or learning environments that rely on them.
+          Most "explain how AI works" projects treat the artifact as content. LENS treats
+          it as a capability intervention, and asks a different first question: what should
+          a person be able to do differently afterward, in an environment where that
+          difference has consequence?
         </p>
 
         <p>
-          LLM101 was built around a single observation: next-token prediction,
-          repeated at enormous scale, generates behavior that looks remarkably
-          like reasoning, comprehension, and creativity. Everything else — the
-          architecture, the training, the alignment work — is infrastructure for
-          making that prediction extraordinarily good. Practitioners who
-          understand this are better positioned than those who don't, not because
-          they need to implement a transformer, but because the mechanism shapes
-          what these systems can and cannot reliably do.
+          The artifact is llm101 (<a href="https://github.com/wrgr/llm101" target="_blank" rel="noopener noreferrer">github.com/wrgr/llm101</a>):
+          a depth-adjustable explainer for large language models. One mechanism, five
+          views, two arcs. A reader chooses how deep to go, from a single metaphor to
+          the formal account, and the content is assembled on the fly from tagged
+          segments. At the time of writing it is a working architecture with one fully
+          authored module (Prediction) and the rest scaffolded.
+        </p>
+
+        <h3>The capability</h3>
+
+        <p>
+          The target is not "knows facts about LLMs." It is the ability to reason
+          correctly about what a model's output is: a prediction of plausible next
+          tokens, not a retrieval of stored truth. This is where operational harm
+          concentrates. A user who believes the model retrieves will trust a fabricated
+          citation; a user who understands prediction will verify before acting. It is
+          not an accident that the one fully authored module is Prediction. The
+          capability the whole system exists to build is the one instantiated first.
+        </p>
+
+        <h3>The design as an engineering decision</h3>
+
+        <p>
+          Five views, two arcs, and a sparse segment engine that assembles the talk at
+          any depth from tagged beats. Depth-adjustment is a hypothesis, not a
+          preference: it claims you can build the same capability across very different
+          starting points without making anyone re-read. The fading scaffolds sit on a
+          citation layer grounded in the learning sciences, kept deliberately separate
+          from the content citations grounded in machine learning and language
+          literature. Design as testable hypothesis, not design as taste.
+        </p>
+
+        <h3>The human-AI loop</h3>
+
+        <p>
+          This is the spine of the case. The authoring flywheel treats AI as both
+          creative partner and epistemic risk in the same motion. As partner, it drafts
+          beats from tagged objectives faster than a human would. As risk, it seeds
+          plausible citations and invents sources that do not exist. The system is built
+          so that confidence cannot become decision-grade on its own: the repository
+          instructs a verification pass against Crossref, arXiv, and DOI before
+          publishing, and labels the meaning-arc sources as candidate until checked.
+          That verification gate is the move made concrete. The AI produces; the human
+          closes the gap against primary literature; only verified output is allowed to
+          seed the next module. The conversation is structured, not open-ended.
+        </p>
+
+        <h3>Evidence, honestly</h3>
+
+        <p>The flywheel is two loops, and only one is spinning.</p>
+
+        <p>
+          The authoring flywheel is closed and running: it produces verified content on
+          every pass.
         </p>
 
         <p>
-          The five depth levels in LLM101 map onto different capability roles.
-          A leader or commissioner needs "The Picture" — a reliable mental model
-          sufficient to avoid the category errors that plague high-stakes
-          deployment decisions. A practitioner working with LLMs daily benefits
-          from the "Overview" view: enough mechanistic grounding to interpret
-          surprising outputs and set realistic expectations with stakeholders.
-          Engineers and curriculum designers need the "Under the Hood" view to
-          make sound integration and evaluation choices. Only a small fraction of
-          roles require the "Formal" level — and that fraction is not the whole
-          capability ecosystem.
+          The learning flywheel is designed but not spinning. The per-module checks are
+          its intended instrument: they would tell you whether a given depth level
+          actually built the capability. They are ungraded and undeployed. With one
+          authored module and no readers, there is no learner evidence yet. Naming this
+          is the point, not a disclaimer around it.
+        </p>
+
+        <h3>Adaptation: turning the learning flywheel by hand</h3>
+
+        <p>
+          The learning flywheel's first turn was never an analytics pipeline. It is a
+          person reading feedback and making an attribution call. That call is the
+          teachable move, and it is exactly the one adjacent programs skip.
         </p>
 
         <p>
-          What capability matters most here is calibration: knowing which depth
-          you need, and being able to move between depths when the context
-          demands it. LLM101 is designed to let you do exactly that — to dial
-          from metaphor to mathematics and back again without losing the thread.
+          The discipline is: do not patch, attribute first. Every reader miss is one of
+          three things, and they take different repairs. This is gap attribution at
+          artifact scale.
         </p>
 
-        <h3>Questions this tool helps practitioners answer</h3>
         <ul>
           <li>
-            When an LLM "hallucinates," what is actually happening — and who in
-            your organization needs to understand it well enough to respond?
+            <strong>Content gap:</strong> the explanation is wrong or incomplete.
+            Fix the beat.
           </li>
           <li>
-            What makes a prompt work? How does the prediction mechanism explain
-            prompt sensitivity, context limits, and chain-of-thought behavior?
+            <strong>Design gap:</strong> the explanation is right but shown at the
+            wrong depth or in the wrong order. Fix the segment engine's view range or
+            sequencing, not the beat.
           </li>
           <li>
-            Why does scale matter, and where are its limits? What should
-            capability leaders expect from successive model generations?
-          </li>
-          <li>
-            What does alignment mean technically — and how does that shape
-            responsible deployment decisions?
+            <strong>Framing gap:</strong> the metaphor itself misleads. A scaffold
+            that makes prediction feel like lookup is actively teaching the wrong
+            model. Fix the scaffold.
           </li>
         </ul>
 
         <p>
-          These are not purely technical questions. They require a conceptual
-          bridge between mechanism and organizational consequence. LLM101
-          provides that bridge, at the depth appropriate to each role.
+          Same observed miss, three different fixes. Naming which one you are in before
+          touching the file is the judgment the exemplar is built to teach.
+        </p>
+
+        <p>Three caveats keep this honest:</p>
+
+        <ol>
+          <li>
+            <strong>Include a "no change" verdict.</strong> Not every miss is a defect.
+            The point of five views is that not every reader clears every level;
+            sometimes the right adaptation is routing the reader down a view, not
+            rewriting the beat. Over-adapting to feedback pulls the artifact toward the
+            mean and blunts the expert levels. Attribute-first is what protects against
+            that: if the gap is the reader's foundation, the fix is routing, not
+            revision.
+          </li>
+          <li>
+            <strong>AI reappears at the revision step, and so does the gate.</strong>
+            Feed it the miss and it proposes a rewrite, with the same epistemic risk:
+            it will confidently propose a patch that misdiagnoses the gap, usually
+            defaulting to "add more words" when the real fault was sequence or
+            metaphor. The gate moves from authoring to revision. The AI proposes the
+            adaptation; the human validates the attribution before it ships.
+          </li>
+          <li>
+            <strong>Early evidence is thin by construction.</strong> Ungraded, optional,
+            self-selected checks at near-zero N are weak signal. The highest-value
+            evidence available today is verbal: one reader saying "I still don't see
+            why prediction isn't just lookup" out-informs a hundred slider events. Lead
+            with that until traffic makes behavior mean something.
+          </li>
+        </ol>
+
+        <h3>Instrumentation and ethics: what we chose to measure, and what we did not</h3>
+
+        <p>
+          Capture is the easy part. The slider, the glossary popovers, and the checks
+          are already client-side events; attaching the current view and the term
+          identity to each is an afternoon's work. The real question is persistence: a
+          static GitHub Pages build has nowhere for events to land, so "can we track
+          this" is a design and ethics decision before it is an engineering one. Three
+          shapes:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Local only.</strong> Trivial, no infrastructure, but one reader on
+            one device with no aggregation. Fine for a reader reviewing their own path;
+            useless as evidence.
+          </li>
+          <li>
+            <strong>Ambient aggregate analytics.</strong> Easy to wire and gives counts
+            across readers, cookieless if chosen carefully. It also crosses the
+            surveillance line the program itself interrogates, even anonymized. Turning
+            ambient tracking on by default on a public explainer is a choice one would
+            have to defend in our own seminar.
+          </li>
+          <li>
+            <strong>Consented study mode.</strong> A flag that logs richly only in
+            facilitated or opted-in sessions and stays dark otherwise. Minimal,
+            purpose-bound, defensible. It lets the artifact model the thesis it teaches
+            rather than contradict it.
+          </li>
+        </ul>
+
+        <p>
+          The decision follows from the evidence position, not from what is technically
+          possible. At one authored module with no deployment, instrumentation is
+          premature. The signals cheapest to log — slider jumps and glossary clicks —
+          are the weak-N ones, and an event is not a construct: a reader jumping from
+          view one to view four could be bored, lost and fleeing, or an expert skipping
+          ahead. The click cannot tell you which. You are back to attribution, and
+          telemetry cannot make that call for you.
+        </p>
+
+        <p>
+          So the instrumentation is built for interpretation, not volume, and only
+          inside consented study mode: log the checks and the slider and glossary
+          events so each can be paired with what the reader said aloud. The pairing is
+          what makes an event mean anything. Ambient public analytics stays off until
+          there is a question only counts can answer.
+        </p>
+
+        <p>
+          One carryover from the spine: if these events are later handed to a model to
+          find the patterns, it will confidently narrate noise and default to tidy
+          stories the data does not support. The same gate applies at the analysis step.
+          The model proposes the reading; the human validates the attribution before it
+          touches a beat.
+        </p>
+
+        <p>
+          A restrained instrumentation decision, stated with its reasoning, is a
+          stronger artifact than a dashboard: what we chose to measure, what we chose
+          not to, and why.
+        </p>
+
+        <h3>Boundary</h3>
+
+        <p>
+          One authored module, no deployment, learning flywheel unproven. The case
+          earns its place as a method exemplar, not as an outcomes claim. Its value is
+          the demonstration it does make: AI held as partner and risk under an explicit
+          verification gate, at authoring, at revision, and at analysis; capability
+          defined by consequence rather than content coverage; the flywheel practiced as
+          a production discipline before it is claimed as a learning-analytics result.
+        </p>
+
+        <hr class="rule" />
+
+        <p class="disclaimer">
+          <em>Produced with AI synthesis and verified by the author. Content and citation
+          claims are subject to human review against primary sources before external use.</em>
         </p>
       </div>
     </div>
@@ -204,67 +365,97 @@ const LLM101_URL = "https://wrgr.github.io/llm101/";
     .embed-frame { height: 560px; }
   }
 
-  /* ── Vignette ─────────────────────────────────────────────────────────── */
-  .vignette-section {
+  /* ── Case exemplar ────────────────────────────────────────────────────── */
+  .exemplar-section {
     border-top: 1px solid var(--border);
     margin-top: 2.5rem;
     background: linear-gradient(to bottom, var(--tint) 0%, var(--bg) 5rem);
   }
 
-  .vignette-header {
-    margin-bottom: 1.75rem;
+  .exemplar-header {
+    margin-bottom: 2rem;
   }
 
-  .vignette-header .eyebrow {
+  .exemplar-header .eyebrow {
     display: block;
     margin-bottom: .75rem;
   }
 
-  .vignette-header h2 {
-    margin: 0;
-    max-width: 30rem;
+  .exemplar-header h2 {
+    margin: 0 0 1rem;
+    max-width: 36rem;
   }
 
-  .vignette-body .lead {
+  .method-note {
+    font-family: var(--sans);
+    font-size: .9rem;
+    color: var(--muted);
+    max-width: var(--measure);
+    border-left: 2px solid var(--border);
+    padding-left: .9rem;
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .exemplar-body .lead {
     font-family: var(--serif);
     font-size: clamp(1.05rem, 1.5vw, 1.18rem);
     font-weight: 500;
     line-height: 1.5;
     color: var(--ink);
     max-width: var(--measure);
+    margin-top: 1.75rem;
     margin-bottom: 1.25rem;
   }
 
-  .vignette-body p {
+  .exemplar-body p {
     font-size: 1rem;
     line-height: 1.68;
     color: var(--ink-soft);
     max-width: var(--measure);
   }
 
-  .vignette-body h3 {
-    margin-top: 2rem;
-    margin-bottom: .8rem;
-    font-size: 1.05rem;
+  .exemplar-body h3 {
+    margin-top: 2.25rem;
+    margin-bottom: .75rem;
+    font-size: 1.1rem;
     color: var(--ink);
   }
 
-  .vignette-body ul {
-    padding-left: 1.4rem;
+  .exemplar-body ul,
+  .exemplar-body ol {
+    padding-left: 1.5rem;
     max-width: var(--measure);
-    margin: 0 0 1.2rem;
+    margin: .75rem 0 1.25rem;
   }
 
-  .vignette-body li {
+  .exemplar-body li {
     font-family: var(--serif);
     font-size: 1rem;
-    line-height: 1.62;
+    line-height: 1.65;
     color: var(--ink-soft);
-    margin-bottom: .6rem;
+    margin-bottom: .75rem;
+  }
+
+  .exemplar-body li strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .exemplar-body .rule {
+    margin: 2.5rem 0 1.5rem;
+  }
+
+  .disclaimer {
+    font-family: var(--sans);
+    font-size: .88rem;
+    color: var(--muted);
+    max-width: var(--measure);
   }
 
   @media (max-width: 560px) {
-    .vignette-section { margin-top: 1.5rem; }
-    .vignette-body .lead { font-size: 1.02rem; }
+    .exemplar-section { margin-top: 1.5rem; }
+    .exemplar-body .lead { font-size: 1.02rem; }
+    .exemplar-header h2 { font-size: clamp(1.25rem, 4vw, 1.6rem); }
   }
 </style>
