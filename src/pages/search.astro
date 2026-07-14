@@ -1,6 +1,7 @@
 ---
 // Site-wide search page with client-side filtering over a build-time index.
 import Base from "../layouts/Base.astro";
+import LecommonsCallout from "../components/LecommonsCallout.astro";
 import { getCollection } from "astro:content";
 import { partitionCommunity } from "../data/communityBuckets";
 
@@ -130,6 +131,7 @@ function topicsBlob(topics: string[]): string {
       </p>
     </div>
   </header>
+  <LecommonsCallout path="search/" label="a search that covers the full corpus" />
 
   <div class="container-wide search-shell" data-site-search-root>
     <section class="filter-shell">

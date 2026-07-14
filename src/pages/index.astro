@@ -7,7 +7,7 @@ import Base from "../layouts/Base.astro";
 const base = import.meta.env.BASE_URL;
 const LENS_PROGRAM_URL =
   "https://education.jhu.edu/masters-programs/master-of-education-in-learning-design-and-technology/learning-engineering-next-generation-systems-concentration/";
-const ICICLE_URL = "https://sagroups.ieee.org/icicle/";
+const LECOMMONS_URL = "https://wrgr.github.io/lecommons/";
 const OVERVIEW_PDF_URL = base + "LENS_Overview_May2026.pdf";
 ---
 
@@ -115,11 +115,12 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_May2026.pdf";
   </section>
 
   <section class="cta-section" id="connect">
+    <div class="cta-equation reveal">Human + System = Impact</div>
     <h2 class="reveal">Human capability is a designable, measurable, <em>engineerable</em> property of every complex system.</h2>
     <p class="reveal">LENS is a graduate specialization at Johns Hopkins that prepares practitioners to do this work—grounded in learning sciences and human systems integration, built for the domains where it matters most.</p>
     <div class="cta-buttons reveal">
       <a href={LENS_PROGRAM_URL} class="cta-btn" target="_blank" rel="noopener">Explore the LENS specialization</a>
-      <a href={ICICLE_URL} class="cta-btn secondary" target="_blank" rel="noopener">Learn about learning engineering</a>
+      <a href={LECOMMONS_URL} class="cta-btn secondary" target="_blank" rel="noopener">Explore the wider learning engineering field</a>
     </div>
     <p class="cta-tertiary reveal">
       <a href={OVERVIEW_PDF_URL} target="_blank" rel="noopener">Download the LENS one-page overview (PDF)</a>
@@ -380,6 +381,15 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_May2026.pdf";
     height: 60%;
     background: radial-gradient(ellipse at center bottom, rgba(26, 138, 125, 0.06) 0%, transparent 70%);
     pointer-events: none;
+  }
+  .cta-equation {
+    font-family: var(--hp-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--hp-gold);
+    margin: 0 0 1.5rem;
   }
   .cta-section h2 {
     font-family: var(--hp-serif);

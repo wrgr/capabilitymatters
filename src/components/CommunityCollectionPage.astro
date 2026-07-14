@@ -1,6 +1,7 @@
 ---
 // Reusable community subpage shell to keep filtering UI and card rendering consistent.
 import Card from "./Card.astro";
+import LecommonsCallout from "./LecommonsCallout.astro";
 import { render, type CollectionEntry } from "astro:content";
 
 type CommEntry = CollectionEntry<"community">;
@@ -31,6 +32,8 @@ interface Props {
   extraEntries?: EventEntry[];
   extraNote?: ExtraNote;
   showTypeFilter?: boolean;
+  lecommonsPath: string;
+  lecommonsLabel: string;
 }
 
 const {
@@ -48,6 +51,8 @@ const {
   extraEntries = [],
   extraNote,
   showTypeFilter = true,
+  lecommonsPath,
+  lecommonsLabel,
 } = Astro.props;
 
 const rendered = await Promise.all(
@@ -228,6 +233,8 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 </div>
+
+<LecommonsCallout path={lecommonsPath} label={lecommonsLabel} />
 
 <script type="module" src={base + "scripts/community-filters.js"}></script>
 

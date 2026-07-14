@@ -5,12 +5,19 @@ An editorial lens site on learning engineering for next-generation systems, buil
 
 This repository was extracted from [`wrgr/lecommons`](https://github.com/wrgr/lecommons) (site history
 preserved) so the site is owned and hosted separately from the shared IEEE ICICLE / Learning
-Engineering Commons research corpus that remains there.  
+Engineering Commons research corpus that remains there. Content has since been trimmed to match:
+this site now carries only the JHU LENS program and the people/institutions tied to it — everything
+field-wide (the broader reading list, practice library, tools catalog, events calendar, and
+community roster, mostly curated from IEEE ICICLE) lives at
+[lecommons](https://wrgr.github.io/lecommons/) and is linked to, not duplicated, from the pages that
+used to carry it (see `src/components/LecommonsCallout.astro`).
 
 ## Layout
 
 - `src/pages/` — routes (home, about, topics, graph, reading list, community, events, tools, practice, search)
-- `src/content/` — MDX collections: `community`, `events`, `field-notes`, `practice`, `reading-list`, `tools`
+- `src/content/` — MDX collections: `community` (JHU/LENS-specific entries only), `field-notes`.
+  `events`, `practice`, `reading-list`, and `tools` are intentionally empty here — their pages link
+  out to lecommons instead of listing the field-wide corpus.
 - `src/data/` — committed data snapshots the site builds from (see below)
 - `public/` — static assets (favicons, LENS overview PDF, client-side search/filter scripts)
 - `scripts/` — Python content tooling (snapshot sync, validation, importers, stub generation)
