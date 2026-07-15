@@ -1,26 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
 import SectionHero from "../components/SectionHero.astro";
-import StartHere from "../components/StartHere.astro";
 import SectionGrid from "../components/SectionGrid.astro";
+import LecommonsCallout from "../components/LecommonsCallout.astro";
 import { getCollection } from "astro:content";
 
 const entries = await getCollection("tools");
-
-const startHerePicks = [
-  {
-    slug: "xapi-experience-api-specification",
-    note: "The interop spec underneath most LE telemetry — start here for the vocabulary.",
-  },
-  {
-    slug: "caliper-analytics",
-    note: "The IMS-side complement to xAPI; how the LMS world models the same problem.",
-  },
-  {
-    slug: "datashop-learnsphere",
-    note: "If you want to do empirical LE research, this is the shared evidence base.",
-  },
-];
 ---
 
 <Base title="Tools · LENS" active="tools">
@@ -31,11 +16,7 @@ const startHerePicks = [
     question="What platforms and systems do learning engineers build on?"
     count={entries.length}
   />
-  <StartHere
-    collection="tools"
-    picks={startHerePicks}
-    title="Three to know"
-  />
+  <LecommonsCallout path="tools/" label="the full catalog of LE platforms and tools" />
   <SectionGrid
     collection="tools"
     formatOrder={["tool", "platform"]}

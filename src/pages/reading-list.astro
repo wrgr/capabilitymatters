@@ -1,28 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
 import SectionHero from "../components/SectionHero.astro";
-import StartHere from "../components/StartHere.astro";
 import SectionGrid from "../components/SectionGrid.astro";
+import LecommonsCallout from "../components/LecommonsCallout.astro";
 import { getCollection } from "astro:content";
 
 const entries = await getCollection("reading-list");
-
-// These three are explicitly marked `featured: true` in content frontmatter.
-// Notes here frame *why* a reader new to the field should start there.
-const startHerePicks = [
-  {
-    slug: "bridging-learning-research-and-teaching-practice-for-the-public-good-t",
-    note: "The clearest single argument for why learning engineering needs to exist.",
-  },
-  {
-    slug: "learning-engineering-toolkit-evidence-based-practices-from-the-learnin",
-    note: "The community's working consensus on what LE practitioners actually do.",
-  },
-  {
-    slug: "the-science-of-remote-learning",
-    note: "Field-tested evidence on what works when you can't control the environment.",
-  },
-];
 ---
 
 <Base title="Reading List · LENS" active="reading-list">
@@ -33,12 +16,7 @@ const startHerePicks = [
     question="What should you read to understand the evidence base behind learning engineering?"
     count={entries.length}
   />
-  <StartHere
-    collection="reading-list"
-    picks={startHerePicks}
-    title="Three to read first"
-    lede="If you have an afternoon, these three will give you the most ground per minute."
-  />
+  <LecommonsCallout path="reading-list/" label="the full reading list — papers, books, and field literature" />
   <SectionGrid
     collection="reading-list"
     formatOrder={["book", "paper", "article", "report", "post", "essay"]}

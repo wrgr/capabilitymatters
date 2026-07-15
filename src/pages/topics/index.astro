@@ -4,6 +4,7 @@
 import Base from "../../layouts/Base.astro";
 import SectionHero from "../../components/SectionHero.astro";
 import TopicCard from "../../components/TopicCard.astro";
+import LecommonsCallout from "../../components/LecommonsCallout.astro";
 import { getCollection } from "astro:content";
 
 // @ts-ignore — JSON import
@@ -51,6 +52,7 @@ const totalItems = allItems.length;
     question="Browse the field by what it covers, not just by format. Foundation topics feed into Practice, which feeds into Context."
     count={totalItems}
   />
+  <LecommonsCallout path="topics/" label="topic pages with the full weight of the field's resources tagged in" />
 
   {grouped.map(({ layer, topics }) => (
     <section class={`layer-section layer-section--${layer.toLowerCase()}`}>
