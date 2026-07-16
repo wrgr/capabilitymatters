@@ -1,30 +1,47 @@
 ---
 // AskAI — a sparkle affordance that opens an AI assistant in a new tab,
-// prefilled with a prompt tailored to this case (its facts plus the LENS
-// reading). The site is static, so this deep-links to the assistant's
-// new-chat query parameter rather than generating anything in-page; no API
-// key or backend is involved. `variant="icon"` is the compact card control;
-// `variant="button"` is the labelled control for the detail page.
+// prefilled with a carefully engineered, case-specific prompt (the case facts,
+// its LENS competency, and the book's Learning-Engineering reading). The site
+// is static, so this deep-links to the assistant's new-chat query parameter
+// rather than generating anything in-page; no API key or backend is involved.
+// `variant="icon"` is the compact card control; `variant="button"` is the
+// labelled control for the detail page.
+import { primaryCompetency } from "../lib/lens";
 
 interface Props {
   title: string;
   year: string;
-  /** One-line factual context (the case's impact line). */
-  context: string;
-  /** The learning-engineering reading, to steer the conversation. */
-  lensReading: string;
+  domains: string[];
+  outcome: "fail" | "success";
+  /** The case's one-line impact (factual consequence). */
+  impact: string;
+  /** The book's Learning-Engineering reading of the case. */
+  leInsight: string;
+  /** How LENS teaches the case. */
+  lensApproach: string;
+  /** lens-anchor, e.g. "D3/PT3" — used to name the competency in the prompt. */
+  lensAnchor: string;
   variant?: "icon" | "button";
 }
 
-const { title, year, context, lensReading, variant = "icon" } = Astro.props;
+const {
+  title, year, domains, outcome, impact, leInsight, lensApproach, lensAnchor,
+  variant = "icon",
+} = Astro.props;
 
-// A self-contained prompt: the assistant needs no prior page context, so the
-// case's own facts and LENS reading travel inside the query string.
+const competency = primaryCompetency(lensAnchor) ?? "Human-System Collaboration";
+const outcomeWord = outcome === "fail" ? "a failure" : "a success";
+
+// Engineered prompt. Structure: role + framing, a labelled case dossier so the
+// assistant is grounded in specifics rather than its own recollection, then a
+// numbered task with an explicit epistemic guardrail (flag uncertainty, don't
+// overclaim) and a Socratic close that pushes transfer to the reader's own work.
 const prompt = [
-  `I'm reading a LENS (Learning Engineering for Next-Generation Systems) case study on "${title}" (${year}).`,
-  `In brief: ${context}`,
-  `The learning-engineering reading is: ${lensReading}`,
-  `Help me understand the capability lesson here and how it applies to designing or evaluating a system I work on.`,
+  `You are a rigorous, Socratic tutor in Learning Engineering for Next-Generation Systems (LENS) — the discipline that treats human capability as an engineered parameter of a complex system, extending learning engineering beyond the classroom. Your stance: systems rarely fail because the technology breaks; they fail or succeed on what people can actually do inside them.`,
+  `I'm studying this case from the LENS casebook "Capability Matters". Ground yourself in these specifics rather than your own recollection, and correct me if a detail here is wrong:`,
+  `• CASE: ${title} (${year}) — ${outcomeWord}\n• DOMAIN: ${domains.join(", ")}\n• WHAT HAPPENED: ${impact}\n• LENS COMPETENCY IN PLAY: ${competency} (${lensAnchor})\n• THE BOOK'S LEARNING-ENGINEERING READING: ${leInsight}\n• HOW LENS TEACHES IT: ${lensApproach}`,
+  `Please help me learn from it:\n1. Explain the core capability lesson in plain terms — what someone could or couldn't do inside the system, and why that, more than the technology alone, was decisive.\n2. Name the precise mechanism of the ${outcome === "fail" ? "failure" : "success"}. Flag anything genuinely contested or uncertain in the record; do not overclaim beyond what the evidence supports.\n3. Connect the lesson to the "${competency}" competency, and to how you would design for it or gather decision-grade evidence that it holds.\n4. Close by asking me one sharp question that helps me map this lesson onto a system I actually work on.`,
+  `Be concrete and specific to this case; prefer its particulars over generic best-practice advice.`,
 ].join("\n\n");
 
 const href = `https://claude.ai/new?q=${encodeURIComponent(prompt)}`;

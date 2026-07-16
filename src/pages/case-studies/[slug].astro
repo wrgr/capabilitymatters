@@ -6,6 +6,7 @@ import Base from "../../layouts/Base.astro";
 import LensBar from "../../components/LensBar.astro";
 import Disclosure from "../../components/Disclosure.astro";
 import AskAI from "../../components/AskAI.astro";
+import CaseIcon from "../../components/CaseIcon.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -24,11 +25,15 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
 
 <Base title={`${d.title} · LENS Case Studies`} active="case-studies">
   <article class="case container">
-    <div class="eyebrow">
-      Part {d.partNumber} · {d.part} · <span class={`badge ${d.outcome}`}>{outcomeLabel}</span>
+    <div class={`title-row ${d.outcome}`}>
+      <CaseIcon slug={entry.id} label={d.title} size={56} />
+      <div>
+        <div class="eyebrow">
+          Part {d.partNumber} · {d.part} · <span class={`badge ${d.outcome}`}>{outcomeLabel}</span>
+        </div>
+        <h1>{d.title}</h1>
+      </div>
     </div>
-
-    <h1>{d.title}</h1>
     <div class="meta">
       <span>{d.year}</span>
       {d.domains.map((dom) => <span class="dom">{dom}</span>)}
@@ -40,8 +45,12 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
       <AskAI
         title={d.title}
         year={d.year}
-        context={d.impact}
-        lensReading={d.leInsight}
+        domains={d.domains}
+        outcome={d.outcome}
+        impact={d.impact}
+        leInsight={d.leInsight}
+        lensApproach={d.lensApproach}
+        lensAnchor={d.lensAnchor}
         variant="button"
       />
       <span class="ask-note">Opens a new chat prefilled with this case — explore it in your own context.</span>
@@ -106,6 +115,15 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
   .badge.fail { color: #7a2222; background: #f6e7e4; }
   .badge.success { color: #1f5c3a; background: #e3f0e6; }
 
+  .title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .title-row .eyebrow { margin-bottom: 0.5rem; }
+  .title-row.fail :global(.case-icon) { color: #a33; }
+  .title-row.success :global(.case-icon) { color: #2f7a4f; }
   h1 { margin-bottom: 0.5rem; }
   .meta {
     display: flex;

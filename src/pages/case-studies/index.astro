@@ -6,6 +6,7 @@
 // failure/success pairs, matching the book's per-part structure.
 import Base from "../../layouts/Base.astro";
 import AskAI from "../../components/AskAI.astro";
+import CaseIcon from "../../components/CaseIcon.astro";
 import { getCollection } from "astro:content";
 
 const cases = (await getCollection("case-studies", (c) => !c.data.draft)).sort(
@@ -58,7 +59,10 @@ const base = import.meta.env.BASE_URL;
             .sort((a, b) => (a.data.outcome === "fail" ? -1 : 1))
             .map((c) => (
               <article class={`card ${c.data.outcome}`}>
-                <span class="tag">{c.data.outcome === "fail" ? "What failed" : "What worked"}</span>
+                <div class="card-head">
+                  <CaseIcon slug={c.id} label={c.data.title} size={44} />
+                  <span class="tag">{c.data.outcome === "fail" ? "What failed" : "What worked"}</span>
+                </div>
                 <h3>
                   <a class="stretched" href={base + "case-studies/" + c.id + "/"}>{c.data.title}</a>
                 </h3>
@@ -69,8 +73,12 @@ const base = import.meta.env.BASE_URL;
                   <AskAI
                     title={c.data.title}
                     year={c.data.year}
-                    context={c.data.impact}
-                    lensReading={c.data.leInsight}
+                    domains={c.data.domains}
+                    outcome={c.data.outcome}
+                    impact={c.data.impact}
+                    leInsight={c.data.leInsight}
+                    lensApproach={c.data.lensApproach}
+                    lensAnchor={c.data.lensAnchor}
                     variant="icon"
                   />
                 </div>
@@ -153,6 +161,11 @@ const base = import.meta.env.BASE_URL;
   }
   .card.fail .tag { color: #7a2222; }
   .card.success .tag { color: #1f5c3a; }
+  .card-head { display: flex; align-items: center; gap: 0.7rem; }
+  /* Icon tile picks up the card's outcome hue so the family still reads
+     fail/success at a glance, without a second coat of color on the glyph. */
+  .card.fail :global(.case-icon) { color: #a33; }
+  .card.success :global(.case-icon) { color: #2f7a4f; }
   .card h3 { font-size: 1.25rem; margin: 0; line-height: 1.2; }
   /* Stretched link: the title anchor covers the whole card so the entire
      card is clickable, while the AskAI control (z-indexed above) stays a

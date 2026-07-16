@@ -4,28 +4,17 @@
 // casebook's printed "connection figure", parsing the D-number(s) out of a
 // lens-anchor string like "D3/PT3" or the dual form "D1+D5/PT4".
 
+import { LENS_DOMAINS, parseLensDomains } from "../lib/lens";
+
 interface Props {
   /** lens-anchor string, e.g. "D3/PT3" or dual "D1+D5/PT4". */
   anchor: string;
 }
 
-// The canonical LENS five (v2.1 numbering), short labels for the bar.
-const DOMAINS = [
-  "Systems Analysis",
-  "Iterative Development",
-  "Human-System Collaboration",
-  "Test & Evaluation",
-  "Sociotechnical Constraints",
-] as const;
-
-/** Pull the 1-based domain numbers out of the anchor's "D#" tokens. */
-function parseDomains(anchor: string): number[] {
-  const matches = anchor.match(/D(\d)/g) ?? [];
-  return matches.map((m) => Number(m.slice(1))).filter((n) => n >= 1 && n <= 5);
-}
+const DOMAINS = LENS_DOMAINS;
 
 const { anchor } = Astro.props;
-const hits = parseDomains(anchor);
+const hits = parseLensDomains(anchor);
 const primary = hits[0];
 const secondary = hits[1];
 // The problem-type tag (PT#) travels alongside the domain in the anchor.
