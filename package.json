@@ -6,18 +6,13 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "prebuild": "python3 scripts/validate_mdx_refs.py",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "validate:refs": "python3 scripts/validate_mdx_refs.py --strict",
-    "sync:registry": "python3 scripts/build_registry.py",
-    "test:scripts": "python3 scripts/test_content_tooling.py"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",
-    "astro": "^6.1.7",
-    "d3-force": "^3.0.0"
+    "astro": "^6.1.7"
   }
 }
