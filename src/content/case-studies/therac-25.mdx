@@ -13,15 +13,17 @@ summary: >-
   hardware interlocks to stop the high-energy beam from firing without its
   target in place; to save cost, the Therac-25 removed them and trusted software
   — adapted from the older machines and never engineered for safety — to keep
-  the beam modes separated. A race condition let a fast operator trigger the
-  full beam with no target, while the console showed only a meaningless
-  "Malfunction 54." Leveson and Turner's 1993 investigation, the founding case
+  the beam modes separated. At least two distinct software defects drove the
+  overdoses — a data-entry race condition behind the cryptic "Malfunction 54"
+  deaths at Tyler, and a counter overflow that silently skipped a collimator
+  check in the fatal Yakima accident — either of which could fire the full beam
+  with no target in place. Leveson and Turner's 1993 investigation, the founding case
   of software-safety engineering, found a systemic failure: a safeguard removed
   with nothing put in its place. The lesson — a safeguard you delete does not
   remove the hazard; it relocates it to whatever you failed to build.
 beats:
   - "Hardware interlocks removed to save cost; safety case migrated silently into software"
-  - "Race condition let fast operators fire full beam with no target"
+  - "Two software defects — a race condition and a counter overflow — fired the full beam with no target"
   - "Manufacturer denied harm; Leveson and Turner found systemic, not single-bug, failure"
   - "Interlock was the safety case; nothing took its load when removed"
   - "Founded software-safety engineering; deleted safeguards relocate hazard to whatever replaces them"
