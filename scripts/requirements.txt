@@ -1,5 +1,0 @@
-# Content tooling that reads the lecommons landscape corpus
-# (build_registry.py, generate_mdx_stubs.py, import_from_archive.py):
-PyYAML>=6.0
-# One-shot Excel importer (import_from_excel.py) only:
-openpyxl>=3.1

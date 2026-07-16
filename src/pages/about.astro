@@ -5,39 +5,33 @@ import Base from "../layouts/Base.astro";
 <Base title="About · LENS" active="about">
   <div class="container">
     <div class="eyebrow">About this site</div>
-    <h1>A practice-centered guide, not an exhaustive one.</h1>
+    <h1>The LENS program, in its own voice — not a field-wide index.</h1>
 
     <p>
-      This site is a working reference for the emerging field of learning engineering.
-      It's organized around the work itself — process, methods, tools, evidence, community —
-      rather than around paper taxonomies or citation graphs. The goal is that someone
-      arriving cold can quickly see what learning engineers are and what they do, and that
-      practitioners can point colleagues here without a long preamble.
+      This site covers Johns Hopkins' LENS (Learning Engineering for Next-Generation Systems)
+      specialization: the program itself, field notes written in the LENS voice, and case
+      material like the LLM101 exemplar. It doesn't try to index the broader field — for the
+      shared reading list, tools, practice library, events calendar, and community roster, see
+      the <a href="https://lecommons.org" target="_blank" rel="noopener">Learning Engineering Commons</a>,
+      most of it curated from the <a href="https://sagroups.ieee.org/icicle/" target="_blank" rel="noopener">IEEE ICICLE</a>
+      community.
     </p>
 
-    <h2>Sources &amp; relationship to lecommons</h2>
+    <h2>People &amp; programs</h2>
     <p>
-      This site is deliberately small: it covers the JHU LENS program and the people and
-      institutions directly tied to it. The broader learning-engineering corpus — the full
-      reading list, tools, practice library, events calendar, and community roster, most of it
-      curated from the <a href="https://sagroups.ieee.org/icicle/" target="_blank" rel="noopener">IEEE ICICLE</a>
-      community — lives at the <a href="https://wrgr.github.io/lecommons/" target="_blank" rel="noopener">Learning Engineering Commons</a>,
-      which this site links to rather than duplicates. Named practitioners come from a separate
-      study that catalogs people who self-apply the "Learning Engineer" title across LinkedIn,
-      ResearchGate, Google Scholar, and institutional rosters; full methodology and caveats live
-      in lecommons's <a href="https://github.com/wrgr/lecommons/blob/main/titlesearch/PROVENANCE.md" target="_blank" rel="noopener">provenance documentation</a>.
+      LENS is a concentration within the <a href="https://education.jhu.edu/academics/med/learning-design-and-technology/" target="_blank" rel="noopener">JHU MEd in Learning Design and Technology</a>,
+      jointly run by the Johns Hopkins School of Education and the Applied Physics Laboratory,
+      with an IEEE ICICLE partnership. Faculty in the concentration include James Diamond and
+      William Gray-Roncal (School of Education / APL); Adesola Ogundimu co-chairs IEEE ICICLE's
+      Globalisation/Localisation SIG. Full profiles for these and other practitioners across the
+      field live at <a href="https://lecommons.org/community/" target="_blank" rel="noopener">lecommons's community pages</a>.
     </p>
 
     <h2>Scope &amp; caveats</h2>
     <ul>
       <li>
-        <strong>Curated, not comprehensive — on purpose.</strong> This site stays focused on LENS;
+        <strong>LENS-focused, not comprehensive — on purpose.</strong> This site stays narrow;
         it doesn't try to be a complete index of the field. For that, see lecommons.
-      </li>
-      <li>
-        <strong>English-language bias.</strong> Non-English title variants, older labels like
-        "instructional designer," and government/defense practitioners who aren't publicly
-        indexed are under-represented.
       </li>
       <li>
         <strong>ICICLE is authoritative.</strong> When ICICLE and this site differ on a
@@ -51,16 +45,14 @@ import Base from "../layouts/Base.astro";
 
     <h2>Tools used</h2>
     <p>
-      Claude (Anthropic) was used as an assistant throughout development and resource
-      curation — for code generation, draft copy, and triage of the underlying corpus.
+      Claude (Anthropic) was used as an assistant throughout development and content
+      curation — for code generation, draft copy, and triage of the underlying material.
       Final editorial decisions, scope, and accuracy review are human-authored.
     </p>
 
     <h2>Contributing</h2>
     <p>
-      Suggestions, corrections, and additional resources are welcome. Open an issue or PR in
-      the repository. Editorial priorities: keep each section page short, each blurb under three
-      sentences, and every inclusion tied to a real practice or community.
+      Suggestions and corrections are welcome. Open an issue or PR in the repository.
     </p>
   </div>
 </Base>

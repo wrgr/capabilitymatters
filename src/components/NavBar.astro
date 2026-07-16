@@ -17,19 +17,11 @@ const { active } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
 const items = [
-  { href: base,                   label: "Welcome",      slug: "welcome" },
-  { href: base + "graph/",        label: "Graph",        slug: "graph" },
-  { href: base + "practice/",     label: "Practice",     slug: "practice" },
-  { href: base + "tools/",        label: "Tools",        slug: "tools" },
-  { href: base + "field-notes/",  label: "Field Notes",  slug: "field-notes" },
-  { href: base + "reading-list/", label: "Reading List", slug: "reading-list" },
-  { href: base + "events/",       label: "Events",       slug: "events" },
-  { href: base + "llm101/",       label: "LLM101",       slug: "llm101" },
-  { href: base + "community/",    label: "Community",    slug: "community" },
-  { href: base + "topics/",       label: "Topics",       slug: "topics" },
-  { href: base + "pathways/",     label: "Pathways",     slug: "pathways" },
-  { href: base + "search/",       label: "Search",       slug: "search" },
-  { href: base + "about/",        label: "About",        slug: "about" },
+  { href: base,                          label: "Welcome",     slug: "welcome" },
+  { href: base + "field-notes/",         label: "Field Notes", slug: "field-notes" },
+  { href: base + "llm101/",              label: "LLM101",      slug: "llm101" },
+  { href: base + "about/",               label: "About",       slug: "about" },
+  { href: "https://lecommons.org",       label: "Learning Engineering Commons", slug: "lecommons", external: true },
 ];
 
 const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
@@ -46,7 +38,12 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
       <ul>
         {items.map((it) => (
           <li>
-            <a href={it.href} class:list={[{ active: it.slug === active }]}>
+            <a
+              href={it.href}
+              class:list={[{ active: it.slug === active }]}
+              target={it.external ? "_blank" : undefined}
+              rel={it.external ? "noopener" : undefined}
+            >
               {it.label}
             </a>
           </li>
@@ -65,7 +62,12 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
         <ul>
           {items.map((it) => (
             <li>
-              <a href={it.href} class:list={[{ active: it.slug === active }]}>
+              <a
+                href={it.href}
+                class:list={[{ active: it.slug === active }]}
+                target={it.external ? "_blank" : undefined}
+                rel={it.external ? "noopener" : undefined}
+              >
                 {it.label}
               </a>
             </li>
