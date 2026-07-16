@@ -11,7 +11,7 @@ summary: >-
   The Therac-25, a radiation-therapy machine, massively overdosed at least six
   patients between 1985 and 1987, killing at least three. Its predecessors used
   hardware interlocks to stop the high-energy beam from firing without its
-  target in place; to save cost, the Therac-25 removed them and trusted software
+  target in place; judging the interlocks not worth duplicating and trusting software over hardware, the Therac-25 removed them and relied on software
   — adapted from the older machines and never engineered for safety — to keep
   the beam modes separated. At least two distinct software defects drove the
   overdoses — a data-entry race condition behind the cryptic "Malfunction 54"
@@ -22,11 +22,11 @@ summary: >-
   with nothing put in its place. The lesson — a safeguard you delete does not
   remove the hazard; it relocates it to whatever you failed to build.
 beats:
-  - "Hardware interlocks removed to save cost; safety case migrated silently into software"
+  - "Hardware interlocks dropped — judged not worth duplicating, software trusted instead; safety case migrated silently into software"
   - "Two software defects — a race condition and a counter overflow — fired the full beam with no target"
   - "Manufacturer denied harm; Leveson and Turner found systemic, not single-bug, failure"
   - "Interlock was the safety case; nothing took its load when removed"
-  - "Founded software-safety engineering; deleted safeguards relocate hazard to whatever replaces them"
+  - "The canonical case of software-safety engineering; deleted safeguards relocate hazard to whatever replaces them"
 leInsight: >-
   Therac-25 is the moment when removing the human safety margin became visible
   as a design choice. The hardware interlock was not redundant — it was the
@@ -46,14 +46,14 @@ inducedAnchor: "3.1"
 cloAnchor: "CLO-3"
 sourceCase: 1
 order: 1
-teaser: "A safeguard deleted to cut cost didn't remove the hazard — it relocated it onto an operator who couldn't see it coming."
+teaser: "A deleted safeguard didn't remove the hazard — it relocated it onto an operator who couldn't see it coming."
 ---
 
 A radiation-therapy machine killed at least three patients, and every proximate
 cause investigators found was a line of code. But the deeper failure was a
 decision no one had flagged as a safety decision: a hardware interlock — the one
-thing standing between a typing error and a lethal dose — was deleted to cut
-cost, and nothing was built to take its place. That is the casebook's first
+thing standing between a typing error and a lethal dose — was deleted, its job
+handed to software, and nothing was built to take its place. That is the casebook's first
 principle in its starkest form. Systems don't fail because the technology
 breaks; they fail because someone could no longer do what the system required of
 them — and here the operator was kept in the loop while being stripped of any
