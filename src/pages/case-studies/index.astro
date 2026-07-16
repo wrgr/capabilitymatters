@@ -5,6 +5,7 @@
 // learning engineering. Cases are grouped by topical part and shown as
 // failure/success pairs, matching the book's per-part structure.
 import Base from "../../layouts/Base.astro";
+import AskAI from "../../components/AskAI.astro";
 import { getCollection } from "astro:content";
 
 const cases = (await getCollection("case-studies", (c) => !c.data.draft)).sort(
@@ -56,13 +57,24 @@ const base = import.meta.env.BASE_URL;
           {part.entries
             .sort((a, b) => (a.data.outcome === "fail" ? -1 : 1))
             .map((c) => (
-              <a class={`card ${c.data.outcome}`} href={base + "case-studies/" + c.id + "/"}>
+              <article class={`card ${c.data.outcome}`}>
                 <span class="tag">{c.data.outcome === "fail" ? "What failed" : "What worked"}</span>
-                <h3>{c.data.title}</h3>
+                <h3>
+                  <a class="stretched" href={base + "case-studies/" + c.id + "/"}>{c.data.title}</a>
+                </h3>
                 <span class="year">{c.data.year}</span>
-                <p>{c.data.impact}</p>
-                <span class="more">Read the case →</span>
-              </a>
+                <p>{c.data.teaser}</p>
+                <div class="card-foot">
+                  <span class="more">Read the case →</span>
+                  <AskAI
+                    title={c.data.title}
+                    year={c.data.year}
+                    context={c.data.impact}
+                    lensReading={c.data.leInsight}
+                    variant="icon"
+                  />
+                </div>
+              </article>
             ))}
         </div>
       </section>
@@ -114,6 +126,7 @@ const base = import.meta.env.BASE_URL;
     gap: 1rem;
   }
   .card {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
@@ -128,7 +141,6 @@ const base = import.meta.env.BASE_URL;
   .card:hover {
     box-shadow: 0 6px 20px rgba(26, 29, 26, 0.09);
     transform: translateY(-2px);
-    border-bottom-color: var(--border);
   }
   .card.fail { border-top-color: #a33; }
   .card.success { border-top-color: #2f7a4f; }
@@ -142,6 +154,12 @@ const base = import.meta.env.BASE_URL;
   .card.fail .tag { color: #7a2222; }
   .card.success .tag { color: #1f5c3a; }
   .card h3 { font-size: 1.25rem; margin: 0; line-height: 1.2; }
+  /* Stretched link: the title anchor covers the whole card so the entire
+     card is clickable, while the AskAI control (z-indexed above) stays a
+     separate, independently clickable link — no invalid nested anchors. */
+  .card h3 .stretched { color: var(--ink); border: none; }
+  .card h3 .stretched::after { content: ""; position: absolute; inset: 0; }
+  .card:hover h3 .stretched { color: var(--accent); }
   .year { font-family: var(--sans); font-size: 0.75rem; color: var(--muted); }
   .card p {
     font-size: 0.92rem;
@@ -150,13 +168,19 @@ const base = import.meta.env.BASE_URL;
     margin: 0.3rem 0 0.2rem;
     max-width: none;
   }
+  .card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 0.6rem;
+  }
   .more {
     font-family: var(--sans);
     font-size: 0.8rem;
     color: var(--accent);
-    margin-top: auto;
-    padding-top: 0.4rem;
   }
+  .card-foot :global(.ask-ai) { position: relative; z-index: 1; }
   .empty { color: var(--muted); font-style: italic; padding: 3rem 0; }
 
   @media (max-width: 700px) {

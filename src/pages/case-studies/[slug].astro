@@ -5,6 +5,7 @@
 import Base from "../../layouts/Base.astro";
 import LensBar from "../../components/LensBar.astro";
 import Disclosure from "../../components/Disclosure.astro";
+import AskAI from "../../components/AskAI.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -34,6 +35,17 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
     </div>
 
     <p class="impact"><strong>Impact.</strong> {d.impact}</p>
+
+    <div class="ask-row">
+      <AskAI
+        title={d.title}
+        year={d.year}
+        context={d.impact}
+        lensReading={d.leInsight}
+        variant="button"
+      />
+      <span class="ask-note">Opens a new chat prefilled with this case — explore it in your own context.</span>
+    </div>
 
     <Disclosure coi={d.coi} evidenceFlag={d.evidenceFlag} />
 
@@ -122,6 +134,20 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
     max-width: none;
   }
   .impact strong { color: var(--accent); }
+
+  .ask-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin: 1.2rem 0;
+  }
+  .ask-note {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--muted);
+    max-width: 22rem;
+  }
 
   .lead { font-size: 1.12rem; line-height: 1.75; margin: 1.8rem 0 2.2rem; }
   .lead :global(p) { max-width: none; }

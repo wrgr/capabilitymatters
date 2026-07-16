@@ -58,8 +58,10 @@ const caseStudySchema = z.object({
   // Provenance + ordering.
   sourceCase: z.number().int(),
   order: z.number().int(),
-  // Site-voice lead paragraph (authored here, not derived from the book).
-  lead: z.string(),
+  // Short card hook (authored here, not book-derived) — invites the click,
+  // distinct from the factual `impact` consequence line. The site-voice lead
+  // paragraph is the MDX body itself, rendered at the top of the detail page.
+  teaser: z.string(),
   draft: z.boolean().default(false),
 });
 
