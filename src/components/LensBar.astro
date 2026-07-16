@@ -1,0 +1,117 @@
+---
+// LensBar — the five LENS competency domains as a horizontal bar, with the
+// case's primary competency filled and any secondary outlined. Mirrors the
+// casebook's printed "connection figure", parsing the D-number(s) out of a
+// lens-anchor string like "D3/PT3" or the dual form "D1+D5/PT4".
+
+import { LENS_DOMAINS, parseLensDomains } from "../lib/lens";
+
+interface Props {
+  /** lens-anchor string, e.g. "D3/PT3" or dual "D1+D5/PT4". */
+  anchor: string;
+}
+
+const DOMAINS = LENS_DOMAINS;
+
+const { anchor } = Astro.props;
+const hits = parseLensDomains(anchor);
+const primary = hits[0];
+const secondary = hits[1];
+// The problem-type tag (PT#) travels alongside the domain in the anchor.
+const problemType = anchor.match(/PT\d+/)?.[0];
+---
+
+<figure class="lensbar" aria-label={`LENS competency: ${anchor}`}>
+  <figcaption>The LENS competency this case exercises</figcaption>
+  <ol>
+    {DOMAINS.map((label, i) => {
+      const n = i + 1;
+      const state =
+        n === primary ? "primary" : n === secondary ? "secondary" : "off";
+      return (
+        <li class:list={["seg", state]}>
+          <span class="num">{n}</span>
+          <span class="label">{label}</span>
+        </li>
+      );
+    })}
+  </ol>
+  {problemType && <p class="pt">Problem type · {problemType}</p>}
+</figure>
+
+<style>
+  .lensbar { margin: 0; }
+  figcaption {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.55rem;
+  }
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.3rem;
+  }
+  .seg {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.5rem 0.5rem 0.6rem;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    min-height: 4.2rem;
+  }
+  .num {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted);
+    display: inline-grid;
+    place-items: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+  }
+  .label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    line-height: 1.25;
+    color: var(--ink-soft);
+  }
+  /* Primary: filled teal (accent-2). Secondary: outlined teal. */
+  .seg.primary {
+    background: var(--accent-2);
+    border-color: var(--accent-2);
+  }
+  .seg.primary .num {
+    background: var(--bg);
+    border-color: var(--bg);
+    color: var(--accent-2);
+  }
+  .seg.primary .label { color: #fff; font-weight: 600; }
+  .seg.secondary {
+    border-color: var(--accent-2);
+    border-width: 1.5px;
+  }
+  .seg.secondary .num { border-color: var(--accent-2); color: var(--accent-2); }
+  .seg.secondary .label { color: var(--ink); }
+  .pt {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin: 0.5rem 0 0;
+    letter-spacing: 0.02em;
+  }
+  @media (max-width: 620px) {
+    ol { grid-template-columns: repeat(5, 1fr); gap: 0.2rem; }
+    .seg { padding: 0.4rem 0.25rem 0.5rem; min-height: 5.2rem; }
+    .label { font-size: 0.62rem; }
+  }
+</style>

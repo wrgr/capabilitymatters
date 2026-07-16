@@ -1,0 +1,291 @@
+---
+// Case-study detail page. One route per case in the collection; the structured
+// salient fields render in a fixed order so all 14 cases read consistently,
+// with the MDX body (site-voice narrative) rendered in the lead slot.
+import Base from "../../layouts/Base.astro";
+import LensBar from "../../components/LensBar.astro";
+import Disclosure from "../../components/Disclosure.astro";
+import AskAI from "../../components/AskAI.astro";
+import CaseIcon from "../../components/CaseIcon.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const cases = await getCollection("case-studies", (c) => !c.data.draft);
+  return cases.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
+---
+
+<Base title={`${d.title} · LENS Case Studies`} active="case-studies">
+  <article class="case container">
+    <div class={`title-row ${d.outcome}`}>
+      <CaseIcon slug={entry.id} label={d.title} size={56} />
+      <div>
+        <div class="eyebrow">
+          Part {d.partNumber} · {d.part} · <span class={`badge ${d.outcome}`}>{outcomeLabel}</span>
+        </div>
+        <h1>{d.title}</h1>
+      </div>
+    </div>
+    <div class="meta">
+      <span>{d.year}</span>
+      {d.domains.map((dom) => <span class="dom">{dom}</span>)}
+    </div>
+
+    <p class="impact"><strong>Impact.</strong> {d.impact}</p>
+
+    <div class="ask-row">
+      <AskAI
+        title={d.title}
+        year={d.year}
+        domains={d.domains}
+        outcome={d.outcome}
+        impact={d.impact}
+        leInsight={d.leInsight}
+        lensApproach={d.lensApproach}
+        lensAnchor={d.lensAnchor}
+        coi={d.coi}
+        evidenceFlag={d.evidenceFlag}
+        variant="button"
+      />
+      <span class="ask-note">Opens a new chat prefilled with this case — explore it in your own context.</span>
+    </div>
+
+    <Disclosure coi={d.coi} evidenceFlag={d.evidenceFlag} />
+
+    <div class="lead">
+      <Content />
+    </div>
+
+    <section class="brief">
+      <h2>In brief</h2>
+      <p>{d.summary}</p>
+    </section>
+
+    <section class="beats" aria-label="The case in five beats">
+      <h2>The case in five beats</h2>
+      <ol>
+        {d.beats.map((b) => <li>{b}</li>)}
+      </ol>
+    </section>
+
+    <section class="lens">
+      <div class="lens-eyebrow">The Learning Engineering Lens</div>
+      <div class="lens-pair">
+        <div>
+          <h3>LE insight</h3>
+          <p>{d.leInsight}</p>
+        </div>
+        <div>
+          <h3>LENS approach</h3>
+          <p>{d.lensApproach}</p>
+        </div>
+      </div>
+      <LensBar anchor={d.lensAnchor} />
+      <dl class="anchors">
+        <div><dt>Problem type</dt><dd>{d.lensAnchor}</dd></div>
+        {d.inducedAnchor && <div><dt>Induced</dt><dd>{d.inducedAnchor}</dd></div>}
+        {d.cloAnchor && <div><dt>CLO</dt><dd>{d.cloAnchor.replaceAll("CLO-", "")}</dd></div>}
+      </dl>
+    </section>
+
+    <footer class="case-foot">
+      <span>Case {d.sourceCase} in <em>Capability Matters: A Casebook</em>.</span>
+      <a href={import.meta.env.BASE_URL + "case-studies/"}>← All case studies</a>
+    </footer>
+  </article>
+</Base>
+
+<style>
+  .case { max-width: 44rem; }
+  .badge {
+    font-family: var(--sans);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 0.12rem 0.5rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+  .badge.fail { color: #7a2222; background: #f6e7e4; }
+  .badge.success { color: #1f5c3a; background: #e3f0e6; }
+
+  .title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .title-row .eyebrow { margin-bottom: 0.5rem; }
+  .title-row.fail :global(.case-icon) { color: #a33; }
+  .title-row.success :global(.case-icon) { color: #2f7a4f; }
+  h1 { margin-bottom: 0.5rem; }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 1.4rem;
+  }
+  .dom {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.68rem;
+    color: var(--accent);
+    background: var(--tint-warm);
+    padding: 0.12rem 0.45rem;
+    border-radius: 2px;
+  }
+  .impact {
+    font-size: 1.05rem;
+    line-height: 1.55;
+    padding: 0.7rem 0 0.7rem 1rem;
+    border-left: 3px solid var(--accent);
+    max-width: none;
+  }
+  .impact strong { color: var(--accent); }
+
+  .ask-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin: 1.2rem 0;
+  }
+  .ask-note {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--muted);
+    max-width: 22rem;
+  }
+
+  .lead { font-size: 1.12rem; line-height: 1.75; margin: 1.8rem 0 2.2rem; }
+  .lead :global(p) { max-width: none; }
+  .lead :global(p:first-child)::first-letter {
+    font-family: var(--serif);
+    font-size: 3.1rem;
+    line-height: 0.8;
+    float: left;
+    padding: 0.1rem 0.6rem 0 0;
+    color: var(--accent);
+  }
+
+  section { margin: 2.2rem 0; }
+  h2 {
+    font-size: 1.25rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.9rem;
+  }
+  .brief p { font-size: 1.02rem; line-height: 1.7; max-width: none; }
+
+  .beats ol {
+    list-style: none;
+    counter-reset: beat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .beats li {
+    counter-increment: beat;
+    position: relative;
+    padding: 0.75rem 0 0.75rem 2.6rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: none;
+  }
+  .beats li:last-child { border-bottom: none; }
+  .beats li::before {
+    content: counter(beat);
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-2);
+    width: 1.7rem;
+    height: 1.7rem;
+    display: inline-grid;
+    place-items: center;
+    border: 1.5px solid var(--accent-2);
+    border-radius: 50%;
+  }
+
+  .lens {
+    background: var(--tint);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 1.4rem 1.5rem 1.6rem;
+  }
+  .lens-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    margin-bottom: 1rem;
+  }
+  .lens-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.4rem;
+  }
+  .lens-pair h3 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+  .lens-pair p { font-size: 0.92rem; line-height: 1.6; color: var(--ink-soft); max-width: none; }
+  .anchors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    margin: 1.2rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .anchors div { display: flex; flex-direction: column; gap: 0.15rem; }
+  .anchors dt {
+    font-family: var(--sans);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .anchors dd {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .case-foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.6rem;
+    margin-top: 2.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 620px) {
+    .lens-pair { grid-template-columns: 1fr; gap: 1rem; }
+    .lens { padding: 1.1rem 1.1rem 1.3rem; }
+  }
+</style>

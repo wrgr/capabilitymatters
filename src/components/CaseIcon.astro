@@ -1,0 +1,113 @@
+---
+// CaseIcon — a bespoke monoline glyph per case, evoking its subject, rendered
+// in a rounded tile in the site palette. The glyphs are a hand-authored set
+// (one 24×24 viewBox each) sharing one stroke language so the fourteen read as
+// a family; they use currentColor, so they inherit theme and hover color and
+// need no external image assets. Keyed by slug; an unknown slug falls back to
+// a neutral "system" glyph.
+
+interface Props {
+  slug: string;
+  /** Tile edge length in px. */
+  size?: number;
+  /** Accessible name; usually the case title. */
+  label?: string;
+}
+
+// Inner SVG markup per case. Stroke defaults (fill:none, currentColor, round
+// joins) live on the wrapping <svg>; filled accents set fill explicitly.
+const GLYPHS: Record<string, string> = {
+  // Therac-25 — radiation trefoil.
+  "therac-25": `<circle cx="12" cy="12" r="2.2" fill="currentColor"/>
+    <path fill="currentColor" d="M17.45 4.22 A9.5 9.5 0 0 1 6.55 4.22 L9.99 9.13 A3.5 3.5 0 0 0 14.01 9.13 Z"/>
+    <path fill="currentColor" d="M2.54 11.17 A9.5 9.5 0 0 1 7.99 20.61 L10.52 15.17 A3.5 3.5 0 0 0 8.51 11.69 Z"/>
+    <path fill="currentColor" d="M16.01 20.61 A9.5 9.5 0 0 1 21.46 11.17 L15.49 11.69 A3.5 3.5 0 0 0 13.48 15.17 Z"/>`,
+  // Keystone — clipboard + check (a required, verified step).
+  "keystone-icu-pronovost-checklist": `<rect x="5" y="4" width="14" height="16" rx="2"/>
+    <rect x="9" y="2.5" width="6" height="3" rx="1"/>
+    <path d="M8 12l2 2 4-4"/><path d="M8 16h8"/>`,
+  // inBloom — student-data store, collapsed (slash).
+  "inbloom": `<ellipse cx="12" cy="7" rx="6" ry="2.5"/>
+    <path d="M6 7v10a6 2.5 0 0 0 12 0V7"/><path d="M6 12a6 2.5 0 0 0 12 0"/>
+    <path d="M4.5 4.5 19.5 19.5"/>`,
+  // Cognitive Tutor — graduation cap.
+  "cognitive-tutor-carnegie-learning": `<path d="M12 5 21 9 12 13 3 9Z"/>
+    <path d="M6.5 10.5V15c0 1.6 2.5 3 5.5 3s5.5-1.4 5.5-3v-4.5"/><path d="M21 9v4"/>`,
+  // Boeing 737 MAX — airplane (top view).
+  "boeing-737-max-mcas": `<path d="M10.5 3a1.5 1.5 0 0 1 3 0v5.5l7 4.2v2l-7-2.2v4l2 1.5v1.6l-3.5-1-3.5 1v-1.6l2-1.5v-4l-7 2.2v-2l7-4.2Z"/>`,
+  // CRM & CAST — headset (crew communication).
+  "crew-resource-management-and-cast": `<path d="M5 13v-1a7 7 0 0 1 14 0v1"/>
+    <rect x="3.5" y="12.5" width="3.5" height="5.5" rx="1.5"/>
+    <rect x="17" y="12.5" width="3.5" height="5.5" rx="1.5"/>
+    <path d="M18.5 18v.8a2 2 0 0 1-2 2h-3"/>`,
+  // USS Vincennes — radar scope + blip.
+  "uss-vincennes-and-iran-air-flight-655": `<circle cx="12" cy="12" r="9"/>
+    <path d="M12 12 19.5 8.5"/><circle cx="16" cy="8.2" r="1.3" fill="currentColor"/>
+    <path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>`,
+  // DARPA Digital Tutor — screen + spark (accelerated expertise).
+  "darpa-digital-tutor-compressing-years": `<rect x="3" y="4" width="18" height="12" rx="1.5"/>
+    <path d="M9 20h6M12 16v4"/>
+    <path fill="currentColor" d="M12 7l1 2.2 2.2 1-2.2 1-1 2.2-1-2.2-2.2-1 2.2-1Z"/>`,
+  // Knight Capital — crash chart.
+  "knight-capital-trading-loss": `<path d="M4 5v14h15"/>
+    <path d="M7 9l3 3 3-3 3 5 2.5 1.5"/>
+    <path d="M18.5 15.5l.6 3-3-.4"/>`,
+  // Toyota — andon: stop octagon + pull-cord.
+  "toyota-production-system-andon-cord": `<path d="M9 5h6l3.5 3.5v6L15 18H9l-3.5-3.5v-6Z"/>
+    <path d="M9 12h6"/><path d="M12 5V2"/><circle cx="12" cy="1.6" r="1.1" fill="currentColor"/>`,
+  // Deepwater Horizon — offshore derrick + droplet.
+  "deepwater-horizon": `<path d="M6 20h12"/><path d="M8 20 12 6 16 20"/>
+    <path d="M9.3 16h5.4"/><path d="M10.2 12h3.6"/>
+    <path fill="currentColor" d="M12 2.4c1.3 1.8 2 2.9 2 3.9a2 2 0 0 1-4 0c0-1 .7-2.1 2-3.9Z"/>`,
+  // Navy SUBSAFE — submarine.
+  "navy-subsafe-requirements-as-a-non": `<ellipse cx="12" cy="13" rx="9" ry="3.5"/>
+    <rect x="10.5" y="6.5" width="3" height="4" rx="1"/><path d="M12 6.5V4"/>
+    <circle cx="8.5" cy="13" r="0.9" fill="currentColor"/><circle cx="14" cy="13" r="0.9" fill="currentColor"/>`,
+  // Post Office Horizon — scales of justice.
+  "uk-post-office-horizon-scandal": `<path d="M12 4v15"/><path d="M9 20h6"/>
+    <path d="M5 7h14"/><circle cx="12" cy="4" r="1.1" fill="currentColor"/>
+    <path d="M5 7v2M19 7v2"/>
+    <path d="M3 9a2 1.2 0 0 0 4 0"/><path d="M17 9a2 1.2 0 0 0 4 0"/>`,
+  // Estonia X-Road — interlinked nodes forming an X.
+  "estonia-x-road-continuous-migration-as": `<circle cx="12" cy="12" r="2.6" fill="currentColor"/>
+    <circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/>
+    <circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>
+    <path d="M6.4 6.4 9.9 9.9M17.6 6.4 14.1 9.9M6.4 17.6 9.9 14.1M17.6 17.6 14.1 14.1"/>`,
+};
+
+// Neutral fallback: three connected nodes ("a system").
+const FALLBACK = `<circle cx="6" cy="8" r="2"/><circle cx="18" cy="8" r="2"/>
+  <circle cx="12" cy="17" r="2"/><path d="M7.6 9.4 10.4 15.6M16.4 9.4 13.6 15.6M8 8h8"/>`;
+
+const { slug, size = 40, label } = Astro.props;
+const glyph = GLYPHS[slug] ?? FALLBACK;
+---
+
+<span class="case-icon" style={`--sz:${size}px`} role="img" aria-label={label ?? "Case icon"}>
+  <svg
+    viewBox="0 0 24 24"
+    width={size * 0.6}
+    height={size * 0.6}
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+    set:html={glyph}
+  />
+</span>
+
+<style>
+  .case-icon {
+    display: inline-grid;
+    place-items: center;
+    width: var(--sz);
+    height: var(--sz);
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: var(--tint-warm);
+    border: 1px solid var(--border);
+    color: var(--accent-2);
+  }
+</style>
