@@ -21,16 +21,31 @@ interface Props {
   lensApproach: string;
   /** lens-anchor, e.g. "D3/PT3" — used to name the competency in the prompt. */
   lensAnchor: string;
+  /** Conflict-of-interest disclosure, if any — must travel with the case. */
+  coi?: string;
+  /** Evidence-tier flag, if any — must travel with the case. */
+  evidenceFlag?: string;
   variant?: "icon" | "button";
 }
 
 const {
   title, year, domains, outcome, impact, leInsight, lensApproach, lensAnchor,
-  variant = "icon",
+  coi, evidenceFlag, variant = "icon",
 } = Astro.props;
 
 const competency = primaryCompetency(lensAnchor) ?? "Human-System Collaboration";
 const outcomeWord = outcome === "fail" ? "a failure" : "a success";
+
+// Load-bearing caveats travel with the case: the prompt tells the model to
+// ground itself in the supplied specifics, so a COI or evidence-tier
+// disclosure that appears on the page must appear in the dossier too — never a
+// stripped version. Appended as their own dossier lines when present.
+const disclosureLines = [
+  coi ? `\n• DISCLOSURE (carry this caveat, do not ignore it): ${coi}` : "",
+  evidenceFlag
+    ? `\n• EVIDENCE TIER: ${evidenceFlag} — source confidence flagged; future validation ongoing. Weigh claims accordingly.`
+    : "",
+].join("");
 
 // Engineered prompt. Structure: role + framing, a labelled case dossier so the
 // assistant is grounded in specifics rather than its own recollection, then a
@@ -39,7 +54,7 @@ const outcomeWord = outcome === "fail" ? "a failure" : "a success";
 const prompt = [
   `You are a rigorous, Socratic tutor in Learning Engineering for Next-Generation Systems (LENS) — the discipline that treats human capability as an engineered parameter of a complex system, extending learning engineering beyond the classroom. Your stance: systems rarely fail because the technology breaks; they fail or succeed on what people can actually do inside them.`,
   `I'm studying this case from the LENS casebook "Capability Matters". Ground yourself in these specifics rather than your own recollection, and correct me if a detail here is wrong:`,
-  `• CASE: ${title} (${year}) — ${outcomeWord}\n• DOMAIN: ${domains.join(", ")}\n• WHAT HAPPENED: ${impact}\n• LENS COMPETENCY IN PLAY: ${competency} (${lensAnchor})\n• THE BOOK'S LEARNING-ENGINEERING READING: ${leInsight}\n• HOW LENS TEACHES IT: ${lensApproach}`,
+  `• CASE: ${title} (${year}) — ${outcomeWord}\n• DOMAIN: ${domains.join(", ")}\n• WHAT HAPPENED: ${impact}\n• LENS COMPETENCY IN PLAY: ${competency} (${lensAnchor})\n• THE BOOK'S LEARNING-ENGINEERING READING: ${leInsight}\n• HOW LENS TEACHES IT: ${lensApproach}${disclosureLines}`,
   `Please help me learn from it:\n1. Explain the core capability lesson in plain terms — what someone could or couldn't do inside the system, and why that, more than the technology alone, was decisive.\n2. Name the precise mechanism of the ${outcome === "fail" ? "failure" : "success"}. Flag anything genuinely contested or uncertain in the record; do not overclaim beyond what the evidence supports.\n3. Connect the lesson to the "${competency}" competency, and to how you would design for it or gather decision-grade evidence that it holds.\n4. Close by asking me one sharp question that helps me map this lesson onto a system I actually work on.`,
   `Be concrete and specific to this case; prefer its particulars over generic best-practice advice.`,
 ].join("\n\n");
