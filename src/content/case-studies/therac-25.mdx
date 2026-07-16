@@ -1,0 +1,60 @@
+---
+title: "Therac-25"
+part: "Healthcare & Patient Safety"
+partNumber: 1
+outcome: "fail"
+kind: "failure"
+year: "1985 – 1987"
+domains: ["healthcare", "tech"]
+impact: "Six known massive radiation overdoses; at least three deaths; the canonical case in software safety engineering."
+summary: >-
+  The Therac-25, a radiation-therapy machine, massively overdosed at least six
+  patients between 1985 and 1987, killing at least three. Its predecessors used
+  hardware interlocks to stop the high-energy beam from firing without its
+  target in place; to save cost, the Therac-25 removed them and trusted software
+  — adapted from the older machines and never engineered for safety — to keep
+  the beam modes separated. A race condition let a fast operator trigger the
+  full beam with no target, while the console showed only a meaningless
+  "Malfunction 54." Leveson and Turner's 1993 investigation, the founding case
+  of software-safety engineering, found a systemic failure: a safeguard removed
+  with nothing put in its place. The lesson — a safeguard you delete does not
+  remove the hazard; it relocates it to whatever you failed to build.
+beats:
+  - "Hardware interlocks removed to save cost; safety case migrated silently into software"
+  - "Race condition let fast operators fire full beam with no target"
+  - "Manufacturer denied harm; Leveson and Turner found systemic, not single-bug, failure"
+  - "Interlock was the safety case; nothing took its load when removed"
+  - "Founded software-safety engineering; deleted safeguards relocate hazard to whatever replaces them"
+leInsight: >-
+  Therac-25 is the moment when removing the human safety margin became visible
+  as a design choice. The hardware interlock was not redundant — it was the
+  safety case. When it was removed, no equivalent capability was put in its
+  place. The operator was retained in the system but stripped of the ability to
+  detect what it was doing wrong. Capability engineering would have asked,
+  before removing the interlock, what function takes its load?
+lensApproach: >-
+  LENS frames Therac-25 as a Design-Out failure made visible through Interface
+  and Governance pathologies. Studio projects ask students to produce
+  capability-load diagrams tracing every safety function to a hardware backstop,
+  a software check, or a trained operator action with the information needed to
+  perform it — then to examine incident reporting as a governance function in
+  its own right.
+lensAnchor: "D3/PT3"
+inducedAnchor: "3.1"
+cloAnchor: "CLO-3"
+sourceCase: 1
+order: 1
+lead: >-
+  A radiation-therapy machine killed at least three patients, and every
+  proximate cause investigators found was a line of code.
+---
+
+A radiation-therapy machine killed at least three patients, and every proximate
+cause investigators found was a line of code. But the deeper failure was a
+decision no one had flagged as a safety decision: a hardware interlock — the one
+thing standing between a typing error and a lethal dose — was deleted to cut
+cost, and nothing was built to take its place. That is the casebook's first
+principle in its starkest form. Systems don't fail because the technology
+breaks; they fail because someone could no longer do what the system required of
+them — and here the operator was kept in the loop while being stripped of any
+way to see what the machine was doing wrong.

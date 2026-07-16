@@ -1,0 +1,72 @@
+---
+// Disclosure — renders the casebook's two disclosure registers verbatim,
+// matching the print treatment: a gold-bordered conflict-of-interest block
+// and a blue-bordered evidence-tier block. Both are load-bearing and must
+// appear wherever the case does; neither text is ever smoothed or dropped.
+
+interface Props {
+  /** Conflict-of-interest disclosure (casebook `coi`), rendered verbatim. */
+  coi?: string;
+  /** Evidence-tier flag (casebook `evidence-flag`), e.g. "practice-synthesis-tier". */
+  evidenceFlag?: string;
+}
+
+const { coi, evidenceFlag } = Astro.props;
+// Standing language that accompanies every evidence-tier flag in the book.
+const evidenceLine = evidenceFlag
+  ? `${evidenceFlag} — source confidence flagged; future validation ongoing.`
+  : null;
+---
+
+{(coi || evidenceLine) && (
+  <div class="disclosures">
+    {coi && (
+      <aside class="disc coi">
+        <span class="tag">Disclosure</span>
+        <p>{coi}</p>
+      </aside>
+    )}
+    {evidenceLine && (
+      <aside class="disc evidence">
+        <span class="tag">Evidence tier</span>
+        <p>{evidenceLine}</p>
+      </aside>
+    )}
+  </div>
+)}
+
+<style>
+  .disclosures { display: flex; flex-direction: column; gap: 0.6rem; margin: 1.2rem 0; }
+  .disc {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.7rem;
+    align-items: start;
+    padding: 0.6rem 0.85rem;
+    border-radius: 3px;
+    max-width: var(--measure);
+  }
+  .tag {
+    font-family: var(--sans);
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    white-space: nowrap;
+    padding-top: 0.1rem;
+  }
+  .disc p {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: none;
+  }
+  /* COI — gold register. */
+  .coi { background: #fbf5e6; border-left: 2.5px solid #b8860b; }
+  .coi .tag { color: #8a6400; }
+  /* Evidence tier — blue register. */
+  .evidence { background: #eef3f8; border-left: 2.5px solid #5c6e8e; }
+  .evidence .tag { color: #4a5b7a; }
+</style>

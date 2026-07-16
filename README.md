@@ -13,8 +13,15 @@ catalog, events calendar, community roster) lives at
 
 ## Layout
 
-- `src/pages/` — routes: `index` (homepage), `about`, `field-notes`, `llm101`
-- `src/content/field-notes/` — the one MDX collection: short editorial posts in the LENS voice
+- `src/pages/` — routes: `index` (homepage), `about`, `field-notes`, `llm101`,
+  `case-studies` (index + `[slug]` detail pages)
+- `src/content/field-notes/` — MDX collection: short editorial posts in the LENS voice
+- `src/content/case-studies/` — MDX collection: LENS case studies drawn from
+  *Capability Matters: A Casebook* (one failure + one success per topical part). Each
+  file's frontmatter carries the salient fields faithfully from the book (impact, "In
+  brief" summary, five-beat spine, Learning-Engineering-Lens pair, anchors, and any
+  COI / evidence-tier disclosures); the MDX body is the site-voice lead. Rendered via
+  the `LensBar` and `Disclosure` components in `src/components/`.
 - `public/` — static assets (favicons, LENS overview PDF)
 
 ## Develop

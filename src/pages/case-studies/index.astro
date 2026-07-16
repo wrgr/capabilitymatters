@@ -1,0 +1,165 @@
+---
+// Case Studies index. Hero framing is drawn selectively from the casebook's
+// introduction ("learning engineering is a toolbox, not a single tool";
+// "capability is a system parameter") to position LENS as an extension of
+// learning engineering. Cases are grouped by topical part and shown as
+// failure/success pairs, matching the book's per-part structure.
+import Base from "../../layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+const cases = (await getCollection("case-studies", (c) => !c.data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+// Group into parts, preserving order; each part holds its fail + success pair.
+const parts = new Map<number, { name: string; entries: typeof cases }>();
+for (const c of cases) {
+  const p = parts.get(c.data.partNumber) ?? { name: c.data.part, entries: [] };
+  p.entries.push(c);
+  parts.set(c.data.partNumber, p);
+}
+const grouped = [...parts.entries()].sort((a, b) => a[0] - b[0]);
+const base = import.meta.env.BASE_URL;
+---
+
+<Base title="Case Studies · LENS" active="case-studies">
+  <header class="hero">
+    <div class="container">
+      <div class="eyebrow">Case Studies</div>
+      <h1>Capability is a system parameter.</h1>
+      <p class="subhead">
+        Learning engineering is a toolbox, not a single tool — a dialogue
+        between the disciplines that build complex systems and the sciences of
+        how people come to know and do. LENS extends that work to
+        next-generation systems. These cases are how we show what it looks
+        like: each one a system that succeeded or failed on what people could
+        do inside it.
+      </p>
+      <p class="grounding">
+        <strong>Grounding.</strong> Every study is drawn from
+        <em>Capability Matters: A Casebook</em> — the salient details, the
+        Learning-Engineering-Lens reading, and any disclosures carried through
+        faithfully from the peer-reviewed and investigative record. One failure
+        and one success per domain; fourteen in all.
+      </p>
+    </div>
+  </header>
+
+  <div class="container">
+    {grouped.map(([num, part]) => (
+      <section class="part">
+        <h2>
+          <span class="pnum">{num}</span>
+          {part.name}
+        </h2>
+        <div class="pair">
+          {part.entries
+            .sort((a, b) => (a.data.outcome === "fail" ? -1 : 1))
+            .map((c) => (
+              <a class={`card ${c.data.outcome}`} href={base + "case-studies/" + c.id + "/"}>
+                <span class="tag">{c.data.outcome === "fail" ? "What failed" : "What worked"}</span>
+                <h3>{c.data.title}</h3>
+                <span class="year">{c.data.year}</span>
+                <p>{c.data.impact}</p>
+                <span class="more">Read the case →</span>
+              </a>
+            ))}
+        </div>
+      </section>
+    ))}
+
+    {cases.length === 0 && <p class="empty">No case studies yet — check back soon.</p>}
+  </div>
+</Base>
+
+<style>
+  .hero { background: var(--tint); border-bottom: 1px solid var(--border); }
+  .hero .container { padding-top: 3rem; padding-bottom: 2rem; }
+  .subhead { font-size: 1.08rem; line-height: 1.6; color: var(--ink-soft); max-width: 42rem; }
+  .grounding {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--muted);
+    max-width: 42rem;
+    line-height: 1.55;
+    padding: 0.8rem 1rem;
+    border-left: 2px solid var(--accent-2);
+    background: var(--bg);
+    margin-top: 1rem;
+  }
+  .grounding strong { color: var(--accent-2); font-weight: 600; }
+
+  .part { margin: 2.6rem 0; }
+  .part h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    font-size: 1.35rem;
+    border: none;
+    margin-bottom: 1rem;
+  }
+  .pnum {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--bg);
+    background: var(--accent-2);
+    padding: 0.1rem 0.5rem;
+    border-radius: 2px;
+  }
+
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.2rem 1.3rem 1.3rem;
+    border: 1px solid var(--border);
+    border-top-width: 3px;
+    border-radius: 4px;
+    background: var(--bg);
+    color: var(--ink);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .card:hover {
+    box-shadow: 0 6px 20px rgba(26, 29, 26, 0.09);
+    transform: translateY(-2px);
+    border-bottom-color: var(--border);
+  }
+  .card.fail { border-top-color: #a33; }
+  .card.success { border-top-color: #2f7a4f; }
+  .tag {
+    font-family: var(--sans);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .card.fail .tag { color: #7a2222; }
+  .card.success .tag { color: #1f5c3a; }
+  .card h3 { font-size: 1.25rem; margin: 0; line-height: 1.2; }
+  .year { font-family: var(--sans); font-size: 0.75rem; color: var(--muted); }
+  .card p {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0.3rem 0 0.2rem;
+    max-width: none;
+  }
+  .more {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-top: auto;
+    padding-top: 0.4rem;
+  }
+  .empty { color: var(--muted); font-style: italic; padding: 3rem 0; }
+
+  @media (max-width: 700px) {
+    .pair { grid-template-columns: 1fr; }
+  }
+</style>
