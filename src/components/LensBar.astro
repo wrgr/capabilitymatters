@@ -110,8 +110,22 @@ const problemType = anchor.match(/PT\d+/)?.[0];
     letter-spacing: 0.02em;
   }
   @media (max-width: 620px) {
-    ol { grid-template-columns: repeat(5, 1fr); gap: 0.2rem; }
+    ol { gap: 0.2rem; }
     .seg { padding: 0.4rem 0.25rem 0.5rem; min-height: 5.2rem; }
     .label { font-size: 0.62rem; }
+  }
+  /* On narrow phones the five-across bar squeezes labels to 3 lines; below
+     430px switch to a vertical list — one competency per row, num beside
+     label — so each reads cleanly with the primary still filled. */
+  @media (max-width: 430px) {
+    ol { grid-template-columns: 1fr; gap: 0.35rem; }
+    .seg {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.6rem;
+      min-height: 0;
+      padding: 0.5rem 0.7rem;
+    }
+    .label { font-size: 0.82rem; }
   }
 </style>
