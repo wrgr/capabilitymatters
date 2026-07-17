@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v6.1.7"><meta name="description" content="One mechanism. Five depths. A depth-adjustable LLM explainer and a worked example of capability-first design with an explicit human-AI verification gate."><title>LLM101 · LENS</title><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/_astro/Base.C-swJjmQ.css">
+<link rel="stylesheet" href="/_astro/llm101@_@astro.BOCK5Ot5.css"></head> <body> <header class="site-nav" data-astro-cid-ymhdp2rl> <div class="nav-inner" data-astro-cid-ymhdp2rl> <a href="/" class="brand" aria-label="Home" data-astro-cid-ymhdp2rl> <span class="brand-mark" data-astro-cid-ymhdp2rl>LENS</span> <span class="brand-text" data-astro-cid-ymhdp2rl>Learning Engineering for Next-Generation Systems</span> </a> <nav class="desktop-nav" aria-label="Primary" data-astro-cid-ymhdp2rl> <ul data-astro-cid-ymhdp2rl> <li data-astro-cid-ymhdp2rl> <a href="/" data-astro-cid-ymhdp2rl> Welcome </a> </li><li data-astro-cid-ymhdp2rl> <a href="/case-studies/" data-astro-cid-ymhdp2rl> Case Studies </a> </li><li data-astro-cid-ymhdp2rl> <a href="/field-notes/" data-astro-cid-ymhdp2rl> Field Notes </a> </li><li data-astro-cid-ymhdp2rl> <a href="/llm101/" class="active" data-astro-cid-ymhdp2rl> LLM101 </a> </li><li data-astro-cid-ymhdp2rl> <a href="/about/" data-astro-cid-ymhdp2rl> About </a> </li><li data-astro-cid-ymhdp2rl> <a href="https://lecommons.org" target="_blank" rel="noopener" data-astro-cid-ymhdp2rl> Learning Engineering Commons </a> </li> </ul> </nav> <details class="mobile-nav" data-astro-cid-ymhdp2rl> <summary aria-label="Toggle navigation menu" data-astro-cid-ymhdp2rl> <span class="current" data-astro-cid-ymhdp2rl>LLM101</span> <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" data-astro-cid-ymhdp2rl> <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-ymhdp2rl></path> </svg> </summary> <nav aria-label="Primary (mobile)" data-astro-cid-ymhdp2rl> <ul data-astro-cid-ymhdp2rl> <li data-astro-cid-ymhdp2rl> <a href="/" data-astro-cid-ymhdp2rl> Welcome </a> </li><li data-astro-cid-ymhdp2rl> <a href="/case-studies/" data-astro-cid-ymhdp2rl> Case Studies </a> </li><li data-astro-cid-ymhdp2rl> <a href="/field-notes/" data-astro-cid-ymhdp2rl> Field Notes </a> </li><li data-astro-cid-ymhdp2rl> <a href="/llm101/" class="active" data-astro-cid-ymhdp2rl> LLM101 </a> </li><li data-astro-cid-ymhdp2rl> <a href="/about/" data-astro-cid-ymhdp2rl> About </a> </li><li data-astro-cid-ymhdp2rl> <a href="https://lecommons.org" target="_blank" rel="noopener" data-astro-cid-ymhdp2rl> Learning Engineering Commons </a> </li> </ul> </nav> </details> </div> </header> <main>  <header class="section-hero" data-astro-cid-cs77at6e> <div class="container" data-astro-cid-cs77at6e> <div class="eyebrow" data-astro-cid-cs77at6e> Interactive Learning  </div> <h1 data-astro-cid-cs77at6e>LLM101</h1> <p class="claim" data-astro-cid-cs77at6e>One mechanism. Five depths. A depth-adjustable explainer for large language models — and a worked example of capability-first design.</p> <p class="question" data-astro-cid-cs77at6e>How does next-token prediction become something that looks like intelligence?</p> </div> </header> <section class="app-section" data-astro-cid-cnsecclb> <div class="container-wide" data-astro-cid-cnsecclb> <div class="embed-wrapper" data-astro-cid-cnsecclb> <div class="embed-toolbar" data-astro-cid-cnsecclb> <span class="embed-label" data-astro-cid-cnsecclb>Interactive Explorer</span> <a href="https://wrgr.github.io/llm101/" class="embed-link" target="_blank" rel="noopener noreferrer" aria-label="Open LLM101 in a new tab" data-astro-cid-cnsecclb> <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-astro-cid-cnsecclb> <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" data-astro-cid-cnsecclb></path> <polyline points="15 3 21 3 21 9" data-astro-cid-cnsecclb></polyline> <line x1="10" y1="14" x2="21" y2="3" data-astro-cid-cnsecclb></line> </svg>
+Open full screen
+</a> </div> <div class="embed-frame" data-astro-cid-cnsecclb> <iframe src="https://wrgr.github.io/llm101/" title="LLM101: How Large Language Models Actually Work" loading="lazy" allow="clipboard-write" scrolling="yes" data-astro-cid-cnsecclb></iframe> </div> </div> </div> </section> <section class="exemplar-section" data-astro-cid-cnsecclb> <div class="container" data-astro-cid-cnsecclb> <header class="exemplar-header" data-astro-cid-cnsecclb> <p class="eyebrow" data-astro-cid-cnsecclb>Capability Matters Lens</p> <h2 data-astro-cid-cnsecclb>Case Exemplar: Building an LLM explainer as a capability problem</h2> <p class="method-note" data-astro-cid-cnsecclb> <em data-astro-cid-cnsecclb>Method exemplar. Not an incident case: this shows how the flywheel and the
+          human-AI authoring loop work in practice, rather than diagnosing a failure.</em> </p> </header> <div class="exemplar-body" data-astro-cid-cnsecclb> <p class="lead" data-astro-cid-cnsecclb>
+Most "explain how AI works" projects treat the artifact as content. LENS treats
+          it as a capability intervention, and asks a different first question: what should
+          a person be able to do differently afterward, in an environment where that
+          difference has consequence?
+</p> <p data-astro-cid-cnsecclb>
+The artifact is llm101 (<a href="https://github.com/wrgr/llm101" target="_blank" rel="noopener noreferrer" data-astro-cid-cnsecclb>github.com/wrgr/llm101</a>):
+          a depth-adjustable explainer for large language models. One mechanism, five
+          views, two arcs. A reader chooses how deep to go, from a single metaphor to
+          the formal account, and the content is assembled on the fly from tagged
+          segments. At the time of writing it is a working architecture with one fully
+          authored module (Prediction) and the rest scaffolded.
+</p> <h3 data-astro-cid-cnsecclb>The capability</h3> <p data-astro-cid-cnsecclb>
+The target is not "knows facts about LLMs." It is the ability to reason
+          correctly about what a model's output is: a prediction of plausible next
+          tokens, not a retrieval of stored truth. This is where operational harm
+          concentrates. A user who believes the model retrieves will trust a fabricated
+          citation; a user who understands prediction will verify before acting. It is
+          not an accident that the one fully authored module is Prediction. The
+          capability the whole system exists to build is the one instantiated first.
+</p> <h3 data-astro-cid-cnsecclb>The design as an engineering decision</h3> <p data-astro-cid-cnsecclb>
+Five views, two arcs, and a sparse segment engine that assembles the talk at
+          any depth from tagged beats. Depth-adjustment is a hypothesis, not a
+          preference: it claims you can build the same capability across very different
+          starting points without making anyone re-read. The fading scaffolds sit on a
+          citation layer grounded in the learning sciences, kept deliberately separate
+          from the content citations grounded in machine learning and language
+          literature. Design as testable hypothesis, not design as taste.
+</p> <h3 data-astro-cid-cnsecclb>The human-AI loop</h3> <p data-astro-cid-cnsecclb>
+This is the spine of the case. The authoring flywheel treats AI as both
+          creative partner and epistemic risk in the same motion. As partner, it drafts
+          beats from tagged objectives faster than a human would. As risk, it seeds
+          plausible citations and invents sources that do not exist. The system is built
+          so that confidence cannot become decision-grade on its own: the repository
+          instructs a verification pass against Crossref, arXiv, and DOI before
+          publishing, and labels the meaning-arc sources as candidate until checked.
+          That verification gate is the move made concrete. The AI produces; the human
+          closes the gap against primary literature; only verified output is allowed to
+          seed the next module. The conversation is structured, not open-ended.
+</p> <h3 data-astro-cid-cnsecclb>Evidence, honestly</h3> <p data-astro-cid-cnsecclb>The flywheel is two loops, and only one is spinning.</p> <p data-astro-cid-cnsecclb>
+The authoring flywheel is closed and running: it produces verified content on
+          every pass.
+</p> <p data-astro-cid-cnsecclb>
+The learning flywheel is designed but not spinning. The per-module checks are
+          its intended instrument: they would tell you whether a given depth level
+          actually built the capability. They are ungraded and undeployed. With one
+          authored module and no readers, there is no learner evidence yet. Naming this
+          is the point, not a disclaimer around it.
+</p> <h3 data-astro-cid-cnsecclb>Adaptation: turning the learning flywheel by hand</h3> <p data-astro-cid-cnsecclb>
+The learning flywheel's first turn was never an analytics pipeline. It is a
+          person reading feedback and making an attribution call. That call is the
+          teachable move, and it is exactly the one adjacent programs skip.
+</p> <p data-astro-cid-cnsecclb>
+The discipline is: do not patch, attribute first. Every reader miss is one of
+          three things, and they take different repairs. This is gap attribution at
+          artifact scale.
+</p> <ul data-astro-cid-cnsecclb> <li data-astro-cid-cnsecclb> <strong data-astro-cid-cnsecclb>Content gap:</strong> the explanation is wrong or incomplete.
+            Fix the beat.
+</li> <li data-astro-cid-cnsecclb> <strong data-astro-cid-cnsecclb>Design gap:</strong> the explanation is right but shown at the
+            wrong depth or in the wrong order. Fix the segment engine's view range or
+            sequencing, not the beat.
+</li> <li data-astro-cid-cnsecclb> <strong data-astro-cid-cnsecclb>Framing gap:</strong> the metaphor itself misleads. A scaffold
+            that makes prediction feel like lookup is actively teaching the wrong
+            model. Fix the scaffold.
+</li> </ul> <p data-astro-cid-cnsecclb>
+Same observed miss, three different fixes. Naming which one you are in before
+          touching the file is the judgment the exemplar is built to teach.
+</p> <p data-astro-cid-cnsecclb>Three caveats keep this honest:</p> <ol data-astro-cid-cnsecclb> <li data-astro-cid-cnsecclb> <strong data-astro-cid-cnsecclb>Include a "no change" verdict.</strong> Not every miss is a defect.
+            The point of five views is that not every reader clears every level;
+            sometimes the right adaptation is routing the reader down a view, not
+            rewriting the beat. Over-adapting to feedback pulls the artifact toward the
+            mean and blunts the expert levels. Attribute-first is what protects against
+            that: if the gap is the reader's foundation, the fix is routing, not
+            revision.
+</li> <li data-astro-cid-cnsecclb> <strong data-astro-cid-cnsecclb>AI reappears at the revision step, and so does the gate.</strong>
+Feed it the miss and it proposes a rewrite, with the same epistemic risk:
+            it will confidently propose a patch that misdiagnoses the gap, usually
+            defaulting to "add more words" when the real fault was sequence or
+            metaphor. The gate moves from authoring to revision. The AI proposes the
+            adaptation; the human validates the attribution before it ships.
+</li> <li data-astro-cid-cnsecclb> <strong data-astro-cid-cnsecclb>Early evidence is thin by construction.</strong> Ungraded, optional,
+            self-selected checks at near-zero N are weak signal. The highest-value
+            evidence available today is verbal: one reader saying "I still don't see
+            why prediction isn't just lookup" out-informs a hundred slider events. Lead
+            with that until traffic makes behavior mean something.
+</li> </ol> <h3 data-astro-cid-cnsecclb>Instrumentation and ethics: what we chose to measure, and what we did not</h3> <p data-astro-cid-cnsecclb>
+Capture is the easy part. The slider, the glossary popovers, and the checks
+          are already client-side events; attaching the current view and the term
+          identity to each is an afternoon's work. The real question is persistence: a
+          static GitHub Pages build has nowhere for events to land, so "can we track
+          this" is a design and ethics decision before it is an engineering one. Three
+          shapes:
+</p> <ul data-astro-cid-cnsecclb> <li data-astro-cid-cnsecclb> <strong data-astro-cid-cnsecclb>Local only.</strong> Trivial, no infrastructure, but one reader on
+            one device with no aggregation. Fine for a reader reviewing their own path;
+            useless as evidence.
+</li> <li data-astro-cid-cnsecclb> <strong data-astro-cid-cnsecclb>Ambient aggregate analytics.</strong> Easy to wire and gives counts
+            across readers, cookieless if chosen carefully. It also crosses the
+            surveillance line the program itself interrogates, even anonymized. Turning
+            ambient tracking on by default on a public explainer is a choice one would
+            have to defend in our own seminar.
+</li> <li data-astro-cid-cnsecclb> <strong data-astro-cid-cnsecclb>Consented study mode.</strong> A flag that logs richly only in
+            facilitated or opted-in sessions and stays dark otherwise. Minimal,
+            purpose-bound, defensible. It lets the artifact model the thesis it teaches
+            rather than contradict it.
+</li> </ul> <p data-astro-cid-cnsecclb>
+The decision follows from the evidence position, not from what is technically
+          possible. At one authored module with no deployment, instrumentation is
+          premature. The signals cheapest to log — slider jumps and glossary clicks —
+          are the weak-N ones, and an event is not a construct: a reader jumping from
+          view one to view four could be bored, lost and fleeing, or an expert skipping
+          ahead. The click cannot tell you which. You are back to attribution, and
+          telemetry cannot make that call for you.
+</p> <p data-astro-cid-cnsecclb>
+So the instrumentation is built for interpretation, not volume, and only
+          inside consented study mode: log the checks and the slider and glossary
+          events so each can be paired with what the reader said aloud. The pairing is
+          what makes an event mean anything. Ambient public analytics stays off until
+          there is a question only counts can answer.
+</p> <p data-astro-cid-cnsecclb>
+One carryover from the spine: if these events are later handed to a model to
+          find the patterns, it will confidently narrate noise and default to tidy
+          stories the data does not support. The same gate applies at the analysis step.
+          The model proposes the reading; the human validates the attribution before it
+          touches a beat.
+</p> <p data-astro-cid-cnsecclb>
+A restrained instrumentation decision, stated with its reasoning, is a
+          stronger artifact than a dashboard: what we chose to measure, what we chose
+          not to, and why.
+</p> <h3 data-astro-cid-cnsecclb>Boundary</h3> <p data-astro-cid-cnsecclb>
+One authored module, no deployment, learning flywheel unproven. The case
+          earns its place as a method exemplar, not as an outcomes claim. Its value is
+          the demonstration it does make: AI held as partner and risk under an explicit
+          verification gate, at authoring, at revision, and at analysis; capability
+          defined by consequence rather than content coverage; the flywheel practiced as
+          a production discipline before it is claimed as a learning-analytics result.
+</p> <hr class="rule" data-astro-cid-cnsecclb> <p class="disclaimer" data-astro-cid-cnsecclb> <em data-astro-cid-cnsecclb>Produced with AI synthesis and verified by the author. Content and citation
+          claims are subject to human review against primary sources before external use.</em> </p> </div> </div> </section>  </main> <footer> <div class="footer-inner"> <div class="footer-brand"> <strong>LENS</strong> <span class="muted"> · Learning Engineering for Next-Generation Systems at Johns Hopkins · connected to the shared IEEE ICICLE / Learning Engineering Commons corpus, not a replacement for it. Questions or corrections: <a href="mailto:wgr@jhu.edu">reach out</a>.</span> </div> <nav class="footer-links" aria-label="Footer"> <a href="/about/">About this site</a> <a href="https://lecommons.org" target="_blank" rel="noopener">Learning Engineering Commons</a> <a href="https://sagroups.ieee.org/icicle/" target="_blank" rel="noopener">IEEE ICICLE</a> </nav> </div> <div class="footer-copy">© 2026</div> </footer> </body> </html>
