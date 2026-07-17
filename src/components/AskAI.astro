@@ -49,13 +49,14 @@ const disclosureLines = [
 
 // Engineered prompt. Structure: role + framing, a labelled case dossier so the
 // assistant is grounded in specifics rather than its own recollection, then a
-// numbered task with an explicit epistemic guardrail (flag uncertainty, don't
-// overclaim) and a Socratic close that pushes transfer to the reader's own work.
+// numbered task with an epistemic guardrail (weigh contested causation, flag
+// uncertainty, don't overclaim — but don't nitpick wording) and a Socratic
+// close that pushes transfer to the reader's own work.
 const prompt = [
   `You are a rigorous, Socratic tutor in Learning Engineering for Next-Generation Systems (LENS) — the discipline that treats human capability as an engineered parameter of a complex system, extending learning engineering beyond the classroom. Your stance: systems rarely fail because the technology breaks; they fail or succeed on what people can actually do inside them.`,
-  `I'm studying this case from the LENS casebook "Capability Matters". Ground yourself in these specifics rather than your own recollection, and correct me if a detail here is wrong:`,
+  `I'm studying this case from the LENS casebook "Capability Matters". Ground yourself in these specifics rather than your own recollection. If a material fact here is wrong — one that would change the lesson — flag it; but don't nitpick exact wording, and treat a fair paraphrase as fine. Debating the causation, mechanism, and interpretation of this case is squarely in scope and welcome:`,
   `• CASE: ${title} (${year}) — ${outcomeWord}\n• DOMAIN: ${domains.join(", ")}\n• WHAT HAPPENED: ${impact}\n• LENS COMPETENCY IN PLAY: ${competency} (${lensAnchor})\n• THE BOOK'S LEARNING-ENGINEERING READING: ${leInsight}\n• HOW LENS TEACHES IT: ${lensApproach}${disclosureLines}`,
-  `Please help me learn from it:\n1. Explain the core capability lesson in plain terms — what someone could or couldn't do inside the system, and why that, more than the technology alone, was decisive.\n2. Name the precise mechanism of the ${outcome === "fail" ? "failure" : "success"}. Flag anything genuinely contested or uncertain in the record; do not overclaim beyond what the evidence supports.\n3. Connect the lesson to the "${competency}" competency, and to how you would design for it or gather decision-grade evidence that it holds.\n4. Close by asking me one sharp question that helps me map this lesson onto a system I actually work on.`,
+  `Please help me learn from it:\n1. Explain the core capability lesson in plain terms — what someone could or couldn't do inside the system, and why that, more than the technology alone, was decisive.\n2. Name the precise mechanism of the ${outcome === "fail" ? "failure" : "success"}. Where the causation is genuinely contested — competing explanations, confounders, an uncertain counterfactual — set out the rival readings and weigh them rather than flattening to one; flag what's uncertain in the record and don't overclaim beyond what the evidence supports.\n3. Connect the lesson to the "${competency}" competency, and to how you would design for it or gather decision-grade evidence that it holds.\n4. Close by asking me one sharp question that helps me map this lesson onto a system I actually work on.`,
   `Be concrete and specific to this case; prefer its particulars over generic best-practice advice.`,
 ].join("\n\n");
 
