@@ -111,6 +111,26 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_May2026.pdf";
         <h3>Education at Scale</h3>
         <p>Systems serving millions of learners, where design decisions ripple across institutions and equity is a structural concern, not an afterthought.</p>
       </div>
+      <div class="domain-card reveal">
+        <div class="icon" aria-hidden="true">✈</div>
+        <h3>Aviation</h3>
+        <p>Flight crews, controllers, and maintenance teams working to tight margins, where procedural discipline and crew coordination decide the outcome.</p>
+      </div>
+      <div class="domain-card reveal">
+        <div class="icon" aria-hidden="true">⚡</div>
+        <h3>Energy</h3>
+        <p>Operators of grids, refineries, and offshore platforms, where a single lapse in a high-hazard process can cascade into catastrophe.</p>
+      </div>
+      <div class="domain-card reveal">
+        <div class="icon" aria-hidden="true">⚙</div>
+        <h3>Manufacturing &amp; Industrial</h3>
+        <p>Production teams sustaining quality and safety at scale, where tacit expertise and continuous improvement keep complex processes stable.</p>
+      </div>
+      <div class="domain-card reveal">
+        <div class="icon" aria-hidden="true">⬡</div>
+        <h3>Government &amp; Public Infrastructure</h3>
+        <p>Public-sector programs and large IT modernizations, where governance, trust, and workforce readiness decide whether services reach the people who depend on them.</p>
+      </div>
     </div>
   </section>
 
@@ -330,7 +350,9 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_May2026.pdf";
   }
   .domain-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* auto-fit so the seven cards flow into even rows at any width instead of
+       leaving an orphan in a fixed 3-column grid. */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.5rem;
   }
   .domain-card {
