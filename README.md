@@ -22,7 +22,9 @@ catalog, events calendar, community roster) lives at
   brief" summary, five-beat spine, Learning-Engineering-Lens pair, anchors, and any
   COI / evidence-tier disclosures); the MDX body is the site-voice lead. Rendered via
   the `LensBar` and `Disclosure` components in `src/components/`.
-- `public/` — static assets (favicons, LENS overview PDF)
+- `public/` — static assets (favicons, LENS overview PDF, and the
+  `capability-matters-casebook-draft.pdf` — the casebook's 48-case reading
+  edition, offered for download under the case examples; CC BY-ND 4.0)
 
 ## Develop
 
