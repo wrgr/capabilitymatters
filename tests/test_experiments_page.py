@@ -29,6 +29,7 @@ def test_experiments_page_lists_each_experiment() -> None:
     """Every experiment URL is present so none is silently dropped."""
     page = _read("pages/experiments.astro")
     for url in (
+        "capabilitymatters.org/llm101",
         "calibratedjudgment.org",
         "experttrace.org",
         "neurotrailblazers.org",
