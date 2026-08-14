@@ -9,10 +9,11 @@ import Base from "../layouts/Base.astro";
 
     <p>
       This site covers Johns Hopkins' LENS (Learning Engineering for Next-Generation Systems)
-      specialization: the program itself, field notes written in the LENS voice, and case
-      material like the LLM101 exemplar. It doesn't try to index the broader field — for the
-      shared reading list, tools, practice library, events calendar, and community roster, see
-      the <a href="https://lecommons.org" target="_blank" rel="noopener">Learning Engineering Commons</a>,
+      specialization: the program itself, its five-competency framework, field notes written in
+      the LENS voice, and case material — the <em>Capability Matters</em> casebook and experiments
+      like the LLM101 exemplar. It doesn't try to index the broader field — for the shared reading
+      list, tools, practice library, events calendar, and community roster, see the
+      <a href="https://lecommons.org" target="_blank" rel="noopener">Learning Engineering Commons</a>,
       most of it curated from the <a href="https://sagroups.ieee.org/icicle/" target="_blank" rel="noopener">IEEE ICICLE</a>
       community.
     </p>
@@ -26,14 +27,27 @@ import Base from "../layouts/Base.astro";
       energy, manufacturing &amp; industrial, and government &amp; public infrastructure.
     </p>
 
+    <h2>The LENS framework</h2>
+    <p>
+      LENS reads every case through five competency domains. Each case study on this site is
+      tagged to the domain(s) it exercises, so the same framework runs from a hospital to a
+      flight deck to a public-sector IT migration:
+    </p>
+    <ol class="framework">
+      <li><strong>Systems Analysis</strong></li>
+      <li><strong>Iterative Development</strong></li>
+      <li><strong>Human-System Collaboration</strong></li>
+      <li><strong>Test &amp; Evaluation</strong></li>
+      <li><strong>Sociotechnical Constraints</strong></li>
+    </ol>
+
     <h2>People &amp; programs</h2>
     <p>
-      LENS is a concentration within the <a href="https://education.jhu.edu/academics/med/learning-design-and-technology/" target="_blank" rel="noopener">JHU MEd in Learning Design and Technology</a>,
+      LENS is a concentration within the <a href="https://education.jhu.edu/masters-programs/master-of-education-in-learning-design-and-technology/learning-engineering-next-generation-systems-concentration/" target="_blank" rel="noopener">JHU MEd in Learning Design and Technology</a>,
       jointly run by the Johns Hopkins School of Education and the Applied Physics Laboratory,
       with an IEEE ICICLE partnership. Faculty in the concentration include James Diamond and
-      William Gray-Roncal (School of Education / APL); Adesola Ogundimu co-chairs IEEE ICICLE's
-      Globalisation/Localisation SIG. Full profiles for these and other practitioners across the
-      field live at <a href="https://lecommons.org/community/" target="_blank" rel="noopener">lecommons's community pages</a>.
+      William Gray-Roncal (School of Education / APL). Full profiles for practitioners across the
+      wider field live at <a href="https://lecommons.org/community/" target="_blank" rel="noopener">lecommons's community pages</a>.
     </p>
 
     <h2>Scope &amp; caveats</h2>
@@ -80,7 +94,7 @@ import Base from "../layouts/Base.astro";
     padding-top: 1.2rem;
     font-size: 1.15rem;
   }
-  ul {
+  ul, ol.framework {
     padding-left: 1.3rem;
     max-width: var(--measure);
   }
