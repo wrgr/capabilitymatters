@@ -53,6 +53,9 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
         lensAnchor={d.lensAnchor}
         coi={d.coi}
         evidenceFlag={d.evidenceFlag}
+        summary={d.summary}
+        competingReadings={d.competingReadings}
+        scopeLimit={d.scopeLimit}
         variant="button"
       />
       <span class="ask-note">Opens a new chat prefilled with this case — explore it in your own context.</span>
@@ -92,9 +95,30 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
       <dl class="anchors">
         <div><dt>Problem type</dt><dd>{d.lensAnchor}</dd></div>
         {d.inducedAnchor && <div><dt>Induced</dt><dd>{d.inducedAnchor}</dd></div>}
-        {d.cloAnchor && <div><dt>CLO</dt><dd>{d.cloAnchor.replaceAll("CLO-", "")}</dd></div>}
+        {d.leoAnchor && <div><dt>LEO</dt><dd>{d.leoAnchor.replaceAll("LEO-", "")}</dd></div>}
       </dl>
     </section>
+
+    {d.competingReadings.length > 0 && (
+      <section class="contested">
+        <h2>Competing readings</h2>
+        <p class="contested-note">
+          Rival explanations the record supports and no study adjudicates. They
+          are listed, not ranked — each one implies a different thing to check
+          before carrying the lesson somewhere else.
+        </p>
+        <ul>
+          {d.competingReadings.map((r) => <li>{r}</li>)}
+        </ul>
+      </section>
+    )}
+
+    {d.scopeLimit && (
+      <section class="scope">
+        <h2>What this case does not show</h2>
+        <p>{d.scopeLimit}</p>
+      </section>
+    )}
 
     <footer class="case-foot">
       <span>Case {d.sourceCase} in <em>Capability Matters: A Casebook</em>.</span>
@@ -269,6 +293,36 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--ink);
+  }
+
+  .contested-note {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.9rem;
+    max-width: none;
+  }
+  .contested ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .contested li {
+    padding: 0.6rem 0 0.6rem 0.95rem;
+    border-left: 2px solid var(--border);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: none;
+  }
+  .scope p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    padding: 0.7rem 0 0.7rem 1rem;
+    border-left: 3px solid var(--muted);
+    max-width: none;
   }
 
   .case-foot {

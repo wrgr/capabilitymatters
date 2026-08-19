@@ -25,8 +25,9 @@ const fieldNoteSchema = z.object({
 // Case-study frontmatter mirrors the casebook's per-case salient fields so the
 // site render stays faithful to the book: the structured anchors, the "In
 // brief" abstract, the five-beat spine, and the Learning-Engineering-Lens
-// pair. `lead` is the site's own framing voice (not book-derived); `coi` and
-// `evidenceFlag` carry disclosures verbatim and must never be dropped.
+// pair. `lead` is the site's own framing voice (not book-derived); `coi`,
+// `evidenceFlag`, `competingReadings` and `scopeLimit` carry the book's
+// caveats verbatim and must never be dropped or softened.
 const caseStudySchema = z.object({
   title: z.string(),
   // Topical part (I–VII) and its ordinal, for grouping on the index.
@@ -51,10 +52,20 @@ const caseStudySchema = z.object({
   // component parses the D-number(s) to fill the competency segments.
   lensAnchor: z.string(),
   inducedAnchor: z.string().optional(),
-  cloAnchor: z.string().optional(),
+  // LENS Educational Objective — the concentration-level course-mapping anchor.
+  // Named `leoAnchor` since the program docs renamed the tier CLO -> LEO;
+  // "CLO" is now reserved for the course tier below it.
+  leoAnchor: z.string().optional(),
   // Disclosures — carried verbatim from the book; rendered prominently.
   coi: z.string().optional(),
   evidenceFlag: z.string().optional(),
+  // Rival causal readings the record supports and no study adjudicates
+  // (casebook `competing-readings`), and the one-sentence failure boundary of
+  // the mechanism the case teaches (casebook `scope-limit`). Both are set only
+  // where the book sets them; both are load-bearing and must reach the reader
+  // and the AI prompt unsoftened.
+  competingReadings: z.array(z.string()).default([]),
+  scopeLimit: z.string().optional(),
   // Provenance + ordering.
   sourceCase: z.number().int(),
   order: z.number().int(),

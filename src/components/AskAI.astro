@@ -1,9 +1,15 @@
 ---
 // AskAI — a sparkle affordance that opens an AI assistant in a new tab,
-// prefilled with a carefully engineered, case-specific prompt (the case facts,
-// its LENS competency, and the book's Learning-Engineering reading). The site
-// is static, so this deep-links to the assistant's new-chat query parameter
-// rather than generating anything in-page; no API key or backend is involved.
+// prefilled with a carefully engineered, case-specific prompt. The site is
+// static, so this deep-links to the assistant's new-chat query parameter rather
+// than generating anything in-page; no API key or backend is involved.
+//
+// The prompt is a distribution channel for the case fields: whatever the
+// casebook asserts, a reader meets here without ever opening the book. So the
+// dossier carries the book's own caveats — the "In brief" summary, any COI or
+// evidence-tier disclosure, the competing causal readings, and the scope limit
+// — and instructs the tutor not to resolve what the record leaves open.
+//
 // `variant="icon"` is the compact card control; `variant="button"` is the
 // labelled control for the detail page.
 import { primaryCompetency } from "../lib/lens";
@@ -15,6 +21,8 @@ interface Props {
   outcome: "fail" | "success";
   /** The case's one-line impact (factual consequence). */
   impact: string;
+  /** The casebook's ~100-150 word "In brief" abstract, where the page has it. */
+  summary?: string;
   /** The book's Learning-Engineering reading of the case. */
   leInsight: string;
   /** How LENS teaches the case. */
@@ -25,26 +33,36 @@ interface Props {
   coi?: string;
   /** Evidence-tier flag, if any — must travel with the case. */
   evidenceFlag?: string;
+  /** Rival causal readings the record supports and no study adjudicates. */
+  competingReadings?: string[];
+  /** One sentence on what the case does not show. */
+  scopeLimit?: string;
   variant?: "icon" | "button";
 }
 
 const {
-  title, year, domains, outcome, impact, leInsight, lensApproach, lensAnchor,
-  coi, evidenceFlag, variant = "icon",
+  title, year, domains, outcome, impact, summary, leInsight, lensApproach,
+  lensAnchor, coi, evidenceFlag, competingReadings = [], scopeLimit,
+  variant = "icon",
 } = Astro.props;
 
 const competency = primaryCompetency(lensAnchor) ?? "Human-System Collaboration";
 const outcomeWord = outcome === "fail" ? "a failure" : "a success";
 
 // Load-bearing caveats travel with the case: the prompt tells the model to
-// ground itself in the supplied specifics, so a COI or evidence-tier
-// disclosure that appears on the page must appear in the dossier too — never a
-// stripped version. Appended as their own dossier lines when present.
-const disclosureLines = [
+// ground itself in the supplied specifics, so anything qualifying those
+// specifics on the page must appear in the dossier too — never a stripped
+// version. Each is appended as its own dossier line only when the case sets it.
+const dossierExtras = [
+  summary ? `\n• IN BRIEF: ${summary}` : "",
   coi ? `\n• DISCLOSURE (carry this caveat, do not ignore it): ${coi}` : "",
   evidenceFlag
     ? `\n• EVIDENCE TIER: ${evidenceFlag} — source confidence flagged; future validation ongoing. Weigh claims accordingly.`
     : "",
+  competingReadings.length
+    ? `\n• COMPETING READINGS (rival explanations the record supports and no study adjudicates — do not pick a winner as though the evidence settles it):\n${competingReadings.map((r) => `  – ${r}`).join("\n")}`
+    : "",
+  scopeLimit ? `\n• SCOPE LIMIT (what this case does not show — do not generalize the lesson past this boundary): ${scopeLimit}` : "",
 ].join("");
 
 // Engineered prompt. Structure: role + framing, a labelled case dossier so the
@@ -54,9 +72,9 @@ const disclosureLines = [
 // close that pushes transfer to the reader's own work.
 const prompt = [
   `You are a rigorous, Socratic tutor in Learning Engineering for Next-Generation Systems (LENS) — the discipline that treats human capability as an engineered parameter of a complex system, extending learning engineering beyond the classroom. Your stance: systems rarely fail because the technology breaks; they fail or succeed on what people can actually do inside them.`,
-  `I'm studying this case from the LENS casebook "Capability Matters". Ground yourself in these specifics rather than your own recollection. If a material fact here is wrong — one that would change the lesson — flag it; but don't nitpick exact wording, and treat a fair paraphrase as fine. Debating the causation, mechanism, and interpretation of this case is squarely in scope and welcome:`,
-  `• CASE: ${title} (${year}) — ${outcomeWord}\n• DOMAIN: ${domains.join(", ")}\n• WHAT HAPPENED: ${impact}\n• LENS COMPETENCY IN PLAY: ${competency} (${lensAnchor})\n• THE BOOK'S LEARNING-ENGINEERING READING: ${leInsight}\n• HOW LENS TEACHES IT: ${lensApproach}${disclosureLines}`,
-  `Please help me learn from it:\n1. Explain the core capability lesson in plain terms — what someone could or couldn't do inside the system, and why that, more than the technology alone, was decisive.\n2. Name the precise mechanism of the ${outcome === "fail" ? "failure" : "success"}. Where the causation is genuinely contested — competing explanations, confounders, an uncertain counterfactual — set out the rival readings and weigh them rather than flattening to one; flag what's uncertain in the record and don't overclaim beyond what the evidence supports.\n3. Connect the lesson to the "${competency}" competency, and to how you would design for it or gather decision-grade evidence that it holds.\n4. Close by asking me one sharp question that helps me map this lesson onto a system I actually work on.`,
+  `I'm studying this case from the LENS casebook "Capability Matters". Ground yourself in these specifics rather than your own recollection. If a material fact here is wrong — one that would change the lesson — flag it; but don't nitpick exact wording, and treat a fair paraphrase as fine. Debating the causation, mechanism, and interpretation of this case is squarely in scope and welcome. Where the dossier hedges a claim, keep the hedge: don't restate a qualified finding as a settled one.`,
+  `• CASE: ${title} (${year}) — ${outcomeWord}\n• DOMAIN: ${domains.join(", ")}\n• WHAT HAPPENED: ${impact}\n• LENS COMPETENCY IN PLAY: ${competency} (${lensAnchor})\n• THE BOOK'S LEARNING-ENGINEERING READING: ${leInsight}\n• HOW LENS TEACHES IT: ${lensApproach}${dossierExtras}`,
+  `Please help me learn from it:\n1. Explain the core capability lesson in plain terms — what someone could or couldn't do inside the system, and why that, more than the technology alone, was decisive.\n2. Name the precise mechanism of the ${outcome === "fail" ? "failure" : "success"} — the specific chain by which what people could or couldn't do produced the outcome. Distinguish the mechanism the evidence actually supports from the folk version of this case that gets repeated.\n3. Where the causation is genuinely contested — competing explanations, confounders, an uncertain counterfactual — set out the rival readings and say what evidence would separate them, rather than flattening to one. Flag what's uncertain in the record and don't overclaim beyond what it supports.\n4. Connect the lesson to the "${competency}" competency, and to how you would design for it or gather decision-grade evidence that it holds.\n5. Close by asking me one sharp question that helps me map this lesson onto a system I actually work on — one that respects the scope limit above rather than over-transferring the lesson.`,
   `Be concrete and specific to this case; prefer its particulars over generic best-practice advice.`,
 ].join("\n\n");
 
