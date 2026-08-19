@@ -19,9 +19,17 @@ catalog, events calendar, community roster) lives at
 - `src/content/case-studies/` — MDX collection: LENS case studies drawn from
   *Capability Matters: A Casebook* (one failure + one success per topical part). Each
   file's frontmatter carries the salient fields faithfully from the book (impact, "In
-  brief" summary, five-beat spine, Learning-Engineering-Lens pair, anchors, and any
-  COI / evidence-tier disclosures); the MDX body is the site-voice lead. Rendered via
-  the `LensBar` and `Disclosure` components in `src/components/`.
+  brief" summary, five-beat spine, Learning-Engineering-Lens pair, the three anchors,
+  and any COI / evidence-tier disclosure, competing readings, or scope limit); the
+  MDX body is the site-voice lead. Rendered via the `LensBar` and `Disclosure`
+  components in `src/components/`.
+
+  Two rules keep the render honest, and `tests/test_case_studies_sync.py` pins them:
+  a caveat the book carries — a disclosure, an evidence tier, a competing reading, a
+  scope limit — must reach both the page and the `AskAI` prompt unsoftened; and when a
+  casebook revision pass corrects a fact, the site-voice lead beside the frontmatter is
+  corrected in the same pass. The objective tier is **LEO** (LENS Educational
+  Objective), per `lens_program/2_*` v2.3; `CLO` now names the course tier below it.
 - `public/` — static assets (favicons, LENS overview PDF, and the
   `capability-matters-casebook-draft.pdf` — the casebook's 48-case reading
   edition, offered for download under the case examples; CC BY-ND 4.0)
@@ -32,6 +40,13 @@ catalog, events calendar, community roster) lives at
 npm install
 npm run dev      # local dev server
 npm run build    # builds into dist/
+```
+
+Tests are plain-Python file-content assertions (there is no JS test runner here):
+
+```sh
+python3 tests/test_case_studies_sync.py
+python3 tests/test_experiments_page.py
 ```
 
 ## Deploy
