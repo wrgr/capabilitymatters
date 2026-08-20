@@ -26,53 +26,55 @@ const featuredPaper = {
   title: "Show Your Work",
   url: "https://raw.githubusercontent.com/wrgr/lens-concentration/main/papers/show-your-work.pdf",
   description:
-    "A paper from the LENS concentration on making reasoning visible — showing the work behind judgments rather than only the conclusions.",
+    "The grounding argument beneath LENS: professional competence and system capability have to be measured by functional behavior — a work sample scored against a real task — not inferred from a grade, a credit hour, or a test score. Draft, August 2026.",
 };
 
-// Ordered as presented. Descriptions are editorial blurbs — keep them under
-// three sentences to match the site's card copy elsewhere.
+// Ordered as presented. Descriptions say what the thing actually does, in its
+// own terms — check the live site before editing one, since several of these
+// are prototypes whose scope has moved. Two sentences, to match card copy
+// elsewhere on the site.
 const experiments: Experiment[] = [
   {
     title: "LLM101",
     url: "https://capabilitymatters.org/llm101/",
     host: "capabilitymatters.org/llm101",
     description:
-      "A depth-adjustable explainer for large language models — one mechanism shown at five levels of depth — paired with a worked example of capability-first design and an explicit human-AI verification gate.",
+      "Next-token prediction explained at five depths, so a reader can take the level they can actually use rather than the one the author found interesting. The build is written up beside it as a worked example of designing for a capability instead of for coverage.",
   },
   {
     title: "Calibrated Judgment",
     url: "https://calibratedjudgment.org/",
     host: "calibratedjudgment.org",
     description:
-      "A practice environment for sharpening calibrated judgment — making probabilistic estimates and confidence calls, then checking them against outcomes to close the feedback loop.",
+      "Grades an argumentative essay twice — once from the finished text, once from the transcript of the AI dialogue behind it — and reports the gap between them. Every score is anchored to a verbatim quote, and criteria a model should not settle alone route to the instructor, whose override becomes calibration data.",
   },
   {
     title: "ExpertTrace",
     url: "https://experttrace.org",
     host: "experttrace.org",
     description:
-      "A transfer-oriented learning experiment that surfaces expert reasoning traces, so learners can study how experts work through a problem rather than only seeing the final answer.",
+      "An AI mentor working from an operational knowledge corpus — symptom to fault to corrective action, plus the tacit cues experts never write down — that probes a learner through a live scenario at a chosen level of expertise. It assesses on unfamiliar scenarios, because repeating a known pattern is not transfer.",
   },
   {
     title: "NeuroTrailblazers",
     url: "https://neurotrailblazers.org",
     host: "neurotrailblazers.org",
     description:
-      "A research-incubator platform for mapping the brain at synaptic resolution, offering structured training pathways and mentorship that build research-ready skills in connectomics.",
+      "Training and mentorship for nanoscale connectomics: ten technical units from electron-microscopy basics through NeuroAI analysis, a curated journal club, and hands-on work against real datasets including MICrONS and FlyWire. Built for three audiences at once — students, the mentors supporting them, and programs adopting the model.",
   },
   {
-    title: "Pop",
+    title: "POP",
     url: "https://wrgr.github.io/pop",
     host: "wrgr.github.io/pop",
     description:
-      "An experimental prototype exploring interactive learning ideas.",
+      "A soap-bubble physics sandbox: shape a wand, watch the film billow and deform in moving air, then run the whole thing backwards — fit an ellipse to a photo of a real bubble and read the wind speed back out of the shape it left.",
   },
   {
     title: "grayroncal.com",
     url: "https://grayroncal.com",
     host: "grayroncal.com",
     description:
-      "Personal site and portfolio of William Gray Roncal, gathering projects, writing, and experiments in one place.",
+      "Personal site of William Gray Roncal — projects, writing, and the experiments that do not have a domain of their own yet.",
   },
 ];
 ---
