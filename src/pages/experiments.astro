@@ -1,9 +1,10 @@
 ---
 /**
  * Experiments page: a card grid of standalone experimental projects and
- * prototypes, each with a short description and an outbound link. These live at
- * their own domains rather than in the content collections, so the data is a
- * small inline array here rather than an MDX collection + schema change.
+ * prototypes, each with a short description and, unless flagged `comingSoon`,
+ * an outbound link. These live at their own domains rather than in the content
+ * collections, so the data is a small inline array here rather than an MDX
+ * collection + schema change.
  *
  * To add, edit, or remove an experiment, update the `experiments` array below.
  */
@@ -18,6 +19,9 @@ interface Experiment {
   description: string;
   // Short label for the domain, shown under the title (e.g. "calibratedjudgment.org").
   host: string;
+  // Temporary: when true the card renders unlinked with a "Coming soon" label
+  // instead of an outbound link. Drop the flag to put the link back.
+  comingSoon?: boolean;
 }
 
 // A single highlighted item shown as a full-width banner across the top of the
@@ -75,6 +79,7 @@ const experiments: Experiment[] = [
     host: "grayroncal.com",
     description:
       "Personal site of William Gray Roncal — projects, writing, and the experiments that do not have a domain of their own yet.",
+    comingSoon: true,
   },
 ];
 ---
@@ -105,12 +110,16 @@ const experiments: Experiment[] = [
             <span class="format-chip">Experiment</span>
           </div>
           <h3 class="card-title">
-            <a href={exp.url} target="_blank" rel="noopener">{exp.title}</a>
+            {exp.comingSoon
+              ? exp.title
+              : <a href={exp.url} target="_blank" rel="noopener">{exp.title}</a>}
           </h3>
           <p class="card-host">{exp.host}</p>
           <p class="card-summary">{exp.description}</p>
           <p class="card-link">
-            <a href={exp.url} target="_blank" rel="noopener">Visit &rarr;</a>
+            {exp.comingSoon
+              ? <span class="card-soon">Coming soon</span>
+              : <a href={exp.url} target="_blank" rel="noopener">Visit &rarr;</a>}
           </p>
         </article>
       ))}
@@ -241,6 +250,12 @@ const experiments: Experiment[] = [
     color: var(--accent);
   }
   .card-link a:hover { text-decoration: underline; }
+  .card-soon {
+    font-family: var(--sans);
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
 
   @media (max-width: 520px) {
     .card { padding: .95rem 1rem; }
