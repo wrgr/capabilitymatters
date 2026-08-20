@@ -39,6 +39,13 @@ def test_experiments_page_lists_each_experiment() -> None:
         assert url in page, f"experiment link missing: {url}"
 
 
+def test_grayroncal_is_coming_soon() -> None:
+    """grayroncal.com is listed but temporarily unlinked, labelled Coming soon."""
+    page = _read("pages/experiments.astro")
+    assert "comingSoon: true," in page, "grayroncal.com not flagged coming soon"
+    assert "Coming soon" in page, "coming-soon label missing from card markup"
+
+
 def test_experiments_linked_from_nav() -> None:
     """The top nav links to the experiments tab."""
     nav = _read("components/NavBar.astro")
@@ -57,6 +64,7 @@ def test_featured_paper_banner() -> None:
 if __name__ == "__main__":
     test_experiments_page_exists()
     test_experiments_page_lists_each_experiment()
+    test_grayroncal_is_coming_soon()
     test_experiments_linked_from_nav()
     test_featured_paper_banner()
     print("experiments page OK")
