@@ -1,0 +1,395 @@
+<!doctype html>
+<!--
+  LENS one-page slick sheet — print source for public/LENS_Overview_Aug2026.pdf.
+
+  Replaces the text-dense Word-exported white paper (LENS_Overview_May2026.pdf)
+  the homepage used to link. Kept as HTML rather than a binary so the copy stays
+  greppable and reviewable in diffs; scripts/build-slick-sheet.sh renders it to a
+  single US-Letter page with headless Chromium. Fonts are local files
+  (slick-sheet/fonts/) so the render does not depend on network access.
+
+  Copy of record: lens_program/1_LENS_Five_Competencies.md (v2.5 competency
+  names, order, and taglines) and lens_program/2_LENS_Objectives_Course_Mapping.md
+  sections 1-2 (program structure, the high-consequence definition, the
+  representative seven domains), in the sibling lens-concentration repo. Update
+  this file when those move.
+
+  The layout is a fixed 8.5x11in flex column: header, two-column body, domains
+  band, evidence strip, footer. Every block is sized to fit that column exactly
+  once — adding copy anywhere pushes content off the page rather than onto a
+  second one, so re-render and check the page count after any edit.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>LENS — Learning Engineering for Next-Generation Systems</title>
+<style>
+  /* Single Letter page, no printer margin: the navy header and footer bleed to
+     the trim edge, so all padding is applied inside the page element. */
+  @page { size: 8.5in 11in; margin: 0; }
+
+  @font-face {
+    font-family: "Instrument Serif";
+    font-style: normal; font-weight: 400; font-display: block;
+    src: url("fonts/instrument-serif-latin.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Instrument Serif";
+    font-style: italic; font-weight: 400; font-display: block;
+    src: url("fonts/instrument-serif-italic-latin.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "DM Sans";
+    font-style: normal; font-weight: 300 700; font-display: block;
+    src: url("fonts/dm-sans-latin.woff2") format("woff2");
+  }
+
+  :root {
+    --navy: #0a1628;
+    --teal: #1a8a7d;
+    --teal-light: #2cc4b3;
+    --gold: #d4a843;
+    --cream: #f5f0e8;
+    --ink: #1a2233;
+    --ink-soft: #46516a;
+    --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+    --sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sheet {
+    width: 8.5in;
+    height: 11in;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ---------- header ---------- */
+  .head {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 0.32in 0.5in 0.24in;
+    position: relative;
+  }
+  .head::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0; height: 3pt;
+    background: linear-gradient(90deg, var(--teal) 0%, var(--teal-light) 55%, var(--gold) 100%);
+  }
+  .head-top {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 0.3in; margin-bottom: 0.13in;
+  }
+  .brand { display: flex; align-items: baseline; gap: 0.11in; }
+  .brand-mark {
+    font-weight: 700; font-size: 14pt; letter-spacing: 0.16em;
+    color: var(--teal-light);
+  }
+  .brand-text {
+    font-size: 7.6pt; font-weight: 400; letter-spacing: 0.11em;
+    text-transform: uppercase; color: #9fb0c9;
+  }
+  .badge {
+    font-size: 7.4pt; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--navy); background: var(--gold);
+    padding: 3pt 8pt; border-radius: 2pt; font-weight: 500; white-space: nowrap;
+  }
+  .head h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 33pt; line-height: 1.02; margin: 0 0 0.1in;
+  }
+  .head h1 em { font-style: italic; color: var(--teal-light); }
+  .head-sub {
+    font-size: 9.4pt; line-height: 1.36; font-weight: 300;
+    color: #cfd8e6; margin: 0; max-width: 6.1in;
+  }
+
+  /* ---------- body: main + sidebar ---------- */
+  .body {
+    display: flex;
+    gap: 0.3in;
+    padding: 0.2in 0.5in 0.05in;
+  }
+  .main { flex: 1 1 auto; min-width: 0; }
+  .side { flex: 0 0 2.5in; }
+
+  h2.rule {
+    font-size: 7.6pt; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--teal);
+    margin: 0 0 0.08in; padding-bottom: 3pt;
+    border-bottom: 0.75pt solid rgba(26, 138, 125, 0.35);
+  }
+  p { margin: 0 0 0.1in; font-size: 8.9pt; line-height: 1.44; }
+  .lede {
+    font-family: var(--serif); font-size: 14pt; line-height: 1.18;
+    margin: 0 0 0.09in; color: var(--navy);
+  }
+  .lede em { font-style: italic; color: var(--teal); }
+  .block { margin-bottom: 0.17in; }
+  .block:last-child { margin-bottom: 0; }
+
+  /* five competencies */
+  .comps { margin: 0; padding: 0; list-style: none; }
+  .comps li {
+    display: flex; gap: 0.1in; align-items: baseline;
+    padding: 2.4pt 0;
+    border-bottom: 0.5pt solid #e4e0d8;
+  }
+  .comps li:last-child { border-bottom: 0; }
+  .comps .n {
+    font-family: var(--serif); font-size: 13pt; color: var(--teal-light);
+    width: 0.16in; flex: 0 0 auto; text-align: right; line-height: 1;
+  }
+  .comps .name { font-size: 9pt; font-weight: 700; color: var(--navy); }
+  .comps .tag {
+    font-family: var(--serif); font-style: italic;
+    font-size: 9.4pt; color: var(--teal); margin-left: 4pt;
+  }
+  .comps .what { font-size: 8.1pt; line-height: 1.3; color: var(--ink-soft); margin-top: 1pt; }
+  .breath {
+    font-family: var(--serif); font-style: italic; font-size: 10pt;
+    color: var(--navy); text-align: center;
+    margin: 0.1in 0 0; padding-top: 0.07in;
+    border-top: 0.75pt solid var(--gold);
+  }
+
+  /* sidebar */
+  .panel {
+    background: var(--cream);
+    border-left: 2.5pt solid var(--teal);
+    padding: 0.13in 0.15in;
+    margin-bottom: 0.15in;
+  }
+  .panel:last-child { margin-bottom: 0; }
+  .panel h3 {
+    font-size: 7.6pt; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--navy); margin: 0 0 0.07in;
+  }
+  .facts { margin: 0; padding: 0; list-style: none; }
+  .facts li {
+    font-size: 8.1pt; line-height: 1.32; padding: 2.4pt 0;
+    border-bottom: 0.5pt solid #e0d9cb;
+  }
+  .facts li:last-child { border-bottom: 0; }
+  .facts .k {
+    display: block; font-size: 6.7pt; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--teal); font-weight: 700;
+  }
+  .panel p { font-size: 8.1pt; line-height: 1.36; margin: 0 0 0.06in; }
+  .panel p:last-child { margin-bottom: 0; }
+
+  /* ---------- domains band ---------- */
+  .domains {
+    padding: 0.08in 0.5in 0.11in;
+    display: flex; align-items: flex-start; gap: 0.22in;
+  }
+  .domains .label {
+    flex: 0 0 1.35in;
+    font-size: 7.6pt; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--teal); padding-top: 2pt;
+  }
+  .domains .label span {
+    display: block; font-size: 7.4pt; font-weight: 400; letter-spacing: 0;
+    text-transform: none; color: #8a8272; font-style: italic; margin-top: 2pt;
+  }
+  .domains .defn { font-size: 8.2pt; line-height: 1.34; margin: 0 0 0.06in; }
+  .chips { display: flex; flex-wrap: wrap; gap: 3pt; }
+  .chip {
+    font-size: 7.1pt; line-height: 1.25; color: var(--navy);
+    background: var(--cream); border: 0.5pt solid #d8cfba;
+    padding: 1.6pt 5.5pt; border-radius: 8pt;
+  }
+
+  /* ---------- evidence strip ---------- */
+  .evidence {
+    margin-top: auto;
+    display: flex; gap: 0.24in;
+    padding: 0.12in 0.5in 0.13in;
+    background: var(--cream);
+    border-top: 0.75pt solid #e0d9cb;
+  }
+  .ev { flex: 1 1 0; }
+  .ev .num {
+    font-family: var(--serif); font-size: 18pt; line-height: 1;
+    color: var(--navy);
+  }
+  .ev .unit {
+    font-size: 6.8pt; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--teal); font-weight: 700; margin: 2.5pt 0 3pt;
+  }
+  .ev p { font-size: 7.2pt; line-height: 1.28; margin: 0 0 3pt; color: var(--ink-soft); }
+  .ev .cite { font-size: 6.4pt; color: #8a8272; font-style: italic; }
+
+  /* ---------- footer ---------- */
+  .foot {
+    background: var(--navy); color: #cfd8e6;
+    padding: 0.13in 0.5in;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 0.2in;
+    font-size: 7.8pt;
+  }
+  .foot a { color: var(--teal-light); text-decoration: none; }
+  .foot .site { font-size: 9.2pt; font-weight: 500; color: #fff; letter-spacing: 0.02em; }
+  .foot .contacts { text-align: right; line-height: 1.45; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="head">
+    <div class="head-top">
+      <div class="brand">
+        <span class="brand-mark">LENS</span>
+        <span class="brand-text">Learning Engineering for Next-Generation Systems</span>
+      </div>
+      <span class="badge">Founding cohort · August 2026</span>
+    </div>
+    <h1>Capability is a <em>system parameter</em>.</h1>
+    <p class="head-sub">
+      Every complex system depends on what people can do inside it. That dependency is
+      measurable, designable, and too important to leave to chance. LENS is the Johns Hopkins
+      concentration that engineers it.
+    </p>
+  </header>
+
+  <div class="body">
+    <main class="main">
+
+      <section class="block">
+        <h2 class="rule">The problem</h2>
+        <p class="lede">Systems don't fail because the technology breaks. They fail because <em>someone couldn't do what the system required.</em></p>
+        <p>
+          Hardware gets reliability analysis. Software gets tested to specification. Human
+          capability gets a training program bolted on at the end — and when the system
+          underperforms, no one can say whether the gap sat in the people, the design, or the
+          organization around both. LENS treats capability as the interface between what a system
+          demands of its people and the impact it delivers — an interface that can be specified,
+          instrumented, measured, and engineered.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2 class="rule">The five competencies</h2>
+        <ul class="comps">
+          <li>
+            <span class="n">1</span>
+            <span>
+              <span class="name">Systems Analysis</span><span class="tag">see the whole system</span>
+              <div class="what">Trace how human capability and system performance depend on each other.</div>
+            </span>
+          </li>
+          <li>
+            <span class="n">2</span>
+            <span>
+              <span class="name">Iterative Development</span><span class="tag">build, test, refine</span>
+              <div class="what">Build through engineering cycles that survive contact with real operations.</div>
+            </span>
+          </li>
+          <li>
+            <span class="n">3</span>
+            <span>
+              <span class="name">Human-System Collaboration</span><span class="tag">work together</span>
+              <div class="what">Design partnerships — human-AI among them — that keep people in command.</div>
+            </span>
+          </li>
+          <li>
+            <span class="n">4</span>
+            <span>
+              <span class="name">Test and Evaluation</span><span class="tag">show what works</span>
+              <div class="what">Produce decision-grade evidence; tell a learning gap from a system gap.</div>
+            </span>
+          </li>
+          <li>
+            <span class="n">5</span>
+            <span>
+              <span class="name">Navigating Sociotechnical Constraints</span><span class="tag">make it work in the real world</span>
+              <div class="what">Fit the design to the constraints that decide whether it survives in the field.</div>
+            </span>
+          </li>
+        </ul>
+        <p class="breath">See the whole system. Build, test, refine. Work together. Show what works. Make it work in the real world.</p>
+      </section>
+
+    </main>
+
+    <aside class="side">
+      <div class="panel">
+        <h3>The program</h3>
+        <ul class="facts">
+          <li><span class="k">Degree</span>M.Ed. in Learning Design &amp; Technology — LENS concentration, Johns Hopkins School of Education with the Applied Physics Laboratory</li>
+          <li><span class="k">Format</span>Online and asynchronous, part-time, built for working professionals</li>
+          <li><span class="k">Scope</span>10 courses · 30 credits · six LENS-designed, the capstone among them</li>
+          <li><span class="k">Capstone</span>An end-to-end project on a real capability problem at a partner organization</li>
+          <li><span class="k">Standards</span>Aligned to the emerging IEEE ICICLE learning engineering competencies</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h3>Who it's for</h3>
+        <p>Two audiences, equally: education and training professionals moving toward systems practice, and engineers and technical professionals moving toward learning design.</p>
+        <p>No one carries every tool of the field. LENS develops integrators who can lead and work within a learning engineering team.</p>
+      </div>
+    </aside>
+  </div>
+
+  <section class="domains">
+    <div class="label">Where it applies<span>Representative, not exhaustive</span></div>
+    <div>
+      <p class="defn">A domain is <strong>high-consequence</strong> when the cost of a capability gap is paid by people who did not choose the risk, and the payment is not fully recoverable.</p>
+      <div class="chips">
+        <span class="chip">Healthcare &amp; patient safety</span>
+        <span class="chip">Education, training &amp; the learning workforce</span>
+        <span class="chip">Aviation &amp; aerospace</span>
+        <span class="chip">Defense &amp; national security</span>
+        <span class="chip">Industry, energy &amp; enterprise systems</span>
+        <span class="chip">Disaster prevention &amp; recovery</span>
+        <span class="chip">Algorithms, governance &amp; public systems</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="evidence">
+    <div class="ev">
+      <div class="num">250K+</div>
+      <div class="unit">deaths a year, contested estimate</div>
+      <p>attributed to medical error in the U.S. The figure is disputed; what it counts is not individual mistakes but system-wide failings and poorly coordinated care.</p>
+      <div class="cite">Makary &amp; Daniel, <em>BMJ</em>, 2016 · Johns Hopkins</div>
+    </div>
+    <div class="ev">
+      <div class="num">~10 yr</div>
+      <div class="unit">of unmet training requirements</div>
+      <p>The Marine Corps has been unable to meet training requirements in the Indo-Pacific — the theater the National Defense Strategy designates as the department's top priority.</p>
+      <div class="cite">GAO-24-107463 · 2022 National Defense Strategy</div>
+    </div>
+    <div class="ev">
+      <div class="num">$100M</div>
+      <div class="unit">spent, then shut down in 14 months</div>
+      <p>inBloom collapsed not because the technology failed, but because governance, privacy, and stakeholder trust were treated as afterthoughts rather than design constraints.</p>
+      <div class="cite">Data &amp; Society, 2017 · nine states withdrew</div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div>
+      <div class="site">capabilitymatters.org</div>
+      <div>Case material, field notes, and the <em>Capability Matters</em> casebook</div>
+    </div>
+    <div class="contacts">
+      Jim Diamond · <a href="mailto:jpd@jhu.edu">jpd@jhu.edu</a><br />
+      Will Gray-Roncal · <a href="mailto:wgr@jhu.edu">wgr@jhu.edu</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

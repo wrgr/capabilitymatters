@@ -8,7 +8,9 @@ const base = import.meta.env.BASE_URL;
 const LENS_PROGRAM_URL =
   "https://education.jhu.edu/masters-programs/master-of-education-in-learning-design-and-technology/learning-engineering-next-generation-systems-concentration/";
 const LECOMMONS_URL = "https://lecommons.org";
-const OVERVIEW_PDF_URL = base + "LENS_Overview_May2026.pdf";
+// One-page slick sheet, rendered from slick-sheet/lens-slick-sheet.html by
+// scripts/build-slick-sheet.sh. Replaces the May 2026 white-paper overview.
+const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
 ---
 
 <Base
@@ -143,7 +145,7 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_May2026.pdf";
       <a href={LECOMMONS_URL} class="cta-btn secondary" target="_blank" rel="noopener">Explore the wider learning engineering field</a>
     </div>
     <p class="cta-tertiary reveal">
-      <a href={OVERVIEW_PDF_URL} target="_blank" rel="noopener">Download the LENS one-page overview (PDF)</a>
+      <a href={OVERVIEW_PDF_URL} target="_blank" rel="noopener">Download the one-page LENS overview (PDF)</a>
     </p>
   </section>
 </Base>
