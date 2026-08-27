@@ -8,11 +8,11 @@ const base = import.meta.env.BASE_URL;
 const LENS_PROGRAM_URL =
   "https://education.jhu.edu/masters-programs/master-of-education-in-learning-design-and-technology/learning-engineering-next-generation-systems-concentration/";
 const LECOMMONS_URL = "https://lecommons.org";
-// The two print sheets, both rendered from slick-sheet/ by
-// scripts/build-slick-sheet.sh: the one-page overview (which replaced the May
-// 2026 white paper) and its two-page companion on what the work actually is.
+// One-page slick sheet, rendered from slick-sheet/lens-slick-sheet.html by
+// scripts/build-slick-sheet.sh. Replaces the May 2026 white-paper overview.
+// The two-page companion is deliberately not linked here yet — it lives
+// unlisted at about/what-you-will-do/ until the program announces it.
 const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
-const COMPANION_PDF_URL = base + "LENS_What_You_Will_Do_Aug2026.pdf";
 ---
 
 <Base
@@ -148,8 +148,6 @@ const COMPANION_PDF_URL = base + "LENS_What_You_Will_Do_Aug2026.pdf";
     </div>
     <p class="cta-tertiary reveal">
       <a href={OVERVIEW_PDF_URL} target="_blank" rel="noopener">Download the one-page LENS overview (PDF)</a>
-      <span class="cta-sep" aria-hidden="true">·</span>
-      <a href={COMPANION_PDF_URL} target="_blank" rel="noopener">What you'll actually do (PDF)</a>
     </p>
   </section>
 </Base>
@@ -469,12 +467,6 @@ const COMPANION_PDF_URL = base + "LENS_What_You_Will_Do_Aug2026.pdf";
     color: var(--hp-text-muted);
     max-width: none;
     position: relative;
-  }
-  /* Separator between the two sheet links; hidden from assistive tech since it
-     carries no meaning of its own. */
-  .cta-sep {
-    margin: 0 0.6rem;
-    opacity: 0.5;
   }
   .cta-tertiary a {
     color: var(--hp-text-muted);

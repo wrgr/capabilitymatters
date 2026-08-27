@@ -14,7 +14,11 @@ catalog, events calendar, community roster) lives at
 ## Layout
 
 - `src/pages/` — routes: `index` (homepage), `about`, `field-notes`, `llm101`,
-  `case-studies` (index + `[slug]` detail pages)
+  `case-studies` (index + `[slug]` detail pages), and
+  `about/what-you-will-do` — the web edition of the companion sheet, **live but
+  unlisted**: `noindex`, no nav entry, no homepage link, meant to be handed out
+  as a URL until the program announces it. To launch it, drop the robots meta,
+  add the links, and delete `test_companion_page_is_unlisted`.
 - `src/content/field-notes/` — MDX collection: short editorial posts in the LENS voice
 - `src/content/case-studies/` — MDX collection: LENS case studies drawn from
   *Capability Matters: A Casebook* (one failure + one success per topical part). Each

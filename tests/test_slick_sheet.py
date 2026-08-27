@@ -1,4 +1,4 @@
-"""Guard the LENS print sheets and the homepage links to their rendered PDFs.
+"""Guard the LENS print sheets, their web edition, and the links to their rendered PDFs.
 
 File-content assertions (there is no JS test runner in this repo): they pin the
 print sources, their vendored fonts, the generated PDFs and their page counts,
@@ -14,6 +14,7 @@ REPO_ROOT = Path(__file__).parent.parent
 SRC_DIR = REPO_ROOT / "slick-sheet"
 OVERVIEW = SRC_DIR / "lens-slick-sheet.html"
 COMPANION = SRC_DIR / "lens-what-you-will-do.html"
+COMPANION_PAGE = REPO_ROOT / "src" / "pages" / "about" / "what-you-will-do.astro"
 
 # source -> (rendered PDF, expected page count). Mirrors the table in
 # scripts/build-slick-sheet.sh; the two must not drift apart.
@@ -97,12 +98,41 @@ def test_companion_addresses_both_sibling_concentrations() -> None:
     assert "capstone" in html.lower(), "companion does not mention the capstone"
 
 
-def test_homepage_links_both_sheets() -> None:
-    """The homepage CTA points at the PDFs the build script actually writes."""
+def test_homepage_links_the_overview() -> None:
+    """The homepage CTA points at the overview PDF the build script writes."""
     page = (REPO_ROOT / "src" / "pages" / "index.astro").read_text(encoding="utf-8")
-    for _, (pdf, _) in SHEETS.items():
-        assert pdf.name in page, f"homepage does not link {pdf.name}"
+    assert "LENS_Overview_Aug2026.pdf" in page, "homepage does not link the overview PDF"
     assert "LENS_Overview_May2026.pdf" not in page, "homepage still links the superseded overview"
+
+
+def test_companion_page_carries_the_same_content() -> None:
+    """The web edition of the companion exists and says what the PDF says."""
+    page = COMPANION_PAGE.read_text(encoding="utf-8")
+    assert "LENS_What_You_Will_Do_Aug2026.pdf" in page, "companion page does not offer the PDF"
+    for phrase in (
+        "learning experience design",
+        "AI leadership in education",
+        "Attribute the gap",
+        "capstone",
+    ):
+        assert phrase in page, f"companion page is missing: {phrase}"
+
+
+def test_companion_page_is_unlisted() -> None:
+    """The page is live but deliberately not surfaced yet.
+
+    Delete this test when the program announces it — at which point the
+    robots meta comes off and the nav/homepage links go on.
+    """
+    page = COMPANION_PAGE.read_text(encoding="utf-8")
+    assert 'content="noindex' in page, "unlisted page lost its noindex"
+    nav = (REPO_ROOT / "src" / "components" / "NavBar.astro").read_text(encoding="utf-8")
+    home = (REPO_ROOT / "src" / "pages" / "index.astro").read_text(encoding="utf-8")
+    # Match the route in link position only — both files mention it in comments
+    # explaining that it is deliberately not linked.
+    linked = re.compile(r"""(href=|url\s*=|\bhref\b)[^\n]{0,80}what-you-will-do""")
+    for name, source in (("nav", nav), ("homepage", home)):
+        assert not linked.search(source), f"companion page is linked from the {name}"
 
 
 if __name__ == "__main__":
@@ -112,5 +142,7 @@ if __name__ == "__main__":
     test_fonts_are_vendored()
     test_overview_carries_the_five_competencies()
     test_companion_addresses_both_sibling_concentrations()
-    test_homepage_links_both_sheets()
+    test_homepage_links_the_overview()
+    test_companion_page_carries_the_same_content()
+    test_companion_page_is_unlisted()
     print("print sheets OK")
