@@ -14,7 +14,11 @@ catalog, events calendar, community roster) lives at
 ## Layout
 
 - `src/pages/` — routes: `index` (homepage), `about`, `field-notes`, `llm101`,
-  `case-studies` (index + `[slug]` detail pages)
+  `case-studies` (index + `[slug]` detail pages), and
+  `about/what-you-will-do` — the web edition of the companion sheet, **live but
+  unlisted**: `noindex`, no nav entry, no homepage link, meant to be handed out
+  as a URL until the program announces it. To launch it, drop the robots meta,
+  add the links, and delete `test_companion_page_is_unlisted`.
 - `src/content/field-notes/` — MDX collection: short editorial posts in the LENS voice
 - `src/content/case-studies/` — MDX collection: LENS case studies drawn from
   *Capability Matters: A Casebook* (one failure + one success per topical part). Each
@@ -30,9 +34,12 @@ catalog, events calendar, community roster) lives at
   casebook revision pass corrects a fact, the site-voice lead beside the frontmatter is
   corrected in the same pass. The objective tier is **LEO** (LENS Educational
   Objective), per `lens_program/2_*` v2.3; `CLO` now names the course tier below it.
-- `public/` — static assets (favicons, LENS overview PDF, and the
-  `capability-matters-casebook-draft.pdf` — the casebook's 48-case reading
-  edition, offered for download under the case examples; CC BY-ND 4.0)
+- `public/` — static assets (favicons, the two LENS sheets linked from the
+  homepage — `LENS_Overview_Aug2026.pdf` and `LENS_What_You_Will_Do_Aug2026.pdf`
+  — and the `capability-matters-casebook-draft.pdf`, the casebook's 48-case
+  reading edition, offered for download under the case examples; CC BY-ND 4.0)
+- `slick-sheet/` — print sources for those PDFs: one self-contained HTML file
+  each, plus the web fonts they share (see "Print sheets" below)
 
 ## Develop
 
@@ -47,7 +54,36 @@ Tests are plain-Python file-content assertions (there is no JS test runner here)
 ```sh
 python3 tests/test_case_studies_sync.py
 python3 tests/test_experiments_page.py
+python3 tests/test_slick_sheet.py
 ```
+
+## Print sheets
+
+Both PDFs the homepage links are generated, not hand-placed:
+
+| Source (`slick-sheet/`) | Output (`public/`) | Pages |
+|---|---|---|
+| `lens-slick-sheet.html` | `LENS_Overview_Aug2026.pdf` | 1 |
+| `lens-what-you-will-do.html` | `LENS_What_You_Will_Do_Aug2026.pdf` | 2 |
+
+Edit the copy in the HTML source and re-render:
+
+```sh
+./scripts/build-slick-sheet.sh                      # both sheets
+./scripts/build-slick-sheet.sh lens-slick-sheet     # just one
+CHROME=/path/to/chrome ./scripts/build-slick-sheet.sh
+```
+
+The script needs a Chromium or Chrome binary (it probes `PLAYWRIGHT_BROWSERS_PATH`,
+`chromium`, `chromium-browser`, and `google-chrome`); no npm dependency is added.
+Each sheet is laid out to fill its pages exactly, so check the rendered page count
+after any copy change — added lines push content off a page rather than onto a new
+one. Competency names, program facts, course descriptions and assignments, and the
+entering/leaving pairs come from `lens_program/` in the sibling
+`wrgr/lens-concentration` repo (docs 1, 2, 5, 7 and the LEN 01 syllabus); keep them
+in sync with the versions of record there. The fonts under `slick-sheet/fonts/` are
+the latin subsets of Instrument Serif and DM Sans (SIL Open Font License), vendored
+so the render works offline.
 
 ## Deploy
 

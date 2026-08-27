@@ -1,0 +1,474 @@
+<!doctype html>
+<!--
+  "What you'll actually do" — two-page companion to the LENS slick sheet,
+  print source for public/LENS_What_You_Will_Do_Aug2026.pdf.
+
+  Written for info sessions, where the recurring question is not what LENS
+  believes but what a student does week to week — and where people arriving
+  from the sibling LDT concentrations (LXD, AILE) need the difference stated
+  in their own terms. Page 1 walks one capability problem end to end and names
+  the artifact produced at each step; page 2 covers the two crossings, the
+  entering/leaving deltas, the value proposition, and the courses.
+
+  Copy of record: lens_program/2_LENS_Objectives_Course_Mapping.md (sections 1,
+  2, 5), lens_program/5_LENS_Summary_and_PrePost_Objectives.md (the seven
+  pre/post pairs, quoted closely), and
+  lens_program/syllabi/LEN01_Principles_Syllabus.docx (assignments and their
+  deliverables), in the sibling lens-concentration repo. The LXD boundary
+  ("the sibling LXD concentration owns production") is from
+  lens_program/7_LENS_ICICLE_Essential_Competencies_Crosswalk.md.
+
+  Layout is two fixed 8.5x11in pages, as with the slick sheet: copy added
+  anywhere pushes content off a page rather than onto a third one, so
+  re-render and check the page count after any edit.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>LENS — What you'll actually do</title>
+<style>
+  @page { size: 8.5in 11in; margin: 0; }
+
+  @font-face {
+    font-family: "Instrument Serif";
+    font-style: normal; font-weight: 400; font-display: block;
+    src: url("fonts/instrument-serif-latin.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Instrument Serif";
+    font-style: italic; font-weight: 400; font-display: block;
+    src: url("fonts/instrument-serif-italic-latin.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "DM Sans";
+    font-style: normal; font-weight: 300 700; font-display: block;
+    src: url("fonts/dm-sans-latin.woff2") format("woff2");
+  }
+
+  :root {
+    --navy: #0a1628;
+    --teal: #1a8a7d;
+    --teal-light: #2cc4b3;
+    --gold: #d4a843;
+    --cream: #f5f0e8;
+    --ink: #1a2233;
+    --ink-soft: #46516a;
+    --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+    --sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sheet {
+    width: 8.5in;
+    height: 11in;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+  .sheet + .sheet { break-before: page; }
+
+  /* ---------- headers ---------- */
+  .head {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 0.3in 0.5in 0.24in;
+    position: relative;
+  }
+  .head::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0; height: 3pt;
+    background: linear-gradient(90deg, var(--teal) 0%, var(--teal-light) 55%, var(--gold) 100%);
+  }
+  .head-top {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 0.3in; margin-bottom: 0.12in;
+  }
+  .brand { display: flex; align-items: baseline; gap: 0.11in; }
+  .brand-mark {
+    font-weight: 700; font-size: 13pt; letter-spacing: 0.16em; color: var(--teal-light);
+  }
+  .brand-text {
+    font-size: 7.4pt; letter-spacing: 0.11em; text-transform: uppercase; color: #9fb0c9;
+  }
+  .kicker {
+    font-size: 7.4pt; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--gold); white-space: nowrap;
+  }
+  .head h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 30pt; line-height: 1.03; margin: 0 0 0.09in;
+  }
+  .head h1 em { font-style: italic; color: var(--teal-light); }
+  .head-sub {
+    font-size: 9.2pt; line-height: 1.38; font-weight: 300;
+    color: #cfd8e6; margin: 0; max-width: 6.5in;
+  }
+  .head.slim { padding: 0.2in 0.5in 0.17in; }
+  .head.slim h1 { font-size: 20pt; margin: 0.06in 0 0; }
+
+  /* ---------- shared blocks ---------- */
+  .pad { padding: 0.22in 0.5in 0; }
+  h2.rule {
+    font-size: 7.6pt; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--teal);
+    margin: 0 0 0.09in; padding-bottom: 3pt;
+    border-bottom: 0.75pt solid rgba(26, 138, 125, 0.35);
+  }
+  p { margin: 0 0 0.1in; font-size: 8.9pt; line-height: 1.44; }
+  p:last-child { margin-bottom: 0; }
+  .block { margin-bottom: 0.16in; }
+  strong { font-weight: 700; }
+
+  /* ---------- page 1: the walk-through ---------- */
+  .shift { display: flex; gap: 0.3in; align-items: flex-start; }
+  .shift .big {
+    font-family: var(--serif); font-size: 15pt; line-height: 1.16;
+    color: var(--navy); flex: 1 1 3.5in; margin: 0;
+  }
+  .shift .big em { font-style: italic; color: var(--teal); }
+  .shift .note { flex: 1 1 3.3in; }
+
+  .steps { width: 100%; border-collapse: collapse; }
+  .steps th {
+    font-size: 6.9pt; letter-spacing: 0.11em; text-transform: uppercase;
+    color: var(--teal); font-weight: 700; text-align: left;
+    padding: 0 0 3.5pt; border-bottom: 0.75pt solid rgba(26,138,125,0.35);
+  }
+  .steps td { padding: 3.7pt 0; border-bottom: 0.5pt solid #e4e0d8; vertical-align: top; }
+  .steps tr:last-child td { border-bottom: 0; }
+  .steps .c-step { width: 1.42in; padding-right: 0.1in; }
+  .steps .c-do { padding-right: 0.14in; }
+  .steps .c-make { width: 2.02in; }
+  .steps .n {
+    font-family: var(--serif); font-size: 11.5pt; color: var(--teal-light);
+    margin-right: 4pt;
+  }
+  .steps .step-name { font-size: 8.6pt; font-weight: 700; color: var(--navy); }
+  .steps .do { font-size: 8.1pt; line-height: 1.34; color: var(--ink-soft); }
+  .steps .make { font-size: 8.1pt; line-height: 1.3; color: var(--navy); }
+  .steps .where {
+    display: block; font-size: 6.8pt; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--teal); font-weight: 700; margin-top: 1.5pt;
+  }
+
+  .callout {
+    margin-top: auto;
+    background: var(--cream); border-top: 0.75pt solid #e0d9cb;
+    padding: 0.13in 0.5in 0.14in;
+    display: flex; gap: 0.28in;
+  }
+  .callout .col { flex: 1 1 0; }
+  .callout h4 {
+    font-size: 7.2pt; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); margin: 0 0 3.5pt; font-weight: 700;
+  }
+  .callout p { font-size: 7.7pt; line-height: 1.32; margin: 0; color: var(--ink-soft); }
+
+  /* ---------- page 2: crossings, deltas, value ---------- */
+  .two { display: flex; gap: 0.3in; }
+  .two > * { flex: 1 1 0; }
+  .card {
+    background: var(--cream); border-left: 2.5pt solid var(--teal);
+    padding: 0.13in 0.15in;
+  }
+  .card h3 {
+    font-size: 8.6pt; font-weight: 700; color: var(--navy); margin: 0 0 0.06in;
+  }
+  .card p { font-size: 8.1pt; line-height: 1.38; margin: 0 0 0.06in; }
+  .card .lbl {
+    font-size: 6.8pt; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); font-weight: 700;
+  }
+
+  .deltas { width: 100%; border-collapse: collapse; }
+  .deltas th {
+    font-size: 6.9pt; letter-spacing: 0.11em; text-transform: uppercase;
+    font-weight: 700; text-align: left; padding: 0 0 3.5pt;
+    border-bottom: 0.75pt solid rgba(26,138,125,0.35); color: var(--teal);
+  }
+  .deltas td {
+    font-size: 8.1pt; line-height: 1.32; padding: 3.6pt 0;
+    border-bottom: 0.5pt solid #e4e0d8; vertical-align: top;
+  }
+  .deltas tr:last-child td { border-bottom: 0; }
+  .deltas .from { width: 3.05in; padding-right: 0.16in; color: #77808f; }
+  .deltas .to { color: var(--navy); }
+  .deltas .to strong { color: var(--navy); }
+
+  .value { margin: 0; padding: 0; list-style: none; display: flex; gap: 0.26in; }
+  .value li { flex: 1 1 0; }
+  .value .vh {
+    font-family: var(--serif); font-size: 12pt; line-height: 1.12;
+    color: var(--navy); margin-bottom: 3pt;
+  }
+  .value p { font-size: 7.9pt; line-height: 1.34; color: var(--ink-soft); }
+
+  .courses { margin: 0; padding: 0; list-style: none; }
+  .courses li {
+    font-size: 7.9pt; line-height: 1.3; padding: 2pt 0;
+    border-bottom: 0.5pt solid #e4e0d8;
+  }
+  .courses li:last-child { border-bottom: 0; }
+  .courses .code { font-weight: 700; color: var(--navy); }
+  .courses .ttl { color: var(--navy); }
+
+  .courses.two-up { column-count: 2; column-gap: 0.3in; }
+  .courses.two-up li { break-inside: avoid; }
+
+  .faq { margin: 0; padding: 0; list-style: none; }
+  .faq.faq-row { display: flex; gap: 0.28in; }
+  .faq.faq-row li { flex: 1 1 0; margin-bottom: 0; }
+  .faq li { margin-bottom: 0.09in; }
+  .faq li:last-child { margin-bottom: 0; }
+  .faq .q { font-size: 8.1pt; font-weight: 700; color: var(--navy); }
+  .faq .a { font-size: 8.1pt; line-height: 1.36; color: var(--ink-soft); }
+
+  /* ---------- footer ---------- */
+  .foot {
+    margin-top: auto;                    /* hold the bar at the trim edge */
+    background: var(--navy); color: #cfd8e6;
+    padding: 0.13in 0.5in;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 0.2in; font-size: 7.8pt;
+  }
+  .foot a { color: var(--teal-light); text-decoration: none; }
+  .foot .site { font-size: 9.2pt; font-weight: 500; color: #fff; }
+  .foot .contacts { text-align: right; line-height: 1.45; }
+</style>
+</head>
+<body>
+
+<!-- ============================ PAGE 1 ============================ -->
+<div class="sheet">
+  <header class="head">
+    <div class="head-top">
+      <div class="brand">
+        <span class="brand-mark">LENS</span>
+        <span class="brand-text">Learning Engineering for Next-Generation Systems</span>
+      </div>
+      <span class="kicker">Companion to the one-page overview</span>
+    </div>
+    <h1>What you'll <em>actually do</em></h1>
+    <p class="head-sub">
+      The question that comes up in every information session: not what LENS believes, but what
+      a student does. This is the work — one capability problem carried end to end, and the
+      artifact you produce at each step.
+    </p>
+  </header>
+
+  <div class="pad">
+    <section class="block shift">
+      <p class="big">LENS is not another way to build a course. The unit of work is the
+        <em>system</em>, and the deliverable is <em>evidence</em>.</p>
+      <div class="note">
+        <p>You still design. But you design against a capability requirement decomposed from
+        what the system has to deliver, you instrument what you build, and you report what the
+        evidence forced you to change. The first move of the work is deciding whether a
+        learning intervention is the right answer at all.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="rule">One problem, end to end</h2>
+      <table class="steps">
+        <thead>
+          <tr><th class="c-step">The step</th><th class="c-do">What you do</th><th class="c-make">What you produce</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="c-step"><span class="n">1</span><span class="step-name">Frame it</span></td>
+            <td class="c-do"><div class="do">Sit with the people doing the work. Separate the complaint from the failure, and restate the request as a system performance requirement rather than a training order.</div></td>
+            <td class="c-make"><div class="make">Problem framing with stakeholder and context analysis<span class="where">LEN 6</span></div></td>
+          </tr>
+          <tr>
+            <td class="c-step"><span class="n">2</span><span class="step-name">Model the system</span></td>
+            <td class="c-do"><div class="do">Diagram the learning environment and the operational system that hosts it — components, interfaces, feedback loops — and place the capability decisions on the system's lifecycle.</div></td>
+            <td class="c-make"><div class="make">Capability analysis and system model<span class="where">LEN 1 · Assignment 1</span></div></td>
+          </tr>
+          <tr>
+            <td class="c-step"><span class="n">3</span><span class="step-name">Attribute the gap</span></td>
+            <td class="c-do"><div class="do">Decide whether the shortfall sits in what people can do, in how the system is designed, or in how the organization runs — and name the evidence that would change your answer.</div></td>
+            <td class="c-make"><div class="make">Gap attribution with its evidence basis<span class="where">LEN 4</span></div></td>
+          </tr>
+          <tr>
+            <td class="c-step"><span class="n">4</span><span class="step-name">Design it</span></td>
+            <td class="c-do"><div class="do">Build the smallest thing that could work — including the human-machine boundary: who holds which role, what the system decides, and what evidence takes a delegation back.</div></td>
+            <td class="c-make"><div class="make">Role architecture and delegation-with-revocation spec<span class="where">LEN 2</span></div></td>
+          </tr>
+          <tr>
+            <td class="c-step"><span class="n">5</span><span class="step-name">Instrument it</span></td>
+            <td class="c-do"><div class="do">Measure ethically, at the speed the operation actually moves, and measure the team as a unit rather than only the individual operator. State what you cannot see.</div></td>
+            <td class="c-make"><div class="make">Instrumentation plan and evidence dashboard<span class="where">LEN 4 · LEN 10</span></div></td>
+          </tr>
+          <tr>
+            <td class="c-step"><span class="n">6</span><span class="step-name">Run the cycle</span></td>
+            <td class="c-do"><div class="do">Design, instrument, evaluate, refine — then report, in first person, the framing the evidence forced you to revise. An iteration that revised nothing has to argue why.</div></td>
+            <td class="c-make"><div class="make">Iteration cycle report<span class="where">LEN 1 · Assignment 2</span></div></td>
+          </tr>
+          <tr>
+            <td class="c-step"><span class="n">7</span><span class="step-name">Make it survive</span></td>
+            <td class="c-do"><div class="do">Plan adoption and sustainment against the cost of owning the thing, not the cost of building it, and design the support layer so it runs when you are not in the room.</div></td>
+            <td class="c-make"><div class="make">Implementation and sustainment plan, job aids<span class="where">LEN 6 · LEN 10</span></div></td>
+          </tr>
+          <tr>
+            <td class="c-step"><span class="n">8</span><span class="step-name">Defend it</span></td>
+            <td class="c-do"><div class="do">Brief the people who will act on it — technical and non-technical in the same room — stating the uncertainty and the limits of what you can infer.</div></td>
+            <td class="c-make"><div class="make">Reproducible report, governance plan, 12-minute briefing<span class="where">LEN 1 · LEN 10</span></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="block">
+      <h2 class="rule">The six LENS courses, and where the electives go</h2>
+      <ul class="courses two-up">
+        <li><span class="code">LEN 1</span> · <span class="ttl">Principles of Learning Engineering for Complex Systems</span></li>
+        <li><span class="code">LEN 2</span> · <span class="ttl">Human-Machine Teaming and Adaptive Learning Systems</span></li>
+        <li><span class="code">LEN 3</span> · <span class="ttl">Learning Engineering Systems</span></li>
+        <li><span class="code">LEN 6</span> · <span class="ttl">Applied Problem Solving in Learning Engineering</span></li>
+        <li><span class="code">LEN 4</span> · <span class="ttl">Evidence, Analytics, and Measurement</span></li>
+        <li><span class="code">LEN 10</span> · <span class="ttl">Learning Engineering Project (capstone)</span></li>
+        <li><span class="code">Electives</span> · <span class="ttl">Human Capability Analysis · Computational and AI Methods · Bias, Risk &amp; Governance · Knowledge Transfer</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="callout">
+    <div class="col">
+      <h4>Every step is graded work</h4>
+      <p>These are the actual assignments, not a metaphor for them. LEN 1 alone asks for a capability analysis, a documented iteration cycle, a coupling-failure analysis, and a recorded briefing.</p>
+    </div>
+    <div class="col">
+      <h4>Your domain is the material</h4>
+      <p>Assignments run on your own professional setting wherever they can. Prior expertise is treated as an asset to work from, not a gap to remediate.</p>
+    </div>
+    <div class="col">
+      <h4>The capstone is the whole arc</h4>
+      <p>LEN 10 runs steps 1 through 8 at a partner organization on a real capability problem, with at least one complete iteration cycle documented.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ PAGE 2 ============================ -->
+<div class="sheet">
+  <header class="head slim">
+    <div class="head-top">
+      <div class="brand">
+        <span class="brand-mark">LENS</span>
+        <span class="brand-text">Learning Engineering for Next-Generation Systems</span>
+      </div>
+      <span class="kicker">What you'll actually do · 2</span>
+    </div>
+    <h1>Coming across from <em>LXD or AILE</em></h1>
+  </header>
+
+  <div class="pad">
+    <section class="block two">
+      <div class="card">
+        <h3>If you come from learning experience design</h3>
+        <p><span class="lbl">Carries over</span> The learning sciences, needs analysis, and design craft. LENS assumes them — the Learning Sciences Studio is a shared foundation course, and production of content and media stays with LXD.</p>
+        <p><span class="lbl">What's new</span> The unit of analysis moves outward: from the experience to the operational system that hosts it. You write capability requirements decomposed from a system requirement, and you measure against operational outcomes rather than completion and satisfaction.</p>
+        <p><span class="lbl">The move you'll learn</span> Telling a learning problem from a system problem — and being willing to report that the intervention you were asked for is not the fix.</p>
+      </div>
+      <div class="card">
+        <h3>If you come from AI leadership in education</h3>
+        <p><span class="lbl">Carries over</span> Fluency with the tools, and the governance, adoption, and organizational questions that come with them. LENS treats AI as one case of human-system collaboration, not a separate subject.</p>
+        <p><span class="lbl">What's new</span> You specify the partnership as an engineered object: role architecture, authority gradients, mode and state transparency, recoverability — and delegation with revocation, where you name in advance the evidence that would take the delegation back.</p>
+        <p><span class="lbl">The move you'll learn</span> Measuring the human-machine team as a unit of analysis, and specifying capability requirements for systems that have not been fielded yet, from design artifacts alone.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="rule">What changes between arriving and leaving</h2>
+      <table class="deltas">
+        <thead><tr><th class="from">You arrive able to</th><th class="to">You leave able to</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="from">Attribute a performance problem to training by default.</td>
+            <td class="to"><strong>Diagnose whether the gap is rooted in learning, in system design, or in organizational conditions</strong> — before proposing anything.</td>
+          </tr>
+          <tr>
+            <td class="from">Interpret simple descriptive data about learners — completion, scores — as someone else presents it.</td>
+            <td class="to"><strong>Instrument a learning environment ethically and produce decision-grade evidence:</strong> dashboards and reproducible reports linking learning measures to operational performance.</td>
+          </tr>
+          <tr>
+            <td class="from">Recognize that learning solutions sit inside larger organizational and technical systems.</td>
+            <td class="to"><strong>Model the learning environment and its host system</strong>, translating capability requirements across the human-machine interface into design requirements.</td>
+          </tr>
+          <tr>
+            <td class="from">Identify stakeholders in a familiar setting and describe their needs informally.</td>
+            <td class="to"><strong>Run a stakeholder and context analysis in a high-consequence environment</strong> using a human systems integration framework, producing a documented context model.</td>
+          </tr>
+          <tr>
+            <td class="from">Use AI tools as a consumer.</td>
+            <td class="to"><strong>Design capability development for human-AI teams</strong> and specify learning requirements for systems not yet fielded.</td>
+          </tr>
+          <tr>
+            <td class="from">Work inside your own professional silo, handing off at its boundary.</td>
+            <td class="to"><strong>Lead and integrate a learning engineering team</strong> across disciplines, with the shared vocabulary the work requires.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="block">
+      <h2 class="rule">Where the value lands</h2>
+      <ul class="value">
+        <li>
+          <div class="vh">Money not spent on the wrong fix</div>
+          <p>Training is the default answer to a performance problem, and often the wrong one. A graduate who can attribute the gap — with evidence — stops the spend that was never going to work.</p>
+        </li>
+        <li>
+          <div class="vh">Evidence a decision-maker can act on</div>
+          <p>Not completion rates. Dashboards, reproducible reports, and governance documentation that state what is known, what is assumed, and what would change the decision.</p>
+        </li>
+        <li>
+          <div class="vh">Capability specified before it is late</div>
+          <p>Requirements written from design artifacts, before a system is fielded — so capability is designed into the lifecycle rather than bolted on when training arrives last.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2 class="rule">Asked in every session</h2>
+      <ul class="faq faq-row">
+          <li>
+            <div class="q">Do I need to code?</div>
+            <div class="a">No. Computational and AI methods are a recommended elective, not a gate. The required methods courses teach you to produce and appraise evidence, and to brief the specialist where depth is needed.</div>
+          </li>
+          <li>
+            <div class="q">Do I have to work in healthcare or defense?</div>
+            <div class="a">No. Those are two of seven representative domains, and the list is not exhaustive. Education is on it as a domain and is also the discipline LENS works from.</div>
+          </li>
+          <li>
+            <div class="q">Is this a research degree?</div>
+            <div class="a">No. Study design and human-subjects depth are treated at awareness and routed to an elective. The capstone is applied work in a real organization.</div>
+          </li>
+      </ul>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <div>
+      <div class="site">capabilitymatters.org</div>
+      <div>Read the one-page overview alongside this, and the <em>Capability Matters</em> casebook behind both</div>
+    </div>
+    <div class="contacts">
+      Jim Diamond · <a href="mailto:jpd@jhu.edu">jpd@jhu.edu</a><br />
+      Will Gray-Roncal · <a href="mailto:wgr@jhu.edu">wgr@jhu.edu</a>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
