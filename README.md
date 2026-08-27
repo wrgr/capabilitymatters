@@ -30,12 +30,12 @@ catalog, events calendar, community roster) lives at
   casebook revision pass corrects a fact, the site-voice lead beside the frontmatter is
   corrected in the same pass. The objective tier is **LEO** (LENS Educational
   Objective), per `lens_program/2_*` v2.3; `CLO` now names the course tier below it.
-- `public/` — static assets (favicons, `LENS_Overview_Aug2026.pdf` — the one-page
-  LENS slick sheet linked from the homepage — and the
-  `capability-matters-casebook-draft.pdf`, the casebook's 48-case reading
-  edition, offered for download under the case examples; CC BY-ND 4.0)
-- `slick-sheet/` — print source for that overview PDF: one self-contained HTML
-  file plus the two web fonts it embeds (see "Slick sheet" below)
+- `public/` — static assets (favicons, the two LENS sheets linked from the
+  homepage — `LENS_Overview_Aug2026.pdf` and `LENS_What_You_Will_Do_Aug2026.pdf`
+  — and the `capability-matters-casebook-draft.pdf`, the casebook's 48-case
+  reading edition, offered for download under the case examples; CC BY-ND 4.0)
+- `slick-sheet/` — print sources for those PDFs: one self-contained HTML file
+  each, plus the web fonts they share (see "Print sheets" below)
 
 ## Develop
 
@@ -53,26 +53,33 @@ python3 tests/test_experiments_page.py
 python3 tests/test_slick_sheet.py
 ```
 
-## Slick sheet
+## Print sheets
 
-`public/LENS_Overview_Aug2026.pdf` — the one-page LENS overview the homepage
-links — is generated, not hand-placed. Edit the copy in
-`slick-sheet/lens-slick-sheet.html` and re-render:
+Both PDFs the homepage links are generated, not hand-placed:
+
+| Source (`slick-sheet/`) | Output (`public/`) | Pages |
+|---|---|---|
+| `lens-slick-sheet.html` | `LENS_Overview_Aug2026.pdf` | 1 |
+| `lens-what-you-will-do.html` | `LENS_What_You_Will_Do_Aug2026.pdf` | 2 |
+
+Edit the copy in the HTML source and re-render:
 
 ```sh
-./scripts/build-slick-sheet.sh          # or CHROME=/path/to/chrome ./scripts/...
+./scripts/build-slick-sheet.sh                      # both sheets
+./scripts/build-slick-sheet.sh lens-slick-sheet     # just one
+CHROME=/path/to/chrome ./scripts/build-slick-sheet.sh
 ```
 
 The script needs a Chromium or Chrome binary (it probes `PLAYWRIGHT_BROWSERS_PATH`,
 `chromium`, `chromium-browser`, and `google-chrome`); no npm dependency is added.
-The sheet is laid out to fill exactly one US-Letter page, so check the rendered
-page count after any copy change — added lines push content off the page rather
-than onto a second one. Competency names, taglines, and program facts come from
-`lens_program/1_LENS_Five_Competencies.md` and
-`lens_program/2_LENS_Objectives_Course_Mapping.md` in the sibling
-`wrgr/lens-concentration` repo; keep them in sync with the version of record there.
-The two fonts under `slick-sheet/fonts/` are the latin subsets of Instrument Serif
-and DM Sans (SIL Open Font License), vendored so the render works offline.
+Each sheet is laid out to fill its pages exactly, so check the rendered page count
+after any copy change — added lines push content off a page rather than onto a new
+one. Competency names, program facts, course descriptions and assignments, and the
+entering/leaving pairs come from `lens_program/` in the sibling
+`wrgr/lens-concentration` repo (docs 1, 2, 5, 7 and the LEN 01 syllabus); keep them
+in sync with the versions of record there. The fonts under `slick-sheet/fonts/` are
+the latin subsets of Instrument Serif and DM Sans (SIL Open Font License), vendored
+so the render works offline.
 
 ## Deploy
 
