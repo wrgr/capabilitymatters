@@ -1,0 +1,108 @@
+<!doctype html>
+<!-- Published cases activity for the Capability Pipeline working draft. --><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Capability Pipeline</title>
+
+<link rel="stylesheet" href="cases.css"></head><body>
+
+<div class="draft-banner"><b>Working draft.</b> </div>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">The iteration cycle, worked through five real cases</p>
+    <h1>The Capability Pipeline</h1>
+    <p class="lede">Eight steps, one loop: <strong>understand → model → design → build → instrument → deploy → evaluate → refine</strong> — where refine can send you all the way back to understand, not just back to adjusting what you built. The same eight questions, asked of a hospital screening workflow, a federal insurance marketplace, an airliner, a math-tutoring program at scale, and a self-driving car. What changes case to case isn't the shape of the loop — it's which single step the story actually turns on.</p>
+  </header>
+
+  <section id="diagram-section">
+    <h2>The diagram</h2>
+    <p class="section-sub">Read it left to right the first time. After that, read it as a circle — the point of the eighth step is to send you back to the first.</p>
+    <div class="diagram-card">
+      <figure>
+        <svg class="diagram-svg" viewBox="-40 -20 680 640" role="img" aria-label="The LENS process: the eight-step iteration cycle arranged in a loop — understand, model, design, build, instrument, deploy, evaluate, refine — with a distinct dashed arrow showing refine returning to understand, marked with a star as the cycle's starting and return point.">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="currentColor" class="flow-arrow" style="fill: var(--ink-muted); opacity:.8"/>
+            </marker>
+            <marker id="arrow-accent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+            </marker>
+          </defs>
+
+          <!-- forward loop edges: each line stops at the node's circle edge (r=32), not its
+               center, so arrowheads land in the gap between nodes instead of under them -->
+          <line class="flow-arrow" x1="329.6" y1="92.2" x2="426.0" y2="132.2" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="467.8" y1="174.0" x2="507.8" y2="270.4" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="507.8" y1="329.6" x2="467.8" y2="426.0" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="426.0" y1="467.8" x2="329.6" y2="507.8" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="270.4" y1="507.8" x2="174.0" y2="467.8" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="132.2" y1="426.0" x2="92.2" y2="329.6" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="92.2" y1="270.4" x2="132.2" y2="174.0" marker-end="url(#arrow)"/>
+
+          <!-- refine -> understand, the return trip: routed inside the ring so it never crosses
+               the outer step labels, and pulled back from both node centers to the circle edge
+               (r=32) along the curve's own tangent so neither the stroke nor the arrowhead is
+               hidden under a node -->
+          <path class="loop-arrow" d="M 173 159 C 234 198 295 170 299 115" marker-end="url(#arrow-accent)"/>
+          
+
+          <!-- center label -->
+          <text class="center-label" x="300" y="296" text-anchor="middle">THE LENS</text>
+          <text class="center-label" x="300" y="316" text-anchor="middle">PROCESS</text>
+
+          <!-- nodes -->
+          <g class="step-node"><circle cx="300" cy="80" r="32"/><text class="num" x="300" y="86" text-anchor="middle">1</text><text class="lbl" x="300" y="38" text-anchor="middle">UNDERSTAND</text><g transform="translate(317,68) scale(0.4)" aria-hidden="true"><path class="start-star" d="M0,-10 L2.35,-3.09 L9.51,-3.09 L3.82,1.18 L5.88,8.09 L0,3.82 L-5.88,8.09 L-3.82,1.18 L-9.51,-3.09 L-2.35,-3.09 Z"/></g></g>
+          <g class="step-node"><circle cx="455.6" cy="144.4" r="32"/><text class="num" x="455.6" y="150.4" text-anchor="middle">2</text><text class="lbl" x="500" y="120" text-anchor="start">MODEL</text></g>
+          <g class="step-node"><circle cx="520" cy="300" r="32"/><text class="num" x="520" y="306" text-anchor="middle">3</text><text class="lbl" x="562" y="296" text-anchor="start">DESIGN</text></g>
+          <g class="step-node"><circle cx="455.6" cy="455.6" r="32"/><text class="num" x="455.6" y="461.6" text-anchor="middle">4</text><text class="lbl" x="500" y="488" text-anchor="start">BUILD</text></g>
+          <g class="step-node"><circle cx="300" cy="520" r="32"/><text class="num" x="300" y="526" text-anchor="middle">5</text><text class="lbl" x="300" y="568" text-anchor="middle">INSTRUMENT</text></g>
+          <g class="step-node"><circle cx="144.4" cy="455.6" r="32"/><text class="num" x="144.4" y="461.6" text-anchor="middle">6</text><text class="lbl" x="100" y="488" text-anchor="end">DEPLOY</text></g>
+          <g class="step-node"><circle cx="80" cy="300" r="32"/><text class="num" x="80" y="306" text-anchor="middle">7</text><text class="lbl" x="38" y="296" text-anchor="end">EVALUATE</text></g>
+          <g class="step-node"><circle cx="144.4" cy="144.4" r="32"/><text class="num" x="144.4" y="150.4" text-anchor="middle">8</text><text class="lbl" x="100" y="120" text-anchor="end">REFINE</text></g>
+        </svg>
+        <figcaption><strong class="return-caption">Refine → Understand</strong><span>The dashed arrow marks the usual return: use the evidence to reconsider the problem. A justified revision may return directly to another earlier step.</span></figcaption>
+      </figure>
+
+      <div class="step-legend" id="step-legend"></div>
+
+      <div class="callout">
+        <p><strong>The step that decides the story is rarely evaluate.</strong> It's usually earlier — design, build, or instrument — because those steps determine what evaluate is even able to see. A system instrumented to track only its own headline metric cannot evaluate a cost that metric doesn't measure.</p>
+        <p>Below, five cases — one apiece from government services, aviation, healthcare, education, and autonomous vehicles — are walked through all eight steps. Each carries one clearly marked point where a different upstream decision would plausibly have produced a different downstream result.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases-section">
+    <h2>Pick a case</h2>
+    <p class="section-sub">Same eight steps, five different systems. Each card names the domain, the real frame, and how the case actually turned out. Three ways to work a case are below the picker — study it worked out, find where it turns yourself, or commit to a call before you're shown what happened.</p>
+    <div class="case-grid" id="case-grid"></div>
+
+    <div class="explorer" id="explorer">
+      <div class="explorer-head">
+        <div>
+          <h3 id="exp-title"></h3>
+          <p class="frame" id="exp-frame"></p>
+        </div>
+        <span class="tag" id="exp-domain"></span>
+      </div>
+
+      <div class="mode-bar">
+        <span class="mode-label">Mode</span>
+        <div class="mode-toggle" id="mode-toggle">
+          <button type="button" data-mode="study">Study</button>
+          <button type="button" data-mode="find">Find the turn</button>
+          <button type="button" data-mode="predict">Predict first</button>
+        </div>
+        <p class="mode-desc" id="mode-desc"></p>
+      </div>
+
+      <div class="stepper" id="stepper"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Sources.</strong> Healthcare.gov and Boeing 737 MAX / MCAS are drawn from LEN 1 Module 1's reviewed case materials; the two crashes and the subsequent MCAS redesign are well-established public record (NTSB/FAA), not casebook-specific detail. Case 32 (Annual-Screening UI Redesign, University of Missouri Health Care), Case 84 (Cognitive Tutor Algebra I at Scale, RAND Corporation trial), and Case 183 (Uber ATG / Tempe fatality, NTSB) are drawn from the Capability Matters Casebook (course edition) via LEN 1 Module 5. Every branch point is a clearly marked hypothetical built from the case's own named mechanism — not a documented alternate history. Companion course note: "The eight-step iteration cycle," LEN 1 course notes.</p>
+    <p><strong>The three modes.</strong> Built 2026-09-23 around a 4C/ID-informed course design (whole-task practice with fading scaffolding; the worked-example effect for early study, shifting toward independent problem-solving; Kapur's productive failure for a short commit-before-reveal moment). Study is the worked example: everything shown, the turn marked. Find the turn removes the marker and asks students to locate and defend it themselves — the same case, a harder ask. Predict first stops the story right before the turn and asks for a real commitment before revealing what happened, so the prediction is made under genuine uncertainty rather than in hindsight. Which mode a given case uses in a given week is an assignment-design decision, not a property of the case — the same case can serve as this week's worked example and a later week's "find the turn" exercise.</p>
+  </footer>
+</div>
+
+<script src="cases.js"></script>
+</body></html>
