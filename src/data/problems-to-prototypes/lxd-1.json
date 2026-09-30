@@ -1,0 +1,62 @@
+[
+  {
+    "id": "example-aile-4830",
+    "title": "From Engagement Data to Better STEM Learning",
+    "gap": "Many educational technologies can tell us that a learner clicked, watched, or stayed on task, but not whether the learner developed a transferable capability. In project-based STEM settings, engagement data can easily become a proxy for learning rather than evidence of it.",
+    "prototype": "Build an AI-assisted lesson design partner that starts with a capability target, generates short project challenges, and recommends evidence-producing learner actions. The AI proposes adaptations, but the educator chooses the intervention and the evidence standard.",
+    "example": "A middle-school robotics unit asks learners to diagnose a robot that fails only under certain sensor conditions. The system offers progressively different representations or hints only after the learner explains a hypothesis.",
+    "frame": "The prototype should privilege constructive and interactive activity over passive consumption, use feedback tied to the task and reasoning process, and preserve productive struggle. The human–learner system includes the learner, teacher, peers, task, interface, classroom constraints, and the evidence used to decide whether capability actually improved.",
+    "questions": ["What learner action would count as evidence of debugging capability rather than engagement?","When should the AI withhold help?","Do adaptations improve transfer to a new robotics problem, and for whom?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to diagnose and explain failures in a novel STEM task, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, teacher, peers, project task, AI design partner, classroom time, and available devices. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: independent diagnosis accuracy, quality of explanation, transfer to a novel task, time-to-help, and subgroup differences. A key disconfirming signal is: engagement rises while independent reasoning or transfer stays flat."
+    },
+    "evidence": ["E01","E07","E08","E10","E03"]
+  },
+  {
+    "id": "example-aile-6010",
+    "title": "AI Role-Play for Evidence-Based Global Inquiry",
+    "gap": "Open-web research can reward shallow answer-finding, especially when learners are new to a topic or working in a second language. AI can accelerate that pattern unless it is deliberately designed to make learners compare evidence, adopt perspectives, and justify decisions.",
+    "prototype": "Build a teacher-configured AI role-play environment in which learners interact with simulated stakeholders who have different goals and incomplete information. The system requires evidence citations and prompts learners to revise claims when a source is weak or a stakeholder perspective changes.",
+    "example": "In a global energy unit, teams advise a fictional regional summit. An AI investor, community representative, and environmental scientist each challenge the team's proposal from a different perspective.",
+    "frame": "Role-play can move learners from passive information retrieval toward constructive and interactive sense-making. Multilingual supports should scaffold access without lowering the reasoning demand, and the teacher should control the task, sources, and acceptable use of AI.",
+    "questions": ["Does role-play produce better source evaluation than ordinary web research?","Which multilingual supports increase participation without masking misconceptions?","Can learners transfer perspective-taking to a new issue?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to synthesize evidence and adapt an argument to multiple stakeholder perspectives, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: multilingual learners, teacher, peers, curated sources, AI stakeholders, language supports, and classroom norms. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: source quality, evidence integration, perspective-taking, revision quality, participation equity, and transfer. A key disconfirming signal is: learners produce more elaborate answers but rely on AI-generated reasoning or weak sources."
+    },
+    "evidence": ["E07","E14","E16","E04","E01"]
+  },
+  {
+    "id": "example-aile-8523",
+    "title": "Scenario-Based Learning for Complex Professional Knowledge",
+    "gap": "Professionals can memorize rules, policies, or procedures yet struggle when real work presents ambiguity, tradeoffs, or incomplete information. Static training often teaches what a rule says but not when and how to apply it.",
+    "prototype": "Create an AI scenario studio that converts a bounded body of expert-approved content into branching cases. Learners make a decision, explain why, see consequences, and receive feedback tied to the relevant principle rather than a generic correctness score.",
+    "example": "A new analyst must choose how to handle a client request that conflicts with an internal policy. The case changes after the learner's first decision, forcing a second judgment under new constraints.",
+    "frame": "The design targets transfer by varying context while holding the underlying principle stable. Multiple representations and worked examples can reduce unnecessary cognitive load early, then fade as learners gain competence.",
+    "questions": ["Which parts of professional judgment can be safely simulated?","What is the right balance between worked examples and independent cases?","Does performance transfer to unfamiliar cases rather than only improve on practiced patterns?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to apply a complex rule or principle to an unfamiliar professional situation, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, subject-matter expert, supervisor, policy corpus, AI scenario engine, and workplace constraints. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: decision quality, explanation quality, error type, transfer to novel cases, time-to-competence, and expert agreement. A key disconfirming signal is: case scores improve but learners cannot explain or apply the principle outside the simulator."
+    },
+    "evidence": ["E12","E11","E18","E10","E06"]
+  },
+  {
+    "id": "example-aile-6733",
+    "title": "AI With Friction: Helping Learners Think Before They Ask",
+    "gap": "Generative AI can make schoolwork easier while also removing the retrieval, explanation, and revision that make learning durable. The design problem is not simply whether students use AI, but whether AI appears before or after the learner has done cognitively useful work.",
+    "prototype": "Build a 'productive friction' assistant that asks for an initial attempt, confidence rating, or explanation before offering help. It provides graduated hints, asks the learner to critique its answer, and periodically withholds generation in favor of retrieval or self-explanation.",
+    "example": "A university learner asks for help with a difficult reading. Instead of summarizing immediately, the assistant asks for three claims the learner noticed, then helps compare those claims to the text.",
+    "frame": "The intervention treats metacognition, retrieval, and constructive engagement as capabilities worth protecting. AI should support monitoring and feedback while leaving the learner responsible for sense-making.",
+    "questions": ["How much friction is enough to improve learning without driving abandonment?","Which tasks benefit from delayed AI help?","Can the system detect overreliance without inferring motivation or ability from weak behavioral proxies?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to monitor one's understanding and use AI without outsourcing core reasoning, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, instructor, assignment, source material, AI assistant, academic norms, and help-seeking choices. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: retention, explanation quality, independent task performance, help-seeking pattern, confidence calibration, and abandonment. A key disconfirming signal is: the design changes interaction patterns but not retention or independent performance."
+    },
+    "evidence": ["E09","E07","E16","E03","E18"]
+  }
+]
