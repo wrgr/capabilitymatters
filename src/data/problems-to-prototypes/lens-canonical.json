@@ -1,0 +1,92 @@
+[
+  {
+    "id": "lens-canonical-01",
+    "title": "Transition Readiness Radar",
+    "gap": "A system changes faster than the people operating it can recalibrate. The formal rollout may be complete while tacit routines, mental models, job aids, and supervision still reflect the old system.",
+    "prototype": "Build an AI-assisted transition mapper that compares old and new workflows, identifies changed human decisions and failure points, and generates a small set of scenario checks for readiness rather than a blanket retraining package.",
+    "example": "A hospital introduces a redesigned medication-administration interface. The prototype highlights the two steps where the new workflow reverses an old habit and creates short interruption-heavy simulations for those moments.",
+    "frame": "This is a coupling problem between system requirements and human capability. The learning design should target changed decisions and transfer under realistic constraints, while system owners retain responsibility for interface design, policy, and rollout conditions.",
+    "questions": ["Which behaviors actually changed at the transition?","What should be redesigned out of the workflow rather than trained around?","What evidence shows readiness under realistic operating conditions?"],
+    "cycle": {
+      "understand": "Name the changed system requirement and the operational impact if the old capability persists.",
+      "model": "Map old and new workflows, actors, tools, workarounds, supervision, and transition timing; locate where capability-system coupling changed.",
+      "instrument": "Measure performance on changed decisions in representative scenarios, transfer on shift, error recovery, workload, and whether failures trace to training or system design."
+    },
+    "evidence": ["E01","E12","E13","E05","E06"]
+  },
+  {
+    "id": "lens-canonical-02",
+    "title": "Capability Drift Detector",
+    "gap": "A capability that was once adequate can degrade gradually as tools, staffing, procedures, or local workarounds change. Because there is no single launch event, organizations often notice the problem only after performance has already drifted.",
+    "prototype": "Create an AI-assisted drift detector that combines incident narratives, help requests, workaround patterns, procedure changes, and supervisor observations to flag where the required human capability may no longer match the current system.",
+    "example": "A maintenance organization has updated components and troubleshooting procedures over several years. The detector finds a growing cluster of escalations around one diagnostic step that veteran staff handle informally but newer staff cannot reconstruct.",
+    "frame": "The prototype treats performance as a property of a changing sociotechnical system, not as a stable trait of workers. Learning interventions are only one possible response; redesign, documentation, staffing, or policy changes may be the stronger lever.",
+    "questions": ["What signals distinguish capability drift from equipment or process drift?","How can tacit workarounds be surfaced without normalizing unsafe practice?","What threshold should trigger investigation rather than automatic retraining?"],
+    "cycle": {
+      "understand": "Establish the performance outcome that has drifted and the time window over which the system changed.",
+      "model": "Map changes in tools, procedures, staffing, knowledge flow, local adaptations, and performance signals to generate rival explanations.",
+      "instrument": "Track representative task performance, escalation patterns, error types, knowledge-transfer gaps, and whether intervention effects persist as the system continues to change."
+    },
+    "evidence": ["E01","E12","E05","E06","E10"]
+  },
+  {
+    "id": "lens-canonical-03",
+    "title": "Capability Requirements Builder",
+    "gap": "Many systems specify technology, staffing, and process requirements in detail while leaving the human capability requirement vague: 'trained,' 'experienced,' or 'qualified.' If the capability is not defined at observable task grain, it cannot be designed, developed, or verified well.",
+    "prototype": "Build an AI-assisted requirements workshop that turns system outcomes, scenarios, hazards, and role descriptions into candidate observable capabilities, then forces human experts to validate, merge, reject, and prioritize them.",
+    "example": "A new operations center needs analysts who can recognize when an automated alert is misleading. The prototype converts that need into observable decisions, evidence requirements, escalation actions, and representative test scenarios.",
+    "frame": "The engineering move is requirements definition, but the object being specified is human performance in context. The prototype should expose assumptions and disagreements rather than manufacture false precision.",
+    "questions": ["What must a person actually do, under what conditions, to satisfy the system requirement?","Which capabilities are individual versus team or organizational?","What evidence would make the requirement verifiable?"],
+    "cycle": {
+      "understand": "Start from the system impact and failure modes, not from an existing course catalog or competency list.",
+      "model": "Trace required decisions and actions across roles, interfaces, constraints, and operating scenarios; separate human, team, and system requirements.",
+      "instrument": "Validate candidate requirements with work samples, expert agreement, failure cases, and evidence that the requirement predicts or explains operational performance."
+    },
+    "evidence": ["E01","E12","E05","E10","E06"]
+  },
+  {
+    "id": "lens-canonical-04",
+    "title": "High-Consequence Practice Orchestrator",
+    "gap": "A capability can be well understood and still fail to scale. Expert instructors, realistic scenarios, feedback time, equipment access, and safe practice opportunities become bottlenecks as programs grow.",
+    "prototype": "Create an AI-assisted practice orchestrator that schedules scenario variation, automates low-risk feedback, routes ambiguous performance to experts, and tracks whether quality changes as the learner population scales.",
+    "example": "A technical workforce must practice fault isolation across many equipment variants. The system generates bounded scenario variations from expert-approved templates while instructors review edge cases and calibration samples.",
+    "frame": "Scale is not success if the learning mechanism changes. The design should preserve deliberate practice, feedback quality, authenticity, and human oversight while measuring instructor workload and fidelity at increasing volume.",
+    "questions": ["Which parts of expert instruction can be standardized without losing judgment?","Where does scale change the pedagogy?","What quality signals should stop expansion?"],
+    "cycle": {
+      "understand": "Define the capability, population, throughput requirement, and quality threshold that must survive scale.",
+      "model": "Map instructor capacity, scenario supply, feedback loops, equipment constraints, learner variability, and failure consequences.",
+      "instrument": "Track learning and transfer, expert-review burden, scenario diversity, feedback reliability, subgroup outcomes, and degradation in fidelity as volume increases."
+    },
+    "evidence": ["E13","E10","E12","E05","E06"]
+  },
+  {
+    "id": "lens-canonical-05",
+    "title": "Evidence-to-Impact Mapper",
+    "gap": "Organizations often know who completed training but cannot tell whether the targeted capability changed, transferred to work, or contributed to the operational outcome that justified the intervention.",
+    "prototype": "Build an AI-assisted measurement planner that begins with a system outcome, maps the human capability hypothesized to influence it, proposes observable proximal and transfer measures, and surfaces rival explanations before deployment.",
+    "example": "A service team wants to reduce repeat customer escalations. Instead of treating course completion as evidence, the tool links a specific diagnostic capability to scored work samples, field observations, and downstream escalation patterns.",
+    "frame": "Measurement is part of the design, not a post hoc dashboard. The prototype should make causal claims smaller and clearer, distinguish capability evidence from operational outcomes, and preserve uncertainty when attribution is weak.",
+    "questions": ["What evidence would convince us the capability changed?","What outcome is close enough to the intervention to attribute reasonably?","Which rival explanations would make the apparent effect disappear?"],
+    "cycle": {
+      "understand": "Specify the operational decision the evidence must support and the claim being tested.",
+      "model": "Build a causal map linking intervention, learner behavior, capability, context, and system outcome; name rival explanations and measurement threats.",
+      "instrument": "Predefine work samples, transfer measures, operational indicators, comparison logic, subgroup checks, and stopping rules for claims the evidence cannot support."
+    },
+    "evidence": ["E01","E10","E12","E05","E03"]
+  },
+  {
+    "id": "lens-canonical-06",
+    "title": "Human-AI Delegation Simulator",
+    "gap": "When AI enters a workflow, the capability requirement changes: people must decide when to rely, when to verify, when to override, and when to revoke delegation. Accuracy alone does not establish that the human-AI team is safe or effective.",
+    "prototype": "Create a scenario simulator in which AI advice varies in confidence, quality, and context. Learners practice delegation, verification, override, and escalation while the system records not only outcomes but the reasoning behind reliance decisions.",
+    "example": "An analyst receives AI-ranked cases with explanations of uneven quality. Some recommendations are right for the wrong reason; others are uncertain. The learner must decide what to accept, inspect, or escalate before seeing consequences.",
+    "frame": "Human agency is an engineered property of the team. The design should make authority, uncertainty, and correction visible, and test calibrated reliance rather than simple compliance or distrust.",
+    "questions": ["Which decisions may be delegated and under what conditions?","Can the human detect when the AI is outside its competence?","Does practice improve calibrated reliance without increasing unnecessary workload?"],
+    "cycle": {
+      "understand": "Define the shared task, stakes, authority boundaries, and failure modes of the human-AI team.",
+      "model": "Map information flow, AI capabilities and limits, human expertise, time pressure, accountability, override paths, and recovery mechanisms.",
+      "instrument": "Measure decision quality, calibration of reliance, verification behavior, override appropriateness, recovery from AI error, workload, and performance when the AI is unavailable."
+    },
+    "evidence": ["E05","E06","E03","E16","E10"]
+  }
+]
