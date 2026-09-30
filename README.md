@@ -176,3 +176,34 @@ third entry, after alphabetical ordering within each study sex category, as held
 The schema version must change if snapshot compatibility changes. Preserve the
 separation between empirical citations, invented assumptions, computed outputs,
 and educational hypotheses when revising the page.
+
+## Show Your Work and Rainbow Bug (September 30, 2026)
+
+The featured paper now has a native reading page at `/show-your-work/` and a
+matching PDF at `/papers/show-your-work.pdf`. Both use
+`src/papers/show-your-work.md` as the canonical text. The original August PDF
+is preserved at `/papers/show-your-work-august-2026.pdf`; its upstream copy in
+`wrgr/lens-concentration` remains unchanged.
+
+To revise the paper, edit the canonical Markdown, rebuild the PDF with
+Python 3 and ReportLab (`python3 -m pip install reportlab` if needed), then
+build and verify the site:
+
+```sh
+python3 scripts/build-show-your-work-pdf.py
+npm run build
+python3 tests/test_show_your_work.py
+python3 tests/test_experiments_page.py
+```
+
+Commit the generated PDF with the source revision so readers receive the same
+version in both formats. Preserve the working-draft label and distinguish the
+author-associated prototypes from evidence of learning gains or effectiveness.
+
+The separate Rainbow Bug card links to `/rainbow-bug/`, a static copy of the
+supplied game (`index.html`, `game.js`, `style.css`, and its four character PNGs
+plus asset README). The game logic and artwork are unchanged. The supplied
+faculty job aid is available unchanged at `/vibe-coding-job-aid.docx`.
+`src/pages/experiments.astro` credits Julian, age 6, with AI as a creative
+partner and points the personal-site card to `https://will.grayroncal.com`.
+The former coming-soon flag and rendering branch have been removed.
