@@ -1,0 +1,62 @@
+[
+  {
+    "id": "example-aile-4220",
+    "title": "An Accessibility-First Learning Adaptation Assistant",
+    "gap": "Educators supporting learners with varied academic, communication, sensory, and behavioral needs often spend substantial time adapting the same material into accessible forms. Generic AI can speed adaptation but may also make unsupported assumptions about disability or lower the intellectual demand.",
+    "prototype": "Create an educator-controlled adaptation assistant that produces multiple representations, response modes, scaffolds, and accessibility checks from a common learning target. It asks what barrier is being removed and preserves the intended cognitive demand.",
+    "example": "A social studies task can be rendered with simplified navigation, visual supports, text-to-speech-ready structure, and alternative response formats while keeping the same evidence-based reasoning goal.",
+    "frame": "Universal Design for Learning suggests designing options for access, engagement, and expression without treating a learner label as a prescription. The human system includes special educators, general educators, families, support staff, tools, and the learner's own preferences.",
+    "questions": ["Which adaptations remove access barriers versus reduce rigor?","How should learner preference be captured?","Can the tool decrease educator workload while improving participation and performance?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to demonstrate the same target capability through accessible pathways, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, special and general educators, family/support team, curriculum, assistive technology, and AI adaptation assistant. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: task access, target performance, participation, learner preference, educator time, and inappropriate simplification rate. A key disconfirming signal is: materials become easier to access but the target capability is diluted or mismeasured."
+    },
+    "evidence": ["E02","E01","E06","E03"]
+  },
+  {
+    "id": "example-aile-2608",
+    "title": "Closing the Knowing–Doing Gap in Professional Services",
+    "gap": "Early-career professionals can know the rules and still struggle to use them under time pressure, ambiguity, and interaction with clients or senior colleagues. Remote work can further reduce opportunities to observe expert judgment in action.",
+    "prototype": "Create an AI-supported case simulator for a regulated professional-services context. Learners make a judgment, draft or speak a response, receive a simulated stakeholder reaction, and then compare their reasoning with expert-annotated alternatives.",
+    "example": "A junior professional receives a time-sensitive client request with incomplete information. The simulator forces a decision about what to ask, what to escalate, and what can safely be done now.",
+    "frame": "The prototype is built around transfer, deliberate practice, feedback, and reflection on expert reasoning. It should expose decision structure without pretending there is always one correct answer.",
+    "questions": ["Which decisions are representative enough to practice safely?","How much expert annotation is required to keep AI feedback trustworthy?","Does simulator performance predict work-product quality on new matters?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to apply professional knowledge to ambiguous, time-constrained situations, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, supervisor, client/stakeholder, professional standards, AI simulator, and real workflow constraints. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: decision quality, escalation judgment, rationale, transfer to new cases, supervisor rework, and confidence calibration. A key disconfirming signal is: learners master simulator patterns without improving judgment or reducing supervisor rework."
+    },
+    "evidence": ["E12","E13","E10","E09","E06"]
+  },
+  {
+    "id": "example-aile-4862",
+    "title": "Turning Tacit Expertise Into Performance Support",
+    "gap": "Organizations frequently rely on experienced staff to create ad hoc slide-based training, leaving valuable tacit knowledge fragmented and difficult to transfer. New employees may receive information without enough guided practice in the decisions that matter on the job.",
+    "prototype": "Build an AI-assisted performance-support builder that interviews subject-matter experts, extracts recurring decisions and failure modes, and turns them into short scenarios, checklists, and job aids for expert review.",
+    "example": "An operations team captures how experienced staff triage an ambiguous incoming request, then turns that logic into a five-minute scenario and a one-page decision aid for new hires.",
+    "frame": "The design separates information that belongs in a job aid from judgment that requires practice. Learning is evaluated in the workflow, not by slide completion, and experts retain authority over the extracted model.",
+    "questions": ["What knowledge can be externalized reliably from expert interviews?","Which decisions need practice rather than documentation?","Does the prototype reduce time-to-readiness and avoid propagating expert habits that are outdated or context-specific?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to perform recurring workplace decisions using expert-informed strategies, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: novice, expert, manager, workflow, existing documents, AI knowledge-capture tool, and performance-support artifacts. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: time-to-readiness, decision quality, expert review corrections, job-aid use, transfer, and rework. A key disconfirming signal is: content production accelerates but the extracted guidance does not improve real work."
+    },
+    "evidence": ["E12","E11","E01","E06","E10"]
+  },
+  {
+    "id": "example-aile-7745",
+    "title": "A Multimodal Concept Reframer",
+    "gap": "When a learner is stuck, repeating the same explanation with more words often fails because the representation—not the amount of explanation—is the barrier. Teachers and tutors cannot always generate several high-quality alternative representations in the moment.",
+    "prototype": "Create an AI concept reframer that can present the same idea through a diagram, concrete example, analogy, verbal explanation, or guided question sequence. It then asks the learner to explain the concept back and uses that response to select the next representation.",
+    "example": "A learner struggling with a biological process receives a simple causal diagram and then a concrete analogy; the system asks the learner to map each part of the analogy back to the actual mechanism.",
+    "frame": "Multimedia and multiple representations can support meaning-making when they are coherent and tied to the same concept. The system should use learner explanations as evidence rather than infer a preferred 'learning style.'",
+    "questions": ["Which representation changes understanding rather than just preference?","How can the system detect misconceptions in learner explanations?","Does the learner succeed later without the alternate representation?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to form a coherent mental model and explain a concept in one's own words, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, tutor/teacher, concept, representations, AI reframer, and follow-up task. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: explanation quality, misconception reduction, transfer, hint dependence, and representation sequence. A key disconfirming signal is: learners report clearer explanations but cannot solve or explain a novel application."
+    },
+    "evidence": ["E11","E02","E07","E10","E18"]
+  }
+]
