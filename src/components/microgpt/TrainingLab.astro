@@ -1,0 +1,68 @@
+---
+/** Teach actual transformer training with explanatory controls and genuine resumable checkpoints. */
+---
+<section id="training" class="learning-lab" aria-labelledby="training-title">
+  <p class="eyebrow">Live lab · Real training on your device</p>
+  <h2 id="training-title">Watch a small model learn.</h2>
+  <p>Start from random weights, or load a measured checkpoint. The model learns to generate <strong>fictional words</strong> from two invented spelling families. It has 2,520 adjustable parameters, one transformer block, and three attention heads. Every update below is computed in your browser.</p>
+  <div class="orientation"><strong>First visit?</strong> Try “Train 100 steps,” compare the two loss values, then open “Explain this code.” The help buttons explain each term without assuming a programming background.</div>
+  <ol class="stages" aria-label="Training cycle">
+    <li><button data-guide="data">1. Choose examples</button><span>What the model sees</span></li>
+    <li><button data-guide="forward">2. Predict a character</button><span>What the weights produce</span></li>
+    <li><button data-guide="learning">3. Measure and update</button><span>How the weights change</span></li>
+    <li><button data-guide="evaluate">4. Test new examples</button><span>What the evidence supports</span></li>
+  </ol>
+  <div class="trainer-controls">
+    <div class="control"><label for="family-share">Training mix: family ending in -a <output id="share-value">50%</output></label>
+      <input id="family-share" type="range" min="10" max="90" step="10" value="50" />
+      <span>Remaining examples come from the -o family. Applies when you choose New run.</span><button class="help" data-explain="mix">Why change the mix?</button>
+    </div>
+    <div class="actions"><button id="new-run">New run</button><button id="train-model" class="primary" disabled>Train 100 steps</button><button id="train-long" disabled>Train 600 steps</button><button id="pause-model" disabled>Pause</button></div>
+  </div>
+  <p id="training-status" role="status">Loading the local training engine…</p>
+  <progress id="training-progress" max="1200" value="0" aria-label="Training steps out of 1200"></progress>
+  <div class="metrics">
+    <div><span>Training steps <button class="help" data-explain="steps" aria-label="Explain training steps">?</button></span><strong id="step-value">0</strong></div>
+    <div><span>Training probe loss <button class="help" data-explain="trainLoss" aria-label="Explain training probe loss">?</button></span><strong id="train-loss">—</strong></div>
+    <div><span>Held-out loss <button class="help" data-explain="heldout" aria-label="Explain held-out loss">?</button></span><strong id="test-loss">—</strong></div>
+  </div>
+  <p class="fine">Loss is mean negative log probability per character, averaged equally across words. Lower is better for this prediction task. The fixed training probe contains 16 words from the training pool; the held-out set contains 32 unseen words, balanced across families. These small samples do not establish generalization to other tasks.</p>
+  <div class="result-grid">
+    <div><h3>Learning trace <button class="help" data-explain="curve" aria-label="Explain the learning trace">?</button></h3>
+      <svg id="loss-chart" viewBox="0 0 600 200" role="img" aria-labelledby="loss-chart-title">
+        <title id="loss-chart-title">Measured training probe and held-out losses across saved steps. Exact values are also listed below.</title>
+        <line x1="45" y1="160" x2="575" y2="160" stroke="currentColor" opacity=".3" />
+        <line x1="45" y1="15" x2="45" y2="160" stroke="currentColor" opacity=".3" />
+        <text x="2" y="23" id="loss-chart-max">4.0</text><text x="20" y="164">0</text><text x="45" y="188">0 steps</text><text x="495" y="188" id="loss-chart-end">1200</text>
+        <polyline id="train-line" points="" fill="none" stroke="#196d79" stroke-width="3" /><polyline id="test-line" points="" fill="none" stroke="#a34516" stroke-width="3" stroke-dasharray="7 4" />
+      </svg>
+      <p class="chart-key"><span>Solid teal: training probe</span><span>Dashed rust: held-out</span></p>
+      <details><summary>Exact measurements in this run</summary><div class="table-wrap"><table><caption>Measurements saved at each checkpoint</caption><thead><tr><th>Step</th><th>Training</th><th>Held-out</th><th>-a family</th><th>-o family</th></tr></thead><tbody id="history-rows"></tbody></table></div></details>
+    </div>
+    <div><h3>Generated words <button class="help" data-explain="samples" aria-label="Explain generated words">?</button></h3>
+      <label for="sample-temperature">Sampling temperature <output id="sample-temp-value">0.8</output></label>
+      <input id="sample-temperature" type="range" min="0.2" max="1.5" step="0.1" value="0.8" />
+      <div id="word-samples" class="samples" aria-label="Generated word samples"></div>
+      <p class="fine">The same sampling seed is used at every checkpoint. Temperature changes the draw, not the learned weights. An empty sample is possible. Output stops at the end token or after 12 characters.</p>
+      <button id="resample-model" disabled>Apply temperature</button><button data-guide="sample">Explain generation</button>
+    </div>
+  </div>
+  <div class="checkpoint-tools"><h3>Keep or revisit a checkpoint <button class="help" data-explain="checkpoint" aria-label="Explain checkpoints">?</button></h3>
+    <label for="session-checkpoint">This run's saved states</label><select id="session-checkpoint" aria-label="Choose a saved state"></select>
+    <button id="restore-session" disabled>Restore selected</button><button id="download-model" disabled>Download current checkpoint</button>
+    <label class="import-label" for="import-checkpoint">Import checkpoint <input id="import-checkpoint" type="file" accept=".json,application/json" /></label>
+    <p class="fine">Pause before restoring or downloading. Restoring an earlier state branches this run from that point. Downloads contain model state, not personal information. Leaving the page clears session states.</p>
+  </div>
+  <details class="preset-panel" open><summary>Compare ready-made checkpoints without waiting</summary>
+    <p>These are real saved training states from this exact engine, with a 50:50 mix and seed 42. The displayed samples use temperature 0.8 and sampling seed 2026. Load one to inspect or continue training.</p>
+    <div id="preset-cards" class="preset-cards"><p>Loading checkpoints…</p></div>
+  </details>
+  <details><summary>Exactly what is being learned?</summary>
+    <p>The two families follow invented spelling rules. The model receives characters, not a family label or a rule description. It learns next-character probabilities. The families differ in consonants, vowels and endings; neither represents a culture or a demographic group.</p>
+    <p><strong>Try it:</strong> compare a fresh balanced run with a fresh 90:10 run at the same number of steps. Inspect held-out loss separately for both families. The evaluation mix stays balanced even when training changes. Samples are illustrative draws, not a reliable estimate of the population distribution.</p>
+    <p><strong>Our adaptation:</strong> Karpathy's original concept and reference architecture, independently implemented in JavaScript with a smaller width, an indexed differentiation tape, fictional data, and different initialization and optimizer settings. <a href="/microgpt/NOTICE.md">Full attribution and differences</a>.</p>
+  </details>
+  <button data-guide="overview">Explain this code, step by step</button>
+  <noscript><p>Live training requires JavaScript. The article and source links remain readable.</p></noscript>
+</section>
+<script is:inline type="module" src="/microgpt/lab.js"></script>

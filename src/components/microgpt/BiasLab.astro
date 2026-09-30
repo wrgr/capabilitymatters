@@ -1,0 +1,50 @@
+---
+/** Expose deliberate label bias and inadvertent proxy bias in an explicitly synthetic engagement task. */
+---
+<section id="bias" class="learning-lab bias-lab" aria-labelledby="bias-title">
+  <p class="eyebrow">Bias lab · Invented learners, real model fitting</p>
+  <h2 id="bias-title">What if the model learns the wrong definition of engagement?</h2>
+  <p>A model can faithfully learn a labeling rule that misrepresents the people it is meant to support. This experiment makes that failure visible. It fits a <strong>separate, simple logistic classifier</strong>, not the word-generating transformer above.</p>
+  <div class="orientation"><strong>Everything here is synthetic.</strong> Contexts A and B are fictional, with the same underlying engagement prevalence. They are not countries, cultures, diagnoses, or estimates of real students. The numbers were chosen to expose a measurement failure. No camera, microphone, or eye-tracking data is collected.</div>
+  <div class="assumptions">
+    <h3>Keep three things separate <button class="help" data-explain="construct" aria-label="Explain constructs, signals and labels">?</button></h3>
+    <dl><dt>1. The concept we care about</dt><dd>Engagement with a learning task. For this demonstration only, the generator assigns an unobserved binary state, 50% engaged in each context. Real engagement does not come with this answer key.</dd>
+    <dt>2. The signals we record</dt><dd>Invented camera-facing gaze, body stillness, and task-evidence scores, each between 0 and 1. Context B has a different outward display pattern at the same underlying engagement state.</dd>
+    <dt>3. What we call a positive training label</dt><dd>Either the assumed state, deliberately altered labels, or a rule that calls camera-facing and stillness “engaged.” These targets are not interchangeable.</dd></dl>
+    <button data-guide="bias-data">Show the exact data-generating assumptions</button>
+  </div>
+  <div class="scenario-grid">
+    <article><span class="scenario-number">1 · Explicit</span><h3>Deliberately alter the labels</h3><p>Relabel half of engaged examples in B as not engaged. Both contexts have equal training weight; all three signals are available.</p></article>
+    <article><span class="scenario-number">2 · Inadvertent</span><h3>Use a convenient proxy</h3><p>Define engagement as average gaze and stillness above 0.55. Train with 90% weight on A. Nobody explicitly writes a rule about B; the proxy creates the mismatch.</p></article>
+    <article><span class="scenario-number">3 · Incomplete repair</span><h3>Balance representation</h3><p>Give A and B equal weight but retain the same proxy labels and features. Does more representative data fix an invalid target?</p></article>
+    <article><span class="scenario-number">4 · Different measurement</span><h3>Change target and evidence</h3><p>Use the assumed engagement state as the label and the noisy task-evidence signal as the feature. This is an idealized comparison, not a validated real-world engagement instrument.</p></article>
+  </div>
+  <p><strong>Predict before running:</strong> which model will look strongest if you only score agreement with its own labeling rule? Which will make fewer mistakes against the assumed engagement state?</p>
+  <button id="run-bias" class="primary">Train and compare all four</button><button data-guide="bias-learning">Explain the classifier code</button>
+  <p id="bias-status" role="status">No classifier has been trained in this session.</p>
+  <progress id="bias-progress" max="1200" value="0" aria-label="Classifier training epochs completed"></progress>
+  <div class="table-wrap"><table id="bias-results">
+    <caption>Held-out audit: 400 new synthetic observations, including 100 engaged and 100 not-engaged examples per context. No test rows are used for training.</caption>
+    <thead><tr><th scope="col">Training setup</th><th scope="col">Label agreement <button class="help" data-explain="agreement" aria-label="Explain label agreement">?</button></th><th scope="col">Accuracy against assumed state</th><th scope="col">Engaged A missed <button class="help" data-explain="missed" aria-label="Explain engaged examples missed">?</button></th><th scope="col">Engaged B missed</th></tr></thead>
+    <tbody id="bias-rows"><tr><td colspan="5">Run the comparison to calculate these values.</td></tr></tbody>
+  </table></div>
+  <p class="fine">Decision threshold: model score ≥ 0.5. “Missed” means a false negative among the 100 engaged examples in that context. These are deterministic simulation counts, not population estimates or calibrated human-engagement probabilities.</p>
+  <p id="bias-finding" class="callout" hidden></p>
+  <details id="bias-audit-details"><summary>Inspect false positives, target loss, and learned weights</summary><div id="bias-audit"></div></details>
+  <div id="paired-example" class="paired" hidden>
+    <h3>Same task evidence. Different outward behavior.</h3>
+    <p>Hold the assumed engagement state and task-evidence score (0.8) fixed. Change only gaze and stillness from 0.8 to 0.25. This controlled perturbation is a model diagnostic, not an estimate of how changing a person's behavior would affect their engagement.</p>
+    <div class="table-wrap"><table><caption>Model score for the positive training label, holding task evidence constant</caption><thead><tr><th>Model</th><th>Gaze / stillness 0.8</th><th>Gaze / stillness 0.25</th></tr></thead><tbody id="paired-rows"></tbody></table></div>
+    <button data-guide="bias-audit">Why a high score can still mean the wrong thing</button>
+  </div>
+  <details><summary>How does this relate to culture, body language, and eye tracking?</summary>
+    <p>Akechi and colleagues (2013) found both shared responses and differences in how Japanese and Finnish participants evaluated direct gaze. That study does not validate an engagement detector or establish the numerical differences used here. It supports asking whether a behavioral signal has the same meaning across contexts. <a href="https://doi.org/10.1371/journal.pone.0059312">Read the study</a>.</p>
+    <p>Eye contact with a person, gaze at a screen, fixation on relevant material, and attention to a learning task are different observations and constructs. Posture and movement also need contextual interpretation. A student may look away while reasoning, attend to an interpreter, use assistive technology, or take notes elsewhere. These are plausible alternative explanations to investigate, not a diagnostic checklist.</p>
+    <p>Engagement research distinguishes behavioral, emotional, and cognitive dimensions. <a href="https://doi.org/10.3102/00346543074001059">Fredricks, Blumenfeld, and Paris (2004)</a> review the concept and its measurement. A review by <a href="https://doi.org/10.1177/1529100619832930">Barrett and colleagues (2019)</a> likewise cautions against inferring emotion directly from facial movements; emotion is not the same construct as engagement.</p>
+    <p><strong>Our implication:</strong> do not turn the simulated A/B difference into a cultural stereotype or a rule for scoring individuals. Test the meaning and reliability of candidate measures in the intended setting, include learner perspectives and independent task evidence, and allow uncertainty or abstention. Group balance alone cannot establish construct validity.</p>
+  </details>
+  <details><summary>What should a leader ask before adopting an engagement dashboard?</summary>
+    <ul><li>Who defined “engaged,” and how were the training labels obtained?</li><li>What independent evidence supports that interpretation of gaze or body language?</li><li>Are we validating against the same proxy that generated the labels?</li><li>Which conditions, accessibility needs, or cultural norms might change the signal's meaning?</li><li>What happens to a learner who is wrongly flagged, and can they contest the interpretation?</li><li>Would a less intrusive measure answer the actual educational question?</li></ul>
+  </details>
+</section>
+<script is:inline type="module" src="/microgpt/bias-ui.js"></script>

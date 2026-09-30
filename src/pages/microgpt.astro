@@ -1,6 +1,9 @@
 ---
 /** Connect Karpathy's microgpt to evidence-based AI leadership through an original guided companion. */
 import Base from "../layouts/Base.astro";
+import TrainingLab from "../components/microgpt/TrainingLab.astro";
+import BiasLab from "../components/microgpt/BiasLab.astro";
+import ExplainTray from "../components/microgpt/ExplainTray.astro";
 const source = "https://karpathy.github.io/2026/02/12/microgpt/";
 const mechanics = [
   ["Data", "Names supply the examples.", "Which people, tasks, and conditions are absent from our evidence?"],
@@ -11,7 +14,8 @@ const mechanics = [
   ["Inference", "Fixed parameters generate a sequence through repeated sampling.", "Who checks the result before it changes a decision?"],
 ];
 ---
-<Base title="MicroGPT for AI leaders · Capability Matters" description="An attributed companion to Andrej Karpathy's microgpt: a temperature experiment, AI leaders' perspectives, and a practical bridge from model mechanics to deployment judgment." active="experiments">
+<Base title="MicroGPT for AI leaders · Capability Matters" description="An attributed companion to Andrej Karpathy's microgpt: live browser training, resumable checkpoints, a synthetic engagement-bias lab, and explained source code." active="experiments">
+  <link slot="head" rel="stylesheet" href="/microgpt/lab.css" />
   <link slot="head" rel="canonical" href="https://capabilitymatters.org/microgpt/" />
   <header class="intro">
     <div class="container">
@@ -19,18 +23,20 @@ const mechanics = [
       <h1>A small model.<br />Better questions.</h1>
       <p class="standfirst">What should understanding a language model change about the way you lead an AI project?</p>
       <p>Start with Andrej Karpathy's microgpt. Then follow the decisions outward: from what the model learns, to how people use it, to what counts as evidence that the system works.</p>
-      <p class="byline">Capability Matters editorial adaptation · September 30, 2026 · About 12 minutes, plus the optional code exercise</p>
+      <p class="byline">Capability Matters editorial adaptation · September 30, 2026 · Read, train, compare, and inspect the code at your own pace</p>
       <aside class="attribution" aria-label="Source attribution">
         <strong>Built around Andrej Karpathy's work.</strong>
-        <a href={source}>“microgpt,” February 12, 2026</a>, is the original tutorial and implementation. This page contributes a leadership interpretation, a separate simulation, and discussion activities. Those additions are ours; they do not imply his endorsement.
+        <a href={source}>“microgpt,” February 12, 2026</a>, is the original tutorial and implementation. This page contributes a leadership interpretation, an independent JavaScript training adaptation, measured checkpoints, a synthetic bias experiment, and discussion activities. Those additions are ours; they do not imply his endorsement.
       </aside>
       <nav class="contents" aria-label="On this page">
-        <a href="#mechanism">The mechanism</a><a href="#experiment">Try an experiment</a><a href="#perspectives">Leaders' perspectives</a><a href="#practice">Use it in practice</a>
+        <a href="#training">Train a model</a><a href="#bias">Inspect bias</a><a href="#mechanism">The mechanism</a><a href="#experiment">Temperature</a><a href="#perspectives">Leaders' perspectives</a><a href="#practice">Use it in practice</a>
       </nav>
     </div>
   </header>
 
   <article class="container article">
+    <TrainingLab />
+    <BiasLab />
     <section id="mechanism" aria-labelledby="mechanism-title">
       <p class="eyebrow">01 · Make the mechanism inspectable</p>
       <h2 id="mechanism-title">Read the model. Then interrogate the project.</h2>
@@ -144,7 +150,7 @@ const mechanics = [
         <li><strong>Andrew Ng.</strong> Opening letter in <a href="https://www.deeplearning.ai/the-batch/issue-281/">The Batch, issue 281</a>, DeepLearning.AI. December 25, 2024. Cited for his perspective on application progress.</li>
         <li><strong>Dario Amodei.</strong> <a href="https://darioamodei.com/essay/machines-of-loving-grace">“Machines of Loving Grace.”</a> October 2024. Especially “Basic assumptions and framework.” Cited as a conditional argument about potential impact and limiting factors.</li>
       </ol>
-      <p><strong>Adaptation note.</strong> The leadership questions, comparison of perspectives, temperature simulation, scenario, and decision-note exercise were developed for Capability Matters with AI assistance. This page summarizes and links to the originals; it does not reproduce Karpathy's tutorial or source code. No endorsement by the cited authors is implied.</p>
+      <p><strong>Adaptation note.</strong> The independently implemented JavaScript training engine, measured checkpoints, synthetic engagement-bias experiment, code explanations, leadership questions, comparison of perspectives, temperature simulation, scenario, and decision-note exercise were developed for Capability Matters with AI assistance. This page credits and links to the originals; it does not reproduce Karpathy's tutorial or Python source text. <a href="/microgpt/NOTICE.md">Implementation attribution and differences</a>. No endorsement by the cited authors is implied.</p>
       <details><summary>Terms and acronyms</summary><dl>
         <dt>AI · Artificial intelligence</dt><dd>Computational systems used for tasks such as prediction, generation, and decision support.</dd>
         <dt>GPT · Generative pretrained transformer</dt><dd>A family of models built around transformer architectures for generating sequences.</dd>
@@ -156,6 +162,7 @@ const mechanics = [
       </dl></details>
     </section>
   </article>
+  <ExplainTray />
 </Base>
 
 <script>

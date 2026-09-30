@@ -89,3 +89,51 @@ so the render works offline.
 
 Pushes to `main` trigger `.github/workflows/deploy-gh-pages.yml`, which builds the site and
 publishes `dist/` to the `gh-pages` branch with `CNAME capabilitymatters.org`.
+
+## MicroGPT teaching labs
+
+`/microgpt/` includes two independent local experiments. `TrainingLab.astro` hosts
+real transformer training; `BiasLab.astro` fits simple classifiers to invented
+engagement observations. `ExplainTray.astro` provides native modal help and a
+source viewer. Both experiments are explicitly educational; the synthetic groups
+are not real cultures and the simulated criterion is not a validated engagement
+measure. The existing article remains the leadership companion.
+
+The dependency-free modules in `public/microgpt/` are served directly:
+
+- `engine.js`: indexed reverse-mode differentiation, causal transformer, Adam,
+  deterministic fictional dataset, evaluation, sampling and complete snapshots.
+- `worker.js`: responsive background training and session checkpoint management.
+- `lab.js`: training controls, import/export, measured charts and saved presets.
+- `bias.js`: declared data/label assumptions, logistic fitting and independent audit.
+- `bias-ui.js`: four-condition comparison and matched-input diagnostic.
+- `explanations.js` and `explain.js`: plain-language stage explanations, help
+  definitions and line-numbered excerpts from the actual served modules.
+- `lab.css`: responsive lab and modal presentation.
+- `NOTICE.md`: Karpathy attribution and exact implementation differences.
+- `checkpoints.json`: measured 0-, 100- and 600-step states, including optimizer
+  and random state, generated with the same engine the browser uses.
+
+No external model service, sensor access, analytics or training-data upload is
+used by these modules. No additional runtime package or environment setting is
+required. A browser with module workers is needed for live transformer training.
+Imports are parsed as data, bounded to 1 MB, and validated against the architecture.
+Saved states in the session are transient; readers can download and import them.
+
+Rebuild bundled checkpoints after changing training math, data or architecture:
+
+```sh
+node scripts/build-microgpt-checkpoints.mjs
+node tests/test_microgpt_engine.mjs
+npm run build
+python3 tests/test_microgpt_page.py
+python3 tests/test_experiments_page.py
+```
+
+The engine test checks gradients against finite differences, data separation,
+loss improvement, exact continuation from a checkpoint, unchanged parameters
+through evaluation/sampling, deterministic presets, and the intended synthetic
+bias effects. The page test checks attribution, simulation boundaries and links.
+The schema version must change if snapshot compatibility changes. Preserve the
+separation between empirical citations, invented assumptions, computed outputs,
+and educational hypotheses when revising the page.

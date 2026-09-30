@@ -33,7 +33,10 @@ class MicrogptPageTest(unittest.TestCase):
         for text in ('Andrej Karpathy', 'Andrew Ng', 'Dario Amodei',
                      'Fixed, invented scores', 'No trained model',
                      'does not reproduce', 'No endorsement',
-                     'We have not established a learning effect'):
+                     'We have not established a learning effect',
+                     'No camera, microphone, or eye-tracking data is collected',
+                     'Import checkpoint', 'code-tray', 'help-dialog',
+                     'Deliberately alter the labels', 'Balance representation'):
             self.assertIn(text, html)
         parsed = Links()
         parsed.feed(html)
