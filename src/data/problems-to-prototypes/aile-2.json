@@ -1,0 +1,78 @@
+[
+  {
+    "id": "example-aile-4481",
+    "title": "Mastery Pathways for Mixed-Readiness Classrooms",
+    "gap": "A single classroom can contain wide variation in prior knowledge and pace, while teachers have limited time to diagnose every learner and create individualized practice. AI personalization can help, but only if it is tied to clear mastery evidence rather than opaque engagement scores.",
+    "prototype": "Build a teacher-facing mastery pathway tool that links each learning objective to diagnostic tasks, prerequisite skills, practice options, and observable mastery evidence. AI can propose next activities, but teachers see and can override the reasoning.",
+    "example": "In a mathematics unit, one learner receives prerequisite fraction practice, another receives a transfer problem, and both must demonstrate the same target concept through an explanation and novel problem.",
+    "frame": "Personalization should adapt support while holding the capability target and evidence standard stable. Feedback, metacognitive monitoring, and opportunities to transfer learning matter more than merely accelerating task completion.",
+    "questions": [
+      "Which evidence is sufficient to advance a learner?",
+      "How transparent must the recommendation logic be for teachers and families?",
+      "Does the system narrow or widen opportunity gaps over time?"
+    ],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to reach and demonstrate mastery from different starting points, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learners, teacher, curriculum progression, diagnostic tasks, AI recommender, and classroom schedule. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: mastery, time-to-mastery, transfer, teacher override patterns, opportunity gaps, and learner self-monitoring. A key disconfirming signal is: the system optimizes completion pace without improving durable mastery or equity."
+    },
+    "evidence": ["E10","E09","E03","E01","E06"]
+  },
+  {
+    "id": "example-aile-4953",
+    "title": "A Practice Lab for Teacher AI Adoption",
+    "gap": "AI adoption in schools often depends on a few enthusiastic users while other educators receive tool demos without enough time to build judgment about when AI is useful, risky, or instructionally counterproductive.",
+    "prototype": "Build a scenario-based professional learning lab where teachers practice making AI-use decisions, try bounded tools on authentic planning tasks, see failure cases, and receive feedback tied to an explicit competency framework and local policy.",
+    "example": "A teacher chooses whether to use AI to generate feedback on student writing, then compares three configurations: unrestricted generation, rubric-grounded suggestions, and teacher-only planning support.",
+    "frame": "Teacher learning should involve application, reflection, feedback, and opportunities to revise—not one-time compliance training. The goal is professional judgment and human agency in a teacher–AI–student system.",
+    "questions": [
+      "Which competencies predict responsible classroom use?",
+      "What kinds of practice change teacher behavior rather than only attitudes?",
+      "How should local policy and subject-area pedagogy alter the scenarios?"
+    ],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to make context-sensitive instructional decisions about AI use, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: teacher, students, curriculum, school policy, AI tools, professional learning team, and leadership. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: scenario judgment, classroom implementation quality, policy alignment, teacher confidence calibration, and student learning evidence. A key disconfirming signal is: teachers report higher confidence but make no better instructional or risk-management decisions."
+    },
+    "evidence": ["E17","E03","E05","E09","E06"]
+  },
+  {
+    "id": "example-aile-8387",
+    "title": "XR + AI for Safe Practice of Complex Workflows",
+    "gap": "Complex technical workflows are hard to learn from manuals and slide decks because learners must coordinate spatial, procedural, and decision knowledge. High-fidelity simulation can be expensive, while low-cost digital training often lacks realistic practice.",
+    "prototype": "Prototype a lightweight 3D or XR scenario with an AI coach that observes task sequence, asks the learner to predict the next step, and provides graduated feedback. The first version should simulate only one high-value workflow rather than build a broad virtual world.",
+    "example": "A new employee practices configuring a piece of enterprise equipment in a virtual environment, including one realistic fault that requires diagnosis rather than rote sequence-following.",
+    "frame": "Multimedia should reduce extraneous processing and make invisible relationships visible, while simulation enables repeated practice without real-world risk. Feedback should move from guidance toward independence as competence grows.",
+    "questions": [
+      "Which elements require spatial simulation and which can remain 2D?",
+      "Does immersive practice transfer to the real workflow?",
+      "Is added realism worth the cost and cognitive load?"
+    ],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to execute and troubleshoot a complex workflow safely and independently, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, trainer, workflow, equipment model, XR interface, AI coach, and workplace safety constraints. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: sequence accuracy, diagnosis quality, transfer to real task, error recovery, time-to-competence, and simulator cost. A key disconfirming signal is: the simulation feels realistic but does not improve real-world performance beyond simpler practice."
+    },
+    "evidence": ["E11","E13","E10","E02"]
+  },
+  {
+    "id": "example-aile-2579",
+    "title": "A Clinical Reasoning + AI Calibration Coach",
+    "gap": "Clinical trainees increasingly encounter AI-supported decisions, but learning to use AI safely requires more than knowing what a tool can output. Learners must integrate foundational knowledge, uncertainty, patient context, and the possibility that the AI is wrong.",
+    "prototype": "Create a clinical reasoning simulator in which an AI assistant sometimes offers useful, incomplete, or misleading suggestions. The learner must state an independent assessment, identify what evidence would change the decision, and explicitly answer 'what might I be missing?' before seeing expert feedback.",
+    "example": "A simulated patient case includes an AI-generated differential diagnosis that omits a less common but consequential possibility. The learner decides whether to accept, challenge, or investigate the suggestion.",
+    "frame": "Simulation with deliberate practice can support complex professional judgment when feedback is explicit and repeated. Metacognitive prompts make uncertainty and self-monitoring visible; the AI is deliberately treated as fallible evidence, not an authority.",
+    "questions": [
+      "How often should the AI be wrong to teach calibration without creating distrust?",
+      "Which measures capture reasoning quality rather than answer matching?",
+      "Does practice change behavior in authentic clinical settings?"
+    ],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to integrate AI advice into independent, evidence-based professional judgment, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: trainee, supervisor, patient case, clinical knowledge, AI assistant, institutional policy, and safety constraints. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: diagnostic reasoning, appropriate challenge of AI, uncertainty calibration, transfer, safety-critical misses, and explanation quality. A key disconfirming signal is: learners learn to distrust or obey the AI categorically instead of calibrating trust to evidence."
+    },
+    "evidence": ["E13","E10","E09","E05","E16"]
+  }
+]
