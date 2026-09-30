@@ -1,0 +1,62 @@
+[
+  {
+    "id": "example-aile-5636",
+    "title": "A Capability Map for Workforce Learning Systems",
+    "gap": "Large organizations often accumulate courses, credentials, and learning platforms without a shared model of the capabilities employees need to perform. Completion data then becomes easier to measure than readiness for real work.",
+    "prototype": "Create a capability graph that links role outcomes to observable tasks, prerequisite knowledge, practice opportunities, and evidence. An AI coach can recommend practice from the graph and explain why, while managers and learning teams control the capability model.",
+    "example": "A new team lead is not assigned 'leadership content' broadly; the system identifies a need to run a difficult feedback conversation and recommends a short scenario, reflection, and live manager practice.",
+    "frame": "The learning architecture begins with performance and transfer rather than content inventory. AI supports navigation through the model, but human experts define what competent performance looks like and what evidence is credible.",
+    "questions": ["Can the organization agree on observable capabilities across roles?","Which evidence predicts performance on the job?","Does recommendation improve readiness or simply increase learning activity?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to perform a defined workplace capability in context, not merely complete related training, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: employee, manager, learning team, role tasks, performance data, capability graph, and AI coach. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: task performance, transfer, time-to-readiness, manager agreement, recommendation uptake, and course reduction. A key disconfirming signal is: the graph becomes another taxonomy disconnected from actual work performance."
+    },
+    "evidence": ["E12","E10","E01","E06"]
+  },
+  {
+    "id": "example-aile-0516",
+    "title": "Judgment-First Architecture for Online Programs",
+    "gap": "Online programs can scale procedural learning efficiently while leaving higher-order judgment fragmented across individual courses. Institutions also collect large amounts of activity data without an explicit model linking those data to how judgment develops across a program.",
+    "prototype": "Build a program-level capability map for judgment, then use AI to generate case variations, surface evidence gaps, and help faculty compare where learners practice and demonstrate the capability across courses. The analytics layer reports evidence against the model rather than generic engagement.",
+    "example": "A professional master's program defines a target capability such as 'choose among competing interventions under uncertainty' and traces where learners encounter, practice, and demonstrate it from entry to capstone.",
+    "frame": "The design makes transfer and progressively complex performance the organizing principle. AI supports case variation and analysis, while faculty define the capability, standards, and acceptable evidence.",
+    "questions": ["Can faculty agree on a small set of program-level judgment capabilities?","Which measures predict later performance?","Does the architecture reveal unnecessary content or missing practice opportunities?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to exercise domain judgment across varied and increasingly complex situations, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, faculty, courses, assessments, program outcomes, analytics, AI case generator, and institutional governance. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: program-level performance progression, transfer, assessment alignment, faculty agreement, completion, and data usefulness. A key disconfirming signal is: the institution creates a sophisticated map but courses and assessments continue unchanged."
+    },
+    "evidence": ["E12","E01","E07","E10","E03"]
+  },
+  {
+    "id": "example-aile-3099",
+    "title": "Linking Frontline Training to Operational Performance",
+    "gap": "Organizations often measure training completion separately from the operational outcomes the training is supposed to improve. This makes it hard to know whether a performance problem is caused by knowledge, workflow design, equipment, incentives, staffing, or something else.",
+    "prototype": "Create an AI-assisted performance diagnostic that combines a capability model with operational error patterns and supervisor observations. Before recommending training, it asks whether the gap is actually learnable and identifies alternative system levers.",
+    "example": "A manufacturing line shows repeated setup errors. The tool compares errors with task steps and finds that one issue is knowledge-based, another is caused by an ambiguous interface, and only the first should trigger practice.",
+    "frame": "The human–learner-system frame resists treating every performance gap as a training problem. When learning is appropriate, practice and feedback are tied directly to the target work; when it is not, the system recommends redesign or escalation.",
+    "questions": ["Can the diagnostic distinguish learning gaps from system failures with acceptable reliability?","Which operational measures are fair evidence of capability?","Does the prototype reduce unnecessary training and improve actual performance?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to perform a frontline task reliably and diagnose whether failures are learnable or systemic, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: worker, supervisor, workflow, equipment/interface, operating conditions, performance data, and AI diagnostic. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: error rate, rework, training avoided, transfer, supervisor agreement, and false training recommendations. A key disconfirming signal is: the tool labels system problems as learner deficits or optimizes a metric workers cannot fully control."
+    },
+    "evidence": ["E01","E12","E10","E06"]
+  },
+  {
+    "id": "example-aile-5776",
+    "title": "A Training Harmonization Decision Assistant",
+    "gap": "Large health and service organizations want to reduce duplicated training, but units may differ in policy, workflow, equipment, and risk. Standardizing too aggressively can make training inaccurate; localizing everything can create high maintenance cost and inconsistent expectations.",
+    "prototype": "Create an AI-assisted harmonization tool that classifies training content into system-wide, role-specific, and local-policy components. It generates shared scenarios with controlled local variants and shows exactly which source rule created each variation.",
+    "example": "Several outpatient units share a common patient-intake capability but differ in escalation policy. The tool produces one core module plus unit-specific decision branches rather than separate courses.",
+    "frame": "The design preserves common capability targets while representing contextual variation explicitly. Scenario practice and source-grounded feedback support transfer better than simply distributing harmonized information.",
+    "questions": ["What can safely be standardized?","Which local differences materially change performance?","Does the model reduce maintenance effort while improving accuracy and transfer?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to perform a common professional task correctly across local policy variations, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, educators, multiple units, policies, workflow differences, AI harmonization tool, and governance owners. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: content duplication, update time, policy accuracy, scenario performance, transfer, and local exception rate. A key disconfirming signal is: maintenance decreases but learners are taught a generic workflow that is wrong in important local contexts."
+    },
+    "evidence": ["E12","E13","E10","E06","E01"]
+  }
+]
