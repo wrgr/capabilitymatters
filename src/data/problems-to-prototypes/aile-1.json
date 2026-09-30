@@ -1,0 +1,102 @@
+[
+  {
+    "id": "example-aile-2195",
+    "title": "An AI Debate Coach for Evidence, Reasoning, and Voice",
+    "gap": "Students often need far more low-stakes rehearsal in argumentation and public speaking than a teacher or coach can provide. Generic generative AI can produce polished arguments for learners, however, which risks replacing the very reasoning and voice the practice is meant to develop.",
+    "prototype": "Create an AI rehearsal partner that listens to or reads a learner's argument, identifies the claim-evidence-reasoning structure, poses a counterargument, and gives process-focused feedback. It should never write the final speech by default and should make uncertainty and source quality visible.",
+    "example": "A learner preparing a school debate gives a two-minute opening statement. The coach asks one skeptical follow-up, highlights an unsupported inference, and invites a revised response before showing any model language.",
+    "frame": "The core mechanism is deliberate, repeated practice with specific feedback and self-explanation. Human judgment remains central: a teacher or coach sets norms, evaluates rhetoric and ethics, and helps learners interpret feedback rather than treating an AI score as authoritative.",
+    "questions": [
+      "Does repeated AI rehearsal improve live performance with a human audience?",
+      "Which feedback prompts strengthen reasoning without homogenizing student voice?",
+      "How should the system handle controversial topics or biased source material?"
+    ],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to construct, defend, and revise an evidence-based argument in real time, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, coach or teacher, peers/audience, source materials, AI rehearsal partner, and debate norms. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: argument quality, response to counterarguments, source use, oral confidence, transfer to live debate, and reliance on AI wording. A key disconfirming signal is: fluency improves but original reasoning, source judgment, or authentic voice declines."
+    },
+    "evidence": [
+      "E10",
+      "E13",
+      "E06",
+      "E03",
+      "E16"
+    ]
+  },
+  {
+    "id": "example-aile-9575",
+    "title": "A District AI Use Framework That Protects Learning",
+    "gap": "Schools are adopting generative AI faster than many districts can define what responsible use looks like. Simple bans or blanket permission do not distinguish between AI that supports learning, AI that replaces learning, and AI that creates unacceptable privacy or equity risks.",
+    "prototype": "Develop a policy-and-practice sandbox that classifies proposed AI uses by learner age, instructional purpose, data sensitivity, human oversight, and the capability at risk. It generates a draft classroom protocol and student-facing explanation, while routing high-risk uses for human review.",
+    "example": "A district considers AI feedback on middle-school writing. The sandbox distinguishes brainstorming, formative feedback, and full-text generation, then asks what evidence must remain visibly the student's own.",
+    "frame": "The design treats AI literacy and governance as part of the learning system, not as a separate compliance layer. Policy should preserve human agency, make expectations teachable, and align tool use with a specific learning purpose and observable evidence.",
+    "questions": [
+      "Which uses should be encouraged, constrained, or prohibited by age and task?",
+      "How will teachers and students learn the policy rather than merely acknowledge it?",
+      "What evidence would show that a rule improves learning instead of only reducing incidents?"
+    ],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to make and explain responsible decisions about AI use in learning, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: students, teachers, families, district leaders, approved tools, data governance, curriculum, and local policy. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: policy comprehension, consistency of decisions, learning-task integrity, privacy incidents, teacher workload, and equity of access. A key disconfirming signal is: rules are followed superficially but teachers and students cannot reason about new AI situations."
+    },
+    "evidence": [
+      "E03",
+      "E04",
+      "E05",
+      "E16",
+      "E17"
+    ]
+  },
+  {
+    "id": "example-aile-8061",
+    "title": "A Family–School AI Connector for Literacy Support",
+    "gap": "Literacy support is distributed across classrooms, homes, community programs, and digital tools, yet families and educators often lack a shared picture of what the learner is practicing and how to help. AI personalization can add another disconnected layer if it is not designed around relationships and instructional goals.",
+    "prototype": "Create a teacher-configured family learning companion that translates a weekly literacy target into short home activities, optional multilingual explanations, and questions families can use to notice progress. The system reports patterns back to the teacher without treating home behavior as a surveillance signal.",
+    "example": "A learner is practicing inference in short texts. The family companion suggests a five-minute conversation using a familiar story or local event, then lets the family record what was easy or confusing.",
+    "frame": "Learning support should connect school goals to meaningful contexts while respecting family knowledge and cultural assets. The AI is a communication and scaffolding layer; the teacher and family remain the interpreters of learner needs.",
+    "questions": [
+      "What information is genuinely useful to families?",
+      "How much data should flow back to school?",
+      "Does the prototype strengthen literacy performance and family participation without increasing burden or inequity?"
+    ],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to apply a literacy strategy across school and home contexts, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, family, teacher, community context, curriculum target, AI companion, and privacy boundaries. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: strategy use, reading performance, family participation, teacher usefulness, burden, and subgroup access. A key disconfirming signal is: communication volume increases without improvement in learner strategy use or family trust."
+    },
+    "evidence": [
+      "E14",
+      "E15",
+      "E01",
+      "E03",
+      "E04"
+    ]
+  },
+  {
+    "id": "example-aile-3268",
+    "title": "Low-Bandwidth AI Support for Small and Rural Schools",
+    "gap": "AI-enabled learning tools are often designed around reliable broadband, abundant devices, and specialist support. Those assumptions can make the technology least usable in the schools where access to expert instruction and staff capacity are already constrained.",
+    "prototype": "Prototype a low-bandwidth, teacher-first AI assistant that works from locally cached curriculum materials, generates offline-ready practice and explanations, and synchronizes only when connectivity is available. High-stakes decisions stay with educators, and the design includes a non-AI fallback.",
+    "example": "A small secondary school with intermittent internet uses the assistant to prepare differentiated science practice packets and teacher discussion prompts from an approved local curriculum set.",
+    "frame": "The goal is not 'AI access' but improved instructional capacity under real constraints. Human-centered design requires explicit modeling of infrastructure, teacher time, local curriculum, and data risk alongside learner needs.",
+    "questions": [
+      "What useful functions still work with weak connectivity?",
+      "Does the tool reduce teacher preparation time without lowering instructional quality?",
+      "Are learning gains comparable when the AI is intermittently available?"
+    ],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to deliver and adapt high-quality instruction despite limited infrastructure, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learners, teachers, local curriculum, devices, connectivity, school leadership, AI assistant, and offline workflow. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: teacher time, task quality, learner performance, uptime dependence, equity of access, and fallback success. A key disconfirming signal is: the system saves time only when connectivity and technical support are already strong."
+    },
+    "evidence": [
+      "E03",
+      "E04",
+      "E05",
+      "E01",
+      "E06"
+    ]
+  }
+]
