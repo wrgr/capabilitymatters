@@ -1,0 +1,148 @@
+---
+import PrototypeShell from "../../components/prototypes/PrototypeShell.astro";
+import aile1 from "../../data/problems-to-prototypes/aile-1.json";
+import meta from "../../data/problems-to-prototypes/meta.json";
+const idea = aile1.find((x)=>x.id==="example-aile-2195");
+if (!idea) throw new Error("Debate coach brief missing");
+const common=meta.aileCommonSteps;
+const cycle=[
+["Understand",idea.cycle.understand],["Model",idea.cycle.model],["Design",common["3"]],["Build",common["4"]],
+["Instrument",idea.cycle.instrument],["Deploy",common["6"]],["Evaluate",common["7"]],["Refine",common["8"]]
+];
+---
+<PrototypeShell
+  idea={idea}
+  collection="AILE"
+  cycle={cycle}
+  assumption="Requiring an initial claim, evidence, and reasoning before feedback will produce better revision and counterargument handling than giving model language first."
+  falsifier="Learners become more fluent with the interface but their independent reasoning, source judgment, or live responses do not improve—or their wording becomes more homogeneous."
+  instrumentation="Capture the learner's first attempt, confidence, identified evidence, revision delta, response to a counterargument, and whether the final response still contains unsupported claims. Do not infer ability from typing speed or verbosity."
+>
+  <div slot="app" class="coach" id="debate-coach">
+    <section class="prompt">
+      <span>Practice motion</span>
+      <h2>Schools should require community service for graduation.</h2>
+      <p>Make the strongest case you can. The coach will not draft your speech; it will help you inspect the reasoning you already supplied.</p>
+    </section>
+
+    <form id="debate-form">
+      <label>1. Your claim
+        <textarea id="claim" rows="3" placeholder="State the position you want to defend."></textarea>
+      </label>
+      <label>2. Your strongest evidence
+        <textarea id="evidence" rows="3" placeholder="What fact, example, source, or observation supports it?"></textarea>
+      </label>
+      <label>3. Why does that evidence support the claim?
+        <textarea id="reasoning" rows="3" placeholder="Make the inferential step explicit."></textarea>
+      </label>
+      <div class="row">
+        <label>Confidence before feedback
+          <select id="confidence">
+            <option value="50">50% — unsure</option><option value="65">65%</option><option value="80" selected>80%</option><option value="95">95% — very sure</option>
+          </select>
+        </label>
+        <button type="submit">Challenge my reasoning</button>
+      </div>
+    </form>
+
+    <section id="feedback" class="feedback" hidden aria-live="polite">
+      <div class="structure">
+        <article><small>Claim</small><p id="claim-out"></p></article>
+        <article><small>Evidence</small><p id="evidence-out"></p></article>
+        <article><small>Reasoning link</small><p id="reasoning-out"></p></article>
+      </div>
+      <article class="challenge">
+        <small>Skeptical follow-up</small>
+        <h3 id="counter"></h3>
+        <p id="diagnostic"></p>
+      </article>
+      <label>Revise in your own words
+        <textarea id="revision" rows="4" placeholder="Respond to the challenge without copying model language."></textarea>
+      </label>
+      <button type="button" id="compare">Compare my revision</button>
+      <div id="comparison" class="comparison" hidden></div>
+    </section>
+
+    <details class="inspect">
+      <summary>Inspect what this prototype is actually doing</summary>
+      <p>No language model is running in this thin slice. The local rules look for whether the learner supplied all three argument parts, whether the evidence contains source-like specificity, and whether the reasoning explicitly connects evidence to the claim. A production version would replace these heuristics with a bounded model and expert-validated rubric, while preserving the same learner-first sequence.</p>
+    </details>
+  </div>
+</PrototypeShell>
+
+<style>
+  .coach{display:flex;flex-direction:column;gap:1rem}
+  .prompt{border-left:4px solid var(--accent);background:var(--tint);padding:1rem}
+  .prompt span,.structure small,.challenge small{font-family:var(--sans);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:700}
+  .prompt h2{margin:.3rem 0 .4rem}.prompt p{font-size:.9rem;color:var(--muted);margin:0}
+  form,.feedback{display:flex;flex-direction:column;gap:.85rem}
+  label{display:flex;flex-direction:column;gap:.3rem;font-family:var(--sans);font-size:.78rem;font-weight:700}
+  textarea,select{font:inherit;font-size:.95rem;color:var(--ink);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.7rem;resize:vertical}
+  textarea:focus,select:focus{outline:2px solid var(--accent);outline-offset:2px}
+  .row{display:flex;gap:1rem;justify-content:space-between;align-items:end;flex-wrap:wrap}
+  button{border:1px solid var(--accent);background:var(--accent);color:var(--bg);font-family:var(--sans);font-weight:700;padding:.65rem .85rem;border-radius:4px;cursor:pointer}
+  .structure{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+  .structure article{border:1px solid var(--border);padding:.75rem;border-radius:4px;background:var(--bg)}
+  .structure p{font-size:.85rem;margin:.3rem 0 0}
+  .challenge{background:var(--tint-warm);border:1px solid var(--border);padding:1rem;border-radius:4px}
+  .challenge h3{font-size:1.1rem;margin:.35rem 0}.challenge p{font-size:.86rem;margin:0}
+  .comparison{border-left:4px solid var(--accent-2);padding:.75rem 1rem;background:var(--tint)}
+  .comparison p{margin:.2rem 0;font-size:.88rem}
+  .inspect{border-top:1px solid var(--border);padding-top:.8rem}
+  .inspect summary{cursor:pointer;font-family:var(--sans);font-size:.78rem;color:var(--muted)}
+  .inspect p{font-size:.82rem;color:var(--muted);margin-top:.6rem}
+  @media(max-width:640px){.structure{grid-template-columns:1fr}.row{align-items:stretch}.row button{width:100%}}
+</style>
+
+<script is:inline>
+(function(){
+  var root=document.getElementById('debate-coach');
+  if(!root)return;
+  var form=root.querySelector('#debate-form');
+  var feedback=root.querySelector('#feedback');
+  var claim=root.querySelector('#claim'), evidence=root.querySelector('#evidence'), reasoning=root.querySelector('#reasoning');
+  var revision=root.querySelector('#revision'), compare=root.querySelector('#compare'), comparison=root.querySelector('#comparison');
+  function words(s){return (s.trim().match(/\b[\w'-]+\b/g)||[]).length}
+  function sourceSpecificity(s){
+    return /\b(according|study|survey|report|data|research|percent|%|year|students|participants|source)\b/i.test(s) || /\d/.test(s);
+  }
+  function connection(s){
+    return /\b(because|therefore|so|which means|this shows|suggests|supports|leads to|as a result)\b/i.test(s);
+  }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var c=claim.value.trim(), ev=evidence.value.trim(), r=reasoning.value.trim();
+    if(!c||!ev||!r){alert('Give the coach a claim, evidence, and reasoning first.');return}
+    root.querySelector('#claim-out').textContent=c;
+    root.querySelector('#evidence-out').textContent=ev;
+    root.querySelector('#reasoning-out').textContent=r;
+    var weakEvidence=!sourceSpecificity(ev);
+    var weakLink=!connection(r);
+    var shortReasoning=words(r)<10;
+    var counter, diag;
+    if(weakEvidence){
+      counter='How would a skeptical listener know that your evidence is credible rather than merely plausible?';
+      diag='The evidence is currently underspecified. Try naming where it came from, what was observed, or what would make it trustworthy.';
+    }else if(weakLink||shortReasoning){
+      counter='Why does that evidence support your claim rather than a different conclusion?';
+      diag='Your structure has all three pieces, but the inferential bridge is doing too little work. Make the causal or logical connection explicit.';
+    }else{
+      counter='What is the strongest reasonable objection to your argument, and what evidence would change your own position?';
+      diag='The basic structure is visible. The next useful test is whether the reasoning survives a serious counterargument rather than a weak one.';
+    }
+    root.querySelector('#counter').textContent=counter;
+    root.querySelector('#diagnostic').textContent=diag;
+    feedback.hidden=false;
+    revision.focus();
+  });
+  compare.addEventListener('click',function(){
+    var rev=revision.value.trim();
+    if(!rev){comparison.hidden=false;comparison.innerHTML='<p>Add a revision first. The point is to practice the reasoning move, not just inspect feedback.</p>';return}
+    var before=words(claim.value+' '+reasoning.value), after=words(rev);
+    var explicit=connection(rev);
+    var acknowledges=/\b(although|however|while|counter|objection|unless|but|yet)\b/i.test(rev);
+    comparison.hidden=false;
+    comparison.innerHTML='<p><strong>Revision check:</strong> '+(explicit?'You made the reasoning link explicit. ':'The reasoning link is still implicit. ')+(acknowledges?'You also engaged a competing consideration. ':'Try acknowledging the strongest competing consideration directly. ')+'</p><p><strong>Length:</strong> original claim + reasoning '+before+' words; revision '+after+' words. More words are not automatically better.</p>';
+  });
+})();
+</script>
