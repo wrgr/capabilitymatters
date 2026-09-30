@@ -1,0 +1,62 @@
+[
+  {
+    "id": "example-aile-0146",
+    "title": "A Family Learning Studio for Early Learners",
+    "gap": "Young learners often experience school and home as separate learning environments even when family participation strongly shapes routines, language, and motivation. Families may receive generic activities that do not fit their language, culture, available materials, or the child's current learning goal.",
+    "prototype": "Create an educator-controlled family activity studio that turns a weekly learning objective into short parent-child activities using common household materials, optional multilingual supports, and multiple ways for the child to respond.",
+    "example": "For an early mathematics goal, the studio generates a sorting and comparison game using kitchen objects, with a visual version, a story version, and a movement-based version.",
+    "frame": "The design draws on learner context, prior knowledge, multiple means of engagement and expression, and family cultural assets. AI generates options; educators and families choose what is meaningful and feasible.",
+    "questions": ["Which adaptations actually increase participation rather than just choice?","How can family feedback inform instruction without becoming homework surveillance?","Do gains transfer back to classroom tasks?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to use an emerging academic concept across school and home activities, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: young learner, family, teacher, home materials, language context, curriculum goal, and AI activity studio. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: participation, concept performance, transfer to classroom, family usability, accessibility, and burden. A key disconfirming signal is: families receive more activities but participation or classroom transfer does not improve."
+    },
+    "evidence": ["E01","E02","E14","E15"]
+  },
+  {
+    "id": "example-aile-3601",
+    "title": "A Comprehension-First Navigator for International Students",
+    "gap": "International students must act on dense, high-stakes institutional information that may be linguistically unfamiliar and distributed across many offices. A chatbot that merely retrieves policy text can increase speed without ensuring comprehension or appropriate escalation.",
+    "prototype": "Build a retrieval-grounded navigator that explains approved institutional information in plain language, checks understanding, identifies when a question exceeds its authority, and routes the learner to a human office with the relevant context.",
+    "example": "A student asks what steps are required before an international internship. The navigator gives an institution-approved checklist, asks the student to restate the next action, and flags questions that require an advisor.",
+    "frame": "The key capability is not information access but correct interpretation and action. The system should reduce extraneous language burden while preserving important distinctions, uncertainty, and human accountability.",
+    "questions": ["Does the tool improve correct action, not just answer satisfaction?","When should it stop and escalate?","Which simplifications help multilingual learners without distorting policy?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to interpret complex institutional information and take the correct next action, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: student, advisors, institutional policy corpus, AI navigator, language supports, and escalation channels. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: comprehension, correct next action, escalation accuracy, resolution time, trust calibration, and subgroup differences. A key disconfirming signal is: users report convenience but make the same or more procedural errors."
+    },
+    "evidence": ["E01","E02","E06","E04","E14"]
+  },
+  {
+    "id": "example-aile-1921",
+    "title": "An Inquiry Studio for Exam-Centric Learning",
+    "gap": "Systems optimized around exams can reward reproduction of correct answers while underdeveloping curiosity, experimentation, and the ability to formulate a problem. Adding AI can make answer production even easier unless the learning experience explicitly values inquiry.",
+    "prototype": "Create an AI inquiry studio that converts required syllabus topics into locally meaningful investigations. Learners choose a question, predict an outcome, gather evidence, and defend a conclusion; the AI helps generate alternatives and critique reasoning but does not provide a final answer first.",
+    "example": "A chemistry topic becomes a neighborhood water-quality investigation in which learners select variables, interpret imperfect data, and explain what they still cannot conclude.",
+    "frame": "The design emphasizes active and constructive learning, learner agency, and metacognitive reflection. Required content remains visible, but success includes the quality of questions, evidence use, and transfer—not only answer accuracy.",
+    "questions": ["Can inquiry coexist with high-stakes exam requirements?","Which kinds of learner choice support motivation without overwhelming novices?","Does the approach improve transfer and curiosity beyond the project itself?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to formulate, investigate, and revise a question using disciplinary evidence, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, teacher, syllabus, local context, peers, AI inquiry partner, and assessment constraints. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: question quality, evidence use, transfer, content mastery, persistence, and learner agency. A key disconfirming signal is: projects feel engaging but required knowledge or independent inquiry does not improve."
+    },
+    "evidence": ["E08","E07","E09","E19","E01"]
+  },
+  {
+    "id": "example-aile-7161",
+    "title": "An EdTech Alignment Auditor: Is the App Actually Teaching?",
+    "gap": "Students can be highly fluent with devices and learning apps while the activity itself remains weakly connected to the intended lesson. Schools often evaluate tools by engagement, usability, or vendor claims rather than by the learner actions and evidence the tool produces.",
+    "prototype": "Create an AI-assisted alignment auditor that takes a learning objective, lesson plan, and description or capture of a digital activity, then maps the activity to the cognitive work learners are actually asked to do. It suggests a stronger task or teacher prompt when alignment is weak.",
+    "example": "A literacy app asks learners to tap vocabulary definitions. The auditor identifies that the lesson target is inferential reading and proposes a short evidence-based explanation task before the app is used.",
+    "frame": "The design makes the learner action—not the technology—the unit of analysis. It distinguishes passive, active, constructive, and interactive engagement and asks whether feedback is connected to the learning goal.",
+    "questions": ["Can the auditor reliably distinguish engaging activity from useful cognitive work?","How should teacher judgment override automated mappings?","Does using the auditor improve lesson-level evidence of learning?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to select and configure technology that elicits the intended learner thinking, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: teacher, learners, lesson objective, digital tool, AI auditor, curriculum, and classroom workflow. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: objective-task alignment, quality of learner evidence, teacher decision quality, student performance, and tool abandonment. A key disconfirming signal is: teachers produce better-looking lesson plans but learner actions and outcomes remain unchanged."
+    },
+    "evidence": ["E07","E01","E02","E10"]
+  }
+]
