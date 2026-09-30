@@ -1,0 +1,133 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const {
+  idea,
+  collection,
+  cycle,
+  assumption,
+  falsifier,
+  instrumentation,
+  status = "Runnable thin-slice prototype"
+} = Astro.props;
+---
+
+<Base
+  title={`${idea.title} · Prototype · Capability Matters`}
+  description={idea.prototype}
+  active="problems-to-prototypes"
+>
+  <section class="prototype-hero container-wide">
+    <p class="eyebrow">Problems → Prototypes · {collection}</p>
+    <div class="hero-grid">
+      <div>
+        <a class="back" href="/problems-to-prototypes/">← Back to all problem briefs</a>
+        <h1>{idea.title}</h1>
+        <p class="lede">{idea.gap}</p>
+      </div>
+      <aside class="status-card">
+        <small>Status</small>
+        <strong>{status}</strong>
+        <p>This page is a teaching prototype, not a validated product. Its local interaction is intentionally inspectable so the design assumption stays visible.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="prototype-workbench container-wide">
+    <main>
+      <div class="section-kicker">Try it</div>
+      <slot name="app" />
+    </main>
+
+    <aside class="research-rail">
+      <section>
+        <small>Why this design?</small>
+        <p>{idea.frame}</p>
+      </section>
+      <section>
+        <small>What are we testing?</small>
+        <p>{assumption}</p>
+      </section>
+      <section>
+        <small>What would change our minds?</small>
+        <p>{falsifier}</p>
+      </section>
+      <section>
+        <small>What should we instrument?</small>
+        <p>{instrumentation}</p>
+      </section>
+    </aside>
+  </section>
+
+  <section class="brief container-wide">
+    <details>
+      <summary>Open the underlying design brief and eight-step path</summary>
+      <div class="brief-grid">
+        <section>
+          <h2>A first prototype</h2>
+          <p>{idea.prototype}</p>
+          <h3>Representative use case</h3>
+          <p>{idea.example}</p>
+          <h3>Questions worth carrying forward</h3>
+          <ul>{idea.questions.map((q) => <li>{q}</li>)}</ul>
+        </section>
+        <section>
+          <div class="cycle-head">
+            <div>
+              <small>LENS iteration cycle</small>
+              <h2>One possible first pass</h2>
+            </div>
+            <em>Refine → Understand</em>
+          </div>
+          <ol class="cycle">
+            {cycle.map(([name, text], i) =>
+              <li>
+                <span>{String(i + 1).padStart(2, "0")}</span>
+                <div><b>{name}</b><p>{text}</p></div>
+              </li>
+            )}
+          </ol>
+        </section>
+      </div>
+    </details>
+  </section>
+</Base>
+
+<style>
+  .prototype-hero{padding-top:2.2rem;padding-bottom:1.7rem;border-bottom:1px solid var(--border)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 18rem;gap:2rem;align-items:end}
+  .back{font-family:var(--sans);font-size:.78rem;color:var(--muted);border:0}
+  .prototype-hero h1{margin-top:.8rem;max-width:18ch}
+  .lede{font-size:1.08rem;line-height:1.65;max-width:52rem;color:var(--muted)}
+  .status-card{background:var(--tint);border:1px solid var(--border);border-radius:5px;padding:1rem}
+  .status-card small,.research-rail small,.section-kicker,.cycle-head small{
+    display:block;font-family:var(--sans);font-size:.68rem;text-transform:uppercase;letter-spacing:.11em;color:var(--accent);font-weight:700
+  }
+  .status-card strong{display:block;margin:.25rem 0 .5rem;font-family:var(--sans);font-size:.9rem}
+  .status-card p{font-size:.78rem;line-height:1.5;color:var(--muted);margin:0}
+  .prototype-workbench{display:grid;grid-template-columns:minmax(0,1fr) 20rem;gap:2rem;align-items:start;padding-top:2rem}
+  .section-kicker{margin-bottom:.6rem}
+  .research-rail{display:flex;flex-direction:column;gap:.65rem;position:sticky;top:5.5rem}
+  .research-rail section{border:1px solid var(--border);border-radius:4px;padding:.9rem;background:var(--bg)}
+  .research-rail p{font-size:.82rem;line-height:1.5;margin:.35rem 0 0}
+  .brief{padding-top:1.5rem;padding-bottom:3rem}
+  .brief>details{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1rem 0}
+  .brief>details>summary{cursor:pointer;font-family:var(--sans);font-weight:700;color:var(--accent)}
+  .brief-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:2rem;padding-top:1.5rem}
+  .brief-grid h2{font-size:1.25rem}.brief-grid h3{font-size:1rem;margin-top:1.35rem}
+  .brief-grid p,.brief-grid li{font-size:.9rem;line-height:1.55}
+  .cycle-head{display:flex;justify-content:space-between;gap:1rem;align-items:end}
+  .cycle-head em{font-family:var(--sans);font-size:.72rem;color:var(--muted)}
+  .cycle{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
+  .cycle li{display:grid;grid-template-columns:1.8rem 1fr;gap:.45rem;background:var(--tint);border:1px solid var(--border);padding:.65rem;border-radius:3px}
+  .cycle li>span{font-family:var(--mono);font-size:.7rem;color:var(--accent)}
+  .cycle b{font-family:var(--sans);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em}
+  .cycle p{font-size:.79rem;margin:.15rem 0 0}
+  @media(max-width:820px){
+    .hero-grid,.prototype-workbench,.brief-grid{grid-template-columns:1fr}
+    .research-rail{position:static;display:grid;grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:560px){
+    .research-rail,.cycle{grid-template-columns:1fr}
+  }
+</style>
