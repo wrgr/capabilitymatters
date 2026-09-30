@@ -1,0 +1,62 @@
+[
+  {
+    "id": "example-aile-6471",
+    "title": "An Inclusive Dialogue Studio for Difficult Conversations",
+    "gap": "Discussion of identity, culture, ethics, and contested social issues can produce rich learning, but participation is often uneven and instructors must manage language, power, emotion, and evidence simultaneously. An AI moderator could easily flatten disagreement or encode dominant cultural assumptions.",
+    "prototype": "Build a pre-discussion and reflection studio that helps learners rehearse questions, examine language choices, identify evidence and assumptions, and consider missing perspectives. It should support the human facilitator rather than moderate or adjudicate the live conversation autonomously.",
+    "example": "Before a language-and-culture seminar, learners test how a phrase may be interpreted by different audiences, identify what evidence supports a claim, and prepare one genuine question for peers.",
+    "frame": "Culturally sustaining pedagogy treats learners' languages and identities as assets, while UDL emphasizes multiple ways to participate. The human facilitator remains responsible for norms, repair, and the ethical work of dialogue.",
+    "questions": ["Which supports increase participation without scripting it?","How do we test for cultural bias in generated perspectives?","Does rehearsal improve listening, evidence use, and willingness to revise?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to engage respectfully and critically across differences using evidence and reflective communication, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learners, facilitator, peers, cultural/linguistic context, discussion norms, sources, and AI rehearsal studio. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: participation distribution, evidence use, listening/revision behaviors, perceived belonging, bias incidents, and facilitator workload. A key disconfirming signal is: discussion becomes more polished but less authentic, diverse, or willing to surface disagreement."
+    },
+    "evidence": ["E15","E02","E01","E06"]
+  },
+  {
+    "id": "example-aile-9117",
+    "title": "An Access-First Digital Learning Experience Checker",
+    "gap": "Digital learning can expand access while still embedding barriers through navigation, language, assumptions about devices, inaccessible media, or rigid ways of responding. These barriers are often discovered after a course has already been built.",
+    "prototype": "Create an AI-assisted preflight checker that reviews a lesson or course for likely access barriers, maps each barrier to the intended learner action, and proposes redesign options with an educator-facing rationale.",
+    "example": "A module requires a long video, timed discussion post, and complex drag-and-drop task. The checker identifies bandwidth, captioning, timing, and input-method barriers and suggests equivalent evidence-producing alternatives.",
+    "frame": "Accessibility is treated as part of learning design rather than remediation after failure. The system preserves the capability target while varying access, representation, and expression.",
+    "questions": ["Which barriers can be detected reliably before learners encounter them?","How should lived learner feedback update the checker?","Does using it improve completion and learning without simplifying the intellectual work?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to access and demonstrate a learning target despite variation in learner context and technology, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, designer, instructor, content, platform, device/network context, accessibility services, and AI checker. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: barrier rate, completion, target performance, accommodation requests, designer time, and false-positive rate. A key disconfirming signal is: technical accessibility improves while meaningful participation or learning outcomes remain unchanged."
+    },
+    "evidence": ["E02","E01","E03","E05"]
+  },
+  {
+    "id": "example-aile-1744",
+    "title": "A Transition Pathway Builder for Learners With Disabilities",
+    "gap": "Work-based and postsecondary transition opportunities often depend on staff knowledge, local partnerships, transportation, accommodations, and limited program capacity. As a result, access can be uneven even when learner goals are clearly documented.",
+    "prototype": "Build a counselor-facing pathway builder that maps a learner's stated transition goals and demonstrated capabilities to a vetted set of local experiences, prerequisites, accommodations, and next-step skills. Recommendations remain explainable and require human approval.",
+    "example": "A student interested in audio production sees several pathways: a short school-based project, a local studio visit, and a supported internship, each with explicit preparation tasks and access requirements.",
+    "frame": "The system treats learner agency and real-world participation as central, while UDL and human review prevent a disability label from narrowing options. The capability model focuses on what the learner can demonstrate and what support the environment requires.",
+    "questions": ["Are opportunity recommendations equitable across neighborhoods and learner profiles?","What data should never be used to rank learners?","Does the tool increase completed transition experiences and later independence?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to navigate and complete a personally meaningful transition experience, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, family, counselor, school, community partners, accommodations, transportation, and AI pathway builder. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: opportunity access, completion, learner choice, accommodation fit, equity across groups, and post-transition outcomes. A key disconfirming signal is: recommendations reproduce existing opportunity gaps or steer learners toward narrower options."
+    },
+    "evidence": ["E02","E01","E06","E05"]
+  },
+  {
+    "id": "example-aile-1581",
+    "title": "A Curiosity Rhythm Coach, Not an Attention Monitor",
+    "gap": "Learners can sustain deep attention for personally meaningful activities yet disengage from school tasks. Systems often respond by measuring attention or adding rewards, which can mistake visible behavior for motivation and create culturally or neurologically biased interpretations.",
+    "prototype": "Build an AI learning-design coach that helps educators create short challenge cycles with meaningful choice, visible progress, and varied media. It uses learner-selected goals and task performance—not eye tracking or body-language inference—to decide what to adjust.",
+    "example": "A language lesson is reorganized into a twelve-minute challenge, a choice of creative response, a quick feedback checkpoint, and a second challenge that increases difficulty if the learner chooses to continue.",
+    "frame": "Motivation is supported through autonomy, competence, relevance, and constructive activity rather than surveillance. Gamified elements are used only when they serve the learning process and should be tested for both motivational and cognitive effects.",
+    "questions": ["Which design changes improve persistence and learning at the same time?","How should challenge length vary across learners without turning behavior into a label?","Do incentives support or displace curiosity?"],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to sustain purposeful effort and re-engage with challenging learning, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, teacher/designer, task, media, peer context, AI design coach, and classroom norms. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: persistence, target performance, voluntary re-engagement, autonomy/competence measures, and subgroup patterns. A key disconfirming signal is: time-on-task increases while learning, agency, or intrinsic interest declines."
+    },
+    "evidence": ["E19","E20","E07","E02"]
+  }
+]
