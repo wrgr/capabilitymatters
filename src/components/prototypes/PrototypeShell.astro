@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import AiCritiqueLaunch from "./AiCritiqueLaunch.astro";
 
 const {
   idea,
@@ -59,6 +60,10 @@ const {
     </aside>
   </section>
 
+  <section class="critique-wrap container-wide">
+    <AiCritiqueLaunch idea={idea} collection={collection} />
+  </section>
+
   <section class="brief container-wide">
     <details>
       <summary>Open the underlying design brief and eight-step path</summary>
@@ -110,6 +115,7 @@ const {
   .research-rail{display:flex;flex-direction:column;gap:.65rem;position:sticky;top:5.5rem}
   .research-rail section{border:1px solid var(--border);border-radius:4px;padding:.9rem;background:var(--bg)}
   .research-rail p{font-size:.82rem;line-height:1.5;margin:.35rem 0 0}
+  .critique-wrap{padding-top:0;padding-bottom:.5rem}
   .brief{padding-top:1.5rem;padding-bottom:3rem}
   .brief>details{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1rem 0}
   .brief>details>summary{cursor:pointer;font-family:var(--sans);font-weight:700;color:var(--accent)}
