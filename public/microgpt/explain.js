@@ -1,9 +1,11 @@
 /** Open accessible help dialogs and show read-only excerpts of the exact served source. */
 // @ts-check
 import { GUIDE, HELP } from "./explanations.js";
+import { SIMPLE } from "./simple.js";
 const $ = (id) => document.getElementById(id),
   tray = $("code-tray"),
-  help = $("help-dialog");
+  help = $("help-dialog"),
+  simple = $("simple-dialog");
 let requested = 0,
   helpTopic = "overview";
 /** @param {string} file @param {string|null} [start] @param {string|null} [end] @returns {Promise<void>} Fetch and number source without executing it. */
@@ -62,12 +64,31 @@ function openTray(key) {
   if (!tray.open) tray.showModal();
   tray.scrollTop = 0;
 }
+/** @param {string} key @returns {void} Open a shorter explanation above the current dialog and preserve its place. */
+function openSimple(key) {
+  const [title, ...paragraphs] = SIMPLE[key] ?? SIMPLE.overview;
+  $("simple-title").textContent = title;
+  $("simple-body").replaceChildren(
+    ...paragraphs.map((text) => {
+      const p = document.createElement("p");
+      p.textContent = text;
+      return p;
+    }),
+  );
+  simple.showModal();
+}
+$("help-simple").addEventListener("click", () => openSimple(helpTopic));
+$("tray-simple").addEventListener("click", () =>
+  openSimple($("guide-topic").value),
+);
 for (const [key, item] of Object.entries(GUIDE))
   $("guide-topic").append(new Option(item.title, key));
 document.addEventListener("click", (event) => {
   const element = event.target instanceof Element ? event.target : null,
+    simpler = element?.closest("[data-simple]"),
     guide = element?.closest("[data-guide]"),
     explain = element?.closest("[data-explain]");
+  if (simpler) openSimple(simpler.dataset.simple);
   if (guide) openTray(guide.dataset.guide);
   if (explain) {
     const item = HELP[explain.dataset.explain];
@@ -90,7 +111,7 @@ $("show-full-source").addEventListener(
   () => void source($("source-module").value),
 );
 $("help-more").addEventListener("click", () => openTray(helpTopic));
-for (const dialog of [tray, help])
+for (const dialog of [tray, help, simple])
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) {
       const r = dialog.getBoundingClientRect();

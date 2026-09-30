@@ -83,3 +83,19 @@ dialog .close-dialog { float:right; margin:0 0 .8rem 1rem; }
 }
 @media (max-width:400px) { .learning-lab .scenario-grid { grid-template-columns:1fr; } }
 @media print { dialog { display:none !important; } .learning-lab button { display:none; } }
+/* Keep data and fairness visible alongside the first model, with bounded inspection views. */
+.learning-lab .data-explorer { border:1px solid #b7c8c8; background:#f7faf7; padding:clamp(1rem,3vw,1.5rem); margin:2rem 0; }
+.learning-lab .data-explorer select { width:100%; }
+.learning-lab .data-explorer input[type="search"] { font:1rem var(--sans); padding:.6rem; max-width:100%; width:25rem; border:1px solid #8d9991; }
+.learning-lab .data-table { max-height:25rem; overflow:auto; }
+.learning-lab .data-table thead { position:sticky; top:0; background:#edf4f4; }
+.learning-lab .fairness-note { border-top:1px solid var(--border); margin-top:1.2rem; padding-top:1.2rem; }
+.learning-lab .fairness-note p { font:1rem/1.6 var(--sans); }
+.learning-lab .fairness-results { border-left:3px solid #196d79; padding:1rem 1.2rem; margin:1.5rem 0; background:#edf4f4; }
+.learning-lab .group-metrics { display:flex; gap:1.5rem; flex-wrap:wrap; }
+.learning-lab .group-metrics strong { display:block; font:500 1.7rem/1.5 var(--mono); }
+#simple-dialog { max-width:36rem; width:calc(100% - 2rem); max-height:calc(100dvh - 2rem); overflow:auto; border:1px solid #a2b1ac; border-radius:6px; padding:1.5rem; box-shadow:0 12px 60px #0004; background:#fefdf8; }
+#simple-dialog h2 { clear:both; font-size:1.7rem; }
+#simple-dialog p { font-size:1.125rem; line-height:1.65; }
+#simple-dialog .eyebrow { font:.8rem var(--sans); margin-top:1rem; }
+.learning-lab .label-mismatch { background:#fff0d4; font-weight:700; }

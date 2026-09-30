@@ -1,10 +1,14 @@
 /** Connect the visible training lab to a background worker and render its measured states. */
 // @ts-check
+import { SCENARIOS, DATASETS } from "./datasets.js";
+import { showData, showComparisons } from "./data-ui.js";
 const $ = (id) => document.getElementById(id);
 let worker,
   ready = false,
   running = false,
-  currentStep = 0;
+  currentStep = 0,
+  syncSettings = true,
+  activeDataset = "fictional";
 /** @param {string} text @returns {void} Surface engine failures instead of presenting stale output as current. */
 function fail(text) {
   $("training-status").textContent = text;
@@ -80,6 +84,9 @@ function historyTable(history) {
 /** @param {any} state @returns {void} Update the interface only from actual worker results. */
 function render(state) {
   ready = true;
+  activeDataset = state.datasetId;
+  showData(state, syncSettings);
+  syncSettings = false;
   currentStep = state.step;
   setControls(state.running);
   $("step-value").textContent = String(state.step);
@@ -142,40 +149,60 @@ async function presets() {
     if (!response.ok) throw new Error("Checkpoint download failed.");
     const bundle = await response.json();
     $("preset-cards").replaceChildren();
+    showComparisons(bundle.checkpoints, bundle.nameInitial, restorePreset);
     for (const checkpoint of bundle.checkpoints) {
       const card = document.createElement("article"),
         title = document.createElement("h4"),
         metric = document.createElement("p"),
         words = document.createElement("p"),
         button = document.createElement("button");
-      title.textContent = `Step ${checkpoint.step}`;
-      metric.textContent = `Held-out loss: ${checkpoint.metrics.test.toFixed(3)}`;
+      title.textContent = `${DATASETS[checkpoint.datasetId ?? "fictional"].title} · step ${checkpoint.step}`;
+      metric.textContent = `A:B ${Math.round(checkpoint.share * 100)}:${Math.round((1 - checkpoint.share) * 100)} · Held-out loss: ${checkpoint.metrics.test.toFixed(3)}`;
       words.textContent = checkpoint.samples.slice(0, 4).join(" · ");
       words.className = "preset-words";
       button.textContent = `Load step ${checkpoint.step}`;
-      button.dataset.preset = String(checkpoint.step);
+      button.dataset.preset =
+        checkpoint.datasetId === "names"
+          ? `card-names-${checkpoint.share}`
+          : String(checkpoint.step);
       button.disabled = running || !ready;
-      button.addEventListener("click", () => {
-        $("family-share").value = 50;
-        $("share-value").textContent = "50%";
-        send({ type: "restore", checkpoint });
-      });
+      button.addEventListener("click", () => restorePreset(checkpoint));
       card.append(title, metric, words, button);
       $("preset-cards").append(card);
     }
+    setControls(running);
   } catch (error) {
+    $("comparison-status").textContent =
+      "Saved comparisons unavailable; live training and data inspection still work.";
     $("preset-cards").textContent =
       `Saved checkpoints unavailable: ${error instanceof Error ? error.message : String(error)} Live training still works.`;
   }
 }
+/** @param {any} checkpoint @returns {void} Restore a preset's data settings only after the engine validates it. */
+function restorePreset(checkpoint) {
+  syncSettings = true;
+  send({ type: "restore", checkpoint });
+}
+$("data-scenario").addEventListener("change", () => {
+  const scenario = SCENARIOS[$("data-scenario").value];
+  ready = false;
+  syncSettings = true;
+  setControls(false);
+  send({ type: "init", share: scenario.share, datasetId: scenario.dataset });
+});
 $("family-share").addEventListener(
   "input",
   () => ($("share-value").textContent = `${$("family-share").value}%`),
 );
 $("new-run").addEventListener("click", () => {
   ready = false;
+  syncSettings = true;
   setControls(false);
-  send({ type: "init", share: Number($("family-share").value) / 100 });
+  send({
+    type: "init",
+    share: Number($("family-share").value) / 100,
+    datasetId: activeDataset,
+  });
 });
 for (const [id, steps] of [
   ["train-model", 100],
@@ -209,11 +236,7 @@ async function importCheckpoint() {
     if (file.size > 1000000)
       throw new Error("Checkpoint file must be smaller than 1 MB.");
     const checkpoint = JSON.parse(await file.text());
-    if (Number.isFinite(checkpoint.share)) {
-      $("family-share").value = checkpoint.share * 100;
-      $("share-value").textContent = `${checkpoint.share * 100}%`;
-    }
-    send({ type: "restore", checkpoint });
+    restorePreset(checkpoint);
   } catch (error) {
     $("training-status").textContent =
       `Import failed: ${error instanceof Error ? error.message : String(error)}`;

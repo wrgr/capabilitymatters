@@ -3,16 +3,20 @@
 ---
 <dialog id="help-dialog" aria-labelledby="help-title">
   <form method="dialog"><button class="close-dialog" aria-label="Close explanation">Close</button></form>
-  <h2 id="help-title"></h2><p id="help-text"></p><button id="help-more">Explain the code behind this</button>
+  <h2 id="help-title"></h2><p id="help-text"></p><button id="help-simple">Explain to me with more straightforward language</button><button id="help-more">Explain the code behind this</button>
 </dialog>
 <dialog id="code-tray" aria-labelledby="tray-title">
   <div class="tray-top"><form method="dialog"><button class="close-dialog" aria-label="Close code tray">Close</button></form><p class="eyebrow">Under the surface · The actual code</p><h2 id="tray-title">Explain this code</h2></div>
   <label for="guide-topic">Choose a stage</label><select id="guide-topic"></select>
-  <div id="guide-body"></div><p id="guide-question" class="callout"></p>
+  <button id="tray-simple">Explain to me with more straightforward language</button><div id="guide-body"></div><p id="guide-question" class="callout"></p>
   <div class="source-controls"><label for="source-module">Source module</label><select id="source-module">
-    <option value="engine.js">engine.js · Transformer and gradients</option><option value="worker.js">worker.js · Background training</option><option value="lab.js">lab.js · Training interface</option><option value="bias.js">bias.js · Data, labels and classifier</option><option value="bias-ui.js">bias-ui.js · Bias experiment interface</option><option value="explanations.js">explanations.js · Teaching text</option><option value="explain.js">explain.js · This source viewer</option>
+    <option value="datasets.js">datasets.js · Names, provenance and scenarios</option><option value="data-ui.js">data-ui.js · Data inspector and comparisons</option><option value="simple.js">simple.js · Straightforward explanations</option><option value="engine.js">engine.js · Transformer and gradients</option><option value="worker.js">worker.js · Background training</option><option value="lab.js">lab.js · Training interface</option><option value="bias.js">bias.js · Data, labels and classifier</option><option value="bias-data-ui.js">bias-data-ui.js · Inspect engagement observations</option><option value="bias-ui.js">bias-ui.js · Bias experiment interface</option><option value="explanations.js">explanations.js · Teaching text</option><option value="explain.js">explain.js · This source viewer</option>
   </select><button id="show-full-source">Show entire module</button></div>
   <p id="source-status" role="status"></p><pre tabindex="0" aria-label="Actual source code with line numbers"><code id="source-code"></code></pre>
   <p class="fine">The model source is an independent JavaScript adaptation of Karpathy's teaching architecture. <a href="/microgpt/NOTICE.md">Attribution and differences</a>.</p>
+</dialog>
+<dialog id="simple-dialog" aria-labelledby="simple-title">
+  <form method="dialog"><button class="close-dialog" aria-label="Close straightforward explanation">Close</button></form>
+  <p class="eyebrow">In more straightforward language</p><h2 id="simple-title"></h2><div id="simple-body"></div>
 </dialog>
 <script is:inline type="module" src="/microgpt/explain.js"></script>

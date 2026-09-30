@@ -10,7 +10,12 @@ import {
   audit,
   predict,
 } from "../public/microgpt/bias.js";
-import { GUIDE } from "../public/microgpt/explanations.js";
+import { GUIDE, HELP } from "../public/microgpt/explanations.js";
+import { SIMPLE } from "../public/microgpt/simple.js";
+import {
+  STUDY_NAMES,
+  SCENARIOS as DATA_SCENARIOS,
+} from "../public/microgpt/datasets.js";
 
 const tape = new Tape(),
   a = tape.node(2),
@@ -23,6 +28,77 @@ const split = dataset();
 assert.equal(new Set(split.train.flat()).size, 160);
 assert.equal(new Set(split.test.flat()).size, 32);
 assert(split.test.flat().every((word) => !split.train.flat().includes(word)));
+
+// All teaching pools are small, explicit, disjoint and compatible with the actual tokenizer.
+const names = dataset("names");
+assert.deepEqual(
+  names.train.map((g) => g.length),
+  [12, 12],
+);
+assert.deepEqual(
+  names.test.map((g) => g.length),
+  [6, 6],
+);
+assert.equal(new Set(STUDY_NAMES.flat()).size, 36);
+assert(names.test.flat().every((word) => !names.train.flat().includes(word)));
+assert(
+  [...names.train.flat(), ...names.test.flat()].every((word) =>
+    /^[a-z]{1,11}$/.test(word),
+  ),
+);
+assert.deepEqual(
+  names.test,
+  STUDY_NAMES.map((g) => g.filter((_, i) => i % 3 === 2)),
+);
+for (const scenario of Object.values(DATA_SCENARIOS)) {
+  const m = new TinyGPT(scenario.share, scenario.dataset);
+  assert.deepEqual(m.data, dataset(scenario.dataset));
+}
+assert.throws(() => dataset("unknown"));
+assert.throws(() => dataset("__proto__"));
+assert.throws(() => new TinyGPT(1));
+const nameModel = new TinyGPT(0.9, "names");
+assert.deepEqual(
+  nameModel.snapshot().weights,
+  new TinyGPT().snapshot().weights,
+);
+for (let step = 0; step < 100; step++) nameModel.train();
+const nameSaved = nameModel.snapshot();
+const nameResume = new TinyGPT();
+nameResume.restore(nameSaved);
+assert.equal(nameResume.datasetId, "names");
+assert.deepEqual(nameResume.data, names);
+for (let step = 0; step < 5; step++) {
+  nameModel.train();
+  nameResume.train();
+}
+assert.deepEqual(nameModel.snapshot(), nameResume.snapshot());
+for (const patch of [
+  { datasetId: "unknown" },
+  { datasetId: undefined },
+  { dataSignature: "changed" },
+]) {
+  const before = nameResume.snapshot();
+  assert.throws(() => nameResume.restore({ ...nameSaved, ...patch }));
+  assert.deepEqual(
+    nameResume.snapshot(),
+    before,
+    "failed import must not change active data or weights",
+  );
+}
+const legacy = new TinyGPT().snapshot();
+legacy.format = "capability-microgpt-v1";
+delete legacy.datasetId;
+delete legacy.dataSignature;
+nameResume.restore(legacy);
+assert.equal(
+  nameResume.datasetId,
+  "fictional",
+  "original downloads must still restore their original data",
+);
+assert.deepEqual(nameResume.data, dataset());
+for (const key of Object.keys(GUIDE)) assert(SIMPLE[key]?.length >= 3, key);
+for (const item of Object.values(HELP)) assert(SIMPLE[item[2]], item[0]);
 
 const model = new TinyGPT(),
   initial = model.evaluate().test;
@@ -68,6 +144,11 @@ const bundle = JSON.parse(
   fs.readFileSync(
     new URL("../public/microgpt/checkpoints.json", import.meta.url),
   ),
+);
+assert.deepEqual(bundle.nameInitial, new TinyGPT(0.5, "names").evaluate());
+assert.deepEqual(
+  bundle.checkpoints.filter((c) => c.datasetId === "names").map((c) => c.share),
+  [0.5, 0.9, 0.1],
 );
 for (const checkpoint of bundle.checkpoints) {
   restored.restore(checkpoint);
@@ -133,7 +214,7 @@ for (const item of Object.values(GUIDE)) {
     );
 }
 console.log(
-  "PASS: shared gradients, finite differences, disjoint data, learning, exact resume, real presets, sampling invariance, mixture effect, bias audits, source explanations.",
+  "PASS: shared gradients, finite differences, disjoint data, learning, exact resume, real presets, sampling invariance, mixture effect, bias audits, data-bound snapshots, legacy imports, source and straightforward explanations.",
 );
 console.log(
   JSON.stringify(

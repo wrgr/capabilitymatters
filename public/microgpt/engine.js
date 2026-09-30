@@ -1,5 +1,6 @@
 /** Original JavaScript implementation of the small-transformer teaching architecture demonstrated by Andrej Karpathy's microgpt; see NOTICE.md. */
 // @ts-check
+import { DATASETS, nameSplit } from "./datasets.js";
 export const CONFIG = {
   width: 12,
   heads: 3,
@@ -110,8 +111,11 @@ export class Tape {
   }
 }
 
-/** @returns {{train:string[][],test:string[][]}} Generate two fictional spelling families with a fixed disjoint split. */
-export function dataset() {
+/** @param {string} [id] @returns {{train:string[][],test:string[][]}} Return the exact disjoint training and test pools for a declared dataset. */
+export function dataset(id = "fictional") {
+  if (!Object.hasOwn(DATASETS, id))
+    throw new Error("Unknown training dataset.");
+  if (id === "names") return nameSplit();
   const random = new Random(731),
     families = [
       ["bdglmnr", "ae", "a"],
@@ -138,13 +142,16 @@ export function dataset() {
 
 /** Small causal transformer with real backpropagation and Adam updates. */
 export class TinyGPT {
-  /** @param {number} [share] Training probability of fictional spelling family A. */
-  constructor(share = 0.5) {
+  /** @param {number} [share] @param {string} [datasetId] Initialize a model with a declared dataset and probability of sampling set A. */
+  constructor(share = 0.5, datasetId = "fictional") {
+    if (!Number.isFinite(share) || share < 0.1 || share > 0.9)
+      throw new Error("Training mix must be between 10% and 90%.");
     this.random = new Random(CONFIG.seed);
     this.share = share;
     this.step = 0;
     this.tape = new Tape();
-    this.data = dataset();
+    this.datasetId = datasetId;
+    this.data = dataset(datasetId);
     this.width = CONFIG.width;
     this.embedding = this.matrix(27, 12);
     this.position = this.matrix(12, 12);
@@ -316,7 +323,9 @@ export class TinyGPT {
   /** @returns {object} Save weights, optimizer and random state for exact continuation. */
   snapshot() {
     return {
-      format: "capability-microgpt-v1",
+      format: "capability-microgpt-v2",
+      datasetId: this.datasetId,
+      dataSignature: JSON.stringify(this.data),
       config: CONFIG,
       share: this.share,
       step: this.step,
@@ -331,24 +340,13 @@ export class TinyGPT {
     if (!s || typeof s !== "object")
       throw new Error("Checkpoint must be a JSON model state.");
     if (
-      s.format !== "capability-microgpt-v1" ||
+      !["capability-microgpt-v1", "capability-microgpt-v2"].includes(
+        s.format,
+      ) ||
       JSON.stringify(s.config) !== JSON.stringify(CONFIG)
     )
       throw new Error("Checkpoint architecture does not match.");
-    for (const field of ["weights", "m", "v"])
-      if (
-        !Array.isArray(s[field]) ||
-        s[field].length !== this.count ||
-        !s[field].every(Number.isFinite)
-      )
-        throw new Error("Checkpoint contains invalid parameters.");
-    if (
-      !Number.isInteger(s.rng) ||
-      s.rng < 0 ||
-      s.rng > 4294967295 ||
-      s.v.some((x) => x < 0)
-    )
-      throw new Error("Checkpoint optimizer or random state is invalid.");
+    validateParameters(s, this.count);
     if (
       !Number.isInteger(s.step) ||
       s.step < 0 ||
@@ -358,6 +356,18 @@ export class TinyGPT {
       s.share > 0.9
     )
       throw new Error("Checkpoint settings are invalid.");
+    const datasetId =
+      s.format === "capability-microgpt-v1" ? "fictional" : s.datasetId;
+    if (typeof datasetId !== "string")
+      throw new Error("Checkpoint dataset is missing.");
+    const data = dataset(datasetId);
+    if (
+      s.format === "capability-microgpt-v2" &&
+      s.dataSignature !== JSON.stringify(data)
+    )
+      throw new Error("Checkpoint training data does not match this version.");
+    this.datasetId = datasetId;
+    this.data = data;
     this.tape.value.set(s.weights);
     this.m.set(s.m);
     this.v.set(s.v);
@@ -366,4 +376,22 @@ export class TinyGPT {
     this.random.state = s.rng >>> 0;
     this.tape.size = this.count;
   }
+}
+
+/** @param {any} s @param {number} count @returns {void} Reject corrupt numerical state before a checkpoint changes the active model. */
+function validateParameters(s, count) {
+  for (const field of ["weights", "m", "v"])
+    if (
+      !Array.isArray(s[field]) ||
+      s[field].length !== count ||
+      !s[field].every(Number.isFinite)
+    )
+      throw new Error("Checkpoint contains invalid parameters.");
+  if (
+    !Number.isInteger(s.rng) ||
+    s.rng < 0 ||
+    s.rng > 4294967295 ||
+    s.v.some((x) => x < 0)
+  )
+    throw new Error("Checkpoint optimizer or random state is invalid.");
 }

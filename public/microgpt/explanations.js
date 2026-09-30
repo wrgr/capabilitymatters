@@ -6,7 +6,7 @@ export const GUIDE = {
     start: "export const CONFIG",
     end: "export class Random",
     paragraphs: [
-      "The word model starts as 2,520 numbers. A number is a parameter: a setting the training process can change. It sees one fictional word at a time, predicts its next character, measures the error, and adjusts those numbers. Nothing in the program tells it the spelling rules directly.",
+      "The word model starts as 2,520 numbers. A number is a parameter: a setting the training process can change. It sees one training string at a time, predicts its next character, measures the error, and adjusts those numbers. Nothing in the program tells it the spelling rules directly.",
       "One training step is one word and one parameter update. One hundred steps is not one hundred passes over all the data. The generated words and loss values are computed, not animated examples.",
       "The engagement lab is a different model: logistic regression. Keeping it small lets us inspect exactly how an input score affects an output. The point is measurement validity, not reproducing every feature of a deployed engagement product.",
       "Use the topic selector to walk through the code. Every topic shows the relevant excerpt from the served source. “Show entire module” reveals the remaining plumbing as well.",
@@ -20,12 +20,38 @@ export const GUIDE = {
     start: "export function dataset",
     end: "/** Small causal",
     paragraphs: [
-      "dataset() generates two invented spelling families using a fixed random seed. Family -a uses consonants b,d,g,l,m,n,r and vowels a,e; family -o uses k,p,s,t,v,z and vowels i,o,u. Each word has two or three consonant-vowel pairs and a final a or o. These are invented patterns, not real populations.",
-      "A Set rejects duplicate words. The generator makes 96 distinct words per family: 80 for training and 16 held out. These sets never overlap. The training-mix slider changes the chance of choosing each family, not its rules or the held-out distribution.",
-      "The train() method first draws a family, then a word within that family. A 90:10 mix therefore describes sampling probability, not a guarantee that exactly 90 of the next 100 examples come from -a.",
+      "For the fictional dataset, dataset() generates two invented spelling families using a fixed random seed. Family -a uses consonants b,d,g,l,m,n,r and vowels a,e; family -o uses k,p,s,t,v,z and vowels i,o,u. Each word has two or three consonant-vowel pairs and a final a or o. These are invented patterns, not real populations.",
+      "For the names dataset, dataset() uses the fixed split in datasets.js. Inspect every string and its provenance in the data inspector. For fictional words, a Set rejects duplicates. The generator makes 96 distinct words per family: 80 for training and 16 held out. These sets never overlap. The training-mix slider changes the chance of choosing each family, not its rules or the held-out distribution.",
+      "The train() method first draws a set, then a word within that family. A 90:10 mix therefore describes sampling probability, not a guarantee that exactly 90 of the next 100 examples come from set A.",
     ],
     question:
       "If one family becomes rare in training, what would you expect its separate held-out loss to do?",
+  },
+  datasets: {
+    title: "Names, provenance and the choices behind a dataset",
+    file: "datasets.js",
+    start: null,
+    end: null,
+    paragraphs: [
+      "DATASETS declares sources and limits. STUDY_NAMES contains all 36 first names from Bertrand and Mullainathan (2004), Appendix Table A1. Each study association combines the female and male lists, alphabetized within those original categories. We lowercase them; every third entry is held out. This is our split, not the study's experimental design.",
+      "SCENARIOS changes only which dataset and sampling share are used. nameSplit() returns 12 training and 6 test names per set. The exact strings and probabilities are exposed by data-ui.js, including which training names form the fixed probe. The model never receives the historical group label as an input.",
+      "These names were selected to elicit perceived race in a specific U.S. study. They are not representative samples or a name-to-identity lookup. Only spelling is learned here, with no resumes, callback outcomes or hiring decisions. Our training results do not replicate the original discrimination experiment.",
+      "The alphabet is a–z only. These published spellings fit that restriction, so none are silently transliterated or dropped. Other scripts and accented names cannot be expressed by this model. Balanced sampling inside a restricted list cannot solve missing coverage.",
+    ],
+    question:
+      "Who is absent even when the selected sets receive equal training?",
+  },
+  fairness: {
+    title: "Compare exposure effects without declaring a model fair",
+    file: "data-ui.js",
+    start: "export function showComparisons",
+    end: "/** @returns {void} Export",
+    paragraphs: [
+      "showComparisons() reads losses measured from three saved 600-step name models. Their starting weights, architecture, optimizer and test names match. Only the sampling probability changes. The table subtracts each set's equal-exposure loss from its own loss in the changed condition. Positive differences mean worse prediction.",
+      "Compare a set with itself across runs: a raw A–B gap can also reflect spelling difficulty and the particular held-out split. One seed and six test names per set cannot support population claims. Neither lower average loss nor equal group losses proves fair treatment.",
+      "For a real application, specify the harm, inspect coverage and labels, measure relevant errors for affected people, and test changes with their input. The separate engagement lab demonstrates why changing representation alone may leave an invalid target untouched.",
+    ],
+    question: "Which harm would a spelling-loss comparison fail to detect?",
   },
   random: {
     title: "Reproducibility: randomness with a saved state",
@@ -84,7 +110,7 @@ export const GUIDE = {
     title: "Backpropagation: trace how each number affected the error",
     file: "engine.js",
     start: "export class Tape",
-    end: "/** @returns {{train",
+    end: "/** @param {string} [id]",
     paragraphs: [
       "Tape is a temporary record of calculations. node() stores a result, up to two input-node indices (a and b), and how a small change in each input would change that result (da and db). The value array stores results; grad stores the accumulated effect on the final loss.",
       "add(), mul(), scale(), shift(), pow(), exp(), log() and relu() each record their local derivative. sum() chains additions. These functions do not choose a training goal; they make differentiation possible for the goal supplied by loss().",
@@ -99,7 +125,7 @@ export const GUIDE = {
     title: "Training updates weights using gradients",
     file: "engine.js",
     start: "train() {",
-    end: "/** @returns {{train",
+    end: "/** @returns {{train:number",
     paragraphs: [
       "train() samples a document, constructs its loss, and calls backward(). Now every parameter has a gradient: an estimate of how changing that parameter would change this word’s loss locally.",
       "Adam keeps two running summaries per parameter. m tracks recent gradients; v tracks their squares. Bias corrections account for starting both summaries at zero. The update moves against the gradient, scaled by the recent gradient magnitude and a small stabilizing constant.",
@@ -115,8 +141,8 @@ export const GUIDE = {
     start: "evaluate() {",
     end: "/** @param {number} [temperature]",
     paragraphs: [
-      "evaluate() computes loss on the same 16 training-probe words every time, plus all 32 held-out words. It calls loss() but never backward() or the optimizer. The training random state and parameters are unchanged.",
-      "The held-out result gives each family equal weight, even when training is skewed. Separate a and b metrics reveal whether one family is being underserved. The chart and exact table show observed values from saved states.",
+      "evaluate() computes loss on the same 16 training-probe words every time, plus all held-out examples: 32 fictional strings or 12 study names. It calls loss() but never backward() or the optimizer. The training random state and parameters are unchanged.",
+      "The held-out result gives each family equal weight, even when training is skewed. Separate a and b metrics reveal differences in spelling prediction; comparison with the same set in another run helps isolate exposure effects. The chart and exact table show observed values from saved states.",
       "Training loss below held-out loss can suggest overfitting, but these sets are small and differ in difficulty. A held-out value below the training-probe value is also possible. Neither ordering by itself diagnoses a bug or proves generalization.",
       "The engagement experiment audits against two different targets. Agreement with the same proxy that created the labels can conceal failure against the separately generated engagement state.",
     ],
@@ -142,7 +168,7 @@ export const GUIDE = {
     start: "snapshot() {",
     end: null,
     paragraphs: [
-      "snapshot() saves all learned weights, both Adam summaries, the training step, the training random state, the sampling mix and the architecture version. Restoring only weights would not reproduce the same next update because the optimizer and document draw also matter.",
+      "snapshot() saves all learned weights, both Adam summaries, the training step, the training random state, the sampling mix, exact dataset signature and the architecture version. Restoring only weights would not reproduce the same next update because the optimizer and document draw also matter.",
       "restore() checks the checkpoint format, architecture, lengths and numerical values before loading it. Fresh, 100-step and 600-step checkpoints were generated by the same engine and are shipped with this site. They are not hand-entered loss values.",
       "The worker saves session states every 50 steps and when paused. Loading an earlier state discards the later branch of the session history. Download a state to retain it after leaving the page, and use Import checkpoint to resume it.",
     ],
@@ -214,16 +240,21 @@ export const GUIDE = {
       "boot() creates the worker and turns failures into visible messages. send() posts actions; render() updates the page from worker results. setControls() prevents conflicting operations while a run is active.",
       "chart() converts actual losses to SVG coordinates using a shared scale; historyTable() writes exact values and checkpoint choices. presets() downloads the measured bundled states. download() creates a local JSON file. None of these functions trains a model.",
       "The separate bias-ui.js performs the four small classifier fits with brief yields so the interface stays usable. explanations.js contains the teaching text you are reading; explain.js opens the help dialogs and fetches same-site source as text. No dialog changes model state.",
-      "Use the source-module selector to inspect every module in full. Source is shown with line numbers and is inserted as text, never executed from this viewer.",
+      "data-ui.js shows exact word pools and comparisons; bias-data-ui.js shows every generated engagement row and the rule-specific label, including mismatches with the assumed state. Both offer CSV downloads. simple.js supplies shorter explanations through explain.js. Use the source-module selector to inspect every module in full. Source is shown with line numbers and is inserted as text, never executed from this viewer.",
     ],
     question:
       "Which numbers on the screen are model outputs, and which are settings chosen by the author or reader?",
   },
 };
 export const HELP = {
+  fairness: [
+    "What does this fairness check establish?",
+    "It compares spelling prediction across training mixes. The same set is evaluated on the same held-out names. It can reveal an exposure effect, but does not measure hiring discrimination or certify equal treatment. Missing groups and misleading labels need separate checks.",
+    "fairness",
+  ],
   mix: [
     "Training mix",
-    "Changes how often the trainer samples each fictional word family. The test set stays 50:50. Apply it with New run; it does not alter an already trained model.",
+    "Changes how often the trainer samples each example set. The test set stays 50:50. Apply it with New run; it does not alter an already trained model.",
     "data",
   ],
   steps: [
@@ -238,7 +269,7 @@ export const HELP = {
   ],
   heldout: [
     "Held-out loss",
-    "The model predicts 32 words excluded from training. We measure its loss without changing weights. This checks new examples from the same invented rules, not general intelligence.",
+    "The model predicts examples excluded from training: 32 fictional words or 12 study names. We measure its loss without changing weights. This checks those examples, not general intelligence or fairness.",
     "evaluate",
   ],
   curve: [

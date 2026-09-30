@@ -11,7 +11,15 @@
     <dl><dt>1. The concept we care about</dt><dd>Engagement with a learning task. For this demonstration only, the generator assigns an unobserved binary state, 50% engaged in each context. Real engagement does not come with this answer key.</dd>
     <dt>2. The signals we record</dt><dd>Invented camera-facing gaze, body stillness, and task-evidence scores, each between 0 and 1. Context B has a different outward display pattern at the same underlying engagement state.</dd>
     <dt>3. What we call a positive training label</dt><dd>Either the assumed state, deliberately altered labels, or a rule that calls camera-facing and stillness “engaged.” These targets are not interchangeable.</dd></dl>
-    <button data-guide="bias-data">Show the exact data-generating assumptions</button>
+    <button data-guide="bias-data">Show the exact data-generating assumptions</button><button data-simple="bias-data">Explain to me with more straightforward language</button>
+    <details id="bias-data-inspector"><summary>Inspect every synthetic observation and its label</summary>
+      <label for="bias-data-scenario">Labeling condition</label><select id="bias-data-scenario"></select>
+      <label for="bias-data-split">Examples to inspect</label><select id="bias-data-split"><option value="train">Training · seed 111</option><option value="test">Held out · seed 222</option></select>
+      <p id="bias-data-note" role="status"></p>
+      <p class="fine">Assumed state and label use 1 for engaged and 0 for not engaged. Highlighted pairs disagree. Training weight is each row's contribution to a full-batch update, not a sampling probability. Test rows have zero training weight. Changing this view does not retrain the models.</p>
+      <div class="table-wrap data-table"><table><caption>Exact generated observations · rounded display</caption><thead><tr><th>ID</th><th>Context</th><th>Gaze</th><th>Stillness</th><th>Task evidence</th><th>Assumed state</th><th>Rule label</th><th>Training weight</th></tr></thead><tbody id="bias-data-rows"></tbody></table></div>
+      <button id="download-bias-data">Download these observations (CSV)</button>
+    </details>
   </div>
   <div class="scenario-grid">
     <article><span class="scenario-number">1 · Explicit</span><h3>Deliberately alter the labels</h3><p>Relabel half of engaged examples in B as not engaged. Both contexts have equal training weight; all three signals are available.</p></article>
@@ -48,3 +56,5 @@
   </details>
 </section>
 <script is:inline type="module" src="/microgpt/bias-ui.js"></script>
+
+<script is:inline type="module" src="/microgpt/bias-data-ui.js"></script>

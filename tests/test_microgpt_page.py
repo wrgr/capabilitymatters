@@ -36,6 +36,10 @@ class MicrogptPageTest(unittest.TestCase):
                      'We have not established a learning effect',
                      'No camera, microphone, or eye-tracking data is collected',
                      'Import checkpoint', 'code-tray', 'help-dialog',
+                     'simple-dialog', 'Explain to me with more straightforward language',
+                     'Inspect every training and test example', 'name-comparison',
+                     'Inspect every synthetic observation and its label', 'bias-data-rows',
+                     'Names, stereotypes and fairness', 'English-alphabet model',
                      'Deliberately alter the labels', 'Balance representation'):
             self.assertIn(text, html)
         parsed = Links()

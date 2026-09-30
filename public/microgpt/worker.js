@@ -22,6 +22,7 @@ function report(message = "") {
     running,
     step: model.step,
     share: model.share,
+    datasetId: model.datasetId,
     metrics: c.metrics,
     samples: model.sample(temperature),
     temperature,
@@ -59,7 +60,7 @@ function handle(event) {
     if (type === "init") {
       generation++;
       running = false;
-      model = new TinyGPT(event.data.share);
+      model = new TinyGPT(event.data.share, event.data.datasetId);
       saved = new Map();
       report("Fresh parameters. No training updates yet.");
     }

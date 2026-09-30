@@ -1,0 +1,38 @@
+---
+/** Make data selection, exact examples and fairness questions visible before training. */
+---
+<div class="data-explorer">
+  <h3>What does the training data make familiar?</h3>
+  <p>A model can become better at patterns it encounters more often. That can happen through deliberate selection or accidental gaps in collection. Here, change exposure while keeping the model design fixed. Then ask who could be poorly served if this pattern appeared in a real application.</p>
+  <label for="data-scenario">Choose a training scenario</label>
+  <select id="data-scenario">
+    <option value="patterns">Invented patterns · equal exposure</option>
+    <option value="balanced">Study names · equal exposure</option>
+    <option value="skewed">Study names · A gets 90% of training</option>
+    <option value="reversed">Study names · B gets 90% of training</option>
+    <option value="custom" disabled hidden>Custom mix · see active model below</option>
+  </select>
+  <p class="fine">Choosing a scenario starts a fresh model with seed 42. Each run learns different weights from its data. Download a checkpoint first if you want to keep the current run.</p>
+  <p id="active-dataset" role="status">Loading dataset…</p>
+  <button data-simple="data">Explain to me with more straightforward language</button>
+  <details id="data-inspector">
+    <summary>Inspect every training and test example</summary>
+    <p id="data-provenance"></p><p id="data-group-key"></p>
+    <a id="data-source" hidden target="_blank" rel="noreferrer">Read the original study · Appendix Table A1</a>
+    <p id="data-limits"></p>
+    <p class="fine">These are the exact lowercase strings supplied to the model. No hidden examples. Training draws with replacement: a word can appear repeatedly. Probabilities below are per draw, not observed counts. Test words have zero training probability. “Probe” marks the first eight training words in each set used for the training-loss display.</p>
+    <label for="data-filter">Find an example</label><input type="search" id="data-filter" placeholder="Filter words or names" />
+    <p id="data-count" class="fine" role="status"></p>
+    <div class="table-wrap data-table"><table>
+      <caption id="data-caption">Active model's complete dataset</caption>
+      <thead><tr><th>Exact text</th><th>Set</th><th>Use</th><th>Chance per training draw</th></tr></thead>
+      <tbody id="data-rows"></tbody>
+    </table></div>
+    <button id="download-data">Download this dataset (CSV)</button><button data-guide="datasets">Explain the data choices</button>
+  </details>
+  <div class="fairness-note">
+    <strong>Names, stereotypes and fairness</strong>
+    <p>The names scenario uses historical U.S. study cues associated with perceived race. It makes a culturally situated stereotype inspectable without declaring it a universal fact about names or people. The model learns letter patterns; it does not predict anyone's identity or suitability for a job.</p>
+    <p>Inspecting the list also reveals who is absent. This English-alphabet model cannot represent accents or other scripts. Equal exposure within these two selected sets does not fix that exclusion. Continue to the <a href="#bias">engagement lab</a> to see how a misleading label can survive balanced training.</p>
+  </div>
+</div>

@@ -1,10 +1,11 @@
 ---
-/** Teach actual transformer training with explanatory controls and genuine resumable checkpoints. */
+/** Teach actual transformer training with inspectable data, fairness comparisons and resumable checkpoints. */
+import DataExplorer from "./DataExplorer.astro";
 ---
 <section id="training" class="learning-lab" aria-labelledby="training-title">
   <p class="eyebrow">Live lab · Real training on your device</p>
   <h2 id="training-title">Watch a small model learn.</h2>
-  <p>Start from random weights, or load a measured checkpoint. The model learns to generate <strong>fictional words</strong> from two invented spelling families. It has 2,520 adjustable parameters, one transformer block, and three attention heads. Every update below is computed in your browser.</p>
+  <p>Start from random weights, or load a measured checkpoint. Choose invented spelling patterns or <strong>names used in a historical discrimination study</strong>. The model learns to generate strings from the chosen examples. It has 2,520 adjustable parameters, one transformer block, and three attention heads. Every live training update is computed in your browser.</p>
   <div class="orientation"><strong>First visit?</strong> Try “Train 100 steps,” compare the two loss values, then open “Explain this code.” The help buttons explain each term without assuming a programming background.</div>
   <ol class="stages" aria-label="Training cycle">
     <li><button data-guide="data">1. Choose examples</button><span>What the model sees</span></li>
@@ -12,10 +13,11 @@
     <li><button data-guide="learning">3. Measure and update</button><span>How the weights change</span></li>
     <li><button data-guide="evaluate">4. Test new examples</button><span>What the evidence supports</span></li>
   </ol>
+  <DataExplorer />
   <div class="trainer-controls">
-    <div class="control"><label for="family-share">Training mix: family ending in -a <output id="share-value">50%</output></label>
+    <div class="control"><label for="family-share">Next run: share drawn from set A <output id="share-value">50%</output></label>
       <input id="family-share" type="range" min="10" max="90" step="10" value="50" />
-      <span>Remaining examples come from the -o family. Applies when you choose New run.</span><button class="help" data-explain="mix">Why change the mix?</button>
+      <span>The rest comes from set B. Applies when you choose New run. The inspector shows the active model’s mix.</span><button class="help" data-explain="mix">Why change the mix?</button>
     </div>
     <div class="actions"><button id="new-run">New run</button><button id="train-model" class="primary" disabled>Train 100 steps</button><button id="train-long" disabled>Train 600 steps</button><button id="pause-model" disabled>Pause</button></div>
   </div>
@@ -26,7 +28,20 @@
     <div><span>Training probe loss <button class="help" data-explain="trainLoss" aria-label="Explain training probe loss">?</button></span><strong id="train-loss">—</strong></div>
     <div><span>Held-out loss <button class="help" data-explain="heldout" aria-label="Explain held-out loss">?</button></span><strong id="test-loss">—</strong></div>
   </div>
-  <p class="fine">Loss is mean negative log probability per character, averaged equally across words. Lower is better for this prediction task. The fixed training probe contains 16 words from the training pool; the held-out set contains 32 unseen words, balanced across families. These small samples do not establish generalization to other tasks.</p>
+  <p class="fine">Loss is mean negative log probability per character, averaged equally across words. Lower is better for this prediction task. <span id="evaluation-counts">The fixed training probe contains 16 words; the held-out set contains 32 unseen words.</span> Evaluation weights both sets equally. These small samples do not establish generalization to other tasks.</p>
+  <div class="fairness-results">
+    <h3>Look beyond the average <button class="help" data-explain="fairness">What counts as fair?</button></h3>
+    <p id="group-key"></p>
+    <div class="group-metrics"><p>Set A held-out loss <strong id="group-a-loss">—</strong></p><p>Set B held-out loss <strong id="group-b-loss">—</strong></p></div>
+    <p class="fine">Lower loss means better spelling prediction on this tiny test set. A difference can reflect exposure, spelling difficulty or the split. Neither a gap nor equal scores establishes fair treatment of people.</p>
+    <details open><summary>Compare three models trained on the study names</summary>
+      <p>Same names, test split, initial weights, optimizer and 600 updates; different chances of drawing each set. The equal-exposure run is a comparison point, not a “fair model” certification. Positive changes below mean worse prediction than that run. Each condition uses one seed, so this is a worked example, not a population estimate.</p>
+      <div class="table-wrap"><table><caption>Measured 600-step checkpoints · all tests weight A and B equally</caption><thead><tr><th>Training A:B</th><th>A loss</th><th>B loss</th><th>A change vs 50:50</th><th>B change vs 50:50</th><th>Explore</th></tr></thead><tbody id="name-comparison"></tbody></table></div>
+      <p id="name-finding"></p>
+      <p id="comparison-status" role="status">Loading measured comparisons…</p>
+    </details>
+    <button data-simple="fairness">Explain fairness in straightforward language</button>
+  </div>
   <div class="result-grid">
     <div><h3>Learning trace <button class="help" data-explain="curve" aria-label="Explain the learning trace">?</button></h3>
       <svg id="loss-chart" viewBox="0 0 600 200" role="img" aria-labelledby="loss-chart-title">
@@ -37,7 +52,7 @@
         <polyline id="train-line" points="" fill="none" stroke="#196d79" stroke-width="3" /><polyline id="test-line" points="" fill="none" stroke="#a34516" stroke-width="3" stroke-dasharray="7 4" />
       </svg>
       <p class="chart-key"><span>Solid teal: training probe</span><span>Dashed rust: held-out</span></p>
-      <details><summary>Exact measurements in this run</summary><div class="table-wrap"><table><caption>Measurements saved at each checkpoint</caption><thead><tr><th>Step</th><th>Training</th><th>Held-out</th><th>-a family</th><th>-o family</th></tr></thead><tbody id="history-rows"></tbody></table></div></details>
+      <details><summary>Exact measurements in this run</summary><div class="table-wrap"><table><caption>Measurements saved at each checkpoint</caption><thead><tr><th>Step</th><th>Training</th><th>Held-out</th><th>Set A</th><th>Set B</th></tr></thead><tbody id="history-rows"></tbody></table></div></details>
     </div>
     <div><h3>Generated words <button class="help" data-explain="samples" aria-label="Explain generated words">?</button></h3>
       <label for="sample-temperature">Sampling temperature <output id="sample-temp-value">0.8</output></label>
@@ -54,15 +69,15 @@
     <p class="fine">Pause before restoring or downloading. Restoring an earlier state branches this run from that point. Downloads contain model state, not personal information. Leaving the page clears session states.</p>
   </div>
   <details class="preset-panel" open><summary>Compare ready-made checkpoints without waiting</summary>
-    <p>These are real saved training states from this exact engine, with a 50:50 mix and seed 42. The displayed samples use temperature 0.8 and sampling seed 2026. Load one to inspect or continue training.</p>
+    <p>These are real saved training states from this exact engine, with seed 42. Each card identifies its dataset and mix. The displayed samples use temperature 0.8 and sampling seed 2026. Load one to inspect or continue training.</p>
     <div id="preset-cards" class="preset-cards"><p>Loading checkpoints…</p></div>
   </details>
   <details><summary>Exactly what is being learned?</summary>
-    <p>The two families follow invented spelling rules. The model receives characters, not a family label or a rule description. It learns next-character probabilities. The families differ in consonants, vowels and endings; neither represents a culture or a demographic group.</p>
+    <p>Both datasets train the same next-character predictor. The invented families have no demographic meaning. The sourced names have documented, historically situated associations; the inspector explains their provenance and our split. Set labels control sampling and auditing, but are never fed into the model.</p>
     <p><strong>Try it:</strong> compare a fresh balanced run with a fresh 90:10 run at the same number of steps. Inspect held-out loss separately for both families. The evaluation mix stays balanced even when training changes. Samples are illustrative draws, not a reliable estimate of the population distribution.</p>
-    <p><strong>Our adaptation:</strong> Karpathy's original concept and reference architecture, independently implemented in JavaScript with a smaller width, an indexed differentiation tape, fictional data, and different initialization and optimizer settings. <a href="/microgpt/NOTICE.md">Full attribution and differences</a>.</p>
+    <p><strong>Our adaptation:</strong> Karpathy's original concept and reference architecture, independently implemented in JavaScript with a smaller width, an indexed differentiation tape, inspectable teaching datasets, and different initialization and optimizer settings. <a href="/microgpt/NOTICE.md">Full attribution and differences</a>.</p>
   </details>
-  <button data-guide="overview">Explain this code, step by step</button>
+  <button data-guide="overview">Explain this code, step by step</button><button data-simple="overview">Explain to me with more straightforward language</button>
   <noscript><p>Live training requires JavaScript. The article and source links remain readable.</p></noscript>
 </section>
 <script is:inline type="module" src="/microgpt/lab.js"></script>

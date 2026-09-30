@@ -95,23 +95,28 @@ publishes `dist/` to the `gh-pages` branch with `CNAME capabilitymatters.org`.
 `/microgpt/` includes two independent local experiments. `TrainingLab.astro` hosts
 real transformer training; `BiasLab.astro` fits simple classifiers to invented
 engagement observations. `ExplainTray.astro` provides native modal help and a
-source viewer. Both experiments are explicitly educational; the synthetic groups
+source viewer and contextual straightforward-language popups. `DataExplorer.astro` exposes every training/test example, source and per-draw probability. The transformer supports invented strings and historical name cues, with three measured exposure comparisons. These names are context-specific study cues, not identity labels. Both experiments are explicitly educational; the synthetic groups
 are not real cultures and the simulated criterion is not a validated engagement
 measure. The existing article remains the leadership companion.
 
 The dependency-free modules in `public/microgpt/` are served directly:
 
 - `engine.js`: indexed reverse-mode differentiation, causal transformer, Adam,
-  deterministic fictional dataset, evaluation, sampling and complete snapshots.
+  deterministic dataset selection, evaluation, sampling and complete snapshots.
+- `datasets.js`: published name lists, provenance, fixed split and exposure scenarios.
+- `data-ui.js`: searchable exact data, complete CSV export and measured comparison table.
+- `simple.js`: concrete, shorter explanations for every teaching topic.
 - `worker.js`: responsive background training and session checkpoint management.
 - `lab.js`: training controls, import/export, measured charts and saved presets.
 - `bias.js`: declared data/label assumptions, logistic fitting and independent audit.
+- `bias-data-ui.js`: all training/test observations, condition-specific labels and full-precision CSVs.
 - `bias-ui.js`: four-condition comparison and matched-input diagnostic.
 - `explanations.js` and `explain.js`: plain-language stage explanations, help
   definitions and line-numbered excerpts from the actual served modules.
 - `lab.css`: responsive lab and modal presentation.
 - `NOTICE.md`: Karpathy attribution and exact implementation differences.
-- `checkpoints.json`: measured 0-, 100- and 600-step states, including optimizer
+- `checkpoints.json`: measured fictional 0-, 100- and 600-step states plus three
+  600-step name models (50:50, 90:10, 10:90), including dataset, optimizer
   and random state, generated with the same engine the browser uses.
 
 No external model service, sensor access, analytics or training-data upload is
@@ -133,7 +138,13 @@ python3 tests/test_experiments_page.py
 The engine test checks gradients against finite differences, data separation,
 loss improvement, exact continuation from a checkpoint, unchanged parameters
 through evaluation/sampling, deterministic presets, and the intended synthetic
-bias effects. The page test checks attribution, simulation boundaries and links.
+bias effects. It also checks exact name splits, shared initial weights, cross-dataset
+restore, legacy compatibility, atomic rejection of mismatched data, and a shorter
+explanation for every topic. The page test checks attribution, simulation boundaries,
+data inspection controls, contextual popups and links.
+The v2 schema records a dataset ID and exact serialized split, checked before restore.
+Legacy v1 states resolve to the original fictional data. The name split uses every
+third entry, after alphabetical ordering within each study sex category, as held out.
 The schema version must change if snapshot compatibility changes. Preserve the
 separation between empirical citations, invented assumptions, computed outputs,
 and educational hypotheses when revising the page.
