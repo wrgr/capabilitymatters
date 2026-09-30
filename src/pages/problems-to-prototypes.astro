@@ -12,6 +12,7 @@ import lens1 from "../data/problems-to-prototypes/lens-1.json";
 import canonical from "../data/problems-to-prototypes/lens-canonical.json";
 import evidenceLibrary from "../data/problems-to-prototypes/evidence.json";
 import meta from "../data/problems-to-prototypes/meta.json";
+import AiCritiqueLaunch from "../components/prototypes/AiCritiqueLaunch.astro";
 
 type Collection = "AILE" | "LXD" | "LENS" | "LENS Canonical";
 type Idea = {
@@ -38,6 +39,11 @@ const cycleFor=(idea:Idea)=>[
   ["Evaluate",common["7"]],
   ["Refine",common["8"]],
 ];
+const prototypeUrls:Record<string,string>={
+  "example-aile-2195":"/prototypes/ai-debate-coach/",
+  "example-aile-7161":"/prototypes/edtech-alignment-auditor/",
+  "example-aile-5636":"/prototypes/workforce-capability-map/",
+};
 const longLabel:Record<Collection,string>={
   AILE:"Artificial Intelligence Leadership in Education",
   LXD:"Learning Experience Design",
@@ -94,6 +100,7 @@ const longLabel:Record<Collection,string>={
         <div class="block"><b>The gap</b><p>{idea.gap}</p></div>
         <div class="block prototype"><b>A first prototype</b><p>{idea.prototype}</p></div>
         <div class="example"><b>Representative use case</b><p>{idea.example}</p></div>
+        {prototypeUrls[idea.id] && <a class="try-prototype" href={prototypeUrls[idea.id]}>Try the runnable prototype →</a>}
         <details>
           <summary>Open the design brief <span>↓</span></summary>
           <div class="deep">
@@ -107,10 +114,11 @@ const longLabel:Record<Collection,string>={
               <p class="note">These sources motivate the design logic; they do not establish that this specific prototype will work. That is what the first cycle is for.</p>
               <ol>{evidence.map((source)=><li><a href={source.url} target="_blank" rel="noopener">{source.citation}</a> <small>{source.year}</small><p>{source.why}</p></li>)}</ol>
             </section>
+            <AiCritiqueLaunch idea={idea} collection={idea.collection} />
             <section class="live">
-              <h3>Optional live extension</h3>
-              <p>The page is static by default. Configure a compatible endpoint below to send only this public brief for a fresh critique or next-cycle suggestion.</p>
-              <button type="button" data-live={idea.id}>Critique with live AI</button>
+              <h3>Or use a configured endpoint</h3>
+              <p>This is optional. If you configured a compatible endpoint below, you can send this same public brief directly from the page.</p>
+              <button type="button" data-live={idea.id}>Critique with configured endpoint</button>
               <pre data-output={idea.id} hidden></pre>
             </section>
           </div>
@@ -135,7 +143,7 @@ const longLabel:Record<Collection,string>={
 <style>
   .intro{display:grid;grid-template-columns:minmax(0,1fr) 18rem;gap:2.5rem;padding-top:2rem;padding-bottom:2rem}.intro p{max-width:48rem}.loop{border-left:3px solid var(--accent);padding-left:1rem;font-family:var(--sans);font-size:.78rem}.loop ol{list-style:none;padding:0;margin:.6rem 0 0;display:flex;flex-wrap:wrap;gap:.3rem}.loop li{background:var(--tint);border:1px solid var(--border);padding:.15rem .35rem}
   .filters-shell{position:sticky;top:57px;z-index:8;background:rgba(254,253,248,.96);backdrop-filter:blur(10px);border-block:1px solid var(--border)}.filters{display:grid;grid-template-columns:2fr 1fr auto;gap:.8rem;align-items:end;padding-top:.75rem;padding-bottom:.75rem}.filters label,.endpoint label{font-family:var(--sans);font-size:.72rem;color:var(--muted);display:flex;flex-direction:column;gap:.25rem}.filters input,.filters select,.endpoint input{font:inherit;font-size:.9rem;color:var(--ink);background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:.6rem .65rem}.count{font-family:var(--sans);color:var(--muted);padding:.55rem 0;white-space:nowrap}.count strong{color:var(--ink)}
-  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,22rem),1fr));gap:1.1rem;align-items:start;padding-top:2rem;padding-bottom:3rem}.card{border:1px solid var(--border);border-radius:5px;background:var(--bg);padding:1.15rem}.card:hover{border-color:var(--accent)}.meta{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;font-family:var(--sans);font-size:.68rem;color:var(--muted)}.chip{font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .4rem;background:var(--tint-warm);color:var(--accent);border-radius:2px}.chip.lxd{background:#e8f1f4;color:#2c5f6f}.chip.lens{background:#ecefe7;color:#45513a}.chip.lens-canonical{background:#eee9f4;color:#5d4475}.card h2{font-size:1.3rem;margin:.65rem 0 1rem}.block{border-top:1px solid var(--border);padding-top:.75rem;margin-top:.75rem}.block>b,.example>b{font-family:var(--sans);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}.block p,.example p{font-size:.92rem;line-height:1.55;margin:.25rem 0 0;max-width:none}.example{margin-top:.9rem;padding:.8rem;background:var(--tint);border-radius:3px}.example>b{color:var(--accent-2)}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,22rem),1fr));gap:1.1rem;align-items:start;padding-top:2rem;padding-bottom:3rem}.card{border:1px solid var(--border);border-radius:5px;background:var(--bg);padding:1.15rem}.card:hover{border-color:var(--accent)}.meta{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;font-family:var(--sans);font-size:.68rem;color:var(--muted)}.chip{font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .4rem;background:var(--tint-warm);color:var(--accent);border-radius:2px}.chip.lxd{background:#e8f1f4;color:#2c5f6f}.chip.lens{background:#ecefe7;color:#45513a}.chip.lens-canonical{background:#eee9f4;color:#5d4475}.card h2{font-size:1.3rem;margin:.65rem 0 1rem}.block{border-top:1px solid var(--border);padding-top:.75rem;margin-top:.75rem}.block>b,.example>b{font-family:var(--sans);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}.block p,.example p{font-size:.92rem;line-height:1.55;margin:.25rem 0 0;max-width:none}.example{margin-top:.9rem;padding:.8rem;background:var(--tint);border-radius:3px}.example>b{color:var(--accent-2)}.try-prototype{display:inline-block;margin-top:.85rem;font-family:var(--sans);font-size:.78rem;font-weight:800;color:var(--accent);border:1px solid var(--accent);border-radius:3px;padding:.5rem .65rem}
   .card>details{border-top:1px solid var(--border);margin-top:1rem;padding-top:.25rem}.card>details>summary{cursor:pointer;list-style:none;font-family:var(--sans);font-size:.8rem;font-weight:700;color:var(--accent);display:flex;justify-content:space-between;padding:.6rem 0 .2rem}.card>details>summary::-webkit-details-marker{display:none}.deep{border-top:1px dashed var(--border);margin-top:.7rem;padding-top:1rem;display:flex;flex-direction:column;gap:1.4rem}.deep h3{font-size:1rem;margin:0 0 .4rem}.deep p,.deep li{font-size:.86rem;line-height:1.55}.deep ul{padding-left:1.15rem}.cycle-head{display:flex;justify-content:space-between;align-items:end;gap:1rem}.cycle-head small{font-family:var(--sans);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}.cycle-head em{font-family:var(--sans);font-size:.68rem;color:var(--muted)}.cycle{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.5rem}.cycle li{display:grid;grid-template-columns:1.8rem 1fr;gap:.45rem;background:var(--tint);border:1px solid var(--border);padding:.6rem;border-radius:3px}.cycle li>span{font-family:var(--mono);font-size:.7rem;color:var(--accent)}.cycle b{font-family:var(--sans);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em}.cycle p{font-size:.79rem;margin:.15rem 0 0;max-width:none}.sources{border-top:1px solid var(--border);padding-top:.9rem}.sources .note{color:var(--muted);font-size:.79rem}.sources ol{padding-left:1.1rem}.sources li{margin:.6rem 0}.sources a{font-family:var(--sans);font-weight:650}.sources small{color:var(--muted)}.sources li p{font-size:.77rem;color:var(--muted);margin:.12rem 0 0}.live{border:1px solid var(--border);background:var(--tint);padding:.8rem;border-radius:4px}.live button,.endpoint button{border:1px solid var(--accent);background:var(--accent);color:var(--bg);font-family:var(--sans);font-size:.75rem;font-weight:700;padding:.5rem .65rem;border-radius:3px;cursor:pointer}.live pre{white-space:pre-wrap;background:var(--bg);border:1px solid var(--border);padding:.7rem;font-family:var(--serif);font-size:.82rem}.none{grid-column:1/-1;text-align:center;max-width:none;color:var(--muted);padding:3rem}
   .endpoint{padding-top:0;padding-bottom:2rem}.endpoint>details{border-top:1px solid var(--border);padding-top:1rem}.endpoint summary{font-family:var(--sans);font-weight:700;color:var(--accent);cursor:pointer}.endpoint>details>div{max-width:48rem;padding:1rem 0}.endpoint p{font-size:.88rem}.endpoint button.secondary{background:transparent;color:var(--accent)}
   @media(max-width:760px){.intro{grid-template-columns:1fr}.filters-shell{position:static}.filters{grid-template-columns:1fr}.cycle{grid-template-columns:1fr}}
