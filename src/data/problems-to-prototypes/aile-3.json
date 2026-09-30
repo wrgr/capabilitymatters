@@ -1,0 +1,78 @@
+[
+  {
+    "id": "example-aile-8940",
+    "title": "An AI Academic Navigator for Two-Year Colleges",
+    "gap": "Students in open-access and two-year institutions often navigate fragmented academic, financial, technology, and support systems while balancing work and family responsibilities. Generic AI can provide 24/7 help but may confidently invent institutional rules or conceal where human support is necessary.",
+    "prototype": "Create a retrieval-grounded academic navigator using only approved institutional sources. It explains options, checks understanding, and escalates financial aid, disability, mental health, or policy-sensitive questions to people rather than making decisions.",
+    "example": "A working adult asks how dropping one course might affect progress. The navigator identifies the relevant institutional resources, explains which variables matter, and routes the student to the appropriate office for a binding answer.",
+    "frame": "The learning goal is institutional self-navigation: knowing what to ask, how to interpret information, and when to seek human help. Human-centered AI design requires calibrated confidence and clear boundaries.",
+    "questions": [
+      "Which questions are safe to automate?",
+      "Does the navigator improve successful follow-through, not merely chat satisfaction?",
+      "Are nontraditional learners using and trusting the system equitably?"
+    ],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to navigate institutional systems and make informed next-step decisions, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: student, advisors, institutional services, approved knowledge base, AI navigator, and escalation workflow. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: correct action, successful referral, resolution time, hallucination rate, trust calibration, and access by learner group. A key disconfirming signal is: usage is high but students still miss deadlines, choose wrong actions, or avoid human support when needed."
+    },
+    "evidence": ["E06","E04","E03","E02","E05"]
+  },
+  {
+    "id": "example-aile-6014",
+    "title": "Beyond Translation: A Multilingual Family Communication Studio",
+    "gap": "Translating an English resource word-for-word can leave examples, tone, assumptions, and calls to action culturally distant from multilingual learners and families. Educators need a faster way to adapt communication without treating language as the only barrier.",
+    "prototype": "Create an educator-facing adaptation studio that produces bilingual drafts, identifies culture- or context-dependent references, proposes locally relevant examples, and asks the educator to confirm meaning before publication. Families can optionally flag confusing or unnatural wording.",
+    "example": "A school family guide about mathematics practice is adapted into two languages, but also replaces unfamiliar examples, clarifies school-specific terms, and offers an audio version for families who prefer listening.",
+    "frame": "Effective multilingual learning builds on home language and cultural assets rather than using translation only as remediation. Multiple representations improve access, while human review protects meaning and relationship.",
+    "questions": [
+      "What makes an adaptation feel authentic rather than merely fluent?",
+      "How should family feedback alter future drafts?",
+      "Does better communication change participation and learner outcomes?"
+    ],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to understand and act on learning-related communication across languages and cultural contexts, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, family, educator, home language, school context, communication artifact, and AI adaptation studio. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: comprehension, follow-through, family trust, revision rate, educator time, and cross-language consistency. A key disconfirming signal is: translation quality improves but family understanding, participation, or trust does not."
+    },
+    "evidence": ["E14","E15","E02","E04"]
+  },
+  {
+    "id": "example-aile-0780",
+    "title": "A Curiosity-Preserving AI Mentor",
+    "gap": "Personalized AI mentors may optimize completion, hints, and immediate success while unintentionally reducing exploration, learner agency, or tolerance for difficulty. A system that predicts the learner too aggressively can become a path optimizer instead of a partner in discovery.",
+    "prototype": "Design an AI mentor that begins with learner-chosen goals, uses short challenge cycles, offers optional creative pathways, and periodically asks the learner to decide what to pursue next. Human mentors can see the rationale for interventions and override the system.",
+    "example": "A teenager learning game design alternates between coding challenges and visual design choices. The AI notices repeated debugging difficulty but offers two next-step paths rather than automatically simplifying the task.",
+    "frame": "The design supports autonomy, competence, metacognition, and human oversight. Personalization is treated as a hypothesis about support, not a hidden judgment about ability or motivation.",
+    "questions": [
+      "How do we measure curiosity without reducing it to clicks or facial signals?",
+      "When should the mentor challenge rather than accommodate?",
+      "Does learner choice improve persistence and transfer over time?"
+    ],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to pursue increasingly complex learning with agency, reflection, and sustained curiosity, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, human mentor, chosen project, AI mentor, peer/community context, and progression model. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: independent project complexity, persistence, self-explanation, choice patterns, transfer, and mentor override. A key disconfirming signal is: the mentor keeps learners active but narrows exploration or makes challenge avoidance easier."
+    },
+    "evidence": ["E19","E16","E06","E09","E07"]
+  },
+  {
+    "id": "example-aile-9784",
+    "title": "A Context-Rich AI Language Practice Companion",
+    "gap": "Language apps can make practice frequent and convenient, yet generic drills may not prepare immigrant and multilingual learners for the specific academic, social, and institutional situations where language must be used.",
+    "prototype": "Create a teacher-configurable AI language companion grounded in real school and community tasks. It supports speech, text, images, home-language clarification, and repeated practice while keeping the target communicative function explicit.",
+    "example": "A newcomer practices asking a teacher for clarification, interpreting an assignment instruction, and contributing one idea to a group discussion before trying the same tasks in class.",
+    "frame": "The design connects language learning to authentic use, builds on the learner's existing linguistic resources, and offers multiple representations and response modes. AI provides practice volume; educators determine goals and interpret progress.",
+    "questions": [
+      "Which simulated situations transfer most strongly to real participation?",
+      "When is home-language support helpful versus overused?",
+      "Does practice increase confidence and actual classroom communication?"
+    ],
+    "cycle": {
+      "understand": "Validate that the real gap is the ability to use a second language successfully in authentic academic and social situations, not simply low engagement, low tool use, or a workflow inconvenience.",
+      "model": "Map the system: learner, teacher, peers, home language, classroom/community tasks, AI language companion, and school norms. Identify where the capability currently succeeds, breaks down, or is masked by other constraints.",
+      "instrument": "Predefine evidence: communicative success, vocabulary/structure growth, classroom participation, transfer, confidence calibration, and language-support use. A key disconfirming signal is: app performance improves without more successful communication in real settings."
+    },
+    "evidence": ["E14","E15","E02","E11","E16"]
+  }
+]
