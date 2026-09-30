@@ -1,0 +1,35 @@
+---
+import PrototypeShell from '../../components/prototypes/PrototypeShell.astro';
+import Tool from '../../components/prototypes/aile-access-tool.astro';
+import { curiosityPaths } from '../../lib/aile-access.js';
+import briefs from '../../data/problems-to-prototypes/aile-3.json';
+import meta from '../../data/problems-to-prototypes/meta.json';
+import '../../styles/prototype-tools.css';
+const idea = briefs.find(brief => brief.id === 'example-aile-0780');
+const cycle = meta.designCycle.map((name, index) => [name, idea.cycle[name.toLowerCase()] ?? meta.aileCommonSteps[String(index + 1)]]);
+---
+<PrototypeShell idea={idea} collection="AILE" cycle={cycle}
+  assumption="An attempt and reflection cycle can support exploration while preserving learner choice."
+  falsifier="Learners complete cycles but avoid uncertainty or cannot explain what evidence changed their thinking."
+  instrumentation="Compare independent explanations and transfer to a new challenge with a paper choice journal. Counts of cycles are activity, not learning.">
+  <div slot="app"><Tool kind="curiosity" submitLabel="Save reflection and next choice">
+    <section class="panel"><h2>Choose, try, reflect, choose again</h2><p>This is an authored challenge menu and local journal. It does not infer your interests, evaluate your work, or change difficulty. Use any language; describe a drawing, code experiment, or spoken attempt if useful.</p></section>
+    <label>My learning goal<textarea name="goal" rows="2" maxlength="2000" placeholder="What do you want to explore?"></textarea></label>
+    <label>My chosen path<select name="path">{Object.entries(curiosityPaths).map(([key, path]) => <option value={key}>{path.label}</option>)}</select></label>
+    <label>My own challenge (used only for “My own challenge”)<textarea name="custom" rows="3" maxlength="3000"></textarea></label>
+    <button type="button" data-start-cycle>Start chosen challenge / replace unfinished attempt</button>
+    <p class="note">Starting again clears unfinished work. Completed cycles stay in this session’s next journal export until Reset or reload. Changing the goal or path requires a new start.</p>
+    <p class="panel" data-challenge aria-live="polite"></p>
+    <fieldset data-cycle-work hidden><legend>Try before reflecting</legend>
+      <label>My attempt: what I tried and what happened<textarea name="attempt" rows="5" maxlength="6000" dir="auto"></textarea></label>
+      <button type="button" data-save-attempt>Record attempt and open reflection</button>
+      <div data-reflect hidden>
+        <details><summary>Optional authored hint — I choose whether to use it</summary><p data-hint></p></details>
+        <label>What surprised me? What evidence supports my idea, or what would I test next?<textarea name="reflection" rows="4" maxlength="4000" dir="auto"></textarea></label>
+        <label>My next step<select name="next"><option value="persist">Stay with this challenge</option><option value="switch">Choose another path myself</option><option value="mentor">Ask a human mentor</option><option value="pause">Pause and return later</option></select></label>
+        <label>Why I chose this step / what support I want<textarea name="reason" rows="2" maxlength="2000" dir="auto"></textarea></label>
+        <p class="note">A mentor can suggest a change; you choose it in the path menu. Changing an attempt clears its reflection so the record stays tied to what you actually tried.</p>
+      </div>
+    </fieldset>
+  </Tool></div>
+</PrototypeShell>

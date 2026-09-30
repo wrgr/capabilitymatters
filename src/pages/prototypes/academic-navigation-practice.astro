@@ -1,0 +1,29 @@
+---
+import PrototypeShell from '../../components/prototypes/PrototypeShell.astro';
+import Tool from '../../components/prototypes/aile-access-tool.astro';
+import briefs from '../../data/problems-to-prototypes/aile-3.json';
+import meta from '../../data/problems-to-prototypes/meta.json';
+import { sources } from '../../lib/aile-access.js';
+import '../../styles/prototype-tools.css';
+const idea = briefs.find(brief => brief.id === 'example-aile-8940');
+const cycle = meta.designCycle.map((name, index) => [name, idea.cycle[name.toLowerCase()] ?? meta.aileCommonSteps[String(index + 1)]]);
+---
+<PrototypeShell idea={idea} collection="AILE" cycle={cycle}
+  assumption="Visible sources and human referrals help students choose a safe next action."
+  falsifier="Students still treat fictional source cards as real rules or avoid necessary human support."
+  instrumentation="Compare referral accuracy and explanation of next steps with a static office directory; no telemetry is collected.">
+  <div slot="app">
+    <Tool kind="navigation">
+      <section class="panel">
+        <h2>Fictional college navigation practice</h2>
+        <p>These authored cards are approved only for this exercise. They describe no real institution. This tool selects cards and prepares questions; it cannot answer institutional policy questions or contact an office.</p>
+        {sources.map(source => <article><h3>{source.id} · {source.title}</h3><p>{source.text}</p></article>)}
+      </section>
+      <label>Choose a topic (you can override this at any time)
+        <select name="topic"><option value="schedule">Find course times and format</option><option value="change">Enrollment, funding, or policy decision</option><option value="access">Access or accommodation request</option><option value="wellbeing">Wellbeing or mental health support</option><option value="other">Other / unsure / unsupported question</option></select>
+      </label>
+      <label>Practice question<textarea name="question" rows="3" maxlength="3000" placeholder="Use invented details, such as: What should I check before dropping a course?"></textarea></label>
+      <label>Prepare a next step<select name="format"><option value="checklist">Conversation checklist</option><option value="message">Message for me to review and send myself</option></select></label>
+    </Tool>
+  </div>
+</PrototypeShell>

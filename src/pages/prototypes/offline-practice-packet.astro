@@ -1,0 +1,18 @@
+---
+import PrototypeShell from "../../components/prototypes/PrototypeShell.astro";
+import FoundationForm from "../../components/prototypes/aile-foundation-form.astro";
+import briefs from "../../data/problems-to-prototypes/aile-1.json";
+import meta from "../../data/problems-to-prototypes/meta.json";
+const idea = briefs.find((brief) => brief.id === "example-aile-3268")!;
+const common = meta.aileCommonSteps;
+const cycle = [["Understand", idea.cycle.understand], ["Model", idea.cycle.model], ["Design", common["3"]], ["Build", common["4"]], ["Instrument", idea.cycle.instrument], ["Deploy", common["6"]], ["Evaluate", common["7"]], ["Refine", common["8"]]];
+const fields = [
+  { name: "title", label: "Source title / curriculum reference", placeholder: "Teacher-approved water cycle notes, section 2" },
+  { name: "source", label: "Paste approved source statements, one per line (up to 12 lines)", rows: 7, max: 12000, placeholder: "Evaporation changes liquid water into water vapor.\nCondensation changes water vapor into liquid droplets." },
+  { name: "terms", label: "Target words or phrases copied from the source, one per line (up to 6)", rows: 4, placeholder: "Evaporation\nCondensation" },
+  { name: "support", label: "Practice support", options: [["guided", "Guided: word bank and source line hints"], ["independent", "Independent first attempt, then check source"]] }
+];
+---
+<PrototypeShell idea={idea} collection="AILE" cycle={cycle} assumption="Source-linked exercises reduce preparation time without lowering instructional quality in low-connectivity settings." falsifier="Teachers spend more time repairing packets than writing them, or learners recall terms without explaining or transferring concepts." instrumentation="Compare preparation time, source fidelity, explanation quality, new-example performance, and success opening a saved packet offline. No telemetry is collected.">
+  <FoundationForm slot="app" tool="offline-practice-packet" fields={fields} action="Build source-grounded packet" description="A deterministic worksheet builder: it blanks your selected terms in exact source sentences and adds explanation and transfer prompts. It cannot verify curriculum facts or reading level. Download the learner packet and separate teacher guide; saved text files work offline. This website is not cached offline and does not synchronize." />
+</PrototypeShell>

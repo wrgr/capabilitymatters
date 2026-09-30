@@ -61,9 +61,10 @@ node --test tests/test_prototypes.mjs
 ## Problems to Prototypes
 
 `/problems-to-prototypes/` holds 38 evidence-linked briefs across AILE, LXD,
-LENS, and canonical LENS system problems. Five currently have runnable exercises:
-AI Debate Coach, EdTech Alignment Auditor, Workforce Capability Map,
-Human–AI Delegation Simulator, and Evidence-to-Impact Mapper.
+LENS, and canonical LENS system problems. Nineteen currently have working local
+prototypes: all 12 AILE briefs, all four LENS briefs, the EdTech Alignment Auditor,
+Human–AI Delegation Simulator, and Evidence-to-Impact Mapper. The remaining 15 LXD
+and four canonical LENS briefs are deferred and explicitly marked as not working.
 `/prototypes/` redirects to the gallery filtered to runnable exercises. Keyword,
 collection, and availability filters are reflected in the URL for sharing.
 
@@ -84,13 +85,51 @@ The gallery and Experiments page also link to the existing Capability Pipeline
 at `/capability-pipeline/index.html#simulation`. The fragment opens “Choose your
 own adventure” directly; `#cases` opens the five-case systems-process explorer.
 
-Run `node --test tests/test_prototypes.mjs` and `npm run build` after changes.
+Run `npm run test:prototypes` and `npm run build` after changes.
 The regression checks parse the actual inline scripts and exercise audit validation,
 evidence warnings, debate comparisons, scenario rounds, measurement plans,
 and the brief/evidence relationships.
-For browser review, check combined gallery filters and URL reloads, all three app
+For browser review, check combined gallery filters and URL reloads, all tool
 interactions, downloads, adventure links, and narrow-screen layouts. Astro's static build does not validate
 JavaScript inside `is:inline` scripts, so the script checks are essential.
+
+`src/data/prototypes/status.json` is the explicit status registry for every brief.
+`workingPrototype` is a boolean, with a route for each implemented tool. False
+entries remain visible as design briefs. The gallery combines this field with
+collection and keyword filters; URLs such as
+`/problems-to-prototypes/?collection=AILE&workingPrototype=true` preserve a view.
+The older `availability=runnable` query remains recognized.
+
+Before setting a tool's status to true, complete its interaction, apply the
+seven-point critique from `AiCritiqueLaunch.astro`, make the resulting edits, and
+run core and browser checks. Record concrete findings in `reviews-*.json`, keyed
+by brief ID, with assumption, failureMode, falsificationTest, nonAiAlternative,
+measurement, risks, edits, and tests. The shared shell displays this review.
+“Working” describes the tested local interaction; it is not evidence that an
+entire design brief is implemented or that a learning benefit is validated.
+
+The browser suite (`npm run test:prototypes:browser`) serves the built `dist/`
+locally and uses an externally available Playwright installation. Set
+`PLAYWRIGHT_MODULE` to its absolute entry-module path if it is not resolvable as
+`playwright`, and optionally `CHROME_BINARY` to an installed Chromium/Chrome.
+No browser automation package is added to the site's production dependencies.
+Optional `PROTOTYPE_SCREENSHOTS` points to an existing screenshot directory.
+
+The AILE additions include a district-use sandbox, voluntary family literacy
+activities, source-grounded offline packet exports, a teacher-overridable mastery
+pathway, teacher decision practice, a 2D workflow/fault simulation, fictional
+clinical-record source checking, source-linked academic navigation practice,
+bilingual draft comparison, a learner-controlled curiosity journal, and classroom
+language rehearsal. Their pages name the implemented scope: none runs a language
+model, supplies live institutional policy, certifies translation or clinical
+competence, or implements XR.
+
+The LENS additions map judgment evidence across program stages, separate frontline
+training hypotheses from system constraints, and compare source-linked training
+rules with local variants and conflict holds. Human review remains explicit.
+The shared browser suite exercises each completed interaction, negative paths,
+stale-result handling, reset, and exported records; the core suites check the
+rules and evidence boundaries. Existing MicroGPT source and assets are unchanged.
 
 Next useful increments are an explicit performance standard for each workforce
 task, revision export for the debate coach, and new delegation cases that test

@@ -151,5 +151,13 @@ const cycle=[
     comparison.innerHTML='<p><strong>Revision cues:</strong> '+(explicit?'A connecting phrase is present. ':'No connecting phrase was detected. ')+(acknowledges?'A competing-consideration cue is also present. ':'Try acknowledging the strongest competing consideration directly. ')+'These word cues do not establish the quality of your reasoning.</p><p><strong>Length:</strong> submitted claim + reasoning '+before+' words; revision '+after+' words. More words are not automatically better.</p><p><strong>Confidence before feedback:</strong> '+submitted.confidence+'%. Does your revised argument justify that confidence?</p>';
   });
   revision.addEventListener('input',function(){comparison.hidden=true});
+  [claim,evidence,reasoning,root.querySelector('#confidence')].forEach(function(field){
+    field.addEventListener('input',function(){
+      submitted=null;
+      feedback.hidden=true;
+      comparison.hidden=true;
+      revision.value='';
+    });
+  });
 })();
 </script>

@@ -1,0 +1,43 @@
+---
+import PrototypeShell from '../../components/prototypes/PrototypeShell.astro';
+import '../../styles/prototype-tools.css';
+import briefs from '../../data/problems-to-prototypes/lens-1.json';
+import meta from '../../data/problems-to-prototypes/meta.json';
+const idea = briefs.find(entry => entry.id === 'example-aile-3099');
+const common = meta.aileCommonSteps;
+const cycle = [['Understand', idea.cycle.understand], ['Model', idea.cycle.model], ['Design', common['3']], ['Build', common['4']], ['Instrument', idea.cycle.instrument], ['Deploy', common['6']], ['Evaluate', common['7']], ['Refine', common['8']]];
+---
+<PrototypeShell idea={idea} collection="LENS" cycle={cycle}
+  assumption="A structured observation review can prevent unnecessary training by making system constraints and missing evidence explicit."
+  falsifier="Reviewers still attribute equipment or staffing failures to workers, or recommend training from completion and throughput proxies."
+  instrumentation="Measure false training recommendations, worker agreement, comparable task error rates, rework, burden, and delayed transfer.">
+  <div slot="app" class="prototype-tool" id="lens-frontline">
+    <p>This local decision checklist separates observations, hypotheses, and operating conditions. It cannot diagnose causes or workers. Use an anonymized task example; do not enter personnel, patient, or incident identifiers.</p>
+    <form class="prototype-tool" novalidate>
+      <fieldset class="prototype-tool" data-client-gate disabled><legend>Local review inputs</legend>
+      <label>Task to investigate<input name="task" maxlength="500" value="Select the correct setup before starting a production run" /></label>
+      <label>Expected observable performance<textarea name="standard" maxlength="1500">Check the job specification, select the matching setup, and verify settings before starting.</textarea></label>
+      <fieldset><legend>Evidence and worker perspective</legend>
+        <label>Observation source<select name="source"><option value="unknown">Unknown / not observed</option><option value="proxy">Completion, throughput, error totals, or impression only</option><option value="direct">Direct observation of the task and its conditions</option></select></label>
+        <label>What happened, under which conditions?<textarea name="observation" maxlength="2000" placeholder="Describe observable steps and context, not a worker trait." /></label>
+        <label>Task performance with appropriate supports<select name="supported"><option value="unknown">Unknown / not observed</option><option value="can">Performed to standard</option><option value="cannot">Difficulty persisted</option></select></label>
+        <label>Supported-condition observation / reference<textarea name="supportNote" maxlength="2000" placeholder="Describe clear instructions, working equipment, adequate time, accommodations, and the observed result." /></label>
+        <label>Worker explanation, disagreement, or missing perspective<textarea name="voice" maxlength="2000" placeholder="Ask what made the task harder; allow the worker to challenge the interpretation." /></label>
+      </fieldset>
+      {['Instructions / workflow', 'Equipment / interface', 'Staffing / time', 'Incentives / competing goals'].map((label, index) => <fieldset>
+        <legend>{label}</legend>
+        <label>Condition observed<select name={`state-${index}`}><option value="unknown">Unknown / not checked</option><option value="present">Constraint reported</option><option value="absent">Checked; constraint not observed in this sample</option></select></label>
+        <label>Observation supporting this choice<textarea name={`note-${index}`} maxlength="1500" placeholder="Without a description, this condition stays unknown." /></label>
+      </fieldset>)}
+      <div class="actions"><button type="submit">Review explanations</button><button type="reset" class="secondary">Reset example</button><button type="button" class="secondary" data-export disabled>Export review JSON</button></div>
+      </fieldset>
+    </form>
+    <noscript>Enable JavaScript to use this local tool. Inputs are disabled until the local review handler is ready, so the form cannot send your entries to the server.</noscript>
+    <p class="note" role="status" aria-live="polite" data-status></p>
+    <div class="prototype-tool" data-output hidden></div>
+  </div>
+</PrototypeShell>
+<script>
+  import { mountFrontline } from '../../lib/lens-tools-ui.mjs';
+  mountFrontline(document.querySelector('#lens-frontline'));
+</script>

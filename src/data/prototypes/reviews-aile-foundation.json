@@ -1,0 +1,42 @@
+{
+  "example-aile-4481": {
+    "assumption": "Teacher-entered evidence and visible routing help adapt fraction practice without lowering the common learning target.",
+    "failureMode": "Unobserved work is read as low performance, inconsistent judgments cause unnecessary remediation, or a pathway traps a learner in prerequisite practice.",
+    "falsificationTest": "Give teachers mixed and missing evidence, including correct transfer with an incomplete diagnostic, and compare decisions with a paper evidence matrix. Reject if the tool causes unnecessary repetition or narrows access to transfer. Next smallest prototype: observe one teacher reviewing three contrasting work samples.",
+    "nonAiAlternative": "A fraction evidence matrix, manipulatives, and a short teacher conference.",
+    "measurement": "Independent conceptual explanation, fresh-context performance, delayed retention, time in prerequisite practice, opportunities for transfer, and reasons for overrides. No telemetry or learner profiles are implemented.",
+    "risks": "Judgments are supplied by teachers and not automatically assessed. Missing evidence, language, disability, and speed must not become ability labels. Fixed examples can leak answers if reused as assessment. No identifying data is needed, and teachers can override with a reason.",
+    "edits": ["Defaulted all evidence to unobserved and required descriptions for observed judgments.", "Preserved rule reasoning and evidence alongside a teacher override; required an override reason.", "Critical review found that uneven evidence could over-route to prerequisite support: added an explicit reconciliation warning and a new-context opportunity each practice cycle.", "Kept the standard stable, required later evidence before durable-mastery conclusions, and separated example solutions into a teacher guide."],
+    "tests": ["Node tests cover all 27 evidence combinations, missing versus developing evidence, observed-work validation, override reasons and evidence preservation, and uneven-evidence reconciliation.", "Parent handles Astro build and browser integration."]
+  },
+  "example-aile-3268": {
+    "assumption": "Literal source-grounded exercises save teacher preparation time while supporting explanation and transfer under limited connectivity.",
+    "failureMode": "Cloze recall is mistaken for understanding, an unmatched term produces invented content, or users expect the website to load offline.",
+    "falsificationTest": "Time a teacher preparing and repairing this packet versus a manual worksheet, then test learners on a new example. Open the saved text with networking disabled. Reject if repair costs exceed savings or only term recall improves. Next smallest prototype: one teacher-reviewed science packet used on paper.",
+    "nonAiAlternative": "Copy approved source notes into a printed worksheet with teacher-authored retrieval and explanation questions.",
+    "measurement": "Preparation plus repair time, exact source fidelity, explanation quality, novel-example transfer, and saved-file opening success; no automatic learning scores or telemetry.",
+    "risks": "Source facts, reading level, rights, and contextual suitability require teacher judgment. The source remains in the learner packet for supported practice, so this is not a secure assessment. No caching or synchronization is implemented. Oral and paper responses are supported.",
+    "edits": ["Separated teacher keys from learner downloads and cited the exact source line for every answer.", "Rejected unmatched/partial-word targets, duplicates, and oversized source line sets rather than fabricating or silently truncating.", "Critical review identified term-only lines as unusable exercises; added a context guard and regression assertion.", "Kept explanation and transfer prompts at both support levels and explicitly limited offline claims to downloaded text files."],
+    "tests": ["Core tests cover exact provenance, separate exports, independent support, missing/partial/duplicate targets, line limits, punctuation, accented words, and term-only context rejection.", "Parent handles browser download/open checks and build."]
+  },
+  "example-aile-8061": {
+    "assumption": "A brief strategy-specific conversation transfers literacy practice between classroom and home without burdening families.",
+    "failureMode": "Teachers interpret absent home reports as poor performance, or families inadvertently export private observations with the activity.",
+    "falsificationTest": "Compare a paper prompt and this activity over a week using voluntary burden feedback and an independent new-text task. Reject if reporting grows without better strategy use or trust. Next smallest prototype: test one oral invitation with families in their preferred language.",
+    "nonAiAlternative": "A teacher-written take-home conversation card and optional personal conversation.",
+    "measurement": "Observe explanations on a new classroom text; invite optional usefulness and time feedback. Do not grade participation or count messages as learning. No telemetry is implemented.",
+    "risks": "Templates do not assess responses or translate text. Human-supplied preferred-language text needs human review. No identity fields; oral, drawing, pointing, and any-language responses are allowed. Downloads remain a possible disclosure route.",
+    "edits": ["Separated activity and opt-in family note exports; story and preferred-language explanation are omitted from the sharing note.", "Defaulted observations to unobserved and explicitly distinguished that from difficulty.", "Added oral access, a three-minute stopping point, and permission to adapt or decline.", "Changed the generic teacher-guide label to an optional sharing-note label so families retain control."],
+    "tests": ["node --test tests/test_aile_foundation.mjs: 4 passing tests including opt-in exclusion, omitted context, unobserved interpretation, strategy/time/format adaptation, preferred-language preservation, and empty-context rejection.", "Parent handles build and browser integration."]
+  },
+  "example-aile-9575": {
+    "assumption": "Visible classification reasons help teachers reason about unfamiliar uses; this has not been tested with users.",
+    "failureMode": "A low-risk-looking route is mistaken for permission; missing data handling is treated as safe.",
+    "falsificationTest": "Give teachers unseen scenarios after using the sandbox. Reject the design if they cite its route as authorization or miss unknown data handling. Next smallest prototype: observe five teachers explaining one changed scenario.",
+    "nonAiAlternative": "A district-authored decision checklist discussed with a data steward.",
+    "measurement": "Measure explanation quality and unaided task integrity, plus reviewer time and access barriers, rather than form completion. No telemetry is implemented.",
+    "risks": "Age bands are rough prompts, not legal thresholds. Local policy and vendor terms are not checked. Enter fictional examples only; downloads may contain entered text. Keyboard labels and text outputs support access.",
+    "edits": ["Used BOUNDED TRIAL DISCUSSION rather than approval language and repeated the approval limitation in exports.", "Unknown data, younger learner interaction, missing advance oversight, and generation independently trigger review.", "Disabled input and submission until local JavaScript attaches, avoiding accidental native form submission when scripts are unavailable.", "Input revisions and reset invalidate exportable results; user text is rendered with textContent."],
+    "tests": ["node --test tests/test_aile_foundation.mjs: 2 passing tests covering independent risk factors, invalid/blank input, and approval limitation.", "Astro build and browser integration delegated to parent as requested."]
+  }
+}

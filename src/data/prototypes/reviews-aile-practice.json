@@ -1,0 +1,32 @@
+{
+  "example-aile-4953": {
+    "assumption": "Choosing and explaining before authored consequences improves instructional judgment on unfamiliar cases.",
+    "failureMode": "Participants learn that rubric-grounded AI is always preferred, or mistake fixed prose for a scored expert assessment.",
+    "falsificationTest": "Randomly compare this lab with paper cases; use a new classroom scenario with different policy and have blinded educators assess justification and safeguards.",
+    "nonAiAlternative": "Facilitated paper-case comparison and peer review of lesson plans.",
+    "measurement": "Independent transfer decisions, implementation safeguards, learner revision quality and confidence calibration; clicks and completion are not learning.",
+    "risks": "No real student data; fictional policy is not local authorization. Free text is unscored and local. Exports can contain personal reflections. Keyboard-native controls and paper alternatives preserve access.",
+    "edits": ["Added a useful teacher-only alternative in both cases and a failure inside the rubric-grounded path.", "Required reasoning before consequences, added revision/export, and invalidate feedback on every initial-input change.", "Next smallest experiment: educator review of the two case consequence sets before a transfer pilot."],
+    "tests": ["PASS: node --test tests/test_aile_practice.mjs rejects whitespace reasoning and invalid decisions and checks three distinct consequences per case.", "PASS: node --check on core and client modules.", "Browser integration delegated to parent."]
+  },
+  "example-aile-2579": {
+    "assumption": "Independent assessment before advice teaches calibrated source checking rather than categorical trust or distrust.",
+    "failureMode": "Learners always challenge AI, mistake an administrative record match for clinical competence, or revise the supposedly independent response after viewing advice.",
+    "falsificationTest": "Use unseen fictional packets with supported, incomplete and conflicting advice; compare with unaided source checking and blind human review of explanations. Reject if participants always challenge advice regardless of evidence.",
+    "nonAiAlternative": "Paper handoff packets with deliberately fallible peer summaries and facilitated source checking.",
+    "measurement": "Structured record comparisons, source citations, confidence changes and independently reviewed transfer reflections. No clinical-competence or free-text score; no patient-outcome inference.",
+    "risks": "Entirely fictional administrative records and scripted advice. Explicitly not clinician validated; no diagnoses or treatment guidance. No patient data requested, no network storage, and exports require deliberate action. Native controls and untimed practice support keyboard access.",
+    "edits": ["Included a supported bounded claim alongside misleading and incomplete suggestions to counter blanket distrust.", "Required three independent reflections plus confidence before advice; disabled committed fields and clear downstream results when revising.", "Marked post-advice reassessments in exports, including revisits to a case within the same run; reset explicitly cannot undo exposure.", "Added structured source checks, unscored rationale, revision/export and explicit clinician-validation limitation.", "Next smallest experiment: clinician and educator review of source-check wording before a supervised unseen-record transfer study."],
+    "tests": ["PASS: node --test tests/test_aile_practice.mjs rejects missing independent inputs, invalid confidence and empty source rationale.", "PASS: positive and negative structured comparisons across all three advice types without scoring free text; core and client syntax checks.", "Browser integration delegated to parent."]
+  },
+  "example-aile-8387": {
+    "assumption": "Prediction and visible state changes support sequence understanding and fault recovery better than reading a procedure.",
+    "failureMode": "Trial-and-error completion or hint following is mistaken for transfer; a previously passed test becomes stale after a change.",
+    "falsificationTest": "Compare with paper fault cards, then remove hints and change a supervised mock station’s fault. Reject the design if independent recovery does not improve.",
+    "nonAiAlternative": "Paper sequence cards, diagnostic trace and trainer-led tabletop troubleshooting.",
+    "measurement": "Blocked attempts, predictions, hints and evidence-led recovery are local observations; assess transfer independently and compare cost with paper practice.",
+    "risks": "Clearly labeled 2D precursor without XR or AI; fictional power constraints are not equipment instructions. No timing or motion requirement; native keyboard controls and textual state labels. No remote collection.",
+    "edits": ["Added an actual state machine, injected signal fault, diagnostic inspection, evidence-gated repair and release gate.", "Invalidated passed verification whenever configuration, wiring or power isolation changes state.", "Added predictions, observable action history, hints, reset and export; no procedure-competence score.", "Next smallest experiment: a second fault variant with trainer-reviewed transitions before evaluating real workflow transfer."],
+    "tests": ["PASS: node --test tests/test_aile_practice.mjs covers unsafe-order blocks, initial-state immutability, fault recovery, fresh verification and release lock.", "PASS: node --check on core and client modules.", "Browser integration delegated to parent."]
+  }
+}

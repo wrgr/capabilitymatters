@@ -1,0 +1,19 @@
+---
+import PrototypeShell from '../../components/prototypes/PrototypeShell.astro';
+import '../../styles/prototype-tools.css';
+import briefs from '../../data/problems-to-prototypes/aile-2.json';
+import meta from '../../data/problems-to-prototypes/meta.json';
+const idea = briefs.find(item => item.id === 'example-aile-2579');
+const common = meta.aileCommonSteps;
+const cycle = [['Understand', idea.cycle.understand], ['Model', idea.cycle.model], ['Design', common['3']], ['Build', common['4']], ['Instrument', idea.cycle.instrument], ['Deploy', common['6']], ['Evaluate', common['7']], ['Refine', common['8']]];
+---
+<PrototypeShell idea={idea} collection="AILE" cycle={cycle} status="Fictional source-check exercise · not clinician validated"
+  assumption="An independent record assessment before fallible advice promotes evidence-based acceptance and challenge."
+  falsifier="Learners always reject the advice or match case labels without independently checking new source records."
+  instrumentation="Observe source checks, uncertainty explanations and revisions on unseen records. Human review is required; this exercise cannot measure clinical competence or patient outcomes.">
+  <div slot="app" class="prototype-tool" id="aile-clinical"><noscript>Enable JavaScript for the local fictional record exercise.</noscript></div>
+</PrototypeShell>
+<script>
+  import { mountClinical } from '../../components/prototypes/aile-practice-client.mjs';
+  mountClinical(document.getElementById('aile-clinical'));
+</script>

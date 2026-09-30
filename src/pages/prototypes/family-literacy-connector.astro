@@ -1,0 +1,23 @@
+---
+import PrototypeShell from "../../components/prototypes/PrototypeShell.astro";
+import FoundationForm from "../../components/prototypes/aile-foundation-form.astro";
+import briefs from "../../data/problems-to-prototypes/aile-1.json";
+import meta from "../../data/problems-to-prototypes/meta.json";
+const idea = briefs.find((brief) => brief.id === "example-aile-8061")!;
+const common = meta.aileCommonSteps;
+const cycle = [["Understand", idea.cycle.understand], ["Model", idea.cycle.model], ["Design", common["3"]], ["Build", common["4"]], ["Instrument", idea.cycle.instrument], ["Deploy", common["6"]], ["Evaluate", common["7"]], ["Refine", common["8"]]];
+const fields = [
+  { name: "target", label: "Teacher-configured weekly target", placeholder: "Explain an inference using a clue from a story" },
+  { name: "strategy", label: "Literacy strategy", options: [["inference", "Inference from clues"], ["sequence", "Sequence and retelling"], ["vocabulary", "Vocabulary in context"]] },
+  { name: "context", label: "Short passage, familiar story, or everyday context (omit private details)", rows: 4, placeholder: "A character carries a closed umbrella into a room and shakes water off their coat." },
+  { name: "minutes", label: "Available time", options: [["3", "3 minutes"], ["5", "5 minutes"], ["10", "10 minutes"]] },
+  { name: "mode", label: "Accessible format", options: [["oral", "Conversation / oral story"], ["text", "Shared short text"]] },
+  { name: "explanation", label: "Optional explanation written by a teacher or family in a preferred language (no machine translation)", optional: true },
+  { name: "observation", label: "Optional family observation", options: [["unobserved", "Not observed / prefer not to report"], ["independent", "Tried the strategy independently"], ["supported", "Tried with support"], ["question", "We have a question"]] },
+  { name: "note", label: "Optional question or observation (no names or identifying details)", optional: true },
+  { name: "share", label: "Prepare a separate note for you to review and share?", options: [["no", "No — activity only"], ["yes", "Yes — prepare a local note; send nothing"]] }
+];
+---
+<PrototypeShell idea={idea} collection="AILE" cycle={cycle} assumption="Short, optional activities help families support a strategy in familiar contexts." falsifier="Family burden rises while strategy use on an independent classroom task does not improve." instrumentation="Invite voluntary feedback on usefulness and burden; compare strategy use on new classroom texts. Missing family reports are not scored. No telemetry is collected.">
+  <FoundationForm slot="app" tool="family-literacy-connector" fields={fields} action="Prepare home activity" description="Fixed, strategy-specific conversation prompts adapt to your time and format. No AI assessment, translation, account, family identifier, or automatic teacher reporting. Family observations are excluded from the activity download; a separate optional note stays under your control." />
+</PrototypeShell>

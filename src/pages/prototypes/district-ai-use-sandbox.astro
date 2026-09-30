@@ -1,0 +1,20 @@
+---
+import PrototypeShell from "../../components/prototypes/PrototypeShell.astro";
+import FoundationForm from "../../components/prototypes/aile-foundation-form.astro";
+import briefs from "../../data/problems-to-prototypes/aile-1.json";
+import meta from "../../data/problems-to-prototypes/meta.json";
+const idea = briefs.find((brief) => brief.id === "example-aile-9575")!;
+const common = meta.aileCommonSteps;
+const cycle = [["Understand", idea.cycle.understand], ["Model", idea.cycle.model], ["Design", common["3"]], ["Build", common["4"]], ["Instrument", idea.cycle.instrument], ["Deploy", common["6"]], ["Evaluate", common["7"]], ["Refine", common["8"]]];
+const fields = [
+  { name: "purpose", label: "Instructional purpose (use a fictional scenario)", placeholder: "Feedback on claims and evidence in a writing draft" },
+  { name: "evidence", label: "What evidence must remain the learner’s own?", placeholder: "Initial claim, selected evidence, explanation of revisions" },
+  { name: "age", label: "Learner age band", options: [["younger", "Under 13"], ["older", "13 and older"]] },
+  { name: "use", label: "Proposed use", options: [["feedback", "Formative feedback"], ["planning", "Teacher planning only"], ["generation", "Full-text generation"]] },
+  { name: "data", label: "Information that would enter the proposed tool", options: [["unknown", "Unknown"], ["synthetic", "Synthetic or public, non-personal material"], ["identifiable", "Identifiable student work"], ["sensitive", "Sensitive records"]] },
+  { name: "oversight", label: "Human oversight", options: [["before", "Teacher checks before learner receives output"], ["after", "Review after delivery"], ["none", "No designated reviewer"]] }
+];
+---
+<PrototypeShell idea={idea} collection="AILE" cycle={cycle} assumption="Making risk rules visible improves decisions on unfamiliar classroom uses." falsifier="Teachers interpret the sandbox route as approval, or cannot transfer the reasoning to a new scenario." instrumentation="Compare scenario explanations, independent learning evidence, review burden, and access across a small teacher-led trial. No telemetry is collected here.">
+  <FoundationForm slot="app" tool="district-ai-use-sandbox" fields={fields} action="Draft review route and protocol" description="A local decision rehearsal using explicit rules, not a policy checker. No route grants institutional or legal approval. Use fictional examples; do not enter student records." />
+</PrototypeShell>

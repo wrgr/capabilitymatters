@@ -1,0 +1,30 @@
+---
+import PrototypeShell from '../../components/prototypes/PrototypeShell.astro';
+import Tool from '../../components/prototypes/aile-access-tool.astro';
+import briefs from '../../data/problems-to-prototypes/aile-3.json';
+import meta from '../../data/problems-to-prototypes/meta.json';
+import '../../styles/prototype-tools.css';
+const idea = briefs.find(brief => brief.id === 'example-aile-6014');
+const cycle = meta.designCycle.map((name, index) => [name, idea.cycle[name.toLowerCase()] ?? meta.aileCommonSteps[String(index + 1)]]);
+---
+<PrototypeShell idea={idea} collection="AILE" cycle={cycle}
+  assumption="Comparing drafts with a meaning checklist helps educators notice barriers before families receive them."
+  falsifier="Numbers appear consistent but families still misunderstand the action, or reviewers overlook changed meaning."
+  instrumentation="Compare family teach-back and follow-through with a bilingual reviewer alone; track revision reasons voluntarily, not clicks.">
+  <div slot="app"><Tool kind="communication">
+    <section class="panel"><h2>Compare family communication drafts</h2><p>Supply both drafts yourself, or load the authored English/Spanish practice example. This tool does not translate, evaluate fluency, synthesize audio, or verify meaning. It compares numeric tokens and creates a human review worksheet.</p></section>
+    <button type="button" class="secondary" data-template>Load authored practice template (replaces both drafts and action)</button>
+    <label>Original message<textarea name="original" rows="5" maxlength="8000" dir="auto"></textarea></label>
+    <label>Adapted or translated draft<textarea name="adapted" rows="5" maxlength="8000" dir="auto"></textarea></label>
+    <label>What should the family understand and choose to do?<textarea name="action" rows="2" maxlength="2000" dir="auto"></textarea></label>
+    <label>School terms or cultural references to explain (optional, one per line)<textarea name="terms" rows="2" maxlength="2000"></textarea></label>
+    <label>Access arrangement<select name="access"><option value="print">Paper or in-person alternative available</option><option value="internet">Internet access assumed</option><option value="oral">Human oral explanation planned</option></select></label>
+    <fieldset><legend>Human review — optional now, required before publication</legend>
+      <label>Reviewer role (no name needed)<input name="reviewer" maxlength="200" placeholder="Bilingual family liaison" /></label>
+      <label>Meaning check: who, action, time/place, choice, cost, and alternative response<textarea name="meaning" rows="3" maxlength="3000" dir="auto"></textarea></label>
+      <label>Optional family feedback or teach-back<textarea name="feedback" rows="2" maxlength="2000" dir="auto"></textarea></label>
+      <label><input type="checkbox" name="reviewed" value="yes" /> A human reviewer compared the current drafts and recorded their meaning check.</label>
+      <p class="note">Editing any field clears this confirmation. Matching numbers do not prove matching meaning; dates, negations, and written-out quantities need human review.</p>
+    </fieldset>
+  </Tool></div>
+</PrototypeShell>

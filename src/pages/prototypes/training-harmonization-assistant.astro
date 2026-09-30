@@ -1,0 +1,55 @@
+---
+import PrototypeShell from '../../components/prototypes/PrototypeShell.astro';
+import '../../styles/prototype-tools.css';
+import briefs from '../../data/problems-to-prototypes/lens-1.json';
+import meta from '../../data/problems-to-prototypes/meta.json';
+const idea = briefs.find(entry => entry.id === 'example-aile-5776');
+const common = meta.aileCommonSteps;
+const cycle = [['Understand', idea.cycle.understand], ['Model', idea.cycle.model], ['Design', common['3']], ['Build', common['4']], ['Instrument', idea.cycle.instrument], ['Deploy', common['6']], ['Evaluate', common['7']], ['Refine', common['8']]];
+const examples = [
+  { decision: 'Verify request', action: 'Check the request identifier against the intake form.', source: 'Fictional core intake guide §1', scope: 'system', unit: '', role: '', owner: 'Core process owner' },
+  { decision: 'Escalate mismatch', action: 'Pause intake and contact the North shift coordinator.', source: 'Fictional North intake guide §2', scope: 'unit', unit: 'North', role: '', owner: 'North process owner' },
+  { decision: 'Escalate mismatch', action: 'Pause intake and contact the South duty lead.', source: 'Fictional South intake guide §2', scope: 'unit-role', unit: 'South', role: 'Intake coordinator', owner: 'South process owner' }
+];
+---
+<PrototypeShell idea={idea} collection="LENS" cycle={cycle}
+  assumption="Explicit scope and source links let educators share a common core while preserving meaningful local decisions."
+  falsifier="Consolidation reduces maintenance but increases local scenario errors, or users interpret shared wording as verified policy equivalence."
+  instrumentation="Measure update time, owner agreement, scenario accuracy, local exceptions, and incorrect consolidation decisions.">
+  <div slot="app" class="prototype-tool" id="lens-harmonization">
+    <p>Compare manually entered rules and preview a source-linked practice branch. This local checklist does not read documents, infer meaning, verify policy, or generate AI scenarios. The starting rules are fictional examples, not clinical or operational guidance.</p>
+    <p class="note">Use document titles, sections, and versions without sensitive content. Optional source links open only when you choose; links may contact external sites. JSON exports contain your entries.</p>
+    <form class="prototype-tool" novalidate>
+      <fieldset class="prototype-tool" data-client-gate disabled><legend>Local review inputs</legend>
+      <label>Common task<input name="task" maxlength="500" value="Process an intake request and handle a mismatch" /></label>
+      <label>Target unit<input name="targetUnit" maxlength="120" value="North" /></label>
+      <label>Target role<input name="targetRole" maxlength="120" value="Intake coordinator" /></label>
+      <p class="note">Use the same decision key for rules governing the same decision. Unit and role names match exactly except for case and spacing. Unit fields apply only to unit scopes; role fields apply only to role scopes.</p>
+      <div class="prototype-tool" data-rules>
+        {examples.map((rule, index) => <fieldset>
+          <legend>Source rule R{index + 1}</legend>
+          <label>Decision key<input name="decision" maxlength="200" value={rule.decision} /></label>
+          <label>Rule text, including triggering conditions<textarea name="action" maxlength="2000">{rule.action}</textarea></label>
+          <label>Declared scope<select name="scope"><option value="system" selected={rule.scope === 'system'}>System-wide common candidate</option><option value="role">Role-specific</option><option value="unit" selected={rule.scope === 'unit'}>Unit-specific</option><option value="unit-role" selected={rule.scope === 'unit-role'}>Unit and role-specific</option></select></label>
+          <label>Unit (if scope includes unit)<input name="unit" maxlength="120" value={rule.unit} /></label>
+          <label>Role (if scope includes role)<input name="role" maxlength="120" value={rule.role} /></label>
+          <label>Source document and section<input name="source" maxlength="500" value={rule.source} /></label>
+          <label>Optional source URL<input name="url" type="url" maxlength="1500" placeholder="https://… (no document is fetched)" /></label>
+          <label>Source version / effective date<input name="version" maxlength="200" value="Demo version 1 — fictional" /></label>
+          <label>Accountable source owner<input name="owner" maxlength="200" value={rule.owner} /></label>
+          <label>Human review of this rule's scope and source<select name="review"><option value="pending">Pending / unknown</option><option value="reviewed">Owner reviewed (reported by you)</option></select></label>
+          <button type="button" class="secondary" data-remove-rule aria-label={`Remove source rule R${index + 1}`}>Remove rule</button>
+        </fieldset>)}
+      </div>
+      <div class="actions"><button type="button" class="secondary" data-add-rule>Add source rule</button><button type="submit">Compare and preview branch</button><button type="reset" class="secondary">Reset fictional example</button><button type="button" class="secondary" data-export disabled>Export review JSON</button></div>
+      </fieldset>
+    </form>
+    <noscript>Enable JavaScript to use this local tool. Inputs are disabled until the local review handler is ready, so the form cannot send your entries to the server.</noscript>
+    <p class="note" data-status role="status" aria-live="polite"></p>
+    <div class="prototype-tool" data-output hidden></div>
+  </div>
+</PrototypeShell>
+<script>
+  import { mountHarmonization } from '../../lib/lens-tools-ui.mjs';
+  mountHarmonization(document.querySelector('#lens-harmonization'));
+</script>

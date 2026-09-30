@@ -1,0 +1,31 @@
+---
+const { kind, submitLabel = 'Prepare practice guidance' } = Astro.props;
+---
+<form class="prototype-tool" data-aile-access={kind} novalidate>
+  <noscript><p>This local practice tool needs JavaScript. Inputs are disabled to prevent form data being sent through a page request.</p></noscript>
+  <fieldset data-local-controls disabled>
+  <legend>Local practice controls</legend>
+  <slot />
+  <p class="note">Use invented or non-identifying details. Nothing is saved automatically. Downloads contain your text; you decide whether to share them.</p>
+  <div class="actions">
+    <button type="submit">{submitLabel}</button>
+    <button type="reset" class="secondary">Reset all</button>
+    <button type="button" class="secondary" data-export disabled>Download current record</button>
+  </div>
+  <p data-status role="status" aria-live="polite"></p>
+  <section class="panel feedback" data-result hidden aria-label="Practice guidance">
+    <h2>Current practice record</h2>
+    <pre data-output></pre>
+  </section>
+  </fieldset>
+</form>
+<style>
+  [data-local-controls]{border:0;padding:0;margin:0;display:grid;gap:1rem}
+  [data-local-controls]>legend{margin-bottom:.75rem}
+  pre{overflow-wrap:anywhere;word-break:break-word}
+  :global([data-aile-access] input[type="checkbox"]){width:auto;justify-self:start}
+</style>
+<script>
+  import { setupAccessTools } from '../../lib/aile-access-client.js';
+  setupAccessTools();
+</script>

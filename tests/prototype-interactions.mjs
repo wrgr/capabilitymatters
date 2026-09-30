@@ -1,0 +1,276 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+
+async function downloadText(page, control) {
+  const pending = page.waitForEvent('download');
+  await control.click();
+  const download = await pending;
+  return readFile(await download.path(), 'utf8');
+}
+
+export async function checkPracticeTools(page, origin) {
+  await page.goto(`${origin}/prototypes/teacher-ai-practice-lab/`);
+  let root = page.locator('#aile-teacher');
+  await root.locator('[data-action=commit-reasoning-and-reveal]').click();
+  assert.equal(await root.locator('[data-result=teacher]').isVisible(), false);
+  await root.locator('[data-field=decision]').selectOption('2');
+  await root.locator('[data-field=reasoning]').fill('Check the claim against the rubric and preserve independent revision.');
+  await root.locator('[data-action=commit-reasoning-and-reveal]').click();
+  assert(await root.locator('[data-result=teacher]').isVisible());
+  await root.locator('[data-field=revision]').fill('Check each suggestion and use a new independent argument to test transfer.');
+  const teacher = JSON.parse(await downloadText(page, root.locator('[data-action=export-attempt-and-revision]')));
+  assert.match(teacher.revision, /independent argument/);
+  await root.locator('[data-field=reasoning]').fill('Changed reasoning');
+  assert.equal(await root.locator('[data-result=teacher]').isVisible(), false);
+
+  await page.goto(`${origin}/prototypes/workflow-practice-lab/`);
+  root = page.locator('#aile-workflow');
+  const run = async (value) => {
+    await root.locator('[data-field=action]').selectOption(value);
+    await root.locator('[data-field=prediction]').fill('I expect the station state to reflect this action; I will inspect the outcome.');
+    await root.locator('[data-action=run-action]').click();
+  };
+  await root.locator('[data-action=run-action]').click();
+  assert.match(await root.locator('[role=status]').innerText(), /Choose an action/);
+  await run('2');
+  assert.match(await root.locator('[role=status]').innerText(), /Blocked/);
+  for (const value of ['1', '2', '3', '4', '5', '6', '1', '7', '4', '5', '8']) await run(value);
+  assert(await root.locator('[data-action=run-action]').isDisabled());
+  const workflow = JSON.parse(await downloadText(page, root.locator('[data-action=export-run]')));
+  assert.equal(workflow.released, true);
+  assert.equal(workflow.errors, 1);
+  assert.equal(workflow.log.length, 12);
+  await root.locator('[data-action=reset-station]').click();
+  assert.equal(await root.locator('[data-action=run-action]').isDisabled(), false);
+
+  await page.goto(`${origin}/prototypes/clinical-reasoning-calibration/`);
+  root = page.locator('#aile-clinical');
+  await root.locator('[data-action=commit-assessment-and-reveal-advice]').click();
+  assert.equal(await root.locator('[data-result=advice]').isVisible(), false);
+  for (const field of ['assessment', 'change-evidence', 'missing']) await root.locator(`[data-field=${field}]`).fill('I need the original source record to resolve the conflicting review status.');
+  await root.locator('[data-field=confidence]').selectOption('1');
+  await root.locator('[data-action=commit-assessment-and-reveal-advice]').click();
+  assert(await root.locator('[data-field=assessment]').isDisabled());
+  await root.locator('[data-field=finding]').selectOption('1');
+  await root.locator('[data-field=response]').selectOption('1');
+  await root.locator('[data-field=rationale]').fill('Source A says pending while source B claims completion without a linked review.');
+  await root.locator('[data-action=compare-source-check]').click();
+  assert(await root.locator('[data-result=clinical]').isVisible());
+  await root.locator('[data-field=revision]').fill('Check the original review and its authorization before interpreting the summary.');
+  const clinical = JSON.parse(await downloadText(page, root.locator('[data-action=export-reflection]')));
+  assert.equal(clinical.result.evidenceMatch, true);
+  assert.equal(clinical.result.responseMatch, true);
+  await root.locator('[data-field=rationale]').fill('A revised explanation');
+  assert.equal(await root.locator('[data-result=clinical]').isVisible(), false);
+}
+
+export async function checkLensTools(page, origin) {
+  await page.goto(`${origin}/prototypes/program-judgment-map/`);
+  let root = page.locator('#lens-program');
+  await root.locator('[name=context-2]').selectOption('new');
+  await root.locator('[name=evidence-2]').selectOption('independent');
+  await root.locator('[name=result-2]').selectOption('met');
+  await root.locator('[name=note-2]').fill('An unfamiliar case, independently scored against a faculty rubric.');
+  await root.locator('[type=submit]').click();
+  const planned = JSON.parse(await downloadText(page, root.locator('[data-export]')));
+  assert.deepEqual(planned.demonstratedTransfer, []);
+  await root.locator('[name=observedContext-2]').selectOption('new');
+  await root.locator('[type=submit]').click();
+  const program = JSON.parse(await downloadText(page, root.locator('[data-export]')));
+  assert.deepEqual(program.demonstratedTransfer, ['Capstone']);
+  await root.locator('[name=evidence-2]').selectOption('activity');
+  assert(await root.locator('[data-export]').isDisabled());
+  await root.locator('[type=submit]').click();
+  const activity = JSON.parse(await downloadText(page, root.locator('[data-export]')));
+  assert.deepEqual(activity.demonstratedTransfer, []);
+  await root.locator('[name=capability]').fill(' ');
+  await root.locator('[type=submit]').click();
+  assert.equal(await root.locator('[data-output]').isVisible(), false);
+  await root.locator('[type=reset]').click();
+  assert.equal(await root.locator('[name=capability]').inputValue(), 'Choose among competing interventions under uncertainty');
+
+  await page.goto(`${origin}/prototypes/frontline-performance-diagnostic/`);
+  root = page.locator('#lens-frontline');
+  await root.locator('[name=source]').selectOption('direct');
+  await root.locator('[name=observation]').fill('A task setup differed from the specification.');
+  await root.locator('[name=supported]').selectOption('cannot');
+  await root.locator('[name=supportNote]').fill('Difficulty persisted with clear instructions and adequate time.');
+  await root.locator('[name=state-1]').selectOption('present');
+  await root.locator('[name=note-1]').fill('The selector has ambiguous labels.');
+  await root.locator('[type=submit]').click();
+  const frontline = JSON.parse(await downloadText(page, root.locator('[data-export]')));
+  assert.equal(frontline.constraints.length, 1);
+  assert.equal(frontline.trainingHypotheses.length, 1);
+  await root.locator('[name=source]').selectOption('proxy');
+  await root.locator('[type=submit]').click();
+  const proxy = JSON.parse(await downloadText(page, root.locator('[data-export]')));
+  assert.equal(proxy.trainingHypotheses.length, 0);
+  await root.locator('[name=task]').fill('');
+  await root.locator('[type=submit]').click();
+  assert.equal(await root.locator('[data-output]').isVisible(), false);
+
+  await page.goto(`${origin}/prototypes/training-harmonization-assistant/`);
+  root = page.locator('#lens-harmonization');
+  let rows = root.locator('[data-rules] > fieldset');
+  for (const select of await rows.locator('[name=review]').all()) await select.selectOption('reviewed');
+  await root.locator('[type=submit]').click();
+  const harmonized = JSON.parse(await downloadText(page, root.locator('[data-export]')));
+  assert.deepEqual(harmonized.branch.map((rule) => rule.id), ['R1', 'R2']);
+  assert.equal(harmonized.branchHeld, false);
+  await rows.nth(2).locator('[name=unit]').fill('North');
+  assert.equal(await rows.nth(2).locator('[name=review]').inputValue(), 'pending');
+  assert.equal(await rows.nth(1).locator('[name=review]').inputValue(), 'reviewed');
+  await root.locator('[type=submit]').click();
+  const conflict = JSON.parse(await downloadText(page, root.locator('[data-export]')));
+  assert(conflict.conflicts.length > 0);
+  assert.equal(conflict.branchHeld, true);
+  await rows.nth(2).locator('[name=action]').fill(await rows.nth(1).locator('[name=action]').inputValue());
+  await root.locator('[type=submit]').click();
+  assert.match(await root.locator('[data-output]').innerText(), /does not confirm equivalent policy/);
+  await root.locator('[data-add-rule]').click();
+  assert.equal(await rows.count(), 4);
+  await root.locator('[type=submit]').click();
+  assert.equal(await root.locator('[data-output]').isVisible(), false);
+  await rows.nth(3).locator('[data-remove-rule]').click();
+  assert.equal(await rows.count(), 3);
+  await root.locator('[type=reset]').click();
+  assert.equal(await rows.nth(2).locator('[name=unit]').inputValue(), 'South');
+}
+
+export async function checkFoundationTools(page, origin) {
+  await page.goto(`${origin}/prototypes/district-ai-use-sandbox/`);
+  let root = page.locator('[data-aile-foundation]');
+  await root.locator('[name=purpose]').fill('Practice independent argument revision');
+  await root.locator('[name=evidence]').fill('Independent claim, evidence and explanation');
+  for (const [name, value] of [['age','older'],['use','feedback'],['data','synthetic'],['oversight','before']]) await root.locator(`[name=${name}]`).selectOption(value);
+  await root.locator('[type=submit]').click();
+  assert.match(await root.locator('[data-output]').innerText(), /BOUNDED TRIAL DISCUSSION/);
+  assert.match(await downloadText(page, root.locator('[data-export]')), /not institutional or legal approval/);
+  await root.locator('[name=data]').selectOption('unknown');
+  assert.equal(await root.locator('[data-result]').isVisible(), false);
+  await root.locator('[type=submit]').click();
+  assert.match(await root.locator('[data-output]').innerText(), /HUMAN REVIEW NEEDED/);
+  await root.locator('[name=purpose]').fill(' ');
+  await root.locator('[type=submit]').click();
+  assert.equal(await root.locator('[data-result]').isVisible(), false);
+
+  await page.goto(`${origin}/prototypes/family-literacy-connector/`);
+  root = page.locator('[data-aile-foundation]');
+  await root.locator('[name=target]').fill('Infer a meaning from the clues');
+  await root.locator('[name=context]').fill('A character shakes water from a coat while closing an umbrella.');
+  await root.locator('[name=strategy]').selectOption('vocabulary');
+  await root.locator('[name=minutes]').selectOption('10');
+  await root.locator('[name=note]').fill('Private optional family observation');
+  await root.locator('[type=submit]').click();
+  const activity = await downloadText(page, root.locator('[data-export]'));
+  assert.match(activity, /replacement word/);
+  assert.doesNotMatch(activity, /Private optional/);
+  assert.equal(await root.locator('[data-export-teacher]').isVisible(), false);
+  await root.locator('[name=share]').selectOption('yes');
+  await root.locator('[type=submit]').click();
+  const note = await downloadText(page, root.locator('[data-export-teacher]'));
+  assert.match(note, /Private optional family observation/);
+  assert.match(note, /not evidence of difficulty/);
+  await root.locator('[type=reset]').click();
+  assert.equal(await root.locator('[data-result]').isVisible(), false);
+
+  await page.goto(`${origin}/prototypes/offline-practice-packet/`);
+  root = page.locator('[data-aile-foundation]');
+  await root.locator('[name=title]').fill('Teacher-approved example');
+  await root.locator('[name=source]').fill('Evaporation changes liquid water into vapor.');
+  await root.locator('[name=terms]').fill('Evaporation');
+  await root.locator('[type=submit]').click();
+  const packet = await downloadText(page, root.locator('[data-export]'));
+  assert.match(packet, /________ changes liquid/);
+  assert.doesNotMatch(packet, /ANSWER KEY/);
+  assert.match(await downloadText(page, root.locator('[data-export-teacher]')), /ANSWER KEY/);
+  await root.locator('[name=terms]').fill('rain');
+  await root.locator('[type=submit]').click();
+  assert.equal(await root.locator('[data-result]').isVisible(), false);
+
+  await page.goto(`${origin}/prototypes/mastery-pathway-planner/`);
+  root = page.locator('[data-aile-foundation]');
+  await root.locator('[type=submit]').click();
+  assert.match(await root.locator('[data-output]').innerText(), /RULE RECOMMENDATION: diagnostic/);
+  for (const name of ['prerequisite','explanation','transfer']) await root.locator(`[name=${name}]`).selectOption('demonstrated');
+  await root.locator('[type=submit]').click();
+  assert.equal(await root.locator('[data-result]').isVisible(), false);
+  await root.locator('[name=evidence]').fill('The learner explained common units and applied them independently in a new context.');
+  await root.locator('[type=submit]').click();
+  assert.match(await root.locator('[data-output]').innerText(), /RULE RECOMMENDATION: extend/);
+  await root.locator('[name=override]').selectOption('transfer');
+  await root.locator('[type=submit]').click();
+  assert.equal(await root.locator('[data-result]').isVisible(), false);
+  await root.locator('[name=reason]').fill('Check an oral response to preserve accessible evidence.');
+  await root.locator('[type=submit]').click();
+  assert.match(await downloadText(page, root.locator('[data-export]')), /TEACHER DECISION: transfer/);
+}
+
+export async function checkAccessTools(page, origin) {
+  await page.goto(`${origin}/prototypes/academic-navigation-practice/`);
+  let root = page.locator('[data-aile-access]');
+  await root.locator('[type=submit]').click();
+  assert.equal(await root.locator('[data-result]').isVisible(), false);
+  await root.locator('[name=question]').fill('Will I lose aid if I drop a course?');
+  await root.locator('[type=submit]').click();
+  assert.match(await root.locator('[data-output]').innerText(), /Human answer required/);
+  assert.match(await downloadText(page, root.locator('[data-export]')), /Financial aid/);
+  await root.locator('[name=topic]').selectOption('other');
+  await root.locator('[name=question]').fill('Where can I park?');
+  await root.locator('[type=submit]').click();
+  assert.match(await root.locator('[data-output]').innerText(), /No approved fictional card/);
+
+  await page.goto(`${origin}/prototypes/family-communication-studio/`);
+  root = page.locator('[data-aile-access]');
+  await root.locator('[data-template]').click();
+  await root.locator('[type=submit]').click();
+  assert.match(await root.locator('[data-output]').innerText(), /UNREVIEWED DRAFT/);
+  await root.locator('[name=reviewer]').fill('Bilingual family liaison');
+  await root.locator('[name=meaning]').fill('Checked the action, timing, optional participation, and alternative contact.');
+  await root.locator('[name=reviewed]').check();
+  await root.locator('[type=submit]').click();
+  assert.match(await root.locator('[data-output]').innerText(), /self-reported/);
+  await root.locator('[name=adapted]').fill('Meet in room 13 at 7. <b>literal text</b>');
+  assert.equal(await root.locator('[name=reviewed]').isChecked(), false);
+  await root.locator('[type=submit]').click();
+  assert.match(await downloadText(page, root.locator('[data-export]')), /Numeric tokens differ/);
+  assert.equal(await root.locator('[data-output] b').count(), 0);
+
+  await page.goto(`${origin}/prototypes/curiosity-pathway-mentor/`);
+  root = page.locator('[data-aile-access]');
+  await root.locator('[name=goal]').fill('Explore how a game changes with different frame rates');
+  await root.locator('[data-start-cycle]').click();
+  await root.locator('[name=attempt]').fill('I compared movement over the same elapsed time on two frame rates.');
+  await root.locator('[data-save-attempt]').click();
+  await root.locator('[name=reflection]').fill('Movement differed, so I would test elapsed-time scaling.');
+  await root.locator('[name=next]').selectOption('switch');
+  await root.locator('[name=reason]').fill('I want to test visual cues next.');
+  await root.locator('[type=submit]').click();
+  const journal = await downloadText(page, root.locator('[data-export]'));
+  assert.match(journal, /Cycle 1/);
+  assert.match(journal, /Choose another path myself/);
+  assert.equal(await root.locator('[name=path]').inputValue(), 'debug');
+  await root.locator('[data-start-cycle]').click();
+  await root.locator('[name=attempt]').fill('Another attempt');
+  await root.locator('[data-save-attempt]').click();
+  await root.locator('[name=attempt]').fill('Revised attempt');
+  assert.equal(await root.locator('[data-reflect]').isVisible(), false);
+  await root.locator('[type=reset]').click();
+  assert.equal(await root.locator('[name=goal]').inputValue(), '');
+
+  await page.goto(`${origin}/prototypes/language-practice-companion/`);
+  root = page.locator('[data-aile-access]');
+  await root.locator('[data-language-attempt]').click();
+  assert.equal(await root.locator('[data-language-revision]').isVisible(), false);
+  await root.locator('[name=attempt]').fill('Could you show one example of evidence?');
+  await root.locator('[data-language-attempt]').click();
+  assert(await root.locator('[data-language-revision]').isVisible());
+  await root.locator('[name=reply]').fill('So I need a detail about each character’s actions?');
+  await root.locator('[name=reflection]').fill('I asked for an example and checked my understanding.');
+  await root.locator('[name=transfer]').fill('Ask a peer about a new assignment and check whether my question was clear.');
+  await root.locator('[type=submit]').click();
+  assert.match(await downloadText(page, root.locator('[data-export]')), /no proficiency score/);
+  await root.locator('[name=task]').selectOption('group');
+  assert.equal(await root.locator('[data-language-revision]').isVisible(), false);
+  assert(await root.locator('[data-export]').isDisabled());
+}

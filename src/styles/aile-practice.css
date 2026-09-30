@@ -1,0 +1,5 @@
+.aile-practice-nodes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem}
+.aile-practice-nodes>div{border:2px solid var(--border);border-radius:4px;padding:.8rem;background:var(--bg);overflow-wrap:anywhere}
+.aile-practice-nodes strong{font-family:var(--sans);font-size:.8rem}
+.prototype-tool p,.prototype-tool li{overflow-wrap:anywhere}
+@media(max-width:560px){.aile-practice-nodes{grid-template-columns:1fr 1fr}}

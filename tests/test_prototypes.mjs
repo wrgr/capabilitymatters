@@ -96,6 +96,8 @@ test('auditor detects an objective/activity mismatch with subject-neutral advice
   app.input('objective', 'Explain a chemical reaction');
   app.input('activity', 'Select the correct formula');
   app.input('evidence', 'Correct selections');
+  app.input('reasoning-actor', 'learner');
+  app.input('learner-artifact', 'present');
   app.fire('audit');
   assert.equal(app.get('result').hidden, false);
   assert.match(app.get('gap').innerHTML, /Alignment warning/);
@@ -110,6 +112,8 @@ for (const evidence of ['Completion and time', 'Stored records', 'Correct answer
     app.input('objective', 'Explain a chemical reaction');
     app.input('activity', 'Explain a chemical reaction');
     app.input('evidence', evidence);
+    app.input('reasoning-actor', 'learner');
+    app.input('learner-artifact', 'present');
     app.fire('audit');
     assert.match(app.get('gap').innerHTML, /Evidence warning/);
   });
@@ -120,6 +124,8 @@ test('auditor keeps plausible alignment provisional', () => {
   app.input('objective', 'Discuss competing explanations');
   app.input('activity', 'Discuss and respond to peers');
   app.input('evidence', 'Written explanation scored against a standard');
+  app.input('reasoning-actor', 'learner');
+  app.input('learner-artifact', 'present');
   app.fire('audit');
   assert.equal(app.get('activity-level').textContent, 'Interactive');
   assert.match(app.get('gap').innerHTML, /does not establish alignment/);
@@ -132,8 +138,6 @@ test('debate compares the submitted attempt and resets results on resubmission',
   app.input('reasoning', 'Because shared work creates ties');
   app.input('confidence', '65');
   app.fire('debate-form', 'submit');
-  app.input('claim', 'Edited claim with extra words that were never submitted');
-  app.input('confidence', '95');
   app.input('revision', 'Because shared work creates ties, however access matters');
   app.fire('compare');
   assert.match(app.get('comparison').innerHTML, /submitted claim \+ reasoning 8 words/);
@@ -144,6 +148,21 @@ test('debate compares the submitted attempt and resets results on resubmission',
   assert.equal(app.get('revision').value, '');
   assert.equal(app.get('comparison').hidden, true);
 });
+
+for (const field of ['claim', 'evidence', 'reasoning', 'confidence']) {
+  test(`debate invalidates feedback when initial ${field} changes`, () => {
+    const app = fixture('ai-debate-coach', 'debate-coach');
+    for (const input of ['claim', 'evidence', 'reasoning']) app.input(input, 'Original attempt');
+    app.fire('debate-form', 'submit');
+    app.input('revision', 'Because this is a revision');
+    app.fire('compare');
+    app.input(field, '');
+    assert.equal(app.get('feedback').hidden, true);
+    assert.equal(app.get('comparison').hidden, true);
+    app.fire('compare');
+    assert.equal(app.get('comparison').hidden, true);
+  });
+}
 
 test('delegation records one decision per case and resets a complete round', () => {
   const app = fixture('human-ai-delegation-simulator', 'delegation-simulator');

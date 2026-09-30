@@ -1,0 +1,79 @@
+---
+import "../../styles/prototype-tools.css";
+const { tool, fields, action, description } = Astro.props;
+---
+<div class="prototype-tool" data-aile-foundation={tool}>
+  <p class="note">{description}</p>
+  <form class="prototype-tool">
+    <fieldset disabled>
+      <legend>Configure your draft</legend>
+      {fields.map((field) => <label>{field.label}
+        {field.options ? <select name={field.name}>{field.options.map(([value, label]) => <option value={value}>{label}</option>)}</select>
+          : <textarea name={field.name} rows={field.rows || 2} required={!field.optional} maxlength={field.max || 4000} placeholder={field.placeholder || ""}>{field.value || ""}</textarea>}
+      </label>)}
+    </fieldset>
+    <div class="actions"><button type="submit" disabled>{action}</button><button type="reset" class="secondary">Reset</button></div>
+  </form>
+  <p data-status role="status" aria-live="polite"></p>
+  <section class="panel feedback" data-result hidden aria-label="Draft output">
+    <h2>Reviewable draft</h2>
+    <pre data-output></pre>
+    <details data-teacher-section hidden><summary>{tool === "family-literacy-connector" ? "Optional sharing note — review before sharing" : "Teacher guide (separate from learner export)"}</summary><pre data-teacher></pre></details>
+    <div class="actions"><button type="button" data-export>Download draft (.txt)</button><button type="button" data-export-teacher hidden>{tool === "family-literacy-connector" ? "Download optional note (.txt)" : "Download teacher guide (.txt)"}</button></div>
+    <p class="note">Downloads contain your entered text. Review before sharing. Changing any input clears this result; generate again to revise.</p>
+  </section>
+  <noscript>Enable JavaScript to generate a local draft. No entries are submitted to a server.</noscript>
+</div>
+<style>
+  pre { overflow-wrap: anywhere; }
+</style>
+<script>
+  import { generate } from "../../lib/aile-foundation-core.mjs";
+  document.querySelectorAll<HTMLElement>("[data-aile-foundation]").forEach((root) => {
+    const form = root.querySelector("form")!;
+    form.querySelector("fieldset")!.disabled = false;
+    form.querySelector<HTMLButtonElement>('button[type="submit"]')!.disabled = false;
+    const result = root.querySelector<HTMLElement>("[data-result]")!;
+    const status = root.querySelector<HTMLElement>("[data-status]")!;
+    const output = root.querySelector<HTMLElement>("[data-output]")!;
+    const teacher = root.querySelector<HTMLElement>("[data-teacher]")!;
+    const teacherSection = root.querySelector<HTMLElement>("[data-teacher-section]")!;
+    const teacherExport = root.querySelector<HTMLButtonElement>("[data-export-teacher]")!;
+    let draft = { text: "", teacher: "" };
+    const clear = () => {
+      const hadResult = Boolean(draft.text);
+      draft = { text: "", teacher: "" };
+      output.textContent = "";
+      teacher.textContent = "";
+      result.hidden = true;
+      status.textContent = hadResult ? "Inputs changed. Generate a new draft before exporting." : "";
+    };
+    form.addEventListener("input", clear);
+    form.addEventListener("change", clear);
+    form.addEventListener("reset", () => { clear(); status.textContent = "Reset to starting values. No result retained."; });
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      clear();
+      try {
+        draft = { teacher: "", ...generate(root.dataset.aileFoundation, Object.fromEntries(new FormData(form))) };
+        output.textContent = draft.text;
+        teacher.textContent = draft.teacher;
+        teacherSection.hidden = !draft.teacher;
+        teacherExport.hidden = !draft.teacher;
+        result.hidden = false;
+        status.textContent = "Draft ready. Review the output and revise inputs as needed.";
+      } catch (error) { status.textContent = error instanceof Error ? error.message : "Please check your inputs."; }
+    });
+    const download = (content: string, suffix: string) => {
+      if (!content) return;
+      const url = URL.createObjectURL(new Blob([content], { type: "text/plain;charset=utf-8" }));
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${root.dataset.aileFoundation}${suffix}.txt`;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    };
+    root.querySelector("[data-export]")!.addEventListener("click", () => download(draft.text, ""));
+    teacherExport.addEventListener("click", () => download(draft.teacher, "-teacher"));
+  });
+</script>

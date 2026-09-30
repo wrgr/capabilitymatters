@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { extname, join } from 'node:path';
+import { checkPracticeTools, checkLensTools, checkFoundationTools, checkAccessTools } from './prototype-interactions.mjs';
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 
 const base = new URL('../dist/', import.meta.url).pathname;
@@ -55,21 +56,25 @@ try {
   await page.selectOption('#confidence', '65');
   await page.click('button[type=submit]');
   assert(await page.locator('#feedback').isVisible());
-  await page.fill('#claim', 'Edited claim with many extra words');
   await page.fill('#revision', 'Because shared work creates ties, however access matters');
   await page.click('#compare');
   assert.match(await page.locator('#comparison').innerText(), /8 words/);
   assert.match(await page.locator('#comparison').innerText(), /65%/);
+  await page.fill('#claim', 'Edited claim with many extra words');
+  assert.equal(await page.locator('#feedback').isVisible(), false);
+  assert.equal(await page.locator('#comparison').isVisible(), false);
   await page.click('button[type=submit]');
   assert.equal(await page.inputValue('#revision'), '');
   assert.equal(await page.locator('#comparison').isVisible(), false);
 
   await page.goto(`${origin}/prototypes/edtech-alignment-auditor/`);
   await page.click('#audit');
-  assert.match(await page.locator('#gap').innerText(), /Alignment warning/);
+  assert.match(await page.locator('#gap').innerText(), /Confirmation warning/);
   await page.fill('#activity', 'Infer and justify a motivation');
   assert.equal(await page.locator('#result').isVisible(), false);
   await page.fill('#evidence', 'Stored records');
+  await page.selectOption('#reasoning-actor', 'learner');
+  await page.selectOption('#learner-artifact', 'present');
   await page.click('#audit');
   assert.match(await page.locator('#gap').innerText(), /Evidence warning/);
   await page.fill('#objective', ' ');
@@ -147,6 +152,10 @@ try {
   await page.goto(`${origin}/experiments/`);
   assert.equal(await page.locator('a[href$="capability-pipeline/index.html#simulation"]').count(), 2);
 
+  await checkPracticeTools(page, origin);
+  await checkLensTools(page, origin);
+  await checkFoundationTools(page, origin);
+  await checkAccessTools(page, origin);
   for (const { url } of working) {
     const route = url.split('/')[2];
     await page.setViewportSize({ width: 390, height: 844 });
@@ -154,15 +163,15 @@ try {
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), route);
     await page.locator('.brief > details > summary').click();
     assert(await page.getByRole('heading', { name: 'Evidence anchors' }).isVisible());
+    assert.equal(await page.locator('.brief .cycle > li').count(), 8, route);
     assert.equal(await page.locator('main').count(), 1);
     await page.locator('.critical-review > summary').click();
     assert.match(await page.locator('.critical-review').innerText(), /Changes made during review/);
     assert.equal(await page.locator('.critical-review li').count() > 0, true);
   }
   assert.deepEqual(errors, []);
-  console.log('PASS: redirect, gallery filters and reload, empty state, debate snapshot/reset, auditor validation/evidence, role state, delegation round/reset/export, evidence plan/validation/export, adventure tabs and discovery links, source anchors, single main, mobile overflow, no browser script errors.');
+  console.log('PASS: all 19 working prototypes, interactions and exports, stale-state guards, gallery filters, adventure links, source anchors, critical reviews, mobile overflow, and no browser script errors.');
 } finally {
   await browser?.close();
   server.close();
 }
-

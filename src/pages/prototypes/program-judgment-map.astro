@@ -1,0 +1,41 @@
+---
+import PrototypeShell from '../../components/prototypes/PrototypeShell.astro';
+import '../../styles/prototype-tools.css';
+import briefs from '../../data/problems-to-prototypes/lens-1.json';
+import meta from '../../data/problems-to-prototypes/meta.json';
+const idea = briefs.find(entry => entry.id === 'example-aile-0516');
+const common = meta.aileCommonSteps;
+const cycle = [['Understand', idea.cycle.understand], ['Model', idea.cycle.model], ['Design', common['3']], ['Build', common['4']], ['Instrument', idea.cycle.instrument], ['Deploy', common['6']], ['Evaluate', common['7']], ['Refine', common['8']]];
+---
+<PrototypeShell idea={idea} collection="LENS" cycle={cycle}
+  assumption="Faculty can use a shared standard to expose missing independent transfer opportunities across courses."
+  falsifier="Faculty identify the same gaps without the map, or mapped coverage fails to predict performance on unseen cases."
+  instrumentation="Measure changes to assessments, delayed unseen-case performance, and faculty rubric agreement; keep completion separate.">
+  <div slot="app" class="prototype-tool" id="lens-program">
+    <p>Map one judgment capability across three stages. This local checklist does not generate cases or analyze student work. Use de-identified evidence descriptions, not student records.</p>
+    <form class="prototype-tool" novalidate>
+      <fieldset class="prototype-tool" data-client-gate disabled><legend>Local review inputs</legend>
+      <label>Observable judgment capability<input name="capability" maxlength="500" value="Choose among competing interventions under uncertainty" /></label>
+      <label>Faculty-agreed performance standard<textarea name="standard" maxlength="1500">Compare two plausible options, justify tradeoffs using evidence, and state what would change the decision.</textarea></label>
+      {['Entry course', 'Middle course', 'Capstone'].map((course, index) => <fieldset>
+        <legend>Stage {index + 1}</legend>
+        <label>Course / setting<input name={`course-${index}`} maxlength="200" value={course} /></label>
+        <label>Planned task opportunity<select name={`opportunity-${index}`}><option value="none">No performance task</option><option value="scaffolded" selected={index < 2}>Scaffolded practice</option><option value="independent" selected={index === 2}>Independent task, without scaffolding</option></select></label>
+        <label>Planned task context<select name={`context-${index}`}><option value="familiar">Familiar / rehearsed</option><option value="new">New / unrehearsed</option></select></label>
+        <label>Evidence currently available<select name={`evidence-${index}`}><option value="none">Unknown / none</option><option value="activity">Attendance, clicks, or completion only</option><option value="guided">Observed work with guidance</option><option value="independent">Observed independent work</option></select></label>
+        <label>Observed sample context<select name={`observedContext-${index}`}><option value="unknown">Unknown / not recorded</option><option value="familiar">Familiar / rehearsed sample</option><option value="new">New / unrehearsed sample</option></select></label>
+        <label>Observed performance against the standard<select name={`result-${index}`}><option value="unknown">Not assessed / unknown</option><option value="not-yet">Not yet met</option><option value="met">Met on this sample</option></select></label>
+        <label>Evidence description / reference and complexity<textarea name={`note-${index}`} maxlength="2000" placeholder="Describe the sample, conditions, rubric, assessor agreement, and how complexity changes." /></label>
+      </fieldset>)}
+      <div class="actions"><button type="submit">Review program map</button><button type="reset" class="secondary">Reset example</button><button type="button" class="secondary" data-export disabled>Export review JSON</button></div>
+      </fieldset>
+    </form>
+    <noscript>Enable JavaScript to use this local tool. Inputs are disabled until the local review handler is ready, so the form cannot send your entries to the server.</noscript>
+    <p class="note" data-status role="status" aria-live="polite"></p>
+    <div class="prototype-tool" data-output hidden></div>
+  </div>
+</PrototypeShell>
+<script>
+  import { mountProgram } from '../../lib/lens-tools-ui.mjs';
+  mountProgram(document.querySelector('#lens-program'));
+</script>

@@ -29,6 +29,21 @@ const cycle=[
       <label>What evidence will the learner produce?
         <textarea id="evidence" rows="3">The app records correct vocabulary selections and completion.</textarea>
       </label>
+      <label>Who performs the reasoning in this activity?
+        <select id="reasoning-actor">
+          <option value="unknown">Unknown — review who does the thinking</option>
+          <option value="learner">The learner produces their own reasoning</option>
+          <option value="other">Teacher/tool supplies it, or learners only watch/select</option>
+        </select>
+      </label>
+      <label>Is a learner-produced explanation or direct performance artifact collected?
+        <select id="learner-artifact">
+          <option value="unknown">Unknown — confirm what is collected</option>
+          <option value="present">Present — learner response/performance is collected for review</option>
+          <option value="absent">Absent — only completion, clicks, scores, or supplied examples</option>
+        </select>
+      </label>
+      <p>Confirm the actual task and collected evidence, not just words in the description. Watching a teacher explain is not learner reasoning. Completion without a learner response is not a reasoning artifact. Any text edit resets both confirmations.</p>
       <button type="button" id="audit">Audit the alignment</button>
       <p id="audit-status" role="status"></p>
     </section>
@@ -36,8 +51,8 @@ const cycle=[
     <section id="result" hidden aria-live="polite">
       <div class="matrix">
         <article><small>Objective demands</small><h3 id="objective-level"></h3><p id="objective-read"></p></article>
-        <article><small>Learner actually does</small><h3 id="activity-level"></h3><p id="activity-read"></p></article>
-        <article><small>Evidence actually proves</small><h3 id="evidence-level"></h3><p id="evidence-read"></p></article>
+        <article><small>Activity cues and actor confirmation</small><h3 id="activity-level"></h3><p id="activity-read"></p></article>
+        <article><small>Evidence cues and artifact confirmation</small><h3 id="evidence-level"></h3><p id="evidence-read"></p></article>
       </div>
       <div class="gap" id="gap"></div>
       <section class="redesign">
@@ -52,7 +67,7 @@ const cycle=[
 
     <details>
       <summary>Inspect the heuristic</summary>
-      <p>This thin slice uses transparent verb and evidence cues to map each field to four coarse modes: passive, active, constructive, or interactive. It is intentionally easy to disagree with. The pedagogically important interaction is the comparison and teacher override, not the classifier itself.</p>
+      <p>This thin slice uses verb cues for a provisional mapping: passive, active, constructive, or interactive. Keywords cannot resolve who performs an action or whether a description denies that evidence exists. Your actor and artifact confirmations therefore gate the interpretation. Confirmations are self-reports, not validation of learning or evidence quality. The comparison and teacher override matter more than the classifier.</p>
     </details>
   </div>
 </PrototypeShell>
@@ -61,7 +76,9 @@ const cycle=[
   .auditor{display:flex;flex-direction:column;gap:1rem}
   .setup{display:grid;gap:.8rem}
   label{display:flex;flex-direction:column;gap:.3rem;font-family:var(--sans);font-size:.78rem;font-weight:700}
-  textarea{font:inherit;font-size:.94rem;color:var(--ink);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.7rem;resize:vertical}
+  textarea,select{font:inherit;font-size:.94rem;color:var(--ink);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.7rem;min-width:0;width:100%}
+  textarea{resize:vertical}
+  :is(textarea,select,button):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   button{justify-self:start;border:1px solid var(--accent);background:var(--accent);color:var(--bg);font-family:var(--sans);font-weight:700;padding:.65rem .85rem;border-radius:4px;cursor:pointer}
   .matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem}
   .matrix article{border:1px solid var(--border);border-radius:4px;padding:.85rem;background:var(--bg)}
@@ -101,14 +118,31 @@ const cycle=[
       return;
     }
     root.querySelector('#audit-status').textContent='Audit updated. These cues need teacher review.';
+    var actor=root.querySelector('#reasoning-actor').value, artifact=root.querySelector('#learner-artifact').value;
     var o=classify(obj), a=classify(act), e=evidenceClaim(ev);
+    if(actor==='unknown') a=['Actor unconfirmed','Confirm whether learners produce reasoning themselves; keywords cannot distinguish a teacher explanation from learner reasoning.'];
+    else if(actor==='other') a=['Learner reasoning not demonstrated','You confirmed that reasoning is supplied by someone else, or learners only watch/select. This may support instruction or prerequisite practice, but does not demonstrate learners producing their own reasoning.'];
+    if(artifact==='unknown') e=['Artifact unconfirmed','Confirm whether a learner response or direct performance artifact is actually collected. Mentioning an explanation does not establish its presence.'];
+    else if(artifact==='absent') e=['No learner reasoning/performance artifact','You confirmed no learner-produced explanation or direct performance artifact is collected. Completion and scores alone do not reveal the reasoning.'];
     root.querySelector('#objective-level').textContent=o[0]; root.querySelector('#objective-read').textContent=o[1];
     root.querySelector('#activity-level').textContent=a[0]; root.querySelector('#activity-read').textContent=a[1];
     root.querySelector('#evidence-level').textContent=e[0]; root.querySelector('#evidence-read').textContent=e[1];
     var rank={Passive:0,Active:1,Constructive:2,Interactive:3};
     var delta=(rank[o[0]]??0)-(rank[a[0]]??0);
     var gap=root.querySelector('#gap'), title=root.querySelector('#redesign-title'), copy=root.querySelector('#redesign-copy');
-    if(delta>=1){
+    if(actor==='unknown'||artifact==='unknown'){
+      gap.innerHTML='<strong>Confirmation warning:</strong> the reasoning actor or collected learner artifact is unknown. Alignment cannot be inferred from these descriptions.';
+      title.textContent='Confirm who does the thinking and what is collected.';
+      copy.textContent='Inspect the learner task and an example record, then answer both confirmation questions. Keep either answer unknown when you cannot verify it.';
+    }else if(artifact==='absent'){
+      gap.innerHTML='<strong>Evidence warning:</strong> no learner-produced reasoning or direct performance artifact is confirmed. Activity records and supplied explanations cannot establish the learner’s reasoning.';
+      title.textContent='Collect a learner-produced response or performance.';
+      copy.textContent='For a reasoning objective, ask learners to explain or demonstrate independently and collect that response against a stated standard. Retain completion or accuracy records as bounded evidence only.';
+    }else if(actor==='other'){
+      gap.innerHTML='<strong>Alignment warning:</strong> learner reasoning is not demonstrated by the confirmed activity. A teacher or tool explanation cannot stand in for the learner’s reasoning.';
+      title.textContent='Identify an independent learner move.';
+      copy.textContent='Keep demonstrations or selection practice where useful, then ask the learner to produce the reasoning required by the objective. Check that the collected artifact comes from that learner move.';
+    }else if(delta>=1){
       gap.innerHTML='<strong>Alignment warning:</strong> the objective asks for more cognitive work than the activity currently requires.';
       title.textContent='Add an evidence-producing move before or after the app.';
       copy.textContent='Ask learners to demonstrate the action named in your objective and produce an observable response. Judge that response against an explicit standard. Keep prerequisite practice where useful, and check that the final task actually elicits the intended capability.';
@@ -117,7 +151,7 @@ const cycle=[
       title.textContent='Collect the learner product that matches the claim.';
       copy.textContent='Add a short explanation, transfer task, or observable performance and judge that artifact directly. Treat clicks, time, and completion as implementation signals rather than learning outcomes.';
     }else{
-      gap.innerHTML='<strong>No mismatch detected by these cues.</strong> This does not establish alignment. Check the actual task, the quality of the evidence, and whether learners demonstrate the stated objective.';
+      gap.innerHTML='<strong>No mismatch detected by these cues and your confirmations.</strong> This provisional result does not establish alignment. Confirmations are self-reports; check the actual learner artifact, evidence quality, and stated objective.';
       title.textContent='Stress-test with a transfer task.';
       copy.textContent='Ask learners to demonstrate the same capability in a new context without the app. If performance disappears, the original activity may have supported task completion more than transferable learning.';
     }
@@ -125,8 +159,18 @@ const cycle=[
   });
   ['objective','activity','evidence'].forEach(function(id){
     root.querySelector('#'+id).addEventListener('input',function(){
+      root.querySelector('#reasoning-actor').value='unknown';
+      root.querySelector('#learner-artifact').value='unknown';
+      root.querySelector('#override').value='';
       root.querySelector('#result').hidden=true;
-      root.querySelector('#audit-status').textContent='Inputs changed. Run the audit again to update the interpretation.';
+      root.querySelector('#audit-status').textContent='Text changed. Reconfirm the reasoning actor and learner artifact, then run the audit again. The previous override was cleared.';
+    });
+  });
+  ['reasoning-actor','learner-artifact'].forEach(function(id){
+    root.querySelector('#'+id).addEventListener('change',function(){
+      root.querySelector('#result').hidden=true;
+      root.querySelector('#override').value='';
+      root.querySelector('#audit-status').textContent='Confirmation changed. Run the audit again to update the interpretation. The previous override was cleared.';
     });
   });
 })();

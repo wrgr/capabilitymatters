@@ -1,0 +1,32 @@
+---
+import PrototypeShell from '../../components/prototypes/PrototypeShell.astro';
+import Tool from '../../components/prototypes/aile-access-tool.astro';
+import { languageTasks } from '../../lib/aile-access.js';
+import briefs from '../../data/problems-to-prototypes/aile-3.json';
+import meta from '../../data/problems-to-prototypes/meta.json';
+import '../../styles/prototype-tools.css';
+const idea = briefs.find(brief => brief.id === 'example-aile-9784');
+const cycle = meta.designCycle.map((name, index) => [name, idea.cycle[name.toLowerCase()] ?? meta.aileCommonSteps[String(index + 1)]]);
+---
+<PrototypeShell idea={idea} collection="AILE" cycle={cycle}
+  assumption="Specific classroom rehearsal with revision helps learners communicate in real situations."
+  falsifier="Learners copy models successfully but cannot ask a useful question or contribute an idea in an unfamiliar classroom task."
+  instrumentation="A willing teacher or peer checks whether the intended meaning was understood in a new setting; this prototype collects no scores or telemetry.">
+  <div slot="app"><Tool kind="language" submitLabel="Save revision and transfer plan">
+    <section class="panel"><h2>Practice a classroom conversation</h2><p>Choose an authored English classroom task or let a teacher select one. Add your own context and plan in any language. Support appears after your first attempt. These are fixed hints and role-play turns; no AI, translation, speech recognition, pronunciation feedback, or proficiency scoring is provided.</p></section>
+    <label>Communication task<select name="task">{Object.entries(languageTasks).map(([key, task]) => <option value={key}>{task.label}</option>)}</select></label>
+    <section class="panel"><h3>Your situation</h3><p data-situation aria-live="polite">{languageTasks.clarify.situation}</p></section>
+    <label>Optional teacher / learner context (use invented details)<textarea name="context" rows="2" maxlength="2000" placeholder="For example: I want to ask about evidence in a science report." dir="auto"></textarea></label>
+    <label>Optional home-language planning notes<textarea name="home" rows="2" maxlength="3000" dir="auto"></textarea></label>
+    <label>First attempt: what would you say?<textarea name="attempt" rows="4" maxlength="4000" dir="auto"></textarea></label>
+    <p class="note">Type a response or a transcript of an oral rehearsal. No recording is made. Changing the task, context, notes, or first attempt clears the revision stage.</p>
+    <button type="button" data-language-attempt>Record first attempt and show authored support</button>
+    <fieldset data-language-revision hidden><legend>Revise and continue the conversation</legend>
+      <pre data-language-hints></pre>
+      <label>Revise your first response in your own words<textarea name="revision" rows="4" maxlength="4000" dir="auto"></textarea></label>
+      <label>Reply to the authored teacher / classmate turn<textarea name="reply" rows="3" maxlength="4000" dir="auto"></textarea></label>
+      <label>Self-check: which communication goal did you address, and what remains unclear?<textarea name="reflection" rows="3" maxlength="3000" dir="auto"></textarea></label>
+      <label>Transfer plan: where could you try this and who could check whether you were understood?<textarea name="transfer" rows="2" maxlength="2000" dir="auto"></textarea></label>
+    </fieldset>
+  </Tool></div>
+</PrototypeShell>

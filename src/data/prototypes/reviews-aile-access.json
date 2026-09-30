@@ -1,0 +1,42 @@
+{
+  "example-aile-8940": {
+    "assumption": "Visible fictional source cards improve safe self-navigation compared with a static office directory.",
+    "failureMode": "A schedule selection can hide an enrollment or funding question; readers may mistake practice cards for actual college rules.",
+    "falsificationTest": "Give learners ambiguous schedule/drop questions and an office-directory control. Reject the design if learners act without verification or cannot identify the responsible office.",
+    "nonAiAlternative": "An accessible printed office directory with example questions and phone/in-person routes.",
+    "measurement": "Observe correct referral, teach-back of next action, and later successful human follow-through; clicks are not learning. No telemetry is collected.",
+    "risks": "Keyword routing can miss paraphrases and other languages. All outputs retain source scope and human verification; no institutional policy, eligibility, or clinical decision is made. Downloads are user-controlled and may include private text.",
+    "edits": ["Added sensitive-question override independent of topic selection.", "Kept all fictional approved sources visible before use.", "Added unsupported and wellbeing routes, verification checklist, and understanding prompt.", "Disabled all form controls in server markup until local handlers are installed, preventing no-JavaScript GET submission of entries.", "Restored the full eight-step path from shared metadata without changing shared files.", "Smallest next experiment: observe a human-reviewed teach-back using an unseen institution directory."],
+    "tests": ["Empty question rejected", "Unsupported question has no fabricated source", "Funding/drop text overrides schedule topic", "Access and wellbeing referrals coexist", "Server markup is disabled without JavaScript; initialization enables controls only after handlers attach", "All eight cycle steps have content"]
+  },
+  "example-aile-6014": {
+    "assumption": "A structured bilingual review worksheet improves family understanding beyond a token-only comparison.",
+    "failureMode": "Matching digits can mask swapped dates, changed negation, or omitted meaning; a past review can remain attached to a revised draft.",
+    "falsificationTest": "Use deliberately swapped time/room numbers and a translated negation. Compare family teach-back with bilingual review alone; reject if the worksheet increases false confidence.",
+    "nonAiAlternative": "A bilingual family liaison using a paper meaning and access checklist.",
+    "measurement": "Family explanation of the requested action and optional alternatives, actual follow-through, reviewer time, and reasons for revisions. No automatic proficiency or translation score.",
+    "risks": "Number words and locale-specific formats need human interpretation. Tone and cultural authenticity are not machine-checked. Right-to-left draft inputs are supported; oral support requires a person. Export can contain sensitive family text.",
+    "edits": ["Explicitly labeled authored template and user-provided drafts; no claim of AI translation.", "Compared numeric token multiplicity, including common Arabic/Persian/full-width digits.", "Added mandatory meaning-check content for a self-reported review status and retained warnings after review.", "Cleared review confirmation and downloadable result on edits.", "Disabled no-JavaScript input/submission and completed all eight design-cycle steps.", "Smallest next experiment: two families teach back the requested action after liaison review."],
+    "tests": ["Repeated numeric tokens detect omissions", "Unicode numeral normalization", "Matching numbers retain semantic warning", "Empty adaptation rejected", "Review checkbox alone cannot imply review", "Numeric and access warnings survive self-reported review", "Client event tests verify review invalidation, stale output/export clearing, literal text output, and reset"]
+  },
+  "example-aile-0780": {
+    "assumption": "Authored challenge choices plus attempt/reflection cycles support exploration without taking over learner decisions.",
+    "failureMode": "A journal rewards completion or lets learners switch away from every difficulty without explaining evidence; a revised attempt can inherit stale reflection.",
+    "falsificationTest": "Compare with a paper choice journal on a new project. Reject if cycle completion rises while independent explanations, willingness to test ideas, or transfer decline.",
+    "nonAiAlternative": "A human mentor and a learner-owned paper experiment journal with challenge cards.",
+    "measurement": "Human review of prediction/test quality, evidence-based reflection, later independent project complexity, and voluntary path-change reasons. Cycle count is not a learning score.",
+    "risks": "Authored paths center game design; the own-challenge option allows other interests. No ability inference or automatic simplification. Text descriptions of oral, visual, and coding attempts are allowed; no upload, telemetry, or automatic sharing.",
+    "edits": ["Required an actual recorded attempt before exposing optional hints and reflection.", "Required a reflection and reason for the learner-selected next step.", "Preserved selected path even when the learner chooses switching, pausing, or human support.", "Invalidated active cycles on goal/path edits and cleared stale reflections when attempts change.", "Retained completed cycles in a local exportable journal and cleared them on reset.", "Disabled no-JavaScript input/submission and completed all eight design-cycle steps.", "Smallest next experiment: a mentor reviews one attempt and an unseen transfer task with the learner."],
+    "tests": ["Empty goal and custom challenge rejected", "Custom challenge preserved verbatim", "Attempt, reflection and reason required", "Missing active cycle rejected", "Switch decision does not mutate chosen path", "Client event tests verify reflection gating, attempt-revision invalidation, selected-path preservation, and journal clearing on reset"]
+  },
+  "example-aile-9784": {
+    "assumption": "Rehearsing specific communication functions and revising after an attempt transfers to real classroom participation.",
+    "failureMode": "Learners copy an English model, mistake authored support for personalized evaluation, or reuse a revision after switching to a different task.",
+    "falsificationTest": "Have a willing teacher observe an unfamiliar instruction or group task after practice. Reject transfer claims if rehearsed text improves but listeners still cannot understand the learner's intended question or contribution.",
+    "nonAiAlternative": "Teacher-selected role-play cards with a peer, home-language planning, and a communication checklist.",
+    "measurement": "Human-observed communicative success on an unseen task, repair questions, participation, and learner confidence compared with observed understanding. No unvalidated proficiency or grammar score.",
+    "risks": "English authored models cannot validate other languages, pronunciation, or fluency. Text and oral-rehearsal transcripts plus home-language notes are accepted; there is no audio capture. All review is voluntary and records stay local until downloaded.",
+    "edits": ["Added three distinct task situations, hints, function checklists, and authored partner turns.", "Gated support on a nonempty first attempt and labeled it fixed authored support.", "Required a revision, partner-turn reply, self-check, and real-world transfer plan.", "Cleared support and revision stage when the initial task, context, home notes, or attempt changes.", "Preserved original and revised responses for human comparison without proficiency scoring.", "Disabled no-JavaScript input/submission and completed all eight design-cycle steps.", "Smallest next experiment: peer observation on an unfamiliar classroom instruction, followed by learner reflection."],
+    "tests": ["Empty first attempt rejected", "Unknown task rejected", "Each task has distinct support", "Revision cannot precede first attempt", "Reply, reflection, revision and transfer plan required", "Unchanged revisions explicitly labeled", "Home-language notes preserved", "Client event tests verify first-attempt gate and hide/clear stale support, revisions, and exports when task changes"]
+  }
+}
