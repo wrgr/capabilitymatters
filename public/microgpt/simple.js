@@ -1,8 +1,28 @@
 /** Offer short, concrete explanations for every teaching topic without requiring technical vocabulary. */
 export const SIMPLE = {
+  letters: [
+    "Start with one letter",
+    "The model sees made-up spellings. It practices guessing the next letter, checks the answer, and changes its settings a little.",
+    "You can inspect every practice string. The separate test strings help show whether practice improved more than just the examples it already saw.",
+  ],
+  tokenization: [
+    "How big is one piece?",
+    "Character tokens are single letters, spaces or line breaks. Word tokens are whole words, plus a line-break option. A line token is a complete line taken from the examples.",
+    "A character model can make new spellings. A word model can rearrange known words into new lines. A line model can only rearrange its known lines. A polished-looking result can therefore mean very different things.",
+  ],
+  haiku: [
+    "Compare three kinds of pieces",
+    "The model practices on the same short poems in three ways. By default it predicts one whole word, or a line break. You can switch to one character at a time or one complete line at a time.",
+    "Think of choosing a box of letter cards, word cards, or complete-line cards. The choice controls what the model can put together. The output may not be a well-formed haiku, and a good result using whole lines does not show that the model learned to write a new line.",
+  ],
+  "token-interface": [
+    "Each example keeps its own work",
+    "The letter model and the haiku model run separately. Training or resetting one leaves the other where you put it.",
+    "The inspector shows the same examples the training code uses. Looking at a poem or opening an explanation does not teach the model anything new.",
+  ],
   overview: [
     "What is happening here?",
-    "The model practices completing words, one letter at a time. After each example, the code changes its settings so it is more likely to predict those letters next time.",
+    "The model practices completing examples, one small piece at a time: letters in the first example, whole words in the second. After each example, the code changes its settings so it is more likely to predict those pieces next time.",
     "If you show one kind of spelling much more often, the model gets more practice with it. Use the separate test examples to check what that practice helped it learn.",
   ],
   data: [
@@ -27,13 +47,13 @@ export const SIMPLE = {
   ],
   tokens: [
     "How can numbers stand for letters?",
-    "The code gives every letter a number, like a seat number. It also keeps a small list of adjustable values for that letter and for its position in the word.",
+    "The code gives every token a number, like a seat number. In the first example a token is a letter; in the second it is a word or line break. It also keeps a small list of adjustable values for that letter and for its position in the word.",
     "Training changes those values. The letter's identifying number stays the same.",
   ],
   forward: [
     "How does it guess the next letter?",
-    "The code combines the letters already seen with the model's current settings. It gives every possible next letter a score.",
-    "It can use earlier letters in the word, but it cannot look ahead at the answer. At first its settings are random; practice changes them.",
+    "The code combines the tokens already seen with the model's current settings. It gives every possible next token a score. Here a token can be a letter or a whole word.",
+    "It can use earlier tokens in the example, but it cannot look ahead at the answer. At first its settings are random; practice changes them.",
   ],
   loss: [
     "What does the error score mean?",
@@ -47,8 +67,8 @@ export const SIMPLE = {
   ],
   learning: [
     "What happens during one training step?",
-    "Pick one practice word. Predict its letters. Measure the errors. Adjust the settings a little. That is one step.",
-    "The update also uses a record of earlier changes to help control its size. One hundred steps means one hundred sampled words, with possible repeats.",
+    "Pick one practice example. Predict its tokens. Measure the errors. Adjust the settings a little. That is one step.",
+    "The update also uses a record of earlier changes to help control its size. One hundred steps means one hundred sampled examples, with possible repeats.",
   ],
   evaluate: [
     "How do we check whether practice helped?",
@@ -57,8 +77,8 @@ export const SIMPLE = {
   ],
   sample: [
     "How are the new words made?",
-    "The model gives possible next letters different chances. The code draws a letter, adds it to the word, and repeats.",
-    "Temperature changes how strongly the draw favors the higher-scoring letters. It does not teach the model anything new. A generated string may be an existing name, an invented name or nonsense.",
+    "The model gives possible next tokens different chances. The code draws one, adds it to the output, and repeats. In the haiku example these are whole words or line breaks.",
+    "Temperature changes how strongly the draw favors the higher-scoring tokens. It does not teach the model anything new. A generated string may be an existing name, an invented name or nonsense.",
   ],
   checkpoint: [
     "What does saving a checkpoint save?",

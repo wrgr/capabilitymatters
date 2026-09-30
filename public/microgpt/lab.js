@@ -8,7 +8,7 @@ let worker,
   running = false,
   currentStep = 0,
   syncSettings = true,
-  activeDataset = "fictional";
+  activeDataset = "names";
 /** @param {string} text @returns {void} Surface engine failures instead of presenting stale output as current. */
 function fail(text) {
   $("training-status").textContent = text;
@@ -135,7 +135,7 @@ function boot() {
       fail(
         "The training worker could not run. Reload the page to retry; the explanations and code remain available.",
       );
-    send({ type: "init", share: 0.5 });
+    send({ type: "init", share: 0.5, datasetId: "names" });
   } catch (error) {
     fail(
       `Browser training unavailable: ${error instanceof Error ? error.message : String(error)}`,
@@ -150,7 +150,9 @@ async function presets() {
     const bundle = await response.json();
     $("preset-cards").replaceChildren();
     showComparisons(bundle.checkpoints, bundle.nameInitial, restorePreset);
-    for (const checkpoint of bundle.checkpoints) {
+    for (const checkpoint of bundle.checkpoints.filter(
+      (c) => c.datasetId === "names",
+    )) {
       const card = document.createElement("article"),
         title = document.createElement("h4"),
         metric = document.createElement("p"),
@@ -236,6 +238,10 @@ async function importCheckpoint() {
     if (file.size > 1000000)
       throw new Error("Checkpoint file must be smaller than 1 MB.");
     const checkpoint = JSON.parse(await file.text());
+    if (checkpoint.datasetId !== "names")
+      throw new Error(
+        "Import this checkpoint in the letters or haiku example it belongs to.",
+      );
     restorePreset(checkpoint);
   } catch (error) {
     $("training-status").textContent =

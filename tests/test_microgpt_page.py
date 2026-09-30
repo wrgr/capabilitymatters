@@ -52,6 +52,16 @@ class MicrogptPageTest(unittest.TestCase):
                 target = ROOT / 'dist' / href.lstrip('/')
                 self.assertTrue(target.exists(), href)
 
+    def test_three_example_progression(self) -> None:
+        """Letter and word training precede the retained name and engagement bias experiments."""
+        html = (ROOT / 'dist/microgpt/index.html').read_text()
+        positions = [html.index(f'id="{key}"') for key in ('letters', 'haikus', 'bias', 'name-bias', 'engagement')]
+        self.assertEqual(positions, sorted(positions))
+        self.assertEqual(html.count('data-token-lab'), 2)
+        for text in ('Learn a pattern, one letter at a time.', 'One haiku. Three ways to define a token.',
+                     'Example 3', '5/7/5', 'haiku-tokenization', 'haiku-line', 'haiku-char', 'No camera, microphone, or eye-tracking data is collected'):
+            self.assertIn(text, html)
+
     def test_discoverable(self) -> None:
         """Both entry points expose the new page."""
         for route in ('experiments', 'llm101'):

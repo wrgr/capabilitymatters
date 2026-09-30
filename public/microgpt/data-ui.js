@@ -2,7 +2,7 @@
 import { dataset } from "./engine.js";
 import { DATASETS, SCENARIOS } from "./datasets.js";
 const $ = (id) => document.getElementById(id);
-let active = { datasetId: "fictional", share: 0.5 },
+let active = { datasetId: "names", share: 0.5 },
   rows = [],
   signature = "";
 /** @param {any} state @param {boolean} sync @returns {void} Identify the measured run independently of pending slider changes. */

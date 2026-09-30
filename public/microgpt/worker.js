@@ -23,6 +23,8 @@ function report(message = "") {
     step: model.step,
     share: model.share,
     datasetId: model.datasetId,
+    parameters: model.count,
+    config: model.config,
     metrics: c.metrics,
     samples: model.sample(temperature),
     temperature,
@@ -36,9 +38,18 @@ function report(message = "") {
 async function trainLoop(token, target) {
   try {
     while (token === generation && running && model.step < target) {
-      for (let i = 0; i < 5 && model.step < target; i++) model.train();
+      for (
+        let i = 0;
+        i < (model.datasetId === "haiku-char" ? 1 : 5) && model.step < target;
+        i++
+      )
+        model.train();
       if (model.step % 50 === 0) report();
-      self.postMessage({ type: "progress", step: model.step });
+      self.postMessage({
+        type: "progress",
+        step: model.step,
+        datasetId: model.datasetId,
+      });
       await new Promise((resolve) => setTimeout(resolve, 20));
     }
     if (token === generation) {

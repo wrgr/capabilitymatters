@@ -1,0 +1,75 @@
+---
+/** Present one independently trainable token example with inspectable data and resumable checkpoints. */
+const { kind } = Astro.props;
+const words = kind === "haiku";
+const id = words ? "haikus" : "letters";
+const topic = words ? "haiku" : "letters";
+---
+<section id={id} class="learning-lab token-lab" data-token-lab data-dataset={words ? "haiku" : "fictional"} aria-labelledby={`${id}-title`}>
+  <p class="eyebrow">Example {words ? "2" : "1"} · {words ? "Words in example haikus" : "Letters"}</p>
+  <h2 id={`${id}-title`}>{words ? "One haiku. Three ways to define a token." : "Learn a pattern, one letter at a time."}</h2>
+  <p>{words ? "Train on the same example haikus using characters, whole words, or entire lines as tokens. The default is words, with a separate line-break token. Familiar-looking lines can emerge from word training because the same lines appear repeatedly in the examples." : "Begin with letters as tokens: the small units the model predicts. This model sees invented strings and practices predicting the next letter. It starts with random settings; training changes the probabilities it assigns to letters."}</p>
+  {words && <p>The original teaching examples use an English 5/7/5 form, built from one-syllable words. There are 48 training haikus and 16 held-out combinations. Every source line is familiar; the test checks how the model predicts new combinations.</p>}
+  <div class="orientation"><strong>{words ? "What changes?" : "Try it:"}</strong> {words ? "The word model can recombine words; the line model can only recombine the 12 complete source lines. The character model has to learn spelling too. Each mode uses its own vocabulary, context length and weights, so the raw loss numbers are not directly comparable." : "Inspect one training string, look at its letter tokens, then train 100 steps. Compare generated strings and the error on examples the model never practiced."}</div>
+  {words && <div class="token-mode-controls">
+    <label for="haiku-tokenization">Train with which kind of token?</label>
+    <select id="haiku-tokenization" data-control="mode"><option value="haiku-char">Characters · letters, spaces and line breaks</option><option value="haiku" selected>Words · whole words and line breaks</option><option value="haiku-line">Lines · an entire source line per token</option></select>
+    <p data-control="mode-explanation"></p>
+    <p class="fine">Switching tokenization starts a fresh model. Download a checkpoint first to keep the current run. All three modes use the same 48 training poems and 16 test poems. For a quick comparison, load each mode's 100-step checkpoint. Equal steps mean equal sampled poems, but token counts, parameter counts and compute differ. Character training is slower.</p>
+    <button data-simple="tokenization">Explain character vs. word vs. line</button><button data-guide="tokenization">Show the tokenization code</button>
+  </div>}
+  <button data-simple={topic}>Explain to me with more straightforward language</button><button data-guide={topic}>Explain this example and its code</button>
+  <details class="token-inspector">
+    <summary>Inspect every {words ? "example haiku" : "training string"} and its tokens</summary>
+    <p data-control="provenance"></p><p data-control="limits"></p>
+    <p class="fine">Training samples with replacement. Each training example has the same chance of being drawn; test examples have zero chance. “Probe” marks the 16 training examples used for the displayed training loss. Test examples never update the weights.</p>
+    <div class="table-wrap data-table"><table>
+      <caption data-control="data-caption"></caption><thead><tr><th>Exact example</th><th>Use</th><th>Chance per draw</th><th>Explore</th></tr></thead><tbody data-control="data-rows"></tbody>
+    </table></div>
+    <button data-action="data-download">Download all examples (CSV)</button>
+  </details>
+  <div class="token-insight">
+    <h3>What the model actually receives</h3>
+    <p class="fine">Select “Show tokens” beside any example above to inspect it here. The boundary token marks the beginning and end; the numbers identify tokens, not their meaning. Different tokenizations have different ID mappings. Scroll within the token lists to see every token.</p>
+    <pre tabindex="0" data-control="selected-text" aria-label="Selected exact example"></pre>
+    <div data-control="tokens" class={words ? "token-comparison" : "token-sequence"} aria-label="Token text and numerical IDs"></div>
+    <details><summary>Inspect the active model’s vocabulary</summary><p data-control="vocabulary"></p></details>
+  </div>
+  <p class="fine" data-control="model-info"></p>
+  <div class="actions"><button data-action="reset">New run</button><button data-action="train" data-steps="100" class="primary" disabled>Train 100 steps</button><button data-action="train" data-steps="600" disabled>Train 600 steps</button><button data-action="pause" disabled>Pause</button></div>
+  <p data-control="status" role="status">Loading this example's local training engine…</p>
+  <progress data-control="progress" max="1200" value="0" aria-label={`${words ? "Haiku" : "Letter"} training steps`}></progress>
+  <div class="metrics">
+    <div><span>Training steps</span><strong data-control="step">0</strong></div>
+    <div><span>Training probe loss</span><strong data-control="train-loss">—</strong></div>
+    <div><span>Held-out loss</span><strong data-control="test-loss">—</strong></div>
+  </div>
+  <p class="fine">{words ? "One step practices one complete example haiku. Loss averages next-token error in the selected unit, including the end token. The test contains 16 new combinations of familiar lines; it does not test unfamiliar vocabulary or general poetic skill." : "One step practices one complete invented string. Loss averages next-token error across its letters and the end token. The test contains 32 unseen strings from the same invented spelling rules."} Lower is better on this task. Letter loss and word loss are different measurements; do not compare their numbers as a ranking of the two models.</p>
+  {words && <p class="fine" data-control="loss-unit"></p>}
+  <div class="result-grid">
+    <div><h3>Learning trace</h3>
+      <svg viewBox="0 0 600 200" role="img" aria-label="Measured training and held-out loss, with exact values below">
+        <line x1="45" y1="160" x2="575" y2="160" stroke="currentColor" opacity=".3"/><line x1="45" y1="15" x2="45" y2="160" stroke="currentColor" opacity=".3"/>
+        <text x="2" y="23" data-control="chart-max">4.0</text><text x="20" y="164">0</text><text x="45" y="188">0 steps</text><text x="495" y="188" data-control="chart-end">100</text>
+        <polyline data-control="train-line" fill="none" stroke="#196d79" stroke-width="3"/><polyline data-control="test-line" fill="none" stroke="#a34516" stroke-width="3" stroke-dasharray="7 4"/>
+      </svg>
+      <p class="chart-key"><span>Solid teal: training probe</span><span>Dashed rust: held-out</span></p>
+      <details><summary>Exact measurements in this run</summary><div class="table-wrap"><table><caption>Measured states, including loaded checkpoints</caption><thead><tr><th>Step</th><th>Training loss</th><th>Held-out loss</th></tr></thead><tbody data-control="history"></tbody></table></div></details>
+    </div>
+    <div><h3 data-control="sample-title">{words ? "Generated text · words model" : "Generated letter sequences"}</h3>
+      <label for={`${id}-temperature`}>Sampling temperature <output data-control="temperature-value">0.8</output></label>
+      <input id={`${id}-temperature`} data-control="temperature" type="range" min="0.2" max="1.5" step="0.1" value="0.8"/>
+      <button data-action="sample" disabled>Apply temperature</button>
+      <div data-control="samples" class={words ? "poem-samples" : "samples"} aria-label="Actual model-generated samples"></div>
+      <p class="fine">{words ? "Three draws from the model, without a poetry or syllable checker. Long lines scroll horizontally so actual line breaks stay visible. Character and word modes predict line breaks. Line mode samples complete fixed lines and displays a newline between them. Output can repeat training text, stop early or break the example form. Character mode can spell new words; word mode uses known words; line mode uses only known whole lines." : "Eight draws from the model. Plausible spelling is not proof of understanding. Output ends at the boundary token or after 12 letters."} Sampling uses seed 2026 and never changes weights.</p>
+    </div>
+  </div>
+  <div class="checkpoint-tools">
+    <h3>Start, save, or revisit a checkpoint</h3>
+    <label for={`${id}-preset`}>Ready-made states for this example</label><select id={`${id}-preset`} data-control="preset"><option value="">Loading measured checkpoints…</option></select><button data-action="preset" disabled>Load checkpoint</button>
+    <label for={`${id}-session`}>States saved in this run</label><select id={`${id}-session`} data-control="session"></select><button data-action="restore" disabled>Restore selected</button><button data-action="download" disabled>Download current checkpoint</button>
+    <label class="import-label" for={`${id}-import`}>Import this example's checkpoint <input id={`${id}-import`} data-control="import" type="file" accept=".json,application/json" disabled/></label>
+    <p class="fine">The ready-made states were trained with this engine and seed 42. Loading restores the actual weights, optimizer and random state. Each example runs independently; starting one does not reset the others. Download a state to keep it after leaving the page.</p>
+  </div>
+  <p class="callout">{words ? "Ask of your project: what does the model treat as a unit, and what can its vocabulary never express? A pleasing recombination of familiar words is a starting point for evaluation, not proof of broad language capability." : "Ask of your project: what has actually improved? A lower training score shows a better fit to practiced examples. The held-out score checks a narrower claim: prediction on new strings from these rules."}</p>
+</section>

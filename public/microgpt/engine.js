@@ -1,6 +1,13 @@
 /** Original JavaScript implementation of the small-transformer teaching architecture demonstrated by Andrej Karpathy's microgpt; see NOTICE.md. */
 // @ts-check
 import { DATASETS, nameSplit } from "./datasets.js";
+import { haikuSplit } from "./haiku-data.js";
+import {
+  HAIKU_MODES,
+  isHaiku,
+  splitTokens,
+  joinTokens,
+} from "./haiku-tokens.js";
 export const CONFIG = {
   width: 12,
   heads: 3,
@@ -35,9 +42,10 @@ export class Random {
 
 /** Scalar differentiation tape with indexed edges and reusable storage. */
 export class Tape {
-  constructor() {
+  /** @param {number} [capacity] Allocate enough graph storage for the selected sequence length. */
+  constructor(capacity = 500000) {
     this.size = 0;
-    this.capacity = 500000;
+    this.capacity = capacity;
     this.value = new Float64Array(this.capacity);
     this.grad = new Float64Array(this.capacity);
     this.a = new Int32Array(this.capacity);
@@ -116,6 +124,7 @@ export function dataset(id = "fictional") {
   if (!Object.hasOwn(DATASETS, id))
     throw new Error("Unknown training dataset.");
   if (id === "names") return nameSplit();
+  if (isHaiku(id)) return haikuSplit();
   const random = new Random(731),
     families = [
       ["bdglmnr", "ae", "a"],
@@ -149,13 +158,24 @@ export class TinyGPT {
     this.random = new Random(CONFIG.seed);
     this.share = share;
     this.step = 0;
-    this.tape = new Tape();
+    this.tape = new Tape(datasetId === "haiku-char" ? 1000000 : 500000);
     this.datasetId = datasetId;
     this.data = dataset(datasetId);
+    this.vocabulary = isHaiku(datasetId)
+      ? HAIKU_MODES[datasetId].vocabulary
+      : [..."abcdefghijklmnopqrstuvwxyz"];
+    this.boundary = this.vocabulary.length;
+    this.config = isHaiku(datasetId)
+      ? {
+          ...CONFIG,
+          context: HAIKU_MODES[datasetId].context,
+          vocabulary: this.boundary + 1,
+        }
+      : CONFIG;
     this.width = CONFIG.width;
-    this.embedding = this.matrix(27, 12);
-    this.position = this.matrix(12, 12);
-    this.output = this.matrix(27, 12);
+    this.embedding = this.matrix(this.config.vocabulary, 12);
+    this.position = this.matrix(this.config.context, 12);
+    this.output = this.matrix(this.config.vocabulary, 12);
     this.query = this.matrix(12, 12);
     this.key = this.matrix(12, 12);
     this.val = this.matrix(12, 12);
@@ -244,7 +264,13 @@ export class TinyGPT {
     this.tape.size = this.count;
     const t = this.tape,
       cache = { keys: [], values: [] };
-    const tokens = [26, ...[...word].map((c) => c.charCodeAt(0) - 97), 26],
+    const pieces = splitTokens(word, this.datasetId);
+    const ids = pieces.map((token) => this.vocabulary.indexOf(token));
+    if (ids.includes(-1) || ids.length + 1 > this.config.context)
+      throw new Error(
+        "Example contains an unknown token or exceeds the context.",
+      );
+    const tokens = [this.boundary, ...ids, this.boundary],
       terms = [];
     for (let i = 0; i < tokens.length - 1; i++) {
       const p = this.softmax(this.forward(tokens[i], i, cache));
@@ -296,9 +322,9 @@ export class TinyGPT {
     for (let s = 0; s < number; s++) {
       this.tape.size = this.count;
       const cache = { keys: [], values: [] };
-      let token = 26,
-        word = "";
-      for (let position = 0; position < CONFIG.context; position++) {
+      let token = this.boundary;
+      const pieces = [];
+      for (let position = 0; position < this.config.context; position++) {
         const ids = this.forward(token, position, cache),
           logits = ids.map((i) => this.tape.value[i] / temperature),
           max = Math.max(...logits);
@@ -313,20 +339,26 @@ export class TinyGPT {
             break;
           }
         }
-        if (token === 26) break;
-        word += String.fromCharCode(97 + token);
+        if (token === this.boundary) break;
+        pieces.push(this.vocabulary[token]);
       }
-      results.push(word || "(empty)");
+      const text = joinTokens(pieces, this.datasetId);
+      results.push(text || "(empty)");
     }
     return results;
   }
   /** @returns {object} Save weights, optimizer and random state for exact continuation. */
   snapshot() {
     return {
-      format: "capability-microgpt-v2",
+      format: isHaiku(this.datasetId)
+        ? "capability-microgpt-tokens-v1"
+        : "capability-microgpt-v2",
+      ...(isHaiku(this.datasetId)
+        ? { tokenSignature: JSON.stringify(this.vocabulary) }
+        : {}),
       datasetId: this.datasetId,
       dataSignature: JSON.stringify(this.data),
-      config: CONFIG,
+      config: this.config,
       share: this.share,
       step: this.step,
       rng: this.random.state,
@@ -339,13 +371,41 @@ export class TinyGPT {
   restore(s) {
     if (!s || typeof s !== "object")
       throw new Error("Checkpoint must be a JSON model state.");
+    const id =
+      s.format === "capability-microgpt-v1" ? "fictional" : s.datasetId;
+    if (typeof id !== "string")
+      throw new Error("Checkpoint dataset is missing.");
+    const candidate = new TinyGPT(s.share, id);
+    candidate.loadState(s);
+    Object.assign(this, candidate);
+  }
+  /** @param {any} s @returns {void} Validate a checkpoint on a fresh candidate before replacing the active model. */
+  loadState(s) {
+    if (!s || typeof s !== "object")
+      throw new Error("Checkpoint must be a JSON model state.");
     if (
-      !["capability-microgpt-v1", "capability-microgpt-v2"].includes(
-        s.format,
-      ) ||
-      JSON.stringify(s.config) !== JSON.stringify(CONFIG)
+      ![
+        "capability-microgpt-v1",
+        "capability-microgpt-v2",
+        "capability-microgpt-words-v1",
+        "capability-microgpt-tokens-v1",
+      ].includes(s.format) ||
+      JSON.stringify(s.config) !== JSON.stringify(this.config)
     )
       throw new Error("Checkpoint architecture does not match.");
+    if (
+      isHaiku(this.datasetId) !==
+      [
+        "capability-microgpt-words-v1",
+        "capability-microgpt-tokens-v1",
+      ].includes(s.format)
+    )
+      throw new Error("Checkpoint token type does not match its dataset.");
+    if (
+      isHaiku(this.datasetId) &&
+      s.tokenSignature !== JSON.stringify(this.vocabulary)
+    )
+      throw new Error("Checkpoint word vocabulary does not match.");
     validateParameters(s, this.count);
     if (
       !Number.isInteger(s.step) ||
@@ -362,7 +422,7 @@ export class TinyGPT {
       throw new Error("Checkpoint dataset is missing.");
     const data = dataset(datasetId);
     if (
-      s.format === "capability-microgpt-v2" &&
+      s.format !== "capability-microgpt-v1" &&
       s.dataSignature !== JSON.stringify(data)
     )
       throw new Error("Checkpoint training data does not match this version.");

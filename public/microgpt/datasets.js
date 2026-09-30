@@ -1,5 +1,13 @@
 /** Declare inspectable teaching datasets and their provenance without inferring anyone's identity. */
 export const DATASETS = {
+  haiku: {
+    title: "Words in example haikus",
+    groups: ["Rain and snow openings", "Wind and stars openings"],
+    provenance:
+      "Capability Matters original teaching text, composed from 12 source lines into 64 three-line poems. 48 train the model; 16 complete combinations are held out. Every source line occurs in training. No third-party poems are used.",
+    limits:
+      "These controlled examples use a 5/7/5 English syllable pattern with one-syllable words. Testing unseen combinations of familiar lines is a narrow check, not evidence of general poetic ability. The sampler does not enforce the full poem form; its available building blocks depend on the selected tokenization.",
+  },
   fictional: {
     title: "Invented spelling patterns",
     groups: ["A · ending in -a", "B · ending in -o"],
@@ -22,6 +30,15 @@ export const DATASETS = {
       "https://www.povertyactionlab.org/sites/default/files/research-paper/3%20A%20Field%20Experiment%20on%20Labor%20Market%20Discrimination%20Sep%2004.pdf#page=22",
   },
 };
+// The three tokenizations share the exact same poems and split.
+DATASETS["haiku-char"] = {
+  ...DATASETS.haiku,
+  title: "Haikus · character tokens",
+};
+DATASETS["haiku-line"] = {
+  ...DATASETS.haiku,
+  title: "Haikus · whole-line tokens",
+};
 // Alphabetical order within each of the study's two sex categories; every third name is held out.
 export const STUDY_NAMES = [
   "allison anne carrie emily jill kristen laurie meredith sarah brad brendan brett geoffrey greg jay matthew neil todd".split(
@@ -32,11 +49,6 @@ export const STUDY_NAMES = [
   ),
 ];
 export const SCENARIOS = {
-  patterns: {
-    title: "Invented patterns · equal exposure",
-    dataset: "fictional",
-    share: 0.5,
-  },
   balanced: {
     title: "Study names · equal exposure",
     dataset: "names",

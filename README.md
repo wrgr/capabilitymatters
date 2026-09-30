@@ -92,17 +92,38 @@ publishes `dist/` to the `gh-pages` branch with `CNAME capabilitymatters.org`.
 
 ## MicroGPT teaching labs
 
-`/microgpt/` includes two independent local experiments. `TrainingLab.astro` hosts
-real transformer training; `BiasLab.astro` fits simple classifiers to invented
-engagement observations. `ExplainTray.astro` provides native modal help and a
-source viewer and contextual straightforward-language popups. `DataExplorer.astro` exposes every training/test example, source and per-draw probability. The transformer supports invented strings and historical name cues, with three measured exposure comparisons. These names are context-specific study cues, not identity labels. Both experiments are explicitly educational; the synthetic groups
-are not real cultures and the simulated criterion is not a validated engagement
-measure. The existing article remains the leadership companion.
+`/microgpt/` follows three examples: **letters**, **words in original example
+haikus**, and **bias** (name representation plus synthetic engagement labels).
+`TokenLab.astro` hosts two independent introductory workers. `TrainingLab.astro`
+hosts the existing name-bias transformer and `BiasLab.astro` fits the engagement
+classifiers. `DataExplorer.astro` preserves the detailed name-data audit.
+`ExplainTray.astro` provides modal help, straightforward-language popups and a
+viewer of the actual source. All data is inspectable and downloadable. The
+existing article remains the AI leadership companion.
+
+The haiku corpus consists of 64 combinations of 12 original lines in a controlled
+English 5/7/5 form. It is not third-party poetry or a representative literary corpus.
+48 poems train the model; 16 combinations are held out, with every source line
+already present in training. This narrow recombination test does not establish
+general poetic ability. Readers can compare character, word and whole-line tokens on the same poem,
+then train any mode. The default word mode predicts whole words and line breaks.
+The character mode has 24 IDs, 93 positions and 3,420 parameters; line mode has
+13 IDs, 4 positions and 2,088 parameters. The whole-line model can only reorder
+its 12 source lines. None enforces a complete 5/7/5 output form. The default
+61-token, 20-position model has 3,432 parameters;
+letter/name models retain their 27 tokens, 12 positions and 2,520 parameters.
+Their token losses are not directly comparable.
 
 The dependency-free modules in `public/microgpt/` are served directly:
 
 - `engine.js`: indexed reverse-mode differentiation, causal transformer, Adam,
   deterministic dataset selection, evaluation, sampling and complete snapshots.
+- `haiku-tokens.js`: character/word/line vocabularies, exact split/reassembly semantics and capacities.
+- `haiku-data.js`: original source lines, exact split, training-only word vocabulary and tokenization.
+- `token-data-ui.js`: complete introductory datasets, token IDs, vocabulary and multiline CSV export.
+- `token-lab.js`: independent worker controls, learning traces and checkpoint import/export.
+- `haiku-checkpoints.json`, `haiku-char-checkpoints.json`, `haiku-line-checkpoints.json`:
+  genuine 0-, 100- and 600-step states for all three tokenizations.
 - `datasets.js`: published name lists, provenance, fixed split and exposure scenarios.
 - `data-ui.js`: searchable exact data, complete CSV export and measured comparison table.
 - `simple.js`: concrete, shorter explanations for every teaching topic.
@@ -130,6 +151,7 @@ Rebuild bundled checkpoints after changing training math, data or architecture:
 ```sh
 node scripts/build-microgpt-checkpoints.mjs
 node tests/test_microgpt_engine.mjs
+node tests/test_microgpt_haiku.mjs
 npm run build
 python3 tests/test_microgpt_page.py
 python3 tests/test_experiments_page.py
@@ -142,7 +164,13 @@ bias effects. It also checks exact name splits, shared initial weights, cross-da
 restore, legacy compatibility, atomic rejection of mismatched data, and a shorter
 explanation for every topic. The page test checks attribution, simulation boundaries,
 data inspection controls, contextual popups and links.
-The v2 schema records a dataset ID and exact serialized split, checked before restore.
+The separate `capability-microgpt-tokens-v1` format binds the selected haiku
+vocabulary, tokenization ID and architecture (the earlier word-only format
+remains recognized). Restore validates a fresh candidate before replacing
+the current model, so a rejected import cannot alter its state. Imports are scoped
+to the relevant example. The haiku test verifies full-token gradients, learning in all three modes,
+identical disjoint poem pools, exact resume and cross-architecture validation.
+The v2 character schema records a dataset ID and exact serialized split, checked before restore.
 Legacy v1 states resolve to the original fictional data. The name split uses every
 third entry, after alphabetical ordering within each study sex category, as held out.
 The schema version must change if snapshot compatibility changes. Preserve the

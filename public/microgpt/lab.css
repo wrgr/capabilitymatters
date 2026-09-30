@@ -99,3 +99,21 @@ dialog .close-dialog { float:right; margin:0 0 .8rem 1rem; }
 #simple-dialog p { font-size:1.125rem; line-height:1.65; }
 #simple-dialog .eyebrow { font:.8rem var(--sans); margin-top:1rem; }
 .learning-lab .label-mismatch { background:#fff0d4; font-weight:700; }
+/* Introductory token labs keep independent controls within the shared teaching style. */
+.token-lab .token-insight { padding:1rem 1.2rem; background:#edf4f4; margin:1rem 0; }
+.token-lab .token-chips { display:flex; gap:.4rem; flex-wrap:wrap; }
+.token-lab .token-chips code { background:white; padding:.25rem .4rem; font:.85rem/1.5 var(--mono); border:1px solid #c2d1ce; }
+.token-lab pre { white-space:pre; overflow-x:auto; max-width:100%; font:1rem/1.65 var(--mono); }
+.token-lab .poem-samples pre { padding:1rem; border:1px solid #b7c8c8; background:#f7faf7; }
+.token-lab .data-table td:first-child { white-space:pre-line; min-width:15rem; }
+.token-lab .checkpoint-tools select { display:block; }
+.bias-example { scroll-margin-top:7rem; padding-top:3rem; }
+.bias-example > .learning-lab { padding-top:2rem; }
+.token-comparison { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.8rem; }
+.token-view { min-width:0; }
+.token-view h4 { font:600 1rem/1.4 var(--sans); margin:.5rem 0; }
+.token-view p { font:.8rem/1.5 var(--sans); }
+.token-view .token-chips { max-height:17rem; overflow:auto; align-content:flex-start; }
+.token-view code { overflow-wrap:anywhere; }
+.token-mode-controls { margin:1.5rem 0; padding:1rem 1.2rem; border:1px solid #b7c8c8; }
+@media(max-width:700px) { .token-comparison { grid-template-columns:1fr; } .token-view .token-chips { max-height:12rem; } }

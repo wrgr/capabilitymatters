@@ -1,6 +1,7 @@
 ---
 /** Connect Karpathy's microgpt to evidence-based AI leadership through an original guided companion. */
 import Base from "../layouts/Base.astro";
+import TokenLab from "../components/microgpt/TokenLab.astro";
 import TrainingLab from "../components/microgpt/TrainingLab.astro";
 import BiasLab from "../components/microgpt/BiasLab.astro";
 import ExplainTray from "../components/microgpt/ExplainTray.astro";
@@ -14,7 +15,7 @@ const mechanics = [
   ["Inference", "Fixed parameters generate a sequence through repeated sampling.", "Who checks the result before it changes a decision?"],
 ];
 ---
-<Base title="MicroGPT for AI leaders · Capability Matters" description="An attributed companion to Andrej Karpathy's microgpt: live browser training, resumable checkpoints, a synthetic engagement-bias lab, and explained source code." active="experiments">
+<Base title="MicroGPT for AI leaders · Capability Matters" description="An attributed companion to Andrej Karpathy's microgpt: three browser examples covering letters, words in haikus, and bias, with inspectable data and explained code." active="experiments">
   <link slot="head" rel="stylesheet" href="/microgpt/lab.css" />
   <link slot="head" rel="canonical" href="https://capabilitymatters.org/microgpt/" />
   <header class="intro">
@@ -23,22 +24,32 @@ const mechanics = [
       <h1>A small model.<br />Better questions.</h1>
       <p class="standfirst">What should understanding a language model change about the way you lead an AI project?</p>
       <p>Start with Andrej Karpathy's microgpt. Then follow the decisions outward: from what the model learns, to how people use it, to what counts as evidence that the system works.</p>
+      <p>Work through three examples: letters, then words in example haikus (with character and whole-line comparisons), then bias in data and labels. Each step adds a question about what training can and cannot establish.</p>
       <p class="byline">Capability Matters editorial adaptation · September 30, 2026 · Read, train, compare, and inspect the code at your own pace</p>
       <aside class="attribution" aria-label="Source attribution">
         <strong>Built around Andrej Karpathy's work.</strong>
         <a href={source}>“microgpt,” February 12, 2026</a>, is the original tutorial and implementation. This page contributes a leadership interpretation, an independent JavaScript training adaptation, measured checkpoints, a synthetic bias experiment, and discussion activities. Those additions are ours; they do not imply his endorsement.
       </aside>
       <nav class="contents" aria-label="On this page">
-        <a href="#training">Train a model</a><a href="#bias">Inspect bias</a><a href="#mechanism">The mechanism</a><a href="#experiment">Temperature</a><a href="#perspectives">Leaders' perspectives</a><a href="#practice">Use it in practice</a>
+        <a href="#letters">1 · Letters</a><a href="#haikus">2 · Words in haikus</a><a href="#bias">3 · Bias</a><a href="#mechanism">The mechanism</a><a href="#experiment">Temperature</a><a href="#perspectives">Leaders' perspectives</a><a href="#practice">Use it in practice</a>
       </nav>
     </div>
   </header>
 
   <article class="container article">
-    <TrainingLab />
-    <BiasLab />
+    <span id="training"></span>
+    <TokenLab kind="letters" />
+    <TokenLab kind="haiku" />
+    <section id="bias" class="bias-example" aria-labelledby="bias-example-title">
+      <p class="eyebrow">Example 3 · Bias and fairness</p>
+      <h2 id="bias-example-title">What does the data teach, and who is poorly served?</h2>
+      <p>First change which names the letter model encounters. Then change what a separate classifier is taught to call engagement. Representation and labeling are different choices; inspect both.</p>
+      <TrainingLab />
+      <BiasLab />
+    </section>
+    <script is:inline type="module" src="/microgpt/token-lab.js"></script>
     <section id="mechanism" aria-labelledby="mechanism-title">
-      <p class="eyebrow">01 · Make the mechanism inspectable</p>
+      <p class="eyebrow">Behind the examples · Make the mechanism inspectable</p>
       <h2 id="mechanism-title">Read the model. Then interrogate the project.</h2>
       <p>Karpathy presents a roughly 200-line, dependency-free Python implementation that trains a small generative pretrained transformer (GPT) on names. It includes tokenization, automatic differentiation, a transformer, an optimizer, training, and generation. His <a href={source}>tutorial</a> explains the implementation; the right-hand questions below are our translation into leadership practice.</p>
       <div class="mechanics" role="list">
@@ -51,7 +62,7 @@ const mechanics = [
     </section>
 
     <section id="experiment" aria-labelledby="experiment-title">
-      <p class="eyebrow">02 · Change one thing</p>
+      <p class="eyebrow">Further exploration · Change one thing</p>
       <h2 id="experiment-title">Temperature changes selection. Does it establish correctness?</h2>
       <p>Imagine a model choosing between four possible next tokens. Before moving the slider, predict what will happen to the most likely token when temperature falls. Then inspect the distribution.</p>
       <div class="lab" id="temperature-lab">
@@ -79,7 +90,7 @@ const mechanics = [
     </section>
 
     <section id="perspectives" aria-labelledby="perspectives-title">
-      <p class="eyebrow">03 · Connect the perspectives</p>
+      <p class="eyebrow">Connect the perspectives</p>
       <h2 id="perspectives-title">Mechanism, application, and impact</h2>
       <p>These authors address different questions. The connections below are Capability Matters' interpretation of their published work, not a joint position or a ranking of their views.</p>
       <div class="perspectives">

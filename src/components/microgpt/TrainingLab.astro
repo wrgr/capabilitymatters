@@ -2,10 +2,10 @@
 /** Teach actual transformer training with inspectable data, fairness comparisons and resumable checkpoints. */
 import DataExplorer from "./DataExplorer.astro";
 ---
-<section id="training" class="learning-lab" aria-labelledby="training-title">
-  <p class="eyebrow">Live lab · Real training on your device</p>
-  <h2 id="training-title">Watch a small model learn.</h2>
-  <p>Start from random weights, or load a measured checkpoint. Choose invented spelling patterns or <strong>names used in a historical discrimination study</strong>. The model learns to generate strings from the chosen examples. It has 2,520 adjustable parameters, one transformer block, and three attention heads. Every live training update is computed in your browser.</p>
+<section id="name-bias" class="learning-lab" aria-labelledby="training-title">
+  <p class="eyebrow">3A · Representation bias · Real training on your device</p>
+  <h2 id="training-title">Whose names get more practice?</h2>
+  <p>Start from random weights, or load a measured checkpoint. Train on <strong>names used in a historical discrimination study</strong>, using the same letter-level architecture as Example 1. The model learns to generate strings from the chosen examples. It has 2,520 adjustable parameters, one transformer block, and three attention heads. Every live training update is computed in your browser.</p>
   <div class="orientation"><strong>First visit?</strong> Try “Train 100 steps,” compare the two loss values, then open “Explain this code.” The help buttons explain each term without assuming a programming background.</div>
   <ol class="stages" aria-label="Training cycle">
     <li><button data-guide="data">1. Choose examples</button><span>What the model sees</span></li>
@@ -73,8 +73,8 @@ import DataExplorer from "./DataExplorer.astro";
     <div id="preset-cards" class="preset-cards"><p>Loading checkpoints…</p></div>
   </details>
   <details><summary>Exactly what is being learned?</summary>
-    <p>Both datasets train the same next-character predictor. The invented families have no demographic meaning. The sourced names have documented, historically situated associations; the inspector explains their provenance and our split. Set labels control sampling and auditing, but are never fed into the model.</p>
-    <p><strong>Try it:</strong> compare a fresh balanced run with a fresh 90:10 run at the same number of steps. Inspect held-out loss separately for both families. The evaluation mix stays balanced even when training changes. Samples are illustrative draws, not a reliable estimate of the population distribution.</p>
+    <p>The first example and this names model use the same next-character architecture. The first example’s invented families have no demographic meaning. Here, the sourced names have documented, historically situated associations; the inspector explains their provenance and our split. Set labels control sampling and auditing, but are never fed into the model.</p>
+    <p><strong>Try it:</strong> compare a fresh balanced run with a fresh 90:10 run at the same number of steps. Inspect held-out loss separately for both name sets. The evaluation mix stays balanced even when training changes. Samples are illustrative draws, not a reliable estimate of the population distribution.</p>
     <p><strong>Our adaptation:</strong> Karpathy's original concept and reference architecture, independently implemented in JavaScript with a smaller width, an indexed differentiation tape, inspectable teaching datasets, and different initialization and optimizer settings. <a href="/microgpt/NOTICE.md">Full attribution and differences</a>.</p>
   </details>
   <button data-guide="overview">Explain this code, step by step</button><button data-simple="overview">Explain to me with more straightforward language</button>
