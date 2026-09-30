@@ -1,0 +1,118 @@
+---
+import PrototypeShell from "../../components/prototypes/PrototypeShell.astro";
+import lxd2 from "../../data/problems-to-prototypes/lxd-2.json";
+import meta from "../../data/problems-to-prototypes/meta.json";
+const idea = lxd2.find((x)=>x.id==="example-aile-7161");
+if (!idea) throw new Error("Alignment auditor brief missing");
+const common=meta.aileCommonSteps;
+const cycle=[
+["Understand",idea.cycle.understand],["Model",idea.cycle.model],["Design",common["3"]],["Build",common["4"]],
+["Instrument",idea.cycle.instrument],["Deploy",common["6"]],["Evaluate",common["7"]],["Refine",common["8"]]
+];
+---
+<PrototypeShell
+  idea={idea}
+  collection="LXD"
+  cycle={cycle}
+  assumption="Making the intended cognitive work and the actual learner action visible side by side will help educators detect seductive-but-misaligned technology use before implementation."
+  falsifier="Teachers agree with the audit but make no different lesson decisions, or the tool systematically mistakes surface verbs and app features for the actual cognitive work learners perform."
+  instrumentation="Track teacher agreement with the mapping, override reasons, lesson revisions, quality of learner evidence, and downstream performance. Treat the automated classification as a prompt for judgment, not a score."
+>
+  <div slot="app" class="auditor" id="alignment-auditor">
+    <section class="setup">
+      <label>Learning objective
+        <textarea id="objective" rows="3">Students will infer a character's motivation from textual evidence and justify the inference.</textarea>
+      </label>
+      <label>Digital activity
+        <textarea id="activity" rows="3">Students use a vocabulary app to tap the correct definition for highlighted words and earn points for speed.</textarea>
+      </label>
+      <label>What evidence will the learner produce?
+        <textarea id="evidence" rows="3">The app records correct vocabulary selections and completion.</textarea>
+      </label>
+      <button type="button" id="audit">Audit the alignment</button>
+    </section>
+
+    <section id="result" hidden aria-live="polite">
+      <div class="matrix">
+        <article><small>Objective demands</small><h3 id="objective-level"></h3><p id="objective-read"></p></article>
+        <article><small>Learner actually does</small><h3 id="activity-level"></h3><p id="activity-read"></p></article>
+        <article><small>Evidence actually proves</small><h3 id="evidence-level"></h3><p id="evidence-read"></p></article>
+      </div>
+      <div class="gap" id="gap"></div>
+      <section class="redesign">
+        <small>Smallest useful redesign</small>
+        <h3 id="redesign-title"></h3>
+        <p id="redesign-copy"></p>
+        <label>Teacher override / alternative interpretation
+          <textarea id="override" rows="3" placeholder="What did the automated mapping miss?"></textarea>
+        </label>
+      </section>
+    </section>
+
+    <details>
+      <summary>Inspect the heuristic</summary>
+      <p>This thin slice uses transparent verb and evidence cues to map each field to four coarse modes: passive, active, constructive, or interactive. It is intentionally easy to disagree with. The pedagogically important interaction is the comparison and teacher override, not the classifier itself.</p>
+    </details>
+  </div>
+</PrototypeShell>
+
+<style>
+  .auditor{display:flex;flex-direction:column;gap:1rem}
+  .setup{display:grid;gap:.8rem}
+  label{display:flex;flex-direction:column;gap:.3rem;font-family:var(--sans);font-size:.78rem;font-weight:700}
+  textarea{font:inherit;font-size:.94rem;color:var(--ink);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.7rem;resize:vertical}
+  button{justify-self:start;border:1px solid var(--accent);background:var(--accent);color:var(--bg);font-family:var(--sans);font-weight:700;padding:.65rem .85rem;border-radius:4px;cursor:pointer}
+  .matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem}
+  .matrix article{border:1px solid var(--border);border-radius:4px;padding:.85rem;background:var(--bg)}
+  .matrix small,.redesign small{font-family:var(--sans);font-size:.67rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:700}
+  .matrix h3{margin:.35rem 0;font-size:1.1rem}.matrix p{font-size:.82rem;margin:0;color:var(--muted)}
+  .gap{margin-top:.8rem;padding:.9rem 1rem;border-left:4px solid var(--accent);background:var(--tint);font-size:.9rem}
+  .redesign{margin-top:.8rem;border:1px solid var(--border);background:var(--tint-warm);border-radius:4px;padding:1rem}
+  .redesign h3{margin:.3rem 0}.redesign p{font-size:.88rem}
+  details{border-top:1px solid var(--border);padding-top:.8rem} details summary{cursor:pointer;font-family:var(--sans);font-size:.78rem;color:var(--muted)} details p{font-size:.82rem;color:var(--muted)}
+  @media(max-width:680px){.matrix{grid-template-columns:1fr}}
+</style>
+
+<script is:inline>
+(function(){
+  var root=document.getElementById('alignment-auditor'); if(!root)return;
+  function classify(text){
+    text=(text||'').toLowerCase();
+    if(/debate|discuss|collaborat|respond to peer|negotiate|co-construct|critique each other/.test(text)) return ['Interactive','Learners must respond to another person's thinking, not only the material.'];
+    if(/justify|explain|infer|design|create|generate|argue|predict|hypothes|compare|diagnos|model|construct/.test(text)) return ['Constructive','Learners must produce an inference, explanation, model, or other new representation.'];
+    if(/select|tap|click|highlight|match|sort|label|identify|watch and answer|complete/.test(text)) return ['Active','Learners manipulate or select information, but may not need to generate a new idea or explanation.'];
+    return ['Passive','The description does not yet show an observable learner action beyond receiving information.'];
+  }
+  function evidenceClaim(text){
+    text=(text||'').toLowerCase();
+    if(/explanation|rationale|written response|oral response|novel|transfer|justify|artifact|performance/.test(text)) return ['Reasoning/performance evidence','This could support a claim about the target thinking if scored against an explicit standard.'];
+    if(/correct|score|quiz|selection|answer/.test(text)) return ['Accuracy evidence','This supports a bounded accuracy claim, but not necessarily the reasoning behind it.'];
+    if(/completion|time|click|view|engagement|points/.test(text)) return ['Activity evidence','This shows participation or activity, not the intended capability by itself.'];
+    return ['Unclear evidence','The evidence description does not yet identify what observable product or performance would support the learning claim.'];
+  }
+  root.querySelector('#audit').addEventListener('click',function(){
+    var obj=root.querySelector('#objective').value, act=root.querySelector('#activity').value, ev=root.querySelector('#evidence').value;
+    var o=classify(obj), a=classify(act), e=evidenceClaim(ev);
+    root.querySelector('#objective-level').textContent=o[0]; root.querySelector('#objective-read').textContent=o[1];
+    root.querySelector('#activity-level').textContent=a[0]; root.querySelector('#activity-read').textContent=a[1];
+    root.querySelector('#evidence-level').textContent=e[0]; root.querySelector('#evidence-read').textContent=e[1];
+    var rank={Passive:0,Active:1,Constructive:2,Interactive:3};
+    var delta=(rank[o[0]]??0)-(rank[a[0]]??0);
+    var gap=root.querySelector('#gap'), title=root.querySelector('#redesign-title'), copy=root.querySelector('#redesign-copy');
+    if(delta>=1){
+      gap.innerHTML='<strong>Alignment warning:</strong> the objective asks for more cognitive work than the activity currently requires.';
+      title.textContent='Add an evidence-producing move before or after the app.';
+      copy.textContent='Keep the useful vocabulary interaction if needed, but require the learner to make an inference, cite textual evidence, and explain the connection. The app can support prerequisite knowledge without becoming the assessment of inferential reading.';
+    }else if(e[0]==='Activity evidence'){
+      gap.innerHTML='<strong>Evidence warning:</strong> the activity may be plausible, but the current data mostly show participation.';
+      title.textContent='Collect the learner product that matches the claim.';
+      copy.textContent='Add a short explanation, transfer task, or observable performance and judge that artifact directly. Treat clicks, time, and completion as implementation signals rather than learning outcomes.';
+    }else{
+      gap.innerHTML='<strong>Promising alignment:</strong> the described learner action is at least as generative as the stated objective. Teacher judgment is still needed.';
+      title.textContent='Stress-test with a transfer task.';
+      copy.textContent='Ask learners to demonstrate the same capability in a new context without the app. If performance disappears, the original activity may have supported task completion more than transferable learning.';
+    }
+    root.querySelector('#result').hidden=false;
+  });
+})();
+</script>

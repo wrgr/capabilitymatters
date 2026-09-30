@@ -1,0 +1,111 @@
+---
+import PrototypeShell from "../../components/prototypes/PrototypeShell.astro";
+import lens1 from "../../data/problems-to-prototypes/lens-1.json";
+import meta from "../../data/problems-to-prototypes/meta.json";
+const idea = lens1.find((x)=>x.id==="example-aile-5636");
+if (!idea) throw new Error("Capability map brief missing");
+const common=meta.aileCommonSteps;
+const cycle=[
+["Understand",idea.cycle.understand],["Model",idea.cycle.model],["Design",common["3"]],["Build",common["4"]],
+["Instrument",idea.cycle.instrument],["Deploy",common["6"]],["Evaluate",common["7"]],["Refine",common["8"]]
+];
+---
+<PrototypeShell
+  idea={idea}
+  collection="LENS"
+  cycle={cycle}
+  assumption="Starting from observable work and credible evidence, rather than course inventories, will reveal different readiness gaps and remove some unnecessary training recommendations."
+  falsifier="The graph becomes another taxonomy: managers cannot agree on observable tasks, evidence is disconnected from performance, or recommendations simply route people to existing courses."
+  instrumentation="Track manager agreement on capability definitions, evidence-to-performance relationships, time-to-readiness, task performance, course recommendations avoided, and graph nodes that repeatedly fail expert review."
+>
+  <div slot="app" class="cap-map" id="cap-map">
+    <section class="role">
+      <label>Role
+        <select id="role">
+          <option value="lead">New team lead</option>
+          <option value="analyst">Operations analyst</option>
+          <option value="supervisor">Frontline supervisor</option>
+        </select>
+      </label>
+      <p id="role-context"></p>
+    </section>
+
+    <div class="graph" aria-label="Capability graph">
+      <article class="node role-node"><small>ROLE OUTCOME</small><strong id="outcome"></strong></article>
+      <div class="arrow">↓</div>
+      <div class="tasks" id="tasks"></div>
+      <div class="arrow">↓</div>
+      <div class="evidence-grid" id="evidence-grid"></div>
+    </div>
+
+    <section class="diagnostic">
+      <h3>Readiness diagnostic</h3>
+      <p>Select the evidence you actually have for this person.</p>
+      <div id="checks"></div>
+      <div id="readiness" class="readiness" aria-live="polite"></div>
+    </section>
+  </div>
+</PrototypeShell>
+
+<style>
+  .cap-map{display:flex;flex-direction:column;gap:1rem}
+  .role{display:flex;gap:1rem;align-items:end;flex-wrap:wrap;background:var(--tint);border:1px solid var(--border);padding:.85rem;border-radius:4px}
+  .role label{display:flex;flex-direction:column;gap:.3rem;font-family:var(--sans);font-size:.75rem;font-weight:700}
+  select{font:inherit;border:1px solid var(--border);background:var(--bg);color:var(--ink);padding:.55rem;border-radius:4px}
+  .role p{margin:0;font-size:.84rem;color:var(--muted);max-width:38rem}
+  .graph{display:flex;flex-direction:column;align-items:stretch;gap:.35rem}
+  .node{border:1px solid var(--border);border-radius:4px;padding:.8rem;background:var(--bg)}
+  .node small{display:block;font-family:var(--sans);font-size:.64rem;letter-spacing:.09em;color:var(--accent);font-weight:700}
+  .node strong{display:block;margin-top:.25rem}
+  .tasks,.evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem;width:100%}
+  .task-node{background:var(--tint-warm)} .evidence-node{background:var(--tint)}
+  .arrow{text-align:center;color:var(--muted);font-size:1.2rem}
+  .diagnostic{border-top:1px solid var(--border);padding-top:.8rem}
+  .diagnostic h3{margin:0}.diagnostic p{font-size:.84rem;color:var(--muted)}
+  #checks{display:grid;gap:.45rem}
+  #checks label{display:flex;gap:.55rem;align-items:flex-start;font-family:var(--sans);font-size:.84rem}
+  .readiness{margin-top:.8rem;padding:.9rem 1rem;border-left:4px solid var(--accent);background:var(--tint);font-size:.88rem}
+  @media(max-width:680px){.tasks,.evidence-grid{grid-template-columns:1fr}}
+</style>
+
+<script is:inline>
+(function(){
+  var root=document.getElementById('cap-map'); if(!root)return;
+  var data={
+    lead:{context:'Responsible for day-to-day performance of a small team and escalation of people or work issues.',outcome:'Run the team effectively under ordinary and difficult conditions.',tasks:[
+      ['Feedback conversation','Diagnose the issue, communicate clearly, and agree on a next action.'],
+      ['Prioritize under pressure','Choose what to defer, delegate, escalate, or do now.'],
+      ['Coach a struggling teammate','Observe performance, identify a likely cause, and select an appropriate support move.']
+    ]},
+    analyst:{context:'Turns incomplete operational information into defensible decisions and recommendations.',outcome:'Produce accurate, decision-useful analysis under uncertainty.',tasks:[
+      ['Frame the question','Separate the requested output from the decision that actually needs support.'],
+      ['Test competing explanations','Use evidence to distinguish plausible causes rather than confirm the first hypothesis.'],
+      ['Communicate uncertainty','State what the evidence supports, what it does not, and what would change the conclusion.']
+    ]},
+    supervisor:{context:'Coordinates frontline work where reliability depends on people, workflow, tools, and local conditions.',outcome:'Maintain safe, reliable performance and intervene on the right system lever.',tasks:[
+      ['Diagnose a recurring error','Distinguish knowledge gaps from workflow, interface, staffing, or incentive problems.'],
+      ['Run a pre-shift brief','Surface risks, assign responsibilities, and verify shared understanding.'],
+      ['Escalate appropriately','Recognize when local action is insufficient and hand off with the right evidence.']
+    ]}
+  };
+  var role=root.querySelector('#role');
+  function render(){
+    var d=data[role.value];
+    root.querySelector('#role-context').textContent=d.context;
+    root.querySelector('#outcome').textContent=d.outcome;
+    root.querySelector('#tasks').innerHTML=d.tasks.map(function(t,i){return '<article class="node task-node"><small>TASK '+(i+1)+'</small><strong>'+t[0]+'</strong><p>'+t[1]+'</p></article>'}).join('');
+    root.querySelector('#evidence-grid').innerHTML=d.tasks.map(function(t,i){return '<article class="node evidence-node"><small>CREDIBLE EVIDENCE '+(i+1)+'</small><strong>Observed '+t[0].toLowerCase()+'</strong><p>Performance on a realistic task with a stated standard, not course completion alone.</p></article>'}).join('');
+    root.querySelector('#checks').innerHTML=d.tasks.map(function(t,i){return '<label><input type="checkbox" data-i="'+i+'"> We have credible evidence for <strong>'+t[0]+'</strong></label>'}).join('');
+    assess();
+    root.querySelectorAll('#checks input').forEach(function(x){x.addEventListener('change',assess)});
+  }
+  function assess(){
+    var checked=[].slice.call(root.querySelectorAll('#checks input:checked')).length;
+    var box=root.querySelector('#readiness');
+    if(checked===3) box.innerHTML='<strong>Evidence-rich:</strong> you have direct evidence across the three representative tasks. The next question is whether performance holds under new conditions, not what course to assign.';
+    else if(checked===0) box.innerHTML='<strong>Unknown readiness:</strong> you currently have no direct task evidence. Resist filling the gap with completion records. Sample performance first.';
+    else box.innerHTML='<strong>Partial readiness:</strong> '+checked+' of 3 representative tasks have credible evidence. Target practice or observation at the uncovered tasks rather than assigning broad content by default.';
+  }
+  role.addEventListener('change',render); render();
+})();
+</script>
