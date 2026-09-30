@@ -1,0 +1,155 @@
+---
+import Base from "../layouts/Base.astro";
+import SectionHero from "../components/SectionHero.astro";
+import aile1 from "../data/problems-to-prototypes/aile-1.json";
+import aile2 from "../data/problems-to-prototypes/aile-2.json";
+import aile3 from "../data/problems-to-prototypes/aile-3.json";
+import lxd1 from "../data/problems-to-prototypes/lxd-1.json";
+import lxd2 from "../data/problems-to-prototypes/lxd-2.json";
+import lxd3 from "../data/problems-to-prototypes/lxd-3.json";
+import lxd4 from "../data/problems-to-prototypes/lxd-4.json";
+import lens1 from "../data/problems-to-prototypes/lens-1.json";
+import canonical from "../data/problems-to-prototypes/lens-canonical.json";
+import evidenceLibrary from "../data/problems-to-prototypes/evidence.json";
+import meta from "../data/problems-to-prototypes/meta.json";
+
+type Collection = "AILE" | "LXD" | "LENS" | "LENS Canonical";
+type Idea = {
+  id:string; title:string; gap:string; prototype:string; example:string; frame:string;
+  questions:string[]; cycle:{understand:string;model:string;instrument:string};
+  evidence:string[]; collection?:Collection;
+};
+const tag=(items:Idea[],collection:Collection)=>items.map((item)=>({...item,collection}));
+const ideas:Idea[]=[
+  ...tag([...aile1,...aile2,...aile3] as Idea[],"AILE"),
+  ...tag([...lxd1,...lxd2,...lxd3,...lxd4] as Idea[],"LXD"),
+  ...tag(lens1 as Idea[],"LENS"),
+  ...tag(canonical as Idea[],"LENS Canonical"),
+];
+const evidenceById=Object.fromEntries(evidenceLibrary.map((e)=>[e.id,e]));
+const common=meta.aileCommonSteps;
+const cycleFor=(idea:Idea)=>[
+  ["Understand",idea.cycle.understand],
+  ["Model",idea.cycle.model],
+  ["Design",common["3"]],
+  ["Build",common["4"]],
+  ["Instrument",idea.cycle.instrument],
+  ["Deploy",common["6"]],
+  ["Evaluate",common["7"]],
+  ["Refine",common["8"]],
+];
+const longLabel:Record<Collection,string>={
+  AILE:"Artificial Intelligence Leadership in Education",
+  LXD:"Learning Experience Design",
+  LENS:"Learning Engineering for Next-Generation Systems",
+  "LENS Canonical":"Canonical LENS system problems",
+};
+---
+
+<Base title="Problems → Prototypes · Capability Matters"
+  description="Rapid, evidence-backed prototype briefs for learning engineering."
+  active="problems-to-prototypes">
+  <SectionHero
+    eyebrow="Problems → Prototypes"
+    title="Start with a real gap. Build the smallest thing that could teach us something."
+    claim="Rapid design briefs: concrete enough to prototype, abstract enough to reuse, and explicit about pedagogy, human-system constraints, evidence, and what would make us change course."
+    question="What could you build in a first cycle — and what evidence would force the second cycle to be different?"
+    count={ideas.length}
+  />
+
+  <section class="intro container-wide">
+    <div>
+      <p><strong>These are project seeds, not prescriptions.</strong> The first 32 began as abstracted themes from prospective-student essays and were deliberately rewritten as non-person-specific design problems. The six canonical LENS cards begin from recurring system problem types. No source essays, names, initials, or student IDs appear here.</p>
+      <p>Each card starts with a capability gap, proposes a thin-slice prototype, gives a representative use case, names the learning and human-system logic, and instruments the first cycle so that a disappointing result is still useful evidence.</p>
+    </div>
+    <aside class="loop">
+      <b>The eight-step loop</b>
+      <ol>{meta.designCycle.map((step)=><li>{step}</li>)}</ol>
+    </aside>
+  </section>
+
+  <section class="filters-shell">
+    <div class="filters container-wide">
+      <label><span>Keyword</span><input id="search" type="search" placeholder="Search gaps, prototypes, pedagogy…" /></label>
+      <label><span>Concentration / collection</span>
+        <select id="collection">
+          <option value="all">All collections</option>
+          <option value="AILE">AILE · 12</option>
+          <option value="LXD">LXD · 16</option>
+          <option value="LENS">LENS · 4</option>
+          <option value="LENS Canonical">LENS Canonical · 6</option>
+        </select>
+      </label>
+      <div class="count"><strong id="count">{ideas.length}</strong> briefs</div>
+    </div>
+  </section>
+
+  <section class="gallery container-wide">
+    {ideas.map((idea)=>{
+      const evidence=idea.evidence.map((id)=>evidenceById[id]).filter(Boolean);
+      const searchable=[idea.title,idea.gap,idea.prototype,idea.example,idea.frame,...idea.questions].join(" ").toLowerCase();
+      return <article class="card" data-collection={idea.collection} data-search={searchable} id={idea.id}>
+        <div class="meta"><span class:list={["chip",idea.collection?.toLowerCase().replace(" ","-")]}>{idea.collection}</span><span>{longLabel[idea.collection as Collection]}</span></div>
+        <h2>{idea.title}</h2>
+        <div class="block"><b>The gap</b><p>{idea.gap}</p></div>
+        <div class="block prototype"><b>A first prototype</b><p>{idea.prototype}</p></div>
+        <div class="example"><b>Representative use case</b><p>{idea.example}</p></div>
+        <details>
+          <summary>Open the design brief <span>↓</span></summary>
+          <div class="deep">
+            <section><h3>Why this might support learning</h3><p>{idea.frame}</p></section>
+            <section><h3>Questions worth carrying into the build</h3><ul>{idea.questions.map((q)=><li>{q}</li>)}</ul></section>
+            <section>
+              <div class="cycle-head"><div><small>LENS iteration cycle</small><h3>One possible first pass</h3></div><em>Refine → Understand</em></div>
+              <ol class="cycle">{cycleFor(idea).map(([name,text],i)=><li><span>{String(i+1).padStart(2,"0")}</span><div><b>{name}</b><p>{text}</p></div></li>)}</ol>
+            </section>
+            <section class="sources"><h3>Evidence anchors</h3>
+              <p class="note">These sources motivate the design logic; they do not establish that this specific prototype will work. That is what the first cycle is for.</p>
+              <ol>{evidence.map((source)=><li><a href={source.url} target="_blank" rel="noopener">{source.citation}</a> <small>{source.year}</small><p>{source.why}</p></li>)}</ol>
+            </section>
+            <section class="live">
+              <h3>Optional live extension</h3>
+              <p>The page is static by default. Configure a compatible endpoint below to send only this public brief for a fresh critique or next-cycle suggestion.</p>
+              <button type="button" data-live={idea.id}>Critique with live AI</button>
+              <pre data-output={idea.id} hidden></pre>
+            </section>
+          </div>
+        </details>
+      </article>
+    })}
+    <p id="none" class="none" hidden>No briefs match those filters.</p>
+  </section>
+
+  <section class="endpoint container-wide">
+    <details>
+      <summary>Optional live AI configuration</summary>
+      <div>
+        <p>No endpoint is required and the static page sends nothing anywhere. For experiments, enter a CORS-enabled URL that accepts POST JSON and returns plain text or JSON with a <code>text</code> field. The URL is stored only in this browser.</p>
+        <label><span>Endpoint URL</span><input id="endpoint" type="url" placeholder="https://your-service.example/critique" /></label>
+        <p><button type="button" id="save">Save locally</button> <button type="button" id="clear" class="secondary">Clear</button> <small id="status"></small></p>
+      </div>
+    </details>
+  </section>
+</Base>
+
+<style>
+  .intro{display:grid;grid-template-columns:minmax(0,1fr) 18rem;gap:2.5rem;padding-top:2rem;padding-bottom:2rem}.intro p{max-width:48rem}.loop{border-left:3px solid var(--accent);padding-left:1rem;font-family:var(--sans);font-size:.78rem}.loop ol{list-style:none;padding:0;margin:.6rem 0 0;display:flex;flex-wrap:wrap;gap:.3rem}.loop li{background:var(--tint);border:1px solid var(--border);padding:.15rem .35rem}
+  .filters-shell{position:sticky;top:57px;z-index:8;background:rgba(254,253,248,.96);backdrop-filter:blur(10px);border-block:1px solid var(--border)}.filters{display:grid;grid-template-columns:2fr 1fr auto;gap:.8rem;align-items:end;padding-top:.75rem;padding-bottom:.75rem}.filters label,.endpoint label{font-family:var(--sans);font-size:.72rem;color:var(--muted);display:flex;flex-direction:column;gap:.25rem}.filters input,.filters select,.endpoint input{font:inherit;font-size:.9rem;color:var(--ink);background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:.6rem .65rem}.count{font-family:var(--sans);color:var(--muted);padding:.55rem 0;white-space:nowrap}.count strong{color:var(--ink)}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,22rem),1fr));gap:1.1rem;align-items:start;padding-top:2rem;padding-bottom:3rem}.card{border:1px solid var(--border);border-radius:5px;background:var(--bg);padding:1.15rem}.card:hover{border-color:var(--accent)}.meta{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;font-family:var(--sans);font-size:.68rem;color:var(--muted)}.chip{font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .4rem;background:var(--tint-warm);color:var(--accent);border-radius:2px}.chip.lxd{background:#e8f1f4;color:#2c5f6f}.chip.lens{background:#ecefe7;color:#45513a}.chip.lens-canonical{background:#eee9f4;color:#5d4475}.card h2{font-size:1.3rem;margin:.65rem 0 1rem}.block{border-top:1px solid var(--border);padding-top:.75rem;margin-top:.75rem}.block>b,.example>b{font-family:var(--sans);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}.block p,.example p{font-size:.92rem;line-height:1.55;margin:.25rem 0 0;max-width:none}.example{margin-top:.9rem;padding:.8rem;background:var(--tint);border-radius:3px}.example>b{color:var(--accent-2)}
+  .card>details{border-top:1px solid var(--border);margin-top:1rem;padding-top:.25rem}.card>details>summary{cursor:pointer;list-style:none;font-family:var(--sans);font-size:.8rem;font-weight:700;color:var(--accent);display:flex;justify-content:space-between;padding:.6rem 0 .2rem}.card>details>summary::-webkit-details-marker{display:none}.deep{border-top:1px dashed var(--border);margin-top:.7rem;padding-top:1rem;display:flex;flex-direction:column;gap:1.4rem}.deep h3{font-size:1rem;margin:0 0 .4rem}.deep p,.deep li{font-size:.86rem;line-height:1.55}.deep ul{padding-left:1.15rem}.cycle-head{display:flex;justify-content:space-between;align-items:end;gap:1rem}.cycle-head small{font-family:var(--sans);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}.cycle-head em{font-family:var(--sans);font-size:.68rem;color:var(--muted)}.cycle{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.5rem}.cycle li{display:grid;grid-template-columns:1.8rem 1fr;gap:.45rem;background:var(--tint);border:1px solid var(--border);padding:.6rem;border-radius:3px}.cycle li>span{font-family:var(--mono);font-size:.7rem;color:var(--accent)}.cycle b{font-family:var(--sans);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em}.cycle p{font-size:.79rem;margin:.15rem 0 0;max-width:none}.sources{border-top:1px solid var(--border);padding-top:.9rem}.sources .note{color:var(--muted);font-size:.79rem}.sources ol{padding-left:1.1rem}.sources li{margin:.6rem 0}.sources a{font-family:var(--sans);font-weight:650}.sources small{color:var(--muted)}.sources li p{font-size:.77rem;color:var(--muted);margin:.12rem 0 0}.live{border:1px solid var(--border);background:var(--tint);padding:.8rem;border-radius:4px}.live button,.endpoint button{border:1px solid var(--accent);background:var(--accent);color:var(--bg);font-family:var(--sans);font-size:.75rem;font-weight:700;padding:.5rem .65rem;border-radius:3px;cursor:pointer}.live pre{white-space:pre-wrap;background:var(--bg);border:1px solid var(--border);padding:.7rem;font-family:var(--serif);font-size:.82rem}.none{grid-column:1/-1;text-align:center;max-width:none;color:var(--muted);padding:3rem}
+  .endpoint{padding-top:0;padding-bottom:2rem}.endpoint>details{border-top:1px solid var(--border);padding-top:1rem}.endpoint summary{font-family:var(--sans);font-weight:700;color:var(--accent);cursor:pointer}.endpoint>details>div{max-width:48rem;padding:1rem 0}.endpoint p{font-size:.88rem}.endpoint button.secondary{background:transparent;color:var(--accent)}
+  @media(max-width:760px){.intro{grid-template-columns:1fr}.filters-shell{position:static}.filters{grid-template-columns:1fr}.cycle{grid-template-columns:1fr}}
+</style>
+
+<script is:inline>
+(function(){
+  var search=document.getElementById('search'),select=document.getElementById('collection'),count=document.getElementById('count'),none=document.getElementById('none');
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  function filter(){var q=(search.value||'').trim().toLowerCase(),c=select.value,n=0;cards.forEach(function(card){var show=(c==='all'||card.dataset.collection===c)&&(!q||(card.dataset.search||'').indexOf(q)!==-1);card.hidden=!show;if(show)n++;});count.textContent=String(n);none.hidden=n!==0}
+  search.addEventListener('input',filter);select.addEventListener('change',filter);
+  var input=document.getElementById('endpoint'),status=document.getElementById('status');input.value=localStorage.getItem('capabilitymatters-live-endpoint')||'';
+  document.getElementById('save').addEventListener('click',function(){var v=input.value.trim();try{new URL(v)}catch(e){status.textContent='Invalid URL.';return}localStorage.setItem('capabilitymatters-live-endpoint',v);status.textContent='Saved in this browser.';});
+  document.getElementById('clear').addEventListener('click',function(){localStorage.removeItem('capabilitymatters-live-endpoint');input.value='';status.textContent='Cleared.';});
+  document.querySelectorAll('[data-live]').forEach(function(button){button.addEventListener('click',async function(){var endpoint=localStorage.getItem('capabilitymatters-live-endpoint'),card=button.closest('.card'),out=card.querySelector('[data-output]');out.hidden=false;if(!endpoint){out.textContent='No endpoint configured. The static brief requires no AI service.';return}button.disabled=true;out.textContent='Requesting a critique…';try{var payload={task:'Critique this public prototype as a learning engineer. Identify the strongest design assumption, the highest-value falsification test, one non-AI alternative, and the next smallest prototype. Keep human agency and transfer central.',brief:{collection:card.dataset.collection,title:card.querySelector('h2').textContent,text:card.innerText}};var r=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(!r.ok)throw new Error('HTTP '+r.status);var type=r.headers.get('content-type')||'';if(type.indexOf('application/json')!==-1){var data=await r.json();out.textContent=data.text||data.output||JSON.stringify(data,null,2)}else out.textContent=await r.text()}catch(e){out.textContent='Live request failed: '+e.message+'. The static page is unaffected.'}finally{button.disabled=false}});});
+})();
+</script>
