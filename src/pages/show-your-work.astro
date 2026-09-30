@@ -1,0 +1,63 @@
+---
+// Read the revised grounding paper and download its matching PDF or August draft.
+import Base from "../layouts/Base.astro";
+import { Content, getHeadings } from "../papers/show-your-work.md";
+
+const sections = getHeadings().filter((heading) => heading.depth === 2).slice(1);
+---
+
+<Base title="Show Your Work · LENS" active="experiments"
+  description="A revised working paper on functional evidence, learning, and capability in human-AI systems, with a matching downloadable PDF.">
+  <div class="paper-shell">
+    <nav class="paper-actions" aria-label="Paper downloads">
+      <a href="/experiments/">Experiments</a>
+      <a class="download" href="/papers/show-your-work.pdf" download>Download revised PDF</a>
+      <a href="/papers/show-your-work-august-2026.pdf">August draft (PDF)</a>
+    </nav>
+    <div class="reading-layout">
+      <aside>
+        <details open>
+          <summary>In this paper</summary>
+          <nav aria-label="Paper sections">
+            {sections.map((section) => <a href={`#${section.slug}`}>{section.text}</a>)}
+          </nav>
+        </details>
+      </aside>
+      <article class="paper"><Content /></article>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .paper-shell { max-width: 76rem; margin: auto; padding: 2rem var(--page-pad); }
+  .paper-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem 1.5rem; padding-bottom: 2rem; font-family: var(--sans); font-size: .9rem; }
+  .download { padding: .65rem 1rem; background: var(--accent-2); color: white; border-radius: 4px; }
+  .reading-layout { display: grid; grid-template-columns: 14rem minmax(0, 44rem); gap: 3rem; }
+  aside { font-family: var(--sans); font-size: .9rem; }
+  details { position: sticky; top: 1rem; }
+  summary { cursor: pointer; font-weight: 650; margin-bottom: 1rem; }
+  aside nav { display: grid; gap: .75rem; }
+  aside a { color: var(--ink-soft); line-height: 1.4; }
+  .paper { min-width: 0; font-size: 1.1rem; }
+  .paper :global(p) { max-width: none; }
+  .paper :global(h1) { font-size: clamp(2.8rem, 7vw, 4.5rem); margin-bottom: .3em; }
+  .paper :global(h2) { margin-top: 2.5rem; scroll-margin-top: 1.5rem; }
+  .paper :global(h1 + h2) { margin-top: 0; font-size: 1.5rem; font-weight: 400; color: var(--ink-soft); line-height: 1.4; }
+  .paper :global(h3) { margin-top: 1.8rem; }
+  .paper :global(table) { margin: 1.5rem 0; font-size: .92rem; }
+  .paper :global(th), .paper :global(td) { min-width: 9rem; padding: .7rem; }
+  .paper :global(ol) { padding-left: 1.4rem; font-size: .95rem; }
+  .paper :global(ol li) { margin-bottom: .8rem; }
+  .paper :global(a) { text-decoration: underline; text-underline-offset: .16em; }
+  @media (max-width: 900px) {
+    .reading-layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+    aside { border: 1px solid var(--border); border-radius: 4px; padding: 1rem; }
+    aside nav { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+    details { position: static; }
+  }
+  @media print {
+    aside, .paper-actions { display: none; }
+    .reading-layout { display: block; }
+    .paper-shell { padding: 0; }
+  }
+</style>

@@ -1,8 +1,8 @@
 ---
 /**
  * Experiments page: a card grid of standalone experimental projects and
- * prototypes, each with a short description and, unless flagged `comingSoon`,
- * a project link. These live on this site or their own domains rather than in the content
+ * prototypes, each with a short description, a project link, and an optional
+ * companion job aid. These live on this site or their own domains rather than in the content
  * collections, so the data is a small inline array here rather than an MDX
  * collection + schema change.
  *
@@ -19,18 +19,17 @@ interface Experiment {
   description: string;
   // Short label for the domain, shown under the title (e.g. "calibratedjudgment.org").
   host: string;
-  // Temporary: when true the card renders unlinked with a "Coming soon" label
-  // instead of an outbound link. Drop the flag to put the link back.
-  comingSoon?: boolean;
+  // Optional companion resource for trying the creative process yourself.
+  jobAid?: { url: string; label: string };
 }
 
 // A single highlighted item shown as a full-width banner across the top of the
-// page, above the experiment grid. Links out to a PDF hosted in another repo.
+// page, above the experiment grid. Links to the revised paper and matching PDF.
 const featuredPaper = {
   title: "Show Your Work",
-  url: "https://raw.githubusercontent.com/wrgr/lens-concentration/main/papers/show-your-work.pdf",
+  url: "/show-your-work/",
   description:
-    "The grounding argument beneath LENS: professional competence and system capability have to be measured by functional behavior — a work sample scored against a real task — not inferred from a grade, a credit hour, or a test score. Draft, August 2026.",
+    "The revised grounding paper beneath LENS: what functional work can tell us about output quality, capability, learning, and impact, including when AI contributes to the result. Working draft, September 30, 2026.",
 };
 
 // Ordered as presented. Descriptions say what the thing actually does, in its
@@ -44,6 +43,17 @@ const experiments: Experiment[] = [
     host: "capabilitymatters.org/capability-pipeline",
     description:
       "Explore the eight-step systems process through five cases and a branching teaching simulation. Make decisions, inspect consequences, revise your strategy, and compare branches; the fictional scenarios use explicit teaching assumptions.",
+  },
+  {
+    title: "Rainbow Bug Dash",
+    url: "/rainbow-bug/",
+    host: "capabilitymatters.org/rainbow-bug",
+    description:
+      "Collect rainbows, dodge bugs, and explore a browser game co-created by Julian, age 6, with artificial intelligence (AI) as a creative partner. Pair the game with the Vibe Coding job aid by James Diamond and Will Gray-Roncal to try the same process: describe an idea, play with the result, and use your judgment to guide the next revision.",
+    jobAid: {
+      url: "/vibe-coding-job-aid.docx",
+      label: "Vibe Coding job aid (Word)",
+    },
   },
   {
     title: "MicroGPT for AI leaders",
@@ -88,12 +98,11 @@ const experiments: Experiment[] = [
       "A soap-bubble physics sandbox: shape a wand, watch the film billow and deform in moving air, then run the whole thing backwards — fit an ellipse to a photo of a real bubble and read the wind speed back out of the shape it left.",
   },
   {
-    title: "grayroncal.com",
-    url: "https://grayroncal.com",
-    host: "grayroncal.com",
+    title: "Will Gray-Roncal",
+    url: "https://will.grayroncal.com",
+    host: "will.grayroncal.com",
     description:
-      "Personal site of William Gray Roncal — projects, writing, and the experiments that do not have a domain of their own yet.",
-    comingSoon: true,
+      "Personal site of Will Gray-Roncal: projects, writing, and work across learning engineering and research.",
   },
 ];
 ---
@@ -112,7 +121,7 @@ const experiments: Experiment[] = [
       <span class="featured-eyebrow">Featured paper</span>
       <span class="featured-title">{featuredPaper.title}</span>
       <span class="featured-desc">{featuredPaper.description}</span>
-      <span class="featured-cta">Read the PDF &rarr;</span>
+      <span class="featured-cta">Read the paper</span>
     </div>
   </a>
 
@@ -124,17 +133,18 @@ const experiments: Experiment[] = [
             <span class="format-chip">Experiment</span>
           </div>
           <h3 class="card-title">
-            {exp.comingSoon
-              ? exp.title
-              : <a href={exp.url} target="_blank" rel="noopener">{exp.title}</a>}
+            <a href={exp.url} target="_blank" rel="noopener">{exp.title}</a>
           </h3>
           <p class="card-host">{exp.host}</p>
           <p class="card-summary">{exp.description}</p>
           <p class="card-link">
-            {exp.comingSoon
-              ? <span class="card-soon">Coming soon</span>
-              : <a href={exp.url} target="_blank" rel="noopener">Visit &rarr;</a>}
+            <a href={exp.url} target="_blank" rel="noopener">Visit &rarr;</a>
           </p>
+          {exp.jobAid && (
+            <p class="card-link">
+              <a href={exp.jobAid.url} download>{exp.jobAid.label}</a>
+            </p>
+          )}
         </article>
       ))}
     </div>
@@ -264,12 +274,6 @@ const experiments: Experiment[] = [
     color: var(--accent);
   }
   .card-link a:hover { text-decoration: underline; }
-  .card-soon {
-    font-family: var(--sans);
-    font-size: .82rem;
-    font-weight: 600;
-    color: var(--muted);
-  }
 
   @media (max-width: 520px) {
     .card { padding: .95rem 1rem; }

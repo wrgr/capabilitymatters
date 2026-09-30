@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#8fd3ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Rainbow Bug Dash</title>
+  <link rel="icon" type="image/png" href="assets/boy-happy.png?v=20260314j">
+  <link rel="stylesheet" href="style.css?v=20260314j">
+</head>
+<body>
+  <main class="game-shell">
+    <section class="hud">
+      <div>
+        <h1>J-Bug Version 1: Julian Searches for Rainbows</h1>
+        <p>Help the little boy collect every rainbow, dodge bugs, and clear each level.</p>
+      </div>
+      <div class="stats">
+        <span id="level">Level: 1 / 5</span>
+        <span id="score">Rainbows: 0 / 5</span>
+        <span id="status">Collect rainbows, avoid bugs, and use Settings for options.</span>
+      </div>
+    </section>
+    <section class="controls-panel">
+      <details class="controls-details">
+        <summary>Settings</summary>
+        <section class="controls">
+      <label class="mode-toggle" for="gameMode">
+        <span>Game:</span>
+        <select id="gameMode">
+          <option value="platformer">Rainbow Hunt</option>
+        </select>
+      </label>
+      <label class="mode-toggle" for="contraptionType" id="contraptionTypeWrap">
+        <span>Piece:</span>
+        <select id="contraptionType">
+          <option value="domino">Domino</option>
+          <option value="ramp">Ramp</option>
+          <option value="marble">Marble</option>
+          <option value="funnel">Funnel</option>
+          <option value="car">Toy Car</option>
+        </select>
+      </label>
+      <label class="mode-toggle" for="dominoLevelSelect" id="dominoLevelWrap">
+        <span>Puzzle:</span>
+        <select id="dominoLevelSelect"></select>
+      </label>
+      <label class="easy-mode-toggle density-toggle" for="pinballSpeed" id="pinballSpeedWrap">
+        <span>Game Speed</span>
+        <input id="pinballSpeed" type="range" min="70" max="130" step="5" value="100">
+        <span id="pinballSpeedValue">100%</span>
+      </label>
+      <p><strong>Move:</strong> Left / Right or A / D</p>
+      <p><strong>Jump:</strong> Up / W / Space</p>
+      <label class="easy-mode-toggle" for="easyMode">
+        <input id="easyMode" type="checkbox">
+        Easy Mode: bugs are harmless
+      </label>
+      <label class="easy-mode-toggle density-toggle" for="bugDensity">
+        <span>Bug Density</span>
+        <input id="bugDensity" type="range" min="25" max="200" step="25" value="100">
+        <span id="bugDensityValue">100%</span>
+      </label>
+      <label class="easy-mode-toggle" for="musicEnabled">
+        <input id="musicEnabled" type="checkbox" checked>
+        Music On
+      </label>
+      <label class="easy-mode-toggle" for="sfxEnabled">
+        <input id="sfxEnabled" type="checkbox" checked>
+        SFX On
+      </label>
+      <button id="actionButton" type="button">Start Chain</button>
+      <button id="restart" type="button">Restart</button>
+        </section>
+      </details>
+    </section>
+    <section class="game-stage">
+      <canvas id="game" width="960" height="540" aria-label="Rainbow Bug Dash game"></canvas>
+      <section class="touch-overlay" aria-label="Touch controls">
+        <div class="touch-move" aria-label="Movement controls">
+          <button class="touch-icon touch-icon-move" id="leftButton" type="button" aria-label="Move left">←</button>
+          <button class="touch-icon touch-icon-move" id="rightButton" type="button" aria-label="Move right">→</button>
+        </div>
+        <div class="touch-actions">
+          <button class="touch-icon touch-icon-expand" id="expandButton" type="button" aria-label="Expand game">⤢</button>
+          <button class="touch-icon touch-icon-jump" id="jumpButton" type="button" aria-label="Jump">↑</button>
+          <button class="touch-icon touch-icon-swat" id="swatButton" type="button" aria-label="Swat bug">✋</button>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="game.js?v=20260314j"></script>
+</body>
+</html>

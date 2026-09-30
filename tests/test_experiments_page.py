@@ -39,11 +39,26 @@ def test_experiments_page_lists_each_experiment() -> None:
         assert url in page, f"experiment link missing: {url}"
 
 
-def test_grayroncal_is_coming_soon() -> None:
-    """grayroncal.com is listed but temporarily unlinked, labelled Coming soon."""
+def test_grayroncal_is_linked() -> None:
+    """grayroncal.com is linked without the obsolete availability label."""
     page = _read("pages/experiments.astro")
-    assert "comingSoon: true," in page, "grayroncal.com not flagged coming soon"
-    assert "Coming soon" in page, "coming-soon label missing from card markup"
+    assert 'url: "https://will.grayroncal.com"' in page
+    assert 'href={exp.url}' in page
+    assert "comingSoon" not in page
+    assert "Coming soon" not in page
+
+
+def test_rainbow_bug_has_credit_and_job_aid() -> None:
+    """The game and companion download are published with Julian's credit."""
+    page = _read("pages/experiments.astro")
+    assert 'url: "/rainbow-bug/"' in page
+    assert "Julian, age 6" in page
+    assert "creative partner" in page
+    assert 'href={exp.jobAid.url} download' in page
+    assert (REPO_ROOT / "public/vibe-coding-job-aid.docx").is_file()
+    for name in ("index.html", "game.js", "style.css", "assets/boy-happy.png",
+                 "assets/boy-idle.png", "assets/boy-sad.png", "assets/boy-sheet.png"):
+        assert (REPO_ROOT / "public/rainbow-bug" / name).is_file()
 
 
 def test_experiments_linked_from_nav() -> None:
@@ -53,10 +68,10 @@ def test_experiments_linked_from_nav() -> None:
 
 
 def test_featured_paper_banner() -> None:
-    """The featured paper is shown as a banner across the top and links out."""
+    """The featured paper links to the HTML reading edition."""
     page = _read("pages/experiments.astro")
     assert "featured-banner" in page, "featured paper banner markup missing"
-    assert "lens-concentration/main/papers/show-your-work.pdf" in page, (
+    assert "/show-your-work/" in page, (
         "featured paper link missing"
     )
 
@@ -64,7 +79,8 @@ def test_featured_paper_banner() -> None:
 if __name__ == "__main__":
     test_experiments_page_exists()
     test_experiments_page_lists_each_experiment()
-    test_grayroncal_is_coming_soon()
+    test_grayroncal_is_linked()
+    test_rainbow_bug_has_credit_and_job_aid()
     test_experiments_linked_from_nav()
     test_featured_paper_banner()
     print("experiments page OK")
