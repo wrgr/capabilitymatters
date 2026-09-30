@@ -60,7 +60,7 @@ const cycle=[
         <textarea id="revision" rows="4" placeholder="Respond to the challenge without copying model language."></textarea>
       </label>
       <button type="button" id="compare">Compare my revision</button>
-      <div id="comparison" class="comparison" hidden></div>
+      <div id="comparison" class="comparison" hidden aria-live="polite"></div>
     </section>
 
     <details class="inspect">
@@ -71,6 +71,7 @@ const cycle=[
 </PrototypeShell>
 
 <style>
+  .coach [hidden]{display:none}
   .coach{display:flex;flex-direction:column;gap:1rem}
   .prompt{border-left:4px solid var(--accent);background:var(--tint);padding:1rem}
   .prompt span,.structure small,.challenge small{font-family:var(--sans);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:700}
@@ -102,6 +103,7 @@ const cycle=[
   var feedback=root.querySelector('#feedback');
   var claim=root.querySelector('#claim'), evidence=root.querySelector('#evidence'), reasoning=root.querySelector('#reasoning');
   var revision=root.querySelector('#revision'), compare=root.querySelector('#compare'), comparison=root.querySelector('#comparison');
+  var submitted=null;
   function words(s){return (s.trim().match(/\b[\w'-]+\b/g)||[]).length}
   function sourceSpecificity(s){
     return /\b(according|study|survey|report|data|research|percent|%|year|students|participants|source)\b/i.test(s) || /\d/.test(s);
@@ -113,6 +115,9 @@ const cycle=[
     e.preventDefault();
     var c=claim.value.trim(), ev=evidence.value.trim(), r=reasoning.value.trim();
     if(!c||!ev||!r){alert('Give the coach a claim, evidence, and reasoning first.');return}
+    submitted={claim:c,reasoning:r,confidence:root.querySelector('#confidence').value};
+    revision.value='';
+    comparison.hidden=true;
     root.querySelector('#claim-out').textContent=c;
     root.querySelector('#evidence-out').textContent=ev;
     root.querySelector('#reasoning-out').textContent=r;
@@ -136,13 +141,15 @@ const cycle=[
     revision.focus();
   });
   compare.addEventListener('click',function(){
+    if(!submitted)return;
     var rev=revision.value.trim();
     if(!rev){comparison.hidden=false;comparison.innerHTML='<p>Add a revision first. The point is to practice the reasoning move, not just inspect feedback.</p>';return}
-    var before=words(claim.value+' '+reasoning.value), after=words(rev);
+    var before=words(submitted.claim+' '+submitted.reasoning), after=words(rev);
     var explicit=connection(rev);
     var acknowledges=/\b(although|however|while|counter|objection|unless|but|yet)\b/i.test(rev);
     comparison.hidden=false;
-    comparison.innerHTML='<p><strong>Revision check:</strong> '+(explicit?'You made the reasoning link explicit. ':'The reasoning link is still implicit. ')+(acknowledges?'You also engaged a competing consideration. ':'Try acknowledging the strongest competing consideration directly. ')+'</p><p><strong>Length:</strong> original claim + reasoning '+before+' words; revision '+after+' words. More words are not automatically better.</p>';
+    comparison.innerHTML='<p><strong>Revision cues:</strong> '+(explicit?'A connecting phrase is present. ':'No connecting phrase was detected. ')+(acknowledges?'A competing-consideration cue is also present. ':'Try acknowledging the strongest competing consideration directly. ')+'These word cues do not establish the quality of your reasoning.</p><p><strong>Length:</strong> submitted claim + reasoning '+before+' words; revision '+after+' words. More words are not automatically better.</p><p><strong>Confidence before feedback:</strong> '+submitted.confidence+'%. Does your revised argument justify that confidence?</p>';
   });
+  revision.addEventListener('input',function(){comparison.hidden=true});
 })();
 </script>

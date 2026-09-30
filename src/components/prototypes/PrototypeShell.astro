@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import AiCritiqueLaunch from "./AiCritiqueLaunch.astro";
+import evidenceLibrary from "../../data/problems-to-prototypes/evidence.json";
 
 const {
   idea,
@@ -11,6 +12,13 @@ const {
   instrumentation,
   status = "Runnable thin-slice prototype"
 } = Astro.props;
+const evidence = idea.evidence.map((id) => {
+  const source = evidenceLibrary.find((entry) => entry.id === id);
+  if (!source) throw new Error(`Unknown evidence anchor: ${id}`);
+  return source;
+});
+const reviewFiles = import.meta.glob('../../data/prototypes/reviews-*.json', { eager: true, import: 'default' });
+const review = Object.values(reviewFiles).map((file) => (file as Record<string,any>)[idea.id]).find(Boolean);
 ---
 
 <Base
@@ -22,7 +30,7 @@ const {
     <p class="eyebrow">Problems → Prototypes · {collection}</p>
     <div class="hero-grid">
       <div>
-        <a class="back" href="/problems-to-prototypes/">← Back to all problem briefs</a>
+        <a class="back" href={`/problems-to-prototypes/#${idea.id}`}>← Back to this problem brief</a>
         <h1>{idea.title}</h1>
         <p class="lede">{idea.gap}</p>
       </div>
@@ -35,10 +43,11 @@ const {
   </section>
 
   <section class="prototype-workbench container-wide">
-    <main>
+    <div class="workbench-app">
       <div class="section-kicker">Try it</div>
+      <p class="local-note">This exercise runs locally using simple rules. Your entries stay on this page and clear when you reload. No AI service is called.</p>
       <slot name="app" />
-    </main>
+    </div>
 
     <aside class="research-rail">
       <section>
@@ -61,6 +70,18 @@ const {
   </section>
 
   <section class="critique-wrap container-wide">
+    {review && <details class="critical-review">
+      <summary>Critical review of this working prototype</summary>
+      <p><strong>Strongest assumption:</strong> {review.assumption}</p>
+      <p><strong>Likely failure:</strong> {review.failureMode}</p>
+      <p><strong>Test that could change the design:</strong> {review.falsificationTest}</p>
+      <p><strong>Non-AI comparison:</strong> {review.nonAiAlternative}</p>
+      <p><strong>Evidence to collect:</strong> {review.measurement}</p>
+      <p><strong>Human control and access:</strong> {review.risks}</p>
+      <h3>Changes made during review</h3>
+      <ul>{review.edits.map((edit) => <li>{edit}</li>)}</ul>
+      <p class="local-note">This is a design and implementation review, not an empirical validation of learning outcomes.</p>
+    </details>}
     <AiCritiqueLaunch idea={idea} collection={collection} />
   </section>
 
@@ -75,6 +96,9 @@ const {
           <p>{idea.example}</p>
           <h3>Questions worth carrying forward</h3>
           <ul>{idea.questions.map((q) => <li>{q}</li>)}</ul>
+          <h3>Evidence anchors</h3>
+          <p>These sources motivate the design; they do not validate this prototype.</p>
+          <ul>{evidence.map((source) => <li><a href={source.url} target="_blank" rel="noopener">{source.citation}</a> ({source.year})<p>{source.why}</p></li>)}</ul>
         </section>
         <section>
           <div class="cycle-head">
@@ -99,6 +123,11 @@ const {
 </Base>
 
 <style>
+  .workbench-app{min-width:0}
+  .local-note{font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-bottom:1rem}
+  .critical-review{border:1px solid var(--border);border-radius:4px;padding:1rem;margin:1.5rem 0;background:var(--tint)}
+  .critical-review summary{cursor:pointer;color:var(--accent);font-family:var(--sans);font-weight:700}
+  .critical-review p,.critical-review li{font-size:.86rem}.critical-review p:first-of-type{margin-top:1rem}
   .prototype-hero{padding-top:2.2rem;padding-bottom:1.7rem;border-bottom:1px solid var(--border)}
   .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 18rem;gap:2rem;align-items:end}
   .back{font-family:var(--sans);font-size:.78rem;color:var(--muted);border:0}

@@ -1,0 +1,19 @@
+.prototype-tool{display:grid;gap:1rem}
+.prototype-tool [hidden]{display:none}
+.prototype-tool .panel{padding:1rem;border:1px solid var(--border);border-radius:4px;background:var(--tint)}
+.prototype-tool .panel h2,.prototype-tool .panel h3{font-size:1.2rem}
+.prototype-tool .panel p:last-child{margin-bottom:0}
+.prototype-tool label{display:grid;gap:.35rem;font-family:var(--sans);font-size:.85rem;font-weight:650}
+.prototype-tool input,.prototype-tool textarea,.prototype-tool select{width:100%;min-width:0;padding:.65rem;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--ink);font:inherit;resize:vertical}
+.prototype-tool button{padding:.65rem .85rem;border:1px solid var(--accent);border-radius:4px;background:var(--accent);color:var(--bg);font-family:var(--sans);font-size:.85rem;cursor:pointer}
+.prototype-tool button.secondary{background:var(--bg);color:var(--accent)}
+.prototype-tool button:disabled{opacity:.6;cursor:default}
+.prototype-tool :is(button,input,select,textarea):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.prototype-tool .actions{display:flex;gap:.6rem;flex-wrap:wrap}
+.prototype-tool fieldset{display:grid;gap:.85rem;border:1px solid var(--border);padding:1rem;min-width:0;margin:0}
+.prototype-tool legend{font-family:var(--sans);font-size:.85rem;font-weight:700}
+.prototype-tool .note{font-family:var(--sans);font-size:.8rem;color:var(--muted)}
+.prototype-tool .feedback{border-left:4px solid var(--accent-2)}
+.prototype-tool pre{white-space:pre-wrap;font-size:.8rem}
+.prototype-tool ol,.prototype-tool ul{padding-left:1.3rem}
+.prototype-tool li{margin-bottom:.65rem}

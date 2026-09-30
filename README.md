@@ -49,13 +49,53 @@ npm run dev      # local dev server
 npm run build    # builds into dist/
 ```
 
-Tests are plain-Python file-content assertions (there is no JS test runner here):
+Content tests use Python; interactive logic tests use Node's built-in tools:
 
 ```sh
 python3 tests/test_case_studies_sync.py
 python3 tests/test_experiments_page.py
 python3 tests/test_slick_sheet.py
+node --test tests/test_prototypes.mjs
 ```
+
+## Problems to Prototypes
+
+`/problems-to-prototypes/` holds 38 evidence-linked briefs across AILE, LXD,
+LENS, and canonical LENS system problems. Five currently have runnable exercises:
+AI Debate Coach, EdTech Alignment Auditor, Workforce Capability Map,
+Human–AI Delegation Simulator, and Evidence-to-Impact Mapper.
+`/prototypes/` redirects to the gallery filtered to runnable exercises. Keyword,
+collection, and availability filters are reflected in the URL for sharing.
+
+The exercises use local heuristics, require no AI endpoint, and clear on reload.
+The debate coach compares revisions with the submitted attempt and its confidence;
+the auditor checks for missing inputs and insufficient evidence before offering a
+provisional interpretation; the capability map preserves each role's evidence
+selections while switching roles. Evidence coverage is not a readiness score.
+Each exercise links back to its brief and includes the source anchors that motivate
+its design. Optional AI critique copies the public brief, not exercise entries.
+The delegation simulator records choices, rationales, confidence, and source
+inspection across three authored cases, then exports a JSON decision record.
+The evidence mapper distinguishes activity, performance, and transfer measures,
+states the limits of the selected comparison, and exports a plain-text plan.
+Neither tool machine-scores written reasoning or estimates real-world effects.
+
+The gallery and Experiments page also link to the existing Capability Pipeline
+at `/capability-pipeline/index.html#simulation`. The fragment opens “Choose your
+own adventure” directly; `#cases` opens the five-case systems-process explorer.
+
+Run `node --test tests/test_prototypes.mjs` and `npm run build` after changes.
+The regression checks parse the actual inline scripts and exercise audit validation,
+evidence warnings, debate comparisons, scenario rounds, measurement plans,
+and the brief/evidence relationships.
+For browser review, check combined gallery filters and URL reloads, all three app
+interactions, downloads, adventure links, and narrow-screen layouts. Astro's static build does not validate
+JavaScript inside `is:inline` scripts, so the script checks are essential.
+
+Next useful increments are an explicit performance standard for each workforce
+task, revision export for the debate coach, and new delegation cases that test
+transfer beyond the three practiced scenarios. The current rules remain teaching aids;
+their outputs need human review before any claim about learning or readiness.
 
 ## Print sheets
 

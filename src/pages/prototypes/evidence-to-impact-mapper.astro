@@ -1,0 +1,139 @@
+---
+import PrototypeShell from "../../components/prototypes/PrototypeShell.astro";
+import canonical from "../../data/problems-to-prototypes/lens-canonical.json";
+import meta from "../../data/problems-to-prototypes/meta.json";
+import "../../styles/prototype-tools.css";
+const idea = canonical.find((entry) => entry.id === "lens-canonical-05");
+if (!idea) throw new Error("Evidence mapper brief missing");
+const common = meta.aileCommonSteps;
+const cycle = [["Understand",idea.cycle.understand],["Model",idea.cycle.model],["Design",common["3"]],["Build",common["4"]],["Instrument",idea.cycle.instrument],["Deploy",common["6"]],["Evaluate",common["7"]],["Refine",common["8"]]];
+---
+<PrototypeShell idea={idea} collection="LENS Canonical" cycle={cycle}
+  assumption="Making the links between practice, observable capability, transfer, and operational impact explicit will help teams choose evidence that can challenge their intervention."
+  falsifier="Teams complete the planner but retain completion-only measures, ignore rival explanations, or make the same impact claims regardless of the evidence collected."
+  instrumentation="Compare the original measurement plan with the revised plan, check whether measures are collected, and ask an independent reviewer which claims the resulting evidence supports."
+>
+  <div slot="app" class="prototype-tool" id="impact-mapper">
+    <section class="panel">
+      <h2>Plan what would count as evidence</h2>
+      <p>Start with a decision your team needs to make. Map what learners will demonstrate, then name what could make the apparent effect misleading.</p>
+      <p class="note">The filled example is fictional. This planner organizes your entries and checks your selected evidence types. It does not evaluate the quality of your measures or estimate causal effects.</p>
+    </section>
+    <form id="impact-form" class="prototype-tool">
+      <fieldset>
+        <legend>1. Outcome and capability</legend>
+        <label>Operational outcome and decision
+          <textarea id="outcome" rows="2" required maxlength="2000">Reduce repeat support escalations; decide whether to expand a diagnostic practice pilot.</textarea>
+        </label>
+        <label>Observable capability needed
+          <textarea id="capability" rows="2" required maxlength="2000">Distinguish a configuration fault from a knowledge gap and justify the next diagnostic step.</textarea>
+        </label>
+        <label>Proposed learning activity
+          <textarea id="intervention" rows="2" required maxlength="2000">Practice three contrasting support cases with feedback on the evidence used.</textarea>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>2. Evidence near the learning activity</legend>
+        <label>Primary evidence type
+          <select id="evidence-type"><option value="activity">Attendance, completion, clicks, or time</option><option value="self-report">Confidence or satisfaction report</option><option value="performance">Direct performance scored against a standard</option></select>
+        </label>
+        <label>What will you observe, and when?
+          <textarea id="measure" rows="2" required maxlength="2000">Record completion of the three practice cases at the end of the session.</textarea>
+        </label>
+        <label>Criterion that would support or challenge the capability claim
+          <textarea id="criterion" rows="2" required maxlength="2000">On an unfamiliar case, the learner distinguishes the two causes and justifies a diagnostic step without a hint; reviewers record errors and disagreements.</textarea>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>3. Transfer and rival explanations</legend>
+        <label>Transfer check
+          <select id="transfer-type"><option value="none">No transfer check planned</option><option value="supported">New task with the same prompts or help</option><option value="independent">New task without the practice support</option></select>
+        </label>
+        <label>Transfer observation and timing (required when planned)
+          <textarea id="transfer" rows="2" maxlength="2000" placeholder="Describe the unfamiliar task, operating conditions, and observation window."></textarea>
+        </label>
+        <label>Comparison design
+          <select id="comparison-type"><option value="none">No baseline or comparison</option><option value="before-after">Before and after in the same team</option><option value="concurrent">A concurrent comparison team or condition</option></select>
+        </label>
+        <label>A rival explanation to investigate
+          <textarea id="rival" rows="2" required maxlength="2000">A platform fix or a change in ticket difficulty could reduce escalations even if diagnostic capability stays the same.</textarea>
+        </label>
+      </fieldset>
+      <button type="submit">Build my evidence map</button>
+    </form>
+    <p id="plan-status" role="status"></p>
+    <section id="evidence-plan" class="panel feedback" hidden aria-live="polite">
+      <h3 id="plan-heading" tabindex="-1">Your proposed evidence chain</h3>
+      <p class="note">Each link is a hypothesis to examine; this is not a demonstrated causal chain.</p>
+      <ol>
+        <li><strong>Activity:</strong> <span id="activity-out"></span></li>
+        <li><strong>Capability:</strong> <span id="capability-out"></span></li>
+        <li><strong>Near-term observation:</strong> <span id="measure-out"></span></li>
+        <li><strong>Transfer:</strong> <span id="transfer-out"></span></li>
+        <li><strong>Operational outcome:</strong> <span id="outcome-out"></span></li>
+      </ol>
+      <h3>What this plan leaves unresolved</h3><ul id="plan-gaps"></ul>
+      <h3>Comparison limits</h3><p id="claim-limit"></p>
+      <h3>Smallest next improvement</h3><p id="next-measure"></p>
+      <details><summary>Preview the complete plan</summary><pre id="plan-preview"></pre></details>
+      <button type="button" id="download-plan">Download this plan</button>
+    </section>
+    <noscript>Enable JavaScript to build and download an evidence map.</noscript>
+  </div>
+</PrototypeShell>
+
+<script is:inline>
+(function(){
+  const root=document.getElementById('impact-mapper');
+  const find=(id)=>root.querySelector('#'+id);
+  const value=(id)=>find(id).value.trim();
+  const label=(id)=>find(id).selectedOptions[0].textContent;
+  let report='';
+  function gapsFor(evidence,transfer){
+    const gaps=[];
+    if(evidence==='activity')gaps.push('Activity records show exposure or participation. Add a directly observed performance before claiming capability changed.');
+    if(evidence==='self-report')gaps.push('Confidence or satisfaction may help interpret experience, but do not establish demonstrated capability.');
+    if(evidence==='performance')gaps.push('Check that the task elicits the intended capability and that reviewers apply the performance standard consistently. Selecting this type does not validate the measure.');
+    if(transfer==='none')gaps.push('No transfer check is planned. Practice performance cannot establish performance on an unfamiliar task.');
+    if(transfer==='supported')gaps.push('Support remains available during the new task. Limit the claim to performance with that support; independent capability is still untested.');
+    if(transfer==='independent')gaps.push('Check that the unfamiliar task reflects real operating conditions. One successful work sample does not establish durable transfer.');
+    gaps.push('Rival explanation to investigate: '+value('rival'));
+    return gaps;
+  }
+  const limits={
+    none:'Without a baseline or comparison, describe observed performance. Do not infer improvement or attribute an operational change to this intervention.',
+    'before-after':'A before-and-after change is compatible with improvement, but changes in staffing, tools, workload, or task difficulty can also explain it. This comparison alone does not establish attribution.',
+    concurrent:'A concurrent comparison can help test rival explanations. Inspect starting differences, assignment, exposure, missing data, and simultaneous changes before attributing an effect.'
+  };
+  find('impact-form').addEventListener('submit',(event)=>{
+    event.preventDefault();
+    const required=['outcome','capability','intervention','measure','criterion','rival'];
+    if(value('transfer-type')!=='none')required.push('transfer');
+    const missing=required.find((id)=>!value(id));
+    if(missing){find('evidence-plan').hidden=true;report='';find('plan-status').textContent='Complete the highlighted field before building the map.';find(missing).focus();return;}
+    const evidence=value('evidence-type'),transfer=value('transfer-type'),comparison=value('comparison-type');
+    const gaps=gapsFor(evidence,transfer);
+    const transferText=transfer==='none'?'No transfer observation planned.':value('transfer');
+    const next=evidence!=='performance'?'Add one unfamiliar work sample scored against your stated criterion, alongside the existing participation or experience measure.':transfer!=='independent'?'Add a new task without practice prompts and record the conditions under which performance holds or fails.':'Pilot the scoring with two reviewers, inspect disagreements, and test the named rival explanation before expanding the claim.';
+    [['activity-out','intervention'],['capability-out','capability'],['measure-out','measure'],['outcome-out','outcome']].forEach(([target,source])=>find(target).textContent=value(source));
+    find('transfer-out').textContent=transferText;find('plan-gaps').replaceChildren();
+    gaps.forEach((gap)=>{const item=document.createElement('li');item.textContent=gap;find('plan-gaps').append(item)});
+    find('claim-limit').textContent=limits[comparison];find('next-measure').textContent=next;
+    report=['EVIDENCE-TO-IMPACT PLAN','User-authored hypotheses; no causal effect estimated.',
+      'Operational outcome / decision: '+value('outcome'),'Capability: '+value('capability'),'Activity: '+value('intervention'),
+      'Evidence type: '+label('evidence-type'),'Observation: '+value('measure'),'Performance criterion: '+value('criterion'),
+      'Transfer type: '+label('transfer-type'),'Transfer observation: '+transferText,'Comparison: '+label('comparison-type'),
+      'Unresolved questions:',...gaps,'Comparison limits: '+limits[comparison],'Next improvement: '+next].join('\n\n');
+    find('plan-preview').textContent=report;find('evidence-plan').hidden=false;
+    find('plan-status').textContent='Plan built from your current entries.';find('plan-heading').focus();
+  });
+  function invalidate(){report='';find('evidence-plan').hidden=true;find('plan-status').textContent='Entries changed. Build the map again to update your plan.';}
+  find('impact-form').addEventListener('input',invalidate);
+  find('impact-form').addEventListener('change',invalidate);
+  find('download-plan').addEventListener('click',()=>{
+    if(!report)return;
+    const url=URL.createObjectURL(new Blob([report],{type:'text/plain;charset=utf-8'})),link=document.createElement('a');
+    link.href=url;link.download='evidence-to-impact-plan.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  });
+})();
+</script>

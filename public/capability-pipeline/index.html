@@ -6,7 +6,7 @@
 *{box-sizing:border-box}body{margin:0;background:#f1f3ee;color:#182420;font:16px system-ui,sans-serif}
 header{padding:16px 24px;border-bottom:1px solid #cfd6c8;background:#fff}h1{font:600 24px Georgia,serif;margin:0 0 12px}nav{display:flex;gap:10px;flex-wrap:wrap}button{font:inherit;min-height:44px;border:1px solid #1c6e66;border-radius:8px;padding:9px 16px;background:white;color:#1c6e66;cursor:pointer}button[aria-selected=true]{background:#1c6e66;color:white}button:focus-visible{outline:3px solid #a3650f;outline-offset:3px}p{margin:10px 0 0;font-size:14px;color:#55645c}iframe{display:block;width:100%;height:calc(100vh - 165px);min-height:600px;border:0;background:white}iframe[hidden]{display:none}@media(max-width:600px){header{padding:12px}iframe{height:78vh}}
 </style></head><body>
-<header><h1>The Capability Pipeline</h1><nav role="tablist" aria-label="Activities">
+<header><p><a href="https://capabilitymatters.org/problems-to-prototypes/">← Problems → Prototypes</a></p><h1>The Capability Pipeline</h1><nav role="tablist" aria-label="Activities">
 <button id="case-tab" role="tab" aria-selected="true" aria-controls="cases">Explore five cases</button>
 <button id="sim-tab" role="tab" aria-selected="false" aria-controls="simulation">Choose your own adventure</button>
 </nav><p id="activity-note">Original five cases: Study, Find the turn, and Predict first. Source narratives retained; historical claims have not been independently rechecked.</p></header>
@@ -16,6 +16,9 @@ header{padding:16px 24px;border-bottom:1px solid #cfd6c8;background:#fff}h1{font
 (function(){
 const items=[['case-tab','cases'],['sim-tab','simulation']];
 function select(i){items.forEach(([b,f],j)=>{document.getElementById(b).setAttribute('aria-selected',String(i===j));document.getElementById(f).hidden=i!==j;});document.getElementById('activity-note').textContent=i===0?'Original five cases: Study, Find the turn, and Predict first. Source narratives retained; historical claims have not been independently rechecked.':'Fictional teaching simulation: edit every step, roll outcomes and events, revise your strategy, and compare branches. Probabilities are teaching assumptions.';}
-items.forEach(([b],i)=>document.getElementById(b).addEventListener('click',()=>select(i)));
+items.forEach(([b,frame],i)=>document.getElementById(b).addEventListener('click',()=>{select(i);history.replaceState(null,'','#'+frame)}));
+function restoreTab(){select(location.hash==='#simulation'?1:0)}
+window.addEventListener('hashchange',restoreTab);
+restoreTab();
 })();
 </script></body></html>

@@ -30,6 +30,7 @@ const cycle=[
         <textarea id="evidence" rows="3">The app records correct vocabulary selections and completion.</textarea>
       </label>
       <button type="button" id="audit">Audit the alignment</button>
+      <p id="audit-status" role="status"></p>
     </section>
 
     <section id="result" hidden aria-live="polite">
@@ -78,7 +79,7 @@ const cycle=[
   var root=document.getElementById('alignment-auditor'); if(!root)return;
   function classify(text){
     text=(text||'').toLowerCase();
-    if(/debate|discuss|collaborat|respond to peer|negotiate|co-construct|critique each other/.test(text)) return ['Interactive','Learners must respond to another person's thinking, not only the material.'];
+    if(/debate|discuss|collaborat|respond to peer|negotiate|co-construct|critique each other/.test(text)) return ['Interactive',"Learners must respond to another person's thinking, not only the material."];
     if(/justify|explain|infer|design|create|generate|argue|predict|hypothes|compare|diagnos|model|construct/.test(text)) return ['Constructive','Learners must produce an inference, explanation, model, or other new representation.'];
     if(/select|tap|click|highlight|match|sort|label|identify|watch and answer|complete/.test(text)) return ['Active','Learners manipulate or select information, but may not need to generate a new idea or explanation.'];
     return ['Passive','The description does not yet show an observable learner action beyond receiving information.'];
@@ -92,6 +93,14 @@ const cycle=[
   }
   root.querySelector('#audit').addEventListener('click',function(){
     var obj=root.querySelector('#objective').value, act=root.querySelector('#activity').value, ev=root.querySelector('#evidence').value;
+    var missing=['objective','activity','evidence'].find(function(id){return !root.querySelector('#'+id).value.trim()});
+    if(missing){
+      root.querySelector('#result').hidden=true;
+      root.querySelector('#audit-status').textContent='Add an objective, a learner activity, and the evidence you will collect before auditing.';
+      root.querySelector('#'+missing).focus();
+      return;
+    }
+    root.querySelector('#audit-status').textContent='Audit updated. These cues need teacher review.';
     var o=classify(obj), a=classify(act), e=evidenceClaim(ev);
     root.querySelector('#objective-level').textContent=o[0]; root.querySelector('#objective-read').textContent=o[1];
     root.querySelector('#activity-level').textContent=a[0]; root.querySelector('#activity-read').textContent=a[1];
@@ -102,17 +111,23 @@ const cycle=[
     if(delta>=1){
       gap.innerHTML='<strong>Alignment warning:</strong> the objective asks for more cognitive work than the activity currently requires.';
       title.textContent='Add an evidence-producing move before or after the app.';
-      copy.textContent='Keep the useful vocabulary interaction if needed, but require the learner to make an inference, cite textual evidence, and explain the connection. The app can support prerequisite knowledge without becoming the assessment of inferential reading.';
-    }else if(e[0]==='Activity evidence'){
-      gap.innerHTML='<strong>Evidence warning:</strong> the activity may be plausible, but the current data mostly show participation.';
+      copy.textContent='Ask learners to demonstrate the action named in your objective and produce an observable response. Judge that response against an explicit standard. Keep prerequisite practice where useful, and check that the final task actually elicits the intended capability.';
+    }else if(e[0]==='Activity evidence'||e[0]==='Unclear evidence'||(rank[o[0]]>=2&&e[0]==='Accuracy evidence')){
+      gap.innerHTML='<strong>Evidence warning:</strong> the described evidence does not yet establish the intended capability. Participation, unexplained accuracy, and unspecified records can leave the reasoning invisible.';
       title.textContent='Collect the learner product that matches the claim.';
       copy.textContent='Add a short explanation, transfer task, or observable performance and judge that artifact directly. Treat clicks, time, and completion as implementation signals rather than learning outcomes.';
     }else{
-      gap.innerHTML='<strong>Promising alignment:</strong> the described learner action is at least as generative as the stated objective. Teacher judgment is still needed.';
+      gap.innerHTML='<strong>No mismatch detected by these cues.</strong> This does not establish alignment. Check the actual task, the quality of the evidence, and whether learners demonstrate the stated objective.';
       title.textContent='Stress-test with a transfer task.';
       copy.textContent='Ask learners to demonstrate the same capability in a new context without the app. If performance disappears, the original activity may have supported task completion more than transferable learning.';
     }
     root.querySelector('#result').hidden=false;
+  });
+  ['objective','activity','evidence'].forEach(function(id){
+    root.querySelector('#'+id).addEventListener('input',function(){
+      root.querySelector('#result').hidden=true;
+      root.querySelector('#audit-status').textContent='Inputs changed. Run the audit again to update the interpretation.';
+    });
   });
 })();
 </script>

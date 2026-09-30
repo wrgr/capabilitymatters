@@ -13,6 +13,7 @@ import canonical from "../data/problems-to-prototypes/lens-canonical.json";
 import evidenceLibrary from "../data/problems-to-prototypes/evidence.json";
 import meta from "../data/problems-to-prototypes/meta.json";
 import AiCritiqueLaunch from "../components/prototypes/AiCritiqueLaunch.astro";
+import prototypeStatus from "../data/prototypes/status.json";
 
 type Collection = "AILE" | "LXD" | "LENS" | "LENS Canonical";
 type Idea = {
@@ -39,11 +40,12 @@ const cycleFor=(idea:Idea)=>[
   ["Evaluate",common["7"]],
   ["Refine",common["8"]],
 ];
-const prototypeUrls:Record<string,string>={
-  "example-aile-2195":"/prototypes/ai-debate-coach/",
-  "example-aile-7161":"/prototypes/edtech-alignment-auditor/",
-  "example-aile-5636":"/prototypes/workforce-capability-map/",
-};
+const statuses = prototypeStatus as Record<string,{workingPrototype:boolean;url?:string}>;
+for (const idea of ideas) {
+  if (!statuses[idea.id]) throw new Error(`Prototype status missing: ${idea.id}`);
+  if (statuses[idea.id].workingPrototype && !statuses[idea.id].url) throw new Error(`Working prototype URL missing: ${idea.id}`);
+}
+const workingCount = ideas.filter((idea) => statuses[idea.id].workingPrototype).length;
 const longLabel:Record<Collection,string>={
   AILE:"Artificial Intelligence Leadership in Education",
   LXD:"Learning Experience Design",
@@ -67,11 +69,19 @@ const longLabel:Record<Collection,string>={
     <div>
       <p><strong>These are project seeds, not prescriptions.</strong> The first 32 began as abstracted themes from prospective-student essays and were deliberately rewritten as non-person-specific design problems. The six canonical LENS cards begin from recurring system problem types. No source essays, names, initials, or student IDs appear here.</p>
       <p>Each card starts with a capability gap, proposes a thin-slice prototype, gives a representative use case, names the learning and human-system logic, and instruments the first cycle so that a disappointing result is still useful evidence.</p>
+      <p><strong>{workingCount} working prototypes · {ideas.length - workingCount} design briefs awaiting a build.</strong> Filter by “Working prototype” below to try the current exercises. Working means the stated local interaction has been built, critically reviewed, and tested; it does not mean the broader concept is complete or validated.</p>
     </div>
     <aside class="loop">
       <b>The eight-step loop</b>
       <ol>{meta.designCycle.map((step)=><li>{step}</li>)}</ol>
     </aside>
+  </section>
+
+  <section class="adventure container-wide" aria-labelledby="adventure-title">
+    <h2 id="adventure-title">Try the whole systems process</h2>
+    <p>The Capability Pipeline connects the eight-step cycle to five cases and a choose-your-own-adventure simulation. Make decisions, inspect consequences, and revisit earlier steps as the problem changes.</p>
+    <a class="try-prototype" href="/capability-pipeline/index.html#simulation">Choose your own adventure →</a>
+    <a class="try-prototype" href="/capability-pipeline/index.html#cases">Explore the systems-process cases →</a>
   </section>
 
   <section class="filters-shell">
@@ -80,13 +90,17 @@ const longLabel:Record<Collection,string>={
       <label><span>Concentration / collection</span>
         <select id="collection">
           <option value="all">All collections</option>
-          <option value="AILE">AILE · 12</option>
-          <option value="LXD">LXD · 16</option>
-          <option value="LENS">LENS · 4</option>
-          <option value="LENS Canonical">LENS Canonical · 6</option>
+          {Object.keys(longLabel).map((collection) => <option value={collection}>{collection} · {ideas.filter((idea) => idea.collection === collection).length}</option>)}
         </select>
       </label>
-      <div class="count"><strong id="count">{ideas.length}</strong> briefs</div>
+      <label><span>Working prototype</span>
+        <select id="availability">
+          <option value="all">All briefs</option>
+          <option value="runnable">Yes · working prototypes</option>
+          <option value="brief">No · design briefs only</option>
+        </select>
+      </label>
+      <div class="count" role="status"><strong id="count">{ideas.length}</strong> briefs</div>
     </div>
   </section>
 
@@ -94,13 +108,14 @@ const longLabel:Record<Collection,string>={
     {ideas.map((idea)=>{
       const evidence=idea.evidence.map((id)=>evidenceById[id]).filter(Boolean);
       const searchable=[idea.title,idea.gap,idea.prototype,idea.example,idea.frame,...idea.questions].join(" ").toLowerCase();
-      return <article class="card" data-collection={idea.collection} data-search={searchable} id={idea.id}>
+      const implementation = statuses[idea.id];
+      return <article class="card" data-collection={idea.collection} data-working-prototype={String(implementation.workingPrototype)} data-search={searchable} id={idea.id}>
         <div class="meta"><span class:list={["chip",idea.collection?.toLowerCase().replace(" ","-")]}>{idea.collection}</span><span>{longLabel[idea.collection as Collection]}</span></div>
         <h2>{idea.title}</h2>
         <div class="block"><b>The gap</b><p>{idea.gap}</p></div>
         <div class="block prototype"><b>A first prototype</b><p>{idea.prototype}</p></div>
         <div class="example"><b>Representative use case</b><p>{idea.example}</p></div>
-        {prototypeUrls[idea.id] && <a class="try-prototype" href={prototypeUrls[idea.id]}>Try the runnable prototype →</a>}
+        {implementation.workingPrototype ? <a class="try-prototype" href={implementation.url}>Try the working prototype →</a> : <p class="brief-status">Design brief · working prototype not yet built</p>}
         <details>
           <summary>Open the design brief <span>↓</span></summary>
           <div class="deep">
@@ -141,8 +156,13 @@ const longLabel:Record<Collection,string>={
 </Base>
 
 <style>
+  .adventure{padding-top:1rem;padding-bottom:1.5rem;border-top:1px solid var(--border);background:var(--tint)}
+  .adventure h2{font-size:1.35rem}.adventure p{max-width:52rem}.adventure a{margin-right:.6rem}
+  .gallery [hidden]{display:none}
+  .card{scroll-margin-top:12rem}
+  .brief-status{font-family:var(--sans);font-size:.75rem;color:var(--muted);margin-top:.85rem}
   .intro{display:grid;grid-template-columns:minmax(0,1fr) 18rem;gap:2.5rem;padding-top:2rem;padding-bottom:2rem}.intro p{max-width:48rem}.loop{border-left:3px solid var(--accent);padding-left:1rem;font-family:var(--sans);font-size:.78rem}.loop ol{list-style:none;padding:0;margin:.6rem 0 0;display:flex;flex-wrap:wrap;gap:.3rem}.loop li{background:var(--tint);border:1px solid var(--border);padding:.15rem .35rem}
-  .filters-shell{position:sticky;top:57px;z-index:8;background:rgba(254,253,248,.96);backdrop-filter:blur(10px);border-block:1px solid var(--border)}.filters{display:grid;grid-template-columns:2fr 1fr auto;gap:.8rem;align-items:end;padding-top:.75rem;padding-bottom:.75rem}.filters label,.endpoint label{font-family:var(--sans);font-size:.72rem;color:var(--muted);display:flex;flex-direction:column;gap:.25rem}.filters input,.filters select,.endpoint input{font:inherit;font-size:.9rem;color:var(--ink);background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:.6rem .65rem}.count{font-family:var(--sans);color:var(--muted);padding:.55rem 0;white-space:nowrap}.count strong{color:var(--ink)}
+  .filters-shell{position:sticky;top:57px;z-index:8;background:rgba(254,253,248,.96);backdrop-filter:blur(10px);border-block:1px solid var(--border)}.filters{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:.8rem;align-items:end;padding-top:.75rem;padding-bottom:.75rem}.filters label,.endpoint label{font-family:var(--sans);font-size:.72rem;color:var(--muted);display:flex;flex-direction:column;gap:.25rem}.filters input,.filters select,.endpoint input{font:inherit;font-size:.9rem;color:var(--ink);background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:.6rem .65rem;min-width:0}.count{font-family:var(--sans);color:var(--muted);padding:.55rem 0;white-space:nowrap}.count strong{color:var(--ink)}
   .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,22rem),1fr));gap:1.1rem;align-items:start;padding-top:2rem;padding-bottom:3rem}.card{border:1px solid var(--border);border-radius:5px;background:var(--bg);padding:1.15rem}.card:hover{border-color:var(--accent)}.meta{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;font-family:var(--sans);font-size:.68rem;color:var(--muted)}.chip{font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .4rem;background:var(--tint-warm);color:var(--accent);border-radius:2px}.chip.lxd{background:#e8f1f4;color:#2c5f6f}.chip.lens{background:#ecefe7;color:#45513a}.chip.lens-canonical{background:#eee9f4;color:#5d4475}.card h2{font-size:1.3rem;margin:.65rem 0 1rem}.block{border-top:1px solid var(--border);padding-top:.75rem;margin-top:.75rem}.block>b,.example>b{font-family:var(--sans);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}.block p,.example p{font-size:.92rem;line-height:1.55;margin:.25rem 0 0;max-width:none}.example{margin-top:.9rem;padding:.8rem;background:var(--tint);border-radius:3px}.example>b{color:var(--accent-2)}.try-prototype{display:inline-block;margin-top:.85rem;font-family:var(--sans);font-size:.78rem;font-weight:800;color:var(--accent);border:1px solid var(--accent);border-radius:3px;padding:.5rem .65rem}
   .card>details{border-top:1px solid var(--border);margin-top:1rem;padding-top:.25rem}.card>details>summary{cursor:pointer;list-style:none;font-family:var(--sans);font-size:.8rem;font-weight:700;color:var(--accent);display:flex;justify-content:space-between;padding:.6rem 0 .2rem}.card>details>summary::-webkit-details-marker{display:none}.deep{border-top:1px dashed var(--border);margin-top:.7rem;padding-top:1rem;display:flex;flex-direction:column;gap:1.4rem}.deep h3{font-size:1rem;margin:0 0 .4rem}.deep p,.deep li{font-size:.86rem;line-height:1.55}.deep ul{padding-left:1.15rem}.cycle-head{display:flex;justify-content:space-between;align-items:end;gap:1rem}.cycle-head small{font-family:var(--sans);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}.cycle-head em{font-family:var(--sans);font-size:.68rem;color:var(--muted)}.cycle{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.5rem}.cycle li{display:grid;grid-template-columns:1.8rem 1fr;gap:.45rem;background:var(--tint);border:1px solid var(--border);padding:.6rem;border-radius:3px}.cycle li>span{font-family:var(--mono);font-size:.7rem;color:var(--accent)}.cycle b{font-family:var(--sans);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em}.cycle p{font-size:.79rem;margin:.15rem 0 0;max-width:none}.sources{border-top:1px solid var(--border);padding-top:.9rem}.sources .note{color:var(--muted);font-size:.79rem}.sources ol{padding-left:1.1rem}.sources li{margin:.6rem 0}.sources a{font-family:var(--sans);font-weight:650}.sources small{color:var(--muted)}.sources li p{font-size:.77rem;color:var(--muted);margin:.12rem 0 0}.live{border:1px solid var(--border);background:var(--tint);padding:.8rem;border-radius:4px}.live button,.endpoint button{border:1px solid var(--accent);background:var(--accent);color:var(--bg);font-family:var(--sans);font-size:.75rem;font-weight:700;padding:.5rem .65rem;border-radius:3px;cursor:pointer}.live pre{white-space:pre-wrap;background:var(--bg);border:1px solid var(--border);padding:.7rem;font-family:var(--serif);font-size:.82rem}.none{grid-column:1/-1;text-align:center;max-width:none;color:var(--muted);padding:3rem}
   .endpoint{padding-top:0;padding-bottom:2rem}.endpoint>details{border-top:1px solid var(--border);padding-top:1rem}.endpoint summary{font-family:var(--sans);font-weight:700;color:var(--accent);cursor:pointer}.endpoint>details>div{max-width:48rem;padding:1rem 0}.endpoint p{font-size:.88rem}.endpoint button.secondary{background:transparent;color:var(--accent)}
@@ -152,9 +172,32 @@ const longLabel:Record<Collection,string>={
 <script is:inline>
 (function(){
   var search=document.getElementById('search'),select=document.getElementById('collection'),count=document.getElementById('count'),none=document.getElementById('none');
+  var availability=document.getElementById('availability');
   var cards=[].slice.call(document.querySelectorAll('.card'));
-  function filter(){var q=(search.value||'').trim().toLowerCase(),c=select.value,n=0;cards.forEach(function(card){var show=(c==='all'||card.dataset.collection===c)&&(!q||(card.dataset.search||'').indexOf(q)!==-1);card.hidden=!show;if(show)n++;});count.textContent=String(n);none.hidden=n!==0}
-  search.addEventListener('input',filter);select.addEventListener('change',filter);
+  var params=new URLSearchParams(location.search);
+  search.value=params.get('q')||'';
+  if([].some.call(select.options,function(option){return option.value===params.get('collection')}))select.value=params.get('collection');
+  if(['all','runnable','brief'].includes(params.get('availability')))availability.value=params.get('availability');
+  if(params.get('workingPrototype')==='true')availability.value='runnable';
+  if(params.get('workingPrototype')==='false')availability.value='brief';
+  function filter(){
+    var q=search.value.trim().toLowerCase(),c=select.value,a=availability.value,n=0;
+    cards.forEach(function(card){var show=(c==='all'||card.dataset.collection===c)&&(a==='all'||card.dataset.workingPrototype===(a==='runnable'?'true':'false'))&&(!q||card.dataset.search.indexOf(q)!==-1);card.hidden=!show;if(show)n++});
+    count.textContent=String(n);none.hidden=n!==0;
+  }
+  function updateFilters(){
+    filter();
+    var url=new URL(location.href);
+    [['q',search.value.trim()],['collection',select.value]].forEach(function(pair){
+      if(pair[1]&&pair[1]!=='all')url.searchParams.set(pair[0],pair[1]);else url.searchParams.delete(pair[0]);
+    });
+    url.searchParams.delete('availability');
+    if(availability.value==='all')url.searchParams.delete('workingPrototype');
+    else url.searchParams.set('workingPrototype',String(availability.value==='runnable'));
+    history.replaceState(null,'',url);
+  }
+  search.addEventListener('input',updateFilters);select.addEventListener('change',updateFilters);availability.addEventListener('change',updateFilters);
+  filter();
   var input=document.getElementById('endpoint'),status=document.getElementById('status');input.value=localStorage.getItem('capabilitymatters-live-endpoint')||'';
   document.getElementById('save').addEventListener('click',function(){var v=input.value.trim();try{new URL(v)}catch(e){status.textContent='Invalid URL.';return}localStorage.setItem('capabilitymatters-live-endpoint',v);status.textContent='Saved in this browser.';});
   document.getElementById('clear').addEventListener('click',function(){localStorage.removeItem('capabilitymatters-live-endpoint');input.value='';status.textContent='Cleared.';});

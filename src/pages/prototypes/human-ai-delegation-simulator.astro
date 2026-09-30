@@ -1,0 +1,151 @@
+---
+import PrototypeShell from "../../components/prototypes/PrototypeShell.astro";
+import canonical from "../../data/problems-to-prototypes/lens-canonical.json";
+import meta from "../../data/problems-to-prototypes/meta.json";
+import "../../styles/prototype-tools.css";
+const idea = canonical.find((entry) => entry.id === "lens-canonical-06");
+if (!idea) throw new Error("Delegation simulator brief missing");
+const common = meta.aileCommonSteps;
+const cycle = [["Understand",idea.cycle.understand],["Model",idea.cycle.model],["Design",common["3"]],["Build",common["4"]],["Instrument",idea.cycle.instrument],["Deploy",common["6"]],["Evaluate",common["7"]],["Refine",common["8"]]];
+---
+<PrototypeShell idea={idea} collection="LENS Canonical" cycle={cycle}
+  assumption="Comparing AI advice with source evidence and explicit authority boundaries will improve decisions about when to rely, verify, override, or escalate."
+  falsifier="Learners memorize the three cases, accept every confident recommendation, or escalate everything without improving judgment on an unfamiliar task."
+  instrumentation="Record the selected action, rationale, confidence, source inspection, and response to the revealed consequence. Test transfer separately with unseen cases."
+>
+  <div slot="app" class="prototype-tool" id="delegation-simulator">
+    <p class="note">Three fictional workplace-support cases. Advice, confidence cues, policies, and consequences are authored examples. No model is running. Your rationale is recorded for reflection and is not machine-scored.</p>
+    <section class="panel" aria-labelledby="case-title">
+      <p id="progress" class="note"></p>
+      <h2 id="case-title"></h2>
+      <p id="case-context"></p>
+      <h3>Your authority in this case</h3><p id="case-policy"></p>
+      <h3>AI recommendation</h3><p id="case-advice"></p>
+      <p id="case-confidence" class="note"></p>
+      <button type="button" id="inspect-source" class="secondary">Inspect the source record</button>
+      <p id="source-record" hidden></p>
+    </section>
+    <form id="decision-form" class="prototype-tool">
+      <fieldset id="decision-fields">
+        <legend>Your decision</legend>
+        <label>Action
+          <select id="decision" required>
+            <option value="">Choose an action</option>
+            <option value="accept">Accept the AI recommendation</option>
+            <option value="verify">Hold the action and verify the source</option>
+            <option value="override">Override and route to the appropriate team</option>
+            <option value="escalate">Escalate to the authorized owner</option>
+          </select>
+        </label>
+        <label>Why is this action justified by the evidence and your authority?
+          <textarea id="rationale" rows="3" required maxlength="3000"></textarea>
+        </label>
+        <label>Confidence in your decision
+          <select id="decision-confidence"><option>50%</option><option>65%</option><option selected>80%</option><option>95%</option></select>
+        </label>
+        <button type="submit">Commit decision and reveal consequence</button>
+      </fieldset>
+    </form>
+    <p id="decision-status" role="status"></p>
+    <section id="consequence" class="panel feedback" hidden aria-live="polite">
+      <h3 id="consequence-title" tabindex="-1">What happened in this fictional case</h3>
+      <p id="consequence-copy"></p>
+      <p id="decision-reflection"></p>
+      <button type="button" id="next-case">Next case →</button>
+    </section>
+    <section id="session-review" class="panel" hidden>
+      <h3 id="review-title" tabindex="-1">Review your decisions</h3>
+      <p>Compare your reasons with the evidence each case revealed. Which information changed the appropriate level of delegation? Would the same choice hold in a new case?</p>
+      <ol id="decision-log"></ol>
+      <div class="actions"><button type="button" id="download-decisions">Download decision record</button><button type="button" id="restart" class="secondary">Start a new round</button></div>
+    </section>
+    <noscript>Enable JavaScript to run these local scenarios.</noscript>
+  </div>
+</PrototypeShell>
+
+<script is:inline>
+(function(){
+  const root=document.getElementById('delegation-simulator');
+  const find=(id)=>root.querySelector('#'+id);
+  const cases=[
+    {
+      title:'A routine room request',
+      context:'A colleague requests a standard meeting room. The visible booking summary shows no conflict and no special access needs.',
+      policy:'You may approve ordinary room requests when the booking summary meets all listed conditions. Approval is reversible.',
+      advice:'Approve the request. The room appears available.',confidence:'Low confidence wording; no calibrated probability is available.',
+      source:'The current booking record confirms the requested time, capacity, and access conditions. All routine approval conditions are met.',
+      outcomes:{accept:'The booking succeeds. The visible conditions and your authority supported routine approval despite the hesitant wording.',verify:'Verification confirms the booking. It adds work without changing this routine decision; discuss when that extra check is worth the cost.',override:'The request is sent elsewhere even though the routine approval conditions were met. The extra handoff delays a reversible action.',escalate:'An owner receives a routine request you were authorized to approve. Escalation adds delay without resolving an identified uncertainty.'},
+      reflection:'Confidence wording alone should not determine reliance. Check the task, available evidence, reversibility, and authority.'
+    },
+    {
+      title:'A familiar error after a system change',
+      context:'Several colleagues report a sign-in error immediately after a tool migration. The AI recognizes wording from an older support article.',
+      policy:'Use guidance for the current tool version. You may hold a ticket to verify a source, or route a confirmed system issue to platform support.',
+      advice:'Close as a user-training issue and send the old sign-in tutorial.',confidence:'High confidence wording; no calibrated probability is available.',
+      source:'The cited tutorial applies to the retired version. A current incident notice identifies a migration configuration fault owned by platform support.',
+      outcomes:{accept:'The ticket closes while the configuration fault persists. Confident advice used an obsolete source and assigned the problem to the user.',verify:'The version check reveals the stale article and the current incident notice. The next supported action is routing the ticket to platform support.',override:'Platform support receives the ticket and resolves the configuration issue. Consider whether your decision was grounded in the current incident notice or was a lucky guess.',escalate:'An owner can reroute the ticket, but you had authority to inspect the source and route the confirmed fault directly.'},
+      reflection:'A changed system can invalidate familiar guidance. A correct destination is not enough; explain the evidence that justified it.'
+    },
+    {
+      title:'A request outside delegated authority',
+      context:'A project lead asks support to delete a shared workspace immediately. The AI reports that deletion is technically possible.',
+      policy:'Only the designated records owner may authorize deletion of this workspace. Support must obtain that authorization before acting.',
+      advice:'Delete now; the project lead has requested it.',confidence:'High confidence wording; no calibrated probability is available.',
+      source:'No records-owner authorization is attached. The project lead is not the designated records owner for this workspace.',
+      outcomes:{accept:'The workspace is deleted without required authorization. Technical feasibility and a confident recommendation did not grant authority.',verify:'The record confirms missing authorization. Verification alone does not approve deletion; the decision must now go to the records owner.',override:'Rerouting or rejecting the AI advice does not settle the authorization request. Preserve the workspace and obtain the records owner’s decision.',escalate:'The records owner receives the request before any deletion. The authority boundary is preserved even though the software could execute the action.'},
+      reflection:'Some uncertainties require an authorized human decision. More model confidence or repeated source checks cannot supply that authority.'
+    }
+  ];
+  let current=0, inspected=false, records=[];
+  function render(){
+    const scenario=cases[current];
+    inspected=false;
+    find('progress').textContent='Case '+(current+1)+' of '+cases.length;
+    ['title','context','policy','advice','confidence'].forEach((key)=>find('case-'+key).textContent=scenario[key]);
+    find('source-record').hidden=true;find('source-record').textContent='';
+    find('inspect-source').disabled=false;
+    find('decision-form').reset();find('decision-fields').disabled=false;
+    find('consequence').hidden=true;find('session-review').hidden=true;
+    find('decision-status').textContent='';
+    find('next-case').textContent=current===cases.length-1?'Review this round →':'Next case →';
+  }
+  find('inspect-source').addEventListener('click',()=>{
+    inspected=true;find('source-record').textContent=cases[current].source;
+    find('source-record').hidden=false;find('inspect-source').disabled=true;
+  });
+  find('decision-form').addEventListener('submit',(event)=>{
+    event.preventDefault();
+    if(find('decision-fields').disabled)return;
+    const rationale=find('rationale').value.trim(),action=find('decision').value;
+    if(!rationale||!Object.hasOwn(cases[current].outcomes,action)){
+      find('decision-status').textContent='Choose an action and explain your reasoning before seeing the consequence.';return;
+    }
+    records.push({case:cases[current].title,action,rationale,confidence:find('decision-confidence').value,sourceInspected:inspected,consequence:cases[current].outcomes[action]});
+    find('decision-fields').disabled=true;find('inspect-source').disabled=true;
+    find('source-record').textContent=cases[current].source;find('source-record').hidden=false;
+    find('consequence-copy').textContent=cases[current].outcomes[action];
+    find('decision-reflection').textContent=cases[current].reflection;
+    find('decision-status').textContent='Decision recorded for this round.';
+    find('consequence').hidden=false;find('consequence-title').focus();
+  });
+  find('next-case').addEventListener('click',()=>{
+    if(records.length!==current+1)return;
+    if(current<cases.length-1){current++;render();find('decision').focus();return;}
+    find('decision-log').replaceChildren();
+    records.forEach((record)=>{
+      const item=document.createElement('li');
+      item.textContent=record.case+' — '+record.action+'; confidence '+record.confidence+'; source inspected before decision: '+(record.sourceInspected?'yes':'no')+'. Reason: '+record.rationale;
+      find('decision-log').append(item);
+    });
+    find('next-case').disabled=true;
+    find('session-review').hidden=false;find('review-title').focus();
+  });
+  find('restart').addEventListener('click',()=>{current=0;records=[];find('next-case').disabled=false;render();find('decision').focus()});
+  find('download-decisions').addEventListener('click',()=>{
+    const blob=new Blob([JSON.stringify({format:'capability-delegation-v1',boundary:'Fictional authored scenarios; rationale is not machine-scored.',records},null,2)],{type:'application/json'});
+    const url=URL.createObjectURL(blob),link=document.createElement('a');
+    link.href=url;link.download='delegation-decisions.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  });
+  render();
+})();
+</script>

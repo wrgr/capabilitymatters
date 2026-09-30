@@ -7,5 +7,6 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   site: "https://capabilitymatters.org",
   base: "/",
+  redirects: { "/prototypes": "/problems-to-prototypes/?workingPrototype=true" },
   integrations: [mdx()],
 });

@@ -87,7 +87,9 @@ Instrument: ${idea.cycle.instrument}`;
     async function copyText(text){
       if(navigator.clipboard && window.isSecureContext){ await navigator.clipboard.writeText(text); return; }
       var ta=document.createElement('textarea'); ta.value=text; ta.setAttribute('readonly',''); ta.style.position='absolute'; ta.style.left='-9999px';
-      document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+      document.body.appendChild(ta); ta.select();
+      try{if(!document.execCommand('copy'))throw new Error('Clipboard unavailable');}
+      finally{ta.remove();}
     }
     button.addEventListener('click',async function(){
       try{await copyText(prompt);status.textContent='Prompt copied. Open your preferred AI workspace and paste it there.';button.textContent='Copied ✓';}

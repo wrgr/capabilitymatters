@@ -39,8 +39,8 @@ const cycle=[
     </div>
 
     <section class="diagnostic">
-      <h3>Readiness diagnostic</h3>
-      <p>Select the evidence you actually have for this person.</p>
+      <h3>Evidence coverage</h3>
+      <p>Select the evidence you actually have for this person. Coverage shows which tasks have been observed; it does not establish that performance met the standard.</p>
       <div id="checks"></div>
       <div id="readiness" class="readiness" aria-live="polite"></div>
     </section>
@@ -89,6 +89,7 @@ const cycle=[
     ]}
   };
   var role=root.querySelector('#role');
+  var selections={lead:[],analyst:[],supervisor:[]};
   function render(){
     var d=data[role.value];
     root.querySelector('#role-context').textContent=d.context;
@@ -96,15 +97,18 @@ const cycle=[
     root.querySelector('#tasks').innerHTML=d.tasks.map(function(t,i){return '<article class="node task-node"><small>TASK '+(i+1)+'</small><strong>'+t[0]+'</strong><p>'+t[1]+'</p></article>'}).join('');
     root.querySelector('#evidence-grid').innerHTML=d.tasks.map(function(t,i){return '<article class="node evidence-node"><small>CREDIBLE EVIDENCE '+(i+1)+'</small><strong>Observed '+t[0].toLowerCase()+'</strong><p>Performance on a realistic task with a stated standard, not course completion alone.</p></article>'}).join('');
     root.querySelector('#checks').innerHTML=d.tasks.map(function(t,i){return '<label><input type="checkbox" data-i="'+i+'"> We have credible evidence for <strong>'+t[0]+'</strong></label>'}).join('');
+    root.querySelectorAll('#checks input').forEach(function(input){input.checked=selections[role.value].includes(input.dataset.i)});
     assess();
     root.querySelectorAll('#checks input').forEach(function(x){x.addEventListener('change',assess)});
   }
   function assess(){
-    var checked=[].slice.call(root.querySelectorAll('#checks input:checked')).length;
+    var selected=[].slice.call(root.querySelectorAll('#checks input:checked'));
+    selections[role.value]=selected.map(function(input){return input.dataset.i});
+    var checked=selected.length;
     var box=root.querySelector('#readiness');
-    if(checked===3) box.innerHTML='<strong>Evidence-rich:</strong> you have direct evidence across the three representative tasks. The next question is whether performance holds under new conditions, not what course to assign.';
+    if(checked===3) box.innerHTML='<strong>Evidence across all three tasks:</strong> review each observation against its stated performance standard. Evidence may show a gap as well as successful performance. Then check whether performance holds under new conditions.';
     else if(checked===0) box.innerHTML='<strong>Unknown readiness:</strong> you currently have no direct task evidence. Resist filling the gap with completion records. Sample performance first.';
-    else box.innerHTML='<strong>Partial readiness:</strong> '+checked+' of 3 representative tasks have credible evidence. Target practice or observation at the uncovered tasks rather than assigning broad content by default.';
+    else box.innerHTML='<strong>Partial evidence coverage:</strong> '+checked+' of 3 representative tasks have evidence. Review the observed performance against a stated standard and sample the uncovered tasks before recommending training.';
   }
   role.addEventListener('change',render); render();
 })();

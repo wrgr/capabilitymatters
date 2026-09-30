@@ -23,5 +23,14 @@ class PipelinePublicationTests(unittest.TestCase):
                 if not ref.startswith(('https:', 'http:', '#')):
                     self.assertTrue((ROOT / ref).is_file(), ref)
 
+    def test_adventure_is_discoverable(self) -> None:
+        """Keep the gallery and Experiments links pointed at the simulation tab."""
+        repository = ROOT.parent.parent
+        for name in ['problems-to-prototypes.astro', 'experiments.astro']:
+            page = (repository / 'src' / 'pages' / name).read_text()
+            self.assertIn('capability-pipeline/index.html#simulation', page)
+        host = (ROOT / 'index.html').read_text()
+        self.assertIn("location.hash==='#simulation'", host)
+
 if __name__ == '__main__':
     unittest.main()

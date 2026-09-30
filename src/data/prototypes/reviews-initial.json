@@ -1,0 +1,52 @@
+{
+  "example-aile-2195": {
+    "assumption": "A challenge after an independent argument helps learners revise their own reasoning.",
+    "failureMode": "Keyword cues can reward formulaic wording, and an edited input can corrupt the comparison with the original attempt.",
+    "falsificationTest": "Compare independent arguments on a new motion after practice with this coach versus a paper claim-evidence-reasoning checklist; use blinded human ratings.",
+    "nonAiAlternative": "A peer or teacher uses the same claim-evidence-reasoning checklist and asks one skeptical question.",
+    "measurement": "Inspect original arguments, revisions, source use, live transfer, confidence, and dependence on suggested wording. Word counts are not learning scores.",
+    "risks": "Surface words are weak proxies for argument quality; learners need readable feedback and control over their own voice.",
+    "edits": ["Compare with a captured submitted attempt rather than mutable form values.", "Clear old comparison results when revising or resubmitting.", "Label keyword matches as cues rather than demonstrated reasoning quality.", "Keep feedback hidden until the learner submits an attempt."],
+    "tests": ["Node regression for snapshot, confidence, and reset behavior.", "Browser check of hidden state, revision, resubmission, and narrow layout."]
+  },
+  "example-aile-7161": {
+    "assumption": "Side-by-side objective, activity, and evidence descriptions help educators notice mismatches.",
+    "failureMode": "The classifier can mistake verbs for actual cognitive work, accept blank input, or treat unspecified evidence as promising alignment.",
+    "falsificationTest": "Have educators review unfamiliar lessons with and without the tool, then compare revised tasks and evidence standards using independent reviewers.",
+    "nonAiAlternative": "A three-column lesson-review worksheet reviewed by another teacher.",
+    "measurement": "Record teacher disagreement, lesson changes, learner products, and performance on a new task; classifier agreement alone is insufficient.",
+    "risks": "Classification needs human override. Neither activity descriptions nor action verbs establish learning.",
+    "edits": ["Repair the script syntax error that prevented the app from running.", "Require all inputs and hide stale results after edits.", "Flag unclear evidence and accuracy-only evidence for reasoning objectives.", "Replace reading-specific redesign advice with task-neutral guidance.", "Use provisional wording when no mismatch is detected."],
+    "tests": ["Node cases for blank input, mismatch, three insufficient-evidence cases, and provisional alignment.", "Browser validation, focus, evidence warning, and mobile checks."]
+  },
+  "example-aile-5636": {
+    "assumption": "Mapping roles to observed tasks can replace indiscriminate course assignment with targeted evidence collection.",
+    "failureMode": "Checking that evidence exists can be mistaken for proof that performance met a standard.",
+    "falsificationTest": "Compare recommendations made from this map with recommendations from a course-completion list, then inspect actual task performance and unnecessary training.",
+    "nonAiAlternative": "A manager reviews a role/task/evidence worksheet with a colleague.",
+    "measurement": "Track task coverage, quality of the standard, observed performance, transfer, and training recommendations avoided.",
+    "risks": "Evidence absence is uncertainty, not a worker deficit. Keep observation coverage separate from judgments of readiness.",
+    "edits": ["Rename the diagnostic to evidence coverage and clarify what checkmarks establish.", "Preserve separate selections when switching roles.", "Require review against standards even when all representative tasks have evidence."],
+    "tests": ["Browser checks for independent role selections, partial coverage, and restoration on switching."]
+  },
+  "lens-canonical-05": {
+    "assumption": "An explicit evidence chain makes unsupported impact claims easier to recognize before deployment.",
+    "failureMode": "A completed form or a selected performance label can create an appearance of rigorous measurement without an adequate task or comparison.",
+    "falsificationTest": "Compare original and revised measurement plans using independent reviewers, then check whether teams collect disconfirming evidence and narrow claims when needed.",
+    "nonAiAlternative": "A paper logic model with a measurement reviewer and a rival-explanations checklist.",
+    "measurement": "Measure changes in work samples, transfer checks, comparison logic, and claim restraint, not form completion.",
+    "risks": "User selections are self-descriptions; the tool does not validate a measure, estimate an effect, or establish attribution.",
+    "edits": ["Separate participation, self-report, and direct performance evidence.", "Require a described transfer observation when one is selected.", "State limits for absent, before/after, and concurrent comparisons.", "Invalidate the export when inputs change; include the stated performance criterion in the download."],
+    "tests": ["Node validation, evidence-gap, comparison-limit, and stale-result tests.", "Browser export-content, missing transfer, and mobile checks."]
+  },
+  "lens-canonical-06": {
+    "assumption": "Contrasting cases help learners distinguish source quality, confidence wording, and delegated authority.",
+    "failureMode": "Learners can memorize action labels or escalate every case without learning calibrated reliance.",
+    "falsificationTest": "Use unseen cases with different confidence cues and reversed surface details; compare reasoning and decisions to a paper scenario exercise.",
+    "nonAiAlternative": "Facilitated tabletop cases with printed evidence cards and a decision log.",
+    "measurement": "Record action, rationale, source inspection before decision, confidence, unnecessary handoffs, and performance on unfamiliar cases.",
+    "risks": "The authored consequences are illustrative, not empirical predictions; free-text rationale is not automatically scored.",
+    "edits": ["Include a low-confidence routine case where accepting advice is reasonable, a stale-source case, and an authority-boundary case.", "Require independent written reasoning before revealing consequences.", "Freeze submitted choices and record whether the source was inspected beforehand.", "Export the decision record with the fictional-scenario boundary and provide a complete reset."],
+    "tests": ["Node round progression, duplicate submission prevention, required rationale, and reset tests.", "Browser three-case round, safe text rendering, source flag, JSON export, and reset checks."]
+  }
+}
