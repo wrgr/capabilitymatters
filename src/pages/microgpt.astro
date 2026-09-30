@@ -1,0 +1,238 @@
+---
+/** Connect Karpathy's microgpt to evidence-based AI leadership through an original guided companion. */
+import Base from "../layouts/Base.astro";
+const source = "https://karpathy.github.io/2026/02/12/microgpt/";
+const mechanics = [
+  ["Data", "Names supply the examples.", "Which people, tasks, and conditions are absent from our evidence?"],
+  ["Tokens", "Characters become numbered symbols.", "What gets lost when we turn the work into the model's input?"],
+  ["Model", "Attention combines context; learned parameters produce next-token scores.", "What information will the system actually have at the moment of use?"],
+  ["Objective", "Loss measures how poorly the model predicts the observed next token.", "Does the score we optimize represent the outcome we need?"],
+  ["Training", "Gradients and an optimizer adjust the parameters.", "What evidence would show improvement on unfamiliar cases?"],
+  ["Inference", "Fixed parameters generate a sequence through repeated sampling.", "Who checks the result before it changes a decision?"],
+];
+---
+<Base title="MicroGPT for AI leaders · Capability Matters" description="An attributed companion to Andrej Karpathy's microgpt: a temperature experiment, AI leaders' perspectives, and a practical bridge from model mechanics to deployment judgment." active="experiments">
+  <link slot="head" rel="canonical" href="https://capabilitymatters.org/microgpt/" />
+  <header class="intro">
+    <div class="container">
+      <p class="eyebrow">AI leaders' perspectives · A guided companion</p>
+      <h1>A small model.<br />Better questions.</h1>
+      <p class="standfirst">What should understanding a language model change about the way you lead an AI project?</p>
+      <p>Start with Andrej Karpathy's microgpt. Then follow the decisions outward: from what the model learns, to how people use it, to what counts as evidence that the system works.</p>
+      <p class="byline">Capability Matters editorial adaptation · September 30, 2026 · About 12 minutes, plus the optional code exercise</p>
+      <aside class="attribution" aria-label="Source attribution">
+        <strong>Built around Andrej Karpathy's work.</strong>
+        <a href={source}>“microgpt,” February 12, 2026</a>, is the original tutorial and implementation. This page contributes a leadership interpretation, a separate simulation, and discussion activities. Those additions are ours; they do not imply his endorsement.
+      </aside>
+      <nav class="contents" aria-label="On this page">
+        <a href="#mechanism">The mechanism</a><a href="#experiment">Try an experiment</a><a href="#perspectives">Leaders' perspectives</a><a href="#practice">Use it in practice</a>
+      </nav>
+    </div>
+  </header>
+
+  <article class="container article">
+    <section id="mechanism" aria-labelledby="mechanism-title">
+      <p class="eyebrow">01 · Make the mechanism inspectable</p>
+      <h2 id="mechanism-title">Read the model. Then interrogate the project.</h2>
+      <p>Karpathy presents a roughly 200-line, dependency-free Python implementation that trains a small generative pretrained transformer (GPT) on names. It includes tokenization, automatic differentiation, a transformer, an optimizer, training, and generation. His <a href={source}>tutorial</a> explains the implementation; the right-hand questions below are our translation into leadership practice.</p>
+      <div class="mechanics" role="list">
+        {mechanics.map(([name, description, question], i) => <div class="mechanic" role="listitem">
+          <div><span class="number">0{i + 1}</span><h3>{name}</h3><p>{description}</p></div>
+          <p class="question"><span>Ask of your project</span>{question}</p>
+        </div>)}
+      </div>
+      <p class="callout"><strong>The capability we want to build:</strong> explain which part of an AI system a proposed change affects, and ask for evidence at that level. A better training score, a better answer, and a better operational outcome are three different claims.</p>
+    </section>
+
+    <section id="experiment" aria-labelledby="experiment-title">
+      <p class="eyebrow">02 · Change one thing</p>
+      <h2 id="experiment-title">Temperature changes selection. Does it establish correctness?</h2>
+      <p>Imagine a model choosing between four possible next tokens. Before moving the slider, predict what will happen to the most likely token when temperature falls. Then inspect the distribution.</p>
+      <div class="lab" id="temperature-lab">
+        <p class="lab-label">Illustrative simulation · Fixed, invented scores · No trained model</p>
+        <div class="lab-controls">
+          <label for="temperature">Temperature <output id="temperature-value" for="temperature">1.0</output></label>
+          <input id="temperature" type="range" min="0.1" max="2" step="0.1" value="1" />
+          <div class="range-labels"><span>0.1 · More concentrated</span><span>2.0 · More spread out</span></div>
+        </div>
+        <div class="bars" aria-label="Next-token probabilities">
+          {["A", "B", "C", "D"].map((token, i) => <div class="bar-row">
+            <span>Token {token}</span><div class="track" aria-hidden="true"><div class="fill" data-bar={i} style={`width:${[64.4,23.7,8.7,3.2][i]}%`}></div></div>
+            <span data-probability={i}>{[64.4,23.7,8.7,3.2][i]}%</span>
+          </div>)}
+        </div>
+        <p id="distribution-note" role="status">Token A receives 64.4% of the probability. The ranking stays the same.</p>
+        <details><summary>Inspect the calculation</summary><p>The scores (logits) are [3, 2, 1, 0]. For each token, we calculate <code>pᵢ = exp(zᵢ / T) / Σⱼ exp(zⱼ / T)</code>. The implementation subtracts the largest scaled score before exponentiating for numerical stability. Only T changes. Displayed percentages are rounded.</p></details>
+        <noscript><p>The initial distribution at temperature 1.0 is shown. Enable JavaScript to move the slider.</p></noscript>
+      </div>
+      <details class="reflection"><summary>What should a leader take from this?</summary>
+        <p>There is no answer key in this calculation. A concentrated distribution does not establish that the preferred token is true, appropriate, or useful. Lower temperature can make a system repeat an error more consistently.</p>
+        <p><strong>Our application:</strong> if someone proposes lowering temperature to fix unreliable advice, ask them to measure factual error on representative tasks. The setting is a candidate intervention. It is not the evidence of success.</p>
+      </details>
+      <p class="boundary">This original illustration isolates the sampling calculation described in microgpt. It does not run Karpathy's network, learn from your input, or show measured model outputs.</p>
+    </section>
+
+    <section id="perspectives" aria-labelledby="perspectives-title">
+      <p class="eyebrow">03 · Connect the perspectives</p>
+      <h2 id="perspectives-title">Mechanism, application, and impact</h2>
+      <p>These authors address different questions. The connections below are Capability Matters' interpretation of their published work, not a joint position or a ranking of their views.</p>
+      <div class="perspectives">
+        <section class="perspective">
+          <p class="view-label">Mechanism · Educational demonstration</p><h3>Andrej Karpathy</h3>
+          <p><strong>Source perspective.</strong> Microgpt strips a trainable language model down to an inspectable implementation.</p>
+          <p><strong>Our connection.</strong> Technical literacy should let a leader locate a claim: is the proposed improvement in the data, learning process, generation settings, or system around the model?</p>
+          <a href={source}>Read microgpt · February 2026</a>
+        </section>
+        <section class="perspective">
+          <p class="view-label">Application · Practitioner judgment</p><h3>Andrew Ng</h3>
+          <p><strong>Source perspective.</strong> In his December 2024 letter, Ng argues that applications are accelerating especially quickly, including uses already technically possible with earlier models.</p>
+          <p><strong>Our connection.</strong> A procurement decision should compare complete ways of doing the work. Test the existing process, a model-assisted process, and a simpler alternative. Include the time spent checking and correcting outputs.</p>
+          <a href="https://www.deeplearning.ai/the-batch/issue-281/">Read Ng's letter · December 2024</a>
+        </section>
+        <section class="perspective">
+          <p class="view-label">Impact · Conditional forecast</p><h3>Dario Amodei</h3>
+          <p><strong>Source perspective.</strong> In <em>Machines of Loving Grace</em>, Amodei considers how powerful AI could accelerate progress, while identifying limits such as missing data, physical timescales, and human constraints. The essay is explicitly speculative.</p>
+          <p><strong>Our connection.</strong> Ask what currently limits the outcome. If the constraint is access, authority, equipment, or an unworkable process, better model performance may leave it largely intact.</p>
+          <a href="https://darioamodei.com/essay/machines-of-loving-grace">Read the essay · October 2024</a>
+        </section>
+      </div>
+      <p class="callout"><strong>The Capability Matters position:</strong> make the mechanism understandable, evaluate the work as a system, and identify the constraint that matters. A leader's job is to make the link from model performance to human capability explicit and testable.</p>
+    </section>
+
+    <section id="practice" aria-labelledby="practice-title">
+      <p class="eyebrow">04 · Produce a piece of evidence</p>
+      <h2 id="practice-title">A team exercise with two routes</h2>
+      <p>Choose the route that fits your group. Both end with a short decision note: what changed, what the observation supports, what it cannot establish, and what to test next.</p>
+      <details class="exercise" open><summary>Leadership route · About 15 minutes · No coding</summary>
+        <p><strong>Hypothetical scenario.</strong> A team proposes an AI assistant that drafts feedback on student work. Its demonstration looks convincing, and its model scores well on a general benchmark. The team wants to expand use across a program.</p>
+        <ol>
+          <li><strong>Define the outcome.</strong> What should students or instructors be able to do better? Specify the task and the conditions. “Use AI” is not an outcome.</li>
+          <li><strong>Choose the comparison.</strong> What is the current feedback process? Could a rubric, worked example, or other modest change solve the same problem?</li>
+          <li><strong>Specify the evidence.</strong> Assess feedback accuracy and usefulness on unfamiliar work. Include different student groups and cases the system should refer to an instructor. Measure review time as well as drafting time.</li>
+          <li><strong>Make the decision conditional.</strong> State what would justify a limited pilot, what would stop it, and who has authority to act on the findings. Set those criteria before seeing the pilot results.</li>
+        </ol>
+        <p><strong>Discussion prompt:</strong> what did inspecting the mechanism help you decide, and which decisions still require evidence about learners, instructors, and the local workflow?</p>
+      </details>
+      <details class="exercise"><summary>Builder route · Allow 30–60 minutes · Basic Python</summary>
+        <p>Use <a href="https://colab.research.google.com/drive/1vyN5zo6rqUp_dYNbT4Yrco66zuWCZKoN?usp=sharing">Karpathy's original Colab notebook</a> or <a href="https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95">his source code</a>. Runtime varies by machine. Keep a copy of the source version you run.</p>
+        <ol>
+          <li><strong>Record the baseline.</strong> Keep the data, random seed, training steps, and settings fixed. Save the training log and a sample of generated names. Plausible samples alone do not establish generalization.</li>
+          <li><strong>Separate training from sampling.</strong> After one training run, keep the learned parameters fixed and sample at two temperatures. Record the sampling seed and generate enough examples to see variation. Do not retrain between temperatures.</li>
+          <li><strong>Make an evaluation extension.</strong> Before a new training run, split the examples into training and held-out sets. Evaluate next-token loss on the held-out set without parameter updates, using the same temperature of 1.0 for comparisons. This is an added exercise, not a result reported by the original tutorial.</li>
+          <li><strong>Report the boundary.</strong> A held-out name score concerns this task and dataset. It does not measure instruction following, factual accuracy, or readiness to advise students.</li>
+        </ol>
+      </details>
+      <div class="decision-note">
+        <h3>Your decision note</h3>
+        <p>“We need <em>[people]</em> to perform <em>[task]</em> under <em>[conditions]</em>. We will compare <em>[alternatives]</em>, using <em>[outcome and error measures]</em>. We will proceed only if <em>[criteria]</em>. <em>[Owner]</em> will review failures and decide whether to continue, revise, or stop.”</p>
+        <p>Use an unfamiliar second scenario to check whether the group can repeat the reasoning. Completing this page is not evidence of that capability.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="boundary-title">
+      <p class="eyebrow">05 · Keep the claim proportional</p>
+      <h2 id="boundary-title">What this small model cannot settle</h2>
+      <p>Microgpt is a useful entry point into model mechanics. A production assistant may also involve post-training, retrieval, tools, permissions, monitoring, and human review. None of those capabilities is validated by successfully running this exercise.</p>
+      <p>Our educational hypothesis is that inspecting a small mechanism improves the questions people ask about larger systems. That is a hypothesis to evaluate through their decisions on new cases. We have not established a learning effect for this page.</p>
+      <p>Continue with <a href="/llm101/">LLM101's depth-adjustable explanation</a> or use the <a href="/capability-pipeline/">Capability Pipeline</a> to frame a project from an observed capability gap.</p>
+    </section>
+
+    <section id="sources" class="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">Attribution and sources</h2>
+      <ol>
+        <li><strong>Andrej Karpathy.</strong> <a href={source}>“microgpt.”</a> February 12, 2026. Original concept, Python implementation, and technical tutorial. <a href="https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95">Original code</a>; <a href="https://colab.research.google.com/drive/1vyN5zo6rqUp_dYNbT4Yrco66zuWCZKoN?usp=sharing">original notebook</a>.</li>
+        <li><strong>Andrew Ng.</strong> Opening letter in <a href="https://www.deeplearning.ai/the-batch/issue-281/">The Batch, issue 281</a>, DeepLearning.AI. December 25, 2024. Cited for his perspective on application progress.</li>
+        <li><strong>Dario Amodei.</strong> <a href="https://darioamodei.com/essay/machines-of-loving-grace">“Machines of Loving Grace.”</a> October 2024. Especially “Basic assumptions and framework.” Cited as a conditional argument about potential impact and limiting factors.</li>
+      </ol>
+      <p><strong>Adaptation note.</strong> The leadership questions, comparison of perspectives, temperature simulation, scenario, and decision-note exercise were developed for Capability Matters with AI assistance. This page summarizes and links to the originals; it does not reproduce Karpathy's tutorial or source code. No endorsement by the cited authors is implied.</p>
+      <details><summary>Terms and acronyms</summary><dl>
+        <dt>AI · Artificial intelligence</dt><dd>Computational systems used for tasks such as prediction, generation, and decision support.</dd>
+        <dt>GPT · Generative pretrained transformer</dt><dd>A family of models built around transformer architectures for generating sequences.</dd>
+        <dt>LLM · Large language model</dt><dd>A language model trained at large scale. Microgpt is deliberately small.</dd>
+        <dt>Token</dt><dd>A unit represented by the model. Here the training example uses characters; other models use different units.</dd>
+        <dt>Loss</dt><dd>A numerical objective used to evaluate predictions during training or testing.</dd>
+        <dt>Temperature</dt><dd>A sampling setting that rescales scores before converting them to probabilities.</dd>
+        <dt>Held-out data</dt><dd>Examples excluded from training and used to evaluate performance on unseen inputs.</dd>
+      </dl></details>
+    </section>
+  </article>
+</Base>
+
+<script>
+  const slider = document.querySelector<HTMLInputElement>("#temperature");
+  const value = document.querySelector<HTMLOutputElement>("#temperature-value");
+  const note = document.querySelector<HTMLElement>("#distribution-note");
+  /** Recalculate a fixed four-token distribution without claiming model inference. */
+  function updateDistribution(): void {
+    if (!slider || !value || !note) return;
+    const temperature = Number(slider.value);
+    // Subtract the largest logit before exponentiation to keep the softmax stable.
+    const weights = [3, 2, 1, 0].map(score => Math.exp((score - 3) / temperature));
+    const total = weights.reduce((sum, weight) => sum + weight, 0);
+    const probabilities = weights.map(weight => 100 * weight / total);
+    probabilities.forEach((probability, i) => {
+      const bar = document.querySelector<HTMLElement>(`[data-bar="${i}"]`);
+      const label = document.querySelector<HTMLElement>(`[data-probability="${i}"]`);
+      if (bar) bar.style.width = `${probability}%`;
+      if (label) label.textContent = `${probability.toFixed(1)}%`;
+    });
+    value.textContent = temperature.toFixed(1);
+    note.textContent = `Token A receives ${probabilities[0].toFixed(1)}% of the probability. The ranking stays the same.`;
+  }
+  slider?.addEventListener("input", updateDistribution);
+</script>
+
+<style>
+  .intro { border-bottom: 1px solid var(--border); background: var(--tint); }
+  .intro .container { padding-top: 3rem; padding-bottom: 2rem; }
+  h1 { font-size: clamp(2.6rem, 6vw, 4rem); max-width: 16ch; }
+  .standfirst { font-size: 1.3rem; line-height: 1.45; }
+  .byline, .attribution, .contents, .lab, .boundary, .view-label, .sources { font-family: var(--sans); }
+  .byline, .boundary, .view-label { font-size: .875rem; color: #555b55; }
+  .eyebrow { font-size: .875rem; letter-spacing: .09em; }
+  .attribution { max-width: 48rem; font-size: .95rem; border-left: 3px solid var(--accent-2); padding: 1rem 1.2rem; background: var(--bg); }
+  .contents { display: flex; flex-wrap: wrap; gap: .65rem 1.5rem; margin-top: 1.5rem; font-size: .95rem; }
+  .article { padding-top: 0; }
+  .article > section { padding: 3rem 0; border-bottom: 1px solid var(--border); scroll-margin-top: 8rem; }
+  p { font-size: 1.0625rem; }
+  a { text-decoration: underline; text-underline-offset: 3px; }
+  .mechanics { margin: 1.8rem 0; border-top: 2px solid var(--accent-2); }
+  .mechanic { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 1.2rem 0; border-bottom: 1px solid var(--border); }
+  .mechanic h3 { display: inline; }
+  .number { font-family: var(--mono); margin-right: .7rem; color: var(--accent-2); font-size: .875rem; }
+  .mechanic p { margin: .45rem 0 0; }
+  .question { border-left: 1px solid var(--border); padding-left: 1.2rem; }
+  .question span { display: block; font: .875rem var(--sans); color: var(--accent-2); margin-bottom: .4rem; }
+  .callout { border-left: 3px solid var(--accent-2); padding: 1rem 1.2rem; background: var(--tint); max-width: none; }
+  .lab { padding: clamp(1rem, 3vw, 2rem); background: #102b3c; color: #f6f8fa; margin: 1.5rem 0; border-radius: 5px; }
+  .lab p { max-width: none; font-size: 1rem; }
+  .lab-label { color: #b3e4e2; font-size: .875rem !important; }
+  .lab-controls { margin: 1.5rem 0 2rem; }
+  .lab label { display: flex; justify-content: space-between; font-size: 1.125rem; }
+  .lab output { font-family: var(--mono); }
+  input[type="range"] { display: block; width: 100%; accent-color: #6ee0d6; margin: 1rem 0; min-height: 24px; cursor: pointer; }
+  .range-labels { display: flex; justify-content: space-between; gap: 1rem; font-size: .875rem; color: #d0dde5; }
+  .bar-row { display: grid; grid-template-columns: 4rem 1fr 4.5rem; gap: .8rem; align-items: center; margin-bottom: 1rem; font-size: .95rem; }
+  .bar-row > :last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  .track { height: 1.2rem; background: #284556; border-radius: 2px; overflow: hidden; }
+  .fill { height: 100%; background: #6ee0d6; }
+  .lab details { border-top: 1px solid #426073; padding-top: 1rem; }
+  .lab code { white-space: normal; }
+  summary { cursor: pointer; font-family: var(--sans); font-size: 1rem; font-weight: 600; padding: .4rem 0; }
+  summary:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid #b8792e; outline-offset: 4px; }
+  details p:first-of-type { margin-top: 1rem; }
+  .reflection, .exercise { border: 1px solid var(--border); padding: 1rem 1.25rem; margin: 1.2rem 0; }
+  .perspectives { display: grid; gap: 1.5rem; margin: 2rem 0; }
+  .perspective { padding-left: 1.25rem; border-left: 3px solid var(--accent-2); }
+  .perspective h3 { font-size: 1.6rem; }
+  .view-label { margin-bottom: .4rem; }
+  .perspective a { font: .95rem var(--sans); }
+  li { margin-bottom: .85rem; font-size: 1.0625rem; }
+  ol { padding-left: 1.4rem; max-width: 45rem; }
+  .decision-note { background: var(--tint); padding: 1.5rem; margin-top: 2rem; }
+  .decision-note p:last-child { margin-bottom: 0; }
+  .sources p, .sources li { font-size: .95rem; }
+  dt { font-weight: 600; margin-top: 1rem; } dd { margin: .3rem 0; }
+  @media (max-width: 600px) { .mechanic { grid-template-columns: 1fr; gap: .6rem; } .question { margin-left: 1.7rem !important; } .article > section { padding: 2rem 0; } }
+  @media print { .contents { display: none; } .article > section { break-inside: auto; } .lab { border: 1px solid #777; } }
+</style>

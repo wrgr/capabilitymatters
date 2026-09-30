@@ -2,7 +2,7 @@
 /**
  * Experiments page: a card grid of standalone experimental projects and
  * prototypes, each with a short description and, unless flagged `comingSoon`,
- * an outbound link. These live at their own domains rather than in the content
+ * a project link. These live on this site or their own domains rather than in the content
  * collections, so the data is a small inline array here rather than an MDX
  * collection + schema change.
  *
@@ -38,6 +38,13 @@ const featuredPaper = {
 // are prototypes whose scope has moved. Two sentences, to match card copy
 // elsewhere on the site.
 const experiments: Experiment[] = [
+  {
+    title: "MicroGPT for AI leaders",
+    url: "https://capabilitymatters.org/microgpt/",
+    host: "capabilitymatters.org/microgpt",
+    description:
+      "A guided companion to Andrej Karpathy's microgpt, connecting model mechanics to perspectives from Andrew Ng and Dario Amodei. Try a temperature experiment, inspect the original code, and turn the observations into questions for an AI pilot.",
+  },
   {
     title: "LLM101",
     url: "https://capabilitymatters.org/llm101/",
