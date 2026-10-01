@@ -19,8 +19,8 @@ body.dark-shell {
   .hero {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 1.5rem 4rem .75rem;
+    justify-content: flex-start;
+    padding: 1rem 4rem .5rem;
     position: relative;
   }
   .hero::before {
@@ -80,11 +80,11 @@ body.dark-shell {
     border-bottom: 1px solid rgba(44, 196, 179, .4);
   }
   .scroll-cue:focus-visible { outline: 2px solid var(--hp-teal-light); outline-offset: 4px; }
-  #argument { scroll-margin-top: 6rem; padding-top: 1.5rem; }
+  #argument { scroll-margin-top: 6rem; padding-top: .5rem; }
 
   /* STATEMENTS */
   .statement {
-    padding: 4rem 4rem;
+    padding: 1.25rem 4rem;
     border-top: 1px solid rgba(138, 154, 181, 0.1);
     position: relative;
   }
@@ -106,7 +106,7 @@ body.dark-shell {
   }
   .statement h2 em { font-style: italic; color: var(--hp-teal-light); }
   .statement p {
-    margin: 2rem 0 0;
+    margin: .75rem 0 0;
     font-family: var(--hp-sans);
     font-size: 1.1rem;
     font-weight: 300;
@@ -128,7 +128,7 @@ body.dark-shell {
     border-top: 1px solid rgba(138, 154, 181, 0.1);
   }
   .evidence-cell {
-    padding: 4rem;
+    padding: 1.25rem 2rem;
     border-right: 1px solid rgba(138, 154, 181, 0.1);
     position: relative;
   }
@@ -170,10 +170,10 @@ body.dark-shell {
 
   /* DOMAINS */
   .domains {
-    padding: 4rem 4rem;
+    padding: 1.25rem 4rem;
     border-top: 1px solid rgba(138, 154, 181, 0.1);
   }
-  .domains-header { margin-bottom: 4rem; }
+  .domains-header { margin-bottom: 1rem; }
   .domains-header h2 {
     font-family: var(--hp-serif);
     font-weight: 400;
@@ -230,7 +230,7 @@ body.dark-shell {
 
   /* CTA */
   .cta-section {
-    padding: 10rem 4rem;
+    padding: 1.25rem 4rem;
     text-align: center;
     position: relative;
     border-top: 1px solid rgba(138, 154, 181, 0.1);
@@ -277,7 +277,7 @@ body.dark-shell {
     gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 3rem;
+    margin-top: 1rem;
     position: relative;
   }
   .cta-btn {
@@ -322,12 +322,7 @@ body.dark-shell {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal { opacity: 1; transform: none; }
 
   @media (prefers-reduced-motion: reduce) {
     .hero-label, .hero h1, .hero-sub,  .scroll-cue { animation: none; opacity: 1; }
@@ -338,18 +333,18 @@ body.dark-shell {
   /* RESPONSIVE */
   @media (max-width: 900px) {
     .hero { padding: 1rem 2rem .5rem; }
-    .statement { padding: 2.5rem 2rem; }
+    .statement { padding: 1.25rem 2rem; }
     .statement.right { align-items: flex-start; text-align: left; }
     .evidence-strip { grid-template-columns: 1fr; }
     .evidence-cell {
       border-right: none;
       border-bottom: 1px solid rgba(138, 154, 181, 0.1);
-      padding: 3rem 2rem;
+      padding: 1.25rem 2rem;
     }
     .evidence-cell:last-child { border-bottom: none; }
     .domain-cards { grid-template-columns: 1fr; }
-    .domains { padding: 5rem 2rem; }
-    .cta-section { padding: 6rem 2rem; }
+    .domains { padding: 1.25rem 2rem; }
+    .cta-section { padding: 1.25rem 2rem; }
     .hero-sub { font-size: 1rem; margin-top: 1rem; }
   }
 

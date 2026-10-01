@@ -150,26 +150,3 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
     </p>
   </section>
 </Base>
-
-
-<script is:inline>
-  // Progressive enhancement: fade-in on scroll for elements marked .reveal.
-  // Shows all content if Intersection Observer is missing; reduced-motion
-  // preferences also keep the content visible.
-  (function () {
-    var nodes = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) {
-      nodes.forEach(function (n) { n.classList.add('visible'); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    nodes.forEach(function (n) { io.observe(n); });
-  })();
-</script>
