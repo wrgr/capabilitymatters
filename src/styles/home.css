@@ -17,11 +17,10 @@ body.dark-shell {
 
   /* HERO */
   .hero {
-    min-height: 88vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 6rem 4rem 6rem;
+    padding: 2.5rem 4rem 1.5rem;
     position: relative;
   }
   .hero::before {
@@ -40,14 +39,14 @@ body.dark-shell {
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--hp-teal-light);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     opacity: 0;
     animation: fadeUp 0.8s 0.3s forwards;
   }
   .hero h1 {
     font-family: var(--hp-serif);
     font-weight: 400;
-    font-size: clamp(3.2rem, 7vw, 6.5rem);
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
     line-height: 1.05;
     max-width: 900px;
     color: var(--hp-cream);
@@ -57,44 +56,35 @@ body.dark-shell {
   }
   .hero h1 em { font-style: italic; color: var(--hp-teal-light); }
   .hero-sub {
-    margin: 2.5rem 0 0;
+    margin: 1.25rem 0 0;
     font-family: var(--hp-sans);
     font-size: 1.25rem;
     font-weight: 300;
-    line-height: 1.7;
-    max-width: 600px;
+    line-height: 1.5;
+    max-width: 54rem;
     color: var(--hp-text-muted);
     opacity: 0;
     animation: fadeUp 0.8s 0.7s forwards;
   }
-  .hero-line {
-    width: 80px;
-    height: 2px;
-    background: var(--hp-gold);
-    margin-top: 3rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.9s forwards;
-  }
+  /* Keep the continuation cue in normal flow, visible at every screen size. */
   .scroll-cue {
-    position: absolute;
-    bottom: 3rem;
-    left: 4rem;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 1rem;
+    align-self: flex-start;
+    gap: .6rem;
+    margin-top: 1.25rem;
+    padding: .35rem 0;
     font-family: var(--hp-sans);
-    color: var(--hp-text-muted);
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeUp 0.8s 1.2s forwards;
+    color: var(--hp-teal-light);
+    font-size: .875rem;
+    border-bottom: 1px solid rgba(44, 196, 179, .4);
   }
-  .scroll-cue .line { width: 40px; height: 1px; background: var(--hp-text-muted); }
+  .scroll-cue:focus-visible { outline: 2px solid var(--hp-teal-light); outline-offset: 4px; }
+  #argument { scroll-margin-top: 6rem; }
 
   /* STATEMENTS */
   .statement {
-    padding: 8rem 4rem;
+    padding: 4rem 4rem;
     border-top: 1px solid rgba(138, 154, 181, 0.1);
     position: relative;
   }
@@ -180,7 +170,7 @@ body.dark-shell {
 
   /* DOMAINS */
   .domains {
-    padding: 8rem 4rem;
+    padding: 4rem 4rem;
     border-top: 1px solid rgba(138, 154, 181, 0.1);
   }
   .domains-header { margin-bottom: 4rem; }
@@ -340,15 +330,15 @@ body.dark-shell {
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-label, .hero h1, .hero-sub, .hero-line, .scroll-cue { animation: none; opacity: 1; }
+    .hero-label, .hero h1, .hero-sub,  .scroll-cue { animation: none; opacity: 1; }
     .reveal { opacity: 1; transform: none; transition: none; }
     .domain-card { transition: none; }
   }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    .hero { padding: 5rem 2rem; min-height: 80vh; }
-    .statement { padding: 5rem 2rem; }
+    .hero { padding: 1.5rem 2rem 1.25rem; }
+    .statement { padding: 2.5rem 2rem; }
     .statement.right { align-items: flex-start; text-align: left; }
     .evidence-strip { grid-template-columns: 1fr; }
     .evidence-cell {
@@ -360,7 +350,7 @@ body.dark-shell {
     .domain-cards { grid-template-columns: 1fr; }
     .domains { padding: 5rem 2rem; }
     .cta-section { padding: 6rem 2rem; }
-    .scroll-cue { display: none; }
+    .hero-sub { font-size: 1rem; margin-top: 1rem; }
   }
 
 }
