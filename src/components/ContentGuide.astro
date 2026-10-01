@@ -1,5 +1,5 @@
 ---
-// Homepage guide gives each content collection a distinct purpose and destination.
+// Compact homepage links explain each collection on hover, focus, or a touch toggle.
 const base = import.meta.env.BASE_URL;
 const sections = [
   { path: "case-studies/", title: "Case Studies", action: "Read the evidence", description: "What worked, what failed, and what the evidence supports." },
@@ -8,30 +8,69 @@ const sections = [
 ];
 ---
 
-<h2 class="guide-heading">Start here</h2>
 <nav class="content-guide" aria-label="Explore Capability Matters">
-  {sections.map((section) => (
-    <a href={base + section.path}>
-      <span>{section.action}</span>
-      <strong>{section.title}</strong>
-      <p>{section.description}</p>
-    </a>
+  <span class="guide-heading">Start here:</span>
+  {sections.map((section, index) => (
+    <span class="guide-item">
+      <a href={base + section.path} aria-describedby={"guide-tip-" + index}>{section.title}</a>
+      <button type="button" aria-label={"About " + section.title} aria-expanded="false" aria-controls={"guide-tip-" + index}><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" /><path d="M8 7v4M8 4.5v.5" stroke="currentColor" stroke-width="1.5" /></svg></button>
+      <span class="guide-tip" id={"guide-tip-" + index} role="tooltip">
+        <strong>{section.action}.</strong> {section.description}
+      </span>
+    </span>
   ))}
 </nav>
 
 <style>
-  .guide-heading { font-family: var(--hp-sans); font-size: 1rem; color: #f5f0e8; margin: 1rem 0 .5rem; }
-  .content-guide { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin-top: 0; max-width: 64rem; font-family: var(--hp-sans); }
-  a { display: block; padding: .8rem 1rem; border: 1px solid #40536d; border-radius: 4px; background: #132240; }
-  a:hover, a:focus-visible { border-color: #2cc4b3; background: #192d4d; }
-  a:focus-visible { outline: 2px solid #2cc4b3; outline-offset: 3px; }
-  span { display: block; color: #c3cbe2; font-size: .875rem; }
-  strong { display: block; color: #2cc4b3; font-size: 1.15rem; margin: .2rem 0 .3rem; }
-  p { font-size: 1rem; color: #f5f0e8; line-height: 1.4; margin: 0; }
-  @media (max-width: 760px) {
-    .content-guide { grid-template-columns: 1fr; gap: .5rem; margin-top: 0; }
-    a { padding: .6rem .8rem; }
-    span { display: none; }
-    strong { font-size: 1rem; margin: 0 0 .2rem; }
-  }
+  .content-guide { position: relative; display: flex; align-items: center; flex-wrap: wrap; gap: .25rem 1rem; margin-top: .75rem; max-width: 64rem; font-family: var(--hp-sans); font-size: 1rem; }
+  .guide-heading { color: #f5f0e8; font-weight: 600; }
+  .guide-item { display: inline-flex; align-items: center; }
+  a { color: #2cc4b3; font-weight: 600; padding: .25rem 0; text-decoration: underline; text-underline-offset: .2em; }
+  button { display: inline-grid; place-items: center; border: 0; background: transparent; color: #c3cbe2; font: inherit; min-width: 1.75rem; min-height: 1.75rem; padding: .2rem; cursor: pointer; }
+  a:focus-visible, button:focus-visible { outline: 2px solid #2cc4b3; outline-offset: 3px; }
+  /* Overlay descriptions do not reserve space or shift the page when opened. */
+  .guide-tip { visibility: hidden; position: absolute; top: 100%; left: 0; z-index: 20; width: min(30rem, 100%); padding: .75rem 1rem; border: 1px solid #40536d; border-radius: 4px; background: #132240; color: #f5f0e8; font-weight: 400; line-height: 1.5; box-shadow: 0 4px 16px #0005; }
+  .guide-item:not(.dismissed):hover .guide-tip,
+  .guide-item:not(.dismissed):focus-within .guide-tip,
+  .guide-item.open .guide-tip { visibility: visible; }
+  @media (max-width: 760px) { .content-guide { gap: .25rem .75rem; } }
 </style>
+
+<script>
+  // Links always navigate; separate info buttons let touch users read descriptions.
+  const guide = document.querySelector('.content-guide');
+  const items = guide?.querySelectorAll<HTMLElement>('.guide-item');
+  items?.forEach((item) => {
+    const button = item.querySelector('button');
+    button?.addEventListener('click', () => {
+      const open = !item.classList.contains('open');
+      items.forEach((other) => {
+        other.classList.remove('open');
+        other.classList.add('dismissed');
+        other.querySelector('button')?.setAttribute('aria-expanded', 'false');
+      });
+      item.classList.toggle('open', open);
+      item.classList.toggle('dismissed', !open);
+      button.setAttribute('aria-expanded', String(open));
+    });
+    item.addEventListener('pointerleave', () => item.classList.remove('dismissed'));
+    item.addEventListener('pointerenter', () => item.classList.remove('dismissed'));
+    item.querySelector('a')?.addEventListener('focus', () => item.classList.remove('dismissed'));
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    items?.forEach((item) => {
+      item.classList.remove('open');
+      item.classList.add('dismissed');
+      item.querySelector('button')?.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('pointerdown', (event) => {
+    if (!(event.target instanceof Node) || guide?.contains(event.target)) return;
+    items?.forEach((item) => {
+      item.classList.remove('open');
+      item.classList.add('dismissed');
+      item.querySelector('button')?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
