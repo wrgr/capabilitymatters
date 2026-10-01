@@ -141,7 +141,7 @@ try {
   if (process.env.PROTOTYPE_SCREENSHOTS) await page.screenshot({ path: join(process.env.PROTOTYPE_SCREENSHOTS, 'evidence-desktop.png') });
 
   await page.goto(`${origin}/problems-to-prototypes/`);
-  await page.getByRole('link', { name: 'Choose your own adventure →' }).click();
+  await page.getByRole('link', { name: 'Try the simulation' }).click();
   assert.equal(await page.locator('#sim-tab').getAttribute('aria-selected'), 'true');
   assert(await page.locator('#simulation').isVisible());
   assert.equal(await page.locator('#cases').isVisible(), false);

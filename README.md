@@ -5,11 +5,32 @@ The site for Johns Hopkins' LENS (Learning Engineering for Next-Generation Syste
 specialization, built with [Astro](https://astro.build).
 
 This repository was extracted from [`wrgr/lecommons`](https://github.com/wrgr/lecommons) (site
-history preserved). It's deliberately narrow: the LENS program itself, field notes written in
-the LENS voice, and case material like the LLM101 exemplar — not an index of the field. The
+history preserved). Its focus is the LENS program, documented case studies, interactive
+experiments, and prototype design work. The
 shared IEEE ICICLE / Learning Engineering Commons corpus (reading list, practice library, tools
 catalog, events calendar, community roster) lives at
 [lecommons.org](https://lecommons.org) and is linked to, not duplicated, here.
+
+## Content organization
+
+The primary menu is Welcome, Case Studies, Experiments, Prototypes, and About.
+The School of Education talk and Field Notes are no longer menu entries; their
+content has not been deleted. Learning Engineering Commons remains in the footer
+and About. Existing route URLs and prototype filter URLs are preserved.
+
+- **Case Studies:** documented examples with evidence, caveats, and the draft casebook.
+- **Experiments:** learning labs, research/practice projects, and creative demonstrations.
+- **Prototypes:** capability gaps, design briefs, working exercises, and evaluation plans.
+- **Supporting reading:** Show Your Work is linked separately from runnable experiments.
+- **About:** program context, a content guide, and the author’s personal site.
+
+The homepage guide lives in `src/components/ContentGuide.astro`; the extracted
+homepage styles are scoped to the dark shell in `src/styles/home.css`. The three collection
+introductions cross-link so readers can choose the right kind of resource.
+
+Validation: `npm run build`, `python3 tests/test_navbar_workshop_link.py`, and
+`python3 tests/test_experiments_page.py`. The legacy navbar test filename is retained;
+it now checks both generated menus and the homepage guide.
 
 ## Layout
 

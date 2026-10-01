@@ -1,38 +1,44 @@
-"""Guard the Workshop link in the top navigation.
-
-File-content assertions (there is no JS test runner in this repo): they check
-the Workshop tab is wired into NavBar with the right destination and opens in a
-new tab, so a nav refactor can't silently drop or re-point it.
-"""
-
+"""Guard the simplified navigation and preserve access to existing content."""
 from pathlib import Path
+from html.parser import HTMLParser
 
-REPO_ROOT = Path(__file__).parent.parent
-NAV = REPO_ROOT / "src" / "components" / "NavBar.astro"
+ROOT = Path(__file__).resolve().parents[1]
 
-WORKSHOP_URL = "https://tinyurl.com/wgr-soe2026"
+class PrimaryLinks(HTMLParser):
+    """Read primary-navigation destinations from generated pages."""
+    def __init__(self) -> None:
+        """Initialize navigation collection."""
+        super().__init__()
+        self.primary = False
+        self.links: list[str] = []
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        """Collect links only within the two primary menus."""
+        a = dict(attrs)
+        if tag == 'nav':
+            self.primary = a.get('aria-label', '').startswith('Primary')
+        if tag == 'a' and self.primary:
+            self.links.append(a['href'])
+    def handle_endtag(self, tag: str) -> None:
+        """End the current navigation scope."""
+        if tag == 'nav':
+            self.primary = False
 
+def test_primary_navigation() -> None:
+    """Desktop and mobile menus expose the same five valid destinations."""
+    expected = ['/', '/case-studies/', '/experiments/', '/problems-to-prototypes/', '/about/']
+    for route in ['', 'case-studies', 'experiments', 'problems-to-prototypes', 'about']:
+        parser = PrimaryLinks()
+        parser.feed((ROOT / 'dist' / route / 'index.html').read_text())
+        assert parser.links == expected * 2, (route, parser.links)
+    assert (ROOT / 'dist/field-notes/index.html').is_file()
 
-def _read_nav() -> str:
-    """Read the NavBar component source."""
-    return NAV.read_text(encoding="utf-8")
+def test_home_guide() -> None:
+    """The home guide explains the three collections in the built page."""
+    home = (ROOT / 'dist/index.html').read_text()
+    for text in ['Explore Capability Matters', 'Read the evidence', 'Explore a lab or project', 'Work from a capability gap']:
+        assert text in home, text
 
-
-def test_workshop_tab_present() -> None:
-    """The nav carries a Workshop tab pointing at the workshop URL."""
-    nav = _read_nav()
-    assert 'label: "Workshop"' in nav, "Workshop tab not wired into NavBar"
-    assert WORKSHOP_URL in nav, f"Workshop link missing: {WORKSHOP_URL}"
-
-
-def test_workshop_tab_is_external() -> None:
-    """The Workshop tab is flagged external so it opens in a new tab."""
-    nav = _read_nav()
-    line = next(ln for ln in nav.splitlines() if WORKSHOP_URL in ln)
-    assert "external: true" in line, "Workshop link must be marked external"
-
-
-if __name__ == "__main__":
-    test_workshop_tab_present()
-    test_workshop_tab_is_external()
-    print("navbar workshop link OK")
+if __name__ == '__main__':
+    test_primary_navigation()
+    test_home_guide()
+    print('navigation and home guide OK')

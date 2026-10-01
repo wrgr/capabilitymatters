@@ -1,0 +1,30 @@
+---
+// Homepage guide gives each content collection a distinct purpose and destination.
+const base = import.meta.env.BASE_URL;
+const sections = [
+  { path: "case-studies/", title: "Case Studies", action: "Read the evidence", description: "Documented examples of what worked, what failed, and what the evidence supports." },
+  { path: "experiments/", title: "Experiments", action: "Explore a lab or project", description: "Interactive teaching labs, research projects, and creative demonstrations." },
+  { path: "problems-to-prototypes/", title: "Prototypes", action: "Work from a capability gap", description: "Design briefs, working tools, and plans to test whether an intervention helps." },
+];
+---
+
+<nav class="content-guide" aria-label="Explore Capability Matters">
+  {sections.map((section) => (
+    <a href={base + section.path}>
+      <span>{section.action}</span>
+      <strong>{section.title}</strong>
+      <p>{section.description}</p>
+    </a>
+  ))}
+</nav>
+
+<style>
+  .content-guide { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; max-width: 64rem; font-family: var(--hp-sans); }
+  a { display: block; padding: 1rem; border: 1px solid #40536d; border-radius: 4px; background: #132240; }
+  a:hover, a:focus-visible { border-color: #2cc4b3; background: #192d4d; }
+  a:focus-visible { outline: 2px solid #2cc4b3; outline-offset: 3px; }
+  span { display: block; color: #c3cbe2; font-size: .875rem; }
+  strong { display: block; color: #2cc4b3; font-size: 1.15rem; margin: .25rem 0 .5rem; }
+  p { font-size: 1rem; color: #f5f0e8; line-height: 1.5; margin: 0; }
+  @media (max-width: 760px) { .content-guide { grid-template-columns: 1fr; } }
+</style>

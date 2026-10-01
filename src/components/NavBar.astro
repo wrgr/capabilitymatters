@@ -19,12 +19,9 @@ const base = import.meta.env.BASE_URL;
 const items = [
   { href: base,                          label: "Welcome",     slug: "welcome" },
   { href: base + "case-studies/",        label: "Case Studies", slug: "case-studies" },
-  { href: base + "field-notes/",         label: "Field Notes", slug: "field-notes" },
   { href: base + "experiments/",         label: "Experiments", slug: "experiments" },
-  { href: base + "problems-to-prototypes/", label: "Problems → Prototypes", slug: "problems-to-prototypes" },
+  { href: base + "problems-to-prototypes/", label: "Prototypes", slug: "problems-to-prototypes" },
   { href: base + "about/",               label: "About",       slug: "about" },
-  { href: "https://tinyurl.com/wgr-soe2026", label: "Workshop",    slug: "workshop", external: true },
-  { href: "https://lecommons.org",       label: "Learning Engineering Commons", slug: "lecommons", external: true },
 ];
 
 const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
@@ -44,6 +41,7 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
             <a
               href={it.href}
               class:list={[{ active: it.slug === active }]}
+              aria-current={it.slug === active ? "page" : undefined}
               target={it.external ? "_blank" : undefined}
               rel={it.external ? "noopener" : undefined}
             >
@@ -68,6 +66,7 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
               <a
                 href={it.href}
                 class:list={[{ active: it.slug === active }]}
+              aria-current={it.slug === active ? "page" : undefined}
                 target={it.external ? "_blank" : undefined}
                 rel={it.external ? "noopener" : undefined}
               >

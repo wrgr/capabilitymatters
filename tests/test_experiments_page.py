@@ -1,6 +1,6 @@
 """Guard the Experiments page and its nav wiring.
 
-File-content assertions (there is no JS test runner in this repo): they check
+File-content assertions check
 that the experiments page exists, renders a card grid from its inline data, and
 is linked from the top nav — so a refactor can't silently drop the tab or its
 cards.
@@ -22,7 +22,7 @@ def test_experiments_page_exists() -> None:
     page = _read("pages/experiments.astro")
     assert "experiments" in page, "experiments data array missing"
     assert 'class="card"' in page, "no card markup on experiments page"
-    assert 'target="_blank"' in page, "experiment links must open outbound"
+    assert '"_blank"' in page, "external projects retain new-tab behavior"
 
 
 def test_experiments_page_lists_each_experiment() -> None:
@@ -34,18 +34,23 @@ def test_experiments_page_lists_each_experiment() -> None:
         "experttrace.org",
         "neurotrailblazers.org",
         "wrgr.github.io/pop",
-        "grayroncal.com",
     ):
         assert url in page, f"experiment link missing: {url}"
 
 
-def test_grayroncal_is_linked() -> None:
-    """grayroncal.com is linked without the obsolete availability label."""
-    page = _read("pages/experiments.astro")
-    assert 'url: "https://will.grayroncal.com"' in page
-    assert 'href={exp.url}' in page
-    assert "comingSoon" not in page
-    assert "Coming soon" not in page
+def test_personal_site_is_in_about() -> None:
+    """The personal site remains discoverable without counting as an experiment."""
+    assert 'https://will.grayroncal.com' in _read('pages/about.astro')
+    assert 'title: "Will Gray-Roncal"' not in _read('pages/experiments.astro')
+
+
+def test_experiment_groups() -> None:
+    """Built cards are grouped exactly once by purpose, with reading separate."""
+    html = (REPO_ROOT / 'dist/experiments/index.html').read_text()
+    for group in ('labs', 'research', 'creative'):
+        assert f'id="{group}"' in html
+    assert html.count('class="card"') == 8
+    assert 'Supporting reading' in html
 
 
 def test_rainbow_bug_has_credit_and_job_aid() -> None:
@@ -79,8 +84,9 @@ def test_featured_paper_banner() -> None:
 if __name__ == "__main__":
     test_experiments_page_exists()
     test_experiments_page_lists_each_experiment()
-    test_grayroncal_is_linked()
+    test_personal_site_is_in_about()
     test_rainbow_bug_has_credit_and_job_aid()
     test_experiments_linked_from_nav()
     test_featured_paper_banner()
+    test_experiment_groups()
     print("experiments page OK")

@@ -1,19 +1,14 @@
 ---
-/**
- * Experiments page: a card grid of standalone experimental projects and
- * prototypes, each with a short description, a project link, and an optional
- * companion job aid. These live on this site or their own domains rather than in the content
- * collections, so the data is a small inline array here rather than an MDX
- * collection + schema change.
- *
- * To add, edit, or remove an experiment, update the `experiments` array below.
- */
+// Experiments directory: learning labs, research projects, and creative demonstrations.
+// Papers and design briefs are linked separately from runnable projects.
 
 import Base from "../layouts/Base.astro";
 import SectionHero from "../components/SectionHero.astro";
 
 interface Experiment {
   title: string;
+  group: "labs" | "research" | "creative";
+  format: string;
   url: string;
   // One- to two-sentence description of what the experiment is and offers.
   description: string;
@@ -23,8 +18,7 @@ interface Experiment {
   jobAid?: { url: string; label: string };
 }
 
-// A single highlighted item shown as a full-width banner across the top of the
-// page, above the experiment grid. Links to the revised paper and matching PDF.
+// Supporting reading is distinct from the runnable project directory.
 const featuredPaper = {
   title: "Show Your Work",
   url: "/show-your-work/",
@@ -38,14 +32,18 @@ const featuredPaper = {
 // elsewhere on the site.
 const experiments: Experiment[] = [
   {
-    title: "The Capability Pipeline · Choose your own adventure",
+    title: "The Capability Pipeline",
+    group: "labs",
+    format: "Teaching simulation",
     url: "https://capabilitymatters.org/capability-pipeline/index.html#simulation",
     host: "capabilitymatters.org/capability-pipeline",
     description:
-      "Explore the eight-step systems process through five cases and a branching teaching simulation. Make decisions, inspect consequences, revise your strategy, and compare branches; the fictional scenarios use explicit teaching assumptions.",
+      "Explore the eight-step systems process through five worked examples and a branching teaching simulation. Make decisions, inspect consequences, revise your strategy, and compare branches; the fictional scenarios use explicit teaching assumptions.",
   },
   {
     title: "Rainbow Bug Dash",
+    group: "creative",
+    format: "Browser game",
     url: "/rainbow-bug/",
     host: "capabilitymatters.org/rainbow-bug",
     description:
@@ -57,6 +55,8 @@ const experiments: Experiment[] = [
   },
   {
     title: "MicroGPT for AI leaders",
+    group: "labs",
+    format: "Interactive lab",
     url: "https://capabilitymatters.org/microgpt/",
     host: "capabilitymatters.org/microgpt",
     description:
@@ -64,6 +64,8 @@ const experiments: Experiment[] = [
   },
   {
     title: "LLM101",
+    group: "labs",
+    format: "Guided explainer",
     url: "https://capabilitymatters.org/llm101/",
     host: "capabilitymatters.org/llm101",
     description:
@@ -71,6 +73,8 @@ const experiments: Experiment[] = [
   },
   {
     title: "Calibrated Judgment",
+    group: "research",
+    format: "Assessment prototype",
     url: "https://calibratedjudgment.org/",
     host: "calibratedjudgment.org",
     description:
@@ -78,6 +82,8 @@ const experiments: Experiment[] = [
   },
   {
     title: "ExpertTrace",
+    group: "research",
+    format: "Mentoring prototype",
     url: "https://experttrace.org",
     host: "experttrace.org",
     description:
@@ -85,6 +91,8 @@ const experiments: Experiment[] = [
   },
   {
     title: "NeuroTrailblazers",
+    group: "research",
+    format: "Training and mentorship",
     url: "https://neurotrailblazers.org",
     host: "neurotrailblazers.org",
     description:
@@ -92,53 +100,54 @@ const experiments: Experiment[] = [
   },
   {
     title: "POP",
+    group: "creative",
+    format: "Physics sandbox",
     url: "https://wrgr.github.io/pop",
     host: "wrgr.github.io/pop",
     description:
       "A soap-bubble physics sandbox: shape a wand, watch the film billow and deform in moving air, then run the whole thing backwards — fit an ellipse to a photo of a real bubble and read the wind speed back out of the shape it left.",
   },
-  {
-    title: "Will Gray-Roncal",
-    url: "https://will.grayroncal.com",
-    host: "will.grayroncal.com",
-    description:
-      "Personal site of Will Gray-Roncal: projects, writing, and work across learning engineering and research.",
-  },
+
+];
+const groups = [
+  { id: "labs", title: "Learning labs", description: "Explore a concept through a guided explanation or an interactive teaching model." },
+  { id: "research", title: "Research and practice projects", description: "Explore approaches to assessment, mentoring, and workforce development on their own sites. Inclusion here is not evidence of effectiveness." },
+  { id: "creative", title: "Creative demonstrations", description: "Games and sandboxes that show what can be built, explored, and revised." },
 ];
 ---
 
 <Base title="Experiments · LENS" active="experiments">
   <SectionHero
     eyebrow="Experiments"
-    title="Prototypes &amp; side projects"
-    claim="Standalone experiments — working prototypes and tools that probe ideas at the edges of learning, judgment, and research."
-    question="What are we building and testing outside the main corpus?"
+    title="Experiments: labs and projects to explore"
+    claim="Interactive teaching labs, research projects, and creative demonstrations. Each card identifies what you can open and explore."
     count={experiments.length}
   />
 
-  <a class="featured-banner" href={featuredPaper.url} target="_blank" rel="noopener">
-    <div class="container featured-inner">
-      <span class="featured-eyebrow">Featured paper</span>
-      <span class="featured-title">{featuredPaper.title}</span>
-      <span class="featured-desc">{featuredPaper.description}</span>
-      <span class="featured-cta">Read the paper</span>
-    </div>
-  </a>
+  <div class="container directory-intro">
+    <p>For a capability gap, design brief, and evaluation plan, visit <a href="/problems-to-prototypes/">Prototypes</a>.
+      For documented examples and their sources, read the <a href="/case-studies/">Case Studies</a>.</p>
+    <nav aria-label="Experiment categories">{groups.map((group) => <a href={"#" + group.id}>{group.title}</a>)}</nav>
+  </div>
 
   <div class="section-grid container">
+    {groups.map((group) => (
+    <section id={group.id} aria-labelledby={group.id + "-title"}>
+      <h2 id={group.id + "-title"}>{group.title}</h2>
+      <p>{group.description}</p>
     <div class="grid">
-      {experiments.map((exp) => (
+      {experiments.filter((exp) => exp.group === group.id).map((exp) => (
         <article class="card">
           <div class="card-meta">
-            <span class="format-chip">Experiment</span>
+            <span class="format-chip">{exp.format}</span>
           </div>
           <h3 class="card-title">
-            <a href={exp.url} target="_blank" rel="noopener">{exp.title}</a>
+            <a href={exp.url} target={exp.url.startsWith("https://capabilitymatters.org") || exp.url.startsWith("/") ? undefined : "_blank"} rel="noopener">{exp.title}</a>
           </h3>
           <p class="card-host">{exp.host}</p>
           <p class="card-summary">{exp.description}</p>
           <p class="card-link">
-            <a href={exp.url} target="_blank" rel="noopener">Visit &rarr;</a>
+            <a href={exp.url} target={exp.url.startsWith("https://capabilitymatters.org") || exp.url.startsWith("/") ? undefined : "_blank"} rel="noopener">Open project</a>
           </p>
           {exp.jobAid && (
             <p class="card-link">
@@ -148,12 +157,26 @@ const experiments: Experiment[] = [
         </article>
       ))}
     </div>
+    </section>
+    ))}
   </div>
+  <a class="featured-banner" href={featuredPaper.url}>
+    <div class="container featured-inner">
+      <span class="featured-eyebrow">Supporting reading · Working draft</span>
+      <span class="featured-title">{featuredPaper.title}</span>
+      <span class="featured-desc">{featuredPaper.description}</span>
+      <span class="featured-cta">Read the paper</span>
+    </div>
+  </a>
+
 </Base>
 
 <style>
-  /* Full-width featured banner across the top, above the grid. The whole
-     banner is a link; a warm tint + accent border sets it apart from cards. */
+  /* Supporting reading remains visually distinct from runnable projects. */
+  .directory-intro { padding-bottom: 0; }
+  .directory-intro p { max-width: 52rem; }
+  .directory-intro nav { display: flex; flex-wrap: wrap; gap: .6rem 1.3rem; font-family: var(--sans); }
+  .section-grid section { scroll-margin-top: 8rem; }
   .featured-banner {
     display: block;
     border: none;
