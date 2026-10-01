@@ -32,13 +32,16 @@ def test_primary_navigation() -> None:
         assert parser.links == expected * 2, (route, parser.links)
     assert (ROOT / 'dist/field-notes/index.html').is_file()
 
-def test_home_guide() -> None:
-    """The home guide explains the three collections in the built page."""
+def test_menu_descriptions() -> None:
+    """Descriptions belong to the menu; the original homepage hero stays uncluttered."""
     home = (ROOT / 'dist/index.html').read_text()
-    for text in ['Explore Capability Matters', 'Read the evidence', 'Explore a lab or project', 'Work from a capability gap']:
+    for text in ['nav-tip-case-studies', 'nav-tip-experiments', 'nav-tip-problems-to-prototypes']:
         assert text in home, text
+    for text in ['Start here', 'Scroll for why', 'content-guide']:
+        assert text not in home, text
+    assert 'hero-line' in home
 
 if __name__ == '__main__':
     test_primary_navigation()
-    test_home_guide()
-    print('navigation and home guide OK')
+    test_menu_descriptions()
+    print('navigation and menu descriptions OK')

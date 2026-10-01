@@ -24,13 +24,14 @@ and About. Existing route URLs and prototype filter URLs are preserved.
 - **Supporting reading:** Show Your Work is linked separately from runnable experiments.
 - **About:** program context, a content guide, and the author’s personal site.
 
-The homepage guide lives in `src/components/ContentGuide.astro`; the extracted
-homepage styles are scoped to the dark shell in `src/styles/home.css`. The three collection
-introductions cross-link so readers can choose the right kind of resource.
+Menu descriptions live in `src/components/NavBar.astro`: hover/focus tooltips on
+desktop and inline descriptions inside the mobile menu. The original homepage
+presentation is preserved in `src/styles/home.css`, with no extra content guide
+or instructional scroll text. The collection introductions retain their cross-links.
 
 Validation: `npm run build`, `python3 tests/test_navbar_workshop_link.py`, and
 `python3 tests/test_experiments_page.py`. The legacy navbar test filename is retained;
-it now checks both generated menus and the homepage guide.
+it now checks both generated menus, menu descriptions, and the uncluttered homepage.
 
 ## Layout
 

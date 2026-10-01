@@ -3,7 +3,8 @@
 //   - Desktop (>=900px): plain horizontal <nav class="desktop-nav">
 //   - Mobile/tablet (<900px): collapsed <details> disclosure with a hamburger
 // Each shows the same link list; CSS swaps which one is visible.
-// No JavaScript.
+// Desktop descriptions appear on hover/focus; the mobile menu shows them inline.
+// Escape dismisses an open desktop tooltip.
 //
 // When Base sets body.dark-shell (pageTheme="dark"), :global() rules at the
 // bottom of this file recolor the nav for the dark homepage chrome.
@@ -16,11 +17,11 @@ const { active } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
 
-const items = [
+const items: { href: string; label: string; slug: string; description?: string }[] = [
   { href: base,                          label: "Welcome",     slug: "welcome" },
-  { href: base + "case-studies/",        label: "Case Studies", slug: "case-studies" },
-  { href: base + "experiments/",         label: "Experiments", slug: "experiments" },
-  { href: base + "problems-to-prototypes/", label: "Prototypes", slug: "problems-to-prototypes" },
+  { href: base + "case-studies/",        label: "Case Studies", slug: "case-studies", description: "Documented examples of what worked, what failed, and what the evidence supports." },
+  { href: base + "experiments/",         label: "Experiments", slug: "experiments", description: "Interactive teaching labs, research projects, and creative demonstrations." },
+  { href: base + "problems-to-prototypes/", label: "Prototypes", slug: "problems-to-prototypes", description: "Capability gaps, design briefs, working tools, and plans to test their impact." },
   { href: base + "about/",               label: "About",       slug: "about" },
 ];
 
@@ -37,16 +38,16 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
     <nav class="desktop-nav" aria-label="Primary">
       <ul>
         {items.map((it) => (
-          <li>
+          <li class="nav-item">
             <a
               href={it.href}
+              aria-describedby={it.description ? "nav-tip-" + it.slug : undefined}
               class:list={[{ active: it.slug === active }]}
               aria-current={it.slug === active ? "page" : undefined}
-              target={it.external ? "_blank" : undefined}
-              rel={it.external ? "noopener" : undefined}
             >
               {it.label}
             </a>
+            {it.description && <span class="nav-tooltip" role="tooltip" id={"nav-tip-" + it.slug}>{it.description}</span>}
           </li>
         ))}
       </ul>
@@ -67,10 +68,9 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
                 href={it.href}
                 class:list={[{ active: it.slug === active }]}
               aria-current={it.slug === active ? "page" : undefined}
-                target={it.external ? "_blank" : undefined}
-                rel={it.external ? "noopener" : undefined}
               >
                 {it.label}
+                {it.description && <span class="mobile-description">{it.description}</span>}
               </a>
             </li>
           ))}
@@ -81,6 +81,20 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
 </header>
 
 <style>
+  .nav-item { position: relative; }
+  .nav-tooltip {
+    visibility: hidden; position: absolute; right: 0; top: 100%; z-index: 20;
+    width: 19rem; padding: .75rem 1rem; border: 1px solid var(--border);
+    border-radius: 4px; background: var(--bg); color: var(--ink-soft);
+    font-family: var(--sans); font-size: .875rem; line-height: 1.5;
+    box-shadow: 0 6px 18px #0002; text-align: left;
+  }
+  .nav-item:not(.tooltip-dismissed):hover .nav-tooltip,
+  .nav-item:not(.tooltip-dismissed):focus-within .nav-tooltip { visibility: visible; }
+  .mobile-description { display: block; margin-top: .25rem; font-size: .875rem; font-weight: 400; line-height: 1.4; color: var(--muted); }
+  :global(body.dark-shell) .nav-tooltip { background: #132240; border-color: #40536d; color: #f5f0e8; }
+  :global(body.dark-shell) .mobile-description { color: #c3cbe2; }
+
   .site-nav {
     border-bottom: 1px solid var(--border);
     background: var(--bg);
@@ -302,3 +316,16 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
     color: #2cc4b3;
   }
 </style>
+
+<script>
+  // Keep descriptions dismissible without changing normal menu-link navigation.
+  const items = document.querySelectorAll<HTMLElement>('.nav-item');
+  items.forEach((item) => {
+    item.addEventListener('pointerenter', () => item.classList.remove('tooltip-dismissed'));
+    item.addEventListener('pointerleave', () => item.classList.remove('tooltip-dismissed'));
+    item.addEventListener('focusin', () => item.classList.remove('tooltip-dismissed'));
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') items.forEach((item) => item.classList.add('tooltip-dismissed'));
+  });
+</script>
