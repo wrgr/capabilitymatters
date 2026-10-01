@@ -20,7 +20,7 @@ body.dark-shell {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2.5rem 4rem 1.5rem;
+    padding: 1.5rem 4rem .75rem;
     position: relative;
   }
   .hero::before {
@@ -46,9 +46,9 @@ body.dark-shell {
   .hero h1 {
     font-family: var(--hp-serif);
     font-weight: 400;
-    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
     line-height: 1.05;
-    max-width: 900px;
+    max-width: 64rem;
     color: var(--hp-cream);
     margin: 0;
     opacity: 0;
@@ -72,7 +72,7 @@ body.dark-shell {
     align-items: center;
     align-self: flex-start;
     gap: .6rem;
-    margin-top: 1.25rem;
+    margin-top: .65rem;
     padding: .35rem 0;
     font-family: var(--hp-sans);
     color: var(--hp-teal-light);
@@ -80,7 +80,7 @@ body.dark-shell {
     border-bottom: 1px solid rgba(44, 196, 179, .4);
   }
   .scroll-cue:focus-visible { outline: 2px solid var(--hp-teal-light); outline-offset: 4px; }
-  #argument { scroll-margin-top: 6rem; }
+  #argument { scroll-margin-top: 6rem; padding-top: 1.5rem; }
 
   /* STATEMENTS */
   .statement {
@@ -92,7 +92,7 @@ body.dark-shell {
     font-family: var(--hp-serif);
     font-size: 0.9rem;
     color: var(--hp-gold);
-    margin-bottom: 1.5rem;
+    margin-bottom: .65rem;
     letter-spacing: 0.05em;
   }
   .statement h2 {
@@ -337,7 +337,7 @@ body.dark-shell {
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    .hero { padding: 1.5rem 2rem 1.25rem; }
+    .hero { padding: 1rem 2rem .5rem; }
     .statement { padding: 2.5rem 2rem; }
     .statement.right { align-items: flex-start; text-align: left; }
     .evidence-strip { grid-template-columns: 1fr; }

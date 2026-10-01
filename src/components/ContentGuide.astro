@@ -8,6 +8,7 @@ const sections = [
 ];
 ---
 
+<h2 class="guide-heading">Start here</h2>
 <nav class="content-guide" aria-label="Explore Capability Matters">
   {sections.map((section) => (
     <a href={base + section.path}>
@@ -19,7 +20,8 @@ const sections = [
 </nav>
 
 <style>
-  .content-guide { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin-top: 1.25rem; max-width: 64rem; font-family: var(--hp-sans); }
+  .guide-heading { font-family: var(--hp-sans); font-size: 1rem; color: #f5f0e8; margin: 1rem 0 .5rem; }
+  .content-guide { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin-top: 0; max-width: 64rem; font-family: var(--hp-sans); }
   a { display: block; padding: .8rem 1rem; border: 1px solid #40536d; border-radius: 4px; background: #132240; }
   a:hover, a:focus-visible { border-color: #2cc4b3; background: #192d4d; }
   a:focus-visible { outline: 2px solid #2cc4b3; outline-offset: 3px; }
@@ -27,7 +29,7 @@ const sections = [
   strong { display: block; color: #2cc4b3; font-size: 1.15rem; margin: .2rem 0 .3rem; }
   p { font-size: 1rem; color: #f5f0e8; line-height: 1.4; margin: 0; }
   @media (max-width: 760px) {
-    .content-guide { grid-template-columns: 1fr; gap: .5rem; margin-top: 1rem; }
+    .content-guide { grid-template-columns: 1fr; gap: .5rem; margin-top: 0; }
     a { padding: .6rem .8rem; }
     span { display: none; }
     strong { font-size: 1rem; margin: 0 0 .2rem; }
