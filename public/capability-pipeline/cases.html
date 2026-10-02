@@ -1,7 +1,7 @@
 <!doctype html>
 <!-- Published cases activity for the Capability Pipeline working draft. --><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Capability Pipeline</title>
 
-<link rel="stylesheet" href="cases.css?v=map-teaching-1"></head><body>
+<link rel="stylesheet" href="cases.css?v=adoption-loop-1"></head><body>
 
 <div class="draft-banner"><b>Working draft.</b> </div>
 
@@ -13,11 +13,12 @@
   </header>
 
   <section id="diagram-section">
-    <h2>The diagram</h2>
-    <p class="section-sub">Read it left to right the first time. After that, read it as a circle — the point of the eighth step is to send you back to the first.</p>
+    <h2>The cycle in use</h2>
+    <p class="section-sub">Follow the eight numbered steps, then use evidence to revisit the problem. Adoption and use adds a feedback path from real operation back to Understand.</p>
     <div class="diagram-card">
       <figure>
-        <svg class="diagram-svg" viewBox="-40 -20 680 640" role="img" aria-label="The LENS process: the eight-step iteration cycle arranged in a loop — understand, map, design, build, instrument, deploy, evaluate, refine — with a distinct dashed arrow showing refine returning to understand, marked with a star as the cycle's starting and return point.">
+        <div class="diagram-viewport" tabindex="0" aria-label="Capability cycle diagram; scroll horizontally on a small screen"><svg class="diagram-svg" viewBox="-50 -110 730 740" role="img" aria-label="Eight-step capability cycle: Understand, Map, Design, Build, Instrument, Deploy, Evaluate, Refine. A dotted return connects Refine to Understand. A second dotted path connects Refine to an unnumbered Adoption and use bubble, then returns to Understand.">
+          <title>The capability cycle, with adoption and use</title><desc>The eight numbered steps form the core cycle. Dotted arrows show both the direct Refine to Understand return and the additional Refine to Adoption and use to Understand feedback path.</desc>
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path d="M0,0 L10,5 L0,10 z" fill="currentColor" class="flow-arrow" style="fill: var(--ink-muted); opacity:.8"/>
@@ -25,7 +26,13 @@
             <marker id="arrow-accent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
             </marker>
+          <marker id="arrow-adoption" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="adoption-arrowhead"/></marker>
           </defs>
+          <circle class="cycle-backdrop" cx="300" cy="300" r="176"/>
+          <circle class="cycle-guide" cx="300" cy="300" r="220"/>
+          <path class="adoption-arrow" data-from="refine" data-to="adoption-and-use" d="M 144 109 C 113 78 112 39 146 16" marker-end="url(#arrow-adoption)"/>
+          <path class="adoption-arrow" data-from="adoption-and-use" data-to="understand" d="M 264 -26 C 372 -26 397 82 338 82" marker-end="url(#arrow-adoption)"/>
+          <g class="adoption-node" id="adoption-and-use"><rect x="48" y="-64" width="216" height="76" rx="38"/><text class="adoption-label" x="156" y="-29" text-anchor="middle">Adoption and use</text><text class="adoption-sub" x="156" y="-8" text-anchor="middle">Experience informs the next cycle</text></g>
 
           <!-- forward loop edges: each line stops at the node's circle edge (r=32), not its
                center, so arrowheads land in the gap between nodes instead of under them -->
@@ -45,20 +52,20 @@
           
 
           <!-- center label -->
-          <text class="center-label" x="300" y="296" text-anchor="middle">THE LENS</text>
-          <text class="center-label" x="300" y="316" text-anchor="middle">PROCESS</text>
+          <text class="center-label" x="300" y="296" text-anchor="middle">Capability</text>
+          <text class="center-label" x="300" y="316" text-anchor="middle">through iteration</text>
 
           <!-- nodes -->
-          <g class="step-node"><circle cx="300" cy="80" r="32"/><text class="num" x="300" y="86" text-anchor="middle">1</text><text class="lbl" x="300" y="38" text-anchor="middle">UNDERSTAND</text><g transform="translate(317,68) scale(0.4)" aria-hidden="true"><path class="start-star" d="M0,-10 L2.35,-3.09 L9.51,-3.09 L3.82,1.18 L5.88,8.09 L0,3.82 L-5.88,8.09 L-3.82,1.18 L-9.51,-3.09 L-2.35,-3.09 Z"/></g></g>
-          <g class="step-node"><circle cx="455.6" cy="144.4" r="32"/><text class="num" x="455.6" y="150.4" text-anchor="middle">2</text><text class="lbl" x="500" y="120" text-anchor="start">MAP</text></g>
-          <g class="step-node"><circle cx="520" cy="300" r="32"/><text class="num" x="520" y="306" text-anchor="middle">3</text><text class="lbl" x="562" y="296" text-anchor="start">DESIGN</text></g>
-          <g class="step-node"><circle cx="455.6" cy="455.6" r="32"/><text class="num" x="455.6" y="461.6" text-anchor="middle">4</text><text class="lbl" x="500" y="488" text-anchor="start">BUILD</text></g>
-          <g class="step-node"><circle cx="300" cy="520" r="32"/><text class="num" x="300" y="526" text-anchor="middle">5</text><text class="lbl" x="300" y="568" text-anchor="middle">INSTRUMENT</text></g>
-          <g class="step-node"><circle cx="144.4" cy="455.6" r="32"/><text class="num" x="144.4" y="461.6" text-anchor="middle">6</text><text class="lbl" x="100" y="488" text-anchor="end">DEPLOY</text></g>
-          <g class="step-node"><circle cx="80" cy="300" r="32"/><text class="num" x="80" y="306" text-anchor="middle">7</text><text class="lbl" x="38" y="296" text-anchor="end">EVALUATE</text></g>
-          <g class="step-node"><circle cx="144.4" cy="144.4" r="32"/><text class="num" x="144.4" y="150.4" text-anchor="middle">8</text><text class="lbl" x="100" y="120" text-anchor="end">REFINE</text></g>
-        </svg>
-        <figcaption><strong class="return-caption">Refine → Understand</strong><span>The dashed arrow marks the usual return: use the evidence to reconsider the problem. A justified revision may return directly to another earlier step.</span></figcaption>
+          <g class="step-node" data-pair="frame"><circle cx="300" cy="80" r="32"/><text class="num" x="300" y="86" text-anchor="middle">1</text><text class="lbl" x="300" y="38" text-anchor="middle">Understand</text><g transform="translate(317,68) scale(0.4)" aria-hidden="true"><path class="start-star" d="M0,-10 L2.35,-3.09 L9.51,-3.09 L3.82,1.18 L5.88,8.09 L0,3.82 L-5.88,8.09 L-3.82,1.18 L-9.51,-3.09 L-2.35,-3.09 Z"/></g></g>
+          <g class="step-node" data-pair="frame"><circle cx="455.6" cy="144.4" r="32"/><text class="num" x="455.6" y="150.4" text-anchor="middle">2</text><text class="lbl" x="500" y="120" text-anchor="start">Map</text></g>
+          <g class="step-node" data-pair="create"><circle cx="520" cy="300" r="32"/><text class="num" x="520" y="306" text-anchor="middle">3</text><text class="lbl" x="562" y="296" text-anchor="start">Design</text></g>
+          <g class="step-node" data-pair="create"><circle cx="455.6" cy="455.6" r="32"/><text class="num" x="455.6" y="461.6" text-anchor="middle">4</text><text class="lbl" x="500" y="488" text-anchor="start">Build</text></g>
+          <g class="step-node" data-pair="operate"><circle cx="300" cy="520" r="32"/><text class="num" x="300" y="526" text-anchor="middle">5</text><text class="lbl" x="300" y="568" text-anchor="middle">Instrument</text></g>
+          <g class="step-node" data-pair="operate"><circle cx="144.4" cy="455.6" r="32"/><text class="num" x="144.4" y="461.6" text-anchor="middle">6</text><text class="lbl" x="100" y="488" text-anchor="end">Deploy</text></g>
+          <g class="step-node" data-pair="learn"><circle cx="80" cy="300" r="32"/><text class="num" x="80" y="306" text-anchor="middle">7</text><text class="lbl" x="38" y="296" text-anchor="end">Evaluate</text></g>
+          <g class="step-node" data-pair="learn"><circle cx="144.4" cy="144.4" r="32"/><text class="num" x="144.4" y="150.4" text-anchor="middle">8</text><text class="lbl" x="100" y="120" text-anchor="end">Refine</text></g>
+        </svg></div>
+        <figcaption><strong class="return-caption">Refine → Understand</strong><span>The direct dotted return keeps the core cycle revisitable.</span><strong class="adoption-caption">Refine → Adoption and use → Understand</strong><span>The additional dotted path brings experience of adoption and use into the next understanding of the challenge. Adoption and use is unnumbered; the core cycle still has eight steps.</span></figcaption>
       </figure>
 
       <div class="step-legend" id="step-legend"></div>

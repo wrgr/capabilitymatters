@@ -140,22 +140,34 @@
     display: grid;
     gap: 24px;
   }
-  figure { margin: 0; }
-  .diagram-svg { width: 100%; height: auto; display: block; max-width: 560px; margin: 0 auto; }
-  figcaption {
-    margin-top: 10px;
-    font-size: 13px;
-    color: var(--ink-muted);
-    text-align: center;
-  }
-  .step-node circle { fill: var(--surface); stroke: var(--ink-muted); stroke-width: 1.5; }
-  .step-node .num { font-family: var(--font-mono); font-size: 15px; fill: var(--ink); font-weight: 600; }
-  .step-node .lbl { font-family: var(--font-mono); font-size: 12.5px; fill: var(--ink); letter-spacing: 0.02em; }
-  .loop-arrow { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 2 6; stroke-linecap: round; }
-  .loop-arrow-label { font-family: var(--font-mono); font-size: 11.5px; fill: var(--accent); }
-  .start-star { fill: var(--branch); }
-  .center-label { font-family: var(--font-mono); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; fill: var(--ink-muted); opacity: 0.55; }
-  .flow-arrow { stroke: var(--ink-muted); stroke-width: 1.4; opacity: 0.7; }
+  figure { margin: 0; min-width: 0; }
+  .diagram-viewport { overflow-x: auto; border-radius: 12px; }
+  .diagram-viewport:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  @media (max-width: 600px) { .diagram-svg { min-width: 580px; } }
+  .diagram-svg { width: 100%; height: auto; display: block; max-width: 720px; margin: 0 auto; }
+  figcaption { margin: 12px auto 0; max-width: 60ch; font-size: 14px; color: var(--ink-muted); text-align: center; }
+  figcaption span { display: block; margin: .3rem 0 1rem; }
+  .return-caption { color: var(--accent); }
+  .adoption-caption { color: #7352be; }
+  .cycle-backdrop { fill: color-mix(in srgb, var(--accent) 5%, var(--surface)); }
+  .cycle-guide { fill: none; stroke: var(--border); stroke-width: 1; }
+  .step-node { --node-color: #285cca; }
+  .step-node[data-pair="create"] { --node-color: #7950b7; }
+  .step-node[data-pair="operate"] { --node-color: #137f78; }
+  .step-node[data-pair="learn"] { --node-color: #b65e19; }
+  .step-node circle { fill: var(--node-color); stroke: var(--surface); stroke-width: 4; }
+  .step-node .num { font-family: var(--font-body); font-size: 19px; fill: #fff; font-weight: 700; }
+  .step-node .lbl { font-family: var(--font-body); font-size: 16px; fill: var(--ink); font-weight: 650; }
+  .loop-arrow { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 1 7; stroke-linecap: round; }
+  .adoption-arrow { fill: none; stroke: #8862c7; stroke-width: 2.5; stroke-dasharray: 1 7; stroke-linecap: round; }
+  .adoption-arrowhead { fill: #8862c7; }
+  .adoption-node rect { fill: color-mix(in srgb, #8862c7 10%, var(--surface)); stroke: #8862c7; stroke-width: 1.8; }
+  .adoption-label { font-family: var(--font-body); font-size: 17px; font-weight: 650; fill: var(--ink); }
+  .adoption-sub { font-family: var(--font-body); font-size: 10px; fill: var(--ink-muted); }
+  .start-star { fill: #fff; }
+  .center-label { font-family: var(--font-body); font-size: 17px; font-weight: 650; fill: var(--ink-muted); }
+  .flow-arrow { stroke: var(--ink-muted); stroke-width: 1.6; opacity: 0.7; }
+  @media (prefers-color-scheme: dark) { .adoption-caption { color: #c3a6f0; } }
 
   .step-legend {
     display: grid;
