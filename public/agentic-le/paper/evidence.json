@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "paper_status": "AI-assisted working draft for coauthor review",
+  "run_id": "20261001T224130Z-live-codex-d6a562",
+  "journal_file_sha256": "b1b958704ad34cbebd39999ae63f189c2854bdae5eff475e9098f655a21178d0",
+  "journal_head_hash": "3ac0d73c299724dc71b1dee595d27cd633e7d995c3c7fed1ca526df3e7488f96",
+  "events": 99,
+  "event_kind_counts": {
+    "seed": 1,
+    "stage_started": 8,
+    "request": 29,
+    "contribution": 12,
+    "decision": 14,
+    "artifact": 14,
+    "stage_completed": 8,
+    "scenario": 2,
+    "revision_link": 2,
+    "human_gate": 1,
+    "completed": 3,
+    "verification": 4,
+    "failure": 1
+  },
+  "requested_roles": [
+    "design",
+    "domain",
+    "implementation",
+    "learning",
+    "measurement",
+    "orchestrator",
+    "responsible",
+    "scenario",
+    "systems"
+  ],
+  "model_version": "Not identified in the public metadata; configured default recorded",
+  "episodes": {
+    "interruption_privacy": {
+      "scenario": 27,
+      "decision": 29,
+      "artifact": 30,
+      "revision_link": 31
+    },
+    "reviewer_conflict": {
+      "scenario": 62,
+      "decision": 67,
+      "artifact": 68
+    },
+    "implementation_correction": {
+      "original_artifact": 38,
+      "finding": 81,
+      "failure": 83,
+      "accepted_decision": 86,
+      "accepted_artifact": 87,
+      "claim_revision": 94,
+      "retained_rejection": 97,
+      "technical_verification": 98,
+      "completion": 99
+    }
+  },
+  "event_facts": {
+    "27": {
+      "seq": 27,
+      "kind": "scenario",
+      "stage": "design",
+      "agent": "scenario",
+      "hash": "9a551592d788ed554b259273dabf2eac76f7b0850b5895b175bd764220be8d15"
+    },
+    "29": {
+      "seq": 29,
+      "kind": "decision",
+      "stage": "design",
+      "agent": "orchestrator",
+      "hash": "2f9b3907f4d2bf50458f4b1e063ee6f5ffea8ebcd657e5d803b88689a6a12a02"
+    },
+    "30": {
+      "seq": 30,
+      "kind": "artifact",
+      "stage": "design",
+      "agent": "orchestrator",
+      "hash": "60204e57a309302d67c46dc6364724aa6ce9c74704a9ae08ceb54c0a40bd5fa0",
+      "id": "design",
+      "revision": 2,
+      "trigger_seq": 29,
+      "content_hash": "92f1050bb69b933edfeee8a6f13c61d09ec5b9700ebc657a1e1a2d1c0afe6221",
+      "executable_source_supplied": false
+    },
+    "31": {
+      "seq": 31,
+      "kind": "revision_link",
+      "stage": "design",
+      "agent": "orchestrator",
+      "hash": "b77a9f1432975e050a985143ab2fea8fa05e32119da705a5b63986a632daceab"
+    },
+    "62": {
+      "seq": 62,
+      "kind": "scenario",
+      "stage": "evaluate",
+      "agent": "scenario",
+      "hash": "62b2eb5d77652541d852a654adadfbe0ea408f979dc6db0470143121c6cc0ce8"
+    },
+    "67": {
+      "seq": 67,
+      "kind": "decision",
+      "stage": "instrument",
+      "agent": "orchestrator",
+      "hash": "13994bc63fe51402d50389259c01d031c1cfaa11c12768ec6e58f64673a3a0cf"
+    },
+    "68": {
+      "seq": 68,
+      "kind": "artifact",
+      "stage": "instrument",
+      "agent": "orchestrator",
+      "hash": "6f7dda9d2841c60710a2d143a232f9e63ef5c6fa74c8f2f34465490760272ba6",
+      "id": "instrument",
+      "revision": 2,
+      "trigger_seq": 67,
+      "content_hash": "bb0652542a2e5cc98f5f8a370099ecd732f034b6a471919bb54a6fa26b272992",
+      "executable_source_supplied": false
+    },
+    "38": {
+      "seq": 38,
+      "kind": "artifact",
+      "stage": "build",
+      "agent": "orchestrator",
+      "hash": "e2326f4bbbf2dc22b8a4b4f7d02ace4c53ca6e45e130f4fec00bf60dae282411",
+      "id": "build",
+      "revision": 1,
+      "trigger_seq": 37,
+      "content_hash": "3655df8a87e368d343b77ca2e077532b2f26a6ba8ec293a90ed21cd13f2d2e32",
+      "executable_source_supplied": false
+    },
+    "81": {
+      "seq": 81,
+      "kind": "verification",
+      "stage": "build",
+      "agent": "orchestrator",
+      "hash": "919d1e4eb62de20291e4ee0bcc2ed9d039a571a0ec5b584bb69aa47ecf898c68"
+    },
+    "83": {
+      "seq": 83,
+      "kind": "failure",
+      "stage": "build",
+      "agent": "orchestrator",
+      "hash": "79d10cf4cf525f91f0f51d12bde60e266e14b8ca1d1912d9037ea11b95cb2abd"
+    },
+    "86": {
+      "seq": 86,
+      "kind": "decision",
+      "stage": "build",
+      "agent": "orchestrator",
+      "hash": "1b8e0e5497281351934c4c1d68d1ec8179e1fcce686269f0efcc3ae215a707bd"
+    },
+    "87": {
+      "seq": 87,
+      "kind": "artifact",
+      "stage": "build",
+      "agent": "orchestrator",
+      "hash": "af37005561845641257e922c1f04b1464cacd2f54ee33c6689024164c5dc696a",
+      "id": "build",
+      "revision": 2,
+      "trigger_seq": 86,
+      "content_hash": "e4264e3633b0a7af12f262723fbd2a0e94404d9fec18e9534bc5ccec0d64fc5d",
+      "executable_source_supplied": true
+    },
+    "94": {
+      "seq": 94,
+      "kind": "decision",
+      "stage": "refine",
+      "agent": "orchestrator",
+      "hash": "249554efdd799b0fe18c73f2955181fe5355a26b75237d374c79e07e3646a558"
+    },
+    "97": {
+      "seq": 97,
+      "kind": "verification",
+      "stage": "build",
+      "agent": "implementation",
+      "hash": "fb7de3c4553db7d7521a86ad118cc22c2bc35c3f3002a0f5b0d63c5f9d8808d8"
+    },
+    "98": {
+      "seq": 98,
+      "kind": "verification",
+      "stage": "evaluate",
+      "agent": "implementation",
+      "hash": "a71a62b13c4c087c0a7b81c271f6c042b960d2134f8ee03c9e01963e4d7a40cb"
+    },
+    "99": {
+      "seq": 99,
+      "kind": "completed",
+      "stage": "refine",
+      "agent": "orchestrator",
+      "hash": "3ac0d73c299724dc71b1dee595d27cd633e7d995c3c7fed1ca526df3e7488f96"
+    }
+  },
+  "manuscript_sha256": "fd6ea932bf99d26418dc80bd723b5db3ba94cee415adb9f09053972cd49f2631",
+  "scope": "Retrospective episode selection; not a human-team study, independent coding, model equivalence test or learning-effect study",
+  "future_role_profiles": "Added after this live run; not retrospectively assigned",
+  "human_pilot": "pending"
+}

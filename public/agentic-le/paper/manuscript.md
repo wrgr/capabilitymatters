@@ -1,0 +1,156 @@
+<!-- Canonical manuscript for the unlisted Agentic LE reading edition. -->
+
+# Learning Engineering Teams at Work
+
+## An inspectable agentic rehearsal from problem to product
+
+**Proposed authors: William Gray-Roncal and Jodi.** Full byline, affiliations and author contributions are pending coauthor confirmation.
+
+**Working draft, October 2026.** Methods and demonstration paper prepared for coauthor review. This is an AI-assisted draft describing a fictional project and its actual software record. It does not report observations of a human learning engineering team or a completed learning-effectiveness study.
+
+### Abstract
+
+Learning engineering teams must connect an account of a problem to a defensible intervention, while coordinating expertise about learning, work systems, design, implementation and evidence. A finished product reveals little about how those judgments were made. We present an inspectable agentic rehearsal that makes selected aspects of this work visible. A learning-engineer role coordinates specialist roles through a revisitable lifecycle; a scenario role introduces objections and unexpected conditions; and an append-only journal links contributions, decisions and artifact revisions. A fictional workforce project illustrates interruption privacy, reviewer conflicts and a real implementation failure. The resulting candidate product travels with its requirements, source discussion and technical verification. The demonstration establishes that these records and revisions can be produced and inspected in this implementation. It does not establish equivalence to human teamwork, independent disciplinary expertise, improved coordination or learning, or workplace benefit. We propose reusable contribution contracts and distinguish inherited proficiency targets from demonstrated performance. The contribution is a concrete method and worked exemplar for studying how teams make and revise consequential decisions, together with an evidence plan for evaluating its fidelity and usefulness.
+
+**Keywords:** learning engineering; multidisciplinary teams; agentic simulation; design rationale; competency; evidence; human flourishing.
+
+## 1. The work that a finished product hides
+
+A learning team receives a plausible request: help new team leads handle difficult feedback conversations. One response is to produce a course. Another is to investigate what the leads need to notice, decide and do, what prevents them from doing it, and whether instruction is the appropriate intervention. The second response requires a team to connect different kinds of expertise before it can justify a product.
+
+A lead might lack a useful way to open a conversation. The colleague might have received incompatible instructions. The staffing arrangement might leave no time to clarify expectations. A manager might control both the working conditions and the interpretation of a worker's performance. These are different problems. A fluent rehearsal of a better opening does not resolve all of them.
+
+The practical question is how a team works through such distinctions. Who challenges the initial explanation? Which assumptions become requirements? How does an objection change the design? What happens when the delivered code falls short of the design narrative? A polished final answer can conceal these decisions, including the decisions to narrow a claim, change the surrounding system or withhold a release.
+
+We propose treating the evolving project record as a deliverable alongside the product. The record should let a reader follow a problem interpretation through specialist review, integration, implementation and correction. An agentic rehearsal is one way to construct a visible example of that work. Its usefulness as a representation of human teamwork remains an empirical question.
+
+## 2. Grounding and contribution
+
+IEEE ICICLE defines learning engineering through the learning sciences, human-centered design, engineering methodologies and data-informed decisions in support of learners and their development. The *Learning Engineering Toolkit* brings these concerns together with practical chapters on teaming, implementation and ethical decisions. These sources provide the professional context; they do not validate the simulation presented here. [1, 2]
+
+The approach also draws on the distinction between building an artifact, demonstrating its use and evaluating the claims made for it in design science research. Sandoval's conjecture mapping provides a related methodological discipline: make explicit how a design is expected to produce relevant processes and how those processes might lead to outcomes. We use these ideas to separate a visible interface behavior from a proposed learning mechanism and an eventual workplace benefit. This paper is a methods demonstration, not a completed design-based field study. [3, 4]
+
+Capability Matters supplies the local problem-to-product frame and its distinction among output quality, human capability, learning and impact. [5] The eight stage names used below are this project's organizing vocabulary, not a claim to introduce or certify a professional standard.
+
+AI agents taking learning-engineering roles are already a topic in the ICICLE community: its public account of an August 2026 seminar includes a case on developing agents as a learning engineering team. [1] We make no claim to be the first to propose that arrangement. Our contribution is the inspectable connection among public contributions, challenged assumptions, decisions, executable artifacts, preserved failures and bounded claims, with reusable role contracts and a concrete evaluation agenda.
+
+## 3. What the team must coordinate
+
+The learning-engineer role integrates the work. Integration means deciding what the problem is, what can reasonably be built, which questions require another discipline, and which decision should return to an earlier requirement. It includes preserving unresolved disagreement. It does not grant authority to speak for affected people or approve a real pilot.
+
+The specialist roles divide attention rather than establish a hierarchy of credentials. Learning science examines the proposed practice, feedback and transfer mechanism. Systems engineering examines dependencies, competing causes and non-training changes. Human-centered design examines access, workload, agency and the perspectives still missing. Measurement examines what an observation could support and what rival explanations remain.
+
+Responsible AI review examines delegation, privacy, consequential use and correction. Implementation review examines what the executable artifact actually does. Domain review connects the proposal to the supplied work context while naming where practitioner validation is needed. The scenario role introduces a plausible challenge to a particular assumption; it supplies hypothetical conditions, never invented observations.
+
+Together with the learning-engineer role, these are the nine named roles in the exemplar. They are design choices for this demonstration. A real team may combine functions in one person, distribute them across a larger group, or require other expertise. The relevant test is whether the necessary work is performed under appropriate conditions, not whether every role has a separate person or agent.
+
+An agent's assigned disciplinary name establishes neither its expertise nor the independence of its judgment. The simulated roles share a provider and overlapping project context. Their agreement cannot be treated as expert consensus. In a human team, professional accountability, situated knowledge, relationships and power also affect what can be said and challenged. The role arrangement makes selected responsibilities visible without reproducing those conditions.
+
+## 4. Method and evidence record
+
+The exemplar begins with a fictional workforce seed: help new leads conduct difficult feedback conversations, consider a capability map and develop practice without employee surveillance. The supplied constraints exclude employee ranking and identifiable conversation recordings, require voluntary participation and evidence sharing, and require examination of staffing and workflow explanations. These constraints came from the project brief; they are not findings from workers or employers. [6]
+
+The implementation coordinates role-specific, structured model calls through Understand, Model, Design, Build, Instrument, Deploy, Evaluate and Refine. Each role receives the available project discussion and a bounded contribution request. Responses include advantages, disadvantages, tradeoffs, risks, human and system capability requirements, flourishing considerations, evidence references and dissent. The learning-engineer role synthesizes these contributions into an artifact or requests a return to an earlier stage. The orchestrator is software coordinating a simulated learning-engineer role; it is not a human participant in a teamwork study.
+
+![Coordination in the Agentic LE rehearsal: bounded specialist contributions are integrated into versioned artifacts; hypothetical scenarios and implementation findings can reopen requirements.](/agentic-le/paper/team-process.svg)
+
+*Figure 1. Proposed coordination method implemented in the fictional rehearsal. The arrows represent routing of work; they do not establish actual human-team behavior or field outcomes. Both challenged assumptions and observed implementation findings can return work to an earlier requirement.*
+
+A single preserved live-model journal, `20261001T224130Z-live-codex-d6a562`, is the evidence source for the episodes in this paper. It contains 99 events, 29 recorded model requests with returned structured responses, 14 artifact versions and two hypothetical scenario events. One corrective response was rejected and retained. These are inventory counts from the journal, not effect sizes, expert judgments or independent observations. Repeated completion markers reflect subsequent correction and review of the same project, not separate successful trials. A separately labeled scripted rehearsal is available but supplies no additional live-model evidence. [6]
+
+The calls used the authenticated Codex command-line provider and the configured default model. The public metadata does not identify a fixed model version. The saved prompts, structured outputs and provider metadata permit inspection of this run; they do not guarantee that a future call will reproduce its content. Raw provider receipts and response caches remain local. No participant recordings or workplace observations are in the public record.
+
+The journal links each event to its predecessor by hash and records artifact content hashes, revision parents and triggering decisions. The replay exposes only the discussion and artifacts available at the selected event. These checks detect changed records under the implemented verification rules. They do not sign an author's identity, verify the truth of a model's claim or prevent a new journal from being fabricated. The public text is returned deliberation and artifact content, not a representation of a model's private reasoning.
+
+Our analysis is a retrospective reading of selected episodes. The episodes were chosen because they expose different coordination obligations: interaction design, governance of evidence and implementation correction. We did not preregister episode selection, independently code all contributions or estimate agreement among analysts. The observations below describe linked events in this implementation; the implications for human teams are proposals.
+
+## 5. Three episodes of revision
+
+### 5.1 An interruption changes the privacy requirement
+
+The early design treated session-only reflection, omitted analytics and absent stored history as important privacy boundaries. The scenario at [event 27](https://capabilitymatters.org/agentic-le/replay/?event=27) introduced a different failure: a fictional lead leaves a shared workstation to cover a staffing gap, and a supervisor reads the reflection still on screen. The scenario challenged the assumption that avoiding persistence adequately protected interrupted reflection. No such workplace incident was observed.
+
+The learning-engineer decision at [event 29](https://capabilitymatters.org/agentic-le/replay/?event=29) requested a Design revision, producing revision two at event 30 and an explicit scenario-to-revision link at event 31. The new requirements addressed concealment, recovery and the interpretation of interruption. They also retained coverage as a work-system issue rather than labeling interruption a learner deficiency. [6]
+
+This episode illustrates the connection between a technical boundary and the circumstances of use. The scenario did not merely add a caution to the final report; it changed an earlier artifact. The later candidate included hide, resume and discard controls. Their presence does not establish host privacy or prove that refusal is credible in a real workplace.
+
+### 5.2 A reviewer conflict reopens the evidence protocol
+
+The second scenario, at [event 62](https://capabilitymatters.org/agentic-le/replay/?event=62), placed a hypothetical reviewer in charge of the staffing arrangement questioned by a response. The reviewer could interpret rescheduling as avoidance, while the participant would have to challenge their manager to correct the interpretation. The challenged assumption was that editable, descriptive review alone made evaluation meaningfully contestable.
+
+The learning-engineer decision at event 64 requested a return to Instrument. The revised protocol at [event 68](https://capabilitymatters.org/agentic-le/replay/?event=68), following decision 67, addressed reviewer conflicts, an independent correction route and withholding evaluative review when credible correction was unavailable. The revision retained a separate limit: reviewer independence cannot establish that the interpretation is correct. [6]
+
+The coordination obligation here concerns the conditions that permit evidence to count. Adding a correction box to an interface cannot resolve unequal authority. A real team would need affected people and accountable owners to examine reviewer eligibility, consequences, resources and correction arrangements. The simulation identifies a requirement for that work; it does not perform or approve it.
+
+### 5.3 Implementation review contradicts the completed narrative
+
+The original Build artifact at event 38 contained a design draft but no executable HTML. The cycle nevertheless reached a completion marker. An implementation finding at [event 81](https://capabilitymatters.org/agentic-le/replay/?event=81) reopened Build and required evaluation and refinement against actual source. This was an observed property of the software artifact, distinct from the two fictional scenarios.
+
+The first corrective response returned code but omitted its triggering finding from its evidence references. Validation stopped at event 83. A later recorded explanation at event 97 identifies the prompt defect: the correction needed the finding's payload, not only its sequence number. The prompt was corrected, and decision 86 produced accepted Build revision two at [event 87](https://capabilitymatters.org/agentic-le/replay/?event=87). The rejected output and earlier empty Build remain inspectable. [6]
+
+The revised evaluation and refinement also narrowed the learning offer. The page organized reflection and supplied a fixed authored possibility; it did not analyze wording or deliver response-specific feedback. Decision 94 placed any proposed human facilitation in a separately reviewed pathway. At [event 98](https://capabilitymatters.org/agentic-le/replay/?event=98), host checks recorded exercised reflection and correction propagation, labeled variation snapshots, concealment and focus behavior, resumption, discard, blank inputs and rescheduling. The final status remained awaiting a human pilot at event 99. [6]
+
+This episode is particularly useful for teaching team practice because the narrative of completion was insufficient. Someone or something had to inspect the executable requirement, supply the finding to the next contributor and revise the interpretation of the delivered product. The record demonstrates that this correction occurred in the implementation. It does not show how reliably the process detects other defects.
+
+## 6. What the demonstration establishes
+
+The implementation produced an executable candidate for fictional feedback practice and a portable handoff containing the candidate, requirements, current artifacts, full journal and a source-linked manifest. A reader can inspect the earlier drafts, the objections that changed them and the limits of the final product. The prototype is the work product; the evolving record explains why it takes that form. [6, 7]
+
+The recorded technical checks support only the exercised behavior in their stated environment. Neither those checks nor the presence of a replay establishes accessibility for intended users, security of every generated artifact, appropriate workplace conditions or educational usefulness. In particular, the live run did not establish browser download completion; later packaging and publication checks verified archive contents and hashes separately. These are different observations and should remain distinct.
+
+The record demonstrates coordination mechanisms in this software: role-specific contributions, explicit integration, scenario-linked requirement revision and retained correction. It does not establish that the mechanisms are sufficient for good teamwork. An extensive transcript can repeat a shared misconception. A hash-valid reference can point to a poor argument. An orchestrator can omit an important perspective, and a scenario role can generate objections that are too convenient or too weak.
+
+Our proposed implication for human teams is that a project record can make important judgments available for review and instruction. An affected person should be able to ask why a requirement exists, who supplied its evidence and what happens if the assumption fails. Whether this particular record makes those questions easier to answer requires human evaluation.
+
+## 7. Reusable roles and proficiency claims
+
+The current implementation standardizes contribution contracts in a versioned registry. A common contributor profile supplies duties about evidence, uncertainty, dissent, correction, human and system capability, and flourishing. Specialist profiles add disciplinary responsibilities; a workforce domain specialization adds context-specific requirements. Duties accumulate, while a child can replace a requested target for a named competency. Unknown parents, cyclic inheritance and unsupported target definitions are rejected. [8]
+
+The associated competency vocabulary uses the five public LENS domains: Systems Analysis, Iterative Development, Human-System Collaboration, Test & Evaluation, and Sociotechnical Constraints. The proposed contribution levels are awareness, applied and integrative. These descriptors express the work requested from a simulation role. They are not adopted credentials, a certification crosswalk or evidence that a person or model possesses the stated proficiency.
+
+A future claim of demonstrated proficiency would need a named subject, representative tasks, support conditions, criteria, reviewed observations, coverage and limitations. It should identify whether performance concerns a person, a team or a supported human-system arrangement. Inheritance can specify the expected contribution; it cannot supply that evidence or grant human approval authority.
+
+The inherited profiles were added after the preserved live exemplar. That journal used its recorded fixed-role prompts. We do not retrospectively assign the later proficiency targets to it. Future runs pin the resolved profiles, framework versions and hashes in their first event. This distinction allows the code and roles to evolve while preserving what an earlier run actually used.
+
+## 8. Human flourishing as a design obligation
+
+In this exemplar, flourishing enters through concrete questions about agency, dignity, access, reciprocal usefulness and burden. Can a person decline practice or evidence sharing? Does the design confuse a staffing failure with a personal deficiency? Can a colleague challenge the lead's explanation? Who benefits from the intervention, and who supplies the time or emotional work it requires?
+
+The design retains organizational repair, non-AI practice, rescheduling and stopping as legitimate possibilities. It excludes employee rankings and requires separate review before evaluative evidence is collected or used. These are declared design commitments and review requirements, not measured benefits. A visible button labeled decline cannot establish that declining has no consequences. A fictional exercise cannot establish that a colleague is treated more respectfully at work.
+
+A human team would need to negotiate the intended benefit and unacceptable consequences with affected people, then investigate whether the proposed intervention and its surrounding conditions support them. Technical construction, educational value and the distribution of benefit require connected but different evidence. Keeping them separate helps identify what should be changed when a tool works as coded but the work system remains unsuitable.
+
+## 9. An evaluation agenda for actual teams
+
+The next study should begin with fidelity and usefulness of the representation, before attributing gains to agents. Learning engineers, domain practitioners and affected-person representatives could examine the same episodes and identify missing perspectives, implausible decisions, misleading authority assignments and requirements that the trace fails to carry into the product. Review should include disagreements and proposed changes to the simulation itself. This would supply human judgments about the representation, not learning-effect evidence.
+
+A second study could test whether the record supports review. Reviewers could receive the same candidate product with or without its process record and answer predefined questions about assumptions, unresolved concerns and permissible release claims. Allocation, task order and the available time should be specified. Scorers could assess the responses against independently established artifact facts without knowing which record condition produced them. Outcomes might include detection of consequential gaps, appropriate narrowing of claims, trace accuracy, review burden and overlooked concerns. Completion speed alone would be insufficient. This comparison tests access to the record; it would not isolate the benefit of agents.
+
+A third study could involve actual teams solving comparable problems with and without the proposed role and record protocol. The unit of analysis should include the team, its setting and support conditions. Depending on feasibility, allocation could be randomized or counterbalanced with explicit attention to carryover, prior expertise and resource differences. Proposed observations include whose expertise changes requirements, how disagreements are resolved or retained, whether defects are corrected, who bears added documentation work and whether reviewers can justify the next action. Candidate quality and team learning should be analyzed separately.
+
+For the workforce product, any field comparison would require credible voluntary participation, suitable access and coverage, an accountable owner, agreed evidence handling and stopping criteria. Retention and transfer would require observations across time and task variation, with attention to available support and opportunity to act. Prior experience, prompt familiarity, selection into participation, facilitation and changes to staffing are rival explanations. No sample size, performance threshold or effect estimate is supplied here; these require an explicitly justified study design.
+
+## 10. Limitations and authorship
+
+This is one selected fictional project and a retrospective interpretation of its record. It has no human-team observations, no untreated comparison, no independent disciplinary review and no participant outcomes. The model configuration is not pinned to a publicly identified version. The roles share a provider and project context; the same system helps generate and critique its proposals. Those dependencies limit any inference from apparent agreement or self-correction.
+
+Scenarios were constructed to challenge assumptions, not sampled from an incident population. A missing-code finding demonstrates one discovered gap, not a measured defect-detection rate. The readable record may omit tacit decisions, cultural meaning, relationships and the consequences of speaking up. Keeping a transcript also creates work and potential exposure; a real team should collect only records justified by its purpose and evidence agreements.
+
+The system and manuscript were developed with AI assistance under human direction. Model-generated contributions are labeled in the replay. This draft proposes a joint author argument and does not attribute completed research, technical work, stakeholder consultation or endorsement to either proposed author without confirmation. Before submission, both authors should review the claims, sources, interpretation, disclosures and contribution statement. The relevant standard is accountable human authorship, not treating generated text or a role label as an author.
+
+## 11. Conclusion
+
+Learning engineering team work becomes visible when a reader can follow a problem interpretation into a requirement, see an objection change that requirement and examine what the delivered artifact actually does. This exemplar supplies that connection in a runnable, inspectable rehearsal. Its strongest contribution is the availability of the work for critique, including a preserved implementation failure and a narrowed product claim.
+
+The next step is to test whether actual learning engineering teams and reviewers find this representation faithful and useful. A credible account should carry the product, the decisions that shaped it and the limits of the evidence together. That record can support a learning engineering team while leaving its professional judgment, relationships and accountability with people.
+
+## References and inspectable materials
+
+1. IEEE International Consortium for Innovation and Collaboration in Learning Engineering (ICICLE). *What is Learning Engineering?* and the public description of the August 2026 design seminar. [Official community page](https://sagroups.ieee.org/icicle/). Accessed October 2026. The definition grounds professional context; the seminar description establishes related community activity, not the quality of that case.
+2. Goodell, J., and Kolodner, J. (Eds.). (2023). *Learning Engineering Toolkit: Evidence-Based Practices from the Learning Sciences, Instructional Design, and Beyond*. Routledge. [Publisher description and contents](https://www.routledge.com/Learning-Engineering-Toolkit-Evidence-Based-Practices-from-the-Learning-Sciences-Instructional-Design-and-Beyond/Goodell-Kolodner/p/book/9781032232829). The year follows the publisher's first-edition copyright; this draft relies on the public description and contents, not an asserted full-book review.
+3. Peffers, K., Tuunanen, T., Rothenberger, M. A., and Chatterjee, S. (2007). A design science research methodology for information systems research. *Journal of Management Information Systems, 24*(3), 45–77. [Official journal abstract](https://www.jmis-web.org/articles/765). [DOI](https://doi.org/10.2753/MIS0742-1222240302).
+4. Sandoval, W. (2014). Conjecture mapping: An approach to systematic educational design research. *Journal of the Learning Sciences, 23*(1), 18–36. [DOI](https://doi.org/10.1080/10508406.2013.778204). [Author-hosted article](https://computationalliteracies.net/publications/sandoval-2014-conjecture/sandoval_2014_conjecture.pdf).
+5. Gray-Roncal, W., and Diamond, J. (2026). *Show Your Work: Functional Evidence for Claims About Capability and Learning*. Revised working draft. [Capability Matters reading edition](https://capabilitymatters.org/show-your-work/). This is a companion position paper, not independent validation of the present system.
+6. Capability Matters. (2026). *Agentic LE live exemplar*, run `20261001T224130Z-live-codex-d6a562`. [Replay](https://capabilitymatters.org/agentic-le/replay/). [Complete journal](https://capabilitymatters.org/agentic-le/replay/live-exemplar.json). [Inventory and episode audit](https://capabilitymatters.org/agentic-le/paper/evidence.json). All run counts and episode descriptions in this paper refer to this preserved journal. The audit includes its file hash and journal head hash.
+7. Capability Matters. (2026). *Runnable candidate product and portable handoff*. [Candidate](https://capabilitymatters.org/agentic-le/product/). [Manifest](https://capabilitymatters.org/agentic-le/product/manifest.json). [Technical verification and limits](https://github.com/wrgr/capabilitymatters/blob/main/docs/lifecycle/VERIFICATION.md).
+8. Capability Matters. (2026). *Simulation role contract and proficiency proposal*, registry and framework version 1.0.0. [Role explorer](https://capabilitymatters.org/agentic-le/roles/). [Registry source](https://github.com/wrgr/capabilitymatters/tree/main/src/data/lifecycle). [Role resolver and runtime](https://github.com/wrgr/capabilitymatters/tree/main/tools/lifecycle). These are project-defined simulation contracts, not adopted proficiency standards.
