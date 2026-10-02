@@ -1,20 +1,24 @@
 ---
 // Unlisted working paper accompanying the Agentic LE exemplar.
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import Base from "../../layouts/Base.astro";
 import AgenticNav from "../../components/AgenticNav.astro";
 import { Content, getHeadings } from "../../papers/learning-engineering-teams.md";
 
+const pdfVersion = createHash("sha256").update(readFileSync("public/agentic-le/paper/paper.pdf")).digest("hex").slice(0, 12);
 const sections = getHeadings().filter((heading) => heading.depth === 2).slice(1);
 ---
 
-<Base title="Learning Engineering Teams at Work · Capability Matters"
-  description="A working methods paper exploring learning engineering competencies and teamwork through real agent execution on a fictional project.">
+<Base title="Learning Engineering in Action · Capability Matters"
+  description="An agentic simulation for collaboration and learning from success and failure across three fictional projects, with replayable records and a reusable framework.">
   <meta slot="head" name="robots" content="noindex, nofollow" />
  <AgenticNav active="paper" />
   <div class="paper-shell">
     <nav class="paper-actions" aria-label="Paper downloads">
-      <a class="download" href="/agentic-le/paper/manuscript.md" download>Download editable manuscript</a>
-      <a href="/agentic-le/record/?file=%2Fagentic-le%2Fpaper%2Fevidence.json">Inspect evidence audit</a>
+      <a class="download" href={`/agentic-le/paper/paper.pdf?v=${pdfVersion}`} download>Download PDF</a>
+      <a href={`/agentic-le/paper/manuscript.md?v=${pdfVersion}`} download>Download editable manuscript</a>
+      <a href={`/agentic-le/record/?file=%2Fagentic-le%2Fpaper%2Fevidence.json&v=${pdfVersion}`}>Inspect evidence audit</a>
     </nav>
     <div class="reading-layout">
       <aside>

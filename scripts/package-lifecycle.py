@@ -56,7 +56,7 @@ audit = {"schema_version": 1, "paper_status": "AI-assisted working draft for coa
          "requested_roles": sorted({event["agent"] for event in run["events"] if event["kind"] == "request"}),
          "model_version": "Not identified in the public metadata; configured default recorded", "episodes": episodes,
          "event_facts": facts, "manuscript_sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
-         "scope": "Retrospective episode selection; not a human-team study, independent coding, model equivalence test or learning-effect study",
+         "scope": "Retrospective workforce episodes and descriptive cross-case comparison; not a human-team study, independent coding, model equivalence test or learning-effect study",
          "future_role_profiles": "Added after this live run; not retrospectively assigned", "human_pilot": "pending"}
 (paper_dir / "evidence.json").write_text(json.dumps(audit, indent=2, ensure_ascii=False) + "\n")
 print("Agentic LE manuscript and source-grounded episode audit packaged.")
@@ -79,6 +79,9 @@ for case in json.loads((REPO / "src/data/lifecycle/cases.json").read_text()):
         "registry_version": case_run.get("role_profiles", {}).get("registry_version", "legacy fixed prompts"),
         "human_pilot": "pending", "field_outcomes": "unknown"})
 (WEB.parent / "cases.json").write_text(json.dumps({"schema_version": 1, "cases": case_inventory}, indent=2, ensure_ascii=False) + "\n")
+audit["cases"] = [{key: c[key] for key in ("id", "run_id", "counts", "journal_sha256", "head_hash", "registry_version", "human_pilot", "field_outcomes")} for c in case_inventory]
+audit["pdf_sha256"] = hashlib.sha256((paper_dir / "paper.pdf").read_bytes()).hexdigest()
+(paper_dir / "evidence.json").write_text(json.dumps(audit, indent=2, ensure_ascii=False) + "\n")
 print("Diverse live-agent cases and their handoffs packaged.")
 
 # Shared teaching labels keep historical storage keys and journal hashes intact.

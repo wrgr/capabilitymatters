@@ -286,28 +286,38 @@ The schema version must change if snapshot compatibility changes. Preserve the
 separation between empirical citations, invented assumptions, computed outputs,
 and educational hypotheses when revising the page.
 
-## Show Your Work and Rainbow Bug (September 30, 2026)
+## LENS community papers and Rainbow Bug
 
-The featured paper now has a native reading page at `/show-your-work/` and a
-matching PDF at `/papers/show-your-work.pdf`. Both use
-`src/papers/show-your-work.md` as the canonical text. The original August PDF
-is preserved at `/papers/show-your-work-august-2026.pdf`; its upstream copy in
-`wrgr/lens-concentration` remains unchanged.
+`/show-your-work/` presents *Show Your Work. LENS: Coupling Learner and System
+Performance for Capability and Human Flourishing*. Canonical text:
+`src/papers/show-your-work.md`; matching PDF: `public/papers/show-your-work.pdf`.
 
-To revise the paper, edit the canonical Markdown, rebuild the PDF with
-Python 3 and ReportLab (`python3 -m pip install reportlab` if needed), then
-build and verify the site:
+The unlisted `/agentic-le/paper/` presents *Learning Engineering in Action:
+Agentic Simulation for Collaboration and Learning from Success and Failure*.
+Canonical text: `src/papers/learning-engineering-teams.md`; matching PDF:
+`public/agentic-le/paper/paper.pdf`. The editable manuscript and evidence audit
+are also available from that reading page. Agentic LE stays unlisted.
+
+Both PDFs use `scripts/paper_pdf.py`, with linked references, wrapped tables,
+page numbering and the canonical source hash in their metadata. The agentic
+paper includes the existing vector process figure. To edit, revise the canonical
+Markdown and rebuild both PDFs with Python, ReportLab, and svglib:
 
 ```sh
+python3 -m pip install reportlab svglib
 python3 scripts/build-show-your-work-pdf.py
+python3 scripts/build-agentic-le-pdf.py
 npm run build
 python3 tests/test_show_your_work.py
 python3 tests/test_experiments_page.py
 ```
 
-Commit the generated PDF with the source revision so readers receive the same
-version in both formats. Preserve the working-draft label and distinguish the
-author-associated prototypes from evidence of learning gains or effectiveness.
+Commit each generated PDF with its manuscript. The reading pages version PDF
+links by content hash. Preserve the community-discussion and coauthor-review
+labels, and distinguish simulated execution, authored teaching commentary,
+exercised technical behavior, and evidence of actual learning or flourishing.
+The Agentic LE prebuild packages its canonical manuscript and source-grounded
+audit of all three cases without modifying their journals.
 
 The separate Rainbow Bug card links to `/rainbow-bug/`, a static copy of the
 supplied game (`index.html`, `game.js`, `style.css`, and its four character PNGs

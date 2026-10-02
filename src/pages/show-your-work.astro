@@ -1,18 +1,20 @@
 ---
-// Read the revised grounding paper and download its matching PDF or August draft.
+// Read the LENS community paper and download its matching PDF.
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import Base from "../layouts/Base.astro";
 import { Content, getHeadings } from "../papers/show-your-work.md";
 
+const pdfVersion = createHash("sha256").update(readFileSync("public/papers/show-your-work.pdf")).digest("hex").slice(0, 12);
 const sections = getHeadings().filter((heading) => heading.depth === 2).slice(1);
 ---
 
 <Base title="Show Your Work · LENS" active="experiments"
-  description="A revised working paper on functional evidence, learning, and capability in human-AI systems, with a matching downloadable PDF.">
+  description="A LENS community paper defining capability through coupled learner and system performance in pursuit of human flourishing.">
   <div class="paper-shell">
     <nav class="paper-actions" aria-label="Paper downloads">
       <a href="/experiments/">Experiments</a>
-      <a class="download" href="/papers/show-your-work.pdf" download>Download revised PDF</a>
-      <a href="/papers/show-your-work-august-2026.pdf">August draft (PDF)</a>
+      <a class="download" href={`/papers/show-your-work.pdf?v=${pdfVersion}`} download>Download PDF</a>
     </nav>
     <div class="reading-layout">
       <aside>

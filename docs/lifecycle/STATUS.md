@@ -28,3 +28,5 @@ Navigation update, October 2, 2026: the landing page leads with all three cases 
 October 2, 2026: the public cycle uses Understand → Map → Design → Build → Instrument → Deploy → Evaluate → Refine. Map means map capabilities and conditions. Stable storage keys (including model), historic agent quotations and immutable journals remain unchanged; future agent prompts use the new public name. Learner teaching commentary is versioned under src/data/capability-cycle.json and capability-pipeline-teaching.json.
 
 Static pipeline activities and replay entry scripts use versioned asset links for this release so cached activity documents cannot mix old stage labels with new teaching guidance.
+
+The methods paper is now *Learning Engineering in Action*, with a matching PDF at `/agentic-le/paper/paper.pdf`. It covers all three executed cases, source-grounded workforce episodes, descriptive cross-case collaboration, and separately authored pipeline teaching commentary. The evidence audit retains each journal hash and binds the canonical manuscript and PDF. Show Your Work is a standalone LENS community paper on coupled learner and system performance toward human flourishing.

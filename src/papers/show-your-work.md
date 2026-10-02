@@ -1,34 +1,38 @@
-<!-- Canonical revised paper used by the HTML reading page and PDF build. -->
+<!-- Canonical LENS community paper used by the HTML reading page and PDF build. -->
 
 # Show Your Work
 
-## Functional Evidence for Claims About Capability and Learning
+## LENS: Coupling Learner and System Performance for Capability and Human Flourishing
 
 **William Gray-Roncal and James Diamond**
 
-**Working draft, revised September 30, 2026.** This revision develops the August grounding paper for Learning Engineering for Next-Generation Systems (LENS). It is a position paper, not a report of a completed effectiveness study or an adopted professional standard.
+**Working paper for community discussion.** Learning Engineering for Next-Generation Systems (LENS) offers a framework for defining, developing, and evaluating capability. This paper presents a synthesis and a design proposal for the learning-engineering community.
 
 ### Abstract
 
-A finished product is evidence that something was produced. It is not, by itself, evidence of what a person learned, who supplied the necessary expertise, or whether the result will hold up in another setting. This distinction becomes especially consequential when artificial intelligence (AI) can contribute substantially to the product. We argue for demonstrated functional capability: claims about professional performance should be grounded in representative work, evaluated against explicit criteria under stated conditions. The assessment must distinguish the quality of the output, the capability of the person using available support, the learning that persists across time and tasks, and the contribution of the surrounding system. Drawing on assessment research, work-system design, and developing learning-engineering prototypes, we propose a practical evidence record linking each claim to its task, support conditions, observations, scoring, limitations, and decision. The contribution is a synthesis and a design proposal. Working prototypes illustrate its implementation; they do not establish improved learning, fairer decisions, or causal effectiveness. The central obligation is to show the work and explain what the evidence warrants.
+Learning engineering seeks to help people accomplish meaningful work in the settings where that work matters. Learning Engineering for Next-Generation Systems (LENS) frames capability as the capacity of a person, team, or human-system arrangement to accomplish valued work under stated conditions, with usable opportunities to act. Capability depends on the coupling of learner performance with system performance: knowledge and judgment must meet accessible tools, reliable information, adequate resources, authority, and workable coordination. Human flourishing supplies the purpose for this coupling, directing attention to agency, well-being, participation, and the distribution of benefits and burdens. We connect this position to assessment research and work-system design, distinguish output quality, capability, learning, and intervention impact, and propose a practical evidence record for evaluating their relationships. An iterative process and developing examples show how learning-engineering teams can examine both people and systems. The contribution is a framework for community scrutiny and a research agenda; the examples do not establish learning gains or improved flourishing. To show the work is to make the capability claim, its conditions, its evidence, and its consequences open to examination.
 
-### What changed since August
+## 1. LENS begins with capability
 
-The original draft made the case for functional performance over unexamined credentials. That argument remains, but several claims needed correction. Demonstrations also require interpretation; successful work does not logically establish every underlying knowledge or skill; capability at the human-system interface has important precedents; and neither an authentic task nor a transparent score is automatically valid or fair. This revision adds AI-supported creation and assessment, explicit distinctions among output, capability, learning, and impact, and an evidence plan for testing the proposal. The original August PDF remains available as a separate version.
+A learner can know what to do and still be unable to do it. A system can deliver its intended output and still leave people unable to act. Learning engineering has to examine the relationship between these two forms of performance. Otherwise, it can produce a well-taught course inside a work system that prevents competent action, or a technically successful system whose users cannot understand, direct, or recover from its behavior.
 
-## 1. What the grade cannot tell us
+Consider a hypothetical effort to reduce missed alerts. A learner may recognize an alert and explain the appropriate response. The operational system must also provide a timely, interpretable signal, route it to someone with authority, and make a response feasible. Successful alert handling depends on that coupling. If a notification arrives after the decision, if the recipient lacks permission, or if the workload makes action impossible, more instruction may leave the capability gap unchanged. If the system works but the learner cannot recognize a dangerous exception, redesign alone may also be insufficient.
 
-Imagine a student who earns 40 percent on a chemistry examination and receives a B after a class-wide adjustment. The letter changes; the student's performance on those questions does not. But neither number, by itself, tells us whether the student can carry out the chemistry that matters. The examination could be poorly aligned, unusually difficult, or deliberately designed to discriminate among advanced students. A raw score is no more self-explanatory than a curved grade.
+Learning Engineering for Next-Generation Systems (LENS) asks the team to begin with the valued work and the conditions that make it possible. What should people be able to accomplish? What must the system provide? How will the two perform together when conditions vary? What benefit is worth pursuing, and who bears the burden of achieving it? The intervention may involve instruction, practice, a job aid, a redesigned interface, a different handoff, staffing, authority, or a combination of these.
 
-The problem is the unsupported inference. What claim does the result justify? Can the student explain a reaction, identify a hazardous procedure, troubleshoot an unfamiliar experiment, or perform the required laboratory work? Under what conditions, with which resources, and to what standard? A grade can summarize useful evidence. Trouble begins when the summary travels farther than that evidence allows.
+The intended end is human flourishing. A capability is valuable because of what it enables people to do and become, and the lives and relationships it helps them sustain. Completing more tasks or shipping a product can contribute to that purpose, but neither establishes it. The community must be able to question whether the work expands meaningful opportunity, preserves agency, improves well-being, and serves the people affected.
 
-The same question applies to a portfolio, a model benchmark, a certificate, or a successful demonstration. Each may inform a decision. None carries its interpretation automatically. Assessment research treats the connection between observed performance and a proposed use as an argument whose assumptions must be examined. Evidence-centered design similarly links the claim we want to make, the observations that would support it, and the tasks that could elicit those observations. [1, 2]
+This position requires functional evidence. A grade, certificate, portfolio, model benchmark, or finished product may contribute useful information, but each needs an interpretation. Assessment research treats the connection between observed performance and a proposed use as an argument whose assumptions must be examined. Evidence-centered design links the claim we want to make, the observations that would support it, and the tasks that could elicit those observations. [1, 2] LENS extends the practical question to the learner-system arrangement: what worked, for whom, with what support, and under which conditions?
 
-Our position is that consequential claims about the ability to do work should include evidence from representative work. This does not exclude knowledge tests, explanations, simulations, or formative checks. They can expose misconceptions and sample more broadly than a long practical task. The assessment should combine methods because of what each contributes to the claim, rather than treat one format as inherently sufficient.
+## 2. Defining capability and its evidence
 
-## 2. Four claims that should not be collapsed
+We propose **capability in context** as the capacity of a person, team, or human-system arrangement to accomplish specified, valued work under stated conditions, with usable opportunities to act. This is a working definition for design and evaluation. It is not a universal proficiency scale or a claim that one successful performance establishes enduring capacity. The unit of analysis must be named: a learner, a team, a technical component, or the coupled arrangement.
 
-The August draft sometimes moved too quickly from successful output to capability, and from capability to learning. We now distinguish four claims. They concern different objects and require different evidence.
+**Learner performance** concerns what a person demonstrates: interpreting information, making a judgment, taking an action, explaining a choice, or recovering from an error. **System performance** concerns whether the surrounding arrangement supplies what the work requires: usable information, reliable tools, access, staffing, support, authority, and coordination. A technical benchmark covers only the component it tests. A learner score covers only the performance its task and conditions elicit.
+
+**Coupling** concerns the relationship between them. Can the learner use the information the system supplies? Can a decision become an authorized action? Can an error be noticed and corrected? Do handoffs preserve what the next person needs? Capability is not established by adding a human score to a system score, or by assuming that individually strong components will coordinate successfully. The relationship needs its own evidence from representative work.
+
+Four claims organize that evidence. They concern different objects and require different observations.
 
 | Claim | What must be established | What one good artifact cannot establish |
 | --- | --- | --- |
@@ -41,23 +45,27 @@ These distinctions are practical. A team may deliver a useful dashboard while re
 
 Learning and immediate performance can diverge. The literature reviewed by Soderstrom and Bjork shows why smooth practice performance is an unreliable stand-in for durable learning. [3] For our purposes, this means that a successful demonstration supports a bounded performance claim. A learning claim also needs evidence of change, persistence, and the relevant form of transfer. No single waiting period or transfer task is adequate for every domain; the choice must follow the intended use.
 
-We use **capability in context** to mean the capacity of a person, team, or human-system arrangement to accomplish specified work under stated conditions. This operational definition preserves the original paper's concern with real function without claiming that individual competence is unreal or that capability belongs only to an interface. The unit of analysis must be named before it is scored.
+The capability claim must therefore state both the demonstrated performance and the conditions that made it possible. A claim about a learner using a reliable support system differs from a claim about independent performance or recovery when support fails. None should silently stand in for the others.
 
-## 3. The person, the support, and the work system
+## 3. Coupling learner performance with system performance
 
 Performance depends on more than what a person knows. Tools, staffing, time, information, incentives, authority, and coordination can enable competent work or prevent it. A training intervention is justified when the evidence supports a learning problem that training can address. It is not the default response to every disappointing result.
 
-This systems perspective has substantial precedent. Carayon and colleagues' Systems Engineering Initiative for Patient Safety (SEIPS) model relates work-system components, processes, and outcomes, explicitly attending to their interactions. [4] Our contribution is to bring that perspective into the same assessment conversation as claims about learning and professional competence. We do not claim to have discovered the human-system interface or to have moved beyond all competency-based education.
+This systems perspective has substantial precedent. Carayon and colleagues' Systems Engineering Initiative for Patient Safety (SEIPS) model relates work-system components, processes, and outcomes, explicitly attending to their interactions. [4] LENS brings this systems perspective into the same design and assessment conversation as claims about learning and professional competence. The relationship between people, technology, and organization has established precedents; our proposal is a practical synthesis for learning-engineering work.
 
 Consider a proposed training course intended to reduce missed alerts. Before designing the course, examine whether alerts are accurate, interpretable, timely, routed to someone with authority, and feasible to act on. Training may help recognition or response. It cannot create missing staff, repair an unreliable data feed, or give someone authority that the organization has withheld. These are competing explanations to investigate, not conclusions to infer from the outcome alone.
 
 We call this **gap attribution**: constructing and testing explanations for the difference between intended and observed performance. Useful evidence could include observations, interviews, system logs, work samples, and targeted changes to the workflow. The evaluator should record which explanations remain plausible. Finding a human contribution to failure does not remove a system contribution, and finding a system contribution does not establish that every individual skill is adequate.
 
+The team should examine three levels together. At the learner level, it can observe interpretation, judgment, action, and recovery. At the system level, it can inspect delivery, accessibility, reliability, workload, and authority. At the coupling level, it can observe the complete task: whether the right information reaches someone who can understand it, act on it, coordinate with others, and correct a failure. A system log showing delivery and a learner test showing recognition do not, by themselves, establish successful action in the intended setting.
+
+Coupling also creates a learning opportunity. The system can make explanations, feedback, practice, and correction available while preserving meaningful decisions for the learner. It can also conceal important work or reward dependence on assistance. The design question is how support contributes to current performance while developing the judgment and recovery capability needed for future conditions. Which support should remain, which should fade, and which needs a fallback depends on the intended work.
+
 The practical consequence is a wider set of permissible responses. Develop a skill, redesign a tool, change a handoff, provide a job aid, narrow the task, acquire better evidence, or stop. A justified decision not to deploy can be an example of capable work. An assessment that rewards only shipping a product would miss it.
 
-## 4. Tasks organize evidence; they do not prove every enabler
+## 4. Tasks connect competencies to performance
 
-The original paper used Knowledge, Skills, Abilities, and Tasks (KSAT) to distinguish the enabling capacities of a worker from the work itself. That distinction remains useful, but the vocabulary is not universal. For example, the National Institute of Standards and Technology (NIST) Workforce Framework for Cybersecurity, from the National Initiative for Cybersecurity Education (NICE), uses Task, Knowledge, and Skill statements in its 2020 revision. It should not be described as requiring the same four-part taxonomy. [5]
+Knowledge, Skills, Abilities, and Tasks (KSAT) is one vocabulary for distinguishing enabling capacities from the work itself. The vocabulary is not universal. The National Institute of Standards and Technology (NIST) Workforce Framework for Cybersecurity, from the National Initiative for Cybersecurity Education (NICE), uses Task, Knowledge, and Skill statements in its 2020 revision. [5] For LENS, the practical requirement is to connect a competency claim to observable work and its conditions, regardless of the taxonomy used.
 
 A task analysis should identify the work to be accomplished, its important variations, acceptable performance, and the resources ordinarily available. It can then identify the knowledge and skills likely to support that work. This gives curriculum and assessment a common reference. It does not justify the inference that completing a task proves possession of every hypothesized enabler.
 
@@ -67,11 +75,19 @@ For example, someone who creates a functioning browser game with AI may demonstr
 
 We therefore propose recording support explicitly: what the person did, what collaborators or tools supplied, what was checked, and what still depends on external help. Targeted explanation, diagnosis, and modification tasks can test uncertain inferences. These probes should be short and relevant; the aim is to establish the claim, not to require every person to reproduce every layer of the system.
 
-## 5. Which outcome deserves to count?
+## 5. Human flourishing sets the purpose
+
+Human flourishing provides a reason to develop capability and a basis for questioning which capability deserves priority. We use it here as a normative commitment to agency, well-being, meaningful participation, and the opportunity to pursue valued purposes. These dimensions require interpretation with the people affected. They cannot be inferred from a productivity score or collapsed into one universal index.
+
+The United Nations Development Programme (UNDP) frames human development around expanding people's choices and distinguishes developing capacities from having opportunities to use them. [15] This perspective supports our concern with both learning and the conditions for action. LENS does not claim to reproduce a complete theory of human development. It asks a learning-engineering team to make the intended human benefit explicit and to examine whether its intervention supports it.
 
 A measurable outcome is not necessarily the right outcome. Completion, satisfaction, speed, eye contact, and a polished product can each be useful observations while remaining poor substitutes for the capability of interest. Choosing a criterion is a substantive decision about whose purposes the system serves and what tradeoffs are acceptable.
 
 Begin with the work and the people affected. Define the intended benefit, the conditions in which it matters, unacceptable failure modes, and the parts of performance that cannot be reduced to a single total. A faster decision may be worse if it hides uncertainty or transfers work to someone else. A technically correct tool can fail if its intended users cannot access or understand it. The outcome should include what makes the work useful and responsible.
+
+Make the flourishing claim concrete enough to challenge. In the alert example, a team might seek more timely care while preserving patient choice, workable staff demands, and access to correction. It should collect appropriate evidence about those aims rather than use faster acknowledgment as a substitute for all of them. In education, completing a supported task may be useful, while confidence to act, opportunities to participate, and later performance on new tasks remain separate questions. The people affected should help define the benefit and acceptable tradeoffs; the sponsor's target is one input into that decision.
+
+A system may improve its average result while increasing burdens on a smaller group, reducing discretion, or making access more fragile. Conversely, giving people more control may introduce time or coordination costs. A LENS evaluation should state those tensions, inspect their distribution, and identify who can revise the design. Human flourishing guides the choice of outcomes and the interpretation of consequences; it is not an automatic result of improved task performance.
 
 Distal outcomes, such as patient benefit or sustained workplace performance, matter. They are also influenced by many factors beyond a particular learner or intervention. Proximal evidence, such as a diagnostic explanation or a correctly executed procedure, can help locate mechanisms and guide feedback. Neither should automatically displace the other. Trace the proposed relationship between them and state which links have actually been examined.
 
@@ -85,7 +101,7 @@ Fairness belongs in criterion selection, task design, access, and interpretation
 
 Evidence quality cannot be read from the source label alone. A randomized study, an investigation, an interview, and a software test answer different questions. A randomized study of the wrong outcome may contribute little to the decision at hand. A carefully documented failure can be enough to stop a release even when it cannot estimate the average effect of the intervention. Record study design, relevance, independence, limitations, and uncertainty alongside provenance.
 
-The August draft leaned on a large case collection. Here we retain two bounded examples to show why the type and scope of the claim matter. They are illustrations, not a systematic review or a representative sample of successes and failures.
+Two bounded examples show why the type and scope of the claim matter. They are illustrations, not a systematic review or a representative sample of successes and failures.
 
 **A deployed model needs external evaluation.** Wong and colleagues evaluated the Epic Sepsis Model using 38,455 hospitalizations at Michigan Medicine. The hospitalization-level area under the receiver operating characteristic curve was 0.63; at a threshold of 6 or higher, the model failed to identify 67 percent of sepsis cases in that cohort. [6] These findings concern the model, setting, time period, and evaluation described in the study. They do not establish how every later version performs. They show why adoption and vendor-reported performance cannot replace evaluation in the setting where a decision will be made.
 
@@ -105,35 +121,60 @@ AI-assisted scoring adds another inference that needs evaluation. A plausible ex
 
 Calibrating that human judgment is part of the work. Raters should score common examples, explain consequential disagreements, and revisit the criterion when the disagreement exposes ambiguity. An expert reference set is a documented judgment, not an infallible answer key. Multiple AI ratings are not automatically independent evidence. These practices make uncertainty inspectable; their effects on decision quality still require evaluation.
 
-## 8. Four developing examples
+## 8. Examples of learner-system coupling
 
-The following projects make the proposal concrete. They are author-associated artifacts and design examples, not independent validations of this paper. No learner-effect estimate is claimed for them here. Their appropriate role is to expose design choices and generate testable questions.
+The following projects make the proposal concrete. They are author-associated artifacts and design examples, not independent validations of this paper. No learner-effect estimate is claimed for them here. Their role is to expose design choices and generate testable questions about learner performance, system performance, and the relationship between them.
 
-### Rainbow Bug Dash: authorship and creative judgment
+### Rainbow Bug Dash: creative judgment with implementation support
 
 Rainbow Bug Dash was co-created by Julian, age 6, with AI as a creative partner. The browser game asks the player to collect rainbows and avoid bugs. The companion Vibe Coding job aid, by James Diamond and Will Gray-Roncal, describes the cycle of expressing an idea, reacting to a working result, specifying changes, and testing the revision. [9]
 
 The example broadens what can count as a contribution. Specifying that a character should begin in a safe place is a design judgment even when the person making it cannot implement the collision logic. The functioning game is evidence of a resulting artifact. The job aid documents aspects of an iterative process. Neither is a controlled measure of Julian's learning, proof of independent programming skill, or evidence that the approach works equally well for all children. A learning assessment would require an age-appropriate new task and observations of what the child can explain, choose, and revise over time.
 
-### MicroGPT: inspect the data behind the result
+### MicroGPT: a system that makes its behavior inspectable
 
 The MicroGPT companion adapts Andrej Karpathy's small transformer implementation for a teaching interface. Its sequence moves from letters to haiku text to a synthetic bias example; users can inspect training data and compare character, word, and line tokenization. Live training and stored checkpoints make changes in model behavior available for inspection. [10]
 
 The assessment opportunity is to ask learners to predict, test, and explain a change. What changed when the tokens changed? What did the training labels reward? Which result would justify revising the data rather than training longer? Successful interaction with the demonstration does not establish understanding. A useful follow-up presents different data and asks the learner to identify the same kind of problem without being shown the answer.
 
-### Calibrated Judgment: a discrepancy prompts inquiry
+### Calibrated Judgment: evidence and correction at the assessment interface
 
 Calibrated Judgment's design compares evidence in a finished essay with evidence available in the accompanying AI dialogue, linking criterion judgments to quoted material and routing selected decisions to an instructor. [11] The aim is to make the basis of assessment inspectable and allow corrections to inform later calibration.
 
 A discrepancy between the two assessments is a reason to ask a better question. It is not a validated measure of over-reliance, deception, or lack of understanding. Missing transcript context, task differences, scorer error, and legitimately different evidence can also produce a gap. The next step should be a targeted clarification or performance probe before making a consequential claim about the learner.
 
-### ExpertTrace: practice and transfer need separate tasks
+### ExpertTrace: supported practice and unfamiliar tasks
 
 ExpertTrace's design uses an operational knowledge corpus to support scenario-based practice and probe explanations at different levels of expertise. [12] It illustrates how an assessment can examine symptom interpretation, evidence use, uncertainty, and corrective action rather than reward recall of one finished answer.
 
 The proposed evidence of learning would come from performance on unfamiliar scenarios, including cases in which a familiar cue is misleading or the support cannot be relied on. Repeating a practiced scenario can be useful instruction while remaining weak evidence of transfer. Working software and coherent simulated interactions establish implementation progress; learner gains require a study with learners and an appropriate comparison.
 
-## 9. A practical evidence record
+## 9. The LENS process and community competencies
+
+The LENS process treats capability development as an iterative investigation. The team begins with a seed idea or concern, defines the problem with the people affected, maps capabilities and operating conditions, compares interventions, and revises its decisions as evidence becomes available. A product is one possible result. A changed workflow, better-supported practice, a narrower scope, or a justified decision to stop may also be an appropriate result.
+
+The eight activities keep learner and system requirements connected:
+
+| Activity | Question for the coupled arrangement |
+| --- | --- |
+| Understand | What valued work is difficult, for whom, and what human benefit would closing the gap serve? |
+| Map | What must people and systems each be able to do, and which conditions or dependencies enable their work together? |
+| Design | Which intervention addresses a plausible cause, within available authority, with acceptable benefits and burdens? |
+| Build | Can the candidate, its support, and its recovery paths operate during a representative task? |
+| Instrument | What evidence will distinguish learner performance, system performance, their coupling, and the intended benefit? |
+| Deploy | Under what bounds, staffing, access, and stop conditions can the arrangement be used responsibly? |
+| Evaluate | What changed, for whom, compared with what, and which explanations and consequences remain uncertain? |
+| Refine | Which assumption or requirement needs revision, and what evidence would justify the next step? |
+
+These are revisitable activities. New evidence may change the problem definition, expose an authority constraint, or show that a successful build does not support the intended work. Refine normally returns to Understand; a direct return to another activity needs a stated reason. The Capability Pipeline presents these choices through five worked cases and a fictional adventure, with teaching points to support deliberation. Its simulated outcomes are authored assumptions rather than empirical estimates. The companion casebook supplies additional contexts for discussing the work. [13, 14]
+
+LENS organizes the relevant practice around five competency domains: **Systems Analysis**, **Iterative Development**, **Human-System Collaboration**, **Test and Evaluation**, and **Sociotechnical Constraints**. In this paper, these are organizing domains for the LENS framework, offered for community discussion. They do not constitute an adopted professional standard. A project can use them to name the expertise it needs and identify missing contributions.
+
+A learning engineer can orchestrate that work by keeping the problem, intended benefit, evidence, and next decision connected. Domain practitioners, learning designers, technical specialists, evaluators, and affected participants contribute different expertise. One person need not perform every role, and naming a role does not demonstrate proficiency. A proficiency claim needs reviewed evidence of the relevant task under stated conditions, including judgment about when to seek help, revise, or stop.
+
+This gives the community a concrete basis for discussing learning engineering as a profession, a team practice, and a process. The framework names work that can be shared across a team, documented in an iterative process, and used to examine an individual's contribution. Competency definitions can develop through that examination rather than through a list detached from what teams actually do.
+
+## 10. A practical evidence record
 
 We propose a small evidence record for each consequential capability claim. It should be short enough to use and complete enough for another evaluator to question. The record is an author proposal developed from the assessment and systems principles above; it has not been validated as an assessment instrument.
 
@@ -142,7 +183,10 @@ We propose a small evidence record for each consequential capability claim. It s
 | Claim and use | The work, who or what is being assessed, and the decision the result will inform. |
 | Conditions | Task variation, time, tools, AI, collaborators, accommodations, and relevant constraints. |
 | Standard | Observable criteria, unacceptable errors, and how the performance level was established. |
-| Evidence | Work products, observed actions, explanations, tests, and their provenance. |
+| Learner evidence | Observed interpretation, judgment, action, explanation, transfer, and recovery, with provenance. |
+| System evidence | Accessibility, information quality, delivery, reliability, resources, staffing, and authority relevant to the task. |
+| Coupling evidence | Complete-task observations, handoffs, support use, exception handling, and correction paths. |
+| Human benefit | The intended contribution to flourishing, who helped define it, and observed benefits, burdens, and missing outcomes. |
 | Interpretation | How observations support the claim; alternatives, missing evidence, and uncertainty. |
 | Decision and review | The permitted next step, responsible decision-maker, appeal route, and reassessment trigger. |
 
@@ -150,23 +194,27 @@ A record might support this bounded claim: a learner can use an approved assista
 
 The same record can support a decision to withhold judgment. If authorship is unclear, a key test is missing, or the task is not representative, report the limitation rather than manufacture a precise score. Where a safety-critical criterion applies, a high total should not compensate for failing that criterion unless the decision rule explicitly permits that tradeoff.
 
-The learning-engineering process should use the record throughout its cycle: understand the problem, map capabilities and conditions in the relevant context, design, build, instrument, deploy within justified bounds, evaluate, and refine. These are revisitable activities, not a mandatory production line. Refinement often returns to understanding. New evidence may justify returning directly to a prior design choice, changing the point of intervention, or deciding that constraints make action inappropriate. The Capability Pipeline explorer offers a teaching simulation of these choices; its simulated outcomes are not empirical estimates. [13]
+The evidence record should travel with the project through the LENS cycle. Decisions, objections, tests, revisions, and unresolved questions help explain how the arrangement changed. Preserve relevant artifacts and concise decision rationales so another team can inspect what was available at the time. These records support examination; their volume does not establish capability or improved outcomes.
 
-## 10. How to test the proposal
+## 11. How to test the proposal
 
 A position paper should specify what would make its claims less credible. The next studies should compare the proposed assessment approach with a clearly described alternative, rather than compare a richly supported intervention with an unspecified absence of support. The appropriate design depends on the question; the following is a research agenda, not a report of completed work.
 
-First, test whether the evidence record improves the accuracy and usefulness of decisions. Independent raters could judge common work samples with and without access to the structured record. Outcomes should include justified decisions, consequential errors, unresolved cases, agreement, and time required. More agreement would not count as success if it simply reflected shared error. A separate adjudication procedure and tasks outside the development set are needed.
+First, test the coupling claim. Where feasible, compare changes in learning support, changes in the operating system, and their combination on representative tasks. Observe learner performance, system performance, and complete-task performance separately, including exceptions and recovery. A design with both kinds of change does not by itself establish their interaction; suitable comparisons and evidence about the mechanism are needed. The framework needs revision if the proposed coupling measures add little beyond the separate measures or fail to explain relevant variation in performance.
 
-Second, distinguish supported productivity from learning. Assess relevant baseline performance, track what support was actually used, and examine later performance on new tasks. Use both supported and independent conditions where they match the intended claims. Include a recovery task when recognizing erroneous assistance is part of the work. Specify the primary outcome and analysis before examining results, and report uncertainty, missingness, and participation differences.
+Second, test whether the evidence record improves the accuracy and usefulness of decisions. Independent raters could judge common work samples with and without access to the structured record. Outcomes should include justified decisions, consequential errors, unresolved cases, agreement, and time required. More agreement would not count as success if it simply reflected shared error. A separate adjudication procedure and tasks outside the development set are needed.
 
-Third, examine whether the approach works for the people who would use it. Observe accessibility barriers, unequal preparation, rater disagreement, and differences in errors or burden across relevant groups. Invite affected learners and practitioners to review the construct and its operationalization. Small groups and sparse failures limit what can be concluded; an absence of detected disparity is not proof of fairness.
+Third, distinguish supported productivity from learning. Assess relevant baseline performance, track what support was actually used, and examine later performance on new tasks. Use both supported and independent conditions where they match the intended claims. Include a recovery task when recognizing erroneous assistance is part of the work. Specify the primary outcome and analysis before examining results, and report uncertainty, missingness, and participation differences.
 
-Fourth, test the operational cost. Record preparation time, scoring and adjudication effort, tool costs, appeals, privacy requirements, and maintenance after changes. A method that improves a narrow research task but cannot be sustained in the intended setting has not yet demonstrated the capability that adoption requires.
+Fourth, examine the intended contribution to human flourishing. Specify the relevant benefit with affected participants, then observe opportunities to act, meaningful control, well-being, and the distribution of burdens where those are part of the claim. Establish a credible comparison before claiming intervention impact. A gain in completion would not be sufficient if it depended on unacceptable loss of agency, exclusion, or workload. Longer-term and external effects may require a different study from the immediate performance evaluation.
+
+Fifth, examine whether the approach works for the people who would use it. Observe accessibility barriers, unequal preparation, rater disagreement, and differences in errors or burden across relevant groups. Invite affected learners and practitioners to review the construct and its operationalization. Small groups and sparse failures limit what can be concluded; an absence of detected disparity is not proof of fairness.
+
+Sixth, test the operational cost. Record preparation time, scoring and adjudication effort, tool costs, appeals, privacy requirements, and maintenance after changes. A method that improves a narrow research task but cannot be sustained in the intended setting has not yet demonstrated the capability that adoption requires.
 
 Finally, evaluate outside the development team. External assessors, new sites, unfamiliar tasks, and independent replication can reveal assumptions that internal testing misses. The proposal would need revision if added process evidence fails to improve decisions, imposes disproportionate burden, worsens disparities, or fails to predict relevant later performance. A useful outcome may be a narrower claim about where the method belongs.
 
-## 11. Boundaries and responsibilities
+## 12. Community commitments and responsibilities
 
 Showing work creates records about people. Collect the evidence needed for the stated decision, explain its use, limit access and retention, and avoid treating continuous surveillance as the price of a credible assessment. Prefer selected work samples and targeted probes when they can answer the question. The ability to collect a behavioral trace does not establish a reason to use it.
 
@@ -174,7 +222,9 @@ Learning-engineering competence also includes the authority to act responsibly w
 
 This paper is a proposed synthesis. It does not establish a new psychometric theory, a universally valid rubric, a causal estimate of learning gains, or an adopted credentialing standard. It does not represent a formal position of the Institute of Electrical and Electronics Engineers (IEEE) or its International Consortium for Innovation and Collaboration in Learning Engineering (ICICLE). Contributions to that community require review and agreement through its own processes.
 
-The obligation we retain from the original draft is concrete: show representative work, state the conditions that made it possible, and connect the evidence to the claim. If the claim is learning, examine change and persistence. If it is operational capability, examine the work system. If it is impact, justify the causal inference. A credible assessment makes each of these judgments open to examination and correction.
+We offer LENS as a basis for community work on the meaning and evidence of capability. The invitation is to examine the definition, test the coupling of learner and system performance, make competency claims concrete, and question whether the resulting capability serves human flourishing. Different settings will require different tasks, standards, supports, and measures. The common commitment is to make those choices inspectable.
+
+Show representative work. State what learners and systems each contribute, how they perform together, and the conditions that permit action. If the claim is learning, examine change and persistence. If it is operational capability, examine the complete work arrangement. If it is impact, justify the causal inference. If it is human flourishing, make the valued benefit and its distribution explicit. Learning engineering becomes accountable to the people it serves when each of these claims is open to examination and correction.
 
 ## References and companion artifacts
 
@@ -204,12 +254,14 @@ The obligation we retain from the original draft is concrete: show representativ
 
 13. *The Capability Pipeline*. [Interactive explorer](https://capabilitymatters.org/capability-pipeline/). Author-associated teaching simulation, not an empirical outcome model.
 
-14. Gray-Roncal, W., and Diamond, J. (2026). *Capability Matters: A Casebook*. [Companion draft](https://capabilitymatters.org/capability-matters-casebook-draft.pdf). A source of case framing; the empirical claims retained in this revision cite their primary studies directly.
+14. Gray-Roncal, W., and Diamond, J. (2026). *Capability Matters: A Casebook*. [Companion draft](https://capabilitymatters.org/capability-matters-casebook-draft.pdf). A source of case framing; empirical claims in this paper cite their primary studies directly.
+
+15. United Nations Development Programme. (1990). *Human Development Report 1990: Concept and Measurement of Human Development*. [Report and overview](https://hdr.undp.org/content/human-development-report-1990). Cited for the distinction between developing human capacities and opportunities to use them, not as validation of the LENS framework.
 
 ### Acronym glossary
 
-**AI:** artificial intelligence. **ICICLE:** International Consortium for Innovation and Collaboration in Learning Engineering. **IEEE:** Institute of Electrical and Electronics Engineers. **KSAT:** Knowledge, Skills, Abilities, and Tasks. **LENS:** Learning Engineering for Next-Generation Systems. **NICE:** National Initiative for Cybersecurity Education. **NIST:** National Institute of Standards and Technology. **SEIPS:** Systems Engineering Initiative for Patient Safety.
+**AI:** artificial intelligence. **ICICLE:** International Consortium for Innovation and Collaboration in Learning Engineering. **IEEE:** Institute of Electrical and Electronics Engineers. **KSAT:** Knowledge, Skills, Abilities, and Tasks. **LENS:** Learning Engineering for Next-Generation Systems. **NICE:** National Initiative for Cybersecurity Education. **NIST:** National Institute of Standards and Technology. **SEIPS:** Systems Engineering Initiative for Patient Safety. **UNDP:** United Nations Development Programme.
 
-### Acknowledgment and revision status
+### Acknowledgment and community discussion
 
-We acknowledge the learning-engineering community, including IEEE ICICLE and the Learning Engineering Body of Knowledge, as important settings for the ongoing conversation about professional practice. This draft is offered for discussion and does not speak for those groups. Prepared with AI assistance. Working draft for author review and discussion.
+We acknowledge the learning-engineering community, including IEEE ICICLE and the Learning Engineering Body of Knowledge, as important settings for the ongoing conversation about professional practice. This working paper invites discussion of capability, learner-system coupling, and human flourishing; it does not speak for those groups. Prepared with AI assistance. Offered for author review and community discussion.

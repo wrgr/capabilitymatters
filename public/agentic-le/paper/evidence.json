@@ -190,8 +190,81 @@
       "hash": "3ac0d73c299724dc71b1dee595d27cd633e7d995c3c7fed1ca526df3e7488f96"
     }
   },
-  "manuscript_sha256": "381dfad59b342892ec9fc7b06c1da818e292b080f409a81df8de83baafd67f3b",
-  "scope": "Retrospective episode selection; not a human-team study, independent coding, model equivalence test or learning-effect study",
+  "manuscript_sha256": "66c64e27c6cd1b2165cc1d00661332f5077892c37bcb89c9410c848d0fc145b6",
+  "scope": "Retrospective workforce episodes and descriptive cross-case comparison; not a human-team study, independent coding, model equivalence test or learning-effect study",
   "future_role_profiles": "Added after this live run; not retrospectively assigned",
-  "human_pilot": "pending"
+  "human_pilot": "pending",
+  "cases": [
+    {
+      "id": "workforce",
+      "run_id": "20261001T224130Z-live-codex-d6a562",
+      "counts": {
+        "seed": 1,
+        "stage_started": 8,
+        "request": 29,
+        "contribution": 12,
+        "decision": 14,
+        "artifact": 14,
+        "stage_completed": 8,
+        "scenario": 2,
+        "revision_link": 2,
+        "human_gate": 1,
+        "completed": 3,
+        "verification": 4,
+        "failure": 1
+      },
+      "journal_sha256": "b1b958704ad34cbebd39999ae63f189c2854bdae5eff475e9098f655a21178d0",
+      "head_hash": "3ac0d73c299724dc71b1dee595d27cd633e7d995c3c7fed1ca526df3e7488f96",
+      "registry_version": "legacy fixed prompts",
+      "human_pilot": "pending",
+      "field_outcomes": "unknown"
+    },
+    {
+      "id": "school-science",
+      "run_id": "20261002T025312Z-live-codex-d8f497",
+      "counts": {
+        "seed": 1,
+        "stage_started": 8,
+        "request": 24,
+        "contribution": 11,
+        "decision": 11,
+        "artifact": 11,
+        "stage_completed": 8,
+        "scenario": 2,
+        "revision_link": 2,
+        "human_gate": 1,
+        "completed": 2,
+        "verification": 1
+      },
+      "journal_sha256": "5d562fc996441613d20c4d8974110305f652e04073e59e006824e6f2a26a4d74",
+      "head_hash": "0bf43e5623602bc3398cf0ac1af746a3eeb477b39de1252d9ad1a59ecd3c5b98",
+      "registry_version": "1.1.0",
+      "human_pilot": "pending",
+      "field_outcomes": "unknown"
+    },
+    {
+      "id": "library-access",
+      "run_id": "20261002T025332Z-live-codex-18cc98",
+      "counts": {
+        "seed": 1,
+        "stage_started": 8,
+        "request": 24,
+        "contribution": 11,
+        "decision": 11,
+        "artifact": 11,
+        "stage_completed": 8,
+        "scenario": 2,
+        "revision_link": 2,
+        "human_gate": 1,
+        "completed": 2,
+        "verification": 1
+      },
+      "journal_sha256": "f43f6a39d401491a038c6cb309429889f74a9acd53f8a89077c3afffc08efa9c",
+      "head_hash": "446fd6a7dcf346baa6e6421587520965d23a684c3a9fe8b9f933bb97ce4e39af",
+      "registry_version": "1.1.0",
+      "human_pilot": "pending",
+      "field_outcomes": "unknown"
+    }
+  ],
+  "pdf_sha256": "1d77e24c9e2d748a870672a06da6f43061e977dc0b6a87fed0d1bcd9b42450f7"
 }
