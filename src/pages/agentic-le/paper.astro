@@ -1,17 +1,18 @@
 ---
 // Unlisted working paper accompanying the Agentic LE exemplar.
 import Base from "../../layouts/Base.astro";
+import AgenticNav from "../../components/AgenticNav.astro";
 import { Content, getHeadings } from "../../papers/learning-engineering-teams.md";
 
 const sections = getHeadings().filter((heading) => heading.depth === 2).slice(1);
 ---
 
-<Base title="Learning Engineering Teams at Work · Capability Matters" active="problems-to-prototypes"
+<Base title="Learning Engineering Teams at Work · Capability Matters"
   description="A working methods paper exploring learning engineering competencies and teamwork through real agent execution on a fictional project.">
   <meta slot="head" name="robots" content="noindex, nofollow" />
+ <AgenticNav active="paper" />
   <div class="paper-shell">
     <nav class="paper-actions" aria-label="Paper downloads">
-      <a href="/agentic-le/">Agentic LE</a>
       <a class="download" href="/agentic-le/paper/manuscript.md" download>Download editable manuscript</a>
       <a href="/agentic-le/paper/evidence.json">Inspect evidence audit</a>
     </nav>
@@ -35,14 +36,14 @@ const sections = getHeadings().filter((heading) => heading.depth === 2).slice(1)
   .download { padding: .65rem 1rem; background: var(--accent-2); color: white; border-radius: 4px; }
   .reading-layout { display: grid; grid-template-columns: 14rem minmax(0, 44rem); gap: 3rem; }
   aside { font-family: var(--sans); font-size: .9rem; }
-  details { position: sticky; top: 1rem; }
+  details { position: sticky; top: 5rem; }
   summary { cursor: pointer; font-weight: 650; margin-bottom: 1rem; }
   aside nav { display: grid; gap: .75rem; }
   aside a { color: var(--ink-soft); line-height: 1.4; }
   .paper { min-width: 0; font-size: 1.1rem; }
   .paper :global(p) { max-width: none; }
   .paper :global(h1) { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: .3em; }
-  .paper :global(h2) { margin-top: 2.5rem; scroll-margin-top: 1.5rem; }
+  .paper :global(h2) { margin-top: 2.5rem; scroll-margin-top: 7rem; }
   .paper :global(h1 + h2) { margin-top: 0; font-size: 1.5rem; font-weight: 400; color: var(--ink-soft); line-height: 1.4; }
   .paper :global(h3) { margin-top: 1.8rem; }
   .paper :global(table) { margin: 1.5rem 0; font-size: .92rem; }

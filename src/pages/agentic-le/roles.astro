@@ -1,18 +1,20 @@
 ---
 import Base from "../../layouts/Base.astro";
+import AgenticNav from "../../components/AgenticNav.astro";
 import SectionHero from "../../components/SectionHero.astro";
 import contract from "../../data/lifecycle/resolved-roles.json";
 const framework = contract.framework;
 const domains = Object.fromEntries(framework.domains.map(d => [d.id, d.name]));
 const profiles = {...contract.roles, ...Object.fromEntries(Object.entries(contract.available_domain_profiles).filter(([key]) => key !== "domain"))};
 ---
-<Base title="Simulation roles and proficiency · Capability Matters" active="problems-to-prototypes">
+<Base title="Simulation roles and proficiency · Capability Matters">
  <meta slot="head" name="robots" content="noindex, nofollow" />
+ <AgenticNav active="roles" />
  <SectionHero eyebrow="Lifecycle role contract" title="Inherit responsibilities. Demonstrate proficiency."
  claim="A role profile defines a bounded contribution to the project. A parent supplies shared duties; a specialist or domain profile adds context and requested proficiency. Inheritance supplies no performance evidence."
  question="What work would justify the claim that this role can perform in this context?" />
  <section class="container roles">
-  <p><a href="/agentic-le/">Project lifecycle</a> · <a href="/agentic-le/replay/">Replay the exemplar</a> · <a href="/agentic-le/roles.json">Download the resolved role contract</a></p>
+  <p><a href="/agentic-le/roles.json">Download the resolved role contract</a></p>
   <p><strong>Registry {contract.registry_version}; framework {contract.framework_version}.</strong> The domain names come from Capability Matters’ public LENS framework. These proficiency descriptors are proposed simulation expectations, not an adopted credentialing standard or a statement of human or model proficiency.</p>
   <h2>Requested contribution levels</h2>
   <div class="levels">{Object.entries(framework.proficiencies).map(([id, level]) => <article><h3>{level.name}</h3><p>{level.expectation}</p><p><strong>Evidence needed to review performance:</strong></p><ul>{level.evidence_required.map(item => <li>{item}</li>)}</ul></article>)}</div>
@@ -23,4 +25,4 @@ const profiles = {...contract.roles, ...Object.fromEntries(Object.entries(contra
   <p><a href="https://github.com/wrgr/capabilitymatters/tree/main/src/data/lifecycle">Versioned registry source</a> · <a href="https://github.com/wrgr/capabilitymatters/blob/main/docs/lifecycle/ROLES.md">Role contract</a> · <a href="https://github.com/wrgr/capabilitymatters/blob/main/docs/lifecycle/PROFICIENCY.md">Evidence and proficiency rules</a></p>
  </section>
 </Base>
-<style>.roles{padding-top:2rem;padding-bottom:3rem}.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}article{border:1px solid var(--border);padding:1.2rem;border-radius:6px;margin-bottom:1.4rem}h3{margin-top:0}.lineage{font-family:var(--mono);font-size:.85rem;color:var(--muted);overflow-wrap:anywhere}table{width:100%;border-collapse:collapse;margin-top:1rem;font-family:var(--sans);font-size:.88rem}caption{text-align:left;font-weight:700;padding:.6rem 0}th,td{text-align:left;border-bottom:1px solid var(--border);padding:.6rem}.unknown{background:var(--tint);padding:.9rem;font-size:.9rem}@media(max-width:720px){.levels{grid-template-columns:1fr}}</style>
+<style>.profile{scroll-margin-top:7rem}.roles{padding-top:2rem;padding-bottom:3rem}.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}article{border:1px solid var(--border);padding:1.2rem;border-radius:6px;margin-bottom:1.4rem}h3{margin-top:0}.lineage{font-family:var(--mono);font-size:.85rem;color:var(--muted);overflow-wrap:anywhere}table{width:100%;border-collapse:collapse;margin-top:1rem;font-family:var(--sans);font-size:.88rem}caption{text-align:left;font-weight:700;padding:.6rem 0}th,td{text-align:left;border-bottom:1px solid var(--border);padding:.6rem}.unknown{background:var(--tint);padding:.9rem;font-size:.9rem}@media(max-width:720px){.levels{grid-template-columns:1fr}}</style>

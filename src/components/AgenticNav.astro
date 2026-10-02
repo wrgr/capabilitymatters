@@ -1,0 +1,22 @@
+---
+interface Props { active?: "cases" | "replay" | "paper" | "roles" }
+const { active } = Astro.props;
+const links = [
+  { id: "cases", href: "/agentic-le/#cases", label: "All cases" },
+  { id: "replay", href: "/agentic-le/replay/", label: "Replay" },
+  { id: "paper", href: "/agentic-le/paper/", label: "Working paper" },
+  { id: "roles", href: "/agentic-le/roles/", label: "Roles & proficiency" },
+];
+---
+<nav class="agentic-nav" aria-label="Agentic LE">
+  <a class="project-home" href="/agentic-le/">Agentic LE</a>
+  <div>{links.map(link => <a href={link.href} aria-current={active === link.id ? "page" : undefined}>{link.label}</a>)}</div>
+</nav>
+<style>
+  .agentic-nav{max-width:72rem;margin:auto;padding:.65rem var(--page-pad);display:flex;align-items:center;justify-content:space-between;gap:.65rem 1.5rem;flex-wrap:wrap;font-family:var(--sans);font-size:.9rem;border-bottom:1px solid var(--border)}
+  .project-home{font-weight:750;color:var(--ink)}
+  .agentic-nav div{display:flex;flex-wrap:wrap;gap:.35rem 1rem}
+  .agentic-nav div a{padding:.25rem .4rem;border-radius:4px}
+  a[aria-current]{background:var(--tint-warm);font-weight:650}
+  a:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px}
+</style>
