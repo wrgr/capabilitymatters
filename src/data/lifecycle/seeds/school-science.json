@@ -1,0 +1,7 @@
+{
+  "title": "Reasoning when evidence conflicts",
+  "idea": "Help middle-school science learners compare claims from conflicting observations, identify a changed condition, explain uncertainty and revise a claim. Begin by examining classroom conditions and needed reasoning, then build a small interactive fictional evidence workbench. Use a clearly labeled invented classroom data set about plant growth: different watering and lighting conditions make a simple taller-means-better claim uncertain. Treat all numbers as story inputs, never empirical study results. The candidate should let a learner inspect evidence, choose or write a claim, reveal a counterexample and revise their reasoning with transparent descriptive prompts.",
+  "domain": "Middle-school science inquiry and reasoning from fictional evidence",
+  "people": "Students with varied reading and language access, science teachers, classroom support staff and caregivers; none are participants in this demonstration.",
+  "constraints": "No real student records, automated grades, ability ranking or inferred disability. Work on a shared device and support a teacher-facilitated paper alternative. Completion is not evidence of scientific reasoning. Investigate reading burden, device access and discussion norms. Teacher, student and caregiver review and any actual pilot remain pending. Require a complete small interactive HTML candidate, source-visible limits, and at least one meaningful revision after a challenge."
+}

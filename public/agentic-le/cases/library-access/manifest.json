@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "product_name": "Digital access with patron agency",
+  "release_state": "candidate",
+  "run_id": "20261002T025332Z-live-codex-18cc98",
+  "run_head_hash": "446fd6a7dcf346baa6e6421587520965d23a684c3a9fe8b9f933bb97ce4e39af",
+  "build_content_hash": "f59ede59fd2b135d1ae21aa2683dbe1ac46eb6189fe3e5c65d794eaef59dbbc2",
+  "build_revision": 1,
+  "entrypoint": "candidate.html",
+  "human_pilot": "pending",
+  "field_outcomes": "unknown",
+  "technical_verification_events": [
+    81
+  ],
+  "role_profiles": {
+    "claim": "Requested simulation proficiency; no demonstrated proficiency is inherited.",
+    "framework": {
+      "claim_rule": "A requested profile is a prompt contract. Demonstrated proficiency requires reviewed performance evidence with context, conditions, coverage and limitations; inheritance never supplies that evidence.",
+      "domains": [
+        {
+          "id": "D1",
+          "name": "Systems Analysis"
+        },
+        {
+          "id": "D2",
+          "name": "Iterative Development"
+        },
+        {
+          "id": "D3",
+          "name": "Human-System Collaboration"
+        },
+        {
+          "id": "D4",
+          "name": "Test & Evaluation"
+        },
+        {
+          "id": "D5",
+          "name": "Sociotechnical Constraints"
+        }
+      ],
+      "proficiencies": {
+        "applied": {
+          "evidence_required": [
+            "A task artifact with a stated criterion",
+            "Traceable supporting and conflicting evidence",
+            "Revision after a changed condition"
+          ],
+          "expectation": "Produce a bounded task artifact, compare explanations and revise it against a counterexample.",
+          "name": "Applied contribution"
+        },
+        "awareness": {
+          "evidence_required": [
+            "Name a constraint in context",
+            "Identify the limit of the available evidence"
+          ],
+          "expectation": "Identify the relevant issue, uncertainty and need for specialist or human review.",
+          "name": "Awareness"
+        },
+        "integrative": {
+          "evidence_required": [
+            "A decision linking specialist contributions",
+            "Explicit tradeoffs and unresolved dissent",
+            "A justified return to the earliest affected stage"
+          ],
+          "expectation": "Integrate specialist work, preserve dissent, reconcile human/system requirements and choose an accountable next action.",
+          "name": "Integrative orchestration"
+        }
+      },
+      "schema_version": 1,
+      "source": "Existing public LENS domains in src/lib/lens.ts. Proficiency descriptors below are proposed for this simulation.",
+      "status": "Project simulation contract; not an adopted credentialing or proficiency standard",
+      "version": "1.0.0"
+    },
+    "framework_hash": "1e12a341eae54d577c3dcf54f9187fad336fb59a8d8d74312771221ccc9be961",
+    "framework_version": "1.0.0",
+    "registry_hash": "63cb15d290f81333af15171e876c1507c78de15d4c96f609916a0fe457e51997",
+    "registry_version": "1.1.0",
+    "roles": {
+      "design": {
+        "abstract": false,
+        "category": "specialist",
+        "competency": "Affected people’s voice, accessibility, workload, participation and agency.",
+        "demonstrated_proficiency": "unverified; requires reviewed task evidence",
+        "duties": [
+          "Distinguish supplied facts, assumptions, hypothetical events and missing evidence.",
+          "State human and system capability requirements; examine agency, dignity, access and workload.",
+          "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
+          "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+          "Tie the contribution to the current seed and actual earlier journal events."
+        ],
+        "lineage": [
+          "contributor",
+          "specialist",
+          "design"
+        ],
+        "name": "Human-centered designer",
+        "proficiency_targets": {
+          "D1": "awareness",
+          "D2": "applied",
+          "D3": "applied",
+          "D4": "awareness",
+          "D5": "applied"
+        },
+        "profile_id": "design"
+      },
+      "domain": {
+        "abstract": false,
+        "category": "domain",
+        "competency": "Examine supported digital participation in a public library, patron choice, shared-device privacy, language access and staff capacity. Use fictional service tasks and require librarian and patron review.",
+        "demonstrated_proficiency": "unverified; requires reviewed task evidence",
+        "duties": [
+          "Distinguish supplied facts, assumptions, hypothetical events and missing evidence.",
+          "State human and system capability requirements; examine agency, dignity, access and workload.",
+          "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
+          "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+          "Tie the contribution to the current seed and actual earlier journal events.",
+          "Never solicit passwords, identifiers or real service records; distinguish lack of opportunity from lack of capability.",
+          "Consider paper and staffed alternatives, public-computer interruptions, language access and available assistance."
+        ],
+        "lineage": [
+          "contributor",
+          "specialist",
+          "domain",
+          "library-access-domain"
+        ],
+        "name": "Public library access domain specialist",
+        "proficiency_targets": {
+          "D1": "applied",
+          "D2": "awareness",
+          "D3": "applied",
+          "D4": "awareness",
+          "D5": "applied"
+        },
+        "profile_id": "library-access-domain"
+      },
+      "implementation": {
+        "abstract": false,
+        "category": "specialist",
+        "competency": "Small runnable artifact, technical limits, instrumentation and fallback.",
+        "demonstrated_proficiency": "unverified; requires reviewed task evidence",
+        "duties": [
+          "Distinguish supplied facts, assumptions, hypothetical events and missing evidence.",
+          "State human and system capability requirements; examine agency, dignity, access and workload.",
+          "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
+          "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+          "Tie the contribution to the current seed and actual earlier journal events."
+        ],
+        "lineage": [
+          "contributor",
+          "specialist",
+          "implementation"
+        ],
+        "name": "Implementation specialist",
+        "proficiency_targets": {
+          "D1": "awareness",
+          "D2": "applied",
+          "D3": "awareness",
+          "D4": "applied",
+          "D5": "awareness"
+        },
+        "profile_id": "implementation"
+      },
+      "learning": {
+        "abstract": false,
+        "category": "specialist",
+        "competency": "Observable capability, descriptive feedback, retention, deliberate practice and transfer. Completion is not competence.",
+        "demonstrated_proficiency": "unverified; requires reviewed task evidence",
+        "duties": [
+          "Distinguish supplied facts, assumptions, hypothetical events and missing evidence.",
+          "State human and system capability requirements; examine agency, dignity, access and workload.",
+          "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
+          "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+          "Tie the contribution to the current seed and actual earlier journal events."
+        ],
+        "lineage": [
+          "contributor",
+          "specialist",
+          "learning"
+        ],
+        "name": "Learning scientist",
+        "proficiency_targets": {
+          "D1": "awareness",
+          "D2": "applied",
+          "D3": "applied",
+          "D4": "applied",
+          "D5": "awareness"
+        },
+        "profile_id": "learning"
+      },
+      "measurement": {
+        "abstract": false,
+        "category": "specialist",
+        "competency": "Task evidence, comparison, transfer, causal threats, subgroup coverage and unknowns.",
+        "demonstrated_proficiency": "unverified; requires reviewed task evidence",
+        "duties": [
+          "Distinguish supplied facts, assumptions, hypothetical events and missing evidence.",
+          "State human and system capability requirements; examine agency, dignity, access and workload.",
+          "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
+          "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+          "Tie the contribution to the current seed and actual earlier journal events."
+        ],
+        "lineage": [
+          "contributor",
+          "specialist",
+          "measurement"
+        ],
+        "name": "Measurement specialist",
+        "proficiency_targets": {
+          "D1": "applied",
+          "D2": "awareness",
+          "D3": "awareness",
+          "D4": "applied",
+          "D5": "awareness"
+        },
+        "profile_id": "measurement"
+      },
+      "orchestrator": {
+        "abstract": false,
+        "category": "orchestrator",
+        "competency": "Integrate learning sciences, human-centered design, systems requirements and evidence. Preserve dissent and choose the earliest stage to revisit.",
+        "demonstrated_proficiency": "unverified; requires reviewed task evidence",
+        "duties": [
+          "Distinguish supplied facts, assumptions, hypothetical events and missing evidence.",
+          "State human and system capability requirements; examine agency, dignity, access and workload.",
+          "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
+          "Synthesize drafts into a usable stage artifact and explicit decision."
+        ],
+        "lineage": [
+          "contributor",
+          "orchestrator"
+        ],
+        "name": "Learning engineer",
+        "proficiency_targets": {
+          "D1": "integrative",
+          "D2": "integrative",
+          "D3": "integrative",
+          "D4": "integrative",
+          "D5": "integrative"
+        },
+        "profile_id": "orchestrator"
+      },
+      "responsible": {
+        "abstract": false,
+        "category": "specialist",
+        "competency": "Delegation, privacy, surveillance, correction and accountable human decisions.",
+        "demonstrated_proficiency": "unverified; requires reviewed task evidence",
+        "duties": [
+          "Distinguish supplied facts, assumptions, hypothetical events and missing evidence.",
+          "State human and system capability requirements; examine agency, dignity, access and workload.",
+          "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
+          "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+          "Tie the contribution to the current seed and actual earlier journal events."
+        ],
+        "lineage": [
+          "contributor",
+          "specialist",
+          "responsible"
+        ],
+        "name": "Responsible AI specialist",
+        "proficiency_targets": {
+          "D1": "awareness",
+          "D2": "awareness",
+          "D3": "applied",
+          "D4": "applied",
+          "D5": "applied"
+        },
+        "profile_id": "responsible"
+      },
+      "scenario": {
+        "abstract": false,
+        "category": "scenario",
+        "competency": "Introduce a plausible hypothetical objection or unexpected event that challenges a named assumption and requests a requirement change.",
+        "demonstrated_proficiency": "unverified; requires reviewed task evidence",
+        "duties": [
+          "Distinguish supplied facts, assumptions, hypothetical events and missing evidence.",
+          "State human and system capability requirements; examine agency, dignity, access and workload.",
+          "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
+          "Tie the contribution to the current seed and actual earlier journal events."
+        ],
+        "lineage": [
+          "contributor",
+          "scenario"
+        ],
+        "name": "Scenario agent",
+        "proficiency_targets": {
+          "D1": "applied",
+          "D2": "awareness",
+          "D3": "awareness",
+          "D4": "applied",
+          "D5": "applied"
+        },
+        "profile_id": "scenario"
+      },
+      "systems": {
+        "abstract": false,
+        "category": "specialist",
+        "competency": "Human-system coupling, constraints, requirements, recovery and non-training levers.",
+        "demonstrated_proficiency": "unverified; requires reviewed task evidence",
+        "duties": [
+          "Distinguish supplied facts, assumptions, hypothetical events and missing evidence.",
+          "State human and system capability requirements; examine agency, dignity, access and workload.",
+          "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
+          "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+          "Tie the contribution to the current seed and actual earlier journal events."
+        ],
+        "lineage": [
+          "contributor",
+          "specialist",
+          "systems"
+        ],
+        "name": "Systems engineer",
+        "proficiency_targets": {
+          "D1": "applied",
+          "D2": "applied",
+          "D3": "awareness",
+          "D4": "awareness",
+          "D5": "applied"
+        },
+        "profile_id": "systems"
+      }
+    }
+  },
+  "files": {
+    "candidate.html": "fc3becaf28a82b29a36c8e09501901b936e56352586bda815b9f2e6fedd6e3ad",
+    "project-journal.json": "f43f6a39d401491a038c6cb309429889f74a9acd53f8a89077c3afffc08efa9c",
+    "artifacts.json": "b7e2c782ec83b8eb5542627a54015e4c115b436b44202bfcedafdbc885bbf41d",
+    "requirements.md": "f6d75af5c9642ab6609157428a2edc604637f879b0efa990fd247f37c73e41fc",
+    "README.md": "5cf5ea58cb1a2f3a1346e7f01adf857dca56200b3423d823ad6a57552720aba6"
+  }
+}

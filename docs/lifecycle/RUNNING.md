@@ -39,3 +39,14 @@ npm run build
 ```
 
 The retained exemplar demonstrates a real implementation gap and correction. `repair_build.py` handles a stopped legacy journal whose Build draft contains no executable source. It preserves the original and appends a finding, corrected Build, and new Evaluate/Refine turns. Active writers, divergent journals and already executable builds are rejected. This is a bounded repair utility, not arbitrary checkpoint resumption. New Build turns reject an empty executable field and preserve failed outputs.
+
+## Diverse live cases
+
+The saved case catalog is defined in `src/data/lifecycle/cases.json`. The school-science and public-library seeds live in `src/data/lifecycle/seeds/`; their domain profiles inherit `contributor → specialist → domain` duties in registry 1.1.0. Each new run records its resolved profile, versions and hashes. The older workforce journal remains unchanged.
+
+```sh
+CAPABILITY_MATTERS_LIVE=1 python3 tools/lifecycle/engine.py --provider codex --seed src/data/lifecycle/seeds/school-science.json --domain-profile school-science-domain --export public/agentic-le/replay/school-science.json
+CAPABILITY_MATTERS_LIVE=1 python3 tools/lifecycle/engine.py --provider codex --seed src/data/lifecycle/seeds/library-access.json --domain-profile library-access-domain --export public/agentic-le/replay/library-access.json
+```
+
+Executing these commands creates new live records; inspecting the hosted replay does not. Preserve a replaced export and its run directory before updating an exemplar. The normal build packages each case's candidate, evidence record and manifest, then produces `/agentic-le/cases.json` for case selection. Public replays use `?case=school-science` or `?case=library-access`, with an optional `&event=N` citation.

@@ -1,0 +1,246 @@
+# Understand
+
+Status and basis
+This is a usable rehearsal specification, not an approved classroom requirement. The seed supplies the purpose and constraints. Sequence 4 contributes reasoning and causal-uncertainty requirements; sequence 6 contributes representation, access and workload requirements. No participant observations, human approval, empirical success or demonstrated proficiency exist.
+
+Purpose and boundaries
+Help learners compare observations, identify changed recorded conditions, explain uncertainty and reconsider a claim. Height is one observation; “better” remains undefined unless the learner specifies a criterion. Activity completion does not establish scientific reasoning, ability or transfer. Exclude real student records, automated grades, ability ranking and inferred disability.
+
+Draft fictional evidence cards
+Every card must say: “Invented classroom story: these numbers are story inputs, not study results.” All heights are end-of-story heights in centimetres after a fictional 14-day period. Water amounts are arbitrary story units per day; they are not plant-care instructions.
+A: water 1 unit; light labelled bright; height 12 cm; leaves described as upright.
+B: water 2 units; light labelled dim; height 18 cm; leaves described as drooping.
+C: water 2 units; light labelled bright; height 10 cm; leaves described as upright.
+Starting heights, plant type, soil and other conditions were not recorded. Leaf descriptions are observations within the story, not validated measures of health. No card establishes which plant is “better” or why heights differ.
+
+Activity sequence
+1. Inspect A and B. Ask: “What differs in the observations? Which recorded conditions changed?” Both watering and lighting differ. Offer claims such as “B is taller at the end,” “Taller means better,” original wording, or “I cannot decide yet.” Ask what “better” means if that term is used.
+2. Reveal C as an additional evidence card and keep A and B visible. C challenges a possible generalization that more water always accompanies greater final height; it does not prove a causal effect. Compare A with C and B with C, identifying recorded differences and missing information.
+3. Ask: “Which observation supports your claim? What remains unresolved? Would you retain, narrow, revise or withhold it?” Keep the initial wording alongside the reconsidered explanation, both editable. A learner may retain a qualified claim with reasons. Do not issue correctness, completion or proficiency judgments.
+
+Meaningful revisions adopted from the challenges
+Sequence 4: replace the seed’s expected claim revision with reconsideration, including retention and withholding. Compare both watering and lighting and remove any implication that height determines overall quality.
+Sequence 6: replace presumed equitable rotating roles with optional, adaptable roles and contribution routes that require neither reading aloud nor device operation. Before calling an explanation shared, ask whose explanation it represents, invite wording corrections and preserve unresolved dissent. Passing does not remove access to evidence or a later contribution opportunity.
+These are documented specification changes in the rehearsal; their benefits remain unverified.
+
+Participation and non-AI route
+Use the identical cards and prompts in a teacher-facilitated paper discussion. Allow oral explanation, drawing, writing and supported recording. A recorder makes the wording available for correction. Do not demand public explanations for passing or choosing another route. Provide a deliberate clear action between device groups. Paper-only delivery remains a legitimate design choice; equivalence across routes is pending review.
+
+Rival explanations and unknowns
+A sparse response may reflect reading burden, typing effort, vocabulary, time, discussion pressure or difficulty comparing evidence. A detailed response may reflect copying or recorder fluency. Neither establishes understanding. Plant-height differences could involve water, light, their combination, starting height or other unrecorded differences. Classroom languages, device availability, support staffing, discussion norms and preparation time remain unknown.
+
+Evidence and gates
+Next, Model should map observations, claims, uncertainty, reconsideration and representation checks into an interaction specification and matching paper activity. Carry dissent and unknowns forward. Before real use, require teacher, student and caregiver review plus human review of the browser candidate and interaction testing. Examine who can inspect, contribute, correct and dissent, and the effort required from teachers. Record observations separately from interpretations; investigate transfer with a separate reasoning task. All field evidence and any actual pilot remain pending.
+
+# Model
+
+Status and basis
+This is the integrated Model artifact for a rehearsal, not an approved classroom requirement. Sequence 4 establishes reconsideration and causal uncertainty; sequence 6 establishes correction and participation beyond device control; sequence 8 supplies the fictional evidence and revised Understand specification; sequence 13 supplies transition, representation and recovery rules. No participant observations, human approval, measured outcomes or demonstrated proficiency exist.
+
+Reasoning model
+The intended practice is to connect a claim to observations, compare recorded conditions, identify missing information and reconsider an explanation. Observation, interpretation and causal explanation must remain distinguishable. Reconsideration may retain, narrow, revise or withhold a claim. Completion, response length and changed wording do not establish understanding or transfer.
+
+Evidence model
+Every card displays: “Invented classroom story: these numbers are story inputs, not study results.” The fictional period is 14 days. Water amounts are arbitrary story units per day, not plant-care advice.
+A: water 1; bright light; final height 12 cm; upright leaves.
+B: water 2; dim light; final height 18 cm; drooping leaves.
+C: water 2; bright light; final height 10 cm; upright leaves.
+Starting heights, plant type, soil and other conditions are unrecorded. These are final heights, not measured increases. Leaf descriptions do not validate health. “Better” requires a stated criterion and remains open to dispute.
+
+Interaction and output model
+1. Inspect A and B. Select or write an initial claim, including “I cannot decide yet.” Ask what differs in observations and recorded conditions; both water and light differ. Keep evidence available during writing.
+2. Explicitly reveal C as additional evidence. C challenges a generalization that more water always accompanies greater final height; it does not refute every claim. Compare A/C and B/C. Recorded similarities do not establish that unrecorded conditions were equal. Returning to the earlier view preserves all writing; C remains available to reopen.
+3. Reconsider using retain, narrow, revise or withhold. Maintain separately editable initial wording, current claim, supporting observations, uncertainty and optional alternative wording/dissent. No entry or changed claim is required to continue. Empty means text not supplied.
+4. A user-triggered preview produces a discussion summary of current wording, supporting observations, entered uncertainty and dissent, alongside the story's missing information. Use neutral prompts, not automatic evaluation. Show “Text not supplied” for blank entries. Permit return to editing without loss. Initial wording remains editable and is not an authenticated record of a first thought.
+
+Representation and transition rules
+Offer descriptions such as “one explanation,” “several explanations” and “representation unresolved,” without names. State that these descriptions do not verify agreement. Ask whose explanation the wording represents and invite correction; never certify a group claim. Passing preserves evidence access and a later contribution opportunity.
+Ordinary navigation, reveal and preview preserve entries. Clear for next group first explains that claims, uncertainty and dissent will be removed, then offers Cancel and Clear. Cancel preserves everything. Clear removes visible entries and temporary summary copies, resets reveal state and announces the result. No undo crosses the handoff boundary. Use no storage, network submission or identity fields. Explain that refresh or closing loses temporary writing. Shared-screen privacy remains limited.
+
+Human responsibilities and non-AI route
+Teachers facilitate competing explanations, make recorder wording available for correction and allow optional roles without required reading aloud or device operation. Learners may use oral explanation, drawing, writing or supported recording. Do not infer disability or ability from route choice.
+Design must supply ready-to-use paper cards A/B/C and a sheet with the same claim, comparison, support, uncertainty, reconsideration and dissent prompts. Reveal paper C at the matching step. On device failure, continue on paper without mandatory re-entry. Paper-only delivery is a legitimate option; route equivalence is unverified.
+
+Revision, uncertainty and gates
+Adopt sequence 13's meaningful change: replace an unspecified clear action with cancelable clearing, explicit preservation rules and a handoff boundary; replace implied shared agreement with unverified representation descriptions.
+Sparse writing may reflect reading, vocabulary, typing, time, discussion pressure or comparison difficulty; polished writing may reflect copying or recorder fluency. Story differences may reflect water, light, their combination, starting height or other missing conditions. Field evidence remains pending.
+Advance to Design to specify layout and prepared paper materials. Before real use, require teacher, student and caregiver review, human review of the browser candidate and interaction testing of reveal, correction, cancellation, clearing, keyboard access and paper continuation. Investigate participation and teacher effort separately from learning; transfer requires a separate reasoning task. No launch or efficacy claim is authorized by this rehearsal.
+
+# Design
+
+Status and basis
+This is a rehearsal Design revision, not an approved classroom requirement. Sequence 24 integrates reasoning, participation, supported practice and visibility requirements; sequence 22 bounds delegation and disclosure. Sequence 27 is a hypothetical replacement event, not a technical finding or participant observation. No human approval, measured outcomes or demonstrated proficiency exist. All field evidence remains pending.
+
+Revision responding to 27
+Before: sequence 24 permits requested insertion of suggested claims but leaves occupied-field behavior unspecified. After: suggestions remain inspectable without changing writing. Insert directly only into an empty target. For occupied targets, identify the field, display current and proposed wording, and offer Replace and Cancel. Cancel preserves entries, selections, evidence visibility, recovery state and any valid preview. Design is the earliest affected artifact; this revision resolves that request without revisiting Understand or Model.
+
+Evidence and layout
+Use one responsive page: evidence, editable reasoning, then preview. Keep evidence accessible during editing. Use labelled native controls, visible focus, keyboard operation and information independent of color; accessibility remains unverified.
+Each card states: “Invented classroom story: these numbers are story inputs, not study results.” Fictional period: 14 days. Water uses arbitrary story units per day, not plant-care advice.
+A: water 1; bright light; final height 12 cm; upright leaves.
+B: water 2; dim light; final height 18 cm; drooping leaves.
+C: water 2; bright light; final height 10 cm; upright leaves.
+Always disclose missing starting heights, plant type, soil and other conditions. Final height is not an increase; leaf descriptions do not establish health. “Better” requires a criterion.
+
+Interaction and replacement contract
+Begin with A/B. Offer “B is taller at the end,” “Taller means better,” “I cannot decide yet,” and original wording. An insertion action explicitly targets initial wording or current claim. Suggestions never imply correctness. Ask what differs in observations and recorded conditions; A/B differ in water and light.
+Reveal C on request as additional evidence. Hiding or reopening C preserves writing. Invite A/C and B/C comparison without implying that recorded similarities isolate causation.
+Maintain separately editable initial wording, current claim, comparison, support, uncertainty and optional dissent. Retain, narrow, revise and withhold are optional; neither text nor changed wording is required. Initial wording is working text, not an authenticated first thought.
+Confirmed replacement retains only the immediately preceding wording for that target in temporary recovery memory. Offer Restore previous wording, showing its target and saved text. If restoring would displace subsequent edits, show current and saved wording with Restore and Cancel. Restoration is deliberate, consumes that recovery copy and never occurs automatically. Further replacement updates only that target's recovery copy. Replacement, restoration or editing invalidates the preview. Pending confirmation must resolve before another text-changing action.
+
+Output, visibility and handoff
+A requested preview assembles literal current entries, reconsideration choice and fixed missing-information text. Blanks say “Text not supplied.” Representation defaults to unresolved; one or several explanations are user descriptions, never verified agreement.
+Beside entries: “People nearby can see this screen. Use fictional evidence; do not enter names or personal details. You may discuss, draw or use paper without entering text.” Beside preview: “Working wording for discussion; it does not verify contribution, agreement or learning. Correct it or leave disagreement unresolved.”
+Clear for next group explains removal and offers Cancel and Clear. Cancel preserves state. Confirmed Clear removes entries, selections, preview, pending replacements and all recovery copies, resets C and announces clearing. No restoration crosses handoff or survives refresh. Clearing cannot retract copies or what others saw. Use no identities, participant notes, storage, telemetry, external resources or network calls. No grades, rankings, inferred disability or competence judgments.
+
+Paper route, practice and gates
+Copy A/B/C onto separate sheets; hold C until requested. Provide optional fields matching the browser entries and representation prompt. Put suggested claims on a separate sheet so inspection preserves original wording. Allow oral explanation, drawing and supported recording; expose recorder wording for correction. Passing preserves evidence access and later contribution. Continue on paper after device failure without mandatory re-entry. Paper also has visibility limits; route equivalence is unknown.
+Ask “Which observation supports your wording?” Optional practice: “Choose another pair. What can you claim, and what remains uncertain?” Keep earlier prompts available. This is supported practice, not proof of independence. Separate delayed or cross-context inquiry requires human review and stays outside the candidate.
+Apparent lost uncertainty could reflect intentional replacement, recorder influence or spoken wording never entered. Sparse responses may reflect reading, typing, time or pressure; fluent responses may reflect copying. Plant differences may involve water, light, starting height or missing conditions.
+Build next. Before real use, require teacher, student and caregiver review and human interaction testing of insertion, Cancel, replacement, restoration after edits, preview invalidation, reveal, keyboard access, complete clearing and paper continuation. Examine workload and participation separately from learning.
+
+# Build
+
+Status and basis
+This is an executable candidate for a rehearsal, not an approved requirement or certified solution. Sequence 20 separates supported practice from transfer; 22 bounds visibility and delegation; 27 supplies a hypothetical replacement challenge; 29 revises Design; 35 specifies implementation transitions and handoff inspection. No real participant observations, authorization, measured results or demonstrated proficiency exist. Field evidence remains pending.
+
+Build scope
+The accompanying self-contained HTML displays A/B and reveals C on request. Every card labels its numbers as invented story inputs. The fictional period is 14 days; water uses arbitrary story units, not plant-care guidance. A: water 1, bright light, final height 12 cm, upright leaves. B: water 2, dim light, final height 18 cm, drooping leaves. C: water 2, bright light, final height 10 cm, upright leaves. Missing starting heights, plant type, soil and other conditions limit interpretation. Final height is not increase; leaf wording does not establish health; “better” needs a criterion.
+
+Meaningful changes after challenges
+Sequence 27 challenged unspecified insertion into occupied fields. Following 29, selecting a suggestion changes no writing; insertion names its target. Empty targets accept insertion directly. Occupied targets show current and proposed wording with Replace and Cancel. Replacement saves the immediately preceding wording for that target. Restoration shows both versions, requires confirmation and consumes its recovery copy. Independent initial/current recovery is supported. This is implemented behavior awaiting execution, not a verified benefit.
+Sequence 35 challenges visible-field clearing as sufficient handoff assurance. Confirmed Clear recreates editable controls, resets selections and C, removes preview and dialog text, and discards pending and recovery objects. This addresses application-owned copies. It makes no secure-erasure claim about browser-managed undo, autofill, copies or what others saw. No earlier artifact needs another revision.
+
+Interaction and output contract
+Initial wording, current claim, comparison, support, uncertainty and dissent remain separately editable and optional. Retain, narrow, revise and withhold are descriptions, not required outcomes. Representation defaults to unresolved and never verifies agreement. Preview renders literal current entries and fixed limitations; blanks say “Text not supplied.” Editing or output-relevant selection changes remove the old preview. Evidence reveal alone preserves it. Native modal confirmation blocks other interactions; Cancel or Escape preserves entries, selections, evidence visibility, recovery and a valid preview. Focus returns to the initiating control. None of these behaviors has been tested here.
+
+Human responsibilities and paper packet
+A facilitator asks whose explanation is represented, exposes recorder wording for correction and preserves dissent. Roles are optional; passing preserves evidence access and later contribution. Learners may explain orally, draw, point with explanation or use supported recording without browser entry. Do not use browser wording as individual assessment evidence.
+Paper-only delivery is a complete non-AI option. Copy the three labelled cards onto separate sheets and hold C until requested. Use optional response spaces: initial wording; current claim; compared pair and changed conditions; supporting observation; uncertainty; alternative wording/dissent; reconsideration; representation. Put suggested claims on separate slips. Ask “Which observation supports your wording?” Optional practice: “Choose another pair. What can you claim, and what remains uncertain?” Earlier prompts stay available. Continue on paper after device failure without mandatory re-entry. Paper visibility and route equivalence remain unresolved.
+
+Review plan and next action
+Proceed to synthetic interaction review in the rehearsal. Outside the candidate, use fictional wording to record expected behavior, observed behavior and unresolved defects. Check occupied insertion and Cancel; independent target recovery; replacement followed by typing and restoration/Cancel; preview invalidation; hide/reopen C; Escape and keyboard focus; clear cancellation and confirmed handoff; attempted recovery and browser undo afterward; literal rendering of markup-like text. Check small-screen reading and paper continuation. No checks have been run.
+Before any real use, teacher, student and caregiver review and human interaction testing remain required. Investigate reading burden, language access, device availability, discussion norms and teacher effort separately from learning. Apparent lost uncertainty may reflect intentional replacement, recorder influence or spoken wording never entered. Plant differences could involve water, light, starting height or missing conditions. Completion and polished summaries do not establish reasoning, retention or transfer; separate inquiry requires human review. No pilot, launch or efficacy decision is made.
+
+# Instrument
+
+Status and revision
+This integrated Instrument rehearsal draft revises sequence 44 in response to hypothetical event 62 and the targeted request in 64. In that event, translation also supplies the final-height-versus-growth inference, yet a reviewer records only language support. Nothing occurred in a real classroom. Build 37 remains unexecuted. Technical checks, participant observations, measured results, human approvals and field evidence remain pending.
+
+Changed requirement
+Before: separate explanatory-hint and language/access fields leave mixed assistance unspecified. After: identify the exact claim or relation being examined and describe what assistance supplied relative to it. Instrument is the earliest affected artifact; this revision addresses that request without reopening another stage. Preserve 42 and 44's separate technical, reasoning, participation and workload records and 59/64's claim-ledger boundaries.
+
+Assistance and attribution contract
+Use access support, explanatory support, mixed support or support content unknown. Access support makes evidence or wording available without supplying the target relation; explanatory support supplies that relation; mixed support does both. Unknown means content cannot be established. Describe assistance, never classify learners or infer disability. Categories are contextual draft descriptions, not verified translations.
+Inventory relevant supplied content: fixed notices, suggested wording, optional hints, facilitator explanation and recorder wording. Build already states that final height is not an increase; this is supplied reasoning too. Exposure does not prove uptake or understanding. A translation label alone cannot establish what reasoning was supplied, and an empty record cannot establish absent assistance.
+When the target relation was supplied, conclude only that the explanation occurred with that relation supplied; independent production remains unestablished. When content is unknown, withhold source attribution. Neither establishes inability. Preserve supports. Optional further explanation remains supported task evidence, not automatic proof of independence or transfer.
+
+External claim record
+Claim/relation: __. Revision/task/context and route: __. Evidence stream: __. Fixed notices/hints available: __. Assistance content and basis: pending. Description relative to target: unknown. Contribution distinguishable from supplied content: unresolved. Observation: pending. Evidence location: pending. Interpretation: __. Rival explanation: __. Missing coverage: __. Permissible conclusion: unestablished. Dissent/correction: __. Next action: __.
+Use invented wording in rehearsal. Any participant collection requires 51's separately reviewed purpose, minimum information, visibility, access, retention, correction and reuse arrangements. Do not convert synthetic checks into learner logs.
+
+Fictional attribution exercises
+Target: final height versus growth increase. Repeating “Starting heights are unrecorded” supplies relevant information but does not itself state that relation; access-only description requires evidence about the actual assistance content. Adding “B being taller does not show that it grew more” supplies the relation; if also enabling language access, the proposed description is mixed. “Translation provided” alone leaves content unknown. If the target is identifying missing starting heights, the first sentence already supplies it. These are invented paraphrases and draft interpretations, not verified translations or reviewer-agreement results. Rehearsal outcomes remain pending.
+
+Synthetic technical worksheet and checks
+For each check: candidate 37; browser/version __; viewport/input __; starting state __; fictional input __; action __; expected behavior __; observed behavior pending; evidence location pending; outcome untested; discrepancy __; question __. Later technical outcomes describe only tested behavior and conditions.
+Check suggestion inspection and empty insertion; occupied replacement and Cancel/Escape; independent recovery; restoration after typing and cancellation; preview invalidation; literal markup-like text; reveal/hide preservation; canceled and confirmed clearing; removal of application recovery; keyboard focus, narrow-screen reading and paper continuation. Inspect browser undo/autofill separately without claiming secure erasure. No checks have run.
+
+Reasoning, access and workload
+Describe claim-observation connections, condition comparisons and uncertainty as task evidence, ambiguous, not elicited or not observed, with assistance boundaries. No totals, grades, rankings or proficiency labels. Editable initial/current wording, completion and group previews establish neither improvement nor individual understanding. Examine inspection, contribution, correction and dissent opportunities alongside preparation, facilitation and recovery effort. Missing complaints establish no equity conclusion. Routes, languages and discussion conditions remain unknown.
+
+Paper route and next action
+The complete non-AI option uses labelled invented A/B/C cards, C held until requested, optional matching response spaces and separate suggestion slips. Permit speech, drawing, passing and correctable supported recording. Apply identical attribution limits; route equivalence remains unknown. Any comparison needs reviewed distinct tasks and documented support differences; delayed retention and fresh-task transfer require separate inquiry.
+Next rehearse the attribution cases and technical worksheet outside the candidate, recording actual outcomes only when available. Teacher, student and caregiver review, human interaction testing and revision-specific human decisions remain pending. No real use, collection, efficacy or learning conclusion follows.
+
+# Deploy
+
+Status and decision
+This is an integrated Deploy artifact for a rehearsal, not an approved classroom requirement or release authorization. Sequence 37 supplies Build revision 1, which remains unexecuted. Sequence 44 supplies separate evidence streams and an external synthetic worksheet. Sequence 49 adds accountable decision ownership, reuse boundaries and pause procedures. No participant observations, human approvals, measured results or demonstrated proficiency exist. Field evidence remains pending.
+
+Adopted deployment requirement
+A review plan or successful technical check cannot authorize classroom use. Require a human decision record tied to the exact candidate revision, intended setting and narrowly stated scope. Review informs that decision; it does not substitute for it. This specifies Deploy without reopening an earlier artifact. The replacement and handoff changes documented in 37 remain candidate behaviors requiring testing.
+
+Working decision record
+Candidate: Build revision 1, sequence 37.
+Intended setting, device/browser and scope: pending.
+Accountable human decision owner: unassigned.
+Teacher, student and caregiver review, including unresolved dissent: pending.
+Synthetic findings, evidence locations and unresolved defects: pending; all checks untested.
+Human interaction testing: pending.
+Reading/language supports, device access and discussion arrangements: unresolved.
+Paper preparation and facilitation capacity: pending review.
+Participant collection or reuse: none authorized in this rehearsal.
+Decision, rationale, limits and conditions for reconsideration: pending.
+Record unresolved objections separately from the eventual decision; silence does not establish agreement. None of these fields constitutes an appointment or approval.
+
+Human gates before real-use consideration
+Technical review: use only fictional input and the worksheet in 44. Inspect suggestion insertion, occupied replacement, Cancel/Escape, independent recovery, restoration after editing, preview invalidation, literal rendering, evidence reveal, keyboard focus and handoff. Inspect browser undo/autofill separately. Record observed behavior separately from interpretation; no checks have run. Resolve discrepancies relevant to correction, access or exposure before proposing use.
+Human review: teachers, students and caregivers must have opportunities to inspect wording, visibility, control comprehension and participation choices. Human interaction testing must examine the candidate and paper continuation. Review reading burden, language access, device availability, discussion norms and preparation/facilitation effort. Review participation separately from scientific reasoning; technical success establishes only tested behavior.
+Decision gate: a designated human owner must document the permitted revision, setting and scope, remaining limitations and reasons for the decision. Any participant inquiry requires a separately reviewed purpose, minimum information, visibility, access, retention, correction and reuse process. None is supplied or approved here.
+
+Facilitation and pause draft
+Explain that the numbers are invented story inputs and the preview is correctable discussion wording. Ask whose explanation is represented; expose recorder wording for correction and preserve unresolved dissent. Allow retain, narrow, revise or withhold. Passing preserves evidence access and a later contribution opportunity. No learner must enter browser text or explain a route choice publicly.
+If stale wording, inaccessible controls, unintended disclosure or pressure prevents participation, pause browser use and offer oral or paper continuation without mandatory re-entry. Invite removal of personal details without reading them aloud. Do not create an incident account in the candidate. Any real disclosure response requires an applicable human process, presently unspecified. Clearing cannot retract copies or what others saw and is not secure erasure.
+
+Complete non-AI option
+Prepare separate labelled A/B/C sheets from 37, keeping invented-story labels and missing-condition notices; hold C until requested. Use optional spaces for claim, comparison, support, uncertainty, dissent and reconsideration. Put suggestions on separate slips. Permit speech, drawing, pointing with explanation and supported recording. Make recorded wording correctable. Paper-only discussion is a legitimate choice; visibility, route equivalence and workload remain unresolved.
+
+Learning interpretation and next action
+Do not infer improvement from editable initial/current wording. Supplied limitations, copied prompts, completion and group summaries do not establish individual reasoning. Proposed reasoning lenses remain descriptive task evidence, never totals or proficiency judgments. Retention and transfer require separately reviewed fresh tasks; immediate supported performance establishes neither.
+Sparse wording may reflect reading, typing, language demands, time or pressure; fluent wording may reflect copying, familiarity, assistance or recorder influence. Route selection and repeated exposure can confound comparisons. Plant differences may reflect water, light, starting height or missing conditions.
+Next, prepare the blank decision packet and conduct the synthetic checks specified in 44 outside the candidate. Preserve paper-only dissent and unresolved gates. No launch, actual pilot, participant collection or efficacy decision follows from this artifact.
+
+# Evaluate
+
+Status and event
+This is an integrated Evaluate artifact for the lifecycle rehearsal, not an approved inquiry protocol or classroom authorization. Sequence 62 hypothesizes a facilitator translating the missing-starting-height notice while adding the inference that greater final height does not establish greater growth. A reviewer then attributes that relation to the learner under a language-support label. No such interaction occurred. Build 37 remains unexecuted; technical checks, participant observations, measured results, human approvals and field evidence remain pending.
+
+Decision and earliest revision
+Request one targeted revision of Instrument 44. Its prospective records distinguish explanatory hints and language/access support but leave assistance serving both functions unspecified. Add mixed and unknown support content and a claim-specific attribution rule. Instrument is the earliest affected artifact because the gap concerns evidence recording and interpretation. The supplied event does not invalidate the fictional evidence or interaction specification. Carry the rule into Evaluate 59 now; the requested Instrument revision remains outstanding.
+
+Replacement requirement for Instrument 44
+For each reasoning claim, identify the particular relation being examined, such as final height versus growth increase. Describe assistance relative to that relation using access support, explanatory support, mixed support or support content unknown. Record what was supplied when known; a label such as translation cannot establish its reasoning contribution. Access support describes assistance making the evidence or wording available without supplying the target relation; explanatory support supplies that relation; mixed support does both. These are descriptions of assistance, never learner classifications or verified translations.
+When the target relation was supplied, conclude only that the explanation occurred with that relation supplied. Independent production remains unestablished. When assistance content is unknown, withhold source attribution. Neither case establishes inability or lack of understanding. Do not infer absent assistance from an empty record. Keep support available; optional further explanation remains supported task evidence and cannot automatically establish independence or transfer.
+
+Usable external record
+Claim/relation: __. Candidate revision/task/context: __. Evidence stream: __. Supplied notices or hints: __. Assistance content and basis for description: pending. Support description relative to target: unknown. Learner contribution distinguishable from supplied content: unresolved. Observation and evidence location: pending. Rival explanation: __. Missing coverage: __. Permissible conclusion: unestablished. Dissent/correction: __. Next action: __.
+Use invented wording for rehearsal. Any later participant collection must first satisfy 51's separately reviewed purpose, minimum-information, visibility, access, retention, correction and reuse arrangements. Do not silently convert the synthetic worksheet into a learner log.
+
+Fictional classification exercises
+These are invented paraphrase examples, not translations, observations or reviewer-agreement results. For the target relation final height versus growth increase: repeating “Starting heights are unrecorded” does not itself state that relation, although it supplies relevant information. Adding “Therefore B's final height does not show that it grew more” supplies the relation; if also providing language access, the expected draft description is mixed support. An account saying only “translation provided” leaves content unknown and cannot support source attribution. Classification must change with the target claim: the first example already supplies the missing-starting-height fact. Rehearse these distinctions outside the candidate; outcomes remain pending.
+
+Evaluation boundaries and non-AI option
+Preserve 57 and 59's separate technical, reasoning, participation and workload conclusions. Completion, copied limitations, editable initial/current wording and group previews establish neither individual improvement nor agreement. Existing understanding, imitation and newly adopted explanation remain rival explanations. Plant differences may involve water, light, starting height or missing conditions.
+Teacher-facilitated paper discussion remains complete: labelled invented A/B/C cards, C held until requested, optional claim/comparison/uncertainty spaces and separate suggestion slips. Permit speech, drawing, passing and correctable supported recording. Apply identical attribution limits. Paper visibility, route equivalence and workload remain unknown.
+
+Gates and next action
+Revise only Instrument 44 with the requirement above, then rehearse the fictional cases alongside its synthetic worksheet and Evaluate's ledger. No checks were performed here. Teacher, student and caregiver review, human interaction testing, access and workload review, and designation of a decision owner remain pending. Any real use requires a revision-specific human decision; participant inquiry requires separate review. Withhold performance, efficacy, equity, retention and transfer conclusions.
+
+# Refine
+
+Status and decision
+This is an integrated Refine rehearsal specification, not an approved classroom requirement. Build 37 remains unexecuted. Deploy 51 retains human gates. The hypothetical mixed-assistance challenge in 62 led to Evaluate 64 and Instrument revision 67; that request is addressed at the specification level, not validated in practice. Adopt the operating arrangement from 73 and feedback routine from 75. No participant observations, approvals, measured outcomes or demonstrated proficiency exist. Field evidence remains pending. No further earlier-stage revision is requested.
+
+Refined operating requirement
+Before: discussion, device supervision and claim-specific documentation coexist without an explicit boundary; another-pair practice lacks a feedback routine. After: distinguish facilitation from separately reviewed inquiry and offer optional descriptive feedback and retry.
+Facilitation mode uses fictional evidence and optional prompts without individual reasoning records. Planning cards contain invented examples only. Inquiry mode requires a separately reviewed purpose, collection boundaries and an identified recording arrangement; none is approved or staffed here. If recording competes with evidence access, language support, correction or dissent, pause recording and continue discussion. Missing records limit conclusions; they never justify withdrawing support or pressuring entry.
+
+Usable practice routine
+Choose one reasoning action: connect a claim to an observation, compare recorded conditions or explain a limitation. Invite the learner to choose a comparison; retain evidence and language supports.
+Describe only the contribution actually offered: “You compared __ and __ and pointed to __. Does that describe what you meant?” Add a claim-observation connection only if offered. Invite correction or disagreement, then ask one focused question, such as “Which recorded conditions match, differ or remain unrecorded?” This supplies a comparison structure; it is support, not independent production.
+Offer another pair, the same pair, retaining a qualified claim, withholding or stopping. No revised sentence or browser entry is required. Another plant comparison remains supported practice. Under 67, any reviewed inquiry identifies the target relation and supplied notices, hints, feedback and recorder wording; mixed or unknown assistance limits attribution without implying inability.
+Planning card: target __; fictional comparison __; invitation __; conditional feedback __; supplied reasoning __; optional retry __; correction/dissent route __; access/workload question __.
+
+Package manifest and fictional walkthrough
+Candidate: Build revision 1, sequence 37. Include labelled A/B/C paper cards, matching optional response spaces, separate suggestion slips, support inventory, Instrument 67, Evaluate 64 and Deploy 51. Refine adds external operating instructions; it changes no browser behavior. Manifest entries establish traceability, not tested compatibility. Changes to hints, paper prompts, replacement or clearing require review of affected instructions and attribution examples.
+Prepare four invented walkthrough episodes: ordinary comparison; feedback supplying a target inference; occupied-field replacement and cancellation; device loss before handoff. For each record intended human responsibility, expected system behavior, competing duty, continuation route and unresolved question. Observed behavior and evidence location remain pending. Review against 67's synthetic checks; do not create learner logs.
+On device loss, offer oral or paper continuation without mandatory reconstruction or re-entry. Learners may restate, change or leave lost wording unrecovered. Replacement recovery cannot repair refresh loss. Clearing removes application-owned copies only; browser retention and prior visibility remain unresolved.
+
+Non-AI option and later-task boundary
+Paper-only teacher-facilitated discussion is complete: labelled invented A/B/C cards, C held until requested, optional explanation spaces and separate suggestions. Permit speech, drawing, passing and correctable recording. Apply the same support-attribution limits. Paper visibility, workload and route equivalence remain unknown.
+Retain 75's fresh-task draft for review: fictional paper bridges P/Q/R have layers 1/2/3, spans 10/15/20 and reported loads 3/5/7 in story units. Ask what supports the claim that layers caused larger load. Span also changes; other conditions are missing. These are invented inputs, not construction guidance or a validated transfer measure. Delayed retention requires a separately reviewed task and interval.
+
+Evidence and next action
+Fluent wording may reflect prior understanding, copying, supplied inference or recorder influence; sparse wording may reflect reading, language, typing, time or pressure. Plant differences may involve water, light, starting height or missing conditions. Completion establishes no learning.
+Next prepare the manifest, fictional practice cards and walkthrough for synthetic review. Teacher, student and caregiver review, interaction testing, access/workload review and decision-owner designation remain pending. Real use requires a revision-specific human decision; participant inquiry requires separate review under 51. Withhold performance, efficacy, equity, retention and transfer conclusions.

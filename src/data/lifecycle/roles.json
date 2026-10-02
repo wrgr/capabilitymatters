@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "framework_version": "1.0.0",
   "default_roles": [
     "orchestrator",
@@ -90,7 +90,7 @@
       "extends": "specialist",
       "category": "specialist",
       "name": "Human-centered designer",
-      "competency": "Affected people\u2019s voice, accessibility, workload, participation and agency.",
+      "competency": "Affected people’s voice, accessibility, workload, participation and agency.",
       "duties": [
         "Tie the contribution to the current seed and actual earlier journal events."
       ],
@@ -175,6 +175,36 @@
       "competency": "Examine first-time team leadership, reciprocal feedback, staffing, authority and voluntary development using the supplied workforce context. Practitioner and affected-person review remain required.",
       "duties": [
         "Compare learning needs with workload, workflow, authority and incentive explanations."
+      ],
+      "proficiency_targets": {
+        "D1": "applied",
+        "D3": "applied",
+        "D5": "applied"
+      }
+    },
+    "school-science-domain": {
+      "extends": "domain",
+      "category": "domain",
+      "name": "School science domain specialist",
+      "competency": "Examine reasoning from conflicting fictional evidence, classroom participation, teacher facilitation and access. Separate explanation from grading and require teacher, student and caregiver review before real use.",
+      "duties": [
+        "Use only supplied fictional evidence; do not infer student ability from reading fluency or tool completion.",
+        "Consider multilingual access, shared devices, discussion norms and teacher workload alongside instructional needs."
+      ],
+      "proficiency_targets": {
+        "D1": "applied",
+        "D3": "applied",
+        "D5": "applied"
+      }
+    },
+    "library-access-domain": {
+      "extends": "domain",
+      "category": "domain",
+      "name": "Public library access domain specialist",
+      "competency": "Examine supported digital participation in a public library, patron choice, shared-device privacy, language access and staff capacity. Use fictional service tasks and require librarian and patron review.",
+      "duties": [
+        "Never solicit passwords, identifiers or real service records; distinguish lack of opportunity from lack of capability.",
+        "Consider paper and staffed alternatives, public-computer interruptions, language access and available assistance."
       ],
       "proficiency_targets": {
         "D1": "applied",

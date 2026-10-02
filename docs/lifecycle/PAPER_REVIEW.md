@@ -4,12 +4,14 @@ The editable source is `src/papers/learning-engineering-teams.md`. The unlisted 
 
 The proposed authors are William Gray-Roncal and Jodi Lis. The user confirmed Jodi's full name; both authors' affiliations and contributions require confirmation. This draft does not attribute prior research, code development, stakeholder consultation or endorsement to Jodi. The author question is about the byline; it does not prevent preparing a reviewable working draft.
 
-The argument is a methods demonstration with a retrospective worked example. It describes actual software records from a fictional seed and proposes how their coordination mechanisms could support human teams. It does not present the model roles as an observed human team, independent expert panel or substitute for affected people.
+The argument is a methods demonstration with a retrospective worked example. Real authenticated model calls produced the live record and generated candidate; the workforce setting and represented team are simulated. The separately labeled scripted rehearsal is not evidence of agent execution. It describes actual software records from a fictional seed and proposes how their coordination mechanisms could support human teams. It does not present the model roles as an observed human team, independent expert panel or substitute for affected people.
 
 Before submission, the coauthors should review:
 
-- The professional framing, particularly how integration, learning science, human-centered work, systems constraints and evidence interact.
-- Whether the three selected episodes support the interpretation and what counterexamples or missing team practices should be included.
+- The profession, team-sport and iterative-process framing, including whether the proposed roles, skills and competency relationships describe necessary work.
+- How integration, learning science, human-centered work, systems constraints and evidence interact.
+- Whether the three selected workforce episodes support the interpretation and what counterexamples or missing team practices should be included.
+- How the school-science and public-library cases broaden the represented demands, and what practitioner and affected-person review should precede comparative claims.
 - The distinction between hypothetical scenarios and the real missing-code finding, plus the retained prompt-repair failure.
 - The separation of the original fixed-role journal from the later inherited role and proficiency contract.
 - The proposed fidelity, record-review, actual-team and field-product studies. These are planned studies, with no invented participants or findings.

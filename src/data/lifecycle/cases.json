@@ -1,0 +1,23 @@
+[
+  {
+    "id": "workforce",
+    "label": "Workforce feedback \u00b7 live agents",
+    "journal": "live-exemplar.json",
+    "product": "/agentic-le/product/",
+    "domain_profile": null
+  },
+  {
+    "id": "school-science",
+    "label": "School science \u00b7 live agents",
+    "journal": "school-science.json",
+    "product": "/agentic-le/cases/school-science/",
+    "domain_profile": "school-science-domain"
+  },
+  {
+    "id": "library-access",
+    "label": "Public library access \u00b7 live agents",
+    "journal": "library-access.json",
+    "product": "/agentic-le/cases/library-access/",
+    "domain_profile": "library-access-domain"
+  }
+]

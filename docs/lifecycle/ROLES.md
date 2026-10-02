@@ -1,10 +1,10 @@
 # Simulation role contract
 
-Registry version 1.0.0. Source: `src/data/lifecycle/roles.json`. Resolver: `tools/lifecycle/role_profiles.py`. The public role explorer and the local runner consume the same resolved contract.
+Registry version 1.1.0. Source: `src/data/lifecycle/roles.json`. Resolver: `tools/lifecycle/role_profiles.py`. The public role explorer and the local runner consume the same resolved contract.
 
 ## Composition
 
-`contributor` supplies shared evidence, dissent, correction, human/system capability and flourishing duties. `specialist` adds a bounded disciplinary draft. Concrete roles extend one of these profiles. `workforce-domain` extends `domain`, adding workforce context duties while retaining limits and practitioner review.
+`contributor` supplies shared evidence, dissent, correction, human/system capability and flourishing duties. `specialist` adds a bounded disciplinary draft. Concrete roles extend one of these profiles. `workforce-domain`, `school-science-domain` and `library-access-domain` extend `domain`, adding context duties while retaining evidence limits and practitioner review. Registry 1.1.0 adds the two diverse-case specializations; framework 1.0.0 remains unchanged.
 
 Single-parent inheritance is explicit and cycle checked. Duties accumulate without duplicate entries. A child replaces the target for a specified competency and retains other parent targets. Unknown parents, fields, competency IDs and proficiency levels fail validation. The resolver returns independent copies; one profile cannot mutate its parent or another role. Permission, secret, tool-access and approval fields are not valid inherited properties. Runtime authority remains fixed in code.
 

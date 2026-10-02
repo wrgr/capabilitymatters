@@ -19,3 +19,18 @@ assert.equal(structureCheck({observation:'   '}).length,6);
 console.log('Replay integrity, immutable revision visibility, metadata and practice structure checks passed.');
 
 const profileGraft=structuredClone(run);profileGraft.role_profiles={registry_version:'invented'};await assert.rejects(()=>verifyRun(profileGraft),/Role profile metadata/);
+
+// Each new case exposes only the artifacts already created at the cited event.
+for(const name of ['school-science.json','library-access.json']){
+ const saved=JSON.parse(fs.readFileSync(new URL('../../../public/agentic-le/replay/'+name,import.meta.url)));
+ await verifyRun(saved);
+ const first=saved.events.find(e=>e.kind==='artifact');
+ assert.deepEqual(snapshot(saved,first.seq-1).artifacts,{});
+ assert.deepEqual(Object.keys(snapshot(saved,first.seq).artifacts),['understand']);
+ const build=saved.events.find(e=>e.kind==='artifact'&&e.payload.id==='build');
+ assert.equal(snapshot(saved,build.seq-1).artifacts.build,undefined);
+ assert.ok(snapshot(saved,build.seq).artifacts.build.content.prototype_html);
+ const bad=structuredClone(saved);bad.role_profiles.roles.domain.profile_id='workforce-domain';
+ await assert.rejects(()=>verifyRun(bad),/Role profile metadata/);
+}
+console.log('Diverse case replay visibility and pinned-domain integrity checks passed.');

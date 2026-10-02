@@ -27,6 +27,14 @@ class ProfileProductTests(unittest.TestCase):
         profile["duties"].append("mutated")
         self.assertNotIn("mutated", resolve_profile(self.registry, self.framework, "domain")["duties"])
 
+    def test_diverse_cases_bind_distinct_domain_duties_without_gaining_authority(self):
+        for key, duty in [("school-science-domain", "grading"), ("library-access-domain", "passwords")]:
+            profile = load_contract(key)["roles"]["domain"]
+            self.assertEqual(profile["lineage"], ["contributor", "specialist", "domain", key])
+            self.assertIn(duty, " ".join(profile["duties"]) + profile["competency"])
+            self.assertIn("unverified", profile["demonstrated_proficiency"])
+            self.assertIn("Preserve dissent", " ".join(profile["duties"]))
+
     def test_cycle_unknown_parent_target_and_authority_are_rejected(self):
         for field, value in [("extends", "missing"), ("extends", "workforce-domain"), ("proficiency_targets", {"D9": "applied"}), ("proficiency_targets", {"D1": "certified"}), ("permissions", ["approve_pilot"])]:
             registry = copy.deepcopy(self.registry)
@@ -52,6 +60,31 @@ class ProfileProductTests(unittest.TestCase):
             run = json.loads((WEB/name).read_text())
             self.assertTrue(verify(run))
             self.assertNotIn("role_profiles", run)
+
+    def test_published_cases_keep_distinct_journals_and_product_evidence(self):
+        catalog = json.loads((WEB.parent / "cases.json").read_text())["cases"]
+        self.assertEqual({c["id"] for c in catalog}, {"workforce", "school-science", "library-access"})
+        self.assertEqual(len({c["run_id"] for c in catalog}), 3)
+        for case in catalog:
+            run = json.loads((WEB / case["journal"]).read_text())
+            self.assertTrue(verify(run))
+            self.assertEqual(case["journal_sha256"], hashlib.sha256((WEB / case["journal"]).read_bytes()).hexdigest())
+            self.assertEqual(case["head_hash"], run["events"][-1]["hash"])
+            self.assertEqual(run["mode"], "live-codex")
+            requests = [e for e in run["events"] if e["kind"] == "request"]
+            self.assertEqual({e["agent"] for e in requests}, set(run["roster"]))
+            self.assertEqual(case["counts"]["request"], len(requests))
+            if case["domain_profile"]:
+                self.assertEqual(run["role_profiles"]["roles"]["domain"]["profile_id"], case["domain_profile"])
+                self.assertEqual(run["events"][0]["payload"]["role_profiles"], run["role_profiles"])
+            product = WEB.parents[1] / case["product"].lstrip("/")
+            with zipfile.ZipFile(product / "product.zip") as archive:
+                self.assertEqual(json.loads(archive.read("project-journal.json")), run)
+                manifest = json.loads(archive.read("manifest.json"))
+                for name, expected in manifest["files"].items():
+                    self.assertEqual(hashlib.sha256(archive.read(name)).hexdigest(), expected)
+            if case["id"] != "workforce":
+                self.assertIn("?case=" + case["id"], (product / "index.html").read_text())
 
     def test_product_archive_matches_source_and_requires_build(self):
         with tempfile.TemporaryDirectory() as folder:

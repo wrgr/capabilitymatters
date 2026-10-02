@@ -1,6 +1,6 @@
 # Capability Matters project lifecycle
 
-Version 1.0.0 · October 1, 2026
+Version 1.1.0 · October 1, 2026
 
 A seed becomes a runnable candidate product and an inspectable project record. The learning engineer orchestrates competency and domain specialists through Understand, Model, Design, Build, Instrument, Deploy, Evaluate and Refine. The cycle comes from this repository's Problems to Prototypes framework. It can return to earlier stages, select a non-AI intervention, change the work system or stop.
 
@@ -29,3 +29,9 @@ Capability Matters' existing GitHub Pages deployment hosts the guide, roles, pro
 ## Acceptance
 
 Verify executable delivery, product/journal source matching, role resolution, failed-turn preservation, evidence references, immutable history and replay visibility. Exercise the actual candidate in a browser. Keep technical checks, human review, learning, transfer and flourishing as separate claims. Missing evidence remains unknown. See [VERIFICATION.md](VERIFICATION.md).
+
+## Diverse case collection
+
+The original workforce record is preserved alongside two additional actual live-agent executions on fictional school-science and public-library briefs. `src/data/lifecycle/cases.json` binds each saved journal, domain profile and candidate route. Normal packaging verifies journals and profile bindings, regenerates products and emits a public inventory with counts and hashes. The replay selects a case with `?case=ID`, optionally selects an event with `&event=N`, and opens the product belonging to that case. The fixed workforce practice exercise is hidden for other domains.
+
+Source-specific host checks are recorded after the model-stage completion; they do not imply a real pilot, learning outcomes, independent expert validation or demonstrated proficiency. [CASES.md](CASES.md) tracks expansion and the human review still required.

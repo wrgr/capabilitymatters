@@ -15,3 +15,10 @@ Nine simulation roles inherit responsibilities and requested proficiency targets
 A complete lifecycle produces an executable candidate and portable handoff archive, not an approved field release. Remaining work: accountable human and affected-person review, representative accessibility and usability evidence, a meaningful comparison, evidence handling and stopping criteria, then separately reviewed field learning and flourishing claims. No demonstrated agent or human proficiency has been established.
 
 The accompanying methods working paper is `/agentic-le/paper/`. Editable source: `src/papers/learning-engineering-teams.md`. The proposed coauthor byline names William Gray-Roncal and Jodi Lis; affiliations and contributions await coauthor confirmation. Its downloadable manuscript and episode audit share the normal site build. See [PAPER_REVIEW.md](PAPER_REVIEW.md) for coauthor review and study requirements.
+
+Additional cases requested: school science and public-library access. The live executions use registry 1.1.0 with domain profiles inherited from `domain`. Case source briefs are in `src/data/lifecycle/seeds/`; the tracked expansion checklist is [CASES.md](CASES.md).
+
+| Run directory | Case | State |
+| --- | --- | --- |
+| `data/lifecycle/20261002T025312Z-live-codex-d8f497` | School science | 24 model calls; 11 artifact versions; 2 challenges; host checks at event 81; pilot pending |
+| `data/lifecycle/20261002T025332Z-live-codex-18cc98` | Public-library access | 24 model calls; 11 artifact versions; 2 challenges; host checks at event 81; pilot pending |

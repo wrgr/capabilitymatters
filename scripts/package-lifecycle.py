@@ -60,3 +60,23 @@ audit = {"schema_version": 1, "paper_status": "AI-assisted working draft for coa
          "future_role_profiles": "Added after this live run; not retrospectively assigned", "human_pilot": "pending"}
 (paper_dir / "evidence.json").write_text(json.dumps(audit, indent=2, ensure_ascii=False) + "\n")
 print("Agentic LE manuscript and source-grounded episode audit packaged.")
+
+# Diverse cases retain their own journal, pinned roles, candidate and handoff.
+case_inventory = []
+for case in json.loads((REPO / "src/data/lifecycle/cases.json").read_text()):
+    source = WEB / case["journal"]
+    case_run = json.loads(source.read_text())
+    package(source)
+    if case["id"] != "workforce":
+        assert case_run["mode"] == "live-codex"
+        assert case_run["role_profiles"]["roles"]["domain"]["profile_id"] == case["domain_profile"]
+        assert case_run["events"][-1]["kind"] == "completed"
+        write_product(case_run, REPO / "public" / case["product"].lstrip("/"), replay_url="/agentic-le/replay/?case=" + case["id"])
+    case_inventory.append({**case, "title": case_run["seed"]["title"], "run_id": case_run["id"],
+        "mode": case_run["mode"], "events": len(case_run["events"]),
+        "counts": dict(Counter(e["kind"] for e in case_run["events"])),
+        "journal_sha256": hashlib.sha256(source.read_bytes()).hexdigest(), "head_hash": case_run["events"][-1]["hash"],
+        "registry_version": case_run.get("role_profiles", {}).get("registry_version", "legacy fixed prompts"),
+        "human_pilot": "pending", "field_outcomes": "unknown"})
+(WEB.parent / "cases.json").write_text(json.dumps({"schema_version": 1, "cases": case_inventory}, indent=2, ensure_ascii=False) + "\n")
+print("Diverse live-agent cases and their handoffs packaged.")
