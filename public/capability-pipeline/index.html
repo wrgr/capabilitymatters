@@ -9,13 +9,13 @@ header{padding:16px 24px;border-bottom:1px solid #cfd6c8;background:#fff}h1{font
 <header><p><a href="https://capabilitymatters.org/problems-to-prototypes/">← Problems → Prototypes</a></p><h1>The Capability Pipeline</h1><nav role="tablist" aria-label="Activities">
 <button id="case-tab" role="tab" aria-selected="true" aria-controls="cases">Explore five cases</button>
 <button id="sim-tab" role="tab" aria-selected="false" aria-controls="simulation">Choose your own adventure</button>
-</nav><p id="activity-note">Original five cases: Study, Find the turn, and Predict first. Source narratives retained; historical claims have not been independently rechecked.</p></header>
+</nav><p id="activity-note">Five worked cases with why / teaching points. Study, Find the turn, or Predict first; source narratives retained, with historical claims not independently rechecked.</p></header>
 <iframe id="cases" role="tabpanel" aria-labelledby="case-tab" title="Original five-case explorer" src="cases.html"></iframe>
 <iframe id="simulation" role="tabpanel" aria-labelledby="sim-tab" title="Editable branching simulation" hidden src="simulation.html"></iframe>
 <script>
 (function(){
 const items=[['case-tab','cases'],['sim-tab','simulation']];
-function select(i){items.forEach(([b,f],j)=>{document.getElementById(b).setAttribute('aria-selected',String(i===j));document.getElementById(f).hidden=i!==j;});document.getElementById('activity-note').textContent=i===0?'Original five cases: Study, Find the turn, and Predict first. Source narratives retained; historical claims have not been independently rechecked.':'Fictional teaching simulation: edit every step, roll outcomes and events, revise your strategy, and compare branches. Probabilities are teaching assumptions.';}
+function select(i){items.forEach(([b,f],j)=>{document.getElementById(b).setAttribute('aria-selected',String(i===j));document.getElementById(f).hidden=i!==j;});document.getElementById('activity-note').textContent=i===0?'Five worked cases with why / teaching points. Study, Find the turn, or Predict first; source narratives retained, with historical claims not independently rechecked.':'Fictional adventure with decision guidance before choices and reflection afterward. Edit steps, inspect outcomes, revise and compare branches; probabilities are teaching assumptions.';}
 items.forEach(([b,frame],i)=>document.getElementById(b).addEventListener('click',()=>{select(i);history.replaceState(null,'','#'+frame)}));
 function restoreTab(){select(location.hash==='#simulation'?1:0)}
 window.addEventListener('hashchange',restoreTab);

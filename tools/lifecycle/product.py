@@ -7,7 +7,7 @@ from pathlib import Path
 import zipfile
 
 def product_files(run):
-    from engine import verify, snapshot
+    from engine import verify, snapshot, STAGE_LABELS
     from package_exemplar import protected_html
     verify(run)
     artifacts = snapshot(run, len(run["events"]))["artifacts"]
@@ -18,7 +18,7 @@ def product_files(run):
         "candidate.html": protected_html(build["content"]["prototype_html"]),
         "project-journal.json": json.dumps(run, indent=2, ensure_ascii=False),
         "artifacts.json": json.dumps(artifacts, indent=2, ensure_ascii=False),
-        "requirements.md": "\n\n".join("# " + stage.title() + "\n\n" + artifact["content"]["body"] for stage, artifact in artifacts.items()),
+        "requirements.md": "Current cycle: Understand → Map → Design → Build → Instrument → Deploy → Evaluate → Refine. Map means map capabilities and conditions. Stage headings use current names; saved agent artifact text below retains its original wording.\n\n" + "\n\n".join("# " + STAGE_LABELS[stage] + "\n\n" + artifact["content"]["body"] for stage, artifact in artifacts.items()),
         "README.md": f"# {run['seed']['title']}\n\nRunnable candidate product from Capability Matters.\n\nOpen candidate.html in a browser using fictional input. Review requirements.md, artifacts.json and project-journal.json together. The journal preserves the source discussion, dissent, scenarios and revisions.\n\nRun: {run['id']}\nBuild content hash: {build['content_hash']}\n\nRelease state: candidate. Human pilot approval, affected-person review, accessibility and field evidence remain separate requirements. Generated code and local interaction checks do not establish learning, transfer or flourishing.\n",
     }
     checks = [e for e in run["events"] if e["kind"] == "verification" and e["payload"].get("status") == "technical_checks_passed"]

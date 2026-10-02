@@ -6,7 +6,7 @@ import "../../styles/prototype-tools.css";
 const idea = canonical.find((entry) => entry.id === "lens-canonical-05");
 if (!idea) throw new Error("Evidence mapper brief missing");
 const common = meta.aileCommonSteps;
-const cycle = [["Understand",idea.cycle.understand],["Model",idea.cycle.model],["Design",common["3"]],["Build",common["4"]],["Instrument",idea.cycle.instrument],["Deploy",common["6"]],["Evaluate",common["7"]],["Refine",common["8"]]];
+const cycle = [["Understand",idea.cycle.understand],["Map",idea.cycle.model],["Design",common["3"]],["Build",common["4"]],["Instrument",idea.cycle.instrument],["Deploy",common["6"]],["Evaluate",common["7"]],["Refine",common["8"]]];
 ---
 <PrototypeShell idea={idea} collection="LENS Canonical" cycle={cycle}
   assumption="Making the links between practice, observable capability, transfer, and operational impact explicit will help teams choose evidence that can challenge their intervention."

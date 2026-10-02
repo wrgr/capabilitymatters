@@ -24,3 +24,5 @@ Additional cases requested: school science and public-library access. The live e
 | `data/lifecycle/20261002T025332Z-live-codex-18cc98` | Public-library access | 24 model calls; 11 artifact versions; 2 challenges; host checks at event 81; pilot pending |
 
 Navigation update, October 2, 2026: the landing page leads with all three cases and case-specific replay, candidate and download links. Project navigation offers All cases, Replay, Working paper and Roles & proficiency; Agentic LE pages no longer mark the global Prototypes link as the current page. Product and replay pages return directly to the case collection. The project remains unlisted globally.
+
+October 2, 2026: the public cycle uses Understand → Map → Design → Build → Instrument → Deploy → Evaluate → Refine. Map means map capabilities and conditions. Stable storage keys (including model), historic agent quotations and immutable journals remain unchanged; future agent prompts use the new public name. Learner teaching commentary is versioned under src/data/capability-cycle.json and capability-pipeline-teaching.json.

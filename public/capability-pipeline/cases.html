@@ -9,7 +9,7 @@
   <header class="hero">
     <p class="eyebrow">The iteration cycle, worked through five real cases</p>
     <h1>The Capability Pipeline</h1>
-    <p class="lede">Eight steps, one loop: <strong>understand → model → design → build → instrument → deploy → evaluate → refine</strong> — where refine can send you all the way back to understand, not just back to adjusting what you built. The same eight questions, asked of a hospital screening workflow, a federal insurance marketplace, an airliner, a math-tutoring program at scale, and a self-driving car. What changes case to case isn't the shape of the loop — it's which single step the story actually turns on.</p>
+    <p class="lede">Eight steps, one loop: <strong>understand → map → design → build → instrument → deploy → evaluate → refine</strong> — where refine can send you all the way back to understand, not just back to adjusting what you built. The same eight questions, asked of a hospital screening workflow, a federal insurance marketplace, an airliner, a math-tutoring program at scale, and a self-driving car. What changes case to case isn't the shape of the loop — it's which single step the story actually turns on.</p>
   </header>
 
   <section id="diagram-section">
@@ -17,7 +17,7 @@
     <p class="section-sub">Read it left to right the first time. After that, read it as a circle — the point of the eighth step is to send you back to the first.</p>
     <div class="diagram-card">
       <figure>
-        <svg class="diagram-svg" viewBox="-40 -20 680 640" role="img" aria-label="The LENS process: the eight-step iteration cycle arranged in a loop — understand, model, design, build, instrument, deploy, evaluate, refine — with a distinct dashed arrow showing refine returning to understand, marked with a star as the cycle's starting and return point.">
+        <svg class="diagram-svg" viewBox="-40 -20 680 640" role="img" aria-label="The LENS process: the eight-step iteration cycle arranged in a loop — understand, map, design, build, instrument, deploy, evaluate, refine — with a distinct dashed arrow showing refine returning to understand, marked with a star as the cycle's starting and return point.">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path d="M0,0 L10,5 L0,10 z" fill="currentColor" class="flow-arrow" style="fill: var(--ink-muted); opacity:.8"/>
@@ -50,7 +50,7 @@
 
           <!-- nodes -->
           <g class="step-node"><circle cx="300" cy="80" r="32"/><text class="num" x="300" y="86" text-anchor="middle">1</text><text class="lbl" x="300" y="38" text-anchor="middle">UNDERSTAND</text><g transform="translate(317,68) scale(0.4)" aria-hidden="true"><path class="start-star" d="M0,-10 L2.35,-3.09 L9.51,-3.09 L3.82,1.18 L5.88,8.09 L0,3.82 L-5.88,8.09 L-3.82,1.18 L-9.51,-3.09 L-2.35,-3.09 Z"/></g></g>
-          <g class="step-node"><circle cx="455.6" cy="144.4" r="32"/><text class="num" x="455.6" y="150.4" text-anchor="middle">2</text><text class="lbl" x="500" y="120" text-anchor="start">MODEL</text></g>
+          <g class="step-node"><circle cx="455.6" cy="144.4" r="32"/><text class="num" x="455.6" y="150.4" text-anchor="middle">2</text><text class="lbl" x="500" y="120" text-anchor="start">MAP</text></g>
           <g class="step-node"><circle cx="520" cy="300" r="32"/><text class="num" x="520" y="306" text-anchor="middle">3</text><text class="lbl" x="562" y="296" text-anchor="start">DESIGN</text></g>
           <g class="step-node"><circle cx="455.6" cy="455.6" r="32"/><text class="num" x="455.6" y="461.6" text-anchor="middle">4</text><text class="lbl" x="500" y="488" text-anchor="start">BUILD</text></g>
           <g class="step-node"><circle cx="300" cy="520" r="32"/><text class="num" x="300" y="526" text-anchor="middle">5</text><text class="lbl" x="300" y="568" text-anchor="middle">INSTRUMENT</text></g>
@@ -71,6 +71,7 @@
   </section>
 
   <section id="cases-section">
+    <p class="teaching-boundary"><strong>Learning guide.</strong> Open a step for why it matters, a decision cue and a question to apply to this case. Teaching commentary is an interpretation of the presented narrative, not new historical evidence. In Find the turn and Predict first, the decision-specific explanation appears only after your guess or reveal.</p>
     <h2>Pick a case</h2>
     <p class="section-sub">Same eight steps, five different systems. Each card names the domain, the real frame, and how the case actually turned out. Three ways to work a case are below the picker — study it worked out, find where it turns yourself, or commit to a call before you're shown what happened.</p>
     <div class="case-grid" id="case-grid"></div>
@@ -104,5 +105,5 @@
   </footer>
 </div>
 
-<script src="cases.js"></script>
+<script src="teaching.js"></script><script src="cases.js"></script>
 </body></html>

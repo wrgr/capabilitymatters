@@ -80,3 +80,11 @@ for case in json.loads((REPO / "src/data/lifecycle/cases.json").read_text()):
         "human_pilot": "pending", "field_outcomes": "unknown"})
 (WEB.parent / "cases.json").write_text(json.dumps({"schema_version": 1, "cases": case_inventory}, indent=2, ensure_ascii=False) + "\n")
 print("Diverse live-agent cases and their handoffs packaged.")
+
+# Shared teaching labels keep historical storage keys and journal hashes intact.
+cycle_meta = json.loads((REPO / "src/data/capability-cycle.json").read_text())
+teaching = json.loads((REPO / "src/data/capability-pipeline-teaching.json").read_text())
+teaching["cycle"] = {s["id"]: s for s in cycle_meta["stages"]}
+(REPO / "public/capability-pipeline/teaching.js").write_text("/* Generated from versioned teaching sources; edit src/data, not this file. */\n(function(root){root.CapabilityTeaching=" + json.dumps(teaching, ensure_ascii=False) + ";})(typeof globalThis==='undefined'?this:globalThis);\n")
+(WEB / "stage-labels.js").write_text("// Generated from src/data/capability-cycle.json. Stable keys preserve journal compatibility.\nexport const stageLabels=" + json.dumps({s["id"]:s["label"] for s in cycle_meta["stages"]}) + ";\n")
+print("Shared Map label and learner teaching commentary packaged.")

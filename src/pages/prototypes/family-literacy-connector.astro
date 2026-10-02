@@ -5,7 +5,7 @@ import briefs from "../../data/problems-to-prototypes/aile-1.json";
 import meta from "../../data/problems-to-prototypes/meta.json";
 const idea = briefs.find((brief) => brief.id === "example-aile-8061")!;
 const common = meta.aileCommonSteps;
-const cycle = [["Understand", idea.cycle.understand], ["Model", idea.cycle.model], ["Design", common["3"]], ["Build", common["4"]], ["Instrument", idea.cycle.instrument], ["Deploy", common["6"]], ["Evaluate", common["7"]], ["Refine", common["8"]]];
+const cycle = [["Understand", idea.cycle.understand], ["Map", idea.cycle.model], ["Design", common["3"]], ["Build", common["4"]], ["Instrument", idea.cycle.instrument], ["Deploy", common["6"]], ["Evaluate", common["7"]], ["Refine", common["8"]]];
 const fields = [
   { name: "target", label: "Teacher-configured weekly target", placeholder: "Explain an inference using a clue from a story" },
   { name: "strategy", label: "Literacy strategy", options: [["inference", "Inference from clues"], ["sequence", "Sequence and retelling"], ["vocabulary", "Vocabulary in context"]] },

@@ -6,7 +6,7 @@ import briefs from '../../data/problems-to-prototypes/aile-2.json';
 import meta from '../../data/problems-to-prototypes/meta.json';
 const idea = briefs.find(item => item.id === 'example-aile-8387');
 const common = meta.aileCommonSteps;
-const cycle = [['Understand', idea.cycle.understand], ['Model', idea.cycle.model], ['Design', common['3']], ['Build', common['4']], ['Instrument', idea.cycle.instrument], ['Deploy', common['6']], ['Evaluate', common['7']], ['Refine', common['8']]];
+const cycle = [['Understand', idea.cycle.understand], ['Map', idea.cycle.model], ['Design', common['3']], ['Build', common['4']], ['Instrument', idea.cycle.instrument], ['Deploy', common['6']], ['Evaluate', common['7']], ['Refine', common['8']]];
 ---
 <PrototypeShell idea={idea} collection="AILE" cycle={cycle} status="Runnable 2D precursor · no XR or AI"
   assumption="Predicting state changes and recovering from a signal fault supports independent sequence reasoning."

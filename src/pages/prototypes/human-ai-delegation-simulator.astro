@@ -6,7 +6,7 @@ import "../../styles/prototype-tools.css";
 const idea = canonical.find((entry) => entry.id === "lens-canonical-06");
 if (!idea) throw new Error("Delegation simulator brief missing");
 const common = meta.aileCommonSteps;
-const cycle = [["Understand",idea.cycle.understand],["Model",idea.cycle.model],["Design",common["3"]],["Build",common["4"]],["Instrument",idea.cycle.instrument],["Deploy",common["6"]],["Evaluate",common["7"]],["Refine",common["8"]]];
+const cycle = [["Understand",idea.cycle.understand],["Map",idea.cycle.model],["Design",common["3"]],["Build",common["4"]],["Instrument",idea.cycle.instrument],["Deploy",common["6"]],["Evaluate",common["7"]],["Refine",common["8"]]];
 ---
 <PrototypeShell idea={idea} collection="LENS Canonical" cycle={cycle}
   assumption="Comparing AI advice with source evidence and explicit authority boundaries will improve decisions about when to rely, verify, override, or escalate."

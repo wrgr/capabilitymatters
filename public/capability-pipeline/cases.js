@@ -3,7 +3,7 @@
 (function(){
   var STEP_META = [
     {key:'understand', label:'Understand', blurb:'What is the capability gap, really — stated as a gap, not yet a solution.'},
-    {key:'model', label:'Model', blurb:'What does the system that produces or fails this capability actually look like.'},
+    {key:'model', label:'Map', blurb:'Map capabilities and conditions: people, tools, authority, incentives and dependencies.'},
     {key:'design', label:'Design', blurb:'What intervention could close the gap — and what does it choose not to do.'},
     {key:'build', label:'Build', blurb:'Turn the design into something real. Constraints show up here that no one saw coming.'},
     {key:'instrument', label:'Instrument', blurb:'Decide, before you need the answer, what evidence would prove you wrong.'},
@@ -141,6 +141,28 @@
     }
   ];
 
+  function teachingPoint(c, i, detail) {
+    var meta = CapabilityTeaching.cycle[STEP_META[i].key];
+    var box = document.createElement('section'); box.className = 'teaching-point';
+    var heading = document.createElement('h4'); heading.textContent = 'Why / teaching points'; box.appendChild(heading);
+    [['Why this matters', meta.why], ['Decision cue', meta.decision], ['Ask in this case', CapabilityTeaching.worked[c.id].questions[i]]].forEach(function(pair){
+      var paragraph = document.createElement('p'), label = document.createElement('strong');
+      label.textContent = pair[0] + ': '; paragraph.appendChild(label); paragraph.appendChild(document.createTextNode(pair[1])); box.appendChild(paragraph);
+    });
+    detail.appendChild(box);
+  }
+
+  function turnTeaching(c, detail) {
+    var guidance = CapabilityTeaching.worked[c.id].turn;
+    var box = document.createElement('section'); box.className = 'teaching-point turn-teaching';
+    var heading = document.createElement('h4'); heading.textContent = 'Interpreting this decision'; box.appendChild(heading);
+    [['Why it matters',guidance.why],['Decision cue',guidance.decision],['Evidence limit',guidance.watch]].forEach(function(pair){
+      var paragraph = document.createElement('p'), label = document.createElement('strong'); label.textContent=pair[0]+': ';
+      paragraph.appendChild(label); paragraph.appendChild(document.createTextNode(pair[1])); box.appendChild(paragraph);
+    });
+    detail.appendChild(box);
+  }
+
   // populate step legend
   var legend = document.getElementById('step-legend');
   STEP_META.forEach(function(s, i){
@@ -225,6 +247,7 @@
     whyEl.className = 'branch-why';
     whyEl.innerHTML = '<strong>Why this step:</strong> ' + b.why;
     detail.appendChild(whyEl);
+    turnTeaching(c, detail);
 
     function renderBranch(){
       var choice = branchChoice[c.id];
@@ -304,6 +327,7 @@
       full.className = 'full';
       full.textContent = c.steps[i];
       detail.appendChild(full);
+      teachingPoint(c, i, detail);
 
       if (revealBranchUI) buildBranchDetail(c, detail);
 
@@ -339,6 +363,7 @@
         full.className = 'full';
         full.textContent = c.steps[i];
         detail.appendChild(full);
+      teachingPoint(c, i, detail);
         row.addEventListener('click', function(){
           var wasOpen = detail.classList.contains('open');
           if (openRow) openRow.classList.remove('open');
@@ -364,6 +389,7 @@
           promptEl.className = 'prompt';
           promptEl.textContent = c.predictPrompt;
           predictPanel.appendChild(promptEl);
+          var preGuide = document.createElement('p'); preGuide.className='teaching-before'; preGuide.textContent='Before deciding: '+CapabilityTeaching.cycle[meta.key].question; predictPanel.appendChild(preGuide);
           var ta = document.createElement('textarea');
           ta.placeholder = 'Optional: write your call before revealing what happened…';
           ta.value = loadPrediction(c.id);
@@ -391,6 +417,7 @@
           full2.className = 'full';
           full2.textContent = c.steps[i];
           pdetail.appendChild(full2);
+          teachingPoint(c, i, pdetail);
           buildBranchDetail(c, pdetail);
 
           var saved = loadPrediction(c.id);
@@ -417,6 +444,7 @@
           lfull.className = 'full';
           lfull.textContent = c.steps[i];
           ldetail.appendChild(lfull);
+          teachingPoint(c, i, ldetail);
           lrow.addEventListener('click', function(){
             var wasOpen = ldetail.classList.contains('open');
             if (openRow) openRow.classList.remove('open');

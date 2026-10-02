@@ -13,7 +13,7 @@ const cycle = [
   'Frame a capability gap before choosing a product. Separate the desired performance from a convenient proxy for it.',
   'A bounded problem statement, the people affected, and evidence that could disconfirm the framing.',
   'Revisit when the target population, operating conditions, or definition of success changes.'],
- ['model','Model','What produces the gap in this system?',
+ ['model','Map','What produces the gap in this system?',
   'Represent the people, tools, incentives, dependencies, and constraints that might explain the observed performance.',
   'An explicit model with assumptions, dependencies, competing explanations, and testable predictions.',
   'Revisit when an observation contradicts the mechanism you assumed.'],
@@ -24,7 +24,7 @@ const cycle = [
  ['build','Build','What is the smallest real version worth testing?',
   'Make the design operational. A prototype is useful when it exposes constraints and produces evidence, not merely when it looks finished.',
   'A testable implementation, known limitations, and a record of what changed during construction.',
-  'Revisit the model or design when implementation reveals an invalid assumption.'],
+  'Revisit Map or Design when implementation reveals an invalid assumption.'],
  ['instrument','Instrument','What evidence could change your next decision?',
   'Specify what to observe before interpreting results. A measure of activity is not automatically a measure of capability.',
   'Measures, collection methods, missing-data checks, and decision rules tied to the actual capability claim.',
@@ -56,8 +56,8 @@ const scenario={
  a('u-completion','Adopt the completion target','Move quickly with the sponsor’s definition. Independent performance remains an untested assumption.',2,1,{trust:6,readiness:3,completion:4,fit:-4},{useful:0.07}),
  a('u-field','Observe learners and teachers','Spend time on unfamiliar tasks and classroom constraints before promising a solution.',9,3,{fit:18,trust:6,agency:3},{useful:0.04,setback:-0.03}),
  a('u-bound','Negotiate a bounded capability claim','Limit the first pilot to one skill and define an independent transfer task.',5,2,{fit:11,evidence:5,trust:-2},{useful:0.02})]},
- {id:'model',prompt:'Low performance could reflect a knowledge gap, dependence on hints, inaccessible materials, or classroom constraints. Which model will guide the first intervention?',actions:[
- a('m-skill','Model a knowledge gap','Focus resources on prerequisite skills. This is fast but leaves context and dependence less examined.',4,1,{readiness:5,fit:3,completion:3},{useful:0.06}),
+ {id:'model',prompt:'Low performance could reflect a knowledge gap, dependence on hints, inaccessible materials, or classroom constraints. Which explanation will guide the first intervention?',actions:[
+ a('m-skill','Map a knowledge gap','Focus resources on prerequisite skills. This is fast but leaves context and dependence less examined.',4,1,{readiness:5,fit:3,completion:3},{useful:0.06}),
  a('m-system','Map the whole work system','Examine teacher workload, devices, accessibility, incentives, and the interaction with the tutor.',9,3,{fit:15,agency:6,trust:3},{setback:-0.05}),
  a('m-compete','Test competing explanations','Run small probes comparing unaided performance, hints, and an accessible version of the same task.',7,2,{fit:10,evidence:8,transfer:2},{useful:0.03,setback:-0.02})]},
  {id:'design',prompt:'You need a design that fits the model, not merely one that can ship. What tradeoff will you make?',actions:[

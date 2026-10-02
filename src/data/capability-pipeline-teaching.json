@@ -1,0 +1,241 @@
+{
+  "version": "1.0.0",
+  "boundary": "Authored teaching commentary, not additional historical evidence, a learner grade or a guaranteed decision rule. Use it to justify and challenge a choice.",
+  "worked": {
+    "healthcaregov": {
+      "questions": [
+        "How would you separate a launch date and feature list from the public’s ability to complete an enrollment?",
+        "Where would you place ownership of a journey that crosses several separately managed components?",
+        "Which requirement would make someone accountable for readiness of the assembled service?",
+        "What end-to-end task and recovery path must the assembled build demonstrate?",
+        "What prelaunch evidence would let an accountable owner recommend restricting or delaying scope?",
+        "What bounded launch and staffed alternative could protect users while problems are found?",
+        "Which denominators and time windows are comparable? A first-month count and a first-year target are different quantities.",
+        "Which changes concern code, coordination, staffing or authority? Recovery alone cannot isolate one sole cause."
+      ],
+      "turn": {
+        "why": "Readiness needs accountable ownership and evidence across the whole service, not only within each component.",
+        "decision": "Test a representative end-to-end journey and identify who can act on its failures.",
+        "watch": "The alternate branch is hypothetical. Avoid concluding that closing one testing gap guarantees a trouble-free launch."
+      }
+    },
+    "boeing737max": {
+      "questions": [
+        "Which capability and safety requirements could conflict with the commitment to avoid additional training?",
+        "How do sensing, automation authority, crew information and response conditions interact?",
+        "What should happen when a sensor is wrong, and how would the crew know what the system is doing?",
+        "Which tests exercise disagreement between inputs and limits on automatic authority?",
+        "What evidence is needed about crews recognizing and responding to a failure, beyond ordinary automated operation?",
+        "Who must review the aircraft, documentation and training as a coupled system before use?",
+        "How would you separate a documented finding from a plausible explanation or a counterfactual claim?",
+        "Which system, training and oversight requirements need revisiting together? An imagined alternate outcome is not a demonstrated prevention."
+      ],
+      "turn": {
+        "why": "A commercial constraint can shape sensing, automation and training requirements; those tradeoffs need explicit review.",
+        "decision": "Trace a failure from input to automated action to what a crew could observe and do.",
+        "watch": "The alternate branch is a teaching hypothesis, not proof that a single change would prevent every accident."
+      }
+    },
+    "case32": {
+      "questions": [
+        "What task must staff perform, and how could an interface change fit the existing screening workflow?",
+        "Which steps, handoffs and information access make the task slow or prone to error?",
+        "How would the redesigned interface help staff find the relevant information with less burden?",
+        "What must work for a representative staff member before trying the change in routine practice?",
+        "How do task time, errors, usability and screening rates answer different questions? What baseline and collection plan are needed?",
+        "How would staffing and implementation conditions be recorded so the comparison remains interpretable?",
+        "Which conclusions concern task performance, which concern service outcomes, and which remain limited by the sample and setting?",
+        "What would need checking at another site rather than assuming the same interface will have the same effect?"
+      ],
+      "turn": {
+        "why": "Different measures answer different questions. An interface’s task performance and its clinical workflow outcomes should be inspected separately.",
+        "decision": "Choose evidence that could contradict your preferred claim, with a baseline and limitations attached.",
+        "watch": "A usability sample and a single setting do not establish general effectiveness or isolate every competing explanation."
+      }
+    },
+    "case84": {
+      "questions": [
+        "What improvement would matter relative to the curriculum learners already receive?",
+        "How might curriculum, teacher preparation, exposure and school conditions affect the comparison?",
+        "What does assignment by school help compare, and which implementation differences still need documenting?",
+        "What support must be available for teachers and students to use the curriculum as intended?",
+        "Why choose the evaluation window in advance, and how will missing outcomes and implementation be inspected?",
+        "How will initial uptake, support needs and exposure be recorded without changing the outcome claim?",
+        "How do you read both years against the planned comparison? A later positive result does not by itself prove why year one was null.",
+        "What would justify continuing, changing support or stopping? Avoid waiting indefinitely for a favorable result."
+      ],
+      "turn": {
+        "why": "Implementation and evaluation timing affect interpretation. Read the planned comparison across its stated period.",
+        "decision": "Inspect support, exposure and missing data before choosing a bounded continue-or-stop decision.",
+        "watch": "Do not infer the cause of a first-year null solely from a later positive result; do not extend a study just to obtain a preferred result."
+      }
+    },
+    "case183": {
+      "questions": [
+        "What must a backup operator be able to notice and do, within the available response time?",
+        "What conditions make the monitoring role feasible, including workload, attention, information and authority?",
+        "How would alerts, control and staffing support a usable intervention path rather than merely naming a human backup?",
+        "Which representative rare-event and handoff tests could expose a gap in the operator’s ability to intervene?",
+        "What independent measures of detection, response and workload would complement miles without intervention?",
+        "What limits and stopping authority are needed before exposing the public to a test?",
+        "What can the tracked metric establish, and what does it leave unknown about the joint human-system performance?",
+        "Which role or system requirements should change? Attention monitoring alone would not establish that the overall safety problem is solved."
+      ],
+      "turn": {
+        "why": "A system metric can hide whether a human backup has a feasible role. Specify evidence about the coupled system.",
+        "decision": "Ask whether the person can notice, decide and intervene under realistic timing and workload.",
+        "watch": "A proposed monitor or test is not demonstrated prevention; a broader redesign may be required."
+      }
+    }
+  },
+  "choices": {
+    "u-completion": {
+      "why": "It quickly aligns with the sponsor’s operational target.",
+      "watch": "Completion is a proxy; agreement does not establish independent problem solving.",
+      "question": "When would you keep this as a delivery measure while limiting the learning claim?"
+    },
+    "u-field": {
+      "why": "Observing actual tasks can expose barriers that a product brief misses.",
+      "watch": "Observation costs time and can still miss people or conditions outside the sample.",
+      "question": "What task, people and support conditions would make this observation informative?"
+    },
+    "u-bound": {
+      "why": "A narrow claim can make a first pilot feasible and testable.",
+      "watch": "A narrower scope excludes some needs and may face sponsor disagreement.",
+      "question": "What is the smallest meaningful capability claim, and who agrees to its bounds?"
+    },
+    "m-skill": {
+      "why": "A prerequisite-skill explanation suggests a focused intervention.",
+      "watch": "It can miss inaccessible materials, dependence on hints or limited opportunity to act.",
+      "question": "What would distinguish this explanation from a system barrier?"
+    },
+    "m-system": {
+      "why": "Mapping people, tools and constraints identifies dependencies outside the learner.",
+      "watch": "A broad map can consume resources without revealing which explanation matters.",
+      "question": "Which dependency changes your next decision, and what evidence tests it?"
+    },
+    "m-compete": {
+      "why": "Small contrasting probes can distinguish explanations before a larger build.",
+      "watch": "A probe must be accessible and interpretable; more data need not resolve ambiguity.",
+      "question": "What result would favor one explanation and weaken another?"
+    },
+    "d-auto": {
+      "why": "Automation may reduce repetitive delivery work and increase throughput.",
+      "watch": "Available authority, independent practice and human correction can constrain it.",
+      "question": "Is the needed control available, and what capability would learners still practice unaided?"
+    },
+    "d-fade": {
+      "why": "Fading support aims to practice independent performance while retaining human intervention.",
+      "watch": "The design costs time and needs control the vendor may not grant.",
+      "question": "Can you implement and inspect fading, or should you change the lever?"
+    },
+    "d-narrow": {
+      "why": "A small accessible route can be easier to support, reverse and compare.",
+      "watch": "Narrow reach can leave other learners’ needs unmet.",
+      "question": "Who is included, what alternative is available, and what would justify expansion?"
+    },
+    "b-template": {
+      "why": "A template can make an initial implementation available quickly.",
+      "watch": "Defaults can conceal integration and recovery assumptions.",
+      "question": "Which default and failure path must you test rather than trust?"
+    },
+    "b-test": {
+      "why": "Testing integration and fallback checks whether recovery is operational.",
+      "watch": "Tests consume capacity and cover only the conditions exercised.",
+      "question": "Which representative failure would invalidate readiness for a bounded pilot?"
+    },
+    "b-human": {
+      "why": "A staffed prototype exposes workflow requirements before automating them.",
+      "watch": "Capacity and workload limit reach, and manual support may explain any apparent improvement.",
+      "question": "What staffing and support must be recorded for a fair comparison?"
+    },
+    "i-activity": {
+      "why": "Platform logs can answer a narrow question about use and delivery.",
+      "watch": "They cannot recover unaided performance or an unmeasured subgroup outcome.",
+      "question": "Which claim can these logs support, and which must remain unknown?"
+    },
+    "i-transfer": {
+      "why": "Unaided tasks address the independent-capability claim more directly than completion.",
+      "watch": "Access, missingness and attribution remain unresolved; subgroup coverage may still be absent.",
+      "question": "How will you distinguish unavailable observations from low performance?"
+    },
+    "i-full": {
+      "why": "A broader evidence plan can inspect transfer, distribution and human control together.",
+      "watch": "Collection adds staff and participant burden; small samples can remain inconclusive.",
+      "question": "Which measure could change the decision enough to justify its burden?"
+    },
+    "p-wide": {
+      "why": "A broad launch can increase immediate reach.",
+      "watch": "Wider authority, support and rollback may be unavailable; permission cannot be won by a favorable roll.",
+      "question": "Which prerequisite must change before this choice becomes feasible?"
+    },
+    "p-stage": {
+      "why": "Staging bounds exposure and preserves a chance to pause.",
+      "watch": "Each increment needs adequate support and an explicit stop rule.",
+      "question": "What finding pauses expansion, and who can act on it?"
+    },
+    "p-pilot": {
+      "why": "Extending a bounded pilot can examine operating conditions before expansion.",
+      "watch": "Delay costs time and may still leave the key outcome unmeasured.",
+      "question": "What new evidence will this extension supply, and when will you decide?"
+    },
+    "e-headline": {
+      "why": "A narrow report can communicate an observed delivery trend quickly.",
+      "watch": "Easy reporting does not establish causal learning benefit.",
+      "question": "What caveat prevents the headline from exceeding the available observations?"
+    },
+    "e-challenge": {
+      "why": "Testing rival explanations can prevent a convenient result from driving an unsupported decision.",
+      "watch": "Analysis cannot repair every missing outcome or an unsuitable comparison.",
+      "question": "What evidence supports the preferred explanation over another?"
+    },
+    "e-replicate": {
+      "why": "Repeating a planned check can reveal whether an observation recurs.",
+      "watch": "Repetition cannot recover an outcome that was never instrumented.",
+      "question": "Does this check answer the decision question, or must Instrument be revisited?"
+    },
+    "r-reframe": {
+      "why": "Returning to Understand lets the evidence change the problem definition.",
+      "watch": "Past costs remain spent; a new framing still needs evidence.",
+      "question": "Which assumption failed, and how does the revised capability claim differ?"
+    },
+    "r-redesign": {
+      "why": "Returning to Design can address a weak intervention when the problem framing still holds.",
+      "watch": "It can become feature polishing if the gap or mechanism is also wrong.",
+      "question": "What evidence supports retaining Understand and Map?"
+    },
+    "r-conclude": {
+      "why": "A bounded recommendation can end a cycle responsibly, including a decision to stop.",
+      "watch": "Ending the cycle is not evidence of successful learning or flourishing.",
+      "question": "What is supported, what is unknown, and what would reopen the decision?"
+    },
+    "decline": {
+      "why": "Withdrawal is legitimate when the feasible work cannot support the requested claim.",
+      "watch": "Record the constraint and any unresolved need; declining does not solve the underlying problem.",
+      "question": "What makes this engagement unjustifiable under the present conditions?"
+    },
+    "pause": {
+      "why": "Pausing preserves the option to re-enter when a named prerequisite changes.",
+      "watch": "A vague pause can postpone an accountable decision indefinitely.",
+      "question": "Who can change the prerequisite, and what observable condition allows re-entry?"
+    },
+    "pivot": {
+      "why": "Changing the lever can move work to a feasible scope under human control.",
+      "watch": "It changes reach, staffing and the capability claim; it still needs evaluation.",
+      "question": "What control becomes available, and what must be remapped?"
+    },
+    "negotiate": {
+      "why": "A concrete mandate request brings an authority constraint to the person who can change it.",
+      "watch": "Technical quality cannot grant permission; approval, deferral or refusal are distinct outcomes.",
+      "question": "What exact scope and responsibility are you requesting?"
+    }
+  },
+  "events": {
+    "cohort": "Different access and support needs can invalidate Understand and Map. More evidence about the original pilot does not automatically cover a new group.",
+    "deadline": "A deadline changes resources, not the evidence standard. Reduce scope, renegotiate or pause rather than claiming that less time proves readiness.",
+    "dependency": "A failed dependency can invalidate Build or an upstream requirement. A fallback is useful only if it is staffed, feasible and checked.",
+    "missing": "Missing observations remain unknown. Repair the instrument or narrow the claim; do not substitute activity data for transfer evidence.",
+    "agency": "A smooth interface can conceal inability to intervene. Return to the control and workflow requirements, then test whether a human can actually act.",
+    "champion": "Protected time creates an opportunity to learn. It supplies no evidence that the intervention improves learner capability."
+  }
+}

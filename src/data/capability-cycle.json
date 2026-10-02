@@ -1,0 +1,70 @@
+{
+  "version": "1.0.0",
+  "stage_id_note": "The stable storage key model displays as Map. Historical journals and quoted artifacts retain their original wording.",
+  "stages": [
+    {
+      "id": "understand",
+      "label": "Understand",
+      "description": "Frame the capability gap before choosing a solution.",
+      "why": "A sponsor’s target can reward activity while leaving the actual problem unchanged.",
+      "decision": "Distinguish what people need to do from what is easy to count.",
+      "question": "Whose task, access conditions or definition of success have you not checked?"
+    },
+    {
+      "id": "model",
+      "label": "Map",
+      "description": "Map capabilities and conditions.",
+      "why": "People, tools, authority, incentives and support jointly shape what is possible. A skills diagnosis alone can miss a system constraint.",
+      "decision": "Connect human and system requirements, dependencies and competing explanations.",
+      "question": "What observation would distinguish a knowledge gap from an access, workload or tool problem?"
+    },
+    {
+      "id": "design",
+      "label": "Design",
+      "description": "Compare interventions and their tradeoffs.",
+      "why": "A useful intervention acts on a plausible mechanism within your authority; adding features does not resolve an invalid assumption.",
+      "decision": "Compare a simpler alternative, name who keeps control and identify a stop condition.",
+      "question": "What does this choice exclude, and who carries the burden if it fails?"
+    },
+    {
+      "id": "build",
+      "label": "Build",
+      "description": "Make the smallest useful candidate real.",
+      "why": "Construction reveals integration, staffing and recovery requirements that a plan can hide.",
+      "decision": "Exercise a representative task and its failure path before expanding scope.",
+      "question": "Which dependency, fallback or correction path must actually work?"
+    },
+    {
+      "id": "instrument",
+      "label": "Instrument",
+      "description": "Choose evidence that can change a decision.",
+      "why": "A convenient metric can improve while the capability you care about stays unchanged.",
+      "decision": "Choose the outcome, comparison, missing-data checks and decision rule before reading results.",
+      "question": "Could these measures reveal that your preferred approach failed, or exclude an important group?"
+    },
+    {
+      "id": "deploy",
+      "label": "Deploy",
+      "description": "Introduce the intervention within justified bounds.",
+      "why": "Access, staffing and authority in the intended setting can differ from those of a pilot.",
+      "decision": "Match reach to permission and support; name a pause or rollback condition.",
+      "question": "Who can stop the rollout, and what support must be available?"
+    },
+    {
+      "id": "evaluate",
+      "label": "Evaluate",
+      "description": "Interpret evidence within its limits.",
+      "why": "A favorable trend can reflect chance, selection, exposure or another change; a null can reflect an ineffective intervention or limited evidence.",
+      "decision": "Separate observed change from causal explanation and unmeasured outcomes.",
+      "question": "What claim is supported, for whom, over what period, and what remains unknown?"
+    },
+    {
+      "id": "refine",
+      "label": "Refine",
+      "description": "Change the next decision because of what you learned.",
+      "why": "Polishing the build cannot repair a wrong problem definition or an unavailable operating condition.",
+      "decision": "Return to the earliest invalidated assumption, or justify continuing, pausing or stopping.",
+      "question": "What specifically changes next, and what would make you reconsider?"
+    }
+  ]
+}

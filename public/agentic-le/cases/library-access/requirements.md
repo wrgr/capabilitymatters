@@ -1,3 +1,5 @@
+Current cycle: Understand → Map → Design → Build → Instrument → Deploy → Evaluate → Refine. Map means map capabilities and conditions. Stage headings use current names; saved agent artifact text below retains its original wording.
+
 # Understand
 
 STATUS AND BASIS
@@ -30,7 +32,7 @@ Proposed review questions: Can reviewers identify an acceptable action, includin
 NEXT ACTION AND HUMAN GATE
 Prepare the paired paper card and screen outline from these working requirements, plus a route-and-assistance questions sheet. Then arrange patron and librarian review of the problem framing, refusal paths, access arrangements, privacy wording and workload boundaries. Record proposed changes and unresolved dissent without declaring consensus. Advancement requires accountable human review of this framing; any interactive candidate subsequently requires human review and interaction testing before a pilot. No review, launch or efficacy is asserted.
 
-# Model
+# Map
 
 STATUS AND BASIS
 Integrated Model artifact for public deliberation in a rehearsal; requirements remain provisional. Sequences 4 and 6 identify service barriers and meaningful refusal. Sequence 8 incorporates those into Understand. Sequence 13 separates plan preference from provision and challenges incomplete concealment. No participant observations, approvals, demonstrated proficiency or field results exist. Modeling does not satisfy the pending Understand review gate.

@@ -150,7 +150,7 @@ A record might support this bounded claim: a learner can use an approved assista
 
 The same record can support a decision to withhold judgment. If authorship is unclear, a key test is missing, or the task is not representative, report the limitation rather than manufacture a precise score. Where a safety-critical criterion applies, a high total should not compensate for failing that criterion unless the decision rule explicitly permits that tradeoff.
 
-The learning-engineering process should use the record throughout its cycle: understand the problem, model the relevant context, design, build, instrument, deploy within justified bounds, evaluate, and refine. These are revisitable activities, not a mandatory production line. Refinement often returns to understanding. New evidence may justify returning directly to a prior design choice, changing the point of intervention, or deciding that constraints make action inappropriate. The Capability Pipeline explorer offers a teaching simulation of these choices; its simulated outcomes are not empirical estimates. [13]
+The learning-engineering process should use the record throughout its cycle: understand the problem, map capabilities and conditions in the relevant context, design, build, instrument, deploy within justified bounds, evaluate, and refine. These are revisitable activities, not a mandatory production line. Refinement often returns to understanding. New evidence may justify returning directly to a prior design choice, changing the point of intervention, or deciding that constraints make action inappropriate. The Capability Pipeline explorer offers a teaching simulation of these choices; its simulated outcomes are not empirical estimates. [13]
 
 ## 10. How to test the proposal
 

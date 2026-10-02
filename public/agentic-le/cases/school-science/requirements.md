@@ -1,3 +1,5 @@
+Current cycle: Understand → Map → Design → Build → Instrument → Deploy → Evaluate → Refine. Map means map capabilities and conditions. Stage headings use current names; saved agent artifact text below retains its original wording.
+
 # Understand
 
 Status and basis
@@ -32,7 +34,7 @@ A sparse response may reflect reading burden, typing effort, vocabulary, time, d
 Evidence and gates
 Next, Model should map observations, claims, uncertainty, reconsideration and representation checks into an interaction specification and matching paper activity. Carry dissent and unknowns forward. Before real use, require teacher, student and caregiver review plus human review of the browser candidate and interaction testing. Examine who can inspect, contribute, correct and dissent, and the effort required from teachers. Record observations separately from interpretations; investigate transfer with a separate reasoning task. All field evidence and any actual pilot remain pending.
 
-# Model
+# Map
 
 Status and basis
 This is the integrated Model artifact for a rehearsal, not an approved classroom requirement. Sequence 4 establishes reconsideration and causal uncertainty; sequence 6 establishes correction and participation beyond device control; sequence 8 supplies the fictional evidence and revised Understand specification; sequence 13 supplies transition, representation and recovery rules. No participant observations, human approval, measured outcomes or demonstrated proficiency exist.

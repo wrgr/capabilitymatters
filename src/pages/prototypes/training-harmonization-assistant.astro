@@ -5,7 +5,7 @@ import briefs from '../../data/problems-to-prototypes/lens-1.json';
 import meta from '../../data/problems-to-prototypes/meta.json';
 const idea = briefs.find(entry => entry.id === 'example-aile-5776');
 const common = meta.aileCommonSteps;
-const cycle = [['Understand', idea.cycle.understand], ['Model', idea.cycle.model], ['Design', common['3']], ['Build', common['4']], ['Instrument', idea.cycle.instrument], ['Deploy', common['6']], ['Evaluate', common['7']], ['Refine', common['8']]];
+const cycle = [['Understand', idea.cycle.understand], ['Map', idea.cycle.model], ['Design', common['3']], ['Build', common['4']], ['Instrument', idea.cycle.instrument], ['Deploy', common['6']], ['Evaluate', common['7']], ['Refine', common['8']]];
 const examples = [
   { decision: 'Verify request', action: 'Check the request identifier against the intake form.', source: 'Fictional core intake guide §1', scope: 'system', unit: '', role: '', owner: 'Core process owner' },
   { decision: 'Escalate mismatch', action: 'Pause intake and contact the North shift coordinator.', source: 'Fictional North intake guide §2', scope: 'unit', unit: 'North', role: '', owner: 'North process owner' },

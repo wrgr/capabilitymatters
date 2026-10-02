@@ -1,5 +1,6 @@
+import {stageLabels} from './stage-labels.js';
 import {stages,snapshot,revisionsAt,verifyRun,structureCheck,listFields} from './state.js';
-const $=id=>document.getElementById(id), cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const $=id=>document.getElementById(id), cap=s=>stageLabels[s]||s.charAt(0).toUpperCase()+s.slice(1);
 let savedCases=[],run=null,seq=1,timer=null,local=false,poll=null,chosenArtifact='',followArtifacts=true,prototypeKey='';
 const element=(tag,text,cls)=>{const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(cls)el.className=cls;return el;};
 function notice(text,error=false){$('notice').textContent=text;$('notice').className=error?'error':'';}
@@ -29,7 +30,7 @@ function render(){
  }
  if(!turns.length)$('transcript').append(element('p','No visible contribution from this role yet.','empty'));$('transcript').scrollTop=$('transcript').scrollHeight;
  const latest=state.events.filter(e=>e.kind==='artifact').at(-1);if(followArtifacts&&latest)chosenArtifact=latest.payload.id;if(!state.artifacts[chosenArtifact])chosenArtifact=Object.keys(state.artifacts).at(-1)||'';
- $('artifact-choice').replaceChildren();for(const [id,a]of Object.entries(state.artifacts))$('artifact-choice').add(new Option(a.content.title+' · v'+a.revision,id));$('artifact-choice').value=chosenArtifact;const a=state.artifacts[chosenArtifact];$('artifact').hidden=!a;$('artifact-empty').hidden=!!a;$('compare').disabled=!a||a.revision<2;$('artifact-export').disabled=!a;$('revision-label').textContent=a?'v'+a.revision:'No revision yet';
+ $('artifact-choice').replaceChildren();for(const [id,a]of Object.entries(state.artifacts))$('artifact-choice').add(new Option(cap(id)+' · '+a.content.title+' · v'+a.revision,id));$('artifact-choice').value=chosenArtifact;const a=state.artifacts[chosenArtifact];$('artifact').hidden=!a;$('artifact-empty').hidden=!!a;$('compare').disabled=!a||a.revision<2;$('artifact-export').disabled=!a;$('revision-label').textContent=a?'v'+a.revision:'No revision yet';
  if(a){$('artifact-title').textContent=a.content.title;$('artifact-body').textContent=a.content.body;$('artifact-provenance').textContent='Learning engineer · '+cap(chosenArtifact)+' · revision '+a.revision+' · decision #'+a.trigger_seq;const history=revisionsAt(run,chosenArtifact,seq),prior=history.at(-2);$('diff').hidden=true;if(prior){$('previous-body').textContent=prior.content.body;const trigger=state.events.find(e=>e.seq===a.trigger_seq);$('change-reason').textContent=trigger?.payload.response.decision||'See triggering decision.';}
   const html=a.content.prototype_html||'';$('prototype').hidden=!html;if(a.content_hash!==prototypeKey){prototypeKey=a.content_hash;$('prototype-source').textContent=html;$('prototype-frame').src=html?(local?'/api/prototypes/':'artifacts/')+a.content_hash+(local?'':'.html'):'about:blank';}
  }else{$('prototype').hidden=true;$('prototype-frame').src='about:blank';prototypeKey='';}

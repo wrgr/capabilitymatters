@@ -2,7 +2,7 @@
 
 Version 1.1.0 · October 1, 2026
 
-A seed becomes a runnable candidate product and an inspectable project record. The learning engineer orchestrates competency and domain specialists through Understand, Model, Design, Build, Instrument, Deploy, Evaluate and Refine. The cycle comes from this repository's Problems to Prototypes framework. It can return to earlier stages, select a non-AI intervention, change the work system or stop.
+A seed becomes a runnable candidate product and an inspectable project record. The learning engineer orchestrates competency and domain specialists through Understand, Map, Design, Build, Instrument, Deploy, Evaluate and Refine. The cycle comes from this repository's Problems to Prototypes framework. It can return to earlier stages, select a non-AI intervention, change the work system or stop.
 
 ## Product and project record
 
@@ -10,7 +10,7 @@ Build supplies self-contained interactive HTML. A complete local run packages th
 
 The public journal records inputs, prompts, returned contributions, pros/cons/tradeoffs, risks, human and system requirements, flourishing considerations, dissent, decisions and immutable artifact revisions. Scenario events are hypothetical. Technical findings are observations of the implementation, not fictional participant results. Preserve failures and rejected output. Do not request or claim private chain of thought.
 
-Understand creates the problem and context brief; Model couples human and system requirements; Design compares approaches; Build creates a small executable candidate; Instrument defines evidence and opportunity-to-act conditions; Deploy rehearses accountable gates; Evaluate distinguishes observed behavior from unknown learning or field outcomes; Refine selects the next change and its justification. Running through a stage never supplies real human approval.
+Understand creates the problem and context brief; Map connects human and system requirements, dependencies, operating conditions and testable assumptions; Design compares approaches; Build creates a small executable candidate; Instrument defines evidence and opportunity-to-act conditions; Deploy rehearses accountable gates; Evaluate distinguishes observed behavior from unknown learning or field outcomes; Refine selects the next change and its justification. Running through a stage never supplies real human approval.
 
 ## Standard roles
 
@@ -35,3 +35,5 @@ Verify executable delivery, product/journal source matching, role resolution, fa
 The original workforce record is preserved alongside two additional actual live-agent executions on fictional school-science and public-library briefs. `src/data/lifecycle/cases.json` binds each saved journal, domain profile and candidate route. Normal packaging verifies journals and profile bindings, regenerates products and emits a public inventory with counts and hashes. The replay selects a case with `?case=ID`, optionally selects an event with `&event=N`, and opens the product belonging to that case. The fixed workforce practice exercise is hidden for other domains.
 
 Source-specific host checks are recorded after the model-stage completion; they do not imply a real pilot, learning outcomes, independent expert validation or demonstrated proficiency. [CASES.md](CASES.md) tracks expansion and the human review still required.
+
+Stage-name compatibility: Map is the public name for stage two, meaning map capabilities and conditions. The internal key `model` remains stable for saved runs, revision references and response schemas. Historical agent messages and artifacts are quoted unchanged; current navigation, future prompts and requirement headings use Map. Learner teaching commentary is separate from the immutable evidence record.

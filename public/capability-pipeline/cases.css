@@ -459,3 +459,5 @@
     .step-row { grid-template-columns: 32px 1fr auto; padding: 12px; }
   }
 .return-caption { display:block; margin:12px 0 8px; color:var(--accent); font-family:var(--font-body); font-size:18px; font-weight:700; line-height:1.4; }
+
+.teaching-point{border-left:4px solid var(--accent,#1c6e66);background:#f1f5ee;padding:1rem 1.1rem;margin:1rem 0;line-height:1.6}.teaching-point h4{margin:0 0 .65rem}.teaching-point p{margin:.55rem 0}.teaching-before{padding:.75rem;background:#f1f5ee;border-radius:5px}.turn-teaching{background:#f5f1e7}

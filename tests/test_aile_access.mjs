@@ -128,7 +128,7 @@ test('local form remains disabled in server markup; every brief has all eight cy
   const meta = JSON.parse(readFileSync(new URL('../src/data/problems-to-prototypes/meta.json', import.meta.url)));
   const briefs = JSON.parse(readFileSync(new URL('../src/data/problems-to-prototypes/aile-3.json', import.meta.url)));
   for (const brief of briefs) {
-    const cycle = meta.designCycle.map((name, index) => [name, brief.cycle[name.toLowerCase()] ?? meta.aileCommonSteps[String(index + 1)]]);
+    const cycle = meta.designCycle.map((name, index) => [name, brief.cycle[meta.designCycleKeys[index]] ?? meta.aileCommonSteps[String(index + 1)]]);
     assert.equal(cycle.length, 8);
     assert.ok(cycle.every(([name, text]) => name && text));
   }

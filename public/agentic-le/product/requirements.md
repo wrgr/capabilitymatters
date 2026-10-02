@@ -1,3 +1,5 @@
+Current cycle: Understand → Map → Design → Build → Instrument → Deploy → Evaluate → Refine. Map means map capabilities and conditions. Stage headings use current names; saved agent artifact text below retains its original wording.
+
 # Understand
 
 This expert draft builds on sequences 4 and 6. It is a rehearsal contribution, not an approved requirement. No participant observations, stakeholder consensus, human authorization or measured learning outcomes exist. Field evidence remains pending.
@@ -24,7 +26,7 @@ Humans must judge acceptable outcomes, participation conditions, facilitation qu
 Non-AI option and next action
 Retain facilitated peer practice with printed fictional scenarios, accessible written alternatives and private reflection. This option also needs covered time and human review. Next, incorporate the distinctions above into the provisional discovery protocol and mapping template, then seek affected-person review before field discovery. Preserve dissent over whether a map is needed at all. Modeling should await an explicit account of which needs remain hypotheses and what evidence is still absent.
 
-# Model
+# Map
 
 Status and boundary
 This expert draft draws on sequences 6, 8 and 13. It is a rehearsal contribution, not an approved requirement. No participant observations, human approval, stakeholder consensus or measured learning outcomes exist. The review gate identified in sequence 8 remains unmet. This desk model supports review only; field evidence remains pending.
