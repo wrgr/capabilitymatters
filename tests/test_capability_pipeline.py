@@ -2,6 +2,7 @@
 from pathlib import Path
 import re
 import unittest
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1] / 'public' / 'capability-pipeline'
 
@@ -21,7 +22,7 @@ class PipelinePublicationTests(unittest.TestCase):
             content = (ROOT / name).read_text()
             for ref in re.findall(r'(?:src|href)="([^"]+)"', content):
                 if not ref.startswith(('https:', 'http:', '#')):
-                    self.assertTrue((ROOT / ref).is_file(), ref)
+                    self.assertTrue((ROOT / urlsplit(ref).path).is_file(), ref)
 
     def test_adventure_is_discoverable(self) -> None:
         """Keep the gallery and Experiments links pointed at the simulation tab."""

@@ -26,3 +26,5 @@ Additional cases requested: school science and public-library access. The live e
 Navigation update, October 2, 2026: the landing page leads with all three cases and case-specific replay, candidate and download links. Project navigation offers All cases, Replay, Working paper and Roles & proficiency; Agentic LE pages no longer mark the global Prototypes link as the current page. Product and replay pages return directly to the case collection. The project remains unlisted globally.
 
 October 2, 2026: the public cycle uses Understand → Map → Design → Build → Instrument → Deploy → Evaluate → Refine. Map means map capabilities and conditions. Stable storage keys (including model), historic agent quotations and immutable journals remain unchanged; future agent prompts use the new public name. Learner teaching commentary is versioned under src/data/capability-cycle.json and capability-pipeline-teaching.json.
+
+Static pipeline activities and replay entry scripts use versioned asset links for this release so cached activity documents cannot mix old stage labels with new teaching guidance.
