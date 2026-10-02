@@ -4,7 +4,7 @@
 
 ## An inspectable agentic rehearsal from problem to product
 
-**Proposed authors: William Gray-Roncal and Jodi.** Full byline, affiliations and author contributions are pending coauthor confirmation.
+**Proposed authors: William Gray-Roncal and Jodi Lis.** Affiliations and author contributions are pending coauthor confirmation.
 
 **Working draft, October 2026.** Methods and demonstration paper prepared for coauthor review. This is an AI-assisted draft describing a fictional project and its actual software record. It does not report observations of a human learning engineering team or a completed learning-effectiveness study.
 
