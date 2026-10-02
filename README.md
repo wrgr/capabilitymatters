@@ -105,7 +105,15 @@ Neither tool machine-scores written reasoning or estimates real-world effects.
 
 The gallery and Experiments page also link to the existing Capability Pipeline
 at `/capability-pipeline/index.html#simulation`. The fragment opens “Choose your
-own adventure” directly; `#cases` opens the five-case systems-process explorer.
+own adventure” directly; `#cases` opens the five-case systems-process explorer. Its bottom
+Integrative Practice card connects learner development, system evolution and
+collective capability through continuous joint practice. The diagram and its
+step-pair explanations live in `public/capability-pipeline/cases.html`, with
+responsive rendering in `coupled-loops.js` and palette-matched styles in
+`coupled-loops.css`. Solid arrows show contributions/evidence; dashed arrows
+show revision. This conceptual view adds no numbered step or simulation rule.
+Check it with `npm run test:pipeline`, `npm run build`, and browser review at
+phone/desktop widths in light and dark themes.
 
 Run `npm run test:prototypes` and `npm run build` after changes.
 The regression checks parse the actual inline scripts and exercise audit validation,

@@ -1,4 +1,4 @@
-"""Check published pipeline assets preserve the requested draft label and resolve locally."""
+"""Check published pipeline assets preserve the requested draft label and resolve locally, including the coupled-loops card."""
 from pathlib import Path
 import re
 import unittest
@@ -23,6 +23,20 @@ class PipelinePublicationTests(unittest.TestCase):
             for ref in re.findall(r'(?:src|href)="([^"]+)"', content):
                 if not ref.startswith(('https:', 'http:', '#')):
                     self.assertTrue((ROOT / urlsplit(ref).path).is_file(), ref)
+
+    def test_coupled_loops_are_a_bottom_card(self) -> None:
+        """Preserve continuous coupling and separate learner/system evidence below the cases."""
+        page = (ROOT / 'cases.html').read_text()
+        self.assertLess(page.index('id="cases-section"'), page.index('id="capability-coupled-loops"'))
+        self.assertLess(page.index('id="capability-coupled-loops"'), page.index('<footer>'))
+        for phrase in ['Joint practice is continuous', 'independent learner competence',
+                       'adoption, effective use', 'subsequent revisions']:
+            self.assertIn(phrase, page)
+        for pair in ['Understand &amp; Map', 'Design &amp; Build',
+                     'Instrument &amp; Deploy', 'Evaluate &amp; Refine']:
+            self.assertIn(pair, page)
+        self.assertIn('aria-labelledby="ccl-title ccl-description"', page)
+        self.assertIn('cases.html?v=coupled-loops-1', (ROOT / 'index.html').read_text())
 
     def test_adventure_is_discoverable(self) -> None:
         """Keep the gallery and Experiments links pointed at the simulation tab."""

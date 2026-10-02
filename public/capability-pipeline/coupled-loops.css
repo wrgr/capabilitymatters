@@ -1,0 +1,24 @@
+/* Styles the coupled-loops card using the existing explorer palette. */
+#capability-coupled-loops { color:var(--ink); }
+    #capability-coupled-loops .ccl-legend { display:flex; flex-wrap:wrap; gap:8px 24px; margin-bottom:12px; }
+    #capability-coupled-loops .ccl-legend span { display:flex; align-items:center; gap:8px; }
+    #capability-coupled-loops .ccl-legend i { display:inline-block; width:26px; height:0; border-top:1.5px solid var(--ink); }
+    #capability-coupled-loops .ccl-legend .ccl-feedback { border-top:1.5px dashed var(--accent); }
+    #capability-coupled-loops .ccl-diagram { display:block; width:100%; min-width:320px; height:auto; overflow:visible; font-size:14px; }
+    #capability-coupled-loops .ccl-title { font-weight:600; fill:var(--ink); }
+    #capability-coupled-loops .ccl-label { fill:var(--ink); }
+    #capability-coupled-loops .ccl-small { font-size:12px; fill:var(--ink); }
+    #capability-coupled-loops .ccl-node { fill:var(--surface); stroke:var(--ink); stroke-width:1; }
+    #capability-coupled-loops .ccl-loop { fill:none; stroke:var(--ink-muted); stroke-width:1; }
+    #capability-coupled-loops .ccl-path { fill:none; stroke:var(--ink); stroke-width:1.5; }
+    #capability-coupled-loops .ccl-return { fill:none; stroke:var(--accent); stroke-width:1.5; stroke-dasharray:5 4; }
+    #capability-coupled-loops .ccl-feedback-label { fill:var(--ink); }
+#capability-coupled-loops .ccl-legend { font-size:14px; }
+#capability-coupled-loops figure { max-width:736px; width:100%; margin:auto; }
+#capability-coupled-loops figcaption { text-align:left; }
+#capability-coupled-loops .ccl-stage-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 24px; margin:0; }
+#capability-coupled-loops .ccl-stage-links dt { font-weight:650; color:var(--accent); }
+#capability-coupled-loops .ccl-stage-links dd { margin:4px 0 0; }
+#capability-coupled-loops .ccl-stage-links p { margin:0; }
+#capability-coupled-loops .ccl-stage-links small { display:block; margin-top:5px; font-size:14px; color:var(--ink-muted); }
+@media(max-width:600px) { #capability-coupled-loops .ccl-stage-links { grid-template-columns:1fr; } }
