@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import AgenticNav from '../../components/AgenticNav.astro';
+import { readdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+const directory = fileURLToPath(new URL('../../../public/agentic-le/', import.meta.url));
+const files = readdirSync(directory, { recursive: true }).filter(name => typeof name === 'string' && name.endsWith('.json')).map(name => '/agentic-le/' + String(name).replaceAll('\\', '/')).sort();
+const titles: Record<string, string> = {
+  '/agentic-le/cases.json': 'Case inventory and journal hashes',
+  '/agentic-le/roles.json': 'Resolved roles and proficiency targets',
+  '/agentic-le/paper/evidence.json': 'Working paper evidence audit',
+  '/agentic-le/product/manifest.json': 'Workforce candidate handoff',
+  '/agentic-le/replay/live-exemplar.json': 'Workforce source journal',
+  '/agentic-le/replay/exemplar.json': 'Scripted rehearsal journal'
+};
+const records = files.map(file => ({ file, title: titles[file] || file.replace('/agentic-le/', '').replace(/\.json$/, '').replaceAll('/', ' / ').replaceAll('-', ' ') }));
+---
+<Base title="Agentic LE records · Capability Matters" description="Read the saved project journals, handoff manifests, evidence audits and role contracts as structured, expandable records.">
+  <Fragment slot="head"><meta name="robots" content="noindex, nofollow" /><link rel="stylesheet" href="/agentic-le/record/json-view.css" /></Fragment>
+  <AgenticNav />
+  <section class="container-wide record-page">
+    <header><p class="eyebrow">Agentic learning engineering · Source records</p><h1 id="record-title">Case inventory and journal hashes</h1><p>Explore the original fields and values without losing the structure. These are saved project records; their claims retain the limits described in each case.</p></header>
+    <div class="record-toolbar"><label for="record-choice">Choose a record<select id="record-choice">{records.map(record => <option value={record.file}>{record.title}</option>)}</select></label><div class="record-actions"><button id="expand-record" type="button" disabled>Expand fields</button><button id="collapse-record" type="button" disabled>Collapse fields</button><a id="download-record" href="/agentic-le/cases.json" download>Download JSON</a></div></div>
+    <p id="record-status" class="record-status" role="status" aria-live="polite">Loading the saved record…</p>
+    <div id="record-tree" class="json-tree"></div>
+    <details id="raw-record" hidden><summary>Raw JSON, indented</summary><pre><code id="raw-code"></code></pre></details>
+    <noscript><p>JavaScript is needed for the formatted view. <a href="/agentic-le/cases.json">Open the case inventory JSON</a>.</p></noscript>
+    <p class="back-link"><a href="/agentic-le/">Return to Agentic LE</a></p>
+  </section>
+  <script id="record-list" type="application/json" set:html={JSON.stringify(records).replaceAll('<', '\\u003c')} />
+  <script is:inline type="module">
+    import {renderJson, toggleBranches} from '/agentic-le/record/json-view.js';
+    const $ = id => document.getElementById(id), records = JSON.parse($('record-list').textContent);
+    const allowed = new Map(records.map(record => [record.file, record.title]));
+    const tree = $('record-tree'); let controller;
+    async function load(file, updateURL = false) {
+      controller?.abort(); controller = new AbortController(); const request = controller;
+      tree.replaceChildren(); $('raw-record').hidden = true;
+      $('expand-record').disabled = $('collapse-record').disabled = true;
+      if (!allowed.has(file)) { $('record-status').textContent = 'This record is not in the published inventory. Choose a record above.'; return; }
+      $('record-choice').value = file; $('record-title').textContent = allowed.get(file);
+      document.title = allowed.get(file) + ' · Agentic LE';
+      $('download-record').href = file; $('record-status').textContent = 'Loading the saved record…';
+      if (updateURL) { const url = new URL(location.href); url.searchParams.set('file', file); history.replaceState(null, '', url); }
+      try {
+        const response = await fetch(file, {signal: request.signal});
+        if (!response.ok) throw new Error('The record could not be retrieved.');
+        const data = await response.json(); if (request !== controller) return;
+        renderJson(tree, data); $('raw-code').textContent = JSON.stringify(data, null, 2);
+        $('raw-record').hidden = false; $('expand-record').disabled = $('collapse-record').disabled = false;
+        $('record-status').textContent = file;
+      } catch (error) { if (error.name !== 'AbortError') $('record-status').textContent = 'The formatted record could not load. Try again or download the JSON.'; }
+    }
+    $('record-choice').onchange = () => load($('record-choice').value, true);
+    $('expand-record').onclick = () => toggleBranches(tree, true);
+    $('collapse-record').onclick = () => toggleBranches(tree, false);
+    load(new URLSearchParams(location.search).get('file') || '/agentic-le/cases.json');
+  </script>
+</Base>
+<style>
+  .record-page{max-width:76rem;padding-top:2rem}.record-page header p{max-width:55rem}.record-page h1{font-size:clamp(1.8rem,3vw,2.7rem)}.record-toolbar{display:flex;align-items:end;flex-wrap:wrap;gap:1rem 2rem;padding:1.2rem 0;border-block:1px solid var(--border);font-family:var(--sans)}label{display:grid;gap:.4rem;flex:1;min-width:16rem;max-width:40rem;font-size:.95rem}select{width:100%;font:inherit;padding:.6rem;background:var(--bg);color:var(--ink);border:1px solid var(--border);border-radius:4px}.record-actions{display:flex;align-items:center;flex-wrap:wrap;gap:.6rem 1rem}button{font:inherit;padding:.55rem .8rem;background:var(--bg);color:var(--ink);border:1px solid var(--border);border-radius:4px;cursor:pointer}button:disabled{opacity:.6;cursor:default}.record-status{font-family:var(--mono);font-size:.9rem;color:var(--muted);max-width:none;overflow-wrap:anywhere;margin:1rem 0}.record-page>details{margin:2rem 0;border-top:1px solid var(--border);padding-top:1rem}.record-page summary{cursor:pointer;font-family:var(--sans);font-weight:600}.record-page pre{font-family:var(--mono);font-size:.9rem;max-height:40rem;overflow:auto;white-space:pre;background:var(--tint);padding:1rem}.back-link{margin-top:2rem}:is(button,select,summary):focus-visible{outline:2px solid var(--accent);outline-offset:3px}@media(max-width:600px){label{min-width:0;width:100%;flex-basis:100%}}
+</style>

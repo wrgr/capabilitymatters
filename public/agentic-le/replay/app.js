@@ -1,4 +1,5 @@
 import {stageLabels} from './stage-labels.js';
+import {jsonTree} from '../record/json-view.js';
 import {stages,snapshot,revisionsAt,verifyRun,structureCheck,listFields} from './state.js';
 const $=id=>document.getElementById(id), cap=s=>stageLabels[s]||s.charAt(0).toUpperCase()+s.slice(1);
 let savedCases=[],run=null,seq=1,timer=null,local=false,poll=null,chosenArtifact='',followArtifacts=true,prototypeKey='';
@@ -18,14 +19,14 @@ function render(){
   if(r){if(event.kind==='scenario')card.append(element('strong','Hypothetical challenge','provenance'));card.append(element('p',r.message));if(r.challenged_assumption)card.append(element('p','Assumption challenged: '+r.challenged_assumption,'provenance'));if(r.decision)card.append(element('p','Decision: '+r.decision,'provenance'));
    const d=element('details'),checks=element('div',undefined,'checks');d.append(element('summary','Pros, cons, tradeoffs, risks and capabilities'));for(const key of listFields){if(!r[key]?.length)continue;const block=element('div');block.append(element('strong',cap(key.replaceAll('_',' '))));const ul=element('ul');for(const item of r[key])ul.append(element('li',item));block.append(ul);checks.append(block);}d.append(checks);card.append(d);
    const refs=element('div',undefined,'evidence');for(const n of r.evidence_refs||[]){const b=element('button','Evidence #'+n);b.onclick=()=>move(n);refs.append(b);}if(refs.childNodes.length)card.append(refs);
-   const receipt=element('details');receipt.append(element('summary','Prompt and provider record'));const request=state.events.find(e=>e.seq===p.request_seq);receipt.append(element('pre',request?.payload.prompt||'Prompt not supplied'),element('pre',JSON.stringify(p.provider,null,2)));card.append(receipt);
+   const receipt=element('details');receipt.append(element('summary','Prompt and provider record'));const request=state.events.find(e=>e.seq===p.request_seq);receipt.append(element('pre',request?.payload.prompt||'Prompt not supplied'),jsonTree(p.provider,'Provider record'));card.append(receipt);
   }else if(event.kind==='seed')card.append(element('p',run.seed.idea),element('p','Seed context is input, not approval to launch a pilot.','provenance'));
   else if(event.kind==='human_gate')card.append(element('p','Human pilot gate: pending'),element('p',p.required.join(' · ')),element('p',p.note,'provenance'));
   else if(event.kind==='verification')card.append(element('p',p.message),element('p','Technical review: '+p.status,'provenance'));
   else if(event.kind==='failure')card.append(element('p','Run stopped: '+p.message));
   else if(event.kind==='revision_link')card.append(element('p','Scenario #'+p.scenario_seq+' led to decision #'+p.decision_seq+' and a revision of '+cap(p.return_stage)+'.'));
   else if(event.kind==='completed')card.append(element('p',p.claim),element('p','Status: '+p.status.replaceAll('_',' '),'provenance'));
-  if(p.rejected_response){const d=element('details');d.append(element('summary','Rejected provider output'),element('pre',JSON.stringify(p.rejected_response,null,2)));card.append(d);}
+  if(p.rejected_response){const d=element('details');d.append(element('summary','Rejected provider output'),jsonTree(p.rejected_response,'Rejected provider output'));card.append(d);}
   $('transcript').append(card);
  }
  if(!turns.length)$('transcript').append(element('p','No visible contribution from this role yet.','empty'));$('transcript').scrollTop=$('transcript').scrollHeight;

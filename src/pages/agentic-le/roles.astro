@@ -14,7 +14,7 @@ const profiles = {...contract.roles, ...Object.fromEntries(Object.entries(contra
  claim="A role profile defines a bounded contribution to the project. A parent supplies shared duties; a specialist or domain profile adds context and requested proficiency. Inheritance supplies no performance evidence."
  question="What work would justify the claim that this role can perform in this context?" />
  <section class="container roles">
-  <p><a href="/agentic-le/roles.json">Download the resolved role contract</a></p>
+  <p><a href="/agentic-le/record/?file=%2Fagentic-le%2Froles.json">Inspect the resolved role contract</a></p>
   <p><strong>Registry {contract.registry_version}; framework {contract.framework_version}.</strong> The domain names come from Capability Matters’ public LENS framework. These proficiency descriptors are proposed simulation expectations, not an adopted credentialing standard or a statement of human or model proficiency.</p>
   <h2>Requested contribution levels</h2>
   <div class="levels">{Object.entries(framework.proficiencies).map(([id, level]) => <article><h3>{level.name}</h3><p>{level.expectation}</p><p><strong>Evidence needed to review performance:</strong></p><ul>{level.evidence_required.map(item => <li>{item}</li>)}</ul></article>)}</div>
