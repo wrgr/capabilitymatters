@@ -40,10 +40,12 @@ const records = files.map(file => ({ file, title: titles[file] || file.replace('
       if (!allowed.has(file)) { $('record-status').textContent = 'This record is not in the published inventory. Choose a record above.'; return; }
       $('record-choice').value = file; $('record-title').textContent = allowed.get(file);
       document.title = allowed.get(file) + ' · Agentic LE';
-      $('download-record').href = file; $('record-status').textContent = 'Loading the saved record…';
+      const version = new URLSearchParams(location.search).get('v');
+      const asset = version ? file + '?v=' + encodeURIComponent(version) : file;
+      $('download-record').href = asset; $('record-status').textContent = 'Loading the saved record…';
       if (updateURL) { const url = new URL(location.href); url.searchParams.set('file', file); history.replaceState(null, '', url); }
       try {
-        const response = await fetch(file, {signal: request.signal});
+        const response = await fetch(asset, {signal: request.signal});
         if (!response.ok) throw new Error('The record could not be retrieved.');
         const data = await response.json(); if (request !== controller) return;
         renderJson(tree, data); $('raw-code').textContent = JSON.stringify(data, null, 2);

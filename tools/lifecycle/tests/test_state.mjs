@@ -34,3 +34,27 @@ for(const name of ['school-science.json','library-access.json']){
  await assert.rejects(()=>verifyRun(bad),/Role profile metadata/);
 }
 console.log('Diverse case replay visibility and pinned-domain integrity checks passed.');
+
+// Each demo and product must derive from the same saved Build; changing cases cannot reuse another demo.
+const {caseDemo}=await import('../../../public/agentic-le/replay/case-demo.js');
+const {createHash}=await import('node:crypto');
+const inventory=JSON.parse(fs.readFileSync(new URL('../../../public/agentic-le/cases.json',import.meta.url))).cases;
+for(const c of inventory){
+ const saved=JSON.parse(fs.readFileSync(new URL('../../../public/agentic-le/replay/'+c.journal,import.meta.url)));
+ const demo=caseDemo(saved,inventory), build=snapshot(saved,saved.events.length).artifacts.build;
+ assert.equal(demo.source,build.content.prototype_html);
+ assert.equal(demo.content_hash,build.content_hash);
+ assert.equal(demo.product,c.product);
+ assert.equal(saved.events[demo.seq-1].payload.content_hash,demo.content_hash);
+ const manifest=JSON.parse(fs.readFileSync(new URL('../../../public'+c.product+'manifest.json',import.meta.url)));
+ assert.equal(manifest.run_id,saved.id);
+ assert.equal(manifest.build_content_hash,demo.content_hash);
+ const candidate=fs.readFileSync(new URL('../../../public'+c.product+'candidate.html',import.meta.url));
+ const archived=fs.readFileSync(new URL('../../../public/agentic-le/replay/artifacts/'+demo.content_hash+'.html',import.meta.url));
+ assert.deepEqual(candidate,archived);
+ assert.equal(createHash('sha256').update(candidate).digest('hex'),manifest.files['candidate.html']);
+ assert.equal(caseDemo({...saved,events:saved.events.slice(0,demo.seq-1)},inventory)?.seq < demo.seq || caseDemo({...saved,events:saved.events.slice(0,demo.seq-1)},inventory)===null,true);
+}
+assert.equal(caseDemo({events:[]},inventory),null);
+assert.equal(caseDemo(run,[]).product,null);
+console.log('All three case demos match their agent Build, archived preview and product manifest.');

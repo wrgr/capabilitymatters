@@ -144,7 +144,7 @@ Our proposed implication for human teams is that a project record can make impor
 
 ### Replay, artifacts, and a reusable framework
 
-The landing page exposes all three cases with routes to their replay, candidate, and downloadable handoff. In a replay, readers can move through the journal, inspect the returned agent contributions and prompts, follow scenario-to-revision links, and compare the artifacts available at that event. The temporal boundary matters: a later requirement should not be read as something the team already knew at an earlier decision. The final candidate and its manifest connect the delivered source to the recorded artifact.
+The landing page links all three cases to their replay, candidate and handoff. Replay exposes contributions, prompts, scenario-to-revision links and the artifacts available at each event. A separate Case demo tab shows the selected journal's latest executable Build, labeled with its revision and event; it follows the selected case, independently of replay position. Its source and manifest bind the candidate to the recorded artifact. A later requirement should not be read as something the team already knew at an earlier decision.
 
 The role explorer shows how common responsibilities, disciplinary roles, domain specializations, and requested proficiency targets are resolved. The local code framework can run a new seed and preserve the resulting journal and handoff. The public website hosts saved execution and replay; browsing it does not launch new agents. Recorded real-model execution, scripted rehearsal, and newly authored teaching commentary are different materials and should retain their labels.
 

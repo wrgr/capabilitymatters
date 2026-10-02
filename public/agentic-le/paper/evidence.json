@@ -190,7 +190,7 @@
       "hash": "3ac0d73c299724dc71b1dee595d27cd633e7d995c3c7fed1ca526df3e7488f96"
     }
   },
-  "manuscript_sha256": "66c64e27c6cd1b2165cc1d00661332f5077892c37bcb89c9410c848d0fc145b6",
+  "manuscript_sha256": "e2516c6060369d356bcd3a16e2b868c4a9d0d5072e6d1187c1162ad823337f6c",
   "scope": "Retrospective workforce episodes and descriptive cross-case comparison; not a human-team study, independent coding, model equivalence test or learning-effect study",
   "future_role_profiles": "Added after this live run; not retrospectively assigned",
   "human_pilot": "pending",
@@ -266,5 +266,5 @@
       "field_outcomes": "unknown"
     }
   ],
-  "pdf_sha256": "1d77e24c9e2d748a870672a06da6f43061e977dc0b6a87fed0d1bcd9b42450f7"
+  "pdf_sha256": "f2f4ffeddc86e328ef272f549a4eb024026bb5df4c2dd59f637f0472c8e02391"
 }

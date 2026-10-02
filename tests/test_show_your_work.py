@@ -4,7 +4,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 import hashlib
 import json
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, parse_qs
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -57,6 +57,8 @@ def test_agentic_paper_build() -> None:
     assert 'content="noindex, nofollow"' in page
     assert {link[1:] for link in parser.links if link.startswith("#")} <= parser.ids
     paths = {urlsplit(link).path for link in parser.links}
+    records = [link for link in parser.links if urlsplit(link).path == "/agentic-le/record/"]
+    paths.update(parse_qs(urlsplit(link).query).get("file", [""])[0] for link in records)
     assert {"/agentic-le/paper/paper.pdf", "/agentic-le/paper/manuscript.md", "/agentic-le/paper/evidence.json"} <= paths
     base = ROOT / "dist/agentic-le/paper"
     data = (base / "paper.pdf").read_bytes()
