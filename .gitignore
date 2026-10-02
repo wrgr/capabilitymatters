@@ -28,3 +28,7 @@ venv/
 
 # jetbrains setting folder
 .idea/
+
+# Private lifecycle receipts and caches; public fictional exports are explicit.
+data/lifecycle/
+data/cache/lifecycle/

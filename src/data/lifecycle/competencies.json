@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "version": "1.0.0",
+  "status": "Project simulation contract; not an adopted credentialing or proficiency standard",
+  "source": "Existing public LENS domains in src/lib/lens.ts. Proficiency descriptors below are proposed for this simulation.",
+  "domains": [
+    {
+      "id": "D1",
+      "name": "Systems Analysis"
+    },
+    {
+      "id": "D2",
+      "name": "Iterative Development"
+    },
+    {
+      "id": "D3",
+      "name": "Human-System Collaboration"
+    },
+    {
+      "id": "D4",
+      "name": "Test & Evaluation"
+    },
+    {
+      "id": "D5",
+      "name": "Sociotechnical Constraints"
+    }
+  ],
+  "proficiencies": {
+    "awareness": {
+      "name": "Awareness",
+      "expectation": "Identify the relevant issue, uncertainty and need for specialist or human review.",
+      "evidence_required": [
+        "Name a constraint in context",
+        "Identify the limit of the available evidence"
+      ]
+    },
+    "applied": {
+      "name": "Applied contribution",
+      "expectation": "Produce a bounded task artifact, compare explanations and revise it against a counterexample.",
+      "evidence_required": [
+        "A task artifact with a stated criterion",
+        "Traceable supporting and conflicting evidence",
+        "Revision after a changed condition"
+      ]
+    },
+    "integrative": {
+      "name": "Integrative orchestration",
+      "expectation": "Integrate specialist work, preserve dissent, reconcile human/system requirements and choose an accountable next action.",
+      "evidence_required": [
+        "A decision linking specialist contributions",
+        "Explicit tradeoffs and unresolved dissent",
+        "A justified return to the earliest affected stage"
+      ]
+    }
+  },
+  "claim_rule": "A requested profile is a prompt contract. Demonstrated proficiency requires reviewed performance evidence with context, conditions, coverage and limitations; inheritance never supplies that evidence."
+}

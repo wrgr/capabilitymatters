@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {verifyRun,snapshot,revisionsAt,structureCheck} from '../../../public/lifecycle-lab/replay/state.js';
+const run=JSON.parse(fs.readFileSync(new URL('../../../public/lifecycle-lab/replay/exemplar.json',import.meta.url)));
+await verifyRun(run);
+const first=run.events.find(e=>e.kind==='artifact');
+assert.deepEqual(snapshot(run,first.seq-1).artifacts,{});
+assert.equal(snapshot(run,first.seq).artifacts.understand.revision,1);
+const revised=run.events.find(e=>e.kind==='artifact'&&e.payload.id==='model'&&e.payload.revision===2);
+assert.equal(revisionsAt(run,'model',revised.seq-1).length,1);
+assert.equal(revisionsAt(run,'model',revised.seq).length,2);
+const bad=structuredClone(run);bad.events[3].payload.response.message='altered';
+await assert.rejects(()=>verifyRun(bad),/integrity/);
+const wrongMode=structuredClone(run);wrongMode.mode='live-codex';
+await assert.rejects(()=>verifyRun(wrongMode),/metadata/);
+assert.equal(structureCheck({}).length,6);
+assert.equal(structureCheck(Object.fromEntries(['observation','interpretation','opening','next-step','escalation','revision'].map(k=>[k,'present']))).length,0);
+assert.equal(structureCheck({observation:'   '}).length,6);
+console.log('Replay integrity, immutable revision visibility, metadata and practice structure checks passed.');
+
+const profileGraft=structuredClone(run);profileGraft.role_profiles={registry_version:'invented'};await assert.rejects(()=>verifyRun(profileGraft),/Role profile metadata/);

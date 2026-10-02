@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "product_name": "Readiness beyond course completion",
+  "release_state": "candidate",
+  "run_id": "20261001T224130Z-live-codex-d6a562",
+  "run_head_hash": "3ac0d73c299724dc71b1dee595d27cd633e7d995c3c7fed1ca526df3e7488f96",
+  "build_content_hash": "e4264e3633b0a7af12f262723fbd2a0e94404d9fec18e9534bc5ccec0d64fc5d",
+  "build_revision": 2,
+  "entrypoint": "candidate.html",
+  "human_pilot": "pending",
+  "field_outcomes": "unknown",
+  "technical_verification_events": [
+    98
+  ],
+  "role_profiles": {
+    "status": "Legacy role prompts; no proficiency profile was recorded or retrospectively assigned."
+  },
+  "files": {
+    "candidate.html": "230183da6a26cd0e23970e3510c3b5a19f416c0b11f5081d48f1fced4b58f4de",
+    "project-journal.json": "b1b958704ad34cbebd39999ae63f189c2854bdae5eff475e9098f655a21178d0",
+    "artifacts.json": "e6a47adc327ddc563fc54355ee86adc505ab0fd1d2b546400eed19d3a9797889",
+    "requirements.md": "d681c84ee2ea1d09b813db7a9141c2c95c55132245cc15ce026dd52cab1bf346",
+    "README.md": "b8ac845592bae30ffc51a19419a083b5a4ba72e3a2367c3d063a52f6450e75e8"
+  }
+}

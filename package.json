@@ -11,7 +11,9 @@
     "preview": "astro preview",
     "test:prototypes": "node --test tests/test_prototypes.mjs tests/test_aile_foundation.mjs tests/test_aile_access.mjs tests/test_aile_practice.mjs tests/test_lens_tools.mjs tests/test_auditor_confirmation.mjs",
     "test:prototypes:browser": "node tests/test_prototypes_browser.mjs",
-    "astro": "astro"
+    "astro": "astro",
+    "prebuild": "python3 scripts/package-lifecycle.py",
+    "test:lifecycle": "python3 -m unittest discover -s tools/lifecycle/tests -p 'test_*.py' && node tools/lifecycle/tests/test_state.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",
