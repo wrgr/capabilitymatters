@@ -29,7 +29,7 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/":
             self.send_response(302)
-            self.send_header("Location", "/lifecycle-lab/replay/")
+            self.send_header("Location", "/agentic-le/replay/")
             self.end_headers()
             return
         if self.path.startswith("/api/prototypes/"):
@@ -132,7 +132,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--port", type=int, default=8767)
     args = parser.parse_args()
-    if not (REPO / "dist/lifecycle-lab/replay/index.html").is_file():
+    if not (REPO / "dist/agentic-le/replay/index.html").is_file():
         parser.error("Build the Capability Matters site first: npm run build")
     print(f"Capability Lifecycle Lab: http://127.0.0.1:{args.port}", flush=True)
     ThreadingHTTPServer(("127.0.0.1", args.port), Handler).serve_forever()

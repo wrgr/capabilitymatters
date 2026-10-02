@@ -1,6 +1,6 @@
 # Lifecycle Lab handoff
 
-Canonical home: Capability Matters. The guide is `/lifecycle-lab/`, roles are `/lifecycle-lab/roles/`, replay is `/lifecycle-lab/replay/` and the candidate is `/lifecycle-lab/product/`. Source, shared competency definitions, inherited profiles and operating documentation live in this repository. Historical Santiago2 and private Site copies are evidence archives.
+Canonical home: Capability Matters. Public route: `/agentic-le/`, intentionally unlisted in site directories and project pages. The guide is `/agentic-le/`, roles are `/agentic-le/roles/`, replay is `/agentic-le/replay/` and the candidate is `/agentic-le/product/`. Source, shared competency definitions, inherited profiles and operating documentation live in this repository. Historical Santiago2 and private Site copies are evidence archives.
 
 | Run | Mode | Purpose and limits |
 |---|---|---|

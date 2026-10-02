@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parent
 REPO = ROOT.parents[1]
-WEB = REPO / "public" / "lifecycle-lab" / "replay"
+WEB = REPO / "public" / "agentic-le" / "replay"
 DATA = REPO / "data"
 RUNS = DATA / "lifecycle"
 CACHE = DATA / "cache" / "lifecycle"

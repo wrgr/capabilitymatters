@@ -1,6 +1,6 @@
 # Product handoff and release
 
-The lifecycle ends in a runnable candidate product. The current fictional feedback-practice product is at `/lifecycle-lab/product/`; its portable archive is `/lifecycle-lab/product/product.zip`. Replay remains at `/lifecycle-lab/replay/`.
+The lifecycle ends in a runnable candidate product. The current fictional feedback-practice product is at `/agentic-le/product/`; its portable archive is `/agentic-le/product/product.zip`. Replay remains at `/agentic-le/replay/`.
 
 The archive contains `candidate.html`, `requirements.md`, `artifacts.json`, `project-journal.json`, `manifest.json` and a README. The manifest links the product to the exact journal head and accepted Build content hash, records the Build revision and hashes each payload file. It preserves any recorded technical-verification event references. Legacy roles remain labeled legacy; proficiency is not assigned retroactively.
 

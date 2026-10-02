@@ -23,7 +23,7 @@ Command-line generation:
 python3 tools/lifecycle/engine.py --provider scripted
 CAPABILITY_MATTERS_LIVE=1 python3 tools/lifecycle/engine.py \
   --provider codex --seed seed.json --domain-profile workforce-domain \
-  --export public/lifecycle-lab/replay/new-run.json
+  --export public/agentic-le/replay/new-run.json
 ```
 
 Omit `--seed` for the existing workforce seed. `--through design` performs a partial rehearsal. Complete cycles write a portable product under `data/lifecycle/<run-id>/product/`. Raw receipts, structured responses, prompts and append-only history remain under the run; response caches and provenance are under `data/cache/lifecycle/`. Both directories stay outside Git. The run's first event pins the resolved role contract and framework. Local replay can download a candidate handoff from `/api/products/<run-id>.zip`.

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {verifyRun,snapshot,revisionsAt,structureCheck} from '../../../public/lifecycle-lab/replay/state.js';
-const run=JSON.parse(fs.readFileSync(new URL('../../../public/lifecycle-lab/replay/exemplar.json',import.meta.url)));
+import {verifyRun,snapshot,revisionsAt,structureCheck} from '../../../public/agentic-le/replay/state.js';
+const run=JSON.parse(fs.readFileSync(new URL('../../../public/agentic-le/replay/exemplar.json',import.meta.url)));
 await verifyRun(run);
 const first=run.events.find(e=>e.kind==='artifact');
 assert.deepEqual(snapshot(run,first.seq-1).artifacts,{});

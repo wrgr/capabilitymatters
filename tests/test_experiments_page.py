@@ -49,8 +49,9 @@ def test_experiment_groups() -> None:
     html = (REPO_ROOT / 'dist/experiments/index.html').read_text()
     for group in ('labs', 'research', 'creative'):
         assert f'id="{group}"' in html
-    assert html.count('class="card"') == 9
-    assert 'href="/lifecycle-lab/"' in html
+    assert html.count('class="card"') == 8
+    assert 'href="/agentic-le/"' not in html
+    assert 'href="/lifecycle-lab/"' not in html
     assert 'Supporting reading' in html
 
 
