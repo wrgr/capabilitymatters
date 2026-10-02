@@ -32,3 +32,5 @@ Static pipeline activities and replay entry scripts use versioned asset links fo
 The methods paper is now *Learning Engineering in Action*, with a matching PDF at `/agentic-le/paper/paper.pdf`. It covers all three executed cases, source-grounded workforce episodes, descriptive cross-case collaboration, and separately authored pipeline teaching commentary. The evidence audit retains each journal hash and binds the canonical manuscript and PDF. Show Your Work is a standalone LENS community paper on coupled learner and system performance toward human flourishing.
 
 Case demo alignment: replay now draws each demo directly from that case’s latest saved executable Build, with case title, revision, event and product link. The separate workforce exercise was removed from replay. Earlier versions and the journals remain unchanged.
+
+Direct case links now load only the requested journal, with a neutral loading state. The scripted rehearsal uses `?case=scripted`, so refresh preserves that explicit choice.

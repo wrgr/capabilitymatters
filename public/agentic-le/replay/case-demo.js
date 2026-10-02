@@ -5,3 +5,11 @@ export function caseDemo(run, cases=[]){
  const build=event.payload;
  return {seq:event.seq,revision:build.revision,content_hash:build.content_hash,source:build.content.prototype_html,product:cases.find(c=>c.run_id===run.id)?.product||null};
 }
+
+export function savedRunSelection(cases, search=''){
+ const id=new URLSearchParams(search).get('case')||'workforce';
+ if(id==='scripted')return {id,journal:'exemplar.json'};
+ const selected=cases.find(c=>c.id===id);
+ if(!selected)throw Error('Unknown saved case');
+ return selected;
+}

@@ -71,7 +71,7 @@ for case in json.loads((REPO / "src/data/lifecycle/cases.json").read_text()):
         assert case_run["mode"] == "live-codex"
         assert case_run["role_profiles"]["roles"]["domain"]["profile_id"] == case["domain_profile"]
         assert case_run["events"][-1]["kind"] == "completed"
-        write_product(case_run, REPO / "public" / case["product"].lstrip("/"), replay_url="/agentic-le/replay/?case=" + case["id"])
+        write_product(case_run, REPO / "public" / case["product"].lstrip("/"), replay_url="/agentic-le/replay/?case=" + case["id"] + "&v=case-demos-3")
     case_inventory.append({**case, "title": case_run["seed"]["title"], "run_id": case_run["id"],
         "mode": case_run["mode"], "events": len(case_run["events"]),
         "counts": dict(Counter(e["kind"] for e in case_run["events"])),

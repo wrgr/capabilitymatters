@@ -58,3 +58,10 @@ for(const c of inventory){
 assert.equal(caseDemo({events:[]},inventory),null);
 assert.equal(caseDemo(run,[]).product,null);
 console.log('All three case demos match their agent Build, archived preview and product manifest.');
+
+const {savedRunSelection}=await import('../../../public/agentic-le/replay/case-demo.js');
+for(const c of inventory)assert.equal(savedRunSelection(inventory,'?case='+c.id).journal,c.journal);
+assert.equal(savedRunSelection(inventory).journal,'live-exemplar.json');
+assert.equal(savedRunSelection(inventory,'?case=scripted').journal,'exemplar.json');
+assert.throws(()=>savedRunSelection(inventory,'?case=unknown'),/Unknown saved case/);
+console.log('Direct case loading and explicit scripted rehearsal selection verified.');
