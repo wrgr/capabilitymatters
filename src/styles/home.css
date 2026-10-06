@@ -17,11 +17,11 @@ body.dark-shell {
 
   /* HERO */
   .hero {
-    min-height: 88vh;
+    min-height: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 6rem 4rem 6rem;
+    justify-content: flex-start;
+    padding: 2rem 4rem 3rem;
     position: relative;
   }
   .hero::before {
@@ -47,25 +47,23 @@ body.dark-shell {
   .hero h1 {
     font-family: var(--hp-serif);
     font-weight: 400;
-    font-size: clamp(3.2rem, 7vw, 6.5rem);
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
     line-height: 1.05;
     max-width: 900px;
     color: var(--hp-cream);
     margin: 0;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.5s forwards;
+    opacity: 1;
   }
   .hero h1 em { font-style: italic; color: var(--hp-teal-light); }
   .hero-sub {
-    margin: 2.5rem 0 0;
+    margin: 1.5rem 0 0;
     font-family: var(--hp-sans);
     font-size: 1.25rem;
     font-weight: 300;
     line-height: 1.7;
     max-width: 600px;
     color: var(--hp-text-muted);
-    opacity: 0;
-    animation: fadeUp 0.8s 0.7s forwards;
+    opacity: 1;
   }
   .hero-line {
     width: 80px;
@@ -347,7 +345,7 @@ body.dark-shell {
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    .hero { padding: 5rem 2rem; min-height: 80vh; }
+    .hero { padding: 1.5rem 2rem 2.5rem; min-height: 0; }
     .statement { padding: 5rem 2rem; }
     .statement.right { align-items: flex-start; text-align: left; }
     .evidence-strip { grid-template-columns: 1fr; }
