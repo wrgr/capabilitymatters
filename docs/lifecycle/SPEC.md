@@ -24,7 +24,7 @@ The append-only journal uses sequence numbers, previous-event hashes, artifact c
 
 Replay shows only the artifacts available at the selected event, with revision comparison and evidence navigation. The generated candidate executes in a sandboxed frame with external-resource and API restrictions. Source review and interaction testing remain required. Standalone product bundles use a restrictive content security policy and fictional inputs.
 
-Capability Matters' existing GitHub Pages deployment hosts the guide, roles, products and saved replay under `/agentic-le/`. This route is intentionally unlisted: no directory, project-seed or workforce-prototype links advertise it, and its pages request search-engine exclusion. Generation remains a local authenticated Codex command-line process. The static website contains no model credential, live job service or participant records. A future hosted runner needs explicitly scoped authentication, durable jobs, secret handling, usage controls and human decisions; these are not current capabilities.
+Capability Matters' existing GitHub Pages deployment hosts the guide, roles, products and saved replay under `/agentic-le/`. The homepage links directly to the three-case guide through **Explore Agentic LE**. The working pages retain their search-engine exclusion metadata. Generation remains a local authenticated Codex command-line process. The static website contains no model credential, live job service or participant records. A future hosted runner needs explicitly scoped authentication, durable jobs, secret handling, usage controls and human decisions; these are not current capabilities.
 
 ## Acceptance
 

@@ -292,11 +292,11 @@ and educational hypotheses when revising the page.
 Performance for Capability and Human Flourishing*. Canonical text:
 `src/papers/show-your-work.md`; matching PDF: `public/papers/show-your-work.pdf`.
 
-The unlisted `/agentic-le/paper/` presents *Learning Engineering in Action:
+`/agentic-le/paper/` presents *Learning Engineering in Action:
 Agentic Simulation for Collaboration and Learning from Success and Failure*.
 Canonical text: `src/papers/learning-engineering-teams.md`; matching PDF:
 `public/agentic-le/paper/paper.pdf`. The editable manuscript and evidence audit
-are also available from that reading page. Agentic LE stays unlisted.
+are also available from that reading page. The homepage’s **Explore Agentic LE** link opens the three-case guide; the working pages retain search-engine exclusion metadata.
 
 Both PDFs use `scripts/paper_pdf.py`, with linked references, wrapped tables,
 page numbering and the canonical source hash in their metadata. The agentic

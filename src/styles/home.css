@@ -65,6 +65,22 @@ body.dark-shell {
     color: var(--hp-text-muted);
     opacity: 1;
   }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-top: 1.75rem;
+    position: relative;
+  }
+  .hero-actions .cta-btn { padding: .85rem 1.4rem; }
+  .hero-actions .cta-btn:focus-visible { outline: 2px solid var(--hp-teal-light); outline-offset: 5px; }
+  .hero-actions p {
+    margin: 0;
+    max-width: 25rem;
+    color: var(--hp-text-muted);
+    font: .95rem/1.6 var(--hp-sans);
+  }
   .hero-line {
     width: 80px;
     height: 2px;

@@ -9,7 +9,7 @@ npm run build
 python3 tools/lifecycle/server.py
 ```
 
-Open `http://127.0.0.1:8767`. The runner serves the built Capability Matters site and opens its replay workbench; rebuild after source changes. Offline scripted mode uses a fixed, labeled fictional workforce seed. It cannot refine arbitrary seeds. To enable real model calls:
+Open `http://127.0.0.1:8767`. The runner serves the built Capability Matters homepage. Choose **Explore Agentic LE** for all three cases, or open `http://127.0.0.1:8767/agentic-le/replay/` directly; rebuild after source changes. Offline scripted mode uses a fixed, labeled fictional workforce seed. It cannot refine arbitrary seeds. To enable real model calls:
 
 ```sh
 CAPABILITY_MATTERS_LIVE=1 python3 tools/lifecycle/server.py

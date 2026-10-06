@@ -1,6 +1,6 @@
 # Lifecycle Lab handoff
 
-Canonical home: Capability Matters. Public route: `/agentic-le/`, intentionally unlisted in site directories and project pages. The guide is `/agentic-le/`, roles are `/agentic-le/roles/`, replay is `/agentic-le/replay/` and the candidate is `/agentic-le/product/`. Source, shared competency definitions, inherited profiles and operating documentation live in this repository. Historical Santiago2 and private Site copies are evidence archives.
+Canonical home: Capability Matters. Public route: `/agentic-le/`, accessible from the homepage through **Explore Agentic LE**. The guide is `/agentic-le/`, roles are `/agentic-le/roles/`, replay is `/agentic-le/replay/` and the candidate is `/agentic-le/product/`. Source, shared competency definitions, inherited profiles and operating documentation live in this repository. Historical Santiago2 and private Site copies are evidence archives.
 
 | Run | Mode | Purpose and limits |
 |---|---|---|
@@ -34,3 +34,5 @@ The methods paper is now *Learning Engineering in Action*, with a matching PDF a
 Case demo alignment: replay now draws each demo directly from that case’s latest saved executable Build, with case title, revision, event and product link. The separate workforce exercise was removed from replay. Earlier versions and the journals remain unchanged.
 
 Direct case links now load only the requested journal, with a neutral loading state. The scripted rehearsal uses `?case=scripted`, so refresh preserves that explicit choice.
+
+October 6, 2026: Agentic LE is now linked from the homepage at the user’s request. The local runner serves the same homepage at port 8767; its former root-to-replay redirect was removed. Saved-case, paper and role routes retain their search-engine exclusion metadata.

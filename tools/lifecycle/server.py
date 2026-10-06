@@ -27,11 +27,6 @@ class Handler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
-        if self.path == "/":
-            self.send_response(302)
-            self.send_header("Location", "/agentic-le/replay/")
-            self.end_headers()
-            return
         if self.path.startswith("/api/prototypes/"):
             key = self.path.removeprefix("/api/prototypes/")
             if len(key) != 64 or any(c not in "0123456789abcdef" for c in key):
