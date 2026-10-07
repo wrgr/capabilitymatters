@@ -13,7 +13,7 @@
     "test:prototypes:browser": "node tests/test_prototypes_browser.mjs",
     "astro": "astro",
     "prebuild": "python3 scripts/package-lifecycle.py",
-    "test:lifecycle": "python3 -m unittest discover -s tools/lifecycle/tests -p 'test_*.py' && node tools/lifecycle/tests/test_state.mjs",
+    "test:lifecycle": "python3 -m unittest discover -s tools/lifecycle/tests -p 'test_*.py' && node tools/lifecycle/tests/test_state.mjs && node tools/lifecycle/tests/test_conversation.mjs",
     "test:pipeline": "python3 tests/test_capability_pipeline.py && node --test tests/test_pipeline_teaching.mjs"
   },
   "dependencies": {

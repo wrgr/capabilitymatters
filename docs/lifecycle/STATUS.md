@@ -38,3 +38,5 @@ Direct case links now load only the requested journal, with a neutral loading st
 October 6, 2026: Agentic LE is now linked from the homepage at the user’s request. The local runner serves the same homepage at port 8767; its former root-to-replay redirect was removed. Saved-case, paper and role routes retain their search-engine exclusion metadata.
 
 October 6, 2026: the Agentic LE landing page now surfaces all nine team roles with direct profile links. The role explorer shows responsibilities, expected contributions, inherited duties, requested LENS targets, the contribution schema and three domain specializations with case provenance. Role registry versions and historical journals are unchanged.
+
+October 7, 2026: conversational replay adds a source-linked meeting overlay and nine distinct presentation voices. Each highlight retains original-turn access, temporal visibility, decisions, hypothetical status and source hashes; neutral voices and visible-conversation export are available. Landing-page case links and the role explorer expose the mode. Runtime role registry, original journals, product candidates and paper evidence remain unchanged.

@@ -50,3 +50,11 @@ CAPABILITY_MATTERS_LIVE=1 python3 tools/lifecycle/engine.py --provider codex --s
 ```
 
 Executing these commands creates new live records; inspecting the hosted replay does not. Preserve a replaced export and its run directory before updating an exemplar. The normal build packages each case's candidate, evidence record and manifest, then produces `/agentic-le/cases.json` for case selection. Public replays use `?case=school-science` or `?case=library-access`, with an optional `&event=N` citation.
+
+## Meeting conversation
+
+Select **Meeting conversation** in the replay discussion panel, or use `?case=school-science&view=conversation`. The initial meeting view opens at the first saved stage artifact; explicit `event=` positions take precedence. It follows the same temporal snapshot and artifact revisions as recorded replay. Meeting playback skips provider requests while retaining discussion, stage and artifact checkpoints. Case switching, role filtering and timeline scrubbing work in both modes.
+
+The overlay selects the first two complete message sentences, one recorded tension and the full next-step decision. It adds authored spoken bridges from the versioned voice profiles. It does not rewrite underlying claims or infer agreement from citations. Open **Original recorded turn** for full text, advantages, drawbacks, tradeoffs, risks, capability requirements, evidence references, prompt and provider record. Hypothetical challenges, technical records and pending human gates retain their status. The role-name voice applies only to an actual contribution; run metadata is labeled as a record.
+
+**Distinct role voices** can be turned off without changing selected source text. **Export visible conversation** downloads a Markdown adaptation of only the selected snapshot and role filter, with its presentation version, run identity and source event hashes. **Export run** remains the original journal. This presentation is not a transcript of a human meeting, new agent execution, or evidence of role proficiency. Personality does not change runtime contracts.

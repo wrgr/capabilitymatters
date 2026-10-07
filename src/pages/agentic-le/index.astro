@@ -26,6 +26,7 @@ const artifacts = run.events.filter(e => e.kind === "artifact").length;
     <p class="case-counts">{c.counts.request} model calls · {c.counts.artifact} artifact versions · {c.counts.scenario} scenario challenges</p>
     <nav class="case-actions" aria-label={c.title}>
      <a class="replay-link" href={`/agentic-le/replay/?case=${c.id}&v=case-demos-3`}>Replay this case</a>
+     <a href={`/agentic-le/replay/?case=${c.id}&view=conversation&v=meeting-1`}>Join the meeting replay</a>
      <a href={c.product}>Try its candidate</a>
      <a href={`${c.product}product.zip`} download>Download record & product</a>
     </nav>
@@ -36,6 +37,7 @@ const artifacts = run.events.filter(e => e.kind === "artifact").length;
    <h2 id="team-heading">Meet the learning engineering team</h2>
    <p>The learning engineer integrates the work; specialists contribute disciplinary and domain drafts; the scenario agent challenges assumptions.</p>
    <nav class="role-links" aria-label="Explore team roles">{Object.entries(roles.roles).map(([id, role]) => <a href={`/agentic-le/roles/#${id}`}>{role.name}{id === "orchestrator" && " · orchestrator"}</a>)}</nav>
+   <p><a href="/agentic-le/replay/?view=conversation&v=meeting-1"><strong>Follow the meeting conversation</strong></a>: source-linked discussion highlights with distinct role voices and the original turns alongside them.</p>
    <p><a href="/agentic-le/roles/"><strong>See what each role contains</strong></a>: responsibilities, expected contributions, inherited duties, LENS competency targets, and domain specializations.</p>
   </section>
   <p class="paper-link"><a href="/agentic-le/paper/"><strong>Read the working paper: Learning Engineering in Action</strong></a></p>

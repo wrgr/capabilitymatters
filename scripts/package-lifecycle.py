@@ -91,3 +91,9 @@ teaching["cycle"] = {s["id"]: s for s in cycle_meta["stages"]}
 (REPO / "public/capability-pipeline/teaching.js").write_text("/* Generated from versioned teaching sources; edit src/data, not this file. */\n(function(root){root.CapabilityTeaching=" + json.dumps(teaching, ensure_ascii=False) + ";})(typeof globalThis==='undefined'?this:globalThis);\n")
 (WEB / "stage-labels.js").write_text("// Generated from src/data/capability-cycle.json. Stable keys preserve journal compatibility.\nexport const stageLabels=" + json.dumps({s["id"]:s["label"] for s in cycle_meta["stages"]}) + ";\n")
 print("Shared Map label and learner teaching commentary packaged.")
+
+# Meeting voices are a separate presentation layer, never a graft onto a run contract.
+voices = json.loads((REPO / "src/data/lifecycle/meeting-voices.json").read_text())
+assert set(voices["roles"]) == set(registry["default_roles"])
+(WEB / "meeting-voices.js").write_text("// Generated from src/data/lifecycle/meeting-voices.json; presentation only.\nexport const meetingVoices=" + json.dumps(voices, ensure_ascii=False) + ";\n")
+print("Source-linked meeting presentation voices packaged.")
