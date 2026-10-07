@@ -1,4 +1,4 @@
-import {meetingVoices} from './meeting-voices.js?v=meeting-1';
+import {meetingVoices} from './meeting-voices.js?v=meeting-2';
 import {snapshot} from './state.js';
 import {stageLabels} from './stage-labels.js';
 export const meetingKinds=new Set(['seed','contribution','decision','scenario','failure','verification','human_gate','revision_link','completed']);
@@ -41,4 +41,12 @@ export function meetingAt(run,seq,{role='all',personality=true}={}){
 export function nextMeetingEvent(run,seq,direction){
  const checkpoints=run.events.filter(e=>meetingKinds.has(e.kind)||e.kind==='artifact'||e.kind==='stage_started');
  return direction>0?(checkpoints.find(e=>e.seq>seq)?.seq||run.events.length):([...checkpoints].reverse().find(e=>e.seq<seq)?.seq||1);
+}
+
+export function conversationMarkdown(run,seq,options={}){
+ const turns=meetingAt(run,seq,options);
+ const visible=snapshot(run,seq).events;
+ const lines=['# '+run.seed.title+' · meeting adaptation','', 'Presentation version: meeting-2. Highlights selected from the saved record, with authored spoken bridges. Not a human meeting transcript or new agent execution.', 'Run: '+run.id+' · visible through event #'+seq+' · journal hash: '+(visible.at(-1)?.hash||'none'),''];
+ for(const turn of turns){lines.push('## '+turn.speaker+' · '+label(turn.stage)+' · #'+turn.seq,turn.voice,turn.hypothetical?'Hypothetical challenge, not an observed event.':'',...turn.blocks.map(b=>(b.bridge?b.bridge+' ':'')+b.text),'','Source event hash: '+turn.sourceHash,'Earlier events cited: '+turn.refs.map(r=>r.seq).join(', '),'');}
+ return lines.join('\n');
 }

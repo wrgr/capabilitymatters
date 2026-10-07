@@ -1,11 +1,11 @@
-import {meetingAt,voiceFor,nextMeetingEvent} from './conversation.js?v=meeting-1';
+import {meetingAt,voiceFor,nextMeetingEvent,conversationMarkdown} from './conversation.js?v=meeting-2';
 import {stageLabels} from './stage-labels.js';
 import {caseDemo,savedRunSelection} from './case-demo.js?v=case-demos-3';
 import {jsonTree} from '../record/json-view.js';
 import {stages,snapshot,revisionsAt,verifyRun,listFields} from './state.js';
 const $=id=>document.getElementById(id), cap=s=>stageLabels[s]||s.charAt(0).toUpperCase()+s.slice(1);
 let conversational=new URLSearchParams(location.search).get('view')==='conversation';
-let savedCases=[],run=null,seq=1,timer=null,local=false,poll=null,chosenArtifact='',followArtifacts=true,prototypeKey='',demoKey='';
+let savedCases=[],run=null,seq=1,timer=null,local=false,poll=null,chosenArtifact='',followArtifacts=true,prototypeKey='',demoKey='',conversationExportURL='';
 const element=(tag,text,cls)=>{const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(cls)el.className=cls;return el;};
 function notice(text,error=false){$('notice').textContent=text;$('notice').className=error?'error':'';}
 function stop(){clearInterval(timer);timer=null;$('play').textContent='Play';}
@@ -13,7 +13,7 @@ function move(n){stop();seq=Math.max(1,Math.min(n,run.events.length));followArti
 function download(name,value,type='application/json'){const blob=new Blob([typeof value==='string'?value:JSON.stringify(value,null,2)],{type});const a=element('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
 async function load(data){await verifyRun(data);const demoWasVisible=!$('practice-view').hidden;stop();run=data;seq=conversational?(run.events.find(e=>e.kind==='artifact')?.seq||1):1;chosenArtifact='';followArtifacts=true;$('title').textContent=run.seed.title;$('idea').textContent=run.seed.idea;$('mode').textContent=run.mode==='live-codex'?'Live model discussion · fictional project':'Scripted · fictional';$('mode').className='badge'+(run.mode==='live-codex'?' live':'');$('claim').textContent='Human approval and field outcomes pending';$('new-run').disabled=false;$('agent-filter').replaceChildren(new Option('All roles','all'));for(const [key,r] of Object.entries(run.roster||{}))$('agent-filter').add(new Option(r.name,key));$('roster').replaceChildren();for(const [key,r] of Object.entries(run.roster||{})){const box=element('div');box.append(element('strong',r.name),element('p',r.competency));const voice=voiceFor(key);if(voice)box.append(element('p','Meeting voice: '+voice.style+' · '+voice.description,'provenance'));const link=element('a','Inspect role responsibilities');link.href='/agentic-le/roles/#'+encodeURIComponent(key);box.append(link);$('roster').append(box);}const saved=savedCases.find(c=>c.run_id===run.id);$('product-link').hidden=!saved;if(saved){$('product-link').href=saved.product;$('product-link').textContent='Open selected case product';}renderDemo();view(demoWasVisible);render();notice('Journal integrity checked. Replay exposes only the discussion and artifacts available at each event.');}
 function render(){
- if(!run)return;const state=snapshot(run,seq),current=state.events.at(-1);$('run-product').hidden=!(local&&state.events.some(e=>e.kind==='completed')&&state.artifacts.build?.content.prototype_html);$('run-product').href='/api/products/'+encodeURIComponent(run.id)+'.zip';$('position').textContent=seq+' / '+run.events.length;$('scrub').max=run.events.length;$('scrub').value=seq;$('stage-label').textContent=cap(current.stage);$('back').disabled=seq<=1;$('next').disabled=seq>=run.events.length;
+ if(!run)return;clearConversationExport();const state=snapshot(run,seq),current=state.events.at(-1);$('run-product').hidden=!(local&&state.events.some(e=>e.kind==='completed')&&state.artifacts.build?.content.prototype_html);$('run-product').href='/api/products/'+encodeURIComponent(run.id)+'.zip';$('position').textContent=seq+' / '+run.events.length;$('scrub').max=run.events.length;$('scrub').value=seq;$('stage-label').textContent=cap(current.stage);$('back').disabled=seq<=1;$('next').disabled=seq>=run.events.length;
  $('stages').replaceChildren();for(const [i,stage]of stages.entries()){const first=run.events.find(e=>e.stage===stage&&e.kind==='stage_started');const b=element('button',undefined,stage===current.stage?'current':state.events.some(e=>e.stage===stage)?'past':'');b.append(element('span',String(i+1).padStart(2,'0'),'stage-number'),element('span',cap(stage)));b.disabled=!first;b.onclick=()=>move(first.seq);if(stage===current.stage)b.setAttribute('aria-current','step');$('stages').append(b);}
  renderMode();$('transcript').replaceChildren();const filter=$('agent-filter').value;const turns=state.events.filter(e=>['seed','contribution','decision','scenario','failure','verification','human_gate','revision_link','completed'].includes(e.kind)&&(filter==='all'||e.agent===filter));
  const meetingTurns=conversational?new Map(meetingAt(run,seq,{role:filter,personality:$('personality').checked}).map(t=>[t.seq,t])):null;
@@ -60,12 +60,17 @@ function meetingCard(turn,original){
 }
 function setDiscussionMode(value){stop();conversational=value;const url=new URL(location.href);if(value)url.searchParams.set('view','conversation');else url.searchParams.delete('view');history.replaceState(null,'',url);render();}
 $('meeting-mode').onclick=()=>setDiscussionMode(true);$('recorded-mode').onclick=()=>setDiscussionMode(false);$('personality').onchange=render;
-$('meeting-export').onclick=()=>{
- const turns=meetingAt(run,seq,{role:$('agent-filter').value,personality:$('personality').checked});
- const lines=['# '+run.seed.title+' · meeting adaptation','', 'Presentation version: meeting-1. Highlights selected from the saved record, with authored spoken bridges. Not a human meeting transcript or new agent execution.', 'Run: '+run.id+' · visible through event #'+seq+' · journal hash: '+run.events[seq-1].hash,''];
- for(const turn of turns){lines.push('## '+turn.speaker+' · '+cap(turn.stage)+' · #'+turn.seq,turn.voice,turn.hypothetical?'Hypothetical challenge, not an observed event.':'',...turn.blocks.map(b=>(b.bridge?b.bridge+' ':'')+b.text),'','Source event hash: '+turn.sourceHash,'Earlier events cited: '+turn.refs.map(r=>r.seq).join(', '),'');}
- download(run.id+'-conversation-through-'+seq+'.md',lines.join('\n'),'text/markdown');
+function clearConversationExport(){
+ if(conversationExportURL)URL.revokeObjectURL(conversationExportURL);conversationExportURL='';
+ $('conversation-export-result').hidden=true;$('conversation-markdown').value='';$('conversation-download').removeAttribute('href');
 }
+$('meeting-export').onclick=()=>{
+ clearConversationExport();const text=conversationMarkdown(run,seq,{role:$('agent-filter').value,personality:$('personality').checked});
+ $('conversation-markdown').value=text;conversationExportURL=URL.createObjectURL(new Blob([text],{type:'text/markdown'}));
+ const link=$('conversation-download');link.href=conversationExportURL;link.download=run.id+'-conversation-through-'+seq+'.md';
+ $('conversation-export-label').textContent='Ready to save · visible through event #'+seq+' · '+$('agent-filter').selectedOptions[0].text;
+ $('conversation-export-result').hidden=false;
+};
 
 for(const id of ['back','next'])$(id).onclick=()=>move(conversational?nextMeetingEvent(run,seq,id==='back'?-1:1):seq+(id==='back'?-1:1));$('scrub').oninput=()=>move(Number($('scrub').value));$('agent-filter').onchange=render;$('artifact-choice').onchange=()=>{chosenArtifact=$('artifact-choice').value;followArtifacts=false;render();};$('compare').onclick=()=>{$('diff').hidden=!$('diff').hidden;};
 $('play').onclick=()=>{if(timer)return stop();if(seq===run.events.length)seq=1;$('play').textContent='Pause';timer=setInterval(()=>{if(seq>=run.events.length)return stop();seq=conversational?nextMeetingEvent(run,seq,1):seq+1;followArtifacts=true;render();},Number($('speed').value));};$('speed').onchange=()=>{if(timer){stop();$('play').click();}};

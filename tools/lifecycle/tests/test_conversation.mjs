@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {meetingAt,nextMeetingEvent,voiceFor,meetingKinds} from '../../../public/agentic-le/replay/conversation.js';
+import {meetingAt,nextMeetingEvent,voiceFor,meetingKinds,conversationMarkdown} from '../../../public/agentic-le/replay/conversation.js';
 import {verifyRun} from '../../../public/agentic-le/replay/state.js';
 const root=new URL('../../../',import.meta.url);
 const voices=JSON.parse(fs.readFileSync(new URL('src/data/lifecycle/meeting-voices.json',root)));
@@ -33,6 +33,10 @@ for(const name of ['live-exemplar','school-science','library-access','exemplar']
     if(event.kind==='human_gate')assert.match(turn.speaker,/gate.*run record/);
    }
   }
+  const exportText=conversationMarkdown(run,seq);
+  for(const turn of turns)assert.ok(exportText.includes(turn.sourceHash));
+  for(const future of run.events.slice(seq))assert.ok(!exportText.includes(future.hash));
+  assert.ok(exportText.includes('visible through event #'+seq));
   const filtered=meetingAt(run,seq,{role:'learning'});
   assert.ok(filtered.every(t=>t.agent==='learning'));
   const neutral=meetingAt(run,seq,{personality:false});
@@ -51,4 +55,9 @@ event.payload.response.message='The estimate is 0.5, not proof. We do not know w
 const speech=meetingAt(run,event.seq).find(t=>t.seq===event.seq).blocks[0].text;
 assert.equal(speech,'The estimate is 0.5, not proof. We do not know whether it transfers.');
 assert.equal(voiceFor('unknown'),null);
+const filteredExport=conversationMarkdown(run,20,{role:'learning',personality:false});
+assert.ok(filteredExport.includes('#20'));
+assert.ok(!filteredExport.includes('## Learning engineer'));
+assert.ok(!filteredExport.includes('Curious, encouraging'));
+assert.ok(!filteredExport.includes(run.events[23].hash));
 console.log('All four journals: meeting highlights preserve source wording, decisions, hypothetical status, cited events, timeline boundaries and immutable records; neutral voices and playback checkpoints verified.');
