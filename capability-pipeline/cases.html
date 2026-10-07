@@ -1,0 +1,148 @@
+<!doctype html>
+<!-- Published cases activity for the Capability Pipeline working draft. --><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Capability Pipeline</title>
+
+<link rel="stylesheet" href="cases.css?v=adoption-loop-1"><link rel="stylesheet" href="coupled-loops.css?v=coupled-loops-1"></head><body>
+
+<div class="draft-banner"><b>Working draft.</b> </div>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">The iteration cycle, worked through five real cases</p>
+    <h1>The Capability Pipeline</h1>
+    <p class="lede">Eight steps, one loop: <strong>understand → map → design → build → instrument → deploy → evaluate → refine</strong> — where refine can send you all the way back to understand, not just back to adjusting what you built. The same eight questions, asked of a hospital screening workflow, a federal insurance marketplace, an airliner, a math-tutoring program at scale, and a self-driving car. What changes case to case isn't the shape of the loop — it's which single step the story actually turns on.</p>
+  </header>
+
+  <section id="diagram-section">
+    <h2>The cycle in use</h2>
+    <p class="section-sub">Follow the eight numbered steps, then use evidence to revisit the problem. Adoption and use adds a feedback path from real operation back to Understand.</p>
+    <div class="diagram-card">
+      <figure>
+        <div class="diagram-viewport" tabindex="0" aria-label="Capability cycle diagram; scroll horizontally on a small screen"><svg class="diagram-svg" viewBox="-50 -110 730 740" role="img" aria-label="Eight-step capability cycle: Understand, Map, Design, Build, Instrument, Deploy, Evaluate, Refine. A dotted return connects Refine to Understand. A second dotted path connects Refine to an unnumbered Adoption and use bubble, then returns to Understand.">
+          <title>The capability cycle, with adoption and use</title><desc>The eight numbered steps form the core cycle. Dotted arrows show both the direct Refine to Understand return and the additional Refine to Adoption and use to Understand feedback path.</desc>
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="currentColor" class="flow-arrow" style="fill: var(--ink-muted); opacity:.8"/>
+            </marker>
+            <marker id="arrow-accent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+            </marker>
+          <marker id="arrow-adoption" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="adoption-arrowhead"/></marker>
+          </defs>
+          <circle class="cycle-backdrop" cx="300" cy="300" r="176"/>
+          <circle class="cycle-guide" cx="300" cy="300" r="220"/>
+          <path class="adoption-arrow" data-from="refine" data-to="adoption-and-use" d="M 144 109 C 113 78 112 39 146 16" marker-end="url(#arrow-adoption)"/>
+          <path class="adoption-arrow" data-from="adoption-and-use" data-to="understand" d="M 264 -26 C 372 -26 397 82 338 82" marker-end="url(#arrow-adoption)"/>
+          <g class="adoption-node" id="adoption-and-use"><rect x="48" y="-64" width="216" height="76" rx="38"/><text class="adoption-label" x="156" y="-29" text-anchor="middle">Adoption and use</text><text class="adoption-sub" x="156" y="-8" text-anchor="middle">Experience informs the next cycle</text></g>
+
+          <!-- forward loop edges: each line stops at the node's circle edge (r=32), not its
+               center, so arrowheads land in the gap between nodes instead of under them -->
+          <line class="flow-arrow" x1="329.6" y1="92.2" x2="426.0" y2="132.2" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="467.8" y1="174.0" x2="507.8" y2="270.4" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="507.8" y1="329.6" x2="467.8" y2="426.0" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="426.0" y1="467.8" x2="329.6" y2="507.8" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="270.4" y1="507.8" x2="174.0" y2="467.8" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="132.2" y1="426.0" x2="92.2" y2="329.6" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="92.2" y1="270.4" x2="132.2" y2="174.0" marker-end="url(#arrow)"/>
+
+          <!-- refine -> understand, the return trip: routed inside the ring so it never crosses
+               the outer step labels, and pulled back from both node centers to the circle edge
+               (r=32) along the curve's own tangent so neither the stroke nor the arrowhead is
+               hidden under a node -->
+          <path class="loop-arrow" d="M 173 159 C 234 198 295 170 299 115" marker-end="url(#arrow-accent)"/>
+          
+
+          <!-- center label -->
+          <text class="center-label" x="300" y="296" text-anchor="middle">Capability</text>
+          <text class="center-label" x="300" y="316" text-anchor="middle">through iteration</text>
+
+          <!-- nodes -->
+          <g class="step-node" data-pair="frame"><circle cx="300" cy="80" r="32"/><text class="num" x="300" y="86" text-anchor="middle">1</text><text class="lbl" x="300" y="38" text-anchor="middle">Understand</text><g transform="translate(317,68) scale(0.4)" aria-hidden="true"><path class="start-star" d="M0,-10 L2.35,-3.09 L9.51,-3.09 L3.82,1.18 L5.88,8.09 L0,3.82 L-5.88,8.09 L-3.82,1.18 L-9.51,-3.09 L-2.35,-3.09 Z"/></g></g>
+          <g class="step-node" data-pair="frame"><circle cx="455.6" cy="144.4" r="32"/><text class="num" x="455.6" y="150.4" text-anchor="middle">2</text><text class="lbl" x="500" y="120" text-anchor="start">Map</text></g>
+          <g class="step-node" data-pair="create"><circle cx="520" cy="300" r="32"/><text class="num" x="520" y="306" text-anchor="middle">3</text><text class="lbl" x="562" y="296" text-anchor="start">Design</text></g>
+          <g class="step-node" data-pair="create"><circle cx="455.6" cy="455.6" r="32"/><text class="num" x="455.6" y="461.6" text-anchor="middle">4</text><text class="lbl" x="500" y="488" text-anchor="start">Build</text></g>
+          <g class="step-node" data-pair="operate"><circle cx="300" cy="520" r="32"/><text class="num" x="300" y="526" text-anchor="middle">5</text><text class="lbl" x="300" y="568" text-anchor="middle">Instrument</text></g>
+          <g class="step-node" data-pair="operate"><circle cx="144.4" cy="455.6" r="32"/><text class="num" x="144.4" y="461.6" text-anchor="middle">6</text><text class="lbl" x="100" y="488" text-anchor="end">Deploy</text></g>
+          <g class="step-node" data-pair="learn"><circle cx="80" cy="300" r="32"/><text class="num" x="80" y="306" text-anchor="middle">7</text><text class="lbl" x="38" y="296" text-anchor="end">Evaluate</text></g>
+          <g class="step-node" data-pair="learn"><circle cx="144.4" cy="144.4" r="32"/><text class="num" x="144.4" y="150.4" text-anchor="middle">8</text><text class="lbl" x="100" y="120" text-anchor="end">Refine</text></g>
+        </svg></div>
+        <figcaption><strong class="return-caption">Refine → Understand</strong><span>The direct dotted return keeps the core cycle revisitable.</span><strong class="adoption-caption">Refine → Adoption and use → Understand</strong><span>The additional dotted path brings experience of adoption and use into the next understanding of the challenge. Adoption and use is unnumbered; the core cycle still has eight steps.</span></figcaption>
+      </figure>
+
+      <div class="step-legend" id="step-legend"></div>
+
+      <div class="callout">
+        <p><strong>The step that decides the story is rarely evaluate.</strong> It's usually earlier — design, build, or instrument — because those steps determine what evaluate is even able to see. A system instrumented to track only its own headline metric cannot evaluate a cost that metric doesn't measure.</p>
+        <p>Below, five cases — one apiece from government services, aviation, healthcare, education, and autonomous vehicles — are walked through all eight steps. Each carries one clearly marked point where a different upstream decision would plausibly have produced a different downstream result.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases-section">
+    <p class="teaching-boundary"><strong>Learning guide.</strong> Open a step for why it matters, a decision cue and a question to apply to this case. Teaching commentary is an interpretation of the presented narrative, not new historical evidence. In Find the turn and Predict first, the decision-specific explanation appears only after your guess or reveal.</p>
+    <h2>Pick a case</h2>
+    <p class="section-sub">Same eight steps, five different systems. Each card names the domain, the real frame, and how the case actually turned out. Three ways to work a case are below the picker — study it worked out, find where it turns yourself, or commit to a call before you're shown what happened.</p>
+    <div class="case-grid" id="case-grid"></div>
+
+    <div class="explorer" id="explorer">
+      <div class="explorer-head">
+        <div>
+          <h3 id="exp-title"></h3>
+          <p class="frame" id="exp-frame"></p>
+        </div>
+        <span class="tag" id="exp-domain"></span>
+      </div>
+
+      <div class="mode-bar">
+        <span class="mode-label">Mode</span>
+        <div class="mode-toggle" id="mode-toggle">
+          <button type="button" data-mode="study">Study</button>
+          <button type="button" data-mode="find">Find the turn</button>
+          <button type="button" data-mode="predict">Predict first</button>
+        </div>
+        <p class="mode-desc" id="mode-desc"></p>
+      </div>
+
+      <div class="stepper" id="stepper"></div>
+    </div>
+  </section>
+
+  <section id="capability-coupled-loops" aria-labelledby="coupled-loops-heading">
+    <p class="eyebrow">Integrative Practice</p>
+    <h2 id="coupled-loops-heading">Learners and systems develop together</h2>
+    <p class="section-sub">The eight steps support linked cycles of learner development and system evolution. Joint practice couples them at every step: people influence the system, and experience with the system shapes learning.</p>
+    <div class="diagram-card">
+      <figure>
+        <div class="ccl-legend" aria-label="Arrow meanings">
+          <span><i class="ccl-solid" aria-hidden="true"></i>Development, contributions and evidence</span>
+          <span><i class="ccl-feedback" aria-hidden="true"></i>Feedback and revision</span>
+        </div>
+        <div class="diagram-viewport" tabindex="0" aria-label="Coupled loops diagram; scroll horizontally on a narrow screen">
+  <svg class="ccl-diagram" role="img" aria-labelledby="ccl-title ccl-description">
+    <title id="ccl-title">Learner development and system evolution coupled through joint practice</title>
+    <desc id="ccl-description">A shared challenge guides two parallel loops. Learner development creates learning conditions, implements teaching and practice, and investigates knowledge, skill and agency. System evolution creates requirements and designs, implements deployment and operation, and investigates performance. Each loop revises its creation step. Both contribute continuously to joint practice, which couples their work during creation, implementation and investigation. Joint-practice findings revise learning and systems. Evidence of collective capability, effective use and learner flourishing feeds back to shared goals, resources and conditions.</desc>
+  </svg>
+        </div>
+        <figcaption>Read down the solid arrows for contributions and evidence, and follow the dashed arrows back for revision. Joint practice is continuous throughout both loops. Its position below them shows their connection; it does not add a later step.</figcaption>
+      </figure>
+      <dl class="ccl-stage-links">
+        <div><dt>Understand &amp; Map — agree on the challenge</dt><dd><p>Bring learner goals, existing knowledge, system needs and operating conditions into the same picture. Learners help define success and influence choices.</p><small>Ask: whose goals and requirements shape the work?</small></dd></div>
+        <div><dt>Design &amp; Build — create together</dt><dd><p>Co-design learning conditions and system behavior. Make roles, control and opportunities for creative partnership explicit, then test how they work together.</p><small>Ask: what should people learn, and what should the system enable?</small></dd></div>
+        <div><dt>Instrument &amp; Deploy — support effective use</dt><dd><p>Plan measurement of learning, system quality and joint performance. Deployment makes a system available; adoption, effective use and sustainable support require attention in real practice.</p><small>Ask: what can we observe, and what makes successful use possible?</small></dd></div>
+        <div><dt>Evaluate &amp; Refine — revise both loops</dt><dd><p>Examine learner knowledge, capability and flourishing alongside technical requirements and collective results. Joint performance alone does not establish independent learner competence.</p><small>Ask: what evidence calls for a change to teaching, the system, or the shared challenge?</small></dd></div>
+      </dl>
+      <div class="callout">
+        <p><strong>Integrative Practice keeps the loops coherent.</strong> Connect each choice to its rationale, evidence needs and subsequent revisions. Use findings from authentic practice to revisit goals, resources, roles and learning conditions.</p>
+        <p>This is a conceptual view of how the eight-step cycle fits together. Learner development, system evolution and collective capability each need their own evidence.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Sources.</strong> Healthcare.gov and Boeing 737 MAX / MCAS are drawn from LEN 1 Module 1's reviewed case materials; the two crashes and the subsequent MCAS redesign are well-established public record (NTSB/FAA), not casebook-specific detail. Case 32 (Annual-Screening UI Redesign, University of Missouri Health Care), Case 84 (Cognitive Tutor Algebra I at Scale, RAND Corporation trial), and Case 183 (Uber ATG / Tempe fatality, NTSB) are drawn from the Capability Matters Casebook (course edition) via LEN 1 Module 5. Every branch point is a clearly marked hypothetical built from the case's own named mechanism — not a documented alternate history. Companion course note: "The eight-step iteration cycle," LEN 1 course notes.</p>
+    <p><strong>The three modes.</strong> Built 2026-09-23 around a 4C/ID-informed course design (whole-task practice with fading scaffolding; the worked-example effect for early study, shifting toward independent problem-solving; Kapur's productive failure for a short commit-before-reveal moment). Study is the worked example: everything shown, the turn marked. Find the turn removes the marker and asks students to locate and defend it themselves — the same case, a harder ask. Predict first stops the story right before the turn and asks for a real commitment before revealing what happened, so the prediction is made under genuine uncertainty rather than in hindsight. Which mode a given case uses in a given week is an assignment-design decision, not a property of the case — the same case can serve as this week's worked example and a later week's "find the turn" exercise.</p>
+  </footer>
+</div>
+
+<script src="teaching.js?v=map-teaching-1"></script><script src="cases.js?v=map-teaching-1"></script>
+<script src="coupled-loops.js?v=coupled-loops-1"></script>
+</body></html>
