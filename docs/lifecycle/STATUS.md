@@ -53,3 +53,5 @@ Two further refinements authorized October 12:
 | `data/lifecycle/20261012T200822Z-live-codex-1f8ed5` | Library journey | 26 events / 9 requests; actual candidate written and syntax checked; implementation deadline retained; source-review authorization pending. |
 
 Both use registry 1.2.0/framework 1.1.0 and domain-specific seeds under `src/data/lifecycle/seeds/`. Product acceptance plans were written before implementation under `data/lifecycle/integration/<case>/acceptance-plan.json`. No new human or field evidence.
+
+Local runner restarted October 12 with the updated source and existing authenticated live-mode gate. PID recorded in `data/lifecycle/local-server.pid`; log in `data/lifecycle/local-server.log`. Loopback port 8767; HTTP status and homepage **Explore Agentic LE** link checked, with no active run. No local browser check was performed. Latest reusable framework verification: 24 offline Python tests, Node journal/demo/source/meeting/full-brief checks, site build, and both unchanged paper audits passed. Source review for the two generated unpublished prototypes requires the pending explicit authorization; neither is packaged as an accepted Build.
