@@ -42,6 +42,17 @@ class ProfileProductTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 resolve_profile(registry, self.framework, "workforce-domain")
 
+    def test_task_lenses_inherit_and_reject_unknown_subdomains(self):
+        domain = load_contract("school-science-domain")["roles"]["domain"]
+        self.assertIn("D1.problem", domain["focus_lenses"])
+        self.assertIn("D5.context", domain["focus_lenses"])
+        bad = copy.deepcopy(self.registry)
+        bad["profiles"]["domain"]["focus_lenses"] = ["D9.fabricated"]
+        with self.assertRaisesRegex(ValueError, "task lens"):
+            resolve_profile(bad, self.framework, "school-science-domain")
+        domain["focus_lenses"].append("mutated")
+        self.assertNotIn("mutated", load_contract("school-science-domain")["roles"]["domain"]["focus_lenses"])
+
     def test_domain_selection_pins_profile_and_metadata(self):
         contract = load_contract("workforce-domain")
         with tempfile.TemporaryDirectory() as folder:

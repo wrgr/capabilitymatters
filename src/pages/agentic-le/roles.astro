@@ -63,6 +63,7 @@ const profiles = [...team, ...specializations];
      <h4>Responsibilities added by this profile</h4>
      <ul>{registry.profiles[id].duties.map(duty => <li>{duty}</li>)}</ul>
      <p class="inheritance"><strong>Inherits from:</strong> {profile.lineage.slice(0, -1).map((key, i) => <>{i > 0 && " → "}<a href={key === "contributor" || key === "specialist" ? "#shared" : `#${key}`}>{registry.profiles[key].name}</a></>)}. <a href="#shared">Review shared responsibilities</a>.</p>
+     {profile.focus_lenses?.length > 0 && <><h4>Assigned simulation subdomains</h4><p class="provenance">Proposed task lenses for this simulation, awaiting community review; these are not an adopted LENS subdomain taxonomy or demonstrated expertise.</p><ul>{profile.focus_lenses.map(key => {const lens=framework.task_lenses.find(l=>l.id===key);return lens && <li><strong>{lens.name} ({domains[lens.domain]}).</strong> {lens.question}</li>;})}</ul></>}
      <h4>Requested LENS competency targets</h4>
      <dl class="targets">{Object.entries(framework.proficiencies).map(([level, descriptor]) => {
       const entries = Object.entries(profile.proficiency_targets).filter(([, target]) => target === level);
@@ -89,7 +90,7 @@ const profiles = [...team, ...specializations];
   </section>
   <section aria-labelledby="reuse-heading">
    <h2 id="reuse-heading">Reuse and extend the roles</h2>
-   <p><strong>Registry {contract.registry_version}; framework {contract.framework_version}.</strong> Extend an existing concrete profile in the versioned registry, name the domain assumptions and required practitioner validation, then test resolution. New runs store the exact resolved profiles and framework hashes. Historical runs retain their original contracts.</p>
+   <p><strong>Registry {contract.registry_version}; framework {contract.framework_version}.</strong> Extend an existing concrete profile in the versioned registry, assign relevant task lenses, name the domain assumptions and required practitioner validation, then test resolution. New runs store the exact resolved profiles and framework hashes. Historical runs retain their original contracts.</p>
    <p>A future authoritative competency framework needs source and version identifiers, an explicit crosswalk and separately reviewed proficiency evidence. A name match or successful model response does not establish equivalence. Runtime permissions and human approval boundaries do not expand through role inheritance.</p>
    <p><a href="/agentic-le/record/?file=%2Fagentic-le%2Froles.json">Resolved role contract</a> · <a href="https://github.com/wrgr/capabilitymatters/tree/main/src/data/lifecycle">Versioned registry source</a> · <a href="https://github.com/wrgr/capabilitymatters/blob/main/docs/lifecycle/ROLES.md">Role documentation</a> · <a href="https://github.com/wrgr/capabilitymatters/blob/main/docs/lifecycle/PROFICIENCY.md">Evidence and proficiency rules</a></p>
   </section>

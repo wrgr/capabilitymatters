@@ -1,3 +1,4 @@
+import {reviewContext} from './brief.js?v=quality-1';
 import {meetingAt,voiceFor,nextMeetingEvent,conversationMarkdown} from './conversation.js?v=meeting-2';
 import {stageLabels} from './stage-labels.js';
 import {caseDemo,savedRunSelection} from './case-demo.js?v=case-demos-3';
@@ -35,7 +36,7 @@ function render(){
  }
  if(!turns.length)$('transcript').append(element('p','No visible contribution from this role yet.','empty'));$('transcript').scrollTop=$('transcript').scrollHeight;
  const latest=state.events.filter(e=>e.kind==='artifact').at(-1);if(followArtifacts&&latest)chosenArtifact=latest.payload.id;if(!state.artifacts[chosenArtifact])chosenArtifact=Object.keys(state.artifacts).at(-1)||'';
- $('artifact-choice').replaceChildren();for(const [id,a]of Object.entries(state.artifacts))$('artifact-choice').add(new Option(cap(id)+' · '+a.content.title+' · v'+a.revision,id));$('artifact-choice').value=chosenArtifact;const a=state.artifacts[chosenArtifact];$('artifact').hidden=!a;$('artifact-empty').hidden=!!a;$('compare').disabled=!a||a.revision<2;$('artifact-export').disabled=!a;$('revision-label').textContent=a?'v'+a.revision:'No revision yet';
+ $('artifact-choice').replaceChildren();for(const [id,a]of Object.entries(state.artifacts))$('artifact-choice').add(new Option(cap(id)+' · '+a.content.title+' · v'+a.revision,id));$('artifact-choice').value=chosenArtifact;const a=state.artifacts[chosenArtifact];$('artifact').hidden=!a;$('artifact-empty').hidden=!!a;$('compare').disabled=!a||a.revision<2;$('artifact-export').disabled=!a;$('artifact-expand').disabled=!a;updateBrief(a);$('revision-label').textContent=a?'v'+a.revision:'No revision yet';
  if(a){$('artifact-title').textContent=a.content.title;$('artifact-body').textContent=a.content.body;$('artifact-provenance').textContent='Learning engineer · '+cap(chosenArtifact)+' · revision '+a.revision+' · decision #'+a.trigger_seq;const history=revisionsAt(run,chosenArtifact,seq),prior=history.at(-2);$('diff').hidden=true;if(prior){$('previous-body').textContent=prior.content.body;const trigger=state.events.find(e=>e.seq===a.trigger_seq);$('change-reason').textContent=trigger?.payload.response.decision||'See triggering decision.';}
   const html=a.content.prototype_html||'';$('prototype').hidden=!html;if(a.content_hash!==prototypeKey){prototypeKey=a.content_hash;$('prototype-source').textContent=html;$('prototype-frame').src=html?(local?'/api/prototypes/':'artifacts/')+a.content_hash+(local?'':'.html'):'about:blank';}
  }else{$('prototype').hidden=true;$('prototype-frame').src='about:blank';prototypeKey='';}
@@ -75,6 +76,28 @@ $('meeting-export').onclick=()=>{
 for(const id of ['back','next'])$(id).onclick=()=>move(conversational?nextMeetingEvent(run,seq,id==='back'?-1:1):seq+(id==='back'?-1:1));$('scrub').oninput=()=>move(Number($('scrub').value));$('agent-filter').onchange=render;$('artifact-choice').onchange=()=>{chosenArtifact=$('artifact-choice').value;followArtifacts=false;render();};$('compare').onclick=()=>{$('diff').hidden=!$('diff').hidden;};
 $('play').onclick=()=>{if(timer)return stop();if(seq===run.events.length)seq=1;$('play').textContent='Pause';timer=setInterval(()=>{if(seq>=run.events.length)return stop();seq=conversational?nextMeetingEvent(run,seq,1):seq+1;followArtifacts=true;render();},Number($('speed').value));};$('speed').onchange=()=>{if(timer){stop();$('play').click();}};
 $('export').onclick=()=>run&&download(run.id+'.json',run);$('import').onclick=()=>$('file').click();$('file').onchange=async()=>{const file=$('file').files[0];if(!file)return;try{if(file.size>12000000)throw Error('Run file exceeds 12 MB');clearInterval(poll);await load(JSON.parse(await file.text()));}catch(e){notice('Could not load run: '+e.message,true);}finally{$('file').value='';}};
+
+function updateBrief(artifact){
+ $('brief-full-text').textContent=artifact?.content.body||'';$('brief-context').replaceChildren();
+ if(!artifact){if($('brief-dialog').open)$('brief-dialog').close();return;}
+ const context=reviewContext(run,seq,chosenArtifact);
+ $('brief-dialog-title').textContent=artifact.content.title;
+ $('brief-dialog-provenance').textContent=run.seed.title+' · '+cap(chosenArtifact)+' · revision '+artifact.revision+' · decision #'+context.decision+' · '+artifact.content.body.length.toLocaleString()+' characters · visible through event #'+seq;
+ const group=(title,items,empty)=>{const section=element('section');section.append(element('h4',title));if(items.length){const ul=element('ul');for(const item of items)ul.append(element('li',item));section.append(ul);}else section.append(element('p',empty,'provenance'));$('brief-context').append(section);};
+ group('Human capability intended',context.human,'No separate human capability statement was supplied in this decision.');
+ group('System capability intended',context.system,'No separate system capability statement was supplied in this decision.');
+ group('Tradeoffs and retained objections',[...context.tradeoffs,...context.objections],'No tradeoff or objection was supplied in these decision fields. Inspect the full discussion.');
+ group('Risks and flourishing questions',[...context.risks,...context.flourishing],'No separate statement was supplied in these decision fields.');
+ const evidence=element('section');evidence.append(element('h4','Verification linked to this exact artifact'));
+ if(context.checks.length)for(const check of context.checks){const p=element('p',check.payload.message||'Inspect the verification record.');const b=element('button','Review check #'+check.seq+' · '+(check.payload.status||'status unspecified'));b.onclick=()=>{$('brief-dialog').close();move(check.seq);};evidence.append(p,b);}else evidence.append(element('p','No verification linked to this exact artifact is visible at the selected event. This is missing evidence, not a failed test.'));
+ evidence.append(element('p','Human review and real-world learning, transfer and flourishing require separate evidence.','provenance'));$('brief-context').append(evidence);
+ const sources=element('section');sources.append(element('h4','Contributions cited by this decision'));
+ for(const contribution of context.contributions){const box=element('div',undefined,'brief-contributor');const b=element('button',contribution.name+' #'+contribution.seq);b.onclick=()=>{$('brief-dialog').close();move(contribution.seq);};box.append(b,element('p',contribution.message));if(contribution.lenses.length)box.append(element('p','Assigned simulation lenses: '+contribution.lenses.map(l=>l.name).join(' · '),'provenance'));sources.append(box);}
+ if(context.legacy)sources.append(element('p','This historical run has no proposed subdomain lens assignments. Current lenses are not retroactively assigned.','provenance'));
+ $('brief-context').append(sources);
+}
+$('artifact-expand').onclick=()=>{$('brief-dialog').showModal();$('brief-dialog').scrollTop=0;};$('brief-close').onclick=()=>$('brief-dialog').close();
+
 $('artifact-export').onclick=()=>{const a=snapshot(run,seq).artifacts[chosenArtifact];if(a)download(chosenArtifact+'-v'+a.revision+'.json',a);};
 $('run-choice').onchange=async()=>{
  const choice=$('run-choice').value, previous=run;

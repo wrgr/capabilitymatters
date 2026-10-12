@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "version": "1.1.0",
-  "framework_version": "1.0.0",
+  "version": "1.2.0",
+  "framework_version": "1.1.0",
   "default_roles": [
     "orchestrator",
     "learning",
@@ -39,7 +39,8 @@
       "name": "Specialist draft contributor",
       "competency": "Apply a bounded discipline to the current problem; brief the orchestrator and state limits.",
       "duties": [
-        "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval."
+        "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+        "Tie each proposed product requirement to a specific user interaction, its purpose, and an observable acceptance check; preserve uncertainty and explain what changed after a challenge."
       ]
     },
     "orchestrator": {
@@ -56,7 +57,20 @@
         "D3": "integrative",
         "D4": "integrative",
         "D5": "integrative"
-      }
+      },
+      "focus_lenses": [
+        "D1.problem",
+        "D1.coupling",
+        "D2.practice",
+        "D2.prototyping",
+        "D3.agency",
+        "D3.delegation",
+        "D4.evidence",
+        "D4.transfer",
+        "D4.verification",
+        "D5.context",
+        "D5.privacy"
+      ]
     },
     "learning": {
       "extends": "specialist",
@@ -70,7 +84,11 @@
         "D2": "applied",
         "D3": "applied",
         "D4": "applied"
-      }
+      },
+      "focus_lenses": [
+        "D2.practice",
+        "D4.transfer"
+      ]
     },
     "systems": {
       "extends": "specialist",
@@ -84,7 +102,12 @@
         "D1": "applied",
         "D2": "applied",
         "D5": "applied"
-      }
+      },
+      "focus_lenses": [
+        "D1.problem",
+        "D1.coupling",
+        "D4.verification"
+      ]
     },
     "design": {
       "extends": "specialist",
@@ -98,7 +121,12 @@
         "D2": "applied",
         "D3": "applied",
         "D5": "applied"
-      }
+      },
+      "focus_lenses": [
+        "D2.prototyping",
+        "D3.agency",
+        "D5.context"
+      ]
     },
     "measurement": {
       "extends": "specialist",
@@ -111,7 +139,12 @@
       "proficiency_targets": {
         "D1": "applied",
         "D4": "applied"
-      }
+      },
+      "focus_lenses": [
+        "D4.evidence",
+        "D4.transfer",
+        "D4.verification"
+      ]
     },
     "responsible": {
       "extends": "specialist",
@@ -125,7 +158,11 @@
         "D3": "applied",
         "D4": "applied",
         "D5": "applied"
-      }
+      },
+      "focus_lenses": [
+        "D3.delegation",
+        "D5.privacy"
+      ]
     },
     "implementation": {
       "extends": "specialist",
@@ -138,7 +175,11 @@
       "proficiency_targets": {
         "D2": "applied",
         "D4": "applied"
-      }
+      },
+      "focus_lenses": [
+        "D2.prototyping",
+        "D4.verification"
+      ]
     },
     "domain": {
       "extends": "specialist",
@@ -152,7 +193,11 @@
         "D1": "applied",
         "D3": "applied",
         "D5": "applied"
-      }
+      },
+      "focus_lenses": [
+        "D1.problem",
+        "D5.context"
+      ]
     },
     "scenario": {
       "extends": "contributor",
@@ -166,7 +211,12 @@
         "D1": "applied",
         "D4": "applied",
         "D5": "applied"
-      }
+      },
+      "focus_lenses": [
+        "D1.coupling",
+        "D3.agency",
+        "D4.verification"
+      ]
     },
     "workforce-domain": {
       "extends": "domain",

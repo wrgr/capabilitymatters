@@ -1,11 +1,11 @@
 {
-  "registry_version": "1.1.0",
-  "framework_version": "1.0.0",
-  "registry_hash": "63cb15d290f81333af15171e876c1507c78de15d4c96f609916a0fe457e51997",
-  "framework_hash": "1e12a341eae54d577c3dcf54f9187fad336fb59a8d8d74312771221ccc9be961",
+  "registry_version": "1.2.0",
+  "framework_version": "1.1.0",
+  "registry_hash": "e33a7184d20e797d5b151004466d624bf07bedf07183c3b09b4173665fb7c96e",
+  "framework_hash": "aeee599237ed27ae95cd1ce877e5b83b3eda5b4247a6739ab484429474a4c175",
   "framework": {
     "schema_version": 1,
-    "version": "1.0.0",
+    "version": "1.1.0",
     "status": "Project simulation contract; not an adopted credentialing or proficiency standard",
     "source": "Existing public LENS domains in src/lib/lens.ts. Proficiency descriptors below are proposed for this simulation.",
     "domains": [
@@ -58,7 +58,76 @@
         ]
       }
     },
-    "claim_rule": "A requested profile is a prompt contract. Demonstrated proficiency requires reviewed performance evidence with context, conditions, coverage and limitations; inheritance never supplies that evidence."
+    "claim_rule": "A requested profile is a prompt contract. Demonstrated proficiency requires reviewed performance evidence with context, conditions, coverage and limitations; inheritance never supplies that evidence.",
+    "task_lens_status": "Proposed simulation subdomains for task focus; not an adopted LENS taxonomy, credential or proficiency scale.",
+    "task_lenses": [
+      {
+        "id": "D1.problem",
+        "domain": "D1",
+        "name": "Problem framing and rival explanations",
+        "question": "What problem is actually being solved, for whom, and what non-learning explanation could account for it?"
+      },
+      {
+        "id": "D1.coupling",
+        "domain": "D1",
+        "name": "Coupled requirements and dependencies",
+        "question": "What must people and the system each be able to do, and which support conditions make their joint performance possible?"
+      },
+      {
+        "id": "D2.practice",
+        "domain": "D2",
+        "name": "Practice, feedback and revision",
+        "question": "What meaningful decision does the learner make, what changes as a consequence, and how can they reconsider it?"
+      },
+      {
+        "id": "D2.prototyping",
+        "domain": "D2",
+        "name": "Interaction design and executable prototyping",
+        "question": "Which concrete interaction makes the requirement real, and how can a reviewer exercise it?"
+      },
+      {
+        "id": "D3.agency",
+        "domain": "D3",
+        "name": "Participation, agency and correction",
+        "question": "Who controls the tool, whose explanation is represented, and how can people dissent, correct, pass or choose another route?"
+      },
+      {
+        "id": "D3.delegation",
+        "domain": "D3",
+        "name": "Delegation and accountable decisions",
+        "question": "Which decisions are supported by the tool, which remain human, and where could the interface imply unjustified authority?"
+      },
+      {
+        "id": "D4.evidence",
+        "domain": "D4",
+        "name": "Evidence, comparison and inference",
+        "question": "What task evidence would support or weaken the claim, and what would the available comparison actually establish?"
+      },
+      {
+        "id": "D4.transfer",
+        "domain": "D4",
+        "name": "Retention and transfer",
+        "question": "How is immediate supported performance distinguished from later performance in a changed context?"
+      },
+      {
+        "id": "D4.verification",
+        "domain": "D4",
+        "name": "Behavioral verification and recovery",
+        "question": "Which observed interaction confirms the implemented behavior, including failure, correction and recovery?"
+      },
+      {
+        "id": "D5.context",
+        "domain": "D5",
+        "name": "Access, workload and contextual fit",
+        "question": "What language, device, time, workflow and support conditions make this usable, and who bears the work?"
+      },
+      {
+        "id": "D5.privacy",
+        "domain": "D5",
+        "name": "Privacy and shared-device boundaries",
+        "question": "What is visible, retained or disclosed, and what can someone actually control during an interruption or handoff?"
+      }
+    ]
   },
   "roles": {
     "orchestrator": {
@@ -75,6 +144,19 @@
         "D4": "integrative",
         "D5": "integrative"
       },
+      "focus_lenses": [
+        "D1.problem",
+        "D1.coupling",
+        "D2.practice",
+        "D2.prototyping",
+        "D3.agency",
+        "D3.delegation",
+        "D4.evidence",
+        "D4.transfer",
+        "D4.verification",
+        "D5.context",
+        "D5.privacy"
+      ],
       "lineage": [
         "contributor",
         "orchestrator"
@@ -92,6 +174,7 @@
         "State human and system capability requirements; examine agency, dignity, access and workload.",
         "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
         "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+        "Tie each proposed product requirement to a specific user interaction, its purpose, and an observable acceptance check; preserve uncertainty and explain what changed after a challenge.",
         "Tie the contribution to the current seed and actual earlier journal events."
       ],
       "proficiency_targets": {
@@ -101,6 +184,10 @@
         "D4": "applied",
         "D5": "awareness"
       },
+      "focus_lenses": [
+        "D2.practice",
+        "D4.transfer"
+      ],
       "lineage": [
         "contributor",
         "specialist",
@@ -119,6 +206,7 @@
         "State human and system capability requirements; examine agency, dignity, access and workload.",
         "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
         "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+        "Tie each proposed product requirement to a specific user interaction, its purpose, and an observable acceptance check; preserve uncertainty and explain what changed after a challenge.",
         "Tie the contribution to the current seed and actual earlier journal events."
       ],
       "proficiency_targets": {
@@ -128,6 +216,11 @@
         "D4": "awareness",
         "D5": "applied"
       },
+      "focus_lenses": [
+        "D1.problem",
+        "D1.coupling",
+        "D4.verification"
+      ],
       "lineage": [
         "contributor",
         "specialist",
@@ -146,6 +239,7 @@
         "State human and system capability requirements; examine agency, dignity, access and workload.",
         "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
         "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+        "Tie each proposed product requirement to a specific user interaction, its purpose, and an observable acceptance check; preserve uncertainty and explain what changed after a challenge.",
         "Tie the contribution to the current seed and actual earlier journal events."
       ],
       "proficiency_targets": {
@@ -155,6 +249,11 @@
         "D4": "awareness",
         "D5": "applied"
       },
+      "focus_lenses": [
+        "D2.prototyping",
+        "D3.agency",
+        "D5.context"
+      ],
       "lineage": [
         "contributor",
         "specialist",
@@ -173,6 +272,7 @@
         "State human and system capability requirements; examine agency, dignity, access and workload.",
         "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
         "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+        "Tie each proposed product requirement to a specific user interaction, its purpose, and an observable acceptance check; preserve uncertainty and explain what changed after a challenge.",
         "Tie the contribution to the current seed and actual earlier journal events."
       ],
       "proficiency_targets": {
@@ -182,6 +282,11 @@
         "D4": "applied",
         "D5": "awareness"
       },
+      "focus_lenses": [
+        "D4.evidence",
+        "D4.transfer",
+        "D4.verification"
+      ],
       "lineage": [
         "contributor",
         "specialist",
@@ -200,6 +305,7 @@
         "State human and system capability requirements; examine agency, dignity, access and workload.",
         "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
         "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+        "Tie each proposed product requirement to a specific user interaction, its purpose, and an observable acceptance check; preserve uncertainty and explain what changed after a challenge.",
         "Tie the contribution to the current seed and actual earlier journal events."
       ],
       "proficiency_targets": {
@@ -209,6 +315,10 @@
         "D4": "applied",
         "D5": "applied"
       },
+      "focus_lenses": [
+        "D3.delegation",
+        "D5.privacy"
+      ],
       "lineage": [
         "contributor",
         "specialist",
@@ -227,6 +337,7 @@
         "State human and system capability requirements; examine agency, dignity, access and workload.",
         "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
         "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+        "Tie each proposed product requirement to a specific user interaction, its purpose, and an observable acceptance check; preserve uncertainty and explain what changed after a challenge.",
         "Tie the contribution to the current seed and actual earlier journal events."
       ],
       "proficiency_targets": {
@@ -236,6 +347,10 @@
         "D4": "applied",
         "D5": "awareness"
       },
+      "focus_lenses": [
+        "D2.prototyping",
+        "D4.verification"
+      ],
       "lineage": [
         "contributor",
         "specialist",
@@ -254,6 +369,7 @@
         "State human and system capability requirements; examine agency, dignity, access and workload.",
         "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
         "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+        "Tie each proposed product requirement to a specific user interaction, its purpose, and an observable acceptance check; preserve uncertainty and explain what changed after a challenge.",
         "Tie the contribution to the current seed and actual earlier journal events."
       ],
       "proficiency_targets": {
@@ -263,6 +379,10 @@
         "D4": "awareness",
         "D5": "applied"
       },
+      "focus_lenses": [
+        "D1.problem",
+        "D5.context"
+      ],
       "lineage": [
         "contributor",
         "specialist",
@@ -289,6 +409,11 @@
         "D4": "applied",
         "D5": "applied"
       },
+      "focus_lenses": [
+        "D1.coupling",
+        "D3.agency",
+        "D4.verification"
+      ],
       "lineage": [
         "contributor",
         "scenario"
@@ -309,6 +434,7 @@
         "State human and system capability requirements; examine agency, dignity, access and workload.",
         "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
         "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+        "Tie each proposed product requirement to a specific user interaction, its purpose, and an observable acceptance check; preserve uncertainty and explain what changed after a challenge.",
         "Tie the contribution to the current seed and actual earlier journal events."
       ],
       "proficiency_targets": {
@@ -318,6 +444,10 @@
         "D4": "awareness",
         "D5": "applied"
       },
+      "focus_lenses": [
+        "D1.problem",
+        "D5.context"
+      ],
       "lineage": [
         "contributor",
         "specialist",
@@ -336,6 +466,7 @@
         "State human and system capability requirements; examine agency, dignity, access and workload.",
         "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
         "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+        "Tie each proposed product requirement to a specific user interaction, its purpose, and an observable acceptance check; preserve uncertainty and explain what changed after a challenge.",
         "Tie the contribution to the current seed and actual earlier journal events.",
         "Compare learning needs with workload, workflow, authority and incentive explanations."
       ],
@@ -346,6 +477,10 @@
         "D4": "awareness",
         "D5": "applied"
       },
+      "focus_lenses": [
+        "D1.problem",
+        "D5.context"
+      ],
       "lineage": [
         "contributor",
         "specialist",
@@ -365,6 +500,7 @@
         "State human and system capability requirements; examine agency, dignity, access and workload.",
         "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
         "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+        "Tie each proposed product requirement to a specific user interaction, its purpose, and an observable acceptance check; preserve uncertainty and explain what changed after a challenge.",
         "Tie the contribution to the current seed and actual earlier journal events.",
         "Use only supplied fictional evidence; do not infer student ability from reading fluency or tool completion.",
         "Consider multilingual access, shared devices, discussion norms and teacher workload alongside instructional needs."
@@ -376,6 +512,10 @@
         "D4": "awareness",
         "D5": "applied"
       },
+      "focus_lenses": [
+        "D1.problem",
+        "D5.context"
+      ],
       "lineage": [
         "contributor",
         "specialist",
@@ -395,6 +535,7 @@
         "State human and system capability requirements; examine agency, dignity, access and workload.",
         "Preserve dissent, correction, non-AI alternatives and accountable human gates.",
         "Challenge the plan within your discipline and propose a reviewable artifact; do not supply human approval.",
+        "Tie each proposed product requirement to a specific user interaction, its purpose, and an observable acceptance check; preserve uncertainty and explain what changed after a challenge.",
         "Tie the contribution to the current seed and actual earlier journal events.",
         "Never solicit passwords, identifiers or real service records; distinguish lack of opportunity from lack of capability.",
         "Consider paper and staffed alternatives, public-computer interruptions, language access and available assistance."
@@ -406,6 +547,10 @@
         "D4": "awareness",
         "D5": "applied"
       },
+      "focus_lenses": [
+        "D1.problem",
+        "D5.context"
+      ],
       "lineage": [
         "contributor",
         "specialist",

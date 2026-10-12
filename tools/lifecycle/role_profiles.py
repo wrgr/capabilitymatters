@@ -7,7 +7,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 REGISTRY = REPO / "src/data/lifecycle/roles.json"
 FRAMEWORK = REPO / "src/data/lifecycle/competencies.json"
-FIELDS = {"abstract", "extends", "category", "name", "competency", "duties", "proficiency_targets"}
+FIELDS = {"abstract", "extends", "category", "name", "competency", "duties", "proficiency_targets", "focus_lenses"}
 
 def content_hash(value):
     return hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
@@ -16,6 +16,7 @@ def resolve_profile(registry, framework, profile_id):
     profiles = registry["profiles"]
     domains = {d["id"] for d in framework["domains"]}
     levels = set(framework["proficiencies"])
+    lenses = {item["id"] for item in framework.get("task_lenses", [])}
     def visit(key, stack):
         if key in stack:
             raise ValueError("Role inheritance cycle: " + " -> ".join([*stack, key]))
@@ -24,7 +25,7 @@ def resolve_profile(registry, framework, profile_id):
         raw = profiles[key]
         if not isinstance(raw, dict) or set(raw) - FIELDS:
             raise ValueError("Unknown profile fields; runtime authority is not inherited")
-        result = visit(raw["extends"], [*stack, key]) if raw.get("extends") else {"duties": [], "proficiency_targets": {}, "lineage": []}
+        result = visit(raw["extends"], [*stack, key]) if raw.get("extends") else {"duties": [], "proficiency_targets": {}, "focus_lenses": [], "lineage": []}
         result = copy.deepcopy(result)
         result["lineage"].append(key)
         result["abstract"] = raw.get("abstract", False)
@@ -40,6 +41,10 @@ def resolve_profile(registry, framework, profile_id):
         targets = raw.get("proficiency_targets", {})
         if not isinstance(targets, dict) or any(k not in domains or v not in levels for k, v in targets.items()):
             raise ValueError("Unknown competency or proficiency target")
+        focus = raw.get("focus_lenses", [])
+        if not isinstance(focus, list) or any(not isinstance(key, str) or key not in lenses for key in focus):
+            raise ValueError("Unknown simulation task lens")
+        result["focus_lenses"] = list(dict.fromkeys([*result.get("focus_lenses", []), *focus]))
         result["proficiency_targets"].update(targets)
         result["profile_id"] = key
         result["demonstrated_proficiency"] = "unverified; requires reviewed task evidence"
