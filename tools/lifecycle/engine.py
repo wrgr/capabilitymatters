@@ -265,14 +265,25 @@ def record_turn(journal, provider, role, stage, trigger=None):
         journal.append("failure", stage, role, payload)
         raise
 
-def execute(journal, provider, through="refine", start="understand"):
+def execute(journal, provider, through="refine", start="understand", file_delivery=False):
     def turn(role, stage, trigger=None):
         return record_turn(journal, provider, role, stage, trigger)
+    def build_candidate(trigger=None):
+        if file_delivery:
+            from file_build import file_build, accept_file
+            contribution, source, _ = file_build(journal, provider, trigger=trigger)
+            accept_file(journal, provider, contribution, source, complete=False)
+        else:
+            turn("orchestrator", "build", trigger)
     for stage in STAGES[STAGES.index(start):STAGES.index(through) + 1]:
         journal.append("stage_started", stage, "orchestrator", {"status": "rehearsal", "human_approval": "not supplied"})
         for role in ASSIGNMENTS[stage]:
-            turn(role, stage)
-        turn("orchestrator", stage)
+            if not (file_delivery and stage == "build" and role == "implementation"):
+                turn(role, stage)
+        if stage == "build":
+            build_candidate()
+        else:
+            turn("orchestrator", stage)
         if stage in ("design", "evaluate"):
             challenge = turn("scenario", stage)
             review = turn("orchestrator", stage, challenge["seq"])
@@ -284,8 +295,9 @@ def execute(journal, provider, through="refine", start="understand"):
             journal.append("revision_link", target, "orchestrator", {"scenario_seq": challenge["seq"], "review_seq": review["seq"], "decision_seq": decision["seq"], "return_stage": target, "resume_stage": stage})
             if STAGES.index(stage) > STAGES.index("build") and STAGES.index(target) < STAGES.index("build"):
                 finding = journal.append("verification", "build", "implementation", {"status": "requirement_correspondence_pending", "message": "Requirements changed after the executable Build. Review the revised requirement and produce a current candidate before closing this iteration. This is a workflow finding, not an observed code defect or field outcome.", "requirement_decision_seq": decision["seq"]})
-                turn("implementation", "build", finding["seq"])
-                turn("orchestrator", "build", finding["seq"])
+                if not file_delivery:
+                    turn("implementation", "build", finding["seq"])
+                build_candidate(finding["seq"])
         if stage == "deploy":
             journal.append("human_gate", stage, "human", {"status": "pending", "required": ["Affected-person review", "Accountable owner approval", "Data collection agreement", "Pilot comparison and stopping rules"], "note": "Subsequent evaluation is a rehearsal. No real pilot is launched."})
         journal.append("stage_completed", stage, "orchestrator", {"status": "rehearsed"})
@@ -300,6 +312,7 @@ def main():
     parser.add_argument("--domain-profile", help="Concrete inherited domain profile from the versioned registry")
     parser.add_argument("--through", choices=STAGES, default="refine")
     parser.add_argument("--model")
+    parser.add_argument("--build-delivery", choices=["structured", "files"], help="Live runs default to scoped implementation files; scripted mode stays structured")
     parser.add_argument("--parent", type=Path, help="Saved parent journal; records immutable run identity and head hash for a fresh iteration")
     parser.add_argument("--export", type=Path)
     args = parser.parse_args()
@@ -307,6 +320,8 @@ def main():
     seed = validate_seed(json.loads(args.seed.read_text()) if args.seed else dict(SEED))
     if args.provider == "scripted" and seed != SEED:
         parser.error("Scripted mode uses only the fixed workforce seed; choose codex for new ideas")
+    if args.provider == "scripted" and args.build_delivery == "files":
+        parser.error("File implementation requires an explicitly live Codex run")
     provider = CodexProvider(args.model) if args.provider == "codex" else ScriptedProvider()
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + provider.mode + "-" + uuid.uuid4().hex[:6]
     parent = None
@@ -316,7 +331,7 @@ def main():
         parent = {"run_id": parent_run["id"], "event_hash": parent_run["events"][-1]["hash"]}
     journal = Journal(RUNS / run_id, seed, provider.mode, parent=parent, role_profiles=load_contract(args.domain_profile))
     try:
-        execute(journal, provider, args.through)
+        execute(journal, provider, args.through, file_delivery=args.provider == "codex" and args.build_delivery != "structured")
     except Exception:
         print(f"Run retained at {journal.path}", flush=True)
         raise

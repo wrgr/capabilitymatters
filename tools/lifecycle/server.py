@@ -8,6 +8,7 @@ import uuid
 from datetime import datetime, timezone
 from engine import ROOT, REPO, WEB, RUNS, Journal, SEED, validate_seed, CodexProvider, execute, verify
 from exemplar import ScriptedProvider
+from role_profiles import load_contract
 
 LOCK = threading.Lock()
 ACTIVE = None
@@ -104,12 +105,12 @@ class Handler(SimpleHTTPRequestHandler):
                 if ACTIVE:
                     return self.send_json({"error": "A run is already active", "run_id": ACTIVE}, 409)
                 run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + provider.mode + "-" + uuid.uuid4().hex[:6]
-                journal = Journal(RUNS / run_id, seed, provider.mode, parent)
+                journal = Journal(RUNS / run_id, seed, provider.mode, parent, role_profiles=load_contract(body.get("domain_profile")))
                 ACTIVE = run_id
             def work():
                 global ACTIVE
                 try:
-                    execute(journal, provider)
+                    execute(journal, provider, file_delivery=mode == "codex")
                     from product import write_product
                     write_product(journal.run, journal.path / "product")
                 except Exception as error:

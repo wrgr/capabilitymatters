@@ -8,13 +8,14 @@ import subprocess
 import time
 from engine import CodexProvider, Journal, SCHEMA, canonical, digest, snapshot, prompt_for, validate_response, CACHE
 
-def file_build(journal, provider):
+def file_build(journal, provider, trigger=None):
     ordinal=sum(e['kind']=='request' for e in journal.events)+1
     workspace=(journal.path/f'file-build-{ordinal:03d}').resolve();workspace.mkdir()
     state=snapshot(journal.run,len(journal.events))
     implementation=next((e for e in reversed(journal.events) if e['kind']=='contribution' and e['agent']=='implementation'),None)
     packet={'seed':journal.run['seed'],'role':journal.run['role_profiles']['roles']['implementation'],
             'task_lenses':journal.run['role_profiles']['framework'].get('task_lenses',[]),
+            'review_trigger':next((e for e in journal.events if e['seq']==trigger),None),
             'requirements':{k:v for k,v in state['artifacts'].items() if k in ('model','design')},
             'implementation_draft':implementation['payload']['response'] if implementation else None}
     packet_path=(journal.path/f'file-build-input-{ordinal:03d}.json').resolve();packet_path.write_text(json.dumps(packet,indent=2,ensure_ascii=False))
@@ -24,7 +25,7 @@ def file_build(journal, provider):
 Implement a polished, case-specific interactive experience as one self-contained HTML file with inline CSS, SVG/text equivalents and JavaScript. Use the supplied seed, Map and Design to choose the domain interaction: science investigation, conversation rehearsal, service-access route, or another justified task. Do not reuse a generic worksheet or impose another case's activity. Provide a mission, useful visual context, a consequential user choice with transparent authored/descriptive consequences, a changed condition, reviewable correction and a before/after synthesis. Main learner path has at most two optional open-text inputs. Start with actionable content instead of empty fields. Support passing/stopping, cancellation, cover/return and confirmed clear; implement additional withdrawal/dependency requirements only when supplied. Put detailed review metadata in help/teacher areas and fictional-data labels at relevant content. Do not simulate expert factual advice, infer skill or personality, score people, predict human reactions or claim learning efficacy. Include a complete paper/facilitation alternative. Use the newer accepted Map or Design when they differ and explain reconciliation. Keep a coherent usable core and reasonably focused source, preferably under 60000 bytes. If a requirement cannot be implemented, state its gap in BUILD_REPORT.md.
 Write the actual code file using your tools, then extract its inline JavaScript and run node --check; do not claim browser checks. Keep source reasonably focused (under 90000 bytes). A helper check.js is permitted. The tool workspace is the entire write scope. Do not write anywhere else.
 Your final output must match the supplied contribution schema. Set prototype_html to an empty string: the executable source is the file, not a JSON-escaped copy. Keep artifact_body below 3500 characters as an implementation receipt including implemented features, actual checks and gaps. Describe intended human/system capability and tradeoffs. evidence_refs can cite earlier sequences {([implementation['seq']] if implementation else []) + list(v['trigger_seq'] for v in packet['requirements'].values())}; do not invent other evidence. You are a simulation role, not a credentialed practitioner; all human and field evidence remains pending.'''
-    request=journal.append('request','build','implementation',{'prompt':prompt,'trigger_seq':None,'delivery':'scoped-files','input_packet_hash':hashlib.sha256(packet_path.read_bytes()).hexdigest()})
+    request=journal.append('request','build','implementation',{'prompt':prompt,'trigger_seq':trigger,'delivery':'scoped-files','input_packet_hash':hashlib.sha256(packet_path.read_bytes()).hexdigest()})
     command=[provider.executable,'exec','--ephemeral','--sandbox','workspace-write','--skip-git-repo-check','--color','never','--json','-C',str(workspace),'--output-schema',str(schema_path),'-o',str(output_path),'-']
     if provider.model:command+=['--model',provider.model]
     started=time.monotonic()
@@ -58,7 +59,7 @@ Your final output must match the supplied contribution schema. Set prototype_htm
         journal.append('failure','build','implementation',{'error_type':type(error).__name__,'message':str(error),'request_seq':request['seq'],'note':'File workspace and earlier attempts retained; no candidate accepted.'})
         raise
 
-def accept_file(journal,provider,contribution,source):
+def accept_file(journal,provider,contribution,source,complete=True):
     ordinal=sum(e['kind']=='request' for e in journal.events)+1
     prompt=prompt_for(journal,'orchestrator','build',contribution['seq'])+f'''\nFILE ACCEPTANCE REVIEW OVERRIDES BUILD DELIVERY: The implementation agent supplied the exact source below. Review it against current Map/Design, especially the supplied domain task, descriptive consequences, low entry burden, agency, correction/cancellation, clearing, complete paper route and stated gaps. Do not regenerate or copy the code into JSON. Set prototype_html to an empty string. Return an eight-heading implementation/design receipt below 3500 characters and cite implementation event {contribution['seq']}. If the candidate has a critical missing requirement, set revisit_stage to build and name actionable corrections. Otherwise leave revisit_stage empty and choose acceptance for scoped technical review, not field release or human approval. The host will attach the unchanged implementation file to the artifact with its source hash; your original response stays intact. Do not claim browser or human checks.\nEXACT FILE SOURCE:\n{source}'''
     request=journal.append('request','build','orchestrator',{'prompt':prompt,'trigger_seq':contribution['seq'],'delivery':'file-acceptance'})
@@ -73,7 +74,8 @@ def accept_file(journal,provider,contribution,source):
         journal.append('verification','build','implementation',{'status':'file_source_attached','artifact_seq':journal.events[-1]['seq'],
                        'source_sha256':hashlib.sha256(source.encode()).hexdigest(),'implementation_seq':contribution['seq'],
                        'message':'The exact implementation-agent file was attached after orchestrator acceptance for technical review. This records source correspondence, not executed behavior, human approval or field outcomes.'})
-        journal.append('completed','build','orchestrator',{'status':'partial_rehearsal','through':'build','claim':'Executable file candidate accepted for scoped technical and measurement review. All human and field evidence remains pending.'})
+        if complete:
+            journal.append('completed','build','orchestrator',{'status':'partial_rehearsal','through':'build','claim':'Executable file candidate accepted for scoped technical and measurement review. All human and field evidence remains pending.'})
         return journal.run
     except Exception as error:
         journal.append('failure','build','orchestrator',{'error_type':type(error).__name__,'message':str(error),'request_seq':request['seq'],'note':'Original review response and generated file retained; no unreviewed candidate is published.'})

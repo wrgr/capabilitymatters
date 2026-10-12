@@ -1,4 +1,5 @@
 import copy
+import hashlib
 import json
 import sys
 import tempfile
@@ -81,6 +82,34 @@ class EngineTests(unittest.TestCase):
         payload["items"].append("new")
         self.assertEqual(event["payload"]["items"], ["old"])
         self.assertTrue(verify(self.journal.run))
+
+    def test_file_delivery_resumes_full_cycle_and_rebuilds_changed_requirements(self):
+        calls = []
+        def build_files(journal, provider, trigger=None):
+            calls.append(trigger)
+            prompt = prompt_for(journal, "implementation", "build", trigger)
+            request = journal.append("request", "build", "implementation", {"prompt": prompt, "delivery": "offline-file-fixture"})
+            response, meta = provider.call("implementation", "build", prompt, journal.path, 0)
+            source = "<!doctype html><h1>Offline workflow fixture</h1><script>const fixture=true;</script>"
+            contribution = journal.append("contribution", "build", "implementation", {"response": response, "provider": meta, "request_seq": request["seq"], "generated_files": {"candidate.html": hashlib.sha256(source.encode()).hexdigest()}})
+            return contribution, source, journal.path
+        def accept(journal, provider, contribution, source, complete=True):
+            self.assertFalse(complete, "A continuing cycle must not finish at file acceptance")
+            prompt = prompt_for(journal, "orchestrator", "build", contribution["seq"])
+            request = journal.append("request", "build", "orchestrator", {"prompt": prompt, "delivery": "offline-file-acceptance-fixture"})
+            response, meta = provider.call("orchestrator", "build", prompt, journal.path, 0)
+            response["prototype_html"] = ""
+            decision = journal.append("decision", "build", "orchestrator", {"response": response, "provider": meta, "request_seq": request["seq"]})
+            journal.artifact("build", {**response, "prototype_html": source}, decision["seq"])
+            journal.append("verification", "build", "implementation", {"status": "file_source_attached", "artifact_seq": journal.events[-1]["seq"], "implementation_seq": contribution["seq"], "source_sha256": hashlib.sha256(source.encode()).hexdigest()})
+        with patch("file_build.file_build", side_effect=build_files), patch("file_build.accept_file", side_effect=accept):
+            run = execute(self.journal, ScriptedProvider(), file_delivery=True)
+        self.assertTrue(verify(run))
+        self.assertEqual(len([e for e in run["events"] if e["kind"] == "completed"]), 1)
+        self.assertEqual(run["events"][-1]["stage"], "refine")
+        self.assertEqual(len(calls), 2, "A later Design change must trigger another file Build")
+        current = snapshot(run, len(run["events"]))["artifacts"]
+        self.assertGreater(current["build"]["trigger_seq"], current["design"]["trigger_seq"])
 
     def test_live_requires_explicit_environment_gate(self):
         with patch.dict("os.environ", {"CAPABILITY_MATTERS_LIVE": "0"}):

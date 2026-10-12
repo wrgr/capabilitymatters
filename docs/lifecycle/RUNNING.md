@@ -15,7 +15,7 @@ Open `http://127.0.0.1:8767`. The runner serves the built Capability Matters hom
 CAPABILITY_MATTERS_LIVE=1 python3 tools/lifecycle/server.py
 ```
 
-Live mode sends the seed and accumulated public project discussion to the authenticated Codex service. Use fictional or approved material. Each role runs under a read-only sandbox; credentials are not copied into journals. The website hosts saved replay and products without a model secret.
+Live mode sends the seed and accumulated public project discussion to the authenticated Codex service. Use fictional or approved material. Ordinary role turns and learning-engineer reviews run under a read-only sandbox. Live Build uses an explicitly scoped file-writing implementation workspace; that permission comes from the workflow step, not inherited proficiency. Credentials are not copied into journals. The website hosts saved replay and products without a model secret.
 
 Command-line generation:
 
@@ -74,3 +74,5 @@ A retained failed Build with no accepted Build can be continued using `CAPABILIT
 `review_iteration.py RUN --findings findings.json --export export.json` appends a source-bound host verification, a pending human gate, an actual measurement contribution and learning-engineer Evaluate/Refine decisions. Findings must identify the current Build content hash. This targeted continuation explicitly records that Instrument and Deploy were not rerun and does not claim a human pilot. Review rejection stops completion and remains visible. Original school science is `?case=school-science`; its investigation refinement is `?case=school-investigation`.
 
 `refine_case.py --seed SEED --parent PUBLIC_PARENT --domain-profile PROFILE --export EXPORT` starts a targeted Design refinement using preserved public parent context. Domain, systems, design, learning and responsible-AI specialists contribute actual turns; the learning engineer integrates them and responds to a scenario. Invalidated earlier requirements receive a new explicit revision. The implementation agent writes a scoped candidate file and the learning engineer reviews its unchanged source. Hosted browser and measurement review follow separately. Future file-build prompts adapt the interaction to the supplied domain rather than imposing the science studio on every case.
+
+Live full-cycle runs now default to scoped file delivery at Build, including corrective Builds after later requirement changes. `--build-delivery structured` retains the legacy code-in-JSON delivery. Scripted fixtures remain structured. File acceptance inside a continuing full cycle does not append a premature completion event. The local seed form explicitly selects a domain specialist profile; unknown or non-domain profiles are rejected and the resolved contract is pinned in the new journal.

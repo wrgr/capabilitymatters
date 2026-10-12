@@ -49,7 +49,7 @@ Two further refinements authorized October 12:
 
 | Run directory | Case | Scope / current state |
 | --- | --- | --- |
-| `data/lifecycle/20261012T200729Z-live-codex-6b577c` | Workforce conversation | Targeted Design refinement with actual specialists and immutable public workforce parent; implementation and review in progress. |
-| `data/lifecycle/20261012T200822Z-live-codex-1f8ed5` | Library journey | Targeted Design refinement with actual specialists and immutable public library parent; implementation and review in progress. |
+| `data/lifecycle/20261012T200729Z-live-codex-6b577c` | Workforce conversation | 26 events / 9 requests; actual candidate written and syntax checked; implementation deadline retained; source-review authorization pending. |
+| `data/lifecycle/20261012T200822Z-live-codex-1f8ed5` | Library journey | 26 events / 9 requests; actual candidate written and syntax checked; implementation deadline retained; source-review authorization pending. |
 
 Both use registry 1.2.0/framework 1.1.0 and domain-specific seeds under `src/data/lifecycle/seeds/`. Product acceptance plans were written before implementation under `data/lifecycle/integration/<case>/acceptance-plan.json`. No new human or field evidence.
