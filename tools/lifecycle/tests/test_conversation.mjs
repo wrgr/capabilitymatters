@@ -6,7 +6,8 @@ const root=new URL('../../../',import.meta.url);
 const voices=JSON.parse(fs.readFileSync(new URL('src/data/lifecycle/meeting-voices.json',root)));
 const registry=JSON.parse(fs.readFileSync(new URL('src/data/lifecycle/roles.json',root)));
 assert.deepEqual(Object.keys(voices.roles).sort(),registry.default_roles.toSorted());
-for(const name of ['live-exemplar','school-science','library-access','school-investigation','exemplar']){
+const published=JSON.parse(fs.readFileSync(new URL('../../../public/agentic-le/cases.json',import.meta.url))).cases.map(c=>c.journal.replace(/\.json$/,''));
+for(const name of [...published,'exemplar']){
  const run=JSON.parse(fs.readFileSync(new URL('public/agentic-le/replay/'+name+'.json',root)));
  const frozen=JSON.stringify(run);
  await verifyRun(run);
@@ -60,4 +61,4 @@ assert.ok(filteredExport.includes('#20'));
 assert.ok(!filteredExport.includes('## Learning engineer'));
 assert.ok(!filteredExport.includes('Curious, encouraging'));
 assert.ok(!filteredExport.includes(run.events[23].hash));
-console.log('All five journals: meeting highlights preserve source wording, decisions, hypothetical status, cited events, timeline boundaries and immutable records; neutral voices and playback checkpoints verified.');
+console.log('All published journals: meeting highlights preserve source wording, decisions, hypothetical status, cited events, timeline boundaries and immutable records; neutral voices and playback checkpoints verified.');

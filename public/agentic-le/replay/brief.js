@@ -1,4 +1,4 @@
-import {snapshot} from './state.js?v=quality-3';
+import {snapshot} from './state.js?v=quality-4';
 export function reviewContext(run,seq,id){
  const state=snapshot(run,seq),artifact=state.artifacts[id];
  if(!artifact)return null;

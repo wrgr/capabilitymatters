@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {verifyRun,snapshot,revisionsAt,structureCheck,digest} from '../../../public/agentic-le/replay/state.js';
+import {verifyRun,snapshot,revisionsAt,structureCheck,digest,stageEntry} from '../../../public/agentic-le/replay/state.js';
 const run=JSON.parse(fs.readFileSync(new URL('../../../public/agentic-le/replay/exemplar.json',import.meta.url)));
 await verifyRun(run);
 const first=run.events.find(e=>e.kind==='artifact');
@@ -75,3 +75,6 @@ let previous='0'.repeat(64);
 for(const e of sourceGraft.events){e.prev_hash=previous;const {hash,...body}=e;e.hash=await digest(body);previous=e.hash;}
 await assert.rejects(()=>verifyRun(sourceGraft),/source hash/);
 console.log('Accepted implementation source binding rejects a rehashed source graft.');
+
+assert.equal(stageEntry(child,'evaluate').seq,65,'Targeted evidence review must remain navigable without a stage_started marker');
+assert.equal(stageEntry(child,'refine').seq,73,'Targeted Refine must select its first non-request event');

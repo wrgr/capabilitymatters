@@ -29,3 +29,5 @@ export async function verifyRun(run){
 export function snapshot(run,seq){const events=run.events.slice(0,Math.max(0,Math.min(seq,run.events.length)));const artifacts={};for(const e of events)if(e.kind==='artifact')artifacts[e.payload.id]=e.payload;return {events,artifacts};}
 export function revisionsAt(run,id,seq){return run.events.slice(0,seq).filter(e=>e.kind==='artifact'&&e.payload.id===id).map(e=>e.payload);}
 export function structureCheck(notes){const names={observation:'an observable event',interpretation:'an interpretation to check',opening:'an invitation to hear their account','next-step':'a feasible next step',escalation:'a system-change or escalation boundary',revision:'a response to the counterexample'};return Object.entries(names).filter(([k])=>!notes[k]?.trim()).map(([,v])=>v);}
+
+export function stageEntry(run,stage){return run.events.find(e=>e.stage===stage&&e.kind==='stage_started')??run.events.find(e=>e.stage===stage&&e.kind!=='request');}

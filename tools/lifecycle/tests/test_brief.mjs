@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {reviewContext} from '../../../public/agentic-le/replay/brief.js';
 import {snapshot} from '../../../public/agentic-le/replay/state.js';
-for(const name of ['live-exemplar','school-science','library-access','school-investigation','exemplar']){
+const published=JSON.parse(fs.readFileSync(new URL('../../../public/agentic-le/cases.json',import.meta.url))).cases.map(c=>c.journal.replace(/\.json$/,''));
+for(const name of [...published,'exemplar']){
  const run=JSON.parse(fs.readFileSync(new URL('../../../public/agentic-le/replay/'+name+'.json',import.meta.url)));
  const frozen=JSON.stringify(run);
  for(let seq=1;seq<=run.events.length;seq++){
@@ -29,4 +30,4 @@ assert.ok(reviewContext(rehearsal,rehearsal.events.length,'build').prerequisites
 assert.equal(reviewContext(school,82,'build').prerequisites.length,0);
 assert.equal(reviewContext(school,38,'build').prerequisites.length,0);
 assert.ok(reviewContext(school,30,'design').legacy,'New task lenses must not be assigned to historical roles');
-console.log('Full brief text, source capability statements, prior contributions, exact-artifact verification and temporal visibility verified across all five journals.');
+console.log('Full brief text, source capability statements, prior contributions, exact-artifact verification and temporal visibility verified across all published journals.');

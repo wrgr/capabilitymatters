@@ -74,8 +74,9 @@ class ProfileProductTests(unittest.TestCase):
 
     def test_published_cases_keep_distinct_journals_and_product_evidence(self):
         catalog = json.loads((WEB.parent / "cases.json").read_text())["cases"]
-        self.assertEqual({c["id"] for c in catalog}, {"workforce", "school-science", "library-access", "school-investigation"})
-        self.assertEqual(len({c["run_id"] for c in catalog}), 4)
+        expected_ids = {c["id"] for c in json.loads((REGISTRY.parent / "cases.json").read_text())}
+        self.assertEqual({c["id"] for c in catalog}, expected_ids)
+        self.assertEqual(len({c["run_id"] for c in catalog}), len(expected_ids))
         for case in catalog:
             run = json.loads((WEB / case["journal"]).read_text())
             self.assertTrue(verify(run))
@@ -89,6 +90,13 @@ class ProfileProductTests(unittest.TestCase):
             if case.get("iteration_of"):
                 parent_case = next(c for c in catalog if c["id"] == case["iteration_of"])
                 self.assertEqual(run["parent"], {"run_id": parent_case["run_id"], "event_hash": parent_case["head_hash"]})
+                parent_run = json.loads((WEB / parent_case["journal"]).read_text())
+                contexts = [e for e in run["events"] if e["kind"] == "verification" and e["payload"].get("status") == "preserved_parent_context"]
+                if contexts:
+                    parent_artifacts = {e["payload"]["id"]: e["payload"] for e in parent_run["events"] if e["kind"] == "artifact"}
+                    for key, copied in contexts[0]["payload"]["prior_artifacts"].items():
+                        self.assertEqual(copied["content_hash"], parent_artifacts[key]["content_hash"])
+                        self.assertEqual(copied["body"], parent_artifacts[key]["content"]["body"])
             self.assertEqual(case["counts"]["request"], len(requests))
             if case["domain_profile"]:
                 self.assertEqual(run["role_profiles"]["roles"]["domain"]["profile_id"], case["domain_profile"])

@@ -44,3 +44,12 @@ October 7, 2026: conversational replay adds a source-linked meeting overlay and 
 October 12, 2026: school investigation refinement `data/lifecycle/20261012T181224Z-live-codex-f1894d` uses registry 1.2.0 / framework 1.1.0 with proposed task lenses and complete brief inspection. Parent: original school-science run `20261002T025312Z-live-codex-d8f497`; original journals, products and paper evidence preserved. The new candidate includes visual evidence comparisons, C reveal, fixed W/L planning fixtures, reconsideration, optional practice and a complete paper kit.
 
 The completed targeted iteration has 75 events, 24 agent requests, eight artifact versions and one hypothetical scenario, from `data/lifecycle/20261012T181224Z-live-codex-f1894d`. Six retained failures record three structured Build deadlines, one file-writing deadline with actual-source recovery, and two source-review rejections. All nine roles have actual requests. Implementation #54 repairs practice coupling; #59 repairs recovery re-entry; #61 accepts exact source; #62 is the Build; #63 binds its file hash. Actual source/packaging and hosted-browser observations are #65, measurement review #68, learning-engineer Evaluate #70 and Refine #73. Completion #75 preserves all human and field gates. Instrument and Deploy were not rerun; the original eight-stage parent remains available. Scope and limitations of each check are explicit in #65. Findings and screenshot: `data/lifecycle/integration/school-investigation/`. Raw rejected files/tool receipts remain local.
+
+Two further refinements authorized October 12:
+
+| Run directory | Case | Scope / current state |
+| --- | --- | --- |
+| `data/lifecycle/20261012T200729Z-live-codex-6b577c` | Workforce conversation | Targeted Design refinement with actual specialists and immutable public workforce parent; implementation and review in progress. |
+| `data/lifecycle/20261012T200822Z-live-codex-1f8ed5` | Library journey | Targeted Design refinement with actual specialists and immutable public library parent; implementation and review in progress. |
+
+Both use registry 1.2.0/framework 1.1.0 and domain-specific seeds under `src/data/lifecycle/seeds/`. Product acceptance plans were written before implementation under `data/lifecycle/integration/<case>/acceptance-plan.json`. No new human or field evidence.
