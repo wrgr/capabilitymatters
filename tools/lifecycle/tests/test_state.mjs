@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {verifyRun,snapshot,revisionsAt,structureCheck} from '../../../public/agentic-le/replay/state.js';
+import {verifyRun,snapshot,revisionsAt,structureCheck,digest} from '../../../public/agentic-le/replay/state.js';
 const run=JSON.parse(fs.readFileSync(new URL('../../../public/agentic-le/replay/exemplar.json',import.meta.url)));
 await verifyRun(run);
 const first=run.events.find(e=>e.kind==='artifact');
@@ -57,7 +57,7 @@ for(const c of inventory){
 }
 assert.equal(caseDemo({events:[]},inventory),null);
 assert.equal(caseDemo(run,[]).product,null);
-console.log('All three case demos match their agent Build, archived preview and product manifest.');
+console.log('All published case demos match their agent Build, archived preview and product manifest.');
 
 const {savedRunSelection}=await import('../../../public/agentic-le/replay/case-demo.js');
 for(const c of inventory)assert.equal(savedRunSelection(inventory,'?case='+c.id).journal,c.journal);
@@ -65,3 +65,13 @@ assert.equal(savedRunSelection(inventory).journal,'live-exemplar.json');
 assert.equal(savedRunSelection(inventory,'?case=scripted').journal,'exemplar.json');
 assert.throws(()=>savedRunSelection(inventory,'?case=unknown'),/Unknown saved case/);
 console.log('Direct case loading and explicit scripted rehearsal selection verified.');
+
+// A valid rebuilt journal chain still cannot bind a different file to the accepted Build.
+const child=JSON.parse(fs.readFileSync(new URL('../../../public/agentic-le/replay/school-investigation.json',import.meta.url)));
+await verifyRun(child);
+const sourceGraft=structuredClone(child);
+sourceGraft.events.find(e=>e.kind==='verification'&&e.payload.status==='file_source_attached').payload.source_sha256='0'.repeat(64);
+let previous='0'.repeat(64);
+for(const e of sourceGraft.events){e.prev_hash=previous;const {hash,...body}=e;e.hash=await digest(body);previous=e.hash;}
+await assert.rejects(()=>verifyRun(sourceGraft),/source hash/);
+console.log('Accepted implementation source binding rejects a rehashed source graft.');

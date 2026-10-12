@@ -9,7 +9,7 @@ import unittest
 import zipfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from engine import Journal, SEED, execute, verify, WEB
+from engine import Journal, SEED, execute, verify, WEB, digest
 from exemplar import ScriptedProvider
 from product import product_files, zip_bytes
 from role_profiles import load_contract, resolve_profile, REGISTRY, FRAMEWORK
@@ -74,8 +74,8 @@ class ProfileProductTests(unittest.TestCase):
 
     def test_published_cases_keep_distinct_journals_and_product_evidence(self):
         catalog = json.loads((WEB.parent / "cases.json").read_text())["cases"]
-        self.assertEqual({c["id"] for c in catalog}, {"workforce", "school-science", "library-access"})
-        self.assertEqual(len({c["run_id"] for c in catalog}), 3)
+        self.assertEqual({c["id"] for c in catalog}, {"workforce", "school-science", "library-access", "school-investigation"})
+        self.assertEqual(len({c["run_id"] for c in catalog}), 4)
         for case in catalog:
             run = json.loads((WEB / case["journal"]).read_text())
             self.assertTrue(verify(run))
@@ -83,7 +83,12 @@ class ProfileProductTests(unittest.TestCase):
             self.assertEqual(case["head_hash"], run["events"][-1]["hash"])
             self.assertEqual(run["mode"], "live-codex")
             requests = [e for e in run["events"] if e["kind"] == "request"]
-            self.assertEqual({e["agent"] for e in requests}, set(run["roster"]))
+            self.assertTrue({e["agent"] for e in requests} <= set(run["roster"]))
+            if run["events"][-1]["stage"] == "refine":
+                self.assertEqual({e["agent"] for e in requests}, set(run["roster"]))
+            if case.get("iteration_of"):
+                parent_case = next(c for c in catalog if c["id"] == case["iteration_of"])
+                self.assertEqual(run["parent"], {"run_id": parent_case["run_id"], "event_hash": parent_case["head_hash"]})
             self.assertEqual(case["counts"]["request"], len(requests))
             if case["domain_profile"]:
                 self.assertEqual(run["role_profiles"]["roles"]["domain"]["profile_id"], case["domain_profile"])
@@ -96,6 +101,43 @@ class ProfileProductTests(unittest.TestCase):
                     self.assertEqual(hashlib.sha256(archive.read(name)).hexdigest(), expected)
             if case["id"] != "workforce":
                 self.assertIn("?case=" + case["id"], (product / "index.html").read_text())
+
+    def test_accepted_file_source_cannot_be_rebound_by_rehashing(self):
+        run = json.loads((WEB / "school-investigation.json").read_text())
+        self.assertTrue(verify(run))
+        bad = copy.deepcopy(run)
+        binding = next(e for e in bad["events"] if e["kind"] == "verification" and e["payload"].get("status") == "file_source_attached")
+        binding["payload"]["source_sha256"] = "0" * 64
+        previous = "0" * 64
+        for event in bad["events"]:
+            event["prev_hash"] = previous
+            event["hash"] = digest({k: v for k, v in event.items() if k != "hash"})
+            previous = event["hash"]
+        with self.assertRaisesRegex(ValueError, "source hash"):
+            verify(bad)
+
+    def test_build_continuation_retains_prefix_and_updates_late_requirements(self):
+        from resume_build import continue_build
+        class FailBuild(ScriptedProvider):
+            def call(self, role, stage, *args):
+                if role == "orchestrator" and stage == "build":
+                    raise TimeoutError("Test delivery deadline")
+                return super().call(role, stage, *args)
+        with tempfile.TemporaryDirectory() as folder:
+            journal = Journal(Path(folder)/"run", dict(SEED), "scripted-simulation")
+            with self.assertRaises(TimeoutError):
+                execute(journal, FailBuild(), through="build")
+            prefix = copy.deepcopy(journal.events)
+            journal = Journal.reopen(journal.path)
+            run = continue_build(journal, ScriptedProvider())
+            self.assertEqual(run["events"][:len(prefix)], prefix)
+            self.assertTrue(verify(run))
+            self.assertEqual(sum(e["kind"] == "failure" for e in run["events"]), 1)
+            self.assertEqual(run["events"][-1]["kind"], "completed")
+            from engine import snapshot
+            artifacts = snapshot(run, len(run["events"]))["artifacts"]
+            self.assertGreater(artifacts["build"]["trigger_seq"], artifacts["design"]["trigger_seq"])
+            self.assertTrue(artifacts["build"]["content"]["prototype_html"])
 
     def test_product_archive_matches_source_and_requires_build(self):
         with tempfile.TemporaryDirectory() as folder:

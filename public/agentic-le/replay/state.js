@@ -16,6 +16,12 @@ export async function verifyRun(run){
   if(['contribution','scenario','decision'].includes(event.kind)){
    const r=p.response;if(!r||typeof r.message!=='string'||!listFields.every(k=>Array.isArray(r[k])&&r[k].every(v=>typeof v==='string'))||!Array.isArray(r.evidence_refs)||!r.evidence_refs.every(n=>Number.isInteger(n)&&n>0&&n<event.seq))throw Error('Invalid contribution or evidence reference');
   }
+  if(event.kind==='verification'&&p.status==='file_source_attached'){
+   const artifact=run.events.slice(0,i).find(e=>e.seq===p.artifact_seq&&e.kind==='artifact'),contribution=run.events.slice(0,i).find(e=>e.seq===p.implementation_seq&&(e.kind==='contribution'||(e.kind==='verification'&&e.payload.status==='implementation_source_recovered'))&&e.agent==='implementation');
+   if(!artifact||!contribution||contribution.seq>=artifact.payload.trigger_seq)throw Error('Invalid implementation file provenance');
+   const sourceHash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(artifact.payload.content.prototype_html))),x=>x.toString(16).padStart(2,'0')).join('');
+   if(sourceHash!==p.source_sha256||contribution.payload.generated_files?.['candidate.html']!==sourceHash)throw Error('Implementation file source hash differs from accepted artifact');
+  }
   if(event.kind==='artifact'){const n=revisions[p.id]||0;if(p.revision!==n+1||p.parent_revision!==(n||null)||p.content_hash!==await digest(p.content)||!Number.isInteger(p.trigger_seq)||p.trigger_seq<=0||p.trigger_seq>=event.seq||run.events[p.trigger_seq-1].kind!=='decision')throw Error('Invalid artifact revision');revisions[p.id]=p.revision;}
  }
  return true;
