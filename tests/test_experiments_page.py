@@ -49,7 +49,7 @@ def test_experiment_groups() -> None:
     html = (REPO_ROOT / 'dist/experiments/index.html').read_text()
     for group in ('labs', 'research', 'creative'):
         assert f'id="{group}"' in html
-    assert html.count('class="card"') == 8
+    assert html.count('class="card"') == 9
     assert 'href="/agentic-le/"' not in html
     assert 'href="/lifecycle-lab/"' not in html
     assert 'Supporting reading' in html
@@ -66,6 +66,21 @@ def test_rainbow_bug_has_credit_and_job_aid() -> None:
     for name in ("index.html", "game.js", "style.css", "assets/boy-happy.png",
                  "assets/boy-idle.png", "assets/boy-sad.png", "assets/boy-sheet.png"):
         assert (REPO_ROOT / "public/rainbow-bug" / name).is_file()
+
+
+def test_andon_game_is_public_and_playable() -> None:
+    """The Andon card opens a self-contained game with its evidence and source."""
+    page = _read("pages/experiments.astro")
+    assert 'url: "/andon/"' in page
+    assert 'title: "Andon Operations Lab"' in page
+    root = REPO_ROOT / "public" / "andon"
+    for name in ("index.html", "app.js", "style.css", "research-brief.html",
+                 "app.js.LEGAL.txt", "source/main.tsx", "source/page.tsx",
+                 "source/engine.ts", "source/build.mjs", "source/package.json"):
+        assert (root / name).is_file(), name
+    assert 'src="./app.js?v=3-public-1"' in (root / "index.html").read_text()
+    assert "/experiments/" in (root / "source/page.tsx").read_text()
+    assert "Private simulation" not in (root / "app.js").read_text()
 
 
 def test_experiments_linked_from_nav() -> None:
@@ -88,7 +103,9 @@ if __name__ == "__main__":
     test_experiments_page_lists_each_experiment()
     test_personal_site_is_in_about()
     test_rainbow_bug_has_credit_and_job_aid()
+    test_andon_game_is_public_and_playable()
     test_experiments_linked_from_nav()
     test_featured_paper_banner()
     test_experiment_groups()
     print("experiments page OK")
+
