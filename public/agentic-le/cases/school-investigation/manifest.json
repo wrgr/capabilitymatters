@@ -3,13 +3,15 @@
   "product_name": "Evidence Studio: investigate, test and reconsider",
   "release_state": "candidate",
   "run_id": "20261012T181224Z-live-codex-f1894d",
-  "run_head_hash": "0d4f2e0bafbdd8cbb199005f3d899a2f8a9cb859e7077519e06a926f0a012861",
+  "run_head_hash": "27a854fce2a1ba74b58dfcbf0adc9ed42b753fe6ce675aff4407a9a5edc08f86",
   "build_content_hash": "3eb5e4470517487d9b6aef2b09042c326206b0440f6926373c277cefd86fe5d4",
   "build_revision": 1,
   "entrypoint": "candidate.html",
   "human_pilot": "pending",
   "field_outcomes": "unknown",
-  "technical_verification_events": [],
+  "technical_verification_events": [
+    65
+  ],
   "role_profiles": {
     "claim": "Requested simulation proficiency; no demonstrated proficiency is inherited.",
     "framework": {
@@ -445,9 +447,9 @@
   },
   "files": {
     "candidate.html": "a1113d0769d65fc5eca37ee0a960798b1fe76381b59feb37ce90b3d898611cb4",
-    "project-journal.json": "153033241097aef217dadb287b755f231d84da1170706bf4821e2e1afeb9d076",
-    "artifacts.json": "9a2b9828fda6c6918392c039e78c3fb4be86e3f7783f83609382578fbd48c656",
-    "requirements.md": "f92046b694f7237fe4b2d21878b68d30641b3d5702d6da0a8d9b318d1ec44abf",
+    "project-journal.json": "13534ea6ea0f95c131d92c4cb15d5956c3ad38b3880698742d41e82dc45888b1",
+    "artifacts.json": "bb843cbc351d72bfc7d755a9fd845dc75b4090a61c87ab4c230740e30a32e401",
+    "requirements.md": "a99028a230ec8d520b8d53bddaa12d75ec3ea3100de0138357f4d6844b68dc7f",
     "README.md": "f939b07f545a088a8af1105c128cf931ac80c3dabdbfd1f4daaf897eb97cf1d2"
   }
 }
