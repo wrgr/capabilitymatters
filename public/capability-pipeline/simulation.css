@@ -6,3 +6,16 @@
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 
 .teaching{border-left:4px solid #1c6e66;background:#f1f6ef;padding:1rem;margin:1rem 0;line-height:1.6}.teaching h3{margin:0 0 .6rem}.teaching p{margin:.55rem 0}.choice-teaching{background:#f8f2e5}
+/* Keep simulation controls and strategy panels usable under large text and spacing. */
+button, p, h1, h2, h3, h4, label, small, span, strong { overflow-wrap: anywhere; }
+button, .brand, .topmeta, .choice > span, .utilities { min-width: 0; max-width: 100%; }
+.utilities { flex-wrap: wrap; }
+@media(max-width:680px) {
+ .masthead { flex-wrap: wrap; }
+ .topmeta { text-align: left; }
+ .topmeta #saveStatus { text-align: left; }
+ .tabs, .four { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .split > section { width: 100%; }
+}
+.step { overflow-wrap: anywhere; }
+@media(max-width:400px) { .metric-row { grid-template-columns:minmax(0,1fr); } }

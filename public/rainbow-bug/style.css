@@ -379,3 +379,15 @@ body.immersive-mode canvas {
     height: 60px;
   }
 }
+
+/* Text play preserves the story while removing timing, sight, and precision demands. */
+[hidden] { display: none !important; }
+.play-options, #text-adventure { padding: 1rem; background: #fff; border-radius: 1rem; margin-bottom: 1rem; }
+.play-options p, #text-adventure p { line-height: 1.6; }
+.play-options button, #text-adventure button, .play-options select { font: inherit; padding: .6rem; margin: .4rem; max-width: 100%; background: #fff; color: #22304a; border: 2px solid #334c70; border-radius: .4rem; }
+#text-adventure li { padding: .6rem 0; }
+:focus-visible { outline: 3px solid #22304a; outline-offset: 4px; }
+.skip { position: absolute; top: -10rem; background: white; color: #22304a; padding: 1rem; z-index: 100; }
+.skip:focus { top: 1rem; }
+#game { scroll-margin-top: 1rem; }
+@media(max-width:600px) { .hud { flex-wrap: wrap; } .stats { text-align: left; } }

@@ -22,7 +22,7 @@ class PipelinePublicationTests(unittest.TestCase):
             content = (ROOT / name).read_text()
             for ref in re.findall(r'(?:src|href)="([^"]+)"', content):
                 if not ref.startswith(('https:', 'http:', '#')):
-                    self.assertTrue((ROOT / urlsplit(ref).path).is_file(), ref)
+                    self.assertTrue((ROOT.parent / urlsplit(ref).path.lstrip("/") if ref.startswith("/") else ROOT / urlsplit(ref).path).is_file(), ref)
 
     def test_coupled_loops_are_a_bottom_card(self) -> None:
         """Preserve continuous coupling and separate learner/system evidence below the cases."""

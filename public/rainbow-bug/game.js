@@ -3087,25 +3087,6 @@ function drawGame() {
   drawOverlay();
 }
 
-function loop() {
-  scheduleMusic();
-  if (gameMode === "platformer") {
-    updatePlayer();
-    updateBugs();
-    updateFireflies();
-    updatePuddles();
-    updateRainbows();
-    drawGame();
-  } else if (gameMode === "pinball") {
-    updatePinballGame();
-    drawPinballGame();
-  } else {
-    updateDominoGame();
-    drawDominoGame();
-  }
-  requestAnimationFrame(loop);
-}
-
 function setKeyState(code, isPressed) {
   if (code === "ArrowLeft" || code === "KeyA") {
     keys.left = isPressed;
@@ -3123,31 +3104,6 @@ function setKeyState(code, isPressed) {
     keys.swat = isPressed;
   }
 }
-
-window.addEventListener("keydown", (event) => {
-  const tracked = ["ArrowLeft", "ArrowRight", "ArrowUp", "Space", "KeyA", "KeyD", "KeyW", "KeyE", "KeyF"];
-  if (tracked.includes(event.code)) {
-    event.preventDefault();
-    startMusic();
-    if (gameMode === "platformer" || gameMode === "pinball") {
-      setKeyState(event.code, true);
-      if (gameMode === "pinball" && (event.code === "Space" || event.code === "ArrowUp" || event.code === "KeyW")) {
-        pinballState.launchHeld = true;
-      }
-    } else if (event.code === "Space" || event.code === "ArrowUp" || event.code === "KeyW") {
-      startDominoChain();
-    }
-  }
-});
-
-window.addEventListener("keyup", (event) => {
-  if (gameMode === "platformer" || gameMode === "pinball") {
-    setKeyState(event.code, false);
-    if (gameMode === "pinball" && (event.code === "Space" || event.code === "ArrowUp" || event.code === "KeyW")) {
-      launchPinballBall();
-    }
-  }
-});
 
 function bindTouchControl(element, keyName, options = {}) {
   const { sticky = true } = options;
@@ -3523,4 +3479,3 @@ resetGame();
 updateModeUi();
 actionButton.style.display = "none";
 updateExpandButton();
-loop();

@@ -107,6 +107,8 @@ class TokenLab {
     if (action === "train") {
       this.controls(true);
       this.get("status").textContent = "Training locally…";
+      this.get("status").tabIndex = -1;
+      this.get("status").focus({preventScroll:true});
       this.send({ type: "train", steps: Number(steps) });
     }
     if (action === "pause") this.send({ type: "pause" });
@@ -150,7 +152,7 @@ class TokenLab {
     this.get("test-loss").textContent = state.metrics.test.toFixed(3);
     this.get("status").textContent = state.running
       ? `Training locally: ${state.step} updates.`
-      : state.message;
+      : `${state.message} ${state.step} training steps. Training probe loss ${state.metrics.train.toFixed(3)}; held-out loss ${state.metrics.test.toFixed(3)}. Generated samples and exact measurements follow.`;
     this.get("model-info").textContent =
       `${state.parameters.toLocaleString()} adjustable parameters · ${state.config.vocabulary} token IDs including boundary · up to ${state.config.context} prediction positions · one transformer block, three attention heads.`;
     this.get("samples").replaceChildren(

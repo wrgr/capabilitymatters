@@ -117,3 +117,6 @@ dialog .close-dialog { float:right; margin:0 0 .8rem 1rem; }
 .token-view code { overflow-wrap:anywhere; }
 .token-mode-controls { margin:1.5rem 0; padding:1rem 1.2rem; border:1px solid #b7c8c8; }
 @media(max-width:700px) { .token-comparison { grid-template-columns:1fr; } .token-view .token-chips { max-height:12rem; } }
+
+/* Stacked metrics keep help labels and measured values readable with enlarged text. */
+@media(max-width:400px) { .learning-lab .metrics { grid-template-columns:minmax(0,1fr); } }

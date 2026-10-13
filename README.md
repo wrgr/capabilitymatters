@@ -339,3 +339,9 @@ The former coming-soon flag and rendering branch have been removed.
 Canonical source: `tools/lifecycle/`, `src/data/lifecycle/`, `src/pages/agentic-le/` and `public/agentic-le/`. Read [the specification](docs/lifecycle/SPEC.md), [roles](docs/lifecycle/ROLES.md), [proficiency](docs/lifecycle/PROFICIENCY.md), [product release](docs/lifecycle/PRODUCT.md) and [operating instructions](docs/lifecycle/RUNNING.md). Generation runs locally with `CAPABILITY_MATTERS_LIVE=1`; the existing static hosting serves saved products and replay without model credentials.
 
 Run `npm run test:lifecycle`, `npm run test:prototypes` and `npm run build`. The build packages the shared role contract and exemplar handoff before Astro. A future hosted runner and shared job queue remain separate work.
+
+## Accessibility audit and regression checks
+
+The October 2026 remediation record, scope boundaries and remaining manual validation are in [docs/accessibility/README.md](docs/accessibility/README.md). This project does not currently claim WCAG conformity. Optional preferences complement the default semantic, keyboard, contrast and responsive behavior.
+
+Install development dependencies with `npm ci`; install a test browser with `npx playwright install chromium`. After `npm run build`, use `npm run test:a11y` for workflow assertions and `npm run test:a11y:audit` for route-wide evidence. Set `A11Y_OUTPUT` for reports/screenshots or `CHROME_BINARY` for an installed Chrome. The audit collector itself does not fail solely because a rule violation was found. The separate LLM101 repository has its own production-build accessibility test; the record explains how to test the embed against that repaired local app. No accessibility command deploys the website.
