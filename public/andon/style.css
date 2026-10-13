@@ -23,3 +23,7 @@ button { max-width: 100%; }
  .state-badge { white-space: normal; }
  .guidance > div { min-width: 0; }
 }
+/* Decision-state feedback meets ordinary-text contrast as well as the initial dashboard. */
+.notice { color: #3f6432; }
+.action-grid .dismiss { color: #735631; }
+.containment strong { color: #4d693d; }
