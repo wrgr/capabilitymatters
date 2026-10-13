@@ -36,7 +36,10 @@ class PipelinePublicationTests(unittest.TestCase):
                      'Instrument &amp; Deploy', 'Evaluate &amp; Refine']:
             self.assertIn(pair, page)
         self.assertIn('aria-labelledby="ccl-title ccl-description"', page)
-        self.assertIn('cases.html?v=coupled-loops-1', (ROOT / 'index.html').read_text())
+        frame = re.search(r'<iframe[^>]+id="cases"[^>]+src="([^"]+)"', (ROOT / 'index.html').read_text())
+        self.assertIsNotNone(frame)
+        self.assertEqual(urlsplit(frame.group(1)).path, 'cases.html')
+        self.assertTrue(urlsplit(frame.group(1)).query, 'Published case frame needs an asset release version')
 
     def test_adventure_is_discoverable(self) -> None:
         """Keep the gallery and Experiments links pointed at the simulation tab."""
