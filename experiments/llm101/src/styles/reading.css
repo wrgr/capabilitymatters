@@ -1,0 +1,309 @@
+/* Preserve the explorer’s reading presentation and original cascade order. */
+/* ---------------------------------------------------------
+   Glossary terms & popover
+   --------------------------------------------------------- */
+.glossary-term {
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  transition: text-decoration-color 0.12s;
+}
+
+.glossary-term:hover { text-decoration-color: var(--accent); }
+
+.glossary-term.missing-term {
+  color: #dc2626;
+  text-decoration-color: #dc2626;
+}
+
+/* in dark formalism block, override glossary term colour */
+.beat-formalism .glossary-term { color: #a0a8f8; }
+
+.popover-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+}
+
+.popover {
+  position: fixed;
+  z-index: 101;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+  padding: 1rem 1.125rem;
+  max-width: 300px;
+  font-size: 0.85rem;
+}
+
+.popover-term {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.popover-short { color: var(--text); line-height: 1.55; }
+
+.popover-long {
+  color: var(--muted);
+  margin-top: 0.5rem;
+  line-height: 1.55;
+  font-size: 0.8rem;
+}
+
+.popover-see-also {
+  margin-top: 0.625rem;
+  font-size: 0.75rem;
+  color: var(--accent);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.popover-see-also-label { color: var(--muted); }
+
+/* ---------------------------------------------------------
+   Reference / Pedagogy tabs (inside content)
+   --------------------------------------------------------- */
+.ref-content, .ped-content {
+  padding: 2rem 2rem 4rem;
+  max-width: 720px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.ref-content::-webkit-scrollbar,
+.ped-content::-webkit-scrollbar { width: 5px; }
+.ref-content::-webkit-scrollbar-thumb,
+.ped-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+}
+
+.topic-group { margin-bottom: 2rem; }
+
+.topic-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.375rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.source-item {
+  margin-bottom: 0.875rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.source-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--border);
+  flex-shrink: 0;
+  margin-top: 0.55rem;
+}
+
+.source-body { flex: 1; }
+.source-authors { color: var(--muted); }
+.source-title { font-weight: 500; color: var(--text); }
+.source-venue { color: var(--muted); font-style: italic; }
+.source-link { color: var(--accent); margin-left: 0.25rem; font-size: 0.8rem; }
+
+/* ---------------------------------------------------------
+   Further Reading tab
+   --------------------------------------------------------- */
+.fr-content {
+  padding: 2rem 2rem 4rem;
+  max-width: 860px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.fr-content::-webkit-scrollbar { width: 5px; }
+.fr-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+.fr-header {
+  margin-bottom: 2.25rem;
+}
+
+.fr-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-top: 1.25rem;
+}
+
+.fr-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.fr-filter-btn {
+  font-size: 0.7rem;
+  font-weight: 500;
+  font-family: var(--font);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.fr-filter-btn:hover { color: var(--text); border-color: var(--accent); }
+.fr-filter-btn.active {
+  background: var(--accent-bg);
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+  font-weight: 600;
+}
+
+.fr-group {
+  margin-bottom: 2.5rem;
+}
+
+.fr-group-header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.fr-group-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.fr-group-desc {
+  font-size: 0.825rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.fr-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.875rem;
+}
+
+.fr-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.125rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.fr-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: color-mix(in srgb, var(--accent) 25%, var(--border));
+}
+
+.fr-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.125rem;
+}
+
+.fr-type {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.fr-type-icon { font-size: 0.75rem; }
+
+.fr-level {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-left: auto;
+}
+
+.fr-free {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #86efac;
+  padding: 0.1rem 0.4rem;
+  border-radius: 9999px;
+}
+
+.fr-card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.fr-title-link {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.12s;
+}
+
+.fr-title-link:hover { color: var(--accent); }
+
+.fr-card-author {
+  font-size: 0.775rem;
+  color: var(--muted);
+}
+
+.fr-card-desc {
+  font-size: 0.825rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 0.25rem;
+}
+
+.fr-empty {
+  color: var(--muted);
+  font-size: 0.875rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+

@@ -21,7 +21,7 @@ try{
  await Promise.all(Array.from({length:4},async()=>{
  while(cursor<routes.length){const route=routes[cursor++];
   const context=await browser.newContext({viewport:{width:1280,height:900}}); const page=await context.newPage();
-  if(process.env.A11Y_LLM101_ORIGIN)await page.route('https://wrgr.github.io/**',async route=>{const url=new URL(route.request().url());const response=await route.fetch({url:process.env.A11Y_LLM101_ORIGIN+url.pathname+url.search});await route.fulfill({response});});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(route.startsWith('https://')?route:origin+route,{waitUntil:'networkidle'});
   const audit=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
   const bounds=[];

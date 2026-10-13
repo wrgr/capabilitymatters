@@ -1,0 +1,27 @@
+/* Preserve the explorer's branding while exposing focus, choices, and content at any reading width. */
+:focus-visible { outline: 3px solid #4f46e5; outline-offset: 3px; box-shadow: 0 0 0 3px #fff; }
+.skip-link { position: fixed; left: 1rem; top: -10rem; padding: .8rem; background: #fff; color: #16161e; z-index: 100; }
+.skip-link:focus { top: 1rem; }
+.nav-item { display: block; width: 100%; border: 0; background: none; text-align: left; font: inherit; }
+.nav-item-num { color: #9696b5; }
+.level-dot { border: 2px solid #4b4b65; font: inherit; min-width: 1.5rem; min-height: 1.5rem; }
+.level-dot[aria-pressed=true] { outline: 2px solid #16161e; outline-offset: 2px; }
+.glossary-term, .term-chip { font: inherit; background: none; cursor: pointer; }
+.glossary-term { border: 0; border-bottom: 1px dotted currentColor; padding: 0; }
+.term-chip { border: 1px solid #6366f1; }
+.glossary-dialog { margin: auto; padding: 1.25rem; width: min(34rem,calc(100% - 2rem)); max-height: calc(100dvh - 2rem); overflow: auto; background: white; color: #16161e; border: 1px solid #6e6e88; border-radius: .5rem; }
+.glossary-dialog::backdrop, .mobile-drawer::backdrop { background: #0d0d1499; }
+.glossary-dialog button { font: inherit; padding: .4rem .6rem; margin-bottom: 1rem; }
+.glossary-dialog p { margin: .8rem 0; }
+.mobile-drawer:not([open]) { display: none; }
+.mobile-drawer[open] { display: block; transform: none; margin: 0; padding: 0; border: 0; max-height: 100dvh; height: 100dvh; width: min(20rem,calc(100vw - 2rem)); }
+.mobile-nav-btn { color: #a4a4be; }
+.content-col, .content, .ref-content, .ped-content, .main-area, .sidebar { min-width: 0; }
+.content, .ref-content, .ped-content { overflow-wrap: anywhere; }
+.topbar-title { margin: 0; }
+@media(max-width:768px) { .app { grid-template-rows: auto 1fr; } .topbar { min-height: 56px; } .level-row { flex-wrap: wrap; } .level-audience { white-space: normal; overflow: visible; text-overflow: clip; } .mobile-nav { height: auto; min-height: 56px; flex-wrap: wrap; } .mobile-nav-btn { min-height: 56px; min-width: 3rem; } }
+@media(prefers-reduced-motion:reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+@media(forced-colors:active) { :focus-visible { outline-color: Highlight; } }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* Two-dimensional formulas scroll locally while their MathML remains available to assistive technology. */
+.math-display { max-width: 100%; overflow-x: auto; }
