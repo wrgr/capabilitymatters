@@ -15,7 +15,7 @@ interface Props {
 
 const {
   title,
-  description = "Learning Engineering for Next-Generation Systems (LENS) — engineering human capability, advancing system performance.",
+  description = "Capability Matters — cases, experiments, and design work for engineering human capability in complex systems.",
   active,
   pageTheme = "light",
 } = Astro.props;
@@ -36,18 +36,19 @@ const bodyClass = pageTheme === "dark" ? "dark-shell" : undefined;
     <slot name="head" />
   </head>
   <body class={bodyClass}>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <NavBar active={active} />
-    <main>
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <footer>
       <div class="footer-inner">
         <div class="footer-brand">
-          <strong>LENS</strong>
-          <span class="muted"> · Learning Engineering for Next-Generation Systems at Johns Hopkins · connected to the shared IEEE ICICLE / Learning Engineering Commons corpus, not a replacement for it. Questions or corrections: <a href="mailto:wgr@jhu.edu">reach out</a>.</span>
+          <strong>Capability Matters</strong>
+          <span class="muted"> · Learning engineering in practice, for independent visitors and the Johns Hopkins LENS community. Connected to IEEE ICICLE and the Learning Engineering Commons. Questions or corrections: <a href="mailto:wgr@jhu.edu">reach out</a>.</span>
         </div>
         <nav class="footer-links" aria-label="Footer">
-          <a href={base + "about/"}>About this site</a>
+          <a href={base + "start-here/"}>Start Here</a>
           <a href="https://lecommons.org" target="_blank" rel="noopener">Learning Engineering Commons</a>
           <a href="https://sagroups.ieee.org/icicle/" target="_blank" rel="noopener">IEEE ICICLE</a>
         </nav>
@@ -56,6 +57,11 @@ const bodyClass = pageTheme === "dark" ? "dark-shell" : undefined;
     </footer>
 
     <style is:global>
+      :focus-visible { outline: 3px solid var(--accent-2); outline-offset: 4px; }
+      [id] { scroll-margin-top: 9rem; }
+      .skip-link { max-width: calc(100% - 2rem); position: fixed; top: .5rem; left: 1rem; z-index: 100; padding: .7rem 1rem; background: var(--bg); color: var(--ink); font-family: var(--sans); transform: translateY(-200%); }
+      .skip-link:focus { transform: translateY(0); }
+      body.dark-shell :focus-visible { outline-color: #2cc4b3; }
       :root {
         --bg:        #fefdf8;
         --ink:       #1a1d1a;
@@ -93,6 +99,7 @@ const bodyClass = pageTheme === "dark" ? "dark-shell" : undefined;
 
       a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s ease; }
       a:hover { border-bottom-color: var(--accent); }
+      p a, .footer-brand a { text-decoration: underline; text-underline-offset: .18em; }
 
       table {
         display: block;
@@ -188,7 +195,7 @@ const bodyClass = pageTheme === "dark" ? "dark-shell" : undefined;
         font-size: .85rem;
       }
       .footer-brand strong { font-family: var(--serif); font-weight: 600; }
-      .footer-links { display: flex; gap: 1.2rem; }
+      .footer-links { display: flex; flex-wrap: wrap; gap: 1.2rem; }
       .footer-links a { color: var(--muted); border: none; }
       .footer-links a:hover { color: var(--accent); }
       .footer-copy {
