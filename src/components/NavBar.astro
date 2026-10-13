@@ -121,7 +121,7 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
     color: var(--ink);
     border: none;
     font-family: var(--serif);
-    flex-shrink: 0;
+    min-width: 0; flex-shrink: 1;
   }
   .brand-mark {
     display: inline-grid;
@@ -137,7 +137,7 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
     letter-spacing: .02em;
     border-radius: 2px;
   }
-  .brand-text { font-size: 1rem; font-weight: 600; white-space: nowrap; }
+  .brand-text { font-size: 1rem; font-weight: 600; white-space: normal; }
 
   /* ── Desktop nav (hidden below 900px) ─────────────────────────────────── */
   .desktop-nav { display: none; }

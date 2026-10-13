@@ -34,10 +34,13 @@ const bodyClass = pageTheme === "dark" ? "dark-shell" : undefined;
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href={base + "favicon.svg"} />
     <slot name="head" />
+    <link rel="stylesheet" href={base + "accessibility/shared.css"} />
+    <script is:inline src={base + "accessibility/preferences.js"}></script>
   </head>
   <body class={bodyClass}>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <NavBar active={active} />
+    <div data-accessibility-preferences></div>
     <main id="main-content" tabindex="-1">
       <slot />
     </main>
@@ -66,7 +69,7 @@ const bodyClass = pageTheme === "dark" ? "dark-shell" : undefined;
         --bg:        #fefdf8;
         --ink:       #1a1d1a;
         --ink-soft:  #2d312d;
-        --muted:     #6b6f6a;
+        --muted:     #60645f;
         --accent:    #7a4e22;
         --accent-2:  #2c5f6f;
         --border:    #e4e0d7;
@@ -83,7 +86,7 @@ const bodyClass = pageTheme === "dark" ? "dark-shell" : undefined;
 
       *, *::before, *::after { box-sizing: border-box; }
       html, body { margin: 0; padding: 0; }
-      html { overflow-x: hidden; }
+      html { overflow-wrap: anywhere; }
       body {
         background: var(--bg);
         color: var(--ink);
@@ -94,12 +97,14 @@ const bodyClass = pageTheme === "dark" ? "dark-shell" : undefined;
       }
 
       img, svg, video { max-width: 100%; height: auto; }
-      h1, h2, h3, h4, p, li, blockquote, td, th { overflow-wrap: break-word; }
+      h1, h2, h3, h4, p, li, blockquote, td, th { overflow-wrap: anywhere; }
+      input, select, textarea { max-width: 100%; }
+      [hidden] { display: none !important; }
       a { overflow-wrap: anywhere; }
 
       a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s ease; }
       a:hover { border-bottom-color: var(--accent); }
-      p a, .footer-brand a { text-decoration: underline; text-underline-offset: .18em; }
+      p a, li a, dd a, .footer-brand a { text-decoration: underline; text-underline-offset: .18em; }
 
       table {
         display: block;
