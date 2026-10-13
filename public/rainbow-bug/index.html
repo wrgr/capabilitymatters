@@ -9,9 +9,10 @@
   <title>Rainbow Bug Dash</title>
   <link rel="icon" type="image/png" href="assets/boy-happy.png?v=20260314j">
   <link rel="stylesheet" href="style.css?v=20260314j">
-</head>
+<link rel="stylesheet" href="/accessibility/shared.css"><script src="/accessibility/preferences.js"></script></head>
 <body>
-  <main class="game-shell">
+  <a class="skip" href="#game-main">Skip to game</a>
+  <main id="game-main" tabindex="-1" class="game-shell">
     <section class="hud">
       <div>
         <h1>J-Bug Version 1: Julian Searches for Rainbows</h1>
@@ -64,11 +65,11 @@
         <span id="bugDensityValue">100%</span>
       </label>
       <label class="easy-mode-toggle" for="musicEnabled">
-        <input id="musicEnabled" type="checkbox" checked>
+        <input id="musicEnabled" type="checkbox" >
         Music On
       </label>
       <label class="easy-mode-toggle" for="sfxEnabled">
-        <input id="sfxEnabled" type="checkbox" checked>
+        <input id="sfxEnabled" type="checkbox" >
         SFX On
       </label>
       <button id="actionButton" type="button">Start Chain</button>
@@ -76,8 +77,17 @@
         </section>
       </details>
     </section>
+    <section class="play-options" aria-label="Ways to play">
+      <label for="play-style">Play style</label><select id="play-style"><option value="visual">Visual platform game</option><option value="text">Untimed text adventure</option></select>
+      <button id="pause-game" type="button">Start visual game</button>
+      <p id="game-instructions">Visual game: focus the game after starting. Use Left/Right or A/D to move, Up/W/Space to jump, E/F to swat. Escape pauses and returns to Start. Leaving the game pauses it. The untimed adventure uses the same five levels and rainbow locations; choose described routes without timed movement.</p>
+    </section>
+    <section id="text-adventure" hidden aria-label="Untimed rainbow adventure">
+      <h2 id="adventure-heading" tabindex="-1"></h2><p id="adventure-score"></p><p id="adventure-status" role="status"></p>
+      <ol id="adventure-routes"></ol><button id="next-adventure-level" type="button" hidden>Continue to next level</button><button id="restart-adventure" type="button">Restart text adventure</button>
+    </section>
     <section class="game-stage">
-      <canvas id="game" width="960" height="540" aria-label="Rainbow Bug Dash game"></canvas>
+      <canvas id="game" width="960" height="540" tabindex="0" aria-describedby="game-instructions" aria-label="Rainbow Bug Dash visual game"></canvas>
       <section class="touch-overlay" aria-label="Touch controls">
         <div class="touch-move" aria-label="Movement controls">
           <button class="touch-icon touch-icon-move" id="leftButton" type="button" aria-label="Move left">←</button>
@@ -92,5 +102,6 @@
     </section>
   </main>
   <script src="game.js?v=20260314j"></script>
+  <script src="accessibility.js"></script>
 </body>
 </html>
