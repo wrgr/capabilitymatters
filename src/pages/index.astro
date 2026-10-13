@@ -17,11 +17,12 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
 ---
 
 <Base
-  title="Capability Matters — LENS at Johns Hopkins"
-  description="Capability is a system parameter. LENS is the Johns Hopkins specialization that engineers human capability into complex systems."
-  active="welcome"
+  title="Motivation · Capability Matters"
+  description="Why human capability belongs in system design. Explore the motivation for Capability Matters and the Johns Hopkins LENS pathway."
+  active="motivation"
   pageTheme="dark"
 >
+  <link slot="head" rel="canonical" href="https://capabilitymatters.org/" />
   <link
     slot="head"
     rel="stylesheet"
@@ -34,7 +35,8 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
       The operator who misreads a display under stress. The clinician who wasn't trained on the new protocol. The maintenance team that lost institutional knowledge when three people retired. Each points to a capability gap that system design needs to address.
     </p>
     <div class="hero-actions">
-      <a href={base + "agentic-le/"} class="cta-btn">Explore Agentic LE</a>
+      <a href={base + "start-here/"} class="cta-btn">Start Here</a>
+      <a href={base + "agentic-le/"} class="cta-btn secondary">Explore Agentic AI Lab</a>
       <p>Three fictional projects developed by agents, with demos, transcripts, and a working paper.</p>
     </div>
   </section>
@@ -152,6 +154,8 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
       nodes.forEach(function (n) { n.classList.add('visible'); });
       return;
     }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.body.classList.add('motion-ready');
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) {

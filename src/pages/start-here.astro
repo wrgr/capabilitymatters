@@ -1,0 +1,154 @@
+---
+// Shared by the canonical Start Here route and the legacy About alias.
+import Base from "../layouts/Base.astro";
+const paths = [
+  { number: "01", title: "Learn from real cases", url: "/case-studies/", label: "Read the Case Studies", text: "Inspect what worked, what failed, and what the sources support. Each case keeps its evidence and limits visible, including the draft casebook." },
+  { number: "02", title: "Try an experiment", url: "/experiments/", label: "Explore the Experiments", text: "Open a teaching lab, research project, or creative demonstration. Use the Agentic AI Lab to explore candidate products and replay the decisions behind them." },
+  { number: "03", title: "Frame your next prototype", url: "/problems-to-prototypes/", label: "Browse the Prototypes", text: "Start with a capability gap, inspect a design brief, try an available exercise, and plan what evidence would justify another iteration." },
+];
+---
+
+<Base title="Start Here · Capability Matters" active="start-here"
+ description="Cases, experiments, and design briefs for people and teams engineering human capability. Explore independently or connect through Johns Hopkins LENS.">
+  <link slot="head" rel="canonical" href="https://capabilitymatters.org/start-here/" />
+  <header class="start-hero container-wide">
+    <div>
+      <p class="eyebrow">Start Here · Capability Matters</p>
+      <h1>Turn a capability gap into a better design decision.</h1>
+      <p class="lead">Explore how people learn, work, and perform inside complex systems—with cases to question, experiments to try, and prototypes to refine.</p>
+      <p>Capability Matters connects learning engineering to what people need to do. Whether you lead a team, design a service, teach, research, or learn independently, start with a real problem and examine the evidence behind your next step.</p>
+      <div class="hero-links"><a class="button" href="#choose-a-path">Find your starting point</a><a href="/">Read the motivation</a></div>
+    </div>
+    <aside aria-labelledby="question-heading" class="question-card">
+      <p class="eyebrow">A question worth asking</p>
+      <h2 id="question-heading">What should people be able to do—and under what conditions?</h2>
+      <p>Define the capability. Examine the work system. Try a small change. Look for evidence of performance, learning, and transfer.</p>
+      <p class="boundary">A polished output or a completed activity is a starting point for inquiry, not proof of capability.</p>
+      <a href="/show-your-work/">Read Show Your Work</a>
+    </aside>
+  </header>
+
+  <section class="container-wide pathways" id="choose-a-path" aria-labelledby="paths-heading">
+    <p class="eyebrow">Three ways in</p>
+    <h2 id="paths-heading">Choose the work you want to do.</h2>
+    <div class="path-grid">{paths.map(path => <article class="path-card">
+      <span class="path-number" aria-hidden="true">{path.number}</span>
+      <h3>{path.title}</h3><p>{path.text}</p><a href={path.url}>{path.label} <span aria-hidden="true">→</span></a>
+    </article>)}</div>
+  </section>
+
+  <section class="container-wide audiences" aria-labelledby="audience-heading">
+    <p class="eyebrow">A shared practice · Different starting points</p>
+    <h2 id="audience-heading">You do not need to be enrolled to begin.</h2>
+    <div class="audience-grid">
+      <article><h3>Independent practitioners &amp; teams</h3>
+        <p>Use the public cases, labs, and design briefs to explore a question in your own setting. Leaders, educators, researchers, designers, and prospective partners can start here without a LENS affiliation.</p>
+        <p>Bring a capability gap, compare possible approaches, and identify the next small test. These resources support inquiry; they do not promise a validated solution for your organization.</p>
+        <a href="mailto:wgr@jhu.edu">Discuss a question or potential collaboration</a>
+      </article>
+      <article><h3>JHU LENS learners &amp; partners</h3>
+        <p>The site also supports Johns Hopkins’ Learning Engineering for Next-Generation Systems (LENS) concentration. Connect the cases and experiments to its five competency domains, or explore the program as a prospective learner or partner.</p>
+        <p>The program is one pathway into this work. Enrollment is not a condition for exploring the public resources.</p>
+        <a href="#people">Meet the people &amp; explore the program</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="container context" aria-label="Context and resources">
+    <p class="eyebrow">Context, people &amp; evidence</p>
+    <h2>Read with the evidence in view.</h2>
+    <p>Case studies document examples and their limitations. Labs and prototypes let you examine a mechanism or rehearse a decision; availability does not establish effectiveness. <a href="/show-your-work/">Show Your Work</a> is a LENS community paper on capability, coupled learner and system performance, and human flourishing.</p>
+    <p>For the wider field’s reading lists, tools, events, and community, visit the
+      <a href="https://lecommons.org" target="_blank" rel="noopener">Learning Engineering Commons</a>
+      and <a href="https://sagroups.ieee.org/icicle/" target="_blank" rel="noopener">IEEE ICICLE</a>.</p>
+    <h2 id="where-it-applies">Where it applies</h2>
+    <p>
+      LENS focuses on high-consequence, high-impact domains — where human capability is
+      inseparable from system performance and the cost of getting it wrong is measured in
+      lives, readiness, and equity. Seven recur across the program's case material and
+      teaching: healthcare, defense &amp; national security, education at scale, aviation,
+      energy, manufacturing &amp; industrial, and government &amp; public infrastructure.
+    </p>
+
+    <h2 id="framework">The LENS framework</h2>
+    <p>
+      LENS reads every case through five competency domains. Each case study on this site is
+      tagged to the domain(s) it exercises, so the same framework runs from a hospital to a
+      flight deck to a public-sector IT migration:
+    </p>
+    <ol class="framework">
+      <li><strong>Systems Analysis</strong></li>
+      <li><strong>Iterative Development</strong></li>
+      <li><strong>Human-System Collaboration</strong></li>
+      <li><strong>Test &amp; Evaluation</strong></li>
+      <li><strong>Sociotechnical Constraints</strong></li>
+    </ol>
+
+    <h2 id="people">People &amp; programs</h2>
+    <p>
+      LENS is a concentration within the <a href="https://education.jhu.edu/masters-programs/master-of-education-in-learning-design-and-technology/learning-engineering-next-generation-systems-concentration/" target="_blank" rel="noopener">JHU MEd in Learning Design and Technology</a>,
+      jointly run by the Johns Hopkins School of Education and the Applied Physics Laboratory,
+      with an IEEE ICICLE partnership. Faculty in the concentration include James Diamond and
+      William Gray-Roncal (School of Education / APL). Full profiles for practitioners across the
+      wider field live at <a href="https://lecommons.org/community/" target="_blank" rel="noopener">lecommons's community pages</a>.
+    </p>
+
+    <p>For Will Gray-Roncal’s other writing and projects, visit <a href="https://will.grayroncal.com" target="_blank" rel="noopener">his personal site</a>.</p>
+
+    <h2>Scope &amp; caveats</h2>
+    <ul>
+      <li>
+        <strong>A focused collection, not a complete index.</strong> These resources grew from
+        LENS teaching and practice, and are available to independent visitors too. For the
+        wider field, see the Learning Engineering Commons.
+      </li>
+      <li>
+        <strong>ICICLE is authoritative.</strong> When ICICLE and this site differ on a
+        definition or taxonomy, defer to ICICLE. This site doesn't claim to speak for IEEE
+        ICICLE or host its content — it connects to it.
+      </li>
+      <li>
+        <strong>Links may rot.</strong> External resources change. File an issue if you find one.
+      </li>
+    </ul>
+
+    <h2>Tools used</h2>
+    <p>
+      Claude (Anthropic) was used as an assistant throughout development and content
+      curation — for code generation, draft copy, and triage of the underlying material.
+      Final editorial decisions, scope, and accuracy review are human-authored.
+    </p>
+
+    <h2>Contributing</h2>
+    <p>
+      Suggestions and corrections are welcome. Open an <a href="https://github.com/wrgr/capabilitymatters/issues">issue in the repository</a> or <a href="mailto:wgr@jhu.edu">contact Will Gray-Roncal</a>.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .start-hero { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); padding-top: clamp(2rem, 6vw, 5rem); padding-bottom: 3rem; align-items: center; }
+  .start-hero h1 { font-size: clamp(2.3rem, 4.5vw, 3.8rem); letter-spacing: -.035em; max-width: 16ch; }
+  .lead { font-family: var(--sans); font-size: 1.2rem; line-height: 1.6; color: var(--ink-soft); }
+  .hero-links { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; font-family: var(--sans); font-weight: 600; }
+  .button { display: inline-block; max-width: 100%; padding: .8rem 1.1rem; border-radius: 6px; background: var(--accent-2); color: white; border: 1px solid var(--accent-2); }
+  .button:hover { background: #214957; }
+  .question-card { padding: clamp(1.3rem, 3vw, 2rem); background: var(--tint-warm); border: 1px solid var(--border); border-radius: 12px; }
+  .question-card h2 { font-size: clamp(1.6rem, 2.8vw, 2rem); }
+  .question-card .boundary { border-top: 1px solid #c8b99e; padding-top: 1rem; font-size: .95rem; }
+  .question-card a, .path-card a, .audience-grid a { font-family: var(--sans); font-weight: 600; text-decoration: underline; text-underline-offset: .2em; }
+  .pathways { border-top: 1px solid var(--border); }
+  .path-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .path-card { display: flex; flex-direction: column; padding: 1.5rem; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); min-width: 0; }
+  .path-number { font-family: var(--mono); color: var(--accent); margin-bottom: 1.2rem; }
+  .path-card h3, .audience-grid h3 { font-size: 1.4rem; }
+  .path-card a { margin-top: auto; }
+  .audiences { background: var(--tint); border-radius: 12px; }
+  .audience-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; margin-top: 1.5rem; }
+  .context h2 { border-top: 1px solid var(--border); padding-top: 1.4rem; margin-top: 2rem; }
+  .context p, .context ul, .context ol { max-width: 48rem; }
+  .context a { text-decoration: underline; text-underline-offset: .15em; }
+  .context li { margin-bottom: .6rem; }
+  section[id], h2[id] { scroll-margin-top: 10rem; }
+  @media (max-width: 760px) { .start-hero, .path-grid, .audience-grid { grid-template-columns: minmax(0, 1fr); } .start-hero h1 { max-width: 22ch; } .audiences { border-radius: 0; } }
+</style>

@@ -40,7 +40,7 @@ def test_experiments_page_lists_each_experiment() -> None:
 
 def test_personal_site_is_in_about() -> None:
     """The personal site remains discoverable without counting as an experiment."""
-    assert 'https://will.grayroncal.com' in _read('pages/about.astro')
+    assert 'https://will.grayroncal.com' in _read('pages/start-here.astro')
     assert 'title: "Will Gray-Roncal"' not in _read('pages/experiments.astro')
 
 
@@ -49,8 +49,10 @@ def test_experiment_groups() -> None:
     html = (REPO_ROOT / 'dist/experiments/index.html').read_text()
     for group in ('labs', 'research', 'creative'):
         assert f'id="{group}"' in html
-    assert html.count('class="card"') == 9
-    assert 'href="/agentic-le/"' not in html
+    assert html.count('class="card"') == 10
+    assert 'href="/agentic-le/"' in html
+    assert 'Agentic AI Lab' in html
+    assert (REPO_ROOT / 'dist/agentic-le/index.html').is_file()
     assert 'href="/lifecycle-lab/"' not in html
     assert 'Supporting reading' in html
 

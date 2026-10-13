@@ -25,8 +25,8 @@ class PrimaryLinks(HTMLParser):
 
 def test_primary_navigation() -> None:
     """Desktop and mobile menus expose the same five valid destinations."""
-    expected = ['/', '/case-studies/', '/experiments/', '/problems-to-prototypes/', '/about/']
-    for route in ['', 'case-studies', 'experiments', 'problems-to-prototypes', 'about']:
+    expected = ['/', '/start-here/', '/case-studies/', '/experiments/', '/problems-to-prototypes/']
+    for route in ['', 'case-studies', 'experiments', 'problems-to-prototypes', 'start-here', 'about']:
         parser = PrimaryLinks()
         parser.feed((ROOT / 'dist' / route / 'index.html').read_text())
         assert parser.links == expected * 2, (route, parser.links)
@@ -39,7 +39,9 @@ def test_menu_descriptions() -> None:
         assert text in home, text
     for text in ['Start here', 'Scroll for why', 'content-guide']:
         assert text not in home, text
-    assert 'hero-line' in home
+    assert 'id="argument"' in home
+    assert 'Motivation · Capability Matters' in home
+    assert 'href="/start-here/"' in home
 
 if __name__ == '__main__':
     test_primary_navigation()

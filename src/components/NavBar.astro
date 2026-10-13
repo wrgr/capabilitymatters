@@ -18,11 +18,11 @@ const { active } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
 const items: { href: string; label: string; slug: string; description?: string }[] = [
-  { href: base,                          label: "Welcome",     slug: "welcome" },
+  { href: base,                          label: "Motivation",  slug: "motivation", description: "Why human capability belongs in system design." },
+  { href: base + "start-here/", label: "Start Here", slug: "start-here", description: "Choose a path into cases, labs, and design work, independently or through JHU LENS." },
   { href: base + "case-studies/",        label: "Case Studies", slug: "case-studies", description: "Documented examples of what worked, what failed, and what the evidence supports." },
   { href: base + "experiments/",         label: "Experiments", slug: "experiments", description: "Interactive teaching labs, research projects, and creative demonstrations." },
   { href: base + "problems-to-prototypes/", label: "Prototypes", slug: "problems-to-prototypes", description: "Capability gaps, design briefs, working tools, and plans to test their impact." },
-  { href: base + "about/",               label: "About",       slug: "about" },
 ];
 
 const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
@@ -30,9 +30,9 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
 
 <header class="site-nav">
   <div class="nav-inner">
-    <a href={base} class="brand" aria-label="Home">
-      <span class="brand-mark">LENS</span>
-      <span class="brand-text">Learning Engineering for Next-Generation Systems</span>
+    <a href={base} class="brand">
+      <span class="brand-mark" aria-hidden="true">CM</span>
+      <span class="brand-text">Capability Matters</span>
     </a>
 
     <nav class="desktop-nav" aria-label="Primary">
@@ -54,7 +54,8 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
     </nav>
 
     <details class="mobile-nav">
-      <summary aria-label="Toggle navigation menu">
+      <summary>
+        <span>Menu</span>
         <span class="current">{activeLabel}</span>
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
           <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -124,7 +125,7 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
   .brand-mark {
     display: inline-grid;
     place-items: center;
-    min-width: 1.8rem;
+    min-width: 2.4rem;
     height: 1.8rem;
     padding: 0 .35rem;
     background: var(--accent);
@@ -166,8 +167,7 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
   .mobile-nav {
     width: 100%;
     flex: 0 0 100%;
-    display: flex;
-    justify-content: flex-start;
+    display: block;
     position: relative;
   }
   .mobile-nav summary {
@@ -199,15 +199,16 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
     color: var(--accent);
   }
   .mobile-nav nav {
+    max-height: calc(100dvh - 9rem);
+    overflow-y: auto;
     position: absolute;
     left: 0;
     top: calc(100% + .45rem);
-    width: min(19rem, calc(100vw - (var(--page-pad) * 2)));
+    width: min(19rem, 100%);
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 4px;
     box-shadow: 0 8px 24px rgba(26, 29, 26, 0.12);
-    overflow: hidden;
   }
   .mobile-nav ul {
     list-style: none;
@@ -234,18 +235,18 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
   @media (max-width: 620px) {
     .brand-text {
       font-size: .9rem;
-      max-width: 13ch;
+      max-width: none;
       overflow: hidden;
       text-overflow: ellipsis;
     }
   }
 
   @media (max-width: 460px) {
-    .brand-text { display: none; }
+    .brand-text { font-size: .9rem; }
     .nav-inner { gap: .55rem; }
     .mobile-nav summary { padding: .35rem .5rem; }
     .mobile-nav summary .current { display: none; }
-    .mobile-nav nav { width: min(16rem, calc(100vw - (var(--page-pad) * 2))); }
+    .mobile-nav nav { width: min(16rem, 100%); }
   }
 
   /* ── Swap at 900px ────────────────────────────────────────────────────── */
@@ -275,7 +276,7 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
   :global(body.dark-shell) .brand { color: #f5f0e8; }
   :global(body.dark-shell) .brand-text { color: #f5f0e8; }
   :global(body.dark-shell) .brand-mark {
-    background: #1a8a7d;
+    background: #2cc4b3;
     color: #0a1628;
   }
   :global(body.dark-shell) .desktop-nav a { color: #c3cbe2; }
@@ -326,6 +327,10 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
     item.addEventListener('focusin', () => item.classList.remove('tooltip-dismissed'));
   });
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') items.forEach((item) => item.classList.add('tooltip-dismissed'));
+    if (event.key === 'Escape') {
+      items.forEach((item) => item.classList.add('tooltip-dismissed'));
+      const menu = document.querySelector<HTMLDetailsElement>('.mobile-nav[open]');
+      if (menu) { menu.open = false; menu.querySelector('summary')?.focus(); }
+    }
   });
 </script>

@@ -1,8 +1,9 @@
 # Capability Matters
 
 Source for [capabilitymatters.org](https://capabilitymatters.org) — *"Capability is a system parameter."*
-The site for Johns Hopkins' LENS (Learning Engineering for Next-Generation Systems)
-specialization, built with [Astro](https://astro.build).
+Public cases, experiments, and design work for independent practitioners and teams,
+also supporting Johns Hopkins' LENS (Learning Engineering for Next-Generation Systems)
+concentration, built with [Astro](https://astro.build).
 
 This repository was extracted from [`wrgr/lecommons`](https://github.com/wrgr/lecommons) (site
 history preserved). Its focus is the LENS program, documented case studies, interactive
@@ -13,21 +14,25 @@ catalog, events calendar, community roster) lives at
 
 ## Content organization
 
-The primary menu is Welcome, Case Studies, Experiments, Prototypes, and About.
+The primary menu is Motivation (the homepage), Start Here, Case Studies, Experiments, and Prototypes.
 The School of Education talk and Field Notes are no longer menu entries; their
 content has not been deleted. Learning Engineering Commons remains in the footer
-and About. Existing route URLs and prototype filter URLs are preserved.
+and Start Here. Existing route URLs and prototype filter URLs are preserved.
 
 - **Case Studies:** documented examples with evidence, caveats, and the draft casebook.
 - **Experiments:** learning labs, research/practice projects, and creative demonstrations.
 - **Prototypes:** capability gaps, design briefs, working exercises, and evaluation plans.
 - **Supporting reading:** Show Your Work is linked separately from runnable experiments.
-- **About:** program context, a content guide, and the author’s personal site.
+- **Start Here:** audience pathways, a content guide, program context, and the author’s personal site.
+  `/about/` remains a content alias with a canonical link to `/start-here/`;
+  `/about/what-you-will-do/` remains intact and unlisted. `/welcome/` and
+  `/motivation/` redirect to `/`, retaining query and fragment when JavaScript is enabled.
+- **Agentic AI Lab:** the Experiments directory links directly to `/agentic-le/`,
+  the existing case, product, and replay experience.
 
 Menu descriptions live in `src/components/NavBar.astro`: hover/focus tooltips on
 desktop and inline descriptions inside the mobile menu. The original homepage
-presentation is preserved in `src/styles/home.css`, with no extra content guide
-or instructional scroll text. The collection introductions retain their cross-links.
+presentation is preserved in `src/styles/home.css`, with direct paths into Start Here and the existing Agentic AI Lab. The collection introductions retain their cross-links.
 
 Validation: `npm run build`, `python3 tests/test_navbar_workshop_link.py`, and
 `python3 tests/test_experiments_page.py`. The legacy navbar test filename is retained;
