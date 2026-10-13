@@ -114,6 +114,7 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
     gap: 1rem;
   }
   .brand {
+    max-width: 100%;
     display: inline-flex;
     align-items: center;
     gap: .55rem;
@@ -235,9 +236,10 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
   @media (max-width: 620px) {
     .brand-text {
       font-size: .9rem;
+      min-width: 0;
       max-width: none;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: normal;
+      overflow: visible;
     }
   }
 

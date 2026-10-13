@@ -31,13 +31,28 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
 
   <section class="hero" id="argument">
     <h1>System performance depends on <em>what people can do.</em></h1>
-    <p class="hero-sub">
-      The operator who misreads a display under stress. The clinician who wasn't trained on the new protocol. The maintenance team that lost institutional knowledge when three people retired. Each points to a capability gap that system design needs to address.
-    </p>
-    <div class="hero-actions">
-      <a href={base + "start-here/"} class="cta-btn">Start Here</a>
-      <a href={base + "agentic-le/"} class="cta-btn secondary">Explore Agentic AI Lab</a>
-      <p>Three fictional projects developed by agents, with demos, transcripts, and a working paper.</p>
+    <div class="hero-content">
+      <div class="hero-intro">
+        <p class="hero-sub">
+          The operator who misreads a display under stress. The clinician who wasn't trained on the new protocol. The maintenance team that lost institutional knowledge when three people retired.
+        </p>
+        <p class="hero-bridge">Each points to a capability gap that system design needs to address.</p>
+        <div class="hero-actions">
+          <a href={base + "start-here/"} class="cta-btn">Start Here</a>
+        </div>
+      </div>
+      <article class="lab-card" aria-labelledby="lab-card-title">
+        <p class="lab-card-eyebrow">See the process in action</p>
+        <h2 id="lab-card-title">Agentic AI Lab</h2>
+        <p class="lab-card-summary">Follow a team of specialist agents from a seed idea to a candidate product. Explore fictional workforce, school, and library projects, with the work shown.</p>
+        <ul class="lab-card-features" aria-label="Inside the lab">
+          <li>Runnable demos</li>
+          <li>Decision replays</li>
+          <li>Working paper</li>
+        </ul>
+        <a class="lab-card-link" href={base + "agentic-le/"}>Explore the lab <span aria-hidden="true">→</span></a>
+        <p class="lab-card-note">Real agent runs on fictional problems. Human pilot approval and field evidence remain pending.</p>
+      </article>
     </div>
   </section>
 
@@ -141,6 +156,22 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
     <p class="cta-tertiary reveal">
       <a href={OVERVIEW_PDF_URL} target="_blank" rel="noopener">Download the one-page LENS overview (PDF)</a>
     </p>
+  </section>
+
+  <section class="capability-note" aria-labelledby="capability-note-title">
+    <p class="capability-note-eyebrow">From Show Your Work · A community working paper</p>
+    <h2 id="capability-note-title">What we mean by capability</h2>
+    <p class="capability-note-definition">The capacity of a person, team, or human-system arrangement to accomplish valued work under stated conditions, with usable opportunities to act.</p>
+    <dl class="capability-note-pillars">
+      <div><dt>People</dt><dd>Knowledge, judgment, action, and the ability to recognize and recover from errors.</dd></div>
+      <div><dt>Systems</dt><dd>Accessible tools, reliable information, resources, authority, and coordination that make competent action possible.</dd></div>
+      <div><dt>Purpose</dt><dd>Human flourishing: agency, well-being, meaningful participation, and attention to who benefits and who bears the burden.</dd></div>
+    </dl>
+    <p class="capability-note-evidence">We examine output quality, capability, learning, and impact as distinct claims. Each needs evidence that fits the work, its conditions, and the decision being made.</p>
+    <div class="capability-note-footer">
+      <a href={base + "show-your-work/"}>Read Show Your Work <span aria-hidden="true">→</span></a>
+      <p>William Gray-Roncal &amp; James Diamond · Working definition for community discussion</p>
+    </div>
   </section>
 </Base>
 
