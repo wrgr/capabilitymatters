@@ -51,6 +51,10 @@ These checks verify selected behavior and states, not whole-criterion conformity
 
 No deployment approval is requested by this record. Review and merge/release decisions remain separate.
 
+## Recorded test outcome
+
+The 77-route local initial-state scan reports zero tagged violation nodes, with the repaired LLM101 substitution described above. The local workflow suite completed 7 state audits with no tagged violations or browser script errors; LLM101 completed 13 state audits. All 19 existing prototype browser workflows pass. The 65 prototype unit tests, Pipeline publication/teaching tests, 25 lifecycle tests plus journal/brief/conversation integrity checks, and both MicroGPT engine suites passed during this run. Both production builds succeed. Remote CI has not run. These are bounded test results, not WCAG conformity.
+
 ## Local delivery
 
 Changes are organized into local site-wide and experiment-specific commits on `accessibility/wcag21`, with LLM101 on `accessibility/keyboard-and-dialogs`. No remote push, PR, merge or deployment was performed. The user-facing review package contains patches, a changed-file inventory, baseline/final route evidence, workflow evidence and preview images. The work remains a remediation candidate with the validation gates listed above.
