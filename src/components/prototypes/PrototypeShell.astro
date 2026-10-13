@@ -1,4 +1,6 @@
 ---
+import learningGuides from "../../data/learning-guides.json";
+import LearningGuideLink from "../LearningGuideLink.astro";
 import Base from "../../layouts/Base.astro";
 import AiCritiqueLaunch from "./AiCritiqueLaunch.astro";
 import evidenceLibrary from "../../data/problems-to-prototypes/evidence.json";
@@ -12,6 +14,7 @@ const {
   instrumentation,
   status = "Runnable thin-slice prototype"
 } = Astro.props;
+const learningGuide = learningGuides.find(g => g.briefId === idea.id);
 const evidence = idea.evidence.map((id) => {
   const source = evidenceLibrary.find((entry) => entry.id === id);
   if (!source) throw new Error(`Unknown evidence anchor: ${id}`);
@@ -42,6 +45,7 @@ const review = Object.values(reviewFiles).map((file) => (file as Record<string,a
     </div>
   </section>
 
+  {learningGuide && <LearningGuideLink id={learningGuide.id} />}
   <section class="prototype-workbench container-wide">
     <div class="workbench-app">
       <div class="section-kicker">Try it</div>
