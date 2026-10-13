@@ -9,11 +9,15 @@ def protected_html(source):
     # CSP is parsed before any supplied markup or script. A valid document shell
     # avoids relying on browser-specific support for srcdoc or blob navigations.
     import re
-    meta = '<meta http-equiv="Content-Security-Policy" content="' + POLICY + '">'
+    # Presentation additions leave the signed source journal untouched.
+    additions = '<style>select,input,textarea{max-width:100%;min-width:0}body{overflow-wrap:anywhere}:focus-visible{outline:3px solid #155f6f;outline-offset:3px}</style>'
+    if not re.search(r'<title[^>]*>\s*[^<]+', source, re.I):
+        additions += '<title>Recorded candidate prototype · Capability Matters</title>'
+    meta = '<meta http-equiv="Content-Security-Policy" content="' + POLICY + '">' + additions
     if re.search(r"<head\b[^>]*>", source, re.I):
         return re.sub(r"(<head\b[^>]*>)", lambda m: m.group(1) + meta, source, count=1, flags=re.I)
     source = re.sub(r"<!doctype[^>]*>", "", source, flags=re.I)
-    return '<!doctype html><html><head>' + meta + '</head><body>' + source + '</body></html>'
+    return '<!doctype html><html lang="en"><head>' + meta + '</head><body>' + source + '</body></html>'
 
 def package(filename):
     run = json.loads(Path(filename).read_text())
