@@ -3,13 +3,15 @@
   "product_name": "Conversation Lab: facts, perspectives and next moves",
   "release_state": "candidate",
   "run_id": "20261012T200729Z-live-codex-6b577c",
-  "run_head_hash": "e247530409e999c36e7638604be73860faf3c2b8529beb0482d10da2db9ca46b",
+  "run_head_hash": "dfc9f65089732d8079633d20d05b39f9b12df93ce7975fb7872598eeb1d35418",
   "build_content_hash": "2adc023974e387ed8ab868daa4089133ab2851cd9cd3b269ae2ec59fd2e6151a",
   "build_revision": 1,
   "entrypoint": "candidate.html",
   "human_pilot": "pending",
   "field_outcomes": "unknown",
-  "technical_verification_events": [],
+  "technical_verification_events": [
+    38
+  ],
   "role_profiles": {
     "claim": "Requested simulation proficiency; no demonstrated proficiency is inherited.",
     "framework": {
@@ -444,9 +446,9 @@
   },
   "files": {
     "candidate.html": "3018778ed0d63b83af5ea893b1afd7b08f3db681d39a07e1505dd53b00bfbece",
-    "project-journal.json": "2b1588dfe6eb622ffd541845c2b9c5def3c02e0792db17f85bfa297ed282207f",
-    "artifacts.json": "eb4a60af7b9723afb69e939a3dce6622675b89b31e7ea470f3df6e98a94086ad",
-    "requirements.md": "934ebb1a89c2f210fa90e80c434c67c34a52d89fadd302d208b0f0bf3d7fb947",
+    "project-journal.json": "da107729ed473247e8c8cbc8c228cbb3f996cfa76eb709cba4e0d5571c29480e",
+    "artifacts.json": "bd758bf60a2e36565708e3cda323249878ae30f4b58cda86a605c17c2dc804ef",
+    "requirements.md": "65f43e2613da62d156e2bfbf4cd68296fb7e366a14c470da954a1617b9bed160",
     "README.md": "89051c8e12c657da95b4174e14d8a12906c03ea21065816ecc861701d2866cf4"
   }
 }

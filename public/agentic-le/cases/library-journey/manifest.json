@@ -3,13 +3,16 @@
   "product_name": "Access Studio: choose a route, keep control",
   "release_state": "candidate",
   "run_id": "20261012T200822Z-live-codex-1f8ed5",
-  "run_head_hash": "8158421a71e1a666eb4bf3c0a9617580a1453a4cdae20acec6ab8c6895527e67",
+  "run_head_hash": "a8e7ab74afea25793f0d8f27a5601a4adca4d89c943d41a43d58d725de01d9f4",
   "build_content_hash": "eacb040c511d572b19b34572920944b0fffe55fcb01026f01dc29e9af1af4cfb",
   "build_revision": 1,
   "entrypoint": "candidate.html",
   "human_pilot": "pending",
   "field_outcomes": "unknown",
-  "technical_verification_events": [],
+  "technical_verification_events": [
+    38,
+    43
+  ],
   "role_profiles": {
     "claim": "Requested simulation proficiency; no demonstrated proficiency is inherited.",
     "framework": {
@@ -445,9 +448,9 @@
   },
   "files": {
     "candidate.html": "26b6050d98f431f19fea2dd2cef426fbf59220f6b614e1f0f71d90c540ce2fc3",
-    "project-journal.json": "c438fd46234f3a7f148a6d717244d3f1c440196cf832d4eb0083b5cc56f4d3fc",
-    "artifacts.json": "8c06f125899335b051c1514025d1509a550be26aebf753e059007700e333b851",
-    "requirements.md": "d5b2a9dc808d92474bd2cabd6e2d38fa5bcdc470e7da27c4209e13f05cf77170",
+    "project-journal.json": "a3a08ac44325f6917b9664a7532e667d6a60d76a7a5e469190044d65882e1d13",
+    "artifacts.json": "07ccb080eb578fc1dcc809ab4eb2ce14b8fcd9f096f96b43c51be8d786008e82",
+    "requirements.md": "84f1d7b847a3cfb76516002460ec08afcbdfdc3d0b27a6f27f2fe008c8f65d75",
     "README.md": "235b4f35bc454cc83b5f8237cb2a7bc05569de4a363489db7a0113efc9b4db6a"
   }
 }
