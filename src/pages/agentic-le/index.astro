@@ -4,6 +4,8 @@ import AgenticNav from "../../components/AgenticNav.astro";
 import roles from "../../data/lifecycle/resolved-roles.json";
 import cases from "../../../public/agentic-le/cases.json";
 import run from "../../../public/agentic-le/replay/live-exemplar.json";
+import workforce from "../../../public/agentic-le/replay/workforce-conversation.json";
+const workforceProduct = "/agentic-le/cases/workforce-conversation/";
 const originalCases = cases.cases.filter(c => !c.iteration_of);
 const displayedCases = originalCases.map(original => {
  const iteration = cases.cases.filter(c => c.iteration_of === original.id).at(-1);
@@ -31,11 +33,11 @@ const artifacts = run.events.filter(e => e.kind === "artifact").length;
     <h3>{c.title}</h3>
     <p class="case-counts">{c.counts.request} model calls · {c.counts.artifact} artifact versions · {c.counts.scenario} scenario {c.counts.scenario===1 ? "challenge" : "challenges"}</p>
     <nav class="case-actions" aria-label={c.title}>
-     <a class="replay-link" href={`/agentic-le/replay/?case=${c.id}&v=quality-5`}>Replay this case</a>
-     <a href={`/agentic-le/replay/?case=${c.id}&view=conversation&v=quality-5`}>Join the meeting replay</a>
+     <a class="replay-link" href={`/agentic-le/replay/?case=${c.id}&v=quality-6`}>Replay this case</a>
+     <a href={`/agentic-le/replay/?case=${c.id}&view=conversation&v=quality-6`}>Join the meeting replay</a>
      <a href={c.product}>Try its candidate</a>
      <a href={`${c.product}product.zip`} download>Download record & product</a>
-     {c.refined && <><a href={`/agentic-le/replay/?case=${c.original.id}&v=quality-5`}>Compare the original replay</a><a href={c.original.product}>Try the original candidate</a></>}
+     {c.refined && <><a href={`/agentic-le/replay/?case=${c.original.id}&v=quality-6`}>Compare the original replay</a><a href={c.original.product}>Try the original candidate</a></>}
     </nav>
    </article>)}</div>
    <p class="source"><a href="/agentic-le/record/?file=%2Fagentic-le%2Fcases.json">Case inventory and journal hashes</a> · <a href="https://github.com/wrgr/capabilitymatters/blob/main/docs/lifecycle/CASES.md">Expansion checklist</a></p>
@@ -44,13 +46,13 @@ const artifacts = run.events.filter(e => e.kind === "artifact").length;
    <h2 id="team-heading">Meet the learning engineering team</h2>
    <p>The learning engineer integrates the work; specialists contribute disciplinary and domain drafts; the scenario agent challenges assumptions.</p>
    <nav class="role-links" aria-label="Explore team roles">{Object.entries(roles.roles).map(([id, role]) => <a href={`/agentic-le/roles/#${id}`}>{role.name}{id === "orchestrator" && " · orchestrator"}</a>)}</nav>
-   <p><a href="/agentic-le/replay/?view=conversation&v=quality-5"><strong>Follow the meeting conversation</strong></a>: source-linked discussion highlights with distinct role voices and the original turns alongside them.</p>
+   <p><a href="/agentic-le/replay/?view=conversation&v=quality-6"><strong>Follow the meeting conversation</strong></a>: source-linked discussion highlights with distinct role voices and the original turns alongside them.</p>
    <p><a href="/agentic-le/roles/"><strong>See what each role contains</strong></a>: responsibilities, expected contributions, inherited duties, LENS competency targets, and domain specializations.</p>
   </section>
   <p class="paper-link"><a href="/agentic-le/paper/"><strong>Read the working paper: Learning Engineering in Action</strong></a></p>
   <div class="grid">
-   <article><h2>Inside the workforce candidate</h2><p><strong>{run.seed.title}</strong> helps a new team lead rehearse a fictional feedback decision, consider another explanation, revise an approach and recover from an interruption. Its reflection is descriptive; it does not assess employees.</p><p>The handoff contains executable HTML, requirements, versioned artifacts, the project journal and a source-linked manifest. It is a candidate product requiring affected-person review and field validation.</p><p><a href="/agentic-le/record/?file=%2Fagentic-le%2Fproduct%2Fmanifest.json">Inspect the product handoff</a> · <a href="/agentic-le/product/requirements.md">Read the requirements</a></p></article>
-   <article><h2>Inside the workforce record</h2><p>The saved fictional workforce project contains {modelResponses} real model responses, including a rejected correction, and {artifacts} artifact versions. Scenarios changed interruption privacy and reviewer-conflict requirements. An actual missing-code finding reopened Build.</p><p>The replay preserves original drafts, dissent, prompts, provider metadata, failed validation and the corrected candidate. Recorded browser checks support only the behavior exercised in that environment.</p><p><a href="/agentic-le/record/?file=%2Fagentic-le%2Freplay%2Flive-exemplar.json">Inspect the source journal</a> · <a href="/agentic-le/replay/?v=quality-5">Follow the workforce revisions</a></p></article>
+   <article><h2>Inside the workforce candidate</h2><p><strong>{workforce.seed.title}</strong> lets a new team lead compare authored openings, separate facts from explanations, and reconsider a proposal when protected time and coverage are withdrawn. Access, authority, capacity and agreement remain independent. Its reflection is descriptive; it does not assess employees.</p><p>The handoff contains executable HTML, requirements, versioned artifacts, the project journal and a source-linked manifest. It is a candidate product requiring affected-person review and field validation.</p><p><a href={`/agentic-le/record/?file=${encodeURIComponent(workforceProduct+"manifest.json")}`}>Inspect the product handoff</a> · <a href={`${workforceProduct}requirements.md`}>Read the requirements</a></p></article>
+   <article><h2>The preserved original workforce record</h2><p>The saved fictional workforce project contains {modelResponses} model requests, including a rejected correction, and {artifacts} artifact versions. Scenarios changed interruption privacy and reviewer-conflict requirements. An actual missing-code finding reopened Build.</p><p>The replay preserves original drafts, dissent, prompts, provider metadata, failed validation and the corrected candidate. Recorded browser checks support only the behavior exercised in that environment.</p><p><a href="/agentic-le/record/?file=%2Fagentic-le%2Freplay%2Flive-exemplar.json">Inspect the source journal</a> · <a href="/agentic-le/replay/?case=workforce&v=quality-6">Follow the original workforce revisions</a></p></article>
   </div>
   <article><h2>From candidate to operational product</h2><p>Understand → Map → Design → Build → Instrument → Deploy → Evaluate → Refine is a revisitable cycle. Build produces the executable candidate; refinement can return to any invalidated requirement. The learning engineer integrates the work and keeps human and system requirements visible.</p><p>Real use needs accountable ownership, affected-person review, appropriate data handling, accessible operation, a meaningful comparison and stopping rules. Learning, workplace transfer and flourishing remain claims to investigate. Inadequate conditions can justify changing the product, changing the work system, or stopping.</p><p>The hosted site serves saved products and replay. New model runs use the local runner in this repository; hosted model access and a shared job queue remain future work.</p></article>
   <p class="source"><a href="/problems-to-prototypes/">Return to project seeds</a> · <a href="https://github.com/wrgr/capabilitymatters/tree/main/tools/lifecycle">Runner source</a> · <a href="https://github.com/wrgr/capabilitymatters/tree/main/docs/lifecycle">Specification and operating documentation</a></p>

@@ -1,11 +1,11 @@
-import {reviewContext} from './brief.js?v=quality-5';
+import {reviewContext} from './brief.js?v=quality-6';
 import {meetingAt,voiceFor,nextMeetingEvent,conversationMarkdown} from './conversation.js?v=meeting-2';
 import {stageLabels} from './stage-labels.js';
-import {caseDemo,savedRunSelection} from './case-demo.js?v=case-demos-3';
+import {caseDemo,savedRunSelection} from './case-demo.js?v=case-demos-4';
 import {jsonTree} from '../record/json-view.js';
-import {stages,snapshot,revisionsAt,verifyRun,listFields,stageEntry} from './state.js?v=quality-5';
+import {stages,snapshot,revisionsAt,verifyRun,listFields,stageEntry} from './state.js?v=quality-6';
 const $=id=>document.getElementById(id), cap=s=>stageLabels[s]||s.charAt(0).toUpperCase()+s.slice(1);
-function journalURL(name){const record=savedCases.find(c=>c.journal===name);return name+'?v='+encodeURIComponent(record?.journal_sha256||'quality-5');}
+function journalURL(name){const record=savedCases.find(c=>c.journal===name);return name+'?v='+encodeURIComponent(record?.journal_sha256||'quality-6');}
 let conversational=new URLSearchParams(location.search).get('view')==='conversation';
 let savedCases=[],run=null,seq=1,timer=null,local=false,poll=null,chosenArtifact='',followArtifacts=true,prototypeKey='',demoKey='',conversationExportURL='';
 const element=(tag,text,cls)=>{const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(cls)el.className=cls;return el;};

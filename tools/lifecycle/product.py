@@ -41,7 +41,7 @@ def zip_bytes(run):
             archive.writestr(info, text.encode())
     return result.getvalue()
 
-def write_product(run, directory, replay_url="/agentic-le/replay/?case=workforce&v=quality-5"):
+def write_product(run, directory, replay_url="/agentic-le/replay/?case=workforce&v=quality-6"):
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
     for name, text in product_files(run).items():

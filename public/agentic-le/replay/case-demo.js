@@ -7,7 +7,8 @@ export function caseDemo(run, cases=[]){
 }
 
 export function savedRunSelection(cases, search=''){
- const id=new URLSearchParams(search).get('case')||'workforce';
+ const explicit=new URLSearchParams(search).get('case');
+ const id=explicit||cases.filter(c=>c.iteration_of==='workforce').at(-1)?.id||'workforce';
  if(id==='scripted')return {id,journal:'exemplar.json'};
  const selected=cases.find(c=>c.id===id);
  if(!selected)throw Error('Unknown saved case');
