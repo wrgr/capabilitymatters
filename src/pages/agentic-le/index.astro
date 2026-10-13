@@ -1,4 +1,5 @@
 ---
+import LearningGuideLink from "../../components/LearningGuideLink.astro";
 import Base from "../../layouts/Base.astro";
 import AgenticNav from "../../components/AgenticNav.astro";
 import roles from "../../data/lifecycle/resolved-roles.json";
@@ -16,6 +17,7 @@ const artifacts = run.events.filter(e => e.kind === "artifact").length;
 ---
 <Base title="Agentic LE · Capability Matters"
  description="From a seed idea to a runnable candidate product, with public agent discussion, scenario challenges, evidence and versioned artifacts.">
+  <LearningGuideLink id="agentic-ai-lab" />
  <meta slot="head" name="robots" content="noindex, nofollow" />
  <AgenticNav active="cases" />
  <header class="intro container-wide">

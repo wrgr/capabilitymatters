@@ -1,5 +1,6 @@
 ---
 /** Connect Karpathy's microgpt to evidence-based AI leadership through an original guided companion. */
+import LearningGuideLink from "../components/LearningGuideLink.astro";
 import Base from "../layouts/Base.astro";
 import TokenLab from "../components/microgpt/TokenLab.astro";
 import TrainingLab from "../components/microgpt/TrainingLab.astro";
@@ -16,6 +17,7 @@ const mechanics = [
 ];
 ---
 <Base title="MicroGPT for AI leaders · Capability Matters" description="An attributed companion to Andrej Karpathy's microgpt: three browser examples covering letters, words in haikus, and bias, with inspectable data and explained code." active="experiments">
+  <LearningGuideLink id="microgpt" />
   <link slot="head" rel="stylesheet" href="/microgpt/lab.css" />
   <link slot="head" rel="canonical" href="https://capabilitymatters.org/microgpt/" />
   <header class="intro">

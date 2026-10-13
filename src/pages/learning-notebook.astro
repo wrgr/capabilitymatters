@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import guides from '../data/learning-guides.json';
+---
+<Base title="My reflection notebook · Capability Matters" active="start-here">
+ <div class="container notebook"><p class="eyebrow">Your reflection notebook</p><h1>Connect what you tried<br />to what you learned.</h1><p>Revisit your observations, compare your explanations, and choose a next test. Saved reflections are notes for your own use; they are not assessed capability or course completion.</p><p>Only reflections you chose to save in this browser appear here. They are not sent to a server. Download a copy if you want to keep them.</p><nav aria-label="Notebook navigation"><a href="/learning-map/">← Learning map</a><button id="export-notebook" type="button">Download all reflections</button><button id="clear-notebook" type="button">Clear notebook</button></nav><p id="notebook-status" role="status"></p><div id="reflections"></div><p id="empty-notebook">Start with a <a href="/learning-map/">learning guide</a>, write a reflection, and choose “Save these notes in this browser.”</p><noscript><p>Enable JavaScript to load notes stored in your browser. The guides and learning map remain available without it.</p></noscript>
+ <section class="synthesis"><h2>Connect two experiences</h2><ol><li>What idea appeared in both experiences?</li><li>Where did the different settings change your explanation?</li><li>What would you now ask before choosing an intervention?</li></ol><p>Use these questions to turn separate activities into a line of inquiry.</p></section></div>
+</Base>
+<style>
+ .notebook nav{display:flex;align-items:center;flex-wrap:wrap;gap:1rem;margin:2rem 0;font:.9rem var(--sans)}button{font:600 .85rem var(--sans);padding:.7rem;background:var(--bg);border:1px solid var(--accent-2);border-radius:4px;color:var(--accent-2);cursor:pointer}button:disabled{opacity:.6;cursor:default}
+ .synthesis{border-top:1px solid var(--border);padding-top:2rem;margin-top:2rem}.synthesis li{margin-bottom:.8rem}
+ :global(.saved-reflection){border-top:1px solid var(--border);padding:1.5rem 0}:global(.saved-reflection p){white-space:pre-wrap}:global(.saved-reflection h3){margin-top:1.2rem;font-size:1rem}:global(.saved-reflection .saved-date){font:.8rem var(--sans);color:var(--muted)}
+</style>
+<script define:vars={{guideIds:guides.map(g=>g.id)}}>
+ // The bundled controller below reads this allowlist, never arbitrary stored URLs.
+ document.documentElement.dataset.guideIds=JSON.stringify(guideIds);
+</script>
+<script>
+ import {readNotebook,writeNotebook,downloadText} from '../lib/learning-notebook';
+ const allowlist=new Set(JSON.parse(document.documentElement.dataset.guideIds||'[]'));
+ const root=document.querySelector('#reflections')!;
+ const status=document.querySelector('#notebook-status')!;
+ const exportButton=document.querySelector<HTMLButtonElement>('#export-notebook')!;
+ const clearButton=document.querySelector<HTMLButtonElement>('#clear-notebook')!;
+ function entries(){return Object.entries(readNotebook()).filter(([id])=>allowlist.has(id)).sort((a,b)=>b[1].updated.localeCompare(a[1].updated));}
+ function render(){root.replaceChildren();const book=entries();exportButton.disabled=clearButton.disabled=book.length===0;document.querySelector<HTMLElement>('#empty-notebook')!.hidden=book.length>0;for(const [id,note]of book){const article=document.createElement('article');article.className='saved-reflection';const h2=document.createElement('h2');const link=document.createElement('a');link.href=`/guides/${id}/`;link.textContent=note.title;h2.append(link);article.append(h2);const date=document.createElement('p');date.className='saved-date';date.textContent=`Saved ${Number.isNaN(Date.parse(note.updated))?'in this browser':new Date(note.updated).toLocaleDateString()}`;article.append(date);for(const [key,label]of [['observation','What I observed'],['reasoning','How I explain it'],['transfer','Where it might transfer'],['next','My next test']]){const value=note[key as keyof typeof note];if(!value.trim())continue;const heading=document.createElement('h3');heading.textContent=label;const p=document.createElement('p');p.textContent=value;article.append(heading,p);}root.append(article);}}
+ exportButton.addEventListener('click',()=>downloadText('capability-matters-notebook.txt',entries().map(([,note])=>`${note.title}\n\nObservation\n${note.observation}\n\nExplanation\n${note.reasoning}\n\nTransfer\n${note.transfer}\n\nNext test\n${note.next}`).join('\n\n--------------------\n\n')));
+ clearButton.addEventListener('click',()=>{if(!confirm('Clear all reflections saved in this browser? Download a copy first if you want to keep them.'))return;status.textContent=writeNotebook({})?'Notebook cleared.':'Browser storage is unavailable; the notebook could not be cleared.';render();});render();
+</script>

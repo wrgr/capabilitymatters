@@ -1,5 +1,6 @@
 ---
 // Searchable design briefs distinguish built exercises from proposed interventions.
+import learningGuides from "../data/learning-guides.json";
 import Base from "../layouts/Base.astro";
 import SectionHero from "../components/SectionHero.astro";
 import aile1 from "../data/problems-to-prototypes/aile-1.json";
@@ -46,6 +47,7 @@ for (const idea of ideas) {
   if (!statuses[idea.id]) throw new Error(`Prototype status missing: ${idea.id}`);
   if (statuses[idea.id].workingPrototype && !statuses[idea.id].url) throw new Error(`Working prototype URL missing: ${idea.id}`);
 }
+const guideByBrief = Object.fromEntries(learningGuides.filter(g => g.kind === "prototype").map(g => [g.briefId, g.id]));
 const workingCount = ideas.filter((idea) => statuses[idea.id].workingPrototype).length;
 const longLabel:Record<Collection,string>={
   AILE:"Artificial Intelligence Leadership in Education",
@@ -69,7 +71,7 @@ const longLabel:Record<Collection,string>={
     <div>
       <p><strong>These are project seeds, not prescriptions.</strong> The first 32 began as abstracted themes from prospective-student essays and were deliberately rewritten as non-person-specific design problems. The six canonical LENS cards begin from recurring system problem types. No source essays, names, initials, or student IDs appear here.</p>
       <p>Each brief describes one small intervention to test, a use case, its design assumptions, and an evaluation plan. Sources support the design rationale; they do not establish that the proposed intervention works.</p>
-      <p>Looking for documented outcomes? Read the <a href="/case-studies/">Case Studies</a>. For standalone labs and projects, visit <a href="/experiments/">Experiments</a>.</p>
+      <p><a href="/learning-map/">Use the learning map</a> to choose a question, and open a short guide before exploring a brief. Looking for documented outcomes? Read the <a href="/case-studies/">Case Studies</a>. For standalone labs and projects, visit <a href="/experiments/">Experiments</a>.</p>
       <p><strong>{workingCount} working prototypes · {ideas.length - workingCount} design briefs awaiting a build.</strong> Filter by “Working prototype” below to try the current exercises. Working means the stated local interaction has been built, critically reviewed, and tested; it does not mean the broader concept is complete or validated.</p>
     </div>
     <aside class="loop">
@@ -113,6 +115,7 @@ const longLabel:Record<Collection,string>={
       return <article class="card" data-collection={idea.collection} data-working-prototype={String(implementation.workingPrototype)} data-search={searchable} id={idea.id}>
         <div class="meta"><span class:list={["chip",idea.collection?.toLowerCase().replace(" ","-")]}>{idea.collection}</span><span>{longLabel[idea.collection as Collection]}</span></div>
         <h2>{idea.title}</h2>
+        <p><a href={`/guides/${guideByBrief[idea.id]}/`}>Read the learning guide →</a></p>
         <div class="block"><b>The gap</b><p>{idea.gap}</p></div>
         <div class="block prototype"><b>A first prototype</b><p>{idea.prototype}</p></div>
         <div class="example"><b>Representative use case</b><p>{idea.example}</p></div>
