@@ -252,5 +252,6 @@ const mechanics = [
   .sources p, .sources li { font-size: .95rem; }
   dt { font-weight: 600; margin-top: 1rem; } dd { margin: .3rem 0; }
   @media (max-width: 600px) { .mechanic { grid-template-columns: 1fr; gap: .6rem; } .question { margin-left: 1.7rem !important; } .article > section { padding: 2rem 0; } }
+  @media(max-width:600px) { .bar-row { grid-template-columns:minmax(0,1fr) minmax(0,1fr); } .bar-row > .track { grid-column:1/-1; grid-row:2; } .bar-row > :last-child { grid-column:2; grid-row:1; } }
   @media print { .contents { display: none; } .article > section { break-inside: auto; } .lab { border: 1px solid #777; } }
 </style>
