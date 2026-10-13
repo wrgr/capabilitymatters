@@ -1,0 +1,66 @@
+# Capability Matters accessibility remediation
+
+Audit and local remediation dated October 13, 2026. This is an engineering record, not a WCAG conformity statement. No public deployment or remote branch publication was performed.
+
+## Scope and evidence
+
+The baseline is `wrgr/capabilitymatters` main commit `862eab8`. The build publishes 77 HTML resources: 50 Astro pages plus standalone labs, candidate products and archived previews. The audit includes every published HTML route, every one of the 19 working prototype entry points, shared pages, Pipeline cases and simulation, MicroGPT, Rainbow Bug Dash, Andon, and Agentic AI replay/products. Redirect aliases are included in the route count; some Pipeline violations are reported both on the container and directly in its child frame. Counts are affected nodes, not unique defects or verified success criteria.
+
+LLM101 is maintained in `wrgr/llm101` and was remediated in a separate local branch. Its live app was audited directly; the local production build was then tested separately. The final site audit substitutes that repaired local app for the public iframe through the test runner. This substitution is recorded explicitly; the live public embed still serves its existing code.
+
+The experiment directory also links to Calibrated Judgment, ExpertTrace, NeuroTrailblazers and POP. Their public entry screens received an automated baseline audit. Their deeper workflows and repositories were not remediated in this change set; those are separate applications and remain in the issue register below.
+
+Automation: axe-core WCAG 2.0/2.1 A and AA tags in Chrome, initial rendered states at 1280px, document-width checks at 320px, and additional state-specific audits. Manual browser work inspected keyboard skip navigation, the rainbow text-adventure route and focus return, and LLM101's mobile menu and glossary at 320px through the macOS accessibility tree. Existing prototype browser tests exercised all 19 tools, their exports and stale-state guards.
+
+Screen-reader support was inspected through accessible names, roles, relationships, state changes and the macOS accessibility tree. **No full spoken VoiceOver or NVDA session was performed.** Native assistive-technology reading order, announcements and usability remain a required validation gate. Text resizing/spacing tests use a 200% root font and WCAG spacing values at a 320-CSS-pixel viewport; they do not substitute for browser-specific zoom testing.
+
+## Prioritized findings and repairs
+
+1. **P1 — Rainbow visual-only gameplay and global key capture.** The baseline tree contained a canvas named “Rainbow Bug Dash game” and control labels, but no rainbow positions or hazard/routes. Global Space and letter handlers also intercepted keys outside the game. Related criteria: 1.1.1, 1.3.1, 2.1.1, 2.1.4, 2.2.2. Added a clearly identified untimed text adventure from the same five level configurations, with described rainbow locations, heights, nearby species, route choices, lives, progression and completion feedback. The visual mode starts paused, confines shortcuts to the canvas, pauses on focus/window loss, and gives Escape a path back to Start. Music/effects start disabled. Reduced motion offers the untimed mode. This adaptation preserves the story and collection goals; it does not reproduce the visual physics or certify equivalence of the reflex challenge.
+2. **P1 — LLM101 mouse-only modules/depth and inaccessible glossary overlay.** Source `Sidebar.jsx` and `LevelSlider.jsx` used clickable divs. Glossary markup dropped the activation event while the app expected its coordinates; the overlay lacked an explicit close control, modal focus and Escape behavior. Related criteria: 2.1.1, 2.4.3, 4.1.2. Converted actions to native buttons with selected states, added a skip link, named navigation and main landmark, replaced glossary/mobile overlays with native dialogs, restored opener focus, and announced the selected content/depth. Pedagogy is now available in mobile navigation. Added contrast corrections for module numbers and reading-depth badges.
+3. **P1 — Enlarged-text overflow in prototype filters and MicroGPT.** Initial 320px checks passed, but 200% text plus spacing overflowed the filter grid, lab metrics and probability labels. Related criteria: 1.4.4, 1.4.10, 1.4.12. Bounded filter controls and grid tracks; stacked narrow metric cards and put probability bars below their labels. Essential data remain textual, with loss tables and generated text retained.
+4. **P1 — Default contrast.** Baseline measurements: Andon examples ranged from 3.09:1 to 4.13:1 for ordinary text; Pipeline amber labels were 3.73:1; the contact copy on a warm panel was 4.32:1. Related criterion: 1.4.3. Darkened the existing sage/amber/muted palette rather than changing brand structure. Later reading states revealed additional LLM101 badge failures and were repaired too. Raw selectors, rendered snippets and calculated ratios are retained in baseline JSON.
+5. **P2 — Pipeline tab and content-replacement focus.** Activity tabs lacked arrow/Home/End handling and roving tabindex. Simulation rendering discarded the selected strategy button; case selection/guess rendering lacked a stable reading point. Related criteria: 2.1.1, 2.4.3, 4.1.2. Added tab keyboard behavior, selected tab order, preserved focused simulation controls, exposed case selection/step disclosure relationships and moved focus to the case heading when a removed control requires a stable destination.
+6. **P2 — Agentic replay scrolling and narrow selects.** `#transcript` failed `scrollable-region-focusable`; its case selector produced 349px document width at 320px. One earlier saved prototype lacked a title and produced 497px width. Related criteria: 2.1.1, 2.4.2, 1.4.10. Named and focused scroll regions, bounded selects, repaired replay tab/focus announcements and packaged a presentation title/style around preserved candidate source. Signed journal text and source hashes are unchanged; derived candidate HTML, manifests and download bundles were regenerated together and integrity-tested.
+7. **P2 — Links identified only by color.** Field-notes list links had a 2.38:1 difference from surrounding text without underline. Related criterion: 1.4.1. Underlined prose/list/definition links in the shared shell.
+8. **P2 — Optional preferences and baseline resilience.** Added native checkboxes for larger text, higher contrast and reduced motion plus reset, persistence and explicit storage-failure feedback. Default pages receive their contrast, semantics, focus and reflow fixes independently of these options. System reduced-motion and forced-colors behavior remain respected. Standalone labs receive the shared controls/styles; LLM101 has the same controls on its own host.
+
+## Verification interpretation
+
+These checks verify selected behavior and states, not whole-criterion conformity:
+
+- **1.1.1 / 1.3.1 / 1.3.2:** chart names/textual measurements and the rainbow narrative inspected; native form/control relationships and initial-page axe checks passed. Full nonvisual content equivalence still needs user testing.
+- **1.4.1 / 1.4.3:** observed prose-link and text-contrast failures repaired; initial routes and tested interaction states pass the tagged rules. Not every possible custom input, hover, error or dynamic state has been independently color-measured.
+- **1.4.4 / 1.4.10 / 1.4.12:** tested representative routes at 320px with 200% text, 1.5 line height, 2em paragraph spacing, .12em letter spacing and .16em word spacing. Independent scrolling tables/code are retained. Cross-browser 200%/400% zoom remains pending.
+- **1.4.13:** shared navigation descriptions already support Escape dismissal; mobile menu and dialog dismissal checked. Every hover tooltip was not reviewed across all external apps.
+- **2.1.1 / 2.1.2 / 2.1.4:** tested skips, menu/dialog dismissal, Pipeline tabs/strategy, training, rainbow routes and a prototype submission. No trap was found in those workflows. Canvas shortcuts now require game focus; all 19 existing prototype workflows pass regression.
+- **2.2.1 / 2.2.2:** visual game explicitly starts/pauses; untimed alternative can complete all five levels; replay and Andon offer pause/step controls. Timing in external apps is unverified.
+- **2.4.1 / 2.4.2 / 2.4.3 / 2.4.6 / 2.4.7:** skips, missing title, accessible names, focus returns and focus styles checked in representative workflows. Pixel-level focus contrast/obscuration across every state remains pending.
+- **3.1.1 / 3.2.3 / 3.2.4:** English document language and shared site navigation checked. Passages in other languages, every component instance and all external app language behavior are unverified.
+- **3.3.1 / 3.3.2 / 3.3.3:** existing invalid-input/stale-result prototype tests pass; native field labels and feedback checked in selected tools. This is not a validation of every possible error path.
+- **4.1.2 / 4.1.3:** stateful buttons/tabs, disclosure relationships, native dialogs, model summaries and replay status updates checked. Audible announcement timing remains pending in VoiceOver/NVDA.
+- **Other A/AA criteria**, including media alternatives/captions, flashing, input purpose, pointer gestures/cancellation, motion actuation, changes on focus/input, language of parts, error prevention and all instances of link purpose/multiple ways, have not received complete applicability and manual verification. WCAG 2.1 parsing checks are not treated as satisfied merely because modern axe excludes an obsolete rule.
+
+## Remaining issues and release gates
+
+- **P1: spoken assistive-technology validation.** Run complete essential workflows with VoiceOver/Safari and NVDA/Firefox or Chrome. Verify landmarks, content ordering, disabled-training controls, selection feedback, loss/sample announcements, nested frames, chart descriptions, error messages and modal focus return. Obtain feedback from nonvisual users on the rainbow adaptation.
+- **P1: external applications.** Entry audits found one contrast node at Calibrated Judgment, ten at ExpertTrace and two at POP; NeuroTrailblazers' entry screen had no tagged violations. These are baseline-only results, not a claim about their deeper workflows. POP's visual physics and photo interaction need a keyboard/nonvisual capability review, and assessment/mentoring forms need complete workflow audits in their own repositories.
+- **P1: synchronized approved release.** Capability Matters' public LLM101 iframe continues to serve the old separate deployment. Local tests substitute the repaired app; publishing either site requires explicit approval. Preference storage is per origin, so changing the parent preference does not automatically persist the same setting on the external LLM101 host.
+- **P2: manual zoom, focus and media coverage.** Verify 200% and 400% browser zoom, portrait/landscape, forced colors, all hover/focus states and focus visibility beneath sticky headers in Safari/Firefox. Review downloadable PDF/Word materials, any prerecorded/live media, and every criterion's applicability before any conformity statement.
+- **P2: retained earlier agent candidates.** The signed historical source is preserved. Current and earlier candidates pass the initial tagged audit after safe presentation packaging; deeper historical and sandboxed workflows are not independently certified.
+
+No deployment approval is requested by this record. Review and merge/release decisions remain separate.
+
+## Reproducing checks
+
+Install with `npm ci`, then `npx playwright install chromium` (CI installs required OS dependencies too). Run `npm run build` before browser tests. Use `CHROME_BINARY` only when running against an installed Chrome instead of Playwright's bundled browser.
+
+- `npm run test:a11y:audit`: every built HTML page, full raw rule evidence and document bounds. `A11Y_OUTPUT` sets the evidence directory. It is an evidence collector; its exit code does not certify conformance or assert every route is clean.
+- `npm run test:a11y`: assertions for keyboard/focus workflows, preferences, text/spacing reflow and selected dynamic-state axe checks. No external production application is modified.
+- `npm run test:prototypes:browser`, `npm run test:prototypes`, `npm run test:pipeline`, `npm run test:lifecycle`, and the two MicroGPT engine suites retain functional/integrity coverage.
+- LLM101: run its own `npm ci`, `npm run build`, then `npm run test:a11y`. Its test serves the production build locally.
+- `A11Y_LLM101_ORIGIN=http://127.0.0.1:4328` allows the site audit to substitute a running repaired LLM101 preview. Omit it to record the public embed. The report must state which mode was used.
+
+The accessibility CI workflow runs on pull requests and accessibility branches and publishes only a CI evidence artifact, with no deployment step. It was prepared locally; remote CI execution was not performed.
+
+Normative reference: [W3C WCAG 2.1](https://www.w3.org/TR/WCAG21/). Automated-rule evidence uses axe-core 4.13.0. The success-criterion interpretation and unresolved items above take precedence over any aggregate rule count.
