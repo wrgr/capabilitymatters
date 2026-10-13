@@ -21,7 +21,9 @@ body.dark-shell {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 2rem 4rem 3rem;
+    padding: 2rem var(--page-pad) 3rem;
+    max-width: 72rem;
+    margin: 0 auto;
     position: relative;
   }
   .hero::before {
@@ -55,8 +57,16 @@ body.dark-shell {
     opacity: 1;
   }
   .hero h1 em { font-style: italic; color: var(--hp-teal-light); }
+  .hero-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: start;
+    margin-top: 2rem;
+    position: relative;
+  }
   .hero-sub {
-    margin: 1.5rem 0 0;
+    margin: 0;
     font-family: var(--hp-sans);
     font-size: 1.25rem;
     font-weight: 300;
@@ -64,6 +74,12 @@ body.dark-shell {
     max-width: 600px;
     color: var(--hp-text-muted);
     opacity: 1;
+  }
+  .hero-bridge {
+    margin: 1rem 0 0;
+    max-width: 38rem;
+    font: 400 1.1rem/1.65 var(--hp-sans);
+    color: var(--hp-cream);
   }
   .hero-actions {
     display: flex;
@@ -75,11 +91,67 @@ body.dark-shell {
   }
   .hero-actions .cta-btn { padding: .85rem 1.4rem; }
   .hero-actions .cta-btn:focus-visible { outline: 2px solid var(--hp-teal-light); outline-offset: 5px; }
-  .hero-actions p {
+  .lab-card {
+    min-width: 0;
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+    border: 1px solid #40536d;
+    border-top: 3px solid var(--hp-teal-light);
+    border-radius: 12px;
+    background: var(--hp-navy-mid);
+  }
+  .lab-card-eyebrow {
+    margin: 0 0 .8rem;
+    color: var(--hp-teal-light);
+    font: 500 .75rem/1.5 var(--hp-sans);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .lab-card h2 {
+    margin: 0 0 .8rem;
+    color: var(--hp-cream);
+    font: 400 clamp(1.9rem, 3vw, 2.5rem)/1.15 var(--hp-serif);
+  }
+  .lab-card-summary {
     margin: 0;
-    max-width: 25rem;
-    color: var(--hp-text-muted);
-    font: .95rem/1.6 var(--hp-sans);
+    color: #c3cbe2;
+    font: 400 1rem/1.65 var(--hp-sans);
+  }
+  .lab-card-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0 1.5rem;
+  }
+  .lab-card-features li {
+    padding: .3rem .6rem;
+    border: 1px solid #40536d;
+    border-radius: 4px;
+    color: #c3cbe2;
+    font: 400 .8rem/1.5 var(--hp-sans);
+  }
+  .lab-card-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    max-width: 100%;
+    padding: .75rem 1rem;
+    border: 1px solid var(--hp-teal-light);
+    border-radius: 5px;
+    background: var(--hp-teal-light);
+    color: var(--hp-navy);
+    font: 600 .95rem/1.5 var(--hp-sans);
+  }
+  .lab-card-link:hover { background: #71dfcf; border-color: #71dfcf; }
+  .lab-card-link:focus-visible { outline: 3px solid var(--hp-gold); outline-offset: 5px; }
+  .lab-card-note {
+    margin: 1.2rem 0 0;
+    border-top: 1px solid #40536d;
+    padding-top: 1rem;
+    color: #a9b6cc;
+    font: 400 .85rem/1.6 var(--hp-sans);
   }
   .hero-line {
     width: 80px;
@@ -152,12 +224,14 @@ body.dark-shell {
     border-top: 1px solid rgba(138, 154, 181, 0.1);
   }
   .evidence-cell {
+    min-width: 0;
     padding: 4rem;
     border-right: 1px solid rgba(138, 154, 181, 0.1);
     position: relative;
   }
   .evidence-cell:last-child { border-right: none; }
   .evidence-cell .num {
+    overflow-wrap: anywhere;
     font-family: var(--hp-serif);
     font-size: 3.5rem;
     color: var(--hp-gold);
@@ -342,6 +416,52 @@ body.dark-shell {
     border-bottom-color: var(--hp-teal-light);
   }
 
+  /* The community note closes the argument with its working definition. */
+  .capability-note {
+    max-width: 67rem;
+    margin: 1rem auto 4rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border-radius: 12px;
+    background: var(--hp-cream);
+    color: var(--hp-navy);
+  }
+  .capability-note-eyebrow {
+    max-width: none;
+    margin: 0 0 1rem;
+    color: #205d55;
+    font: 600 .75rem/1.6 var(--hp-sans);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .capability-note h2 {
+    color: var(--hp-navy);
+    font: 400 clamp(2rem, 3.5vw, 3rem)/1.15 var(--hp-serif);
+    margin: 0 0 1.2rem;
+  }
+  .capability-note-definition {
+    max-width: 48rem;
+    margin: 0;
+    font: 400 clamp(1.15rem, 2vw, 1.4rem)/1.6 var(--hp-sans);
+  }
+  .capability-note-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    border-top: 1px solid #c7c4bd;
+    margin: 1.75rem 0;
+    padding-top: 1.5rem;
+    font-family: var(--hp-sans);
+  }
+  .capability-note-pillars dt { font-size: 1.05rem; font-weight: 700; margin-bottom: .6rem; }
+  .capability-note-pillars dd { margin: 0; font-size: .95rem; line-height: 1.65; }
+  .capability-note-evidence { max-width: 48rem; font: 400 .95rem/1.65 var(--hp-sans); margin: 0 0 1.5rem; }
+  .capability-note-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
+  .capability-note-footer a { color: #205d55; font: 600 1rem/1.6 var(--hp-sans); text-decoration: underline; text-underline-offset: .2em; }
+  .capability-note-footer a:focus-visible { outline: 3px solid #205d55; outline-offset: 5px; }
+  .capability-note-footer p { margin: 0; max-width: 26rem; color: #344550; font: 400 .8rem/1.6 var(--hp-sans); }
+  @media (max-width: 1150px) { .capability-note { margin-left: var(--page-pad); margin-right: var(--page-pad); } }
+  @media (max-width: 760px) { .capability-note-pillars { grid-template-columns: minmax(0, 1fr); gap: 1.3rem; } }
+
   /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -363,10 +483,11 @@ body.dark-shell {
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    .hero { padding: 1.5rem 2rem 2.5rem; min-height: 0; }
+    .hero { padding: 1.5rem var(--page-pad) 2.5rem; min-height: 0; }
+    .hero-content { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
     .statement { padding: 5rem 2rem; }
     .statement.right { align-items: flex-start; text-align: left; }
-    .evidence-strip { grid-template-columns: 1fr; }
+    .evidence-strip { grid-template-columns: minmax(0, 1fr); }
     .evidence-cell {
       border-right: none;
       border-bottom: 1px solid rgba(138, 154, 181, 0.1);
