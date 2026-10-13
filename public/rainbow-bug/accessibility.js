@@ -43,7 +43,9 @@ function describeAdventure() {
     }
     routes.append(item);
   });
-  document.getElementById('next-adventure-level').hidden = collected.size !== level.rainbows.length;
+  const next = document.getElementById('next-adventure-level');
+  next.hidden = collected.size !== level.rainbows.length;
+  next.textContent = adventureLevel === levels.length - 1 ? 'Finish adventure' : 'Continue to next level';
 }
 /** Resolve an untimed route choice, retaining feedback without a precision or reflex requirement. */
 function collectRainbow(index, route) {
@@ -100,7 +102,7 @@ canvas.addEventListener('keydown', event => {
 canvas.addEventListener('keyup', event => { setKeyState(event.code, false); });
 playStyle.addEventListener('change', selectPlayStyle);
 document.getElementById('next-adventure-level').addEventListener('click', () => {
-  if (adventureLevel === levels.length - 1) { adventureStatus.textContent = 'All five levels complete! You collected every rainbow.'; return; }
+  if (adventureLevel === levels.length - 1) { adventureStatus.textContent = 'All five levels complete! You collected every rainbow.'; document.getElementById('next-adventure-level').hidden = true; document.getElementById('adventure-heading').focus(); return; }
   adventureLevel++; collected.clear(); describeAdventure(); adventureStatus.textContent = 'Next level ready. Read the routes and choose at your own pace.'; document.getElementById('adventure-heading').focus();
 });
 document.getElementById('restart-adventure').addEventListener('click', () => { adventureLevel = 0; collected.clear(); adventureLives = 3; describeAdventure(); adventureStatus.textContent = 'Adventure restarted.'; });
