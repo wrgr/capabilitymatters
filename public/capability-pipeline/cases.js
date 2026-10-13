@@ -214,7 +214,7 @@
   function setMode(mode){
     currentMode = mode;
     Array.prototype.forEach.call(modeToggle.querySelectorAll('button'), function(b){
-      b.classList.toggle('active', b.getAttribute('data-mode') === mode);
+      b.classList.toggle('active', b.getAttribute('data-mode') === mode); b.setAttribute('aria-pressed',String(b.getAttribute('data-mode')===mode));
     });
     modeDesc.textContent = MODE_DESC[mode];
     if (currentId) renderCase(currentId);
@@ -297,7 +297,7 @@
         var btn = e.target.closest('button[data-i]');
         if (!btn || st.guessed !== null) return;
         st.guessed = parseInt(btn.getAttribute('data-i'), 10);
-        renderStudyOrFind(c);
+        renderStudyOrFind(c); expTitle.tabIndex=-1; expTitle.focus();
       });
     }
 
@@ -472,7 +472,7 @@
     var c = CASES.filter(function(x){ return x.id === id; })[0];
     if (!c) return;
     currentId = id;
-    Object.keys(cards).forEach(function(k){ cards[k].classList.toggle('active', k === id); });
+    Object.keys(cards).forEach(function(k){ cards[k].classList.toggle('active', k === id); cards[k].setAttribute('aria-pressed',String(k===id)); });
 
     expTitle.textContent = c.title;
     expFrame.textContent = c.frame;
@@ -481,7 +481,7 @@
     renderCase(id);
 
     explorer.classList.add('visible');
-    if (doScroll) explorer.scrollIntoView({behavior:'smooth', block:'start'});
+    if (doScroll) { expTitle.tabIndex=-1; expTitle.focus(); explorer.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches||document.documentElement.hasAttribute('data-a11y-motion')?'auto':'smooth', block:'start'}); }
   }
 
   Object.keys(cards).forEach(function(k){
@@ -499,7 +499,7 @@
       var detail=row.nextElementSibling;
       if (!detail || !detail.classList.contains('step-detail') || row.classList.contains('locked')) return;
       row.setAttribute('role','button'); row.setAttribute('tabindex','0');
-      row.setAttribute('aria-expanded',String(detail.classList.contains('open')));
+      detail.id='case-step-detail-'+Array.prototype.indexOf.call(stepper.querySelectorAll('.step-row'),row);row.setAttribute('aria-controls',detail.id);row.setAttribute('aria-expanded',String(detail.classList.contains('open')));
     });
   }
   accessibleRows();
