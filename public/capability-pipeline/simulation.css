@@ -17,3 +17,5 @@ button, .brand, .topmeta, .choice > span, .utilities { min-width: 0; max-width: 
  .tabs, .four { grid-template-columns:repeat(2,minmax(0,1fr)); }
  .split > section { width: 100%; }
 }
+.step { overflow-wrap: anywhere; }
+@media(max-width:400px) { .metric-row { grid-template-columns:minmax(0,1fr); } }
