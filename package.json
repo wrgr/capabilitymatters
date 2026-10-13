@@ -12,18 +12,26 @@
     "test:prototypes": "node --test tests/test_prototypes.mjs tests/test_aile_foundation.mjs tests/test_aile_access.mjs tests/test_aile_practice.mjs tests/test_lens_tools.mjs tests/test_auditor_confirmation.mjs",
     "test:prototypes:browser": "node tests/test_prototypes_browser.mjs",
     "astro": "astro",
-    "prebuild": "python3 scripts/package-lifecycle.py",
+    "prebuild": "npm run build:llm101 && python3 scripts/package-lifecycle.py",
     "test:lifecycle": "python3 -m unittest discover -s tools/lifecycle/tests -p 'test_*.py' && node tools/lifecycle/tests/test_state.mjs && node tools/lifecycle/tests/test_conversation.mjs && node tools/lifecycle/tests/test_brief.mjs",
     "test:pipeline": "python3 tests/test_capability_pipeline.py && node --test tests/test_pipeline_teaching.mjs",
     "test:a11y:audit": "node tests/a11y-audit.mjs",
-    "test:a11y": "node tests/a11y-regression.mjs"
+    "test:a11y": "node tests/a11y-regression.mjs && npm run test:llm101",
+    "predev": "npm run build:llm101",
+    "build:llm101": "vite build --config experiments/llm101/vite.config.js",
+    "test:llm101": "node tests/llm101-regression.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",
-    "astro": "^6.1.7"
+    "astro": "^6.1.7",
+    "katex": "^0.16.47",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
-    "playwright": "^1.64.0"
+    "@vitejs/plugin-react": "^4.7.0",
+    "playwright": "^1.64.0",
+    "vite": "^5.4.21"
   }
 }

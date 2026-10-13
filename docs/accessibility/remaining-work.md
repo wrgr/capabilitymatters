@@ -1,0 +1,14 @@
+# Remaining accessibility work
+
+This record tracks work still open after the approved October 13 remediation and LLM101 source migration. The active backlog is [GitHub issue #24](https://github.com/wrgr/capabilitymatters/issues/24). Deployment and passing automated rules do not establish WCAG conformity.
+
+- **P1 — Spoken assistive technology:** complete essential workflows with VoiceOver/Safari and NVDA/Chrome or Firefox, including nested frames, training/selection announcements, reading order, errors and modal focus. Existing evidence is keyboard/role/state inspection and a macOS accessibility-tree review, not a full spoken session.
+- **P1 — Rainbow alternative usability:** obtain nonvisual user feedback on all five untimed text-adventure levels. Narrative and collection goals are preserved; equivalence to the visual physics/reflex task is unverified.
+- **P1 — External applications:** deeper audits and repairs in Calibrated Judgment, ExpertTrace, POP and NeuroTrailblazers remain separate repository work. Entry-only baseline axe findings were 1, 10, 2 and 0 contrast violation nodes respectively. POP needs keyboard/nonvisual alternatives for essential physics/photo interactions. Zero entry violations do not establish accessible workflows.
+- **P2 — Manual visual/browser coverage:** verify actual 200%/400% zoom, Safari/Firefox, portrait/landscape, forced colors, hover dismissal, dynamic-state contrast and focus visibility beneath sticky elements. Synthetic 320px + 200% text/spacing checks cover only part of this requirement.
+- **P2 — Content and applicability:** audit downloadable PDF/Word materials, captions/media and the applicability of every WCAG 2.1 A/AA criterion before any conformity statement.
+- **P2 — Earlier agent candidates:** initial rules and journal integrity pass; deeper historical/sandboxed workflows need independent validation.
+- **P2 — Brain101:** the legacy LLM101 Pages deployment also serves `/llm101/brain101/`. Preserve it while retiring the LLM101 root to a redirect; decide its long-term host and audit its workflows separately.
+- **P2 — Dependency maintenance:** the current npm audit includes critical/high advisories in the pre-existing Astro toolchain and high advisories in the preserved Vite build toolchain, plus a low KaTeX advisory. Review and update these in a focused dependency change, determining actual static-production versus development-server exposure. The migration keeps the existing explorer dependency versions; it does not run a public development server or add a model endpoint.
+
+The separate LLM101 hosting/preference split is resolved by maintained source in `experiments/llm101/` and a same-origin embed/full-screen route. The regression suite verifies cross-frame preference updates/reset and guards all 15 lesson data against the original digest. Retire the old live app only after the migrated public route passes verification.

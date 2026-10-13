@@ -32,3 +32,6 @@ venv/
 # Private lifecycle receipts and caches; public fictional exports are explicit.
 data/lifecycle/
 data/cache/lifecycle/
+
+# LLM101 is rebuilt from maintained source before Astro dev/build.
+public/llm101/explorer/

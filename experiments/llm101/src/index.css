@@ -1,0 +1,5 @@
+/* Load the preserved explorer stylesheet in its original cascade order. */
+@import "./styles/shell.css";
+@import "./styles/lessons.css";
+@import "./styles/reading.css";
+@import "./styles/mobile.css";
