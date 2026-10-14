@@ -73,6 +73,7 @@ lucide-react/dist/esm/icons/check.mjs:
 lucide-react/dist/esm/icons/chevron-down.mjs:
 lucide-react/dist/esm/icons/circle-check.mjs:
 lucide-react/dist/esm/icons/clock-3.mjs:
+lucide-react/dist/esm/icons/download.mjs:
 lucide-react/dist/esm/icons/flask-conical.mjs:
 lucide-react/dist/esm/icons/layers.mjs:
 lucide-react/dist/esm/icons/pause.mjs:

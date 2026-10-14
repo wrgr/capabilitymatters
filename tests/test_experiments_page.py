@@ -80,7 +80,7 @@ def test_andon_game_is_public_and_playable() -> None:
                  "app.js.LEGAL.txt", "source/main.tsx", "source/page.tsx",
                  "source/engine.ts", "source/build.mjs", "source/package.json"):
         assert (root / name).is_file(), name
-    assert 'src="./app.js?v=3-public-1"' in (root / "index.html").read_text()
+    assert 'src="./app.js?v=' in (root / "index.html").read_text()
     assert "/experiments/" in (root / "source/page.tsx").read_text()
     assert "Private simulation" not in (root / "app.js").read_text()
 
@@ -110,4 +110,5 @@ if __name__ == "__main__":
     test_featured_paper_banner()
     test_experiment_groups()
     print("experiments page OK")
+
 

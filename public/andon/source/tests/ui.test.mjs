@@ -6,11 +6,15 @@ import ts from 'typescript';
 import React from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {create,tick,advance,command,metrics} from '../engine.ts';
-const src=readFileSync(new URL('../page.tsx',import.meta.url),'utf8').replace("from './engine'","from './engine.ts'").replace(/^function (Response|Process|Principles|Flow)\(/gm,'export function $1(');
+const practiceSrc=readFileSync(new URL('../practice-view.tsx',import.meta.url),'utf8').replace("from './engine'","from './engine.ts'");
+const practiceTemporary=new URL('../.qa-practice-view.mjs',import.meta.url);
+writeFileSync(practiceTemporary,ts.transpileModule(practiceSrc,{compilerOptions:{jsx:ts.JsxEmit.ReactJSX,module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText);
+const src=readFileSync(new URL('../page.tsx',import.meta.url),'utf8').replace("from './engine'","from './engine.ts'").replace("from './practice-view'","from './.qa-practice-view.mjs'").replace(/^function (Response|Process|Principles|Flow)\(/gm,'export function $1(');
 const temporary=new URL('../.qa-render.mjs',import.meta.url);
 writeFileSync(temporary,ts.transpileModule(src,{compilerOptions:{jsx:ts.JsxEmit.ReactJSX,module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText);
 const {default:Page,Response,Process,Principles,Flow}=await import(temporary.href);
 unlinkSync(temporary);
+unlinkSync(practiceTemporary);
 const render=(C,p={})=>renderToStaticMarkup(React.createElement(C,p));
 function walk(el,fn){if(!el||typeof el!=='object')return;if(Array.isArray(el)){el.forEach(x=>walk(x,fn));return;}if(el.props){fn(el);walk(el.props.children,fn);}}
 function txt(el){if(el===null||el===undefined||typeof el==='boolean')return '';if(typeof el==='string'||typeof el==='number')return String(el);if(Array.isArray(el))return el.map(txt).join(' ');return txt(el.props?.children);}
@@ -29,3 +33,4 @@ test('actual UI actions complete signal → observe → evidence → correction 
 test('waiting state disables duplicate investigations and leaves containment available',()=>{let s=advance(create());s=command(s,{kind:'inspect',id:s.incidents[0].id});const html=render(Response,{incident:s.incidents[0],s,free:1,act:()=>{},next:()=>{}});assert.ok(html.includes('Help underway'));assert.ok(!html.includes('Observe actual work'));assert.ok(html.includes('Contain station'));});
 test('model explains the measures, uncertainty, countermeasure loop, and primary sources',()=>{const html=render(Principles);for(const text of ['Management provides the means','On-time accepted service','Help within 5 minutes','Mean first response','teaching checkpoint','not calibrated','global.toyota','lean.org'])assert.ok(html.includes(text),text);assert.ok(!html.includes('NaN'));});
 test('maximum shift history and late station states render without missing numeric values',()=>{let s=create();while(s.time<120){for(const i of s.incidents.filter(i=>i.status==='open'))s=command(s,{kind:'dismiss',id:i.id});s=tick(s);}const html=render(Flow,{s})+render(Process,{s,station:1,setStation:()=>{},hypothesis:0,setHypothesis:()=>{},act:()=>{},free:2});assert.ok(!html.includes('NaN'));assert.ok(html.includes('disabled=""'));assert.equal(metrics(s).delivered+metrics(s).backlog,s.orders.length);});
+

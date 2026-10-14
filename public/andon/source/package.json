@@ -5,7 +5,7 @@
   "description": "Rebuild and verify the standalone Andon manager experiment.",
   "scripts": {
     "build": "node build.mjs",
-    "test": "node --test tests/engine.test.mjs tests/ui.test.mjs"
+    "test": "node --test tests/*.test.mjs"
   },
   "devDependencies": {
     "esbuild": "0.28.0",
