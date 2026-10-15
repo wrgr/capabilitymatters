@@ -1,0 +1,26 @@
+/* Keep reading preferences and keyboard focus consistent across the site and standalone labs. */
+.accessibility-preferences { font: 1rem/1.5 system-ui,sans-serif; padding: .6rem 1rem; background: #fefdf8; color: #1a1d1a; border-bottom: 1px solid #6b6f6a; }
+.accessibility-preferences details { margin: 0; }
+.accessibility-preferences summary { cursor: pointer; width: fit-content; padding: .3rem; font: inherit; }
+.preference-options { display: flex; align-items: center; gap: .6rem 1.4rem; flex-wrap: wrap; padding: .75rem .3rem; }
+.preference-options label { display: inline-flex; gap: .5rem; align-items: center; font: inherit; margin: 0; }
+.preference-options input { width: 1.2rem; height: 1.2rem; }
+.preference-options button { font: inherit; padding: .4rem .7rem; color: #1a1d1a; background: white; border: 1px solid #454b45; border-radius: 3px; cursor: pointer; }
+.preference-status { flex-basis: 100%; margin: 0; }
+.preference-status:empty { display: none; }
+html[data-a11y-text] { font-size: 125%; }
+:focus-visible { outline: 3px solid #155f6f; outline-offset: 3px; box-shadow: 0 0 0 3px #fff; }
+html[data-a11y-contrast] { --bg: #fff; --ink: #111; --ink-soft: #111; --muted: #333; --accent: #653700; --accent-2: #004e60; --border: #555; --tint: #fff; --tint-warm: #fff; }
+html[data-a11y-contrast] body, html[data-a11y-contrast] body :where(header,footer,main,section,article,aside,nav,div,p,span,small,strong,h1,h2,h3,h4,li,dt,dd,details,summary,label,legend,fieldset,em,b,i,code,pre,mark,th,td,button,input,select,textarea,dialog) { background-color: #fff !important; color: #111 !important; border-color: #555 !important; }
+html[data-a11y-contrast] body a { color: #004e60 !important; text-decoration: underline; }
+html[data-a11y-contrast] body svg text { fill: #111 !important; }
+html[data-a11y-contrast] body button[aria-pressed=true], html[data-a11y-contrast] body button[aria-selected=true] { border: 3px solid #111 !important; }
+html[data-a11y-motion] *, html[data-a11y-motion] *::before, html[data-a11y-motion] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+html[data-a11y-motion] .reveal, html[data-a11y-motion] .hero-label, html[data-a11y-motion] .hero h1, html[data-a11y-motion] .hero-sub, html[data-a11y-motion] .hero-line { opacity: 1 !important; transform: none !important; }
+@media(prefers-reduced-motion:reduce) {
+ *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+ .reveal { opacity: 1 !important; transform: none !important; }
+}
+@media(forced-colors:active) { :focus-visible { outline: 3px solid Highlight !important; box-shadow: none; } }
+a.skip { position: absolute; left: 1rem; top: -10rem; padding: 1rem; z-index: 100; background: white; color: #1a1d1a; }
+a.skip:focus { top: 1rem; }
