@@ -36,3 +36,9 @@ button { max-width: 100%; }
 
 /* Strengthen checkpoint text and input boundaries on the practice backgrounds. */
 .practice-steps button.current small{color:#4d673a}.practice-reason textarea,.practice-export textarea,.practice-choices button,.practice-steps button:enabled{border-color:#6f825e}
+
+
+/* Keep narrated playback controls distinct and usable at narrow widths. */
+.demo-panel{margin:1rem 0;padding:1.4rem;border:2px solid #526a3e;border-radius:16px;background:#f1f5e9;color:#283b20;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem}
+.demo-panel h2{margin:.3rem 0}.demo-panel p{line-height:1.6;max-width:75ch}.demo-controls{display:flex;flex-direction:column;gap:.6rem;min-width:190px}.demo-controls button,.demo-controls select{min-height:44px}.demo-controls label{display:flex;gap:.6rem;align-items:center;justify-content:space-between}.demo-panel>.small{grid-column:1/-1;margin:0}.demo-next{border-left:3px solid #526a3e;padding-left:.8rem}.practice-choices button.demo-planned{border:2px solid #526a3e;background:#f1f5e9}.demo-controls :focus-visible{outline:3px solid #244f74;outline-offset:3px}
+@media(max-width:700px){.demo-panel{grid-template-columns:1fr;padding:1rem}.demo-controls{min-width:0;display:grid;grid-template-columns:1fr 1fr}.demo-controls label{grid-column:1/-1}.demo-controls button{white-space:normal}}

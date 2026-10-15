@@ -34,7 +34,7 @@ npm run build
 
 The source requires Node.js 22.18 or newer for TypeScript stripping in the tests. The browser entry is built for modern browsers. All visitor assets are served locally. Run summaries stay in the browser, with the last four saved when storage is available; storage failures are reported and do not stop play.
 
-Twenty-nine automated tests passed, including 200 seeded shifts across personas and system conditions. Tests invoke the rendered action callbacks through observation, recovery, trial, and pilot. Browser visual and frame-time QA was unavailable during this release. Source review covers responsive layouts, native keyboard controls, labels, selected-state announcements, disabled states, visible focus, reduced motion, and confirmation before replacing an unfinished run.
+Thirty-five automated tests passed, including 200 seeded shifts across personas and system conditions. Tests invoke the rendered action callbacks through observation, recovery, trial, and pilot. Browser visual and frame-time QA was unavailable during this release. Source review covers responsive layouts, native keyboard controls, labels, selected-state announcements, disabled states, visible focus, reduced motion, and confirmation before replacing an unfinished run.
 
 
 ## Step-through capability practice
@@ -60,4 +60,24 @@ This update changes:
 - `../../tests/test_experiments_page.py`: asset-version-independent entrypoint check.
 - `README.md`: practice scope, evidence limits, and changed-file record.
 
-Twenty-nine automated tests pass, including rendered action callbacks and 200 seeded operating shifts. The guided decisions and unfamiliar incident are validated against the unchanged operational engine. Browser visual QA remains unavailable; no claim of browser accessibility conformance or validated managerial assessment is made.
+Thirty-five automated tests pass, including rendered action callbacks and 200 seeded operating shifts. The guided decisions and unfamiliar incident are validated against the unchanged operational engine. Browser visual QA remains unavailable; no claim of browser accessibility conformance or validated managerial assessment is made.
+
+
+## Automated demonstration
+
+Open `/andon/?demo=1` and select **Play demo**, or select **Watch demo** in Guided practice. Playback explains each decision before executing the real practice command, then shows its actual result. The complete worked loop takes about two minutes at normal pace. **Pause demo**, **Next demo beat**, pace selection, and **Replay demo** support inspection. **Take over this practice** preserves the current operational state and record. Any practice interaction, view change, or hidden browser tab pauses playback; it never resumes in the background. Replacing an unfinished practice requires confirmation.
+
+The demo is scripted, not an autonomous manager or a capability assessment. It uses observed evidence to release verified normal work, reject a weak trial, withdraw a failing pilot, or defer where exposure is insufficient. A standard update still requires the engine's reported-exposure and recurrence guard. Demonstration reasoning is explicitly labeled in the exported record. No dependencies or hosting changes are required.
+
+Demo update files:
+
+- `source/demo.ts`: evidence-dependent choices, narration, and one-beat advancement through actual practice commands.
+- `source/practice-view.tsx`: timed playback, pause, pace, replay, takeover, visible planned action, and interruption handling.
+- `source/page.tsx`: demo deep link opens the practice view.
+- `source/tests/demo.test.mjs`: full automated loop, blocked results, normal-work release, weak trials, and contrary field evidence.
+- `source/tests/demo-playback.test.mjs`: controlled timer tests for pause, pace, manual stepping, visibility, view changes, takeover, and completion.
+- `source/tests/practice-ui.test.mjs`: discoverability and highlighted actual choice callbacks.
+- `style.css`: responsive demonstration panel and visible control focus.
+- `index.html`: refreshed asset versions.
+- `app.js`: regenerated standalone browser bundle.
+- `README.md`: demo usage, evidence limits, validation, and changed-file record.
