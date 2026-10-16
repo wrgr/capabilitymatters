@@ -9,12 +9,12 @@
     {key:'instrument', label:'Instrument', blurb:'Decide, before you need the answer, what evidence would prove you wrong.'},
     {key:'deploy', label:'Deploy', blurb:'Put the built, instrumented thing into something close to the real setting.'},
     {key:'evaluate', label:'Evaluate', blurb:'Read the evidence honestly, including the result you didn’t want.'},
-    {key:'refine', label:'Refine', blurb:'Let the evidence act on what you understood the problem to be.'}
+    {key:'refine', label:'Refine', blurb:'Refine throughout: use evidence to revisit any step and the understanding of the problem.'}
   ];
 
   var MODE_DESC = {
-    study: 'Worked example. All eight steps are open, and the turn is marked for you — study how the decision at that step produced everything downstream of it.',
-    find: 'All eight steps are open, but the turn isn’t marked. Read the case, then guess which step it turns on before you check.',
+    study: 'Worked example. All seven steps and the continuing refinement reflection are open, and the turn is marked for you — study how the decision at that step produced everything downstream of it.',
+    find: 'All seven steps and the continuing refinement reflection are open, but the turn isn’t marked. Read the case, then guess which step it turns on before you check.',
     predict: 'Steps unfold in order. When you reach the turn, you can write an optional prediction before revealing the rest of the story.'
   };
 
@@ -168,7 +168,7 @@
   STEP_META.forEach(function(s, i){
     var el = document.createElement('div');
     el.className = 'item';
-    el.innerHTML = '<span class="n">0'+(i+1)+'</span><span class="t"><b>'+s.label+'</b><span>'+s.blurb+'</span></span>';
+    el.innerHTML = '<span class="n">'+(i < 7 ? '0'+(i+1) : '↻')+'</span><span class="t"><b>'+s.label+'</b><span>'+s.blurb+'</span></span>';
     legend.appendChild(el);
   });
 
@@ -276,14 +276,14 @@
       var picker = document.createElement('div');
       picker.className = 'find-picker';
       var st = findState[c.id];
-      var html = '<p><strong>Which step does this case turn on?</strong> Read all eight, then pick one.</p><div class="choices">';
+      var html = '<p><strong>Which step does this case turn on?</strong> Read the seven steps and refinement reflection, then pick one.</p><div class="choices">';
       STEP_META.forEach(function(m, i){
         var cls = '';
         if (st.guessed !== null) {
           if (i === c.branchIndex) cls = 'chosen-correct';
           else if (i === st.guessed) cls = 'chosen-incorrect';
         }
-        html += '<button type="button" data-i="'+i+'" class="'+cls+'"'+(st.guessed !== null ? ' disabled' : '')+'>'+(i+1)+'. '+m.label+'</button>';
+        html += '<button type="button" data-i="'+i+'" class="'+cls+'"'+(st.guessed !== null ? ' disabled' : '')+'>'+(i < 7 ? (i+1)+'. ' : '')+m.label+'</button>';
       });
       html += '</div>';
       if (st.guessed !== null) {
@@ -316,7 +316,7 @@
         }
       }
       row.innerHTML =
-        '<span class="idx">0'+(i+1)+'</span>' +
+        '<span class="idx">'+(i < 7 ? '0'+(i+1) : '↻')+'</span>' +
         '<span class="body"><h4>'+meta.label+badge+'</h4><p class="summary">'+meta.blurb+'</p></span>' +
         '<span class="chev">+</span>';
 
@@ -354,7 +354,7 @@
         var row = document.createElement('div');
         row.className = 'step-row';
         row.innerHTML =
-          '<span class="idx">0'+(i+1)+'</span>' +
+          '<span class="idx">'+(i < 7 ? '0'+(i+1) : '↻')+'</span>' +
           '<span class="body"><h4>'+meta.label+'</h4><p class="summary">'+meta.blurb+'</p></span>' +
           '<span class="chev">+</span>';
         var detail = document.createElement('div');
@@ -376,7 +376,7 @@
         var prow = document.createElement('div');
         prow.className = 'step-row branch-row';
         prow.innerHTML =
-          '<span class="idx">0'+(i+1)+'</span>' +
+          '<span class="idx">'+(i < 7 ? '0'+(i+1) : '↻')+'</span>' +
           '<span class="body"><h4>'+meta.label+'<span class="fork-badge">turns here</span></h4><p class="summary">'+meta.blurb+'</p></span>' +
           '<span class="chev">+</span>';
         var pdetail = document.createElement('div');
@@ -434,7 +434,7 @@
         var lrow = document.createElement('div');
         lrow.className = 'step-row' + (st.revealed ? '' : ' locked');
         lrow.innerHTML =
-          '<span class="idx">0'+(i+1)+'</span>' +
+          '<span class="idx">'+(i < 7 ? '0'+(i+1) : '↻')+'</span>' +
           '<span class="body"><h4>'+meta.label+'</h4><p class="summary">'+(st.revealed ? meta.blurb : 'Locked until you reveal what happened above.')+'</p></span>' +
           '<span class="chev">'+(st.revealed ? '+' : '<span class="lock-icon">locked</span>')+'</span>';
         if (st.revealed) {

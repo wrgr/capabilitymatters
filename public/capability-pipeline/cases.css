@@ -148,7 +148,6 @@
   figcaption { margin: 12px auto 0; max-width: 60ch; font-size:0.875rem; color: var(--ink-muted); text-align: center; }
   figcaption span { display: block; margin: .3rem 0 1rem; }
   .return-caption { color: var(--accent); }
-  .adoption-caption { color: #7352be; }
   .cycle-backdrop { fill: color-mix(in srgb, var(--accent) 5%, var(--surface)); }
   .cycle-guide { fill: none; stroke: var(--border); stroke-width: 1; }
   .step-node { --node-color: #285cca; }
@@ -158,16 +157,14 @@
   .step-node circle { fill: var(--node-color); stroke: var(--surface); stroke-width: 4; }
   .step-node .num { font-family: var(--font-body); font-size:1.1875rem; fill: #fff; font-weight: 700; }
   .step-node .lbl { font-family: var(--font-body); font-size:1.0rem; fill: var(--ink); font-weight: 650; }
-  .loop-arrow { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 1 7; stroke-linecap: round; }
-  .adoption-arrow { fill: none; stroke: #8862c7; stroke-width: 2.5; stroke-dasharray: 1 7; stroke-linecap: round; }
-  .adoption-arrowhead { fill: #8862c7; }
-  .adoption-node rect { fill: color-mix(in srgb, #8862c7 10%, var(--surface)); stroke: #8862c7; stroke-width: 1.8; }
-  .adoption-label { font-family: var(--font-body); font-size:1.0625rem; font-weight: 650; fill: var(--ink); }
-  .adoption-sub { font-family: var(--font-body); font-size:0.625rem; fill: var(--ink-muted); }
-  .start-star { fill: #fff; }
-  .center-label { font-family: var(--font-body); font-size:1.0625rem; font-weight: 650; fill: var(--ink-muted); }
+  .challenge-arrow { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 1 7; stroke-linecap: round; }
+  .output-arrow { fill: none; stroke: var(--accent); stroke-width: 2.5; }
+  .context-node rect, .refine-node circle { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+  .context-node text, .refine-label { font-family: var(--font-body); font-size: 1.125rem; font-weight: 650; fill: var(--ink); }
+  .refine-label { font-size: 1.5rem; }
+  .refinement-link { stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 3 6; opacity: .5; }
+  .center-label { font-family: var(--font-body); font-size: .9375rem; fill: var(--ink-muted); }
   .flow-arrow { stroke: var(--ink-muted); stroke-width: 1.6; opacity: 0.7; }
-  @media (prefers-color-scheme: dark) { .adoption-caption { color: #c3a6f0; } }
 
   .step-legend {
     display: grid;
