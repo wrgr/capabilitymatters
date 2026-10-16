@@ -14,7 +14,30 @@ class PipelinePublicationTests(unittest.TestCase):
         page = (ROOT / 'cases.html').read_text()
         self.assertIn('Working draft.', page)
         self.assertNotIn('instructor review pending', page)
-        self.assertIn('Refine → Understand', page)
+        self.assertIn('Evaluate (7) → Understand (1)', page)
+
+    def test_seven_step_cycle(self) -> None:
+        """Require challenge entry, a direct 7→1 loop, central refinement and capability action."""
+        page = (ROOT / 'cases.html').read_text()
+        diagram = page.split('<svg class="diagram-svg"', 1)[1].split('</svg>', 1)[0]
+        self.assertEqual(re.findall(r'class="num"[^>]*>([0-9]+)</text>', diagram),
+                         [str(i) for i in range(1, 8)])
+        self.assertIn('data-from="evaluate" data-to="understand"', diagram)
+        self.assertIn('class="challenge-arrow" data-from="challenge" data-to="understand"', diagram)
+        self.assertIn('class="refine-node" id="refine"', diagram)
+        self.assertIn('data-from="capability" data-to="problem"', diagram)
+        self.assertNotIn('start-star', page)
+        script = (ROOT / 'cases.js').read_text()
+        self.assertNotIn('All eight steps', script)
+        self.assertNotIn("class=\"idx\">0'+(i+1)", script)
+
+    def test_approach_in_primary_navigation(self) -> None:
+        """Expose the approach in the shared desktop/mobile navigation."""
+        nav = (ROOT.parent.parent / 'src/components/NavBar.astro').read_text()
+        self.assertRegex(nav, r'capability-pipeline/index.html#cases", label: "Approach"')
+        host = (ROOT / 'index.html').read_text()
+        self.assertIn('← Capability Matters', host)
+        self.assertIn('Approach — The Capability Pipeline', host)
 
     def test_assets_resolve(self) -> None:
         """Ensure extracted scripts, styles and activity documents exist."""
@@ -33,7 +56,7 @@ class PipelinePublicationTests(unittest.TestCase):
                        'adoption, effective use', 'subsequent revisions']:
             self.assertIn(phrase, page)
         for pair in ['Understand &amp; Map', 'Design &amp; Build',
-                     'Instrument &amp; Deploy', 'Evaluate &amp; Refine']:
+                     'Instrument &amp; Deploy', 'Evaluate — return to Understand']:
             self.assertIn(pair, page)
         self.assertIn('aria-labelledby="ccl-title ccl-description"', page)
         frame = re.search(r'<iframe[^>]+id="cases"[^>]+src="([^"]+)"', (ROOT / 'index.html').read_text())
