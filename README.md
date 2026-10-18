@@ -68,6 +68,59 @@ it now checks both generated menus, menu descriptions, and the uncluttered homep
 - `slick-sheet/` — print sources for those PDFs: one self-contained HTML file
   each, plus the web fonts they share (see "Print sheets" below)
 
+## About this resource
+
+Resource pages use a shared native `<details>` disclosure, collapsed by default,
+between the introduction and activity. It provides resource-specific descriptions,
+use steps, and conceptual connections to LENS and learning engineering. The summary
+supports Enter/Space, links stay out of the tab order while closed, and the shared
+stylesheet supplies visible focus, mobile text wrapping and forced-color support.
+
+- `src/components/ResourceAbout.astro` is the Astro entry point. Pass `resource` to
+  select a guide from `src/data/resource-about.json`, or supply explicit `content`
+  for collection-derived material. Use `headingLevel={3}` beneath a level-two title.
+- `src/lib/resource-about.mjs` escapes all prose and renders the same markup for
+  Astro, React and standalone hosts. Missing content and unsafe links fail builds.
+- `public/resource-about.css` uses host palette tokens, including the case explorer's
+  dark theme. React hosts retain a stable element so activity updates preserve the
+  native disclosure state.
+- `scripts/build-resource-about.mjs` packages twelve standalone host pages after
+  lifecycle generation. Each insertion boundary is explicit and checked; repeated
+  generation replaces the marked block. It runs before both Astro build and dev.
+  Rebuild after changing any standalone generation source or guide content.
+- `ResourceReading.astro` inserts guidance after each paper's opening text without
+  changing its canonical manuscript, PDF, section IDs or table of contents.
+
+Coverage includes all nineteen working prototypes, both model explainers (including
+full-screen LLM101), Andon and its brief, all three Capability Pipeline entry points,
+Rainbow Bug, Agentic LE guide/roles/records/replay, six candidate host pages, fourteen
+case-study details, both papers, three Field Notes, and the resource directories.
+The non-runnable briefs remain explained in their gallery. Externally hosted
+projects are outside this repository. Saved `candidate.html`, archived replay HTML,
+JSON journals, manifests, downloadable bundles and PDFs remain original evidence
+artifacts; their surrounding host pages carry the guide.
+
+When adding a resource, author its guide, render it immediately after introductory
+text, and include its route in `tests/test_resource_about_browser.mjs`. The prototype
+status inventory and Field Notes are checked automatically for missing guides.
+When changing shared guidance or markup, rebuild the committed Andon bundle with
+`npm run build --prefix public/andon/source` after installing its existing pinned
+build dependencies. No new production dependency is required.
+
+Validation after `npm run build`:
+
+```sh
+npm run test:resource-about
+npm run test:resource-about:browser
+```
+
+The browser suite checks collapsed state, Enter/Space, focus and link navigation,
+expanded-card axe WCAG 2.1 A/AA rules, 320px reflow with 200% text and spacing,
+the case explorer's dark palette, React state retention and representative
+script-free hosts. Set `CHROME_BINARY` for an installed Chrome executable and
+`RESOURCE_ABOUT_OUTPUT` for its evidence directory. These checks supplement the
+existing activity suites; they do not replace screen-reader or user evaluation.
+
 ## Develop
 
 ```sh

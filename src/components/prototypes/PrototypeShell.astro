@@ -1,4 +1,6 @@
 ---
+// Shared prototype shell keeps guidance ahead of every local exercise.
+import ResourceAbout from "../ResourceAbout.astro";
 import Base from "../../layouts/Base.astro";
 import AiCritiqueLaunch from "./AiCritiqueLaunch.astro";
 import evidenceLibrary from "../../data/problems-to-prototypes/evidence.json";
@@ -12,6 +14,7 @@ const {
   instrumentation,
   status = "Runnable thin-slice prototype"
 } = Astro.props;
+const resourceKey = Astro.url.pathname.split("/").filter(Boolean).at(-1);
 const evidence = idea.evidence.map((id) => {
   const source = evidenceLibrary.find((entry) => entry.id === id);
   if (!source) throw new Error(`Unknown evidence anchor: ${id}`);
@@ -40,6 +43,7 @@ const review = Object.values(reviewFiles).map((file) => (file as Record<string,a
         <p>This page is a teaching prototype, not a validated product. Its local interaction is intentionally inspectable so the design assumption stays visible.</p>
       </aside>
     </div>
+    <ResourceAbout resource={resourceKey} />
   </section>
 
   <section class="prototype-workbench container-wide">

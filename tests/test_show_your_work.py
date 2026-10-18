@@ -42,7 +42,7 @@ def test_paper_build() -> None:
     assert "August" not in (ROOT / "src/papers/show-your-work.md").read_text()
     data = (ROOT / "dist/papers/show-your-work.pdf").read_bytes()
     assert data.startswith(b"%PDF-") and len(data) > 10000
-    assert 'import { Content, getHeadings } from "../papers/show-your-work.md"' in (
+    assert 'import { compiledContent, getHeadings } from "../papers/show-your-work.md"' in (
         ROOT / "src/pages/show-your-work.astro").read_text()
     assert 'src/papers/show-your-work.md' in (
         ROOT / "scripts/build-show-your-work-pdf.py").read_text()

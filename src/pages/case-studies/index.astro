@@ -4,6 +4,7 @@
 // "capability is a system parameter") to position LENS as an extension of
 // learning engineering. Cases are grouped by topical part and shown as
 // failure/success pairs, matching the book's per-part structure.
+import ResourceAbout from "../../components/ResourceAbout.astro";
 import Base from "../../layouts/Base.astro";
 import AskAI from "../../components/AskAI.astro";
 import CaseIcon from "../../components/CaseIcon.astro";
@@ -46,6 +47,11 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
       </p>
       <p class="grounding">To try a teaching simulation, visit <a href={base + "experiments/"}>Experiments</a>.
         To develop and test an intervention, explore <a href={base + "problems-to-prototypes/"}>Prototypes</a>.</p>
+      <ResourceAbout resource="case-library" content={{
+        what: 'A source-linked collection of documented cases, paired by domain to compare failures and successful interventions. Each case preserves its evidence qualifications and scope limits.',
+        how: ['Choose a domain and read both cases in the pair. Compare the system conditions, actions and outcomes before drawing a lesson.', 'Follow the sources and disclosures, then propose a new context where the explanation might fail. The linked casebook provides the wider reading edition.'],
+        connection: 'Contrasting cases support conditional judgment about human and system performance. LENS asks which capability, information, authority or support changed what people could do; a historical association alone does not establish that a proposed intervention will work elsewhere.',
+      }} />
     </div>
   </header>
 

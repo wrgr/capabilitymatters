@@ -3,3 +3,6 @@
 @import "./styles/lessons.css";
 @import "./styles/reading.css";
 @import "./styles/mobile.css";
+
+/* Keep resource guidance readable above the depth control on every screen. */
+.explorer-guide{padding:1rem 1.25rem 0;min-width:0}

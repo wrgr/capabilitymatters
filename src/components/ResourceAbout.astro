@@ -1,0 +1,11 @@
+---
+/** Place consistent resource guidance after the introduction and before the activity. */
+import {renderResourceAbout} from '../lib/resource-about.mjs';
+interface Props {
+  resource: string;
+  headingLevel?: 2 | 3;
+  content?: {what: string; how: string[]; connection: string; links?: {label: string; href: string}[]};
+}
+const {resource, content, headingLevel} = Astro.props;
+---
+<Fragment set:html={renderResourceAbout(resource, content, headingLevel)} />

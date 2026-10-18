@@ -17,12 +17,16 @@ class PipelinePublicationTests(unittest.TestCase):
         self.assertIn('Refine → Understand', page)
 
     def test_assets_resolve(self) -> None:
-        """Ensure extracted scripts, styles and activity documents exist."""
+        """Resolve static assets and cross-links to Astro resource routes."""
         for name in ['index.html', 'cases.html', 'simulation.html']:
             content = (ROOT / name).read_text()
             for ref in re.findall(r'(?:src|href)="([^"]+)"', content):
                 if not ref.startswith(('https:', 'http:', '#')):
-                    self.assertTrue((ROOT.parent / urlsplit(ref).path.lstrip("/") if ref.startswith("/") else ROOT / urlsplit(ref).path).is_file(), ref)
+                    path = urlsplit(ref).path
+                    target = ROOT.parent / path.lstrip("/") if path.startswith("/") else ROOT / path
+                    route = ROOT.parents[1] / 'src/pages' / path.strip('/')
+                    self.assertTrue(target.is_file() or (path.endswith('/') and
+                        (route.with_suffix('.astro').is_file() or (route / 'index.astro').is_file())), ref)
 
     def test_coupled_loops_are_a_bottom_card(self) -> None:
         """Preserve continuous coupling and separate learner/system evidence below the cases."""
