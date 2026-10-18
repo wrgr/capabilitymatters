@@ -1,4 +1,5 @@
 ---
+import ResourceAbout from "../../components/ResourceAbout.astro";
 import Base from '../../layouts/Base.astro';
 import AgenticNav from '../../components/AgenticNav.astro';
 import { readdirSync } from 'node:fs';
@@ -19,7 +20,7 @@ const records = files.map(file => ({ file, title: titles[file] || file.replace('
   <Fragment slot="head"><meta name="robots" content="noindex, nofollow" /><link rel="stylesheet" href="/agentic-le/record/json-view.css" /></Fragment>
   <AgenticNav />
   <section class="container-wide record-page">
-    <header><p class="eyebrow">Agentic learning engineering · Source records</p><h1 id="record-title">Case inventory and journal hashes</h1><p>Explore the original fields and values without losing the structure. These are saved project records; their claims retain the limits described in each case.</p></header>
+    <header><p class="eyebrow">Agentic learning engineering · Source records</p><h1 id="record-title">Case inventory and journal hashes</h1><p>Explore the original fields and values without losing the structure. These are saved project records; their claims retain the limits described in each case.</p><ResourceAbout resource="agentic-record" /></header>
     <div class="record-toolbar"><label for="record-choice">Choose a record<select id="record-choice">{records.map(record => <option value={record.file}>{record.title}</option>)}</select></label><div class="record-actions"><button id="expand-record" type="button" disabled>Expand fields</button><button id="collapse-record" type="button" disabled>Collapse fields</button><a id="download-record" href="/agentic-le/cases.json" download>Download JSON</a></div></div>
     <p id="record-status" class="record-status" role="status" aria-live="polite">Loading the saved record…</p>
     <div id="record-tree" class="json-tree"></div>

@@ -1,4 +1,5 @@
 ---
+import ResourceAbout from "../../components/ResourceAbout.astro";
 import Base from "../../layouts/Base.astro";
 import AgenticNav from "../../components/AgenticNav.astro";
 import roles from "../../data/lifecycle/resolved-roles.json";
@@ -22,6 +23,7 @@ const artifacts = run.events.filter(e => e.kind === "artifact").length;
   <p class="eyebrow">Agentic learning engineering · Problems → Products</p>
   <h1>Teams at work. Every case, with its work shown.</h1>
   <p>A learning engineer orchestrates specialist agents from a seed idea to a candidate product. Explore the discussion, challenges, revisions and code for each project.</p>
+  <ResourceAbout resource="agentic-le" />
  </header>
  <section class="container-wide lab">
   <section id="cases" aria-labelledby="cases-heading">

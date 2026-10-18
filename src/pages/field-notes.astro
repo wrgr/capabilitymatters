@@ -1,4 +1,5 @@
 ---
+import ResourceAbout from "../components/ResourceAbout.astro";
 // Field Notes index — practitioner posts in our voice.
 import Base from "../layouts/Base.astro";
 import { getCollection, render } from "astro:content";
@@ -48,6 +49,7 @@ const bodyMap = new Map(rendered);
           </div>
           <h2 class="note-title">{post.data.title}</h2>
           <p class="note-summary">{post.data.summary}</p>
+          <ResourceAbout resource={post.id} headingLevel={3} />
           <div class="note-body">
             {Body && <Body />}
           </div>

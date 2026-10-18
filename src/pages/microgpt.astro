@@ -1,4 +1,5 @@
 ---
+import ResourceAbout from "../components/ResourceAbout.astro";
 /** Connect Karpathy's microgpt to evidence-based AI leadership through an original guided companion. */
 import Base from "../layouts/Base.astro";
 import TokenLab from "../components/microgpt/TokenLab.astro";
@@ -30,6 +31,7 @@ const mechanics = [
         <strong>Built around Andrej Karpathy's work.</strong>
         <a href={source}>“microgpt,” February 12, 2026</a>, is the original tutorial and implementation. This page contributes a leadership interpretation, an independent JavaScript training adaptation, measured checkpoints, a synthetic bias experiment, and discussion activities. Those additions are ours; they do not imply his endorsement.
       </aside>
+      <ResourceAbout resource="microgpt" />
       <nav class="contents" aria-label="On this page">
         <a href="#letters">1 · Letters</a><a href="#haikus">2 · Words in haikus</a><a href="#bias">3 · Bias</a><a href="#mechanism">The mechanism</a><a href="#experiment">Temperature</a><a href="#perspectives">Leaders' perspectives</a><a href="#practice">Use it in practice</a>
       </nav>

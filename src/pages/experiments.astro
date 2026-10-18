@@ -1,4 +1,5 @@
 ---
+import ResourceAbout from "../components/ResourceAbout.astro";
 // Experiments directory: learning labs, research projects, and creative demonstrations.
 // Papers and design briefs are linked separately from runnable projects.
 
@@ -145,6 +146,7 @@ const groups = [
   <div class="container directory-intro">
     <p>For a capability gap, design brief, and evaluation plan, visit <a href="/problems-to-prototypes/">Prototypes</a>.
       For documented examples and their sources, read the <a href="/case-studies/">Case Studies</a>.</p>
+    <ResourceAbout resource="experiments" />
     <nav aria-label="Experiment categories">{groups.map((group) => <a href={"#" + group.id}>{group.title}</a>)}</nav>
   </div>
 

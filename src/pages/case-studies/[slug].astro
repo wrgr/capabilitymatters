@@ -1,4 +1,5 @@
 ---
+import ResourceAbout from "../../components/ResourceAbout.astro";
 // Case-study detail page. One route per case in the collection; the structured
 // salient fields render in a fixed order so all 14 cases read consistently,
 // with the MDX body (site-voice narrative) rendered in the lead slot.
@@ -40,6 +41,15 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
     </div>
 
     <p class="impact"><strong>Impact.</strong> {d.impact}</p>
+
+    <ResourceAbout resource={`case-${entry.id}`} content={{
+      what: `A documented case about ${d.title}. ${d.impact}`,
+      how: [
+        'Read the narrative and five beats, keeping the disclosures and scope limits in view.',
+        'Compare the LE insight with the LENS approach. Identify the system condition that changed what people could do, then check the cited evidence before applying the lesson elsewhere.'
+      ],
+      connection: `${d.leInsight} ${d.lensApproach}`,
+    }} />
 
     <div class="ask-row">
       <AskAI
