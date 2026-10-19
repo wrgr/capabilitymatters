@@ -47,7 +47,9 @@ async function checkApproachNavigation(page){
     assert.equal(await page.locator('.steps > li').count(),7);
     assert(await page.getByRole('heading',{name:'What we mean by capability',exact:true}).isVisible());
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Approach reflows');
+    if(width<900)await page.locator('.mobile-nav > summary').press('Enter');
     await page.screenshot({path:output+`/approach-page-${width}.png`,fullPage:true});
+    if(width<900)await page.locator('.mobile-nav > summary').press('Enter');
     await primary.locator('a[href="/start-here/"]').press('Enter');
     await page.waitForURL('**/start-here/');
   }

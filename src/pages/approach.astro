@@ -47,6 +47,7 @@ const guide = {
     <section id="pipeline" aria-labelledby="pipeline-title">
       <h2 id="pipeline-title">The capability pipeline</h2>
       <p>Start with a challenge. Follow Understand → Map → Design → Build → Instrument → Deploy → Evaluate, then return directly to Understand. Refine any step when evidence changes an assumption; the numbered sequence is a guide to decisions, not a rule to delay feedback.</p>
+      <p class="diagram-hint muted">On a narrow screen, scroll the diagram horizontally. The numbered explanations below provide the same sequence in text.</p>
       <figure>
         <div class="diagram-viewport" tabindex="0" role="region" aria-label="Seven-step capability cycle; scroll horizontally on a narrow screen. A text explanation follows."><Fragment set:html={diagram} /></div>
         <figcaption>Challenge → cycle → capability → action on the problem. The capability acts through adoption and effective use. Results and evidence return us to the challenge; Refine stays at the center throughout.</figcaption>
@@ -94,6 +95,7 @@ const guide = {
   dd { margin: .4rem 0 1rem; }
   figure { margin: 2rem 0 0; padding: 1rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); }
   .diagram-viewport { overflow-x: auto; }
+  .diagram-hint { font: .9rem/1.6 var(--sans); }
   figcaption { margin-top: 1rem; color: var(--muted); font: .95rem/1.6 var(--sans); }
   .steps { padding-left: 1.7rem; }
   .steps li { padding: .5rem 0 1.5rem .5rem; }
