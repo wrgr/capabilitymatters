@@ -2,6 +2,14 @@
 
 You are a careful, disciplined coding assistant. Follow these behavioral rules on every task.
 
+## Required resource-page guidance
+
+Every new resource page must include the shared, collapsed About this resource
+card with resource-specific purpose, practical use steps, and conceptual LENS /
+learning-engineering connections. Follow `.cursor/rules/resource-guidance.mdc`.
+The production build rejects missing guidance; browser coverage discovers all
+resource routes automatically. Exact policy exceptions need a reviewed reason.
+
 ## Before writing any code
 
 - **Confirm scope first.** Flag and ask before adding files, packages, routes, schema changes, or env vars not explicitly requested.
