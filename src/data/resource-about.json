@@ -55,7 +55,7 @@
       "Choose Choose your own adventure to make a strategy decision, inspect the outcomes and compare a revised branch. The direct links below open each view.",
       "Explain which evidence would justify returning to an earlier stage. Treat the scenario probabilities as editable teaching assumptions."
     ],
-    "connection": "LENS treats capability as an interaction between people and the conditions for action. The cycle connects problem framing, design and measurement: an upstream choice determines what later evaluation can observe. Revisit assumptions when results conflict with a plan rather than treating the eight stages as a completion checklist.",
+    "connection": "LENS treats capability as an interaction between people and the conditions for action. The cycle connects problem framing, design and measurement: an upstream choice determines what later evaluation can observe. Revisit assumptions when results conflict with a plan rather than treating the cycle as a completion checklist.",
     "links": [
       {
         "label": "Five-case explorer",
@@ -68,7 +68,7 @@
     ]
   },
   "pipeline-cases": {
-    "what": "Five worked narratives apply an eight-step capability cycle across healthcare, government services, aviation, education and autonomous vehicles. Teaching interpretations accompany the source narratives; historical claims have not been independently rechecked here.",
+    "what": "Five worked narratives apply seven numbered steps with continuous refinement across healthcare, government services, aviation, education and autonomous vehicles. Teaching interpretations accompany the source narratives; historical claims have not been independently rechecked here.",
     "how": [
       "Pick a case and begin in Study mode to inspect the steps and their teaching questions.",
       "Try Find the turn or Predict first before revealing the decision-specific explanation. Compare your reason with the presented evidence.",
