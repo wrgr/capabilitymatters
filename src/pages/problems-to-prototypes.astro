@@ -1,6 +1,7 @@
 ---
 import ResourceAbout from "../components/ResourceAbout.astro";
 // Searchable design briefs distinguish built exercises from proposed interventions.
+import learningGuides from "../data/learning-guides.json";
 import Base from "../layouts/Base.astro";
 import SectionHero from "../components/SectionHero.astro";
 import aile1 from "../data/problems-to-prototypes/aile-1.json";
@@ -13,6 +14,7 @@ import lxd4 from "../data/problems-to-prototypes/lxd-4.json";
 import lens1 from "../data/problems-to-prototypes/lens-1.json";
 import canonical from "../data/problems-to-prototypes/lens-canonical.json";
 import evidenceLibrary from "../data/problems-to-prototypes/evidence.json";
+import pipeline from "../data/capability-cycle.json";
 import meta from "../data/problems-to-prototypes/meta.json";
 import AiCritiqueLaunch from "../components/prototypes/AiCritiqueLaunch.astro";
 import prototypeStatus from "../data/prototypes/status.json";
@@ -38,7 +40,7 @@ const cycleFor=(idea:Idea)=>[
   ["Design",common["3"]],
   ["Build",common["4"]],
   ["Instrument",idea.cycle.instrument],
-  ["Deploy",common["6"]],
+  ["Experiment",common["6"]],
   ["Evaluate",common["7"]],
   ["Refine",common["8"]],
 ];
@@ -47,6 +49,7 @@ for (const idea of ideas) {
   if (!statuses[idea.id]) throw new Error(`Prototype status missing: ${idea.id}`);
   if (statuses[idea.id].workingPrototype && !statuses[idea.id].url) throw new Error(`Working prototype URL missing: ${idea.id}`);
 }
+const guideByBrief = Object.fromEntries(learningGuides.filter(g => g.kind === "prototype").map(g => [g.briefId, g.id]));
 const workingCount = ideas.filter((idea) => statuses[idea.id].workingPrototype).length;
 const longLabel:Record<Collection,string>={
   AILE:"Artificial Intelligence Leadership in Education",
@@ -64,29 +67,32 @@ const longLabel:Record<Collection,string>={
     title="Problems to prototypes"
     claim="Start with a capability gap. Inspect a design brief, try an available prototype, and decide what evidence would justify the next iteration."
     count={ideas.length}
-  />
+  >
+    <ResourceAbout slot="guidance" resource="prototype-gallery" />
+  </SectionHero>
 
   <section class="intro container-wide">
     <div>
       <p><strong>These are project seeds, not prescriptions.</strong> The first 32 began as abstracted themes from prospective-student essays and were deliberately rewritten as non-person-specific design problems. The six canonical LENS cards begin from recurring system problem types. No source essays, names, initials, or student IDs appear here.</p>
       <p>Each brief describes one small intervention to test, a use case, its design assumptions, and an evaluation plan. Sources support the design rationale; they do not establish that the proposed intervention works.</p>
-      <p>Looking for documented outcomes? Read the <a href="/case-studies/">Case Studies</a>. For standalone labs and projects, visit <a href="/experiments/">Experiments</a>.</p>
+      <p><a href="/learning-map/">Use the learning map</a> to choose a question, and open a short guide before exploring a brief. Looking for documented outcomes? Read the <a href="/case-studies/">Case Studies</a>. For standalone labs and projects, visit <a href="/experiments/">Experiments</a>.</p>
       <p><strong>{workingCount} working prototypes · {ideas.length - workingCount} design briefs awaiting a build.</strong> Filter by “Working prototype” below to try the current exercises. Working means the stated local interaction has been built, critically reviewed, and tested; it does not mean the broader concept is complete or validated.</p>
-      <ResourceAbout resource="prototype-gallery" />
     </div>
     <aside class="loop">
-      <b>The eight-step loop</b>
-      <ol>{meta.designCycle.map((step)=><li>{step}</li>)}</ol>
+      <b>Seven steps with refinement throughout</b>
+      <ol>{pipeline.stages.slice(0,7).map(step=><li><details><summary>{step.label}</summary><p>{step.description}</p></details></li>)}</ol>
+      <details><summary>Refine throughout</summary><p>Use evidence to revisit any step. After Evaluate, return to Understand and reconsider the challenge.</p></details>
     </aside>
   </section>
 
   <section class="adventure container-wide" aria-labelledby="adventure-title">
     <h2 id="adventure-title">Try the whole systems process</h2>
-    <p>The Capability Pipeline connects the eight-step cycle to five worked examples and a fictional branching simulation. Make decisions, inspect consequences, and revisit earlier steps as the problem changes.</p>
+    <p>The Capability Pipeline connects the seven-step cycle with continuous refinement to five worked examples and a fictional branching simulation. Make decisions, inspect consequences, and revisit earlier steps as the problem changes.</p>
     <a class="try-prototype" href="/capability-pipeline/index.html#simulation">Try the simulation</a>
     <a class="try-prototype" href="/capability-pipeline/index.html#cases">Explore the worked examples</a>
   </section>
 
+  <section class="container-wide" aria-label="Collection key"><details><summary>What do AILE, LXD, LENS and LENS Canonical mean?</summary><dl>{Object.entries(longLabel).map(([short,full]) => <><dt><strong>{short}</strong></dt><dd>{full}{short === "LENS Canonical" ? ": recurring system-problem briefs in this collection; the label does not establish that a prototype is approved or validated." : ": a collection of design problems and candidate responses, not a rating of effectiveness."}</dd></>)}</dl></details></section>
   <section class="filters-shell">
     <div class="filters container-wide">
       <label><span>Keyword</span><input id="search" type="search" placeholder="Search gaps, prototypes, pedagogy…" /></label>
@@ -115,6 +121,7 @@ const longLabel:Record<Collection,string>={
       return <article class="card" data-collection={idea.collection} data-working-prototype={String(implementation.workingPrototype)} data-search={searchable} id={idea.id}>
         <div class="meta"><span class:list={["chip",idea.collection?.toLowerCase().replace(" ","-")]}>{idea.collection}</span><span>{longLabel[idea.collection as Collection]}</span></div>
         <h2>{idea.title}</h2>
+        <p><a href={`/guides/${guideByBrief[idea.id]}/`}>Read the learning guide →</a></p>
         <div class="block"><b>The gap</b><p>{idea.gap}</p></div>
         <div class="block prototype"><b>A first prototype</b><p>{idea.prototype}</p></div>
         <div class="example"><b>Representative use case</b><p>{idea.example}</p></div>
@@ -126,7 +133,7 @@ const longLabel:Record<Collection,string>={
             <section><h3>Questions worth carrying into the build</h3><ul>{idea.questions.map((q)=><li>{q}</li>)}</ul></section>
             <section>
               <div class="cycle-head"><div><small>LENS iteration cycle</small><h3>One possible first pass</h3></div><em>Refine → Understand</em></div>
-              <ol class="cycle">{cycleFor(idea).map(([name,text],i)=><li><span>{String(i+1).padStart(2,"0")}</span><div><b>{name}</b><p>{text}</p></div></li>)}</ol>
+              <ol class="cycle">{cycleFor(idea).map(([name,text],i)=><li><span>{i < 7 ? String(i+1).padStart(2,"0") : "↻"}</span><div><b>{name}</b><p>{text}</p></div></li>)}</ol>
             </section>
             <section class="sources"><h3>Evidence anchors</h3>
               <p class="note">These sources motivate the design logic; they do not establish that this specific prototype will work. That is what the first cycle is for.</p>

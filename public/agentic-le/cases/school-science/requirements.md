@@ -1,4 +1,4 @@
-Current cycle: Understand → Map → Design → Build → Instrument → Deploy → Evaluate → Refine. Map means map capabilities and conditions. Stage headings use current names; saved agent artifact text below retains its original wording.
+Current cycle: Understand → Map → Design → Build → Instrument → Experiment → Evaluate → Understand; 8. Refine throughout. Deployment puts the resulting capability to work on the challenge. Map means map capabilities and conditions. Stage headings use current names; saved agent artifact text below retains its original wording.
 
 # Understand
 
@@ -155,7 +155,7 @@ Paper route and next action
 The complete non-AI option uses labelled invented A/B/C cards, C held until requested, optional matching response spaces and separate suggestion slips. Permit speech, drawing, passing and correctable supported recording. Apply identical attribution limits; route equivalence remains unknown. Any comparison needs reviewed distinct tasks and documented support differences; delayed retention and fresh-task transfer require separate inquiry.
 Next rehearse the attribution cases and technical worksheet outside the candidate, recording actual outcomes only when available. Teacher, student and caregiver review, human interaction testing and revision-specific human decisions remain pending. No real use, collection, efficacy or learning conclusion follows.
 
-# Deploy
+# Experiment
 
 Status and decision
 This is an integrated Deploy artifact for a rehearsal, not an approved classroom requirement or release authorization. Sequence 37 supplies Build revision 1, which remains unexecuted. Sequence 44 supplies separate evidence streams and an external synthetic worksheet. Sequence 49 adds accountable decision ownership, reuse boundaries and pause procedures. No participant observations, human approvals, measured results or demonstrated proficiency exist. Field evidence remains pending.

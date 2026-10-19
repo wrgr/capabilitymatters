@@ -1,7 +1,5 @@
 ---
-// Section-page header. The hero leads with an editorial *claim* (a sentence
-// stating what this section is *for*), with the older "anchor question" still
-// supported as a quieter supporting line below.
+// Section header: title, optional resource guidance, then the claim and supporting question.
 
 interface Props {
   eyebrow: string;
@@ -21,6 +19,7 @@ const { eyebrow, title, claim, question, count } = Astro.props;
       {count !== undefined && <span class="count"> · {count} items</span>}
     </div>
     <h1>{title}</h1>
+    <slot name="guidance" />
     {claim && <p class="claim">{claim}</p>}
     {question && <p class="question">{question}</p>}
   </div>

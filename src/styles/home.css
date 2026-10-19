@@ -178,50 +178,6 @@ body.dark-shell {
   }
   .scroll-cue .line { width: 40px; height: 1px; background: var(--hp-text-muted); }
 
-  /* LEARNING ENGINEERING TOOLBOX */
-  .toolbox-feature {
-    display: grid;
-    grid-template-columns: minmax(0, .8fr) minmax(0, 1.3fr);
-    align-items: center;
-    gap: clamp(1.5rem, 4vw, 4rem);
-    max-width: 90rem;
-    margin: 0 auto;
-    padding: clamp(3rem, 6vw, 6rem) var(--page-pad);
-    border-top: 1px solid rgba(138, 154, 181, .2);
-  }
-  .toolbox-eyebrow {
-    color: var(--hp-gold);
-    font: 600 .8rem/1.5 var(--hp-sans);
-    letter-spacing: .12em;
-    text-transform: uppercase;
-  }
-  .toolbox-feature h2 {
-    margin: .75rem 0 1.25rem;
-    color: var(--hp-cream);
-    font: 400 clamp(2rem, 3.5vw, 3.3rem)/1.15 var(--hp-serif);
-  }
-  .toolbox-feature h2 em { color: var(--hp-teal-light); }
-  .toolbox-feature-copy > p:not(.toolbox-eyebrow) {
-    max-width: 35rem;
-    color: #c3cbe2;
-    font: 400 1.05rem/1.7 var(--hp-sans);
-  }
-  .toolbox-feature-figure { margin: 0; min-width: 0; }
-  .toolbox-feature-figure img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-  }
-  .toolbox-feature-figure figcaption {
-    margin-top: .8rem;
-    color: var(--hp-text-muted);
-    font: 400 .85rem/1.5 var(--hp-sans);
-  }
-  @media (max-width: 900px) {
-    .toolbox-feature { grid-template-columns: minmax(0, 1fr); }
-  }
-
   /* STATEMENTS */
   .statement {
     padding: 8rem 4rem;

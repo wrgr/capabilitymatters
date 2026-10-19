@@ -1,9 +1,9 @@
 ---
-// Homepage: dark navy landing experience led by system performance.
-// Uses Base with pageTheme="dark" so the NavBar + footer render on a dark
-// chrome. Interior pages keep the default cream/Charter shell.
+// Motivation invites a community to examine capability across roles and domains.
 import Base from "../layouts/Base.astro";
 import "../styles/home.css";
+import "../styles/motivation.css";
+import "../styles/toolbox.css";
 
 const base = import.meta.env.BASE_URL;
 const LENS_PROGRAM_URL =
@@ -20,7 +20,7 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
   title="Motivation · Capability Matters"
   description="Why human capability belongs in system design. Explore the motivation for Capability Matters and the Johns Hopkins LENS pathway."
   active="motivation"
-  pageTheme="dark"
+  pageTheme="warm"
 >
   <link slot="head" rel="canonical" href="https://capabilitymatters.org/" />
   <link
@@ -29,38 +29,80 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
     href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap"
   />
 
+  <div class="motivation-layout">
+    <div class="motivation-main">
   <section class="hero" id="argument">
     <h1>System performance depends on <em>what people can do.</em></h1>
-    <div class="hero-content">
-      <div class="hero-intro">
-        <p class="hero-sub">
-          The operator who misreads a display under stress. The clinician who wasn't trained on the new protocol. The maintenance team that lost institutional knowledge when three people retired.
-        </p>
-        <p class="hero-bridge">Each points to a capability gap that system design needs to address.</p>
-        <div class="hero-actions">
-          <a href={base + "start-here/"} class="cta-btn">Start Here</a>
-        </div>
-      </div>
-      <article class="lab-card" aria-labelledby="lab-card-title">
-        <p class="lab-card-eyebrow">See the process in action</p>
-        <h2 id="lab-card-title">Agentic AI Lab</h2>
-        <p class="lab-card-summary">Follow a team of specialist agents from a seed idea to a candidate product. Explore fictional workforce, school, and library projects, with the work shown.</p>
-        <ul class="lab-card-features" aria-label="Inside the lab">
-          <li>Runnable demos</li>
-          <li>Decision replays</li>
-          <li>Working paper</li>
-        </ul>
-        <a class="lab-card-link" href={base + "agentic-le/"}>Explore the lab <span aria-hidden="true">→</span></a>
-        <p class="lab-card-note">Real agent runs on fictional problems. Human pilot approval and field evidence remain pending.</p>
-      </article>
-    </div>
+    <p class="hero-bridge motivation-purpose">Capability Matters brings people together around a shared question: how do we help people do work that matters? Explore cases, labs and design briefs, bring your experience, and help us test what works.</p>
+    <p class="hero-bridge">Learning engineering connects learning sciences, human-centered design and evidence to improve capability. You don't need to call yourself a learning engineer to take part.</p>
   </section>
 
-  <section class="toolbox-feature reveal" aria-labelledby="toolbox-heading">
+  <section class="community-invitation" aria-labelledby="community-title">
+    <h2 id="community-title">There is a place for you here.</h2>
+    <p>Whatever your role, your view of the work belongs in the conversation.</p>
+    <ul class="community-roles">
+      <li><h3>Learners &amp; students</h3><p>Bring your questions and experience of learning. Try a case or lab and tell us what helps.</p></li>
+      <li><h3>Educators, trainers &amp; coaches</h3><p>Share what learners need, how you support them, and where learning breaks down.</p></li>
+      <li><h3>Practitioners &amp; frontline teams</h3><p>Whether you care for patients, operate equipment, maintain systems or deliver services, bring the realities of the job.</p></li>
+      <li><h3>Designers, engineers &amp; technologists</h3><p>Connect tools, workflows and learning. Make the assumptions in a design visible and testable.</p></li>
+      <li><h3>Researchers &amp; evaluators</h3><p>Help us ask better questions, examine evidence and distinguish promising ideas from demonstrated results.</p></li>
+      <li><h3>Leaders &amp; workforce partners</h3><p>Bring decisions about resources, readiness, opportunity and the conditions people need to succeed.</p></li>
+      <li><h3>Families, communities &amp; public partners</h3><p>Help define what matters, who benefits and whose experience a system may overlook.</p></li>
+    </ul>
+    <p class="community-next"><a href={base + "case-studies/"}>Explore a case together</a> · <a href={LECOMMONS_URL} target="_blank" rel="noopener">Connect with the learning engineering community</a></p>
+  </section>
+
+  <section class="statement right">
+    <h2>Human capability belongs <em>in the design.</em></h2>
+    <p>
+      Hardware gets reliability analysis. Software gets tested to specification. Human capability needs the same attention, from the first design decisions through operation and revision.
+    </p>
+  </section>
+
+  <section class="statement">
+    <h2>Capability is not a <em>soft</em> problem. It's a systems engineering problem.</h2>
+    <p>
+      How people develop, retain, and transfer operational competence is as tractable as any other engineering domain—when you bring the right methods, the right evidence, and the right integration into the system lifecycle.
+    </p>
+  </section>
+
+
+  <section class="statement right">
+    <h2>Decision-grade evidence. <em>Not opinions about training.</em></h2>
+    <p>
+      Can you prove your people are ready? Not with completion rates or satisfaction scores. With evidence that links learning interventions to operational outcomes—evidence rigorous enough to drive design decisions.
+    </p>
+  </section>
+
+    </div>
+  <aside class="motivation-stats" aria-labelledby="stats-title">
+    <h2 id="stats-title">What is at stake</h2>
+    <div class="evidence-cell">
+      <div class="num">250K+</div>
+      <div class="unit">estimated deaths per year</div>
+      <p>estimated annual U.S. deaths attributed to medical error in a 2016 analysis. The authors call for better measurement and attention to system failures.</p>
+      <div class="cite"><a href="https://www.bmj.com/content/353/bmj.i2139">Makary &amp; Daniel, <em>BMJ</em>, 2016</a></div>
+    </div>
+    <div class="evidence-cell">
+      <div class="num">~10yr</div>
+      <div class="unit">of unmet training requirements</div>
+      <p>GAO reported in 2024 that Marine Corps training ranges in the Indo-Pacific had been unable to meet all training requirements for almost a decade.</p>
+      <div class="cite"><a href="https://www.gao.gov/assets/gao-24-107463.pdf">GAO-24-107463, 2024 (PDF)</a></div>
+    </div>
+    <div class="evidence-cell">
+      <div class="num">$100M</div>
+      <div class="unit">in funding; the initiative closed</div>
+      <p>The inBloom initiative received $100 million in funding. Its closure raises questions about privacy, governance and public trust alongside technical design.</p>
+      <div class="cite"><a href="https://datasociety.net/wp-content/uploads/2017/02/InBloom_feb_2017.pdf">Data &amp; Society, 2017 (PDF)</a></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="toolbox-feature" aria-labelledby="toolbox-heading">
     <div class="toolbox-feature-copy">
       <p class="toolbox-eyebrow">Learning engineering in practice</p>
       <h2 id="toolbox-heading">The right tools, <em>working together.</em></h2>
-      <p>Learning engineering draws on a toolbox of complementary competencies—from learning sciences and design to systems engineering, analytics, human–machine teaming, and domain expertise.</p>
+      <p>Learning engineering draws on a toolbox of complementary methods and expertise—from learning sciences and design to systems engineering, analytics, human–machine teaming, and domain expertise.</p>
       <p>No one practitioner has to master every tool. The important work happens at their interfaces: assembling the right people and methods around a real capability problem.</p>
     </div>
     <figure class="toolbox-feature-figure">
@@ -69,104 +111,61 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
     </figure>
   </section>
 
-  <section class="statement right reveal">
-    <div class="statement-number">02</div>
-    <h2>Human capability belongs <em>in the design.</em></h2>
-    <p>
-      Hardware gets reliability analysis. Software gets tested to specification. Human capability needs the same attention, from the first design decisions through operation and revision.
-    </p>
-  </section>
-
-  <section class="statement reveal">
-    <div class="statement-number">03</div>
-    <h2>Capability is not a <em>soft</em> problem. It's a systems engineering problem.</h2>
-    <p>
-      How people develop, retain, and transfer operational competence is as tractable as any other engineering domain—when you bring the right methods, the right evidence, and the right integration into the system lifecycle.
-    </p>
-  </section>
-
-  <section class="evidence-strip">
-    <div class="evidence-cell reveal">
-      <div class="num">250K+</div>
-      <div class="unit">deaths per year</div>
-      <p>from medical errors in the U.S.—the third leading cause of death. Not individual mistakes: system-wide failings and poorly coordinated care.</p>
-      <div class="cite">Makary &amp; Daniel, <em>BMJ</em>, 2016 · Johns Hopkins</div>
+  <section class="domains" id="domains" aria-roledescription="carousel" aria-labelledby="domains-title">
+    <div class="domains-header">
+      <h2 id="domains-title">Find your domain. Bring your experience.</h2>
+      <p>Use these resources to explore a question from your work. Browse the domains with the buttons, keyboard arrows or a swipe.</p>
     </div>
-    <div class="evidence-cell reveal">
-      <div class="num">~10yr</div>
-      <div class="unit">of unmet training requirements</div>
-      <p>The Marine Corps has been unable to meet training requirements in the Indo-Pacific—the theater the National Defense Strategy designates as DoD's top priority.</p>
-      <div class="cite">GAO-24-107463 · 2022 National Defense Strategy</div>
-    </div>
-    <div class="evidence-cell reveal">
-      <div class="num">$100M</div>
-      <div class="unit">spent, then shut down in 14 months</div>
-      <p>inBloom collapsed not because the technology failed—but because governance, privacy, and stakeholder trust were treated as afterthoughts, not design constraints.</p>
-      <div class="cite">Data &amp; Society, 2017 · Education Week · 9 states withdrew</div>
-    </div>
-  </section>
-
-  <section class="statement right reveal">
-    <div class="statement-number">04</div>
-    <h2>Decision-grade evidence. <em>Not opinions about training.</em></h2>
-    <p>
-      Can you prove your people are ready? Not with completion rates or satisfaction scores. With evidence that links learning interventions to operational outcomes—evidence rigorous enough to drive design decisions.
-    </p>
-  </section>
-
-  <section class="domains" id="domains">
-    <div class="domains-header reveal">
-      <h2>High-consequence, high-impact domains</h2>
-      <p>Where human capability is inseparable from system performance—and the cost of getting it wrong is measured in lives, readiness, and equity.</p>
-    </div>
-    <div class="domain-cards">
-      <div class="domain-card reveal">
+    <p class="domain-invitation">Your field may look different. Bring your own challenge and use what helps.</p>
+    <div class="domain-controls" aria-label="Browse domains"><button type="button" data-domain-direction="-1" aria-controls="domain-carousel" aria-label="Previous domain">← Previous</button><span id="domain-position" aria-live="polite" aria-atomic="true">1 of 7 · Healthcare</span><button type="button" data-domain-direction="1" aria-controls="domain-carousel" aria-label="Next domain">Next →</button></div>
+    <div class="domain-cards" id="domain-carousel" tabindex="0" role="group" aria-label="Domains; use left and right arrow keys to browse">
+      <div class="domain-card" role="group" aria-roledescription="slide">
         <div class="icon" aria-hidden="true">⚕</div>
         <h3>Healthcare</h3>
-        <p>Clinical teams navigating new protocols, devices, and care models under conditions where errors compound and learning can't wait.</p>
+        <p>Clinicians, patients, caregivers and care teams: examine alerts, handoffs and new protocols. Use a case to ask what safe, effective care requires.</p>
       </div>
-      <div class="domain-card reveal">
+      <div class="domain-card" role="group" aria-roledescription="slide">
         <div class="icon" aria-hidden="true">⛨</div>
         <h3>Defense &amp; National Security</h3>
-        <p>Operators, maintainers, and analysts whose readiness determines whether billion-dollar systems achieve their intended effect.</p>
+        <p>Operators, maintainers, analysts and program teams: map readiness, training and support. Explore which capability decisions belong early in a system’s life.</p>
       </div>
-      <div class="domain-card reveal">
+      <div class="domain-card" role="group" aria-roledescription="slide">
         <div class="icon" aria-hidden="true">◈</div>
         <h3>Education at Scale</h3>
-        <p>Systems serving millions of learners, where design decisions ripple across institutions and equity is a structural concern, not an afterthought.</p>
+        <p>Students, educators, families and learning designers: try learning activities and examine access, feedback and transfer. Bring the conditions your learners face.</p>
       </div>
-      <div class="domain-card reveal">
+      <div class="domain-card" role="group" aria-roledescription="slide">
         <div class="icon" aria-hidden="true">✈</div>
         <h3>Aviation</h3>
-        <p>Flight crews, controllers, and maintenance teams working to tight margins, where procedural discipline and crew coordination decide the outcome.</p>
+        <p>Pilots, controllers, engineers and maintenance crews: trace how automation, information and training interact. Compare decisions before a system enters service.</p>
       </div>
-      <div class="domain-card reveal">
+      <div class="domain-card" role="group" aria-roledescription="slide">
         <div class="icon" aria-hidden="true">⚡</div>
         <h3>Energy</h3>
-        <p>Operators of grids, refineries, and offshore platforms, where a single lapse in a high-hazard process can cascade into catastrophe.</p>
+        <p>Grid, refinery and offshore teams, engineers and communities: explore preparedness, changing conditions and recovery. Ask what people need to notice and do.</p>
       </div>
-      <div class="domain-card reveal">
+      <div class="domain-card" role="group" aria-roledescription="slide">
         <div class="icon" aria-hidden="true">⚙</div>
         <h3>Manufacturing &amp; Industrial</h3>
-        <p>Production teams sustaining quality and safety at scale, where tacit expertise and continuous improvement keep complex processes stable.</p>
+        <p>Production teams, technicians, supervisors and safety partners: try the Andon lab. Examine how signals, timely help and shared authority support improvement.</p>
       </div>
-      <div class="domain-card reveal">
+      <div class="domain-card" role="group" aria-roledescription="slide">
         <div class="icon" aria-hidden="true">⬡</div>
         <h3>Government &amp; Public Infrastructure</h3>
-        <p>Public-sector programs and large IT modernizations, where governance, trust, and workforce readiness decide whether services reach the people who depend on them.</p>
+        <p>Residents, public servants, librarians and service teams: use cases and demos to examine access, trust and service delivery. Help define what useful participation looks like.</p>
       </div>
     </div>
   </section>
 
   <section class="cta-section" id="connect">
-    <div class="cta-equation reveal">Human + System = Impact</div>
-    <h2 class="reveal">Human capability is a designable, measurable, <em>engineerable</em> property of every complex system.</h2>
-    <p class="reveal">LENS is a graduate specialization at Johns Hopkins that prepares practitioners to do this work—grounded in learning sciences and human systems integration, built for the domains where it matters most.</p>
-    <div class="cta-buttons reveal">
+    <div class="cta-equation">Human + System = Impact</div>
+    <h2 >Human capability is a designable, measurable, <em>engineerable</em> property of every complex system.</h2>
+    <p >LENS is a graduate specialization at Johns Hopkins that prepares practitioners to do this work—grounded in learning sciences and human systems integration, built for the domains where it matters most.</p>
+    <div class="cta-buttons">
       <a href={LENS_PROGRAM_URL} class="cta-btn" target="_blank" rel="noopener">Explore the LENS specialization</a>
       <a href={LECOMMONS_URL} class="cta-btn secondary" target="_blank" rel="noopener">Explore the wider learning engineering field</a>
     </div>
-    <p class="cta-tertiary reveal">
+    <p class="cta-tertiary">
       <a href={OVERVIEW_PDF_URL} target="_blank" rel="noopener">Download the one-page LENS overview (PDF)</a>
     </p>
   </section>
@@ -182,26 +181,32 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
   </section>
 </Base>
 
-<script is:inline>
-  // Progressive enhancement: fade-in on scroll for elements marked .reveal.
-  // Shows content immediately when Intersection Observer is unavailable.
-  // Reduced-motion preferences also keep all sections visible.
-  (function () {
-    var nodes = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) {
-      nodes.forEach(function (n) { n.classList.add('visible'); });
-      return;
-    }
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    document.body.classList.add('motion-ready');
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
+
+<script>
+  const carousel = document.getElementById('domain-carousel');
+  const position = document.getElementById('domain-position');
+  if (carousel && position) {
+    const cards = Array.from(carousel.querySelectorAll<HTMLElement>('.domain-card'));
+    const current = () => cards.reduce((best, card, i) => Math.abs(card.offsetLeft - carousel.scrollLeft) < Math.abs(cards[best].offsetLeft - carousel.scrollLeft) ? i : best, 0);
+    const move = (direction: number) => {
+      const index = Math.max(0, Math.min(cards.length - 1, current() + direction));
+      carousel.scrollTo({left: cards[index].offsetLeft, behavior: 'instant'});
+    };
+    document.querySelectorAll<HTMLButtonElement>('[data-domain-direction]').forEach(button => {
+      button.addEventListener('click', () => move(Number(button.dataset.domainDirection)));
+    });
+    carousel.addEventListener('keydown', event => {
+      if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+      event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
+    });
+    const updatePosition = () => {
+      const index = current();
+      position.textContent = `${index + 1} of ${cards.length} · ${cards[index].querySelector('h3')?.textContent}`;
+      document.querySelectorAll<HTMLButtonElement>('[data-domain-direction]').forEach(button => {
+        button.disabled = Number(button.dataset.domainDirection) < 0 ? index === 0 : index === cards.length - 1;
       });
-    }, { threshold: 0.15 });
-    nodes.forEach(function (n) { io.observe(n); });
-  })();
+    };
+    carousel.addEventListener('scroll', updatePosition, {passive: true});
+    updatePosition();
+  }
 </script>

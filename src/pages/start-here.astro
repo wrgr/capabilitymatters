@@ -17,7 +17,7 @@ const paths = [
       <h1>Turn a capability gap into a better design decision.</h1>
       <p class="lead">Explore how people learn, work, and perform inside complex systems—with cases to question, experiments to try, and prototypes to refine.</p>
       <p>Capability Matters connects learning engineering to what people need to do. Whether you lead a team, design a service, teach, research, or learn independently, start with a real problem and examine the evidence behind your next step.</p>
-      <div class="hero-links"><a class="button" href="#choose-a-path">Find your starting point</a><a href="/">Read the motivation</a></div>
+      <div class="hero-links"><a class="button" href="/learning-map/">Open the learning map</a><a href="#choose-a-path">Explore the site sections</a><a href="/">Read the motivation</a></div>
     </div>
     <aside aria-labelledby="question-heading" class="question-card">
       <p class="eyebrow">A question worth asking</p>
@@ -28,12 +28,13 @@ const paths = [
     </aside>
   </header>
 
+  <section class="container-wide" aria-label="Guided exploration"><h2>A little context before you jump in.</h2><p>The <a href="/learning-map/">learning map</a> connects the site’s cases, experiments, and prototypes. Each experiment and prototype brief has a short guide: prepare, try one task, notice what happened, and choose a next step.</p><p>Use your <a href="/learning-notebook/">reflection notebook</a> to connect experiences. Saving notes is optional and stays in your browser.</p></section>
   <section class="container-wide pathways" id="choose-a-path" aria-labelledby="paths-heading">
     <p class="eyebrow">Three ways in</p>
     <h2 id="paths-heading">Choose the work you want to do.</h2>
     <div class="path-grid">{paths.map(path => <article class="path-card">
       <span class="path-number" aria-hidden="true">{path.number}</span>
-      <h3>{path.title}</h3><p>{path.text}</p><a href={path.url}>{path.label} <span aria-hidden="true">→</span></a>
+      <h3>{path.title}</h3><p>{path.text}</p><a href={path.url}><strong>{path.label}</strong> <span aria-hidden="true">→</span></a>
     </article>)}</div>
   </section>
 
@@ -47,7 +48,7 @@ const paths = [
         <a href="mailto:wgr@jhu.edu">Discuss a question or potential collaboration</a>
       </article>
       <article><h3>JHU LENS learners &amp; partners</h3>
-        <p>The site also supports Johns Hopkins’ Learning Engineering for Next-Generation Systems (LENS) concentration. Connect the cases and experiments to its five competency domains, or explore the program as a prospective learner or partner.</p>
+        <p>The site also supports Johns Hopkins’ Learning Engineering for Next-Generation Systems (LENS) concentration. Connect the cases and experiments to its five competencies, or explore the program as a prospective learner or partner.</p>
         <p>The program is one pathway into this work. Enrollment is not a condition for exploring the public resources.</p>
         <a href="#people">Meet the people &amp; explore the program</a>
       </article>
@@ -65,30 +66,30 @@ const paths = [
     <p>
       LENS focuses on high-consequence, high-impact domains — where human capability is
       inseparable from system performance and the cost of getting it wrong is measured in
-      lives, readiness, and equity. Seven recur across the program's case material and
+      lives, readiness, and equity. Seven domains recur across the program's case material and
       teaching: healthcare, defense &amp; national security, education at scale, aviation,
       energy, manufacturing &amp; industrial, and government &amp; public infrastructure.
     </p>
 
     <h2 id="framework">The LENS framework</h2>
     <p>
-      LENS reads every case through five competency domains. Each case study on this site is
-      tagged to the domain(s) it exercises, so the same framework runs from a hospital to a
+      LENS reads every case through five competencies. Each case study on this site is
+      tagged to the competencies it exercises, so the same framework runs from a hospital to a
       flight deck to a public-sector IT migration:
     </p>
     <ol class="framework">
-      <li><strong>Systems Analysis</strong></li>
-      <li><strong>Iterative Development</strong></li>
-      <li><strong>Human-System Collaboration</strong></li>
-      <li><strong>Test &amp; Evaluation</strong></li>
-      <li><strong>Sociotechnical Constraints</strong></li>
+      <li><details><summary><strong>Systems Analysis</strong></summary><p>Represent people, tools, requirements, interfaces and feedback to locate a capability gap in its operating system.</p></details></li>
+      <li><details><summary><strong>Iterative Development</strong></summary><p>Frame a problem, test a bounded change, examine the evidence and revisit the next decision. Refine throughout the cycle.</p></details></li>
+      <li><details><summary><strong>Human-System Collaboration</strong></summary><p>Design roles, authority, coordination and opportunities for people to recognize, question and intervene in system behavior.</p></details></li>
+      <li><details><summary><strong>Data, Measurement and Evaluation</strong></summary><p>Choose observations and instruments that can test a capability claim, and explain uncertainty and limits on the inference.</p></details></li>
+      <li><details><summary><strong>Navigating Sociotechnical Constraints</strong></summary><p>Account for institutional rules, incentives, resources, access and governance when deciding what can be built and sustained.</p></details></li>
     </ol>
 
     <h2 id="people">People &amp; programs</h2>
     <p>
       LENS is a concentration within the <a href="https://education.jhu.edu/masters-programs/master-of-education-in-learning-design-and-technology/learning-engineering-next-generation-systems-concentration/" target="_blank" rel="noopener">JHU MEd in Learning Design and Technology</a>,
       jointly run by the Johns Hopkins School of Education and the Applied Physics Laboratory,
-      with an IEEE ICICLE partnership. Faculty in the concentration include James Diamond and
+      with an IEEE ICICLE partnership. Faculty in the concentration include James Diamond (School of Education) and
       William Gray-Roncal (School of Education / APL). Full profiles for practitioners across the
       wider field live at <a href="https://lecommons.org/community/" target="_blank" rel="noopener">lecommons's community pages</a>.
     </p>
@@ -100,15 +101,15 @@ const paths = [
       <li>
         <strong>A focused collection, not a complete index.</strong> These resources grew from
         LENS teaching and practice, and are available to independent visitors too. For the
-        wider field, see the Learning Engineering Commons.
+        wider field, see the <a href="https://lecommons.org/">Learning Engineering Commons</a>.
       </li>
       <li>
-        <strong>ICICLE is authoritative.</strong> When ICICLE and this site differ on a
+        <strong><a href="https://sagroups.ieee.org/icicle/">IEEE ICICLE</a> is authoritative.</strong> When ICICLE and this site differ on a
         definition or taxonomy, defer to ICICLE. This site doesn't claim to speak for IEEE
         ICICLE or host its content — it connects to it.
       </li>
       <li>
-        <strong>Links may rot.</strong> External resources change. File an issue if you find one.
+        <strong>Links may rot.</strong> External resources change. <a href="https://github.com/wrgr/capabilitymatters/issues/new">Report a broken link</a> with the page address and the link you tried.
       </li>
     </ul>
 
@@ -121,7 +122,7 @@ const paths = [
 
     <h2>Contributing</h2>
     <p>
-      Suggestions and corrections are welcome. Open an <a href="https://github.com/wrgr/capabilitymatters/issues">issue in the repository</a> or <a href="mailto:wgr@jhu.edu">contact Will Gray-Roncal</a>.
+      Suggestions and corrections are welcome. Visit the <a href="https://github.com/wrgr/capabilitymatters">source repository</a>, open an <a href="https://github.com/wrgr/capabilitymatters/issues">issue</a> or <a href="mailto:wgr@jhu.edu">contact Will Gray-Roncal</a>.
     </p>
   </section>
 </Base>

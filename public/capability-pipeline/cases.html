@@ -1,7 +1,7 @@
 <!doctype html>
 <!-- Published cases activity for the Capability Pipeline working draft. --><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Capability Pipeline</title>
 
-<link rel="stylesheet" href="cycle.css?v=approach-guidance-20261019"><link rel="stylesheet" href="cases.css?v=approach-guidance-20261019"><link rel="stylesheet" href="coupled-loops.css?v=a11y-20261013"><link rel="stylesheet" href="/accessibility/shared.css"><script src="/accessibility/preferences.js"></script><link rel="stylesheet" href="/resource-about.css"></head><body data-resource-theme="pipeline">
+<link rel="stylesheet" href="cycle.css?v=approach-guidance-20261019"><link rel="stylesheet" href="cases.css?v=approach-guidance-20261019"><link rel="stylesheet" href="coupled-loops.css?v=a11y-20261013"><link rel="stylesheet" href="/accessibility/shared.css"><script src="/accessibility/preferences.js"></script><link rel="stylesheet" href="/resource-about.css"><link rel="stylesheet" href="cycle-guide.css"></head><body data-resource-theme="pipeline">
 
 <div class="draft-banner"><b>Working draft.</b> </div>
 
@@ -10,26 +10,26 @@
   <header class="hero">
     <p><a href="/approach/">Approach: capability, cycle and step explanations</a></p>
     <p class="eyebrow">The iteration cycle, worked through five real cases</p>
-    <h1>The Capability Pipeline</h1>
-    <p class="lede">Seven steps, one loop: <strong>understand → map → design → build → instrument → deploy → evaluate → understand</strong>. Refine sits at the center: use evidence to improve any part of the work throughout the cycle. Start with a challenge; develop a capability that acts on the problem. Explore the seven steps and a continuing refinement question across a hospital screening workflow, a federal insurance marketplace, an airliner, a math-tutoring program at scale, and a self-driving car. What changes case to case isn't the shape of the loop — it's which single step the story actually turns on.</p>
-<!-- resource-about:start --><details class="resource-about" data-resource-about="pipeline-cases">
+    <h1>The Capability Pipeline</h1><!-- resource-about:start --><details class="resource-about" data-resource-about="pipeline-cases">
 <summary>About this resource<span class="resource-about-hint"> · How to use it · Learning engineering connections</span></summary>
 <div class="resource-about-body">
 <section><h2>What is this resource?</h2><p>Five worked narratives apply a seven-step capability cycle with continuous refinement across healthcare, government services, aviation, education and autonomous vehicles. Teaching interpretations accompany the source narratives; historical claims have not been independently rechecked here.</p></section>
 <section><h2>How should I use it?</h2><ol><li>Pick a case and begin in Study mode to inspect the seven numbered steps and the continuing refinement reflection. Use the central Refine prompt to revisit any earlier assumption.</li><li>Try Find the turn or Predict first before revealing the decision-specific explanation. Compare your reason with the presented evidence.</li><li>Compare two cases and use the coupled-loops diagram to identify how a change to work conditions could change learner performance.</li></ol></section>
 <section><h2>How does this connect to LENS and learning engineering?</h2><p>Comparing contrasting cases supports conditional judgment: the same process can turn on different constraints. In LENS terms, map both the human capability and system conditions, then ask which measurement would reveal a failure. Locating a turning point in a worked case does not establish transfer to a new system.</p><ul class="resource-about-links"><li><a href="/capability-pipeline/simulation.html">Try an editable fictional scenario</a></li><li><a href="/show-your-work/">LENS: capabilities and conditions</a></li><li><a href="https://lecommons.org/">Learning Engineering Commons</a></li></ul></section>
 </div></details><!-- resource-about:end -->
+
+    <p class="lede">Seven steps, one loop: <strong>understand → map → design → build → instrument → experiment → evaluate → understand</strong>. Refine sits at the center: use evidence to improve any part of the work throughout the cycle. Start with a challenge; develop a capability that acts on the problem. Explore the seven steps and a continuing refinement question across a hospital screening workflow, a federal insurance marketplace, an airliner, a math-tutoring program at scale, and a self-driving car. What changes case to case isn't the shape of the loop — it's which single step the story actually turns on.</p>
   </header>
 
   <section id="diagram-section">
     <h2>The cycle in use</h2>
-    <p class="section-sub">A challenge enters Understand through the dotted arrow. Follow Steps 1–7, then return from Evaluate to Understand. Refine throughout. The capability produced acts on the problem through adoption and effective use.</p>
+    <p class="section-sub">A challenge enters Understand through the dotted arrow. Follow Steps 1–7, then return from Evaluate to Understand. Refine throughout. Deployment connects the resulting capability back to the challenge through adoption and effective use.</p>
     <div class="diagram-card">
       <figure>
-        <div class="diagram-viewport" tabindex="0" aria-label="Capability cycle diagram; scroll horizontally on a small screen"><!-- capability-cycle:start --><!-- Present the shared seven-step capability cycle with continuous refinement. -->
-<svg class="diagram-svg" viewBox="0 0 800 850" role="img" aria-labelledby="cycle-title cycle-description">
+        <div class="diagram-viewport" tabindex="0" aria-label="Capability cycle diagram; scroll horizontally on a small screen"><!-- capability-cycle:start --><!-- Show the capability cycle, continuous refinement and deployment back to the challenge. -->
+<svg class="diagram-svg" viewBox="0 0 800 720" role="group" aria-labelledby="cycle-title cycle-description">
           <title id="cycle-title">The Capability Pipeline: seven steps, continuous refinement</title>
-          <desc id="cycle-description">A challenge enters Step 1, Understand, through a dotted arrow. The numbered cycle continues through 2 Map, 3 Design, 4 Build, 5 Instrument, 6 Deploy and 7 Evaluate, then returns directly to Understand. Refine is unnumbered at the center and informs every step. The cycle produces a capability that acts on the problem through adoption and effective use.</desc>
+          <desc id="cycle-description">A challenge enters Step 1, Understand, through a dotted arrow. The numbered cycle continues through 2 Map, 3 Design, 4 Build, 5 Instrument, 6 Experiment and 7 Evaluate, then returns directly to Understand. 8 Refine is at the center and informs every step. The cycle produces a capability. A return arrow labeled Deployment connects Capability back to Challenge.</desc>
           <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-muted)"/></marker><marker id="arrow-accent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker></defs>
           <circle class="cycle-backdrop" cx="400" cy="350" r="165"/>
           <circle class="cycle-guide" cx="400" cy="350" r="205"/>
@@ -49,25 +49,32 @@
 <line class="refinement-link" x1="326.9" y1="366.7" x2="237.2" y2="387.2"/>
 <line class="flow-arrow" data-from="evaluate" data-to="understand" x1="271.3" y1="207.0" x2="366.7" y2="161.1" marker-end="url(#arrow)"/>
 <line class="refinement-link" x1="341.4" y1="303.2" x2="269.4" y2="245.9"/>
-<g class="refine-node" id="refine"><circle cx="400" cy="350" r="74"/><text class="refine-label" x="400" y="344" text-anchor="middle">Refine</text><text class="center-label" x="400" y="369" text-anchor="middle">throughout</text></g>
+<g class="refine-node" id="refine"><circle cx="400" cy="350" r="74"/><text class="refine-label" x="400" y="344" text-anchor="middle">8. Refine</text><text class="center-label" x="400" y="369" text-anchor="middle">throughout</text></g>
 <g class="step-node" data-pair="frame"><circle cx="400.0" cy="145.0" r="32"/><text class="num" x="400.0" y="151.0" text-anchor="middle">1</text><text class="lbl" x="449.0" y="156.0" text-anchor="start">Understand</text></g>
 <g class="step-node" data-pair="frame"><circle cx="560.3" cy="222.2" r="32"/><text class="num" x="560.3" y="228.2" text-anchor="middle">2</text><text class="lbl" x="603.3" y="192.9" text-anchor="start">Map</text></g>
 <g class="step-node" data-pair="create"><circle cx="599.9" cy="395.6" r="32"/><text class="num" x="599.9" y="401.6" text-anchor="middle">3</text><text class="lbl" x="653.5" y="412.9" text-anchor="start">Design</text></g>
 <g class="step-node" data-pair="create"><circle cx="488.9" cy="534.7" r="32"/><text class="num" x="488.9" y="540.7" text-anchor="middle">4</text><text class="lbl" x="512.8" y="589.3" text-anchor="start">Build</text></g>
 <g class="step-node" data-pair="operate"><circle cx="311.1" cy="534.7" r="32"/><text class="num" x="311.1" y="540.7" text-anchor="middle">5</text><text class="lbl" x="287.2" y="589.3" text-anchor="end">Instrument</text></g>
-<g class="step-node" data-pair="operate"><circle cx="200.1" cy="395.6" r="32"/><text class="num" x="200.1" y="401.6" text-anchor="middle">6</text><text class="lbl" x="146.5" y="412.9" text-anchor="end">Deploy</text></g>
+<g class="step-node" data-pair="operate"><circle cx="200.1" cy="395.6" r="32"/><text class="num" x="200.1" y="401.6" text-anchor="middle">6</text><text class="lbl" x="146.5" y="412.9" text-anchor="end">Experiment</text></g>
 <g class="step-node" data-pair="learn"><circle cx="239.7" cy="222.2" r="32"/><text class="num" x="239.7" y="228.2" text-anchor="middle">7</text><text class="lbl" x="196.7" y="192.9" text-anchor="end">Evaluate</text></g>
 <path class="output-arrow" data-from="cycle" data-to="capability" d="M400 560 V625" marker-end="url(#arrow-accent)"/>
           <text class="center-label" x="415" y="600">produces</text>
           <g class="context-node" id="capability"><rect x="290" y="635" width="220" height="48" rx="24"/><text x="400" y="665" text-anchor="middle">Capability</text></g>
-          <path class="output-arrow" data-from="capability" data-to="problem" d="M400 683 V769" marker-end="url(#arrow-accent)"/>
-          <text class="center-label" x="420" y="720">acts on the problem</text><text class="center-label" x="420" y="745">through adoption and use</text>
-          <g class="context-node" id="problem"><rect x="310" y="779" width="180" height="46" rx="23"/><text x="400" y="809" text-anchor="middle">Problem</text></g>
+          <path class="output-arrow deployment-return" data-from="capability" data-to="challenge" d="M510 659 H765 V35 H500" marker-end="url(#arrow-accent)"/>
+          <text class="deployment-label" x="745" y="350" text-anchor="middle" transform="rotate(-90 745 350)">Deployment</text>
         </svg><!-- capability-cycle:end --></div>
-        <figcaption><strong class="return-caption">Evaluate (7) → Understand (1)</strong><span>Evidence returns us to the challenge. Refine is a continuing practice at the center of all seven steps.</span><strong>Challenge → cycle → capability → action on the problem</strong><span>Adoption, effective use and results inform how we understand the challenge in the next cycle.</span></figcaption>
+        <figcaption><strong class="return-caption">Evaluate (7) → Understand (1)</strong><span>Evidence returns us to the challenge. Refine is a continuing practice at the center of all seven steps.</span><strong>Challenge → cycle → capability → deployment → challenge</strong><span>Adoption, effective use and results inform how we understand the challenge in the next cycle.</span></figcaption>
       </figure>
 
-      <div class="step-legend" id="step-legend"></div>
+      <div class="step-legend" id="step-legend" aria-label="Eight step cards"></div>
+      <dialog id="cycle-step-dialog" aria-labelledby="cycle-step-title">
+        <form method="dialog"><button class="cycle-close" aria-label="Close step explanation">Close ×</button></form>
+        <h2 id="cycle-step-title"></h2><p id="cycle-step-description"></p>
+        <h3>Why it matters</h3><p id="cycle-step-why"></p>
+        <h3>A decision to make</h3><p id="cycle-step-decision"></p>
+        <h3>Ask yourself</h3><p id="cycle-step-question"></p>
+      </dialog>
+<noscript><p><a href="/approach/#steps">Read all eight step explanations on the Approach page.</a></p></noscript>
 
       <div class="callout">
         <p><strong>The step that decides the story is rarely evaluate.</strong> It's usually earlier — design, build, or instrument — because those steps determine what evaluate is even able to see. A system instrumented to track only its own headline metric cannot evaluate a cost that metric doesn't measure.</p>
@@ -126,7 +133,7 @@
       <dl class="ccl-stage-links">
         <div><dt>Understand &amp; Map — agree on the challenge</dt><dd><p>Bring learner goals, existing knowledge, system needs and operating conditions into the same picture. Learners help define success and influence choices.</p><small>Ask: whose goals and requirements shape the work?</small></dd></div>
         <div><dt>Design &amp; Build — create together</dt><dd><p>Co-design learning conditions and system behavior. Make roles, control and opportunities for creative partnership explicit, then test how they work together.</p><small>Ask: what should people learn, and what should the system enable?</small></dd></div>
-        <div><dt>Instrument &amp; Deploy — support effective use</dt><dd><p>Plan measurement of learning, system quality and joint performance. Deployment makes a system available; adoption, effective use and sustainable support require attention in real practice.</p><small>Ask: what can we observe, and what makes successful use possible?</small></dd></div>
+        <div><dt>Instrument &amp; Experiment — test under representative conditions</dt><dd><p>Plan measurement of learning, system quality and joint performance. Deployment makes a system available; adoption, effective use and sustainable support require attention in real practice.</p><small>Ask: what can we observe, and what makes successful use possible?</small></dd></div>
         <div><dt>Evaluate — return to Understand; refine both loops throughout</dt><dd><p>Examine learner knowledge, capability and flourishing alongside technical requirements and collective results. Joint performance alone does not establish independent learner competence.</p><small>Ask: what evidence calls for a change to teaching, the system, or the shared challenge?</small></dd></div>
       </dl>
       <div class="callout">
@@ -144,4 +151,4 @@
 
 <script src="teaching.js?v=map-teaching-1"></script><script src="case-narratives.js?v=approach-guidance-20261019"></script><script src="cases.js?v=approach-guidance-20261019"></script>
 <script src="coupled-loops.js?v=coupled-loops-1"></script>
-</body></html>
+<script src="cycle-guide.js?v=experiment-20261019"></script></body></html>

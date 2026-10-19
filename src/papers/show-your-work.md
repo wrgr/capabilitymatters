@@ -6,7 +6,7 @@
 
 **William Gray-Roncal and James Diamond**
 
-**Working paper for community discussion.** Learning Engineering for Next-Generation Systems (LENS) offers a framework for defining, developing, and evaluating capability. This paper presents a synthesis and a design proposal for the learning-engineering community.
+**Working paper for community discussion.** Learning Engineering for Next-Generation Systems (LENS) offers a framework for defining, developing, and evaluating capability. This paper presents a synthesis and a design proposal for the learning-engineering community. Revised October 19, 2026.
 
 ### Abstract
 
@@ -62,6 +62,14 @@ The team should examine three levels together. At the learner level, it can obse
 Coupling also creates a learning opportunity. The system can make explanations, feedback, practice, and correction available while preserving meaningful decisions for the learner. It can also conceal important work or reward dependence on assistance. The design question is how support contributes to current performance while developing the judgment and recovery capability needed for future conditions. Which support should remain, which should fade, and which needs a fallback depends on the intended work.
 
 The practical consequence is a wider set of permissible responses. Develop a skill, redesign a tool, change a handoff, provide a job aid, narrow the task, acquire better evidence, or stop. A justified decision not to deploy can be an example of capable work. An assessment that rewards only shipping a product would miss it.
+
+### Two interacting cycles
+
+Learner development and system evolution proceed together. People interpret, practice, receive feedback and revise their understanding. Teams also design, implement, investigate and revise the tools and conditions surrounding that learning. Neither cycle finishes before the other begins. A prototype can expose a learning need; a learner’s question can expose a missing system requirement.
+
+Joint practice connects the cycles throughout the work. Learners, practitioners and designers examine representative tasks together, including handoffs, exceptions and recovery. Their observations can change teaching, the system, or the definition of the challenge. Participation should affect those decisions; collecting feedback without a path to act on it leaves the coupling incomplete.
+
+The evidence still needs to distinguish the contributions. A team may perform well because one colleague supplies the missing expertise, or because a support tool compensates for an unreliable process. That can be useful collective capability. It does not establish that every participant learned to perform independently. Evaluate learner knowledge, judgment and agency alongside technical performance, adoption and effective use, using comparisons that match each claim.
 
 ## 4. Tasks connect competencies to performance
 
@@ -153,22 +161,24 @@ The proposed evidence of learning would come from performance on unfamiliar scen
 
 The LENS process treats capability development as an iterative investigation. The team begins with a seed idea or concern, defines the problem with the people affected, maps capabilities and operating conditions, compares interventions, and revises its decisions as evidence becomes available. A product is one possible result. A changed workflow, better-supported practice, a narrower scope, or a justified decision to stop may also be an appropriate result.
 
-The eight activities keep learner and system requirements connected:
+Seven numbered steps keep learner and system requirements connected. An eighth activity, Refine, sits at the center and applies throughout:
 
 | Activity | Question for the coupled arrangement |
 | --- | --- |
-| Understand | What valued work is difficult, for whom, and what human benefit would closing the gap serve? |
-| Map | What must people and systems each be able to do, and which conditions or dependencies enable their work together? |
-| Design | Which intervention addresses a plausible cause, within available authority, with acceptable benefits and burdens? |
-| Build | Can the candidate, its support, and its recovery paths operate during a representative task? |
-| Instrument | What evidence will distinguish learner performance, system performance, their coupling, and the intended benefit? |
-| Deploy | Under what bounds, staffing, access, and stop conditions can the arrangement be used responsibly? |
-| Evaluate | What changed, for whom, compared with what, and which explanations and consequences remain uncertain? |
-| Refine | Which assumption or requirement needs revision, and what evidence would justify the next step? |
+| 1. Understand | What valued work is difficult, for whom, and what human benefit would closing the gap serve? |
+| 2. Map | What must people and systems each be able to do, and which conditions or dependencies enable their work together? |
+| 3. Design | Which intervention addresses a plausible cause, within available authority, with acceptable benefits and burdens? |
+| 4. Build | Can the candidate, its support, and its recovery paths operate during a representative task? |
+| 5. Instrument | What evidence will distinguish learner performance, system performance, their coupling, and the intended benefit? |
+| 6. Experiment | What bounded test, comparison and stop conditions will reveal whether the arrangement works? |
+| 7. Evaluate | What changed, for whom, compared with what, and which explanations and consequences remain uncertain? |
+| 8. Refine throughout | Which assumption or requirement needs revision, and what evidence would justify the next step? |
 
-These are revisitable activities. New evidence may change the problem definition, expose an authority constraint, or show that a successful build does not support the intended work. Refine normally returns to Understand; a direct return to another activity needs a stated reason. The Capability Pipeline presents these choices through five worked cases and a fictional adventure, with teaching points to support deliberation. Its simulated outcomes are authored assumptions rather than empirical estimates. The companion casebook supplies additional contexts for discussing the work. [13, 14]
+The cycle starts with a challenge and returns directly from Evaluate (7) to Understand (1). Refine (8) is continuous: evidence can change any earlier assumption, requirement or decision. Mapping makes people, tasks, tools, authority and dependencies visible. A mathematical or behavioral model may support that map, but is not required by the name of the activity.
 
-LENS organizes the relevant practice around five competency domains: **Systems Analysis**, **Iterative Development**, **Human-System Collaboration**, **Test and Evaluation**, and **Sociotechnical Constraints**. In this paper, these are organizing domains for the LENS framework, offered for community discussion. They do not constitute an adopted professional standard. A project can use them to name the expertise it needs and identify missing contributions.
+Experiment is a bounded test of the instrumented arrangement, with appropriate permissions, a comparison and stopping rules. Deployment is a different decision: putting the resulting capability to work on the challenge. That return connects the capability to the purpose that prompted it. Adoption, effective use, support and observed consequences can change our understanding of the challenge and begin another cycle. Completing a test does not itself authorize wider use or establish that the intended benefit occurred. The Capability Pipeline presents these choices through five worked cases and a fictional adventure, with teaching points to support deliberation. Its simulated outcomes are authored assumptions rather than empirical estimates. The companion casebook supplies additional contexts for discussing the work. [13, 14]
+
+LENS organizes the relevant practice around five competencies: **Systems Analysis**, **Iterative Development**, **Human-System Collaboration**, **Data, Measurement, and Evaluation**, and **Navigating Sociotechnical Constraints**. In this paper, these organize practice in the LENS framework, offered for community discussion. They do not constitute an adopted professional standard. A project can use them to name the expertise it needs and identify missing contributions.
 
 A learning engineer can orchestrate that work by keeping the problem, intended benefit, evidence, and next decision connected. Domain practitioners, learning designers, technical specialists, evaluators, and affected participants contribute different expertise. One person need not perform every role, and naming a role does not demonstrate proficiency. A proficiency claim needs reviewed evidence of the relevant task under stated conditions, including judgment about when to seek help, revise, or stop.
 
@@ -188,7 +198,7 @@ We propose a small evidence record for each consequential capability claim. It s
 | Coupling evidence | Complete-task observations, handoffs, support use, exception handling, and correction paths. |
 | Human benefit | The intended contribution to flourishing, who helped define it, and observed benefits, burdens, and missing outcomes. |
 | Interpretation | How observations support the claim; alternatives, missing evidence, and uncertainty. |
-| Decision and review | The permitted next step, responsible decision-maker, appeal route, and reassessment trigger. |
+| Decision and review | The next experiment or deployment decision, its bounds and support, responsible decision-maker, appeal route, and reassessment trigger. |
 
 A record might support this bounded claim: a learner can use an approved assistant to create a small browser tool, verify its stated behavior, explain two consequential design choices, and repair a seeded defect. Evidence would include the tool, its tests, the explanations, and the repair. The claim would not extend to independent software engineering, security assurance, or durable learning without additional evidence.
 
@@ -222,7 +232,7 @@ Learning-engineering competence also includes the authority to act responsibly w
 
 This paper is a proposed synthesis. It does not establish a new psychometric theory, a universally valid rubric, a causal estimate of learning gains, or an adopted credentialing standard. It does not represent a formal position of the Institute of Electrical and Electronics Engineers (IEEE) or its International Consortium for Innovation and Collaboration in Learning Engineering (ICICLE). Contributions to that community require review and agreement through its own processes.
 
-We offer LENS as a basis for community work on the meaning and evidence of capability. The invitation is to examine the definition, test the coupling of learner and system performance, make competency claims concrete, and question whether the resulting capability serves human flourishing. Different settings will require different tasks, standards, supports, and measures. The common commitment is to make those choices inspectable.
+We offer LENS as a basis for community work on the meaning and evidence of capability. The invitation extends to learners, educators, practitioners, designers, engineers, researchers, leaders and the communities affected by their work. Bring a task, a difficulty, a useful example or evidence that challenges an assumption. Together we can examine the definition, test the coupling of learner and system performance, make competency claims concrete, and question whether the resulting capability serves human flourishing. Different settings will require different tasks, standards, supports, and measures. The common commitment is to make those choices inspectable.
 
 Show representative work. State what learners and systems each contribute, how they perform together, and the conditions that permit action. If the claim is learning, examine change and persistence. If it is operational capability, examine the complete work arrangement. If it is impact, justify the causal inference. If it is human flourishing, make the valued benefit and its distribution explicit. Learning engineering becomes accountable to the people it serves when each of these claims is open to examination and correction.
 

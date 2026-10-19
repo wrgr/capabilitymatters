@@ -1,4 +1,4 @@
-Current cycle: Understand → Map → Design → Build → Instrument → Deploy → Evaluate → Refine. Map means map capabilities and conditions. Stage headings use current names; saved agent artifact text below retains its original wording.
+Current cycle: Understand → Map → Design → Build → Instrument → Experiment → Evaluate → Understand; 8. Refine throughout. Deployment puts the resulting capability to work on the challenge. Map means map capabilities and conditions. Stage headings use current names; saved agent artifact text below retains its original wording.
 
 # Understand
 
@@ -148,7 +148,7 @@ Humans review reciprocal usefulness, access, credible refusal and review burden;
 Alternative and next action
 Retain facilitated peer practice with printed fictional variations, accessible written choices and optional private paper reflection. It also requires coverage, suitable space, disposal and attention to power differences. Preserve dissent favoring no retained reflection, task evidence or capability map. Next, prepare this protocol and its fictional checks for accountable human review, carrying independent correction into the unmet evaluation gates. Keep field use and collection withheld; learning, flourishing and transfer remain not evaluated.
 
-# Deploy
+# Experiment
 
 Status and scope
 This specialist expert draft extends sequence 49 using the variation distinctions in sequence 37 and evidence boundaries in sequences 42 and 44. It is not an approved requirement. The lifecycle is a rehearsal. No participant observations, executed checks, human approval, stakeholder consensus or measured outcomes exist. Field evidence remains pending. The supplied build artifact contains no executable prototype; candidate construction and verification remain unestablished.

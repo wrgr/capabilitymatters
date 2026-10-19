@@ -1,4 +1,4 @@
-Current cycle: Understand → Map → Design → Build → Instrument → Deploy → Evaluate → Refine. Map means map capabilities and conditions. Stage headings use current names; saved agent artifact text below retains its original wording.
+Current cycle: Understand → Map → Design → Build → Instrument → Experiment → Evaluate → Understand; 8. Refine throughout. Deployment puts the resulting capability to work on the challenge. Map means map capabilities and conditions. Stage headings use current names; saved agent artifact text below retains its original wording.
 
 # Understand
 

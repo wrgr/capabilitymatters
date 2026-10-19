@@ -440,3 +440,10 @@ Install development dependencies with `npm ci`; install a test browser with `npx
 The `/llm101/` contextual page embeds `/llm101/explorer/index.html` on the same origin. Maintained React source and authoring notes are in [experiments/llm101](experiments/llm101/README.md). The root dependency lockfile includes React 18, ReactDOM and KaTeX for the preserved explorer, with Vite and its React plugin as development build tools. Both development startup and production builds generate the app before Astro runs; rebuild it with `npm run build:llm101` after source edits during development. No separately deployed LLM101 app is required. The shared site preference code serves the app directly and synchronizes with the parent frame. Mathematical expressions include the KaTeX stylesheet/fonts and keyboard-scrollable display regions while preserving MathML.
 
 Remaining manual checks and external application work are tracked in [issue #24](https://github.com/wrgr/capabilitymatters/issues/24) and [the remaining-work record](docs/accessibility/remaining-work.md).
+
+
+### October 19 navigation and teaching revision
+
+Motivation welcomes visitors by role and domain, with a keyboard-operable domain carousel and a responsive statistics sidebar. Approach explains capability before the worked examples. The shared cycle uses Understand, Map, Design, Build, Instrument, Experiment and Evaluate; Evaluate returns to Understand, 8. Refine stays central, and Deployment connects Capability back to Challenge. Diagram popups and the step cards use the shared teaching metadata. Historical journal keys and quoted text remain intact.
+
+About this resource appears directly under resource titles. The learning map, reflection notebook and 48 activity guides from PR 21 are incorporated; guides remain optional and reflection saving is opt-in and browser-local. Show Your Work and its linked PDF now explain the two interacting learner/system cycles, continuous refinement, experimentation and deployment. See [the feedback record](docs/feedback-2026-10-19.md) for the file inventory and validation.

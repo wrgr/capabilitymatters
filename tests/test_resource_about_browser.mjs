@@ -22,6 +22,52 @@ const origin=`http://127.0.0.1:${server.address().port}`;
 await mkdir(output,{recursive:true});
 let browser;
 const checks=[];
+/** @param {import('playwright').Page} page @returns {Promise<void>} Verify the invitation, sidebar and complete carousel at desktop and mobile sizes. */
+async function checkMotivation(page){
+  for(const width of [1440,390]){
+    await page.setViewportSize({width,height:1000});await page.goto(origin+'/');
+    assert.equal(await page.locator('.community-roles li').count(),7);
+    assert.equal(await page.locator('.domain-card').count(),7);
+    assert.equal(await page.locator('a[href*="start-here"],a[href*="agentic-le"]').count(),0);
+    const boxes=await page.evaluate(()=>{
+      const a=document.querySelector('.motivation-main').getBoundingClientRect(),b=document.querySelector('.motivation-stats').getBoundingClientRect();
+      return {mainRight:a.right,mainBottom:a.bottom,sideLeft:b.left,sideTop:b.top,overflow:document.documentElement.scrollWidth>innerWidth};
+    });
+    assert.equal(boxes.overflow,false,'Motivation reflows');
+    assert(width>=900?boxes.sideLeft>boxes.mainRight:boxes.sideTop>=boxes.mainBottom,'Stats follow the responsive layout');
+    const names=await page.locator('.domain-card h3').allTextContents();
+    const next=page.getByRole('button',{name:'Next domain',exact:true});
+    const previous=page.getByRole('button',{name:'Previous domain',exact:true});
+    assert(await previous.isDisabled());
+    for(let i=1;i<names.length;i++){
+      await next.click();await page.getByText(`${i+1} of 7 · ${names[i]}`,{exact:true}).waitFor();
+    }
+    assert(await next.isDisabled());
+    await page.locator('#domain-carousel').press('ArrowLeft');
+    await page.getByText('6 of 7 · '+names[5],{exact:true}).waitFor();
+    const audit=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
+    assert.deepEqual(audit.violations.map(v=>v.id),[],`Motivation ${width}px`);
+    await page.goto(origin+'/');await page.screenshot({path:output+`/motivation-${width}.png`,fullPage:false});
+  }
+}
+/** @param {import('playwright').Page} page @returns {Promise<void>} Open every diagram explanation and preserve keyboard focus when it closes. */
+async function checkCyclePopups(page){
+  await page.setViewportSize({width:1440,height:1000});
+  for(const route of ['/approach/','/capability-pipeline/cases.html']){
+    await page.goto(origin+route);
+    const labels=['Understand','Map','Design','Build','Instrument','Experiment','Evaluate','Refine'];
+    for(let i=0;i<labels.length;i++){
+      const button=page.getByRole('button',{name:`${i+1}. ${labels[i]}: open explanation`,exact:true});
+      await button.press(i%2?'Space':'Enter');
+      assert.equal(await page.locator('#cycle-step-title').innerText(),`${i+1}. ${labels[i]}`);
+      assert(await page.locator('#cycle-step-question').innerText());
+      await page.getByRole('button',{name:'Close step explanation',exact:true}).press('Escape');
+      assert.equal(await page.locator('#cycle-step-dialog').evaluate(e=>e.open),false);
+      assert(await button.evaluate(e=>e===document.activeElement));
+    }
+    if(route.includes('cases'))assert.equal(await page.locator('#step-legend .cycle-card').count(),8);
+  }
+}
 /** @param {import('playwright').Page} page @param {string} name @returns {Promise<void>} Check only the added cards against WCAG A/AA rules. */
 async function audit(page,name){
   const result=await new AxeBuilder({page}).include('.resource-about').withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
@@ -50,8 +96,8 @@ async function checkApproachNavigation(page){
     if(width<900)await page.locator('.mobile-nav > summary').press('Enter');
     await page.screenshot({path:output+`/approach-page-${width}.png`,fullPage:true});
     if(width<900)await page.locator('.mobile-nav > summary').press('Enter');
-    await primary.locator('a[href="/start-here/"]').press('Enter');
-    await page.waitForURL('**/start-here/');
+    await primary.locator('a[href="/show-your-work/"]').press('Enter');
+    await page.waitForURL('**/show-your-work/');
   }
   await page.setViewportSize({width:1440,height:1000});
 }
@@ -89,6 +135,8 @@ try{
   const context=await browser.newContext({viewport:{width:1440,height:1000}});
   const page=await context.newPage(), errors=[];
   page.on('pageerror',error=>errors.push(error.message));
+  await checkMotivation(page);
+  await checkCyclePopups(page);
   await checkApproachNavigation(page);
   await checkWorkedCases(page);
   for(const route of routes){

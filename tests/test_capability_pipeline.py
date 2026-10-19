@@ -25,7 +25,11 @@ class PipelinePublicationTests(unittest.TestCase):
         self.assertIn('data-from="evaluate" data-to="understand"', diagram)
         self.assertIn('class="challenge-arrow" data-from="challenge" data-to="understand"', diagram)
         self.assertIn('class="refine-node" id="refine"', diagram)
-        self.assertIn('data-from="capability" data-to="problem"', diagram)
+        self.assertIn('data-from="capability" data-to="challenge"', diagram)
+        self.assertIn('>8. Refine</text>', diagram)
+        self.assertIn('>Experiment</text>', diagram)
+        self.assertIn('>Deployment</text>', diagram)
+        self.assertNotIn('id="problem"', diagram)
         self.assertNotIn('start-star', page)
         script = (ROOT / 'cases.js').read_text()
         self.assertNotIn('All eight steps', script)
@@ -49,7 +53,8 @@ class PipelinePublicationTests(unittest.TestCase):
                     path = urlsplit(ref).path
                     target = ROOT.parent / path.lstrip("/") if path.startswith("/") else ROOT / path
                     route = ROOT.parents[1] / 'src/pages' / path.strip('/')
-                    self.assertTrue(target.is_file() or (path.endswith('/') and
+                    built = ROOT.parents[1] / 'dist' / path.strip('/') / 'index.html'
+                    self.assertTrue(target.is_file() or built.is_file() or (path.endswith('/') and
                         (route.with_suffix('.astro').is_file() or (route / 'index.astro').is_file())), ref)
 
     def test_coupled_loops_are_a_bottom_card(self) -> None:
@@ -61,7 +66,7 @@ class PipelinePublicationTests(unittest.TestCase):
                        'adoption, effective use', 'subsequent revisions']:
             self.assertIn(phrase, page)
         for pair in ['Understand &amp; Map', 'Design &amp; Build',
-                     'Instrument &amp; Deploy', 'Evaluate — return to Understand']:
+                     'Instrument &amp; Experiment', 'Evaluate — return to Understand']:
             self.assertIn(pair, page)
         self.assertIn('aria-labelledby="ccl-title ccl-description"', page)
         frame = re.search(r'<iframe[^>]+id="cases"[^>]+src="([^"]+)"', (ROOT / 'index.html').read_text())

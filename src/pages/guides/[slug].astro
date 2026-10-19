@@ -1,0 +1,41 @@
+---
+/** Offer resource-specific preparation, exploration and reflection in one printable guide. */
+import ResourceAbout from '../../components/ResourceAbout.astro';
+import Base from '../../layouts/Base.astro';
+import LearningNotes from '../../components/LearningNotes.astro';
+import guides from '../../data/learning-guides.json';
+export function getStaticPaths(){return guides.map(guide=>({params:{slug:guide.id},props:{guide}}));}
+const {guide}=Astro.props;
+const next=guide.next.map(id=>guides.find(g=>g.id===id)).filter(Boolean);
+---
+<Base title={`${guide.title} · Learning guide · Capability Matters`} active="start-here" description={guide.goal}>
+  <article class="container-wide guide">
+    <nav class="guide-nav" aria-label="Learning navigation"><a href="/learning-map/">← Learning map</a><a href="/learning-notebook/">My notebook</a><button type="button" id="print-guide">Print one-page guide</button></nav>
+    <header><p class="eyebrow">Learning guide · {guide.kind} · Suggested {guide.time}</p><h1>{guide.title}</h1><ResourceAbout resource={'guide-'+guide.id} content={{
+      what: `A guided activity for ${guide.title}. ${guide.goal} ${guide.before}`,
+      how: ['Read Before you begin, then use Open the project to try the listed steps alongside this guide.', 'Record an observation, explanation, transfer question and next test in the reflection panel. Saving is optional; Print one-page guide produces a paper copy.'],
+      connection: `This activity connects a capability question to observable work and a possible next decision. ${guide.notice} ${guide.limits} Use the reflection to distinguish what you observed from what still needs evidence.`,
+      links: [{label:'Open the resource',href:guide.url},{label:'Choose another learning guide',href:'/learning-map/'}]
+    }} /><p class="goal">{guide.goal}</p><p class="context">{guide.context!==guide.goal && guide.context}</p></header>
+    <div class="guide-columns">
+      <section><h2>Before you begin</h2><p>{guide.before}</p>{guide.example && <details><summary>A use case to work with</summary><p>{guide.example}</p></details>}<h2>Try this</h2><ol class="steps">{guide.steps.map(step=><li>{step}</li>)}</ol><a class="open-project" href={guide.url} target="_blank" rel="noopener">{guide.limits.startsWith('Design brief only')?'Open the design brief':'Open the project'} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><p class="small">Keep this guide open while you explore.</p></section>
+      <aside><h2>What to notice</h2><p>{guide.notice}</p><h2>Leave with</h2><p>{guide.takeaway}</p><h2>Keep the evidence in view</h2><p>{guide.limits}</p>{guide.evidence && <details><summary>Evidence prompts from the brief</summary><p>{guide.evidence}</p></details>}</aside>
+    </div>
+    <div class="print-reflection"><h2>Reflect</h2><p>{guide.question}</p><p>Observation → Explanation → Transfer → Next test</p></div>
+    <LearningNotes id={guide.id} title={guide.title} question={guide.question} />
+    <section class="continue" aria-labelledby="continue-heading"><h2 id="continue-heading">Choose your next move</h2><p>Return to the process, or examine how evidence could change a design.</p><div>{next.map(g=><a href={`/guides/${g!.id}/`}>{g!.title} →</a>)}</div><a href="/learning-map/">Choose another question on the map</a></section>
+  </article>
+</Base>
+<style>
+ .guide{max-width:68rem}.guide-nav{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;font:.85rem var(--sans);margin-bottom:2rem}.guide-nav button{margin-left:auto;cursor:pointer;border:1px solid var(--border);background:var(--bg);padding:.6rem;font:inherit;color:var(--ink)}
+ header{border-bottom:1px solid var(--border);padding-bottom:1rem;margin-bottom:1.5rem}h1{max-width:25ch}.goal{font-size:1.2rem;max-width:52rem}.context{max-width:52rem}.context:empty{display:none}
+ .guide-columns{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem}.guide-columns h2{font-size:1.2rem;margin-top:1.3rem}.guide-columns aside{padding:0 1.4rem 1rem;background:var(--tint-warm);border-radius:6px}.steps{padding-left:1.3rem}.steps li{padding-left:.3rem;margin-bottom:.8rem}
+ .open-project{display:inline-block;padding:.8rem 1.1rem;background:var(--accent-2);color:white;border-radius:4px;font:600 .9rem var(--sans)}.small{font:.8rem var(--sans);margin:.8rem 0}details summary{cursor:pointer;font-family:var(--sans);font-size:.9rem}details p{margin-top:.7rem}
+ .continue{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}.continue div{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1rem}.print-reflection{display:none}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+ @media(max-width:700px){.guide-columns{grid-template-columns:1fr;gap:1rem}.guide-nav button{margin-left:0}.goal{font-size:1.1rem}}
+ @media print{
+  @page{size:letter;margin:.45in} :global(.site-nav),:global(footer),:global(.skip-link),.guide-nav,.continue,.open-project,.small,details{display:none!important}
+  :global(main){padding:0;min-height:0}.guide{padding:0;max-width:none;font-size:9pt;line-height:1.4}.guide header{margin-bottom:.15in;padding-bottom:.05in}.guide h1{font-size:20pt;max-width:none}.goal{font-size:11pt}.eyebrow{font-size:8pt;margin-bottom:.08in}.guide-columns{grid-template-columns:1.15fr 1fr;gap:.25in}.guide-columns h2,.print-reflection h2{font-size:11pt;margin-top:.12in}.guide-columns aside{background:none;padding:0}.steps li{margin-bottom:.08in}.print-reflection{display:block;border-top:1px solid var(--border);padding-top:.1in;margin-top:.1in}p{margin-bottom:.1in}
+ }
+</style>
+<script>document.querySelector('#print-guide')?.addEventListener('click',()=>window.print());</script>

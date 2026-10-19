@@ -1,6 +1,6 @@
 ---
 // Shared page shell: metadata, global styles, nav, footer.
-// pageTheme="dark" applies a `dark-shell` class on <body>; NavBar and footer
+// pageTheme="warm" retains the homepage layout with a warm palette; "dark" applies a `dark-shell` class on <body>; NavBar and footer
 // pick that up via :global() overrides so the homepage's dark navy hero
 // experience extends through the chrome. Interior pages stay on the default
 // cream/Charter shell.
@@ -10,7 +10,7 @@ interface Props {
   title: string;
   description?: string;
   active?: string;
-  pageTheme?: "light" | "dark";
+  pageTheme?: "light" | "dark" | "warm";
 }
 
 const {
@@ -21,7 +21,7 @@ const {
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
-const bodyClass = pageTheme === "dark" ? "dark-shell" : undefined;
+const bodyClass = pageTheme === "warm" ? "dark-shell warm-shell" : pageTheme === "dark" ? "dark-shell" : undefined;
 ---
 
 <!doctype html>
@@ -52,7 +52,8 @@ const bodyClass = pageTheme === "dark" ? "dark-shell" : undefined;
           <span class="muted"> · Learning engineering in practice, for independent visitors and the Johns Hopkins LENS community. Connected to IEEE ICICLE and the Learning Engineering Commons. Questions or corrections: <a href="mailto:wgr@jhu.edu">reach out</a>.</span>
         </div>
         <nav class="footer-links" aria-label="Footer">
-          <a href={base + "start-here/"}>Start Here</a>
+          <a href={base + "learning-map/"}>Learning map</a>
+          <a href={base + "learning-notebook/"}>My notebook</a>
           <a href="https://lecommons.org" target="_blank" rel="noopener">Learning Engineering Commons</a>
           <a href="https://sagroups.ieee.org/icicle/" target="_blank" rel="noopener">IEEE ICICLE</a>
         </nav>

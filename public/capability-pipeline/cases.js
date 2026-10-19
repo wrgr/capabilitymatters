@@ -1,16 +1,9 @@
 /* Runs the published Capability Pipeline cases component. */
 
 (function(){
-  var STEP_META = [
-    {key:'understand', label:'Understand', blurb:'What is the capability gap, really — stated as a gap, not yet a solution.'},
-    {key:'model', label:'Map', blurb:'Map capabilities and conditions: people, tools, authority, incentives and dependencies.'},
-    {key:'design', label:'Design', blurb:'What intervention could close the gap — and what does it choose not to do.'},
-    {key:'build', label:'Build', blurb:'Turn the design into something real. Constraints show up here that no one saw coming.'},
-    {key:'instrument', label:'Instrument', blurb:'Decide, before you need the answer, what evidence would prove you wrong.'},
-    {key:'deploy', label:'Deploy', blurb:'Put the built, instrumented thing into something close to the real setting.'},
-    {key:'evaluate', label:'Evaluate', blurb:'Read the evidence honestly, including the result you didn’t want.'},
-    {key:'refine', label:'Refine', blurb:'Refine throughout: use evidence to revisit any step and the understanding of the problem.'}
-  ];
+  var STEP_META = Object.values(CapabilityTeaching.cycle).map(function(stage){
+    return {key:stage.id, label:stage.label, blurb:stage.description};
+  });
 
   var MODE_DESC = {
     study: 'Worked example. All seven steps and the continuing refinement reflection are open, and the turn is marked for you — study how the decision at that step produced everything downstream of it.',
@@ -42,15 +35,6 @@
     });
     detail.appendChild(box);
   }
-
-  // populate step legend
-  var legend = document.getElementById('step-legend');
-  STEP_META.forEach(function(s, i){
-    var el = document.createElement('div');
-    el.className = 'item';
-    el.innerHTML = '<span class="n">'+(i < 7 ? '0'+(i+1) : '↻')+'</span><span class="t"><b>'+s.label+'</b><span>'+s.blurb+'</span></span>';
-    legend.appendChild(el);
-  });
 
   // populate case grid
   var grid = document.getElementById('case-grid');

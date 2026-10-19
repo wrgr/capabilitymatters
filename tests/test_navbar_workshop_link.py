@@ -25,7 +25,7 @@ class PrimaryLinks(HTMLParser):
 
 def test_primary_navigation() -> None:
     """Desktop and mobile menus expose Approach immediately after Motivation."""
-    expected = ['/', '/approach/', '/start-here/', '/case-studies/', '/experiments/', '/problems-to-prototypes/']
+    expected = ['/', '/approach/', '/show-your-work/', '/case-studies/', '/experiments/', '/problems-to-prototypes/']
     for route in ['', 'approach', 'case-studies', 'experiments', 'problems-to-prototypes', 'start-here', 'about']:
         parser = PrimaryLinks()
         parser.feed((ROOT / 'dist' / route / 'index.html').read_text())
@@ -44,7 +44,8 @@ def test_menu_descriptions() -> None:
         assert text not in home, text
     assert 'id="argument"' in home
     assert 'Motivation · Capability Matters' in home
-    assert 'href="/start-here/"' in home
+    assert 'href="/start-here/"' not in home
+    assert 'href="/agentic-le/"' not in home
 
 if __name__ == '__main__':
     test_primary_navigation()
