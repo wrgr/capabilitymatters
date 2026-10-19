@@ -3,6 +3,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/home.css";
 import "../styles/motivation.css";
+import "../styles/toolbox.css";
 
 const base = import.meta.env.BASE_URL;
 const LENS_PROGRAM_URL =
@@ -96,6 +97,19 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
     </div>
   </aside>
   </div>
+
+  <section class="toolbox-feature" aria-labelledby="toolbox-heading">
+    <div class="toolbox-feature-copy">
+      <p class="toolbox-eyebrow">Learning engineering in practice</p>
+      <h2 id="toolbox-heading">The right tools, <em>working together.</em></h2>
+      <p>Learning engineering draws on a toolbox of complementary methods and expertise—from learning sciences and design to systems engineering, analytics, human–machine teaming, and domain expertise.</p>
+      <p>No one practitioner has to master every tool. The important work happens at their interfaces: assembling the right people and methods around a real capability problem.</p>
+    </div>
+    <figure class="toolbox-feature-figure">
+      <img src={base + "learning-engineering-toolbox.svg"} width="1200" height="650" loading="lazy" decoding="async" alt="An open toolbox with nine tools for learning design; learning sciences and research; AI and emerging technology; data and learning analytics; human–machine teaming; systems engineering and design thinking; communication and leadership; ethics and compliance; and domain application." />
+      <figcaption>Different competencies are tools for a shared purpose—not separate definitions of learning engineering.</figcaption>
+    </figure>
+  </section>
 
   <section class="domains" id="domains" aria-roledescription="carousel" aria-labelledby="domains-title">
     <div class="domains-header">

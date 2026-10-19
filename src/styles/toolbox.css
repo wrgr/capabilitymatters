@@ -1,0 +1,19 @@
+/* Present the shared competency toolbox illustration within the compact Motivation layout. */
+body.dark-shell .toolbox-feature {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 2rem;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 2rem var(--page-pad);
+  border-top: 1px solid #c9d6d4;
+}
+body.dark-shell .toolbox-eyebrow { color: var(--hp-gold); font: 600 .75rem var(--hp-sans); text-transform: uppercase; letter-spacing: .1em; }
+body.dark-shell .toolbox-feature h2 { font: 400 clamp(1.8rem, 3vw, 2.6rem)/1.2 var(--hp-serif); margin: .75rem 0; }
+body.dark-shell .toolbox-feature h2 em { color: var(--hp-teal-light); }
+body.dark-shell .toolbox-feature-copy > p:not(.toolbox-eyebrow) { font: 400 1rem/1.65 var(--hp-sans); color: var(--hp-text-muted); }
+body.dark-shell .toolbox-feature-figure { margin: 0; min-width: 0; }
+body.dark-shell .toolbox-feature-figure img { display: block; width: 100%; height: auto; border-radius: 12px; }
+body.dark-shell .toolbox-feature-figure figcaption { margin: .75rem 0 0; font: 400 .85rem/1.5 var(--hp-sans); color: var(--hp-text-muted); text-align: left; }
+@media (max-width: 900px) { body.dark-shell .toolbox-feature { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
