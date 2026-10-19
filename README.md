@@ -15,8 +15,9 @@ catalog, events calendar, community roster) lives at
 ## Content organization
 
 The primary menu is Motivation (the homepage), Approach, Start Here, Case Studies,
-Experiments, and Prototypes. Approach opens the worked-case Capability Pipeline;
-its standalone host provides the same destinations back to the main site.
+Experiments, and Prototypes. Approach opens `/approach/`: the capability definition,
+pipeline diagram and step explanations. It links to the worked cases and fictional
+simulation as separate resources; their standalone host links back to Approach.
 The School of Education talk and Field Notes are no longer menu entries; their
 content has not been deleted. Learning Engineering Commons remains in the footer
 and Start Here. Existing route URLs and prototype filter URLs are preserved.
@@ -180,6 +181,21 @@ inspection across three authored cases, then exports a JSON decision record.
 The evidence mapper distinguishes activity, performance, and transfer measures,
 states the limits of the selected comparison, and exports a plain-text plan.
 Neither tool machine-scores written reasoning or estimates real-world effects.
+
+The main **Approach** menu entry opens `/approach/`, with the working capability
+definition, pipeline and step explanations. The homepage keeps a brief definition
+and links to this foundation page. Worked narratives and simulation controls stay
+in their own linked resources.
+Its diagram has seven numbered steps, a direct Evaluate → Understand return, a
+dotted Challenge → Understand entry, and continuous Refine at the center. The
+resulting capability acts on the problem through adoption and use. Each case keeps
+seven step questions plus an unnumbered refinement reflection. Original narratives,
+saved replay stage keys and the branching simulation's decision sequence retain
+their provenance and behavior. The case narratives now live separately in
+`public/capability-pipeline/case-narratives.js`; `cases.js` handles interaction.
+The shared illustration is authored in `src/assets/capability-cycle.svg`, imported
+by Approach and packaged into the case page by `scripts/build-capability-cycle.mjs`
+during `predev` / `prebuild`. Its common styling lives in `cycle.css`.
 
 The gallery and Experiments page also link to the existing Capability Pipeline
 at `/capability-pipeline/index.html#simulation`. The fragment opens “Choose your

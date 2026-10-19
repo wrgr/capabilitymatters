@@ -49,13 +49,13 @@
     ]
   },
   "pipeline": {
-    "what": "A paired resource: five worked systems cases and an editable branching simulation organized around Understand, Map, Design, Build, Instrument, Deploy, Evaluate and Refine.",
+    "what": "A paired resource: five worked cases present seven numbered steps—Understand, Map, Design, Build, Instrument, Deploy and Evaluate—with Refine at the center throughout. A companion fictional branching simulation lets you compare strategies and consequences.",
     "how": [
       "Choose Explore five cases to study a case, find its turning point, or predict before revealing the explanation.",
       "Choose Choose your own adventure to make a strategy decision, inspect the outcomes and compare a revised branch. The direct links below open each view.",
       "Explain which evidence would justify returning to an earlier stage. Treat the scenario probabilities as editable teaching assumptions."
     ],
-    "connection": "LENS treats capability as an interaction between people and the conditions for action. The cycle connects problem framing, design and measurement: an upstream choice determines what later evaluation can observe. Revisit assumptions when results conflict with a plan rather than treating the eight stages as a completion checklist.",
+    "connection": "LENS treats capability as an interaction between people and the conditions for action. The cycle connects problem framing, design and measurement: an upstream choice determines what later evaluation can observe. Revisit assumptions when results conflict with a plan rather than treating the cycle as a completion checklist.",
     "links": [
       {
         "label": "Five-case explorer",
@@ -68,9 +68,9 @@
     ]
   },
   "pipeline-cases": {
-    "what": "Five worked narratives apply an eight-step capability cycle across healthcare, government services, aviation, education and autonomous vehicles. Teaching interpretations accompany the source narratives; historical claims have not been independently rechecked here.",
+    "what": "Five worked narratives apply a seven-step capability cycle with continuous refinement across healthcare, government services, aviation, education and autonomous vehicles. Teaching interpretations accompany the source narratives; historical claims have not been independently rechecked here.",
     "how": [
-      "Pick a case and begin in Study mode to inspect the steps and their teaching questions.",
+      "Pick a case and begin in Study mode to inspect the seven numbered steps and the continuing refinement reflection. Use the central Refine prompt to revisit any earlier assumption.",
       "Try Find the turn or Predict first before revealing the decision-specific explanation. Compare your reason with the presented evidence.",
       "Compare two cases and use the coupled-loops diagram to identify how a change to work conditions could change learner performance."
     ],
@@ -83,7 +83,7 @@
     ]
   },
   "pipeline-simulation": {
-    "what": "A branching fictional scenario lets you edit a strategy, inspect consequences and compare decisions. Probabilities, effect sizes and outcome ranges are authored teaching assumptions, not estimates of real-world impact.",
+    "what": "A branching fictional scenario lets you edit a strategy, inspect consequences and compare decisions. Probabilities, effect sizes and outcome ranges are authored teaching assumptions, not estimates of real-world impact. The adventure includes a final refinement decision; use evidence to revisit assumptions throughout.",
     "how": [
       "Begin with Play a scenario: read the evidence and decision guidance, choose a strategy and commit it to reveal the outcome.",
       "Use Decisions & branches to compare a revised strategy. Separate consequences of a decision from variation in the assumed future.",
@@ -466,7 +466,7 @@
       "Read the note, then follow the original source links to check the interpretation.",
       "Apply the central claim to a project you know and state one condition or observation that would challenge your interpretation."
     ],
-    "connection": "Concurrent phases make iteration a response to evidence throughout design and use. Compare ICICLE’s process with the local LENS eight-stage vocabulary without treating the two as an identical sequence or professional standard."
+    "connection": "Concurrent phases make iteration a response to evidence throughout design and use. Compare ICICLE’s process with the local LENS Approach vocabulary without treating the two as an identical sequence or professional standard."
   },
   "saxberg-working-definition-of-a-learning-engineer": {
     "what": "A clause-by-clause reading of Saxberg’s working definition as quoted in Blake-Plock’s 2018 ICICLE announcement.",

@@ -1,0 +1,107 @@
+---
+/** Explain capability and the iterative approach before visitors enter worked examples. */
+import Base from '../layouts/Base.astro';
+import ResourceAbout from '../components/ResourceAbout.astro';
+import cycle from '../data/capability-cycle.json';
+import diagram from '../assets/capability-cycle.svg?raw';
+
+const steps = cycle.stages.filter(stage => stage.id !== 'refine');
+const refinement = cycle.stages.find(stage => stage.id === 'refine')!;
+const guide = {
+  what: 'A working approach to developing capability: a definition, a seven-step cycle and questions that make each step useful. Refinement continues throughout rather than waiting for a final stage.',
+  how: [
+    'Start with the capability definition, then follow the pipeline from a challenge through Evaluate and back to Understand. Read the text explanation if the diagram is difficult to view.',
+    'Use each step’s decision cue and question on a problem you know. Follow the worked-case or simulation link when you want to examine an example or test a decision.'
+  ],
+  connection: 'Learning engineering connects learning sciences, human-centered design, systems thinking and evidence-informed iteration. In LENS, this means examining what people can do together with the tools, authority and opportunities that enable action. The cycle makes those assumptions and evidence needs explicit; completing its steps alone does not demonstrate learning or impact.',
+  links: [{label: 'Show Your Work: reasoning and evidence', href: '/show-your-work/'}, {label: 'Learning Engineering Commons', href: 'https://lecommons.org/'}]
+};
+---
+
+<Base title="Approach · Capability Matters" active="approach" description="What capability means, how the seven-step pipeline works, and how evidence drives continuous refinement.">
+  <link slot="head" rel="stylesheet" href="/capability-pipeline/cycle.css" />
+  <div class="container approach">
+    <header>
+      <p class="eyebrow">From challenge to capability</p>
+      <h1>Approach</h1>
+      <p class="intro">Develop capability by understanding the work, changing the conditions for action, and using evidence to revise decisions. The pipeline offers seven steps with refinement throughout.</p>
+    </header>
+    <ResourceAbout resource="approach" content={guide} />
+    <nav class="on-page" aria-label="On this page">
+      <a href="#capability-definition">Capability</a><a href="#pipeline">The pipeline</a><a href="#steps">Step explanations</a><a href="#try-it">Explore examples</a>
+    </nav>
+
+    <section id="capability-definition" aria-labelledby="capability-title">
+      <p class="eyebrow">A working definition</p>
+      <h2 id="capability-title">What we mean by capability</h2>
+      <p class="definition">The capacity of a person, team, or human-system arrangement to accomplish valued work under stated conditions, with usable opportunities to act.</p>
+      <dl class="pillars">
+        <div><dt>People</dt><dd>Knowledge, judgment, action, and the ability to recognize and recover from errors.</dd></div>
+        <div><dt>Systems</dt><dd>Accessible tools, reliable information, resources, authority, and coordination that make competent action possible.</dd></div>
+        <div><dt>Purpose</dt><dd>Human flourishing: agency, well-being, meaningful participation, and attention to who benefits and who bears the burden.</dd></div>
+      </dl>
+      <p>We examine output quality, capability, learning, and impact as distinct claims. Each needs evidence that fits the work, its conditions, and the decision being made. A good output alone does not establish that someone learned, can perform independently, or can act in another setting.</p>
+      <p class="muted">William Gray-Roncal &amp; James Diamond · Working definition for community discussion, developed in <a href="/show-your-work/">Show Your Work</a>.</p>
+    </section>
+
+    <section id="pipeline" aria-labelledby="pipeline-title">
+      <h2 id="pipeline-title">The capability pipeline</h2>
+      <p>Start with a challenge. Follow Understand → Map → Design → Build → Instrument → Deploy → Evaluate, then return directly to Understand. Refine any step when evidence changes an assumption; the numbered sequence is a guide to decisions, not a rule to delay feedback.</p>
+      <figure>
+        <div class="diagram-viewport" tabindex="0" role="region" aria-label="Seven-step capability cycle; scroll horizontally on a narrow screen. A text explanation follows."><Fragment set:html={diagram} /></div>
+        <figcaption>Challenge → cycle → capability → action on the problem. The capability acts through adoption and effective use. Results and evidence return us to the challenge; Refine stays at the center throughout.</figcaption>
+      </figure>
+    </section>
+
+    <section id="steps" aria-labelledby="steps-title">
+      <h2 id="steps-title">What each step asks of us</h2>
+      <ol class="steps">
+        {steps.map(stage => <li id={'step-' + stage.id}>
+          <h3>{stage.label}</h3>
+          <p><strong>{stage.description}</strong> {stage.why}</p>
+          <p><strong>Decision cue:</strong> {stage.decision}</p>
+          <p class="question"><strong>Ask:</strong> {stage.question}</p>
+        </li>)}
+      </ol>
+      <aside class="refine" aria-labelledby="refinement-title">
+        <h3 id="refinement-title">Refine throughout</h3>
+        <p>{refinement.description} {refinement.why}</p>
+        <p><strong>Decision cue:</strong> {refinement.decision}</p>
+        <p><strong>Ask:</strong> {refinement.question}</p>
+      </aside>
+    </section>
+
+    <section id="try-it" aria-labelledby="try-title">
+      <h2 id="try-title">Explore the approach in practice</h2>
+      <p>Worked narratives and a fictional simulation offer different ways to examine these decisions. Each has its own instructions, evidence limits and controls.</p>
+      <div class="resources">
+        <article><h3><a href="/capability-pipeline/index.html#cases">Explore five worked cases</a></h3><p>Study a narrative, find the turning point, or predict before revealing the explanation. Compare how different system constraints change the decision.</p></article>
+        <article><h3><a href="/capability-pipeline/index.html#simulation">Try the branching simulation</a></h3><p>Make decisions in a fictional scenario, inspect outcomes, and compare revised branches. Its probabilities are teaching assumptions, not forecasts.</p></article>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .approach { --surface: var(--bg); --ink-muted: var(--muted); --font-body: var(--sans); }
+  header { padding: 1rem 0; }
+  .intro, .definition { font-size: 1.2rem; }
+  .on-page { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin: 2rem 0; font-family: var(--sans); }
+  .on-page a { text-decoration: underline; text-underline-offset: .2em; }
+  section { border-top: 1px solid var(--border); padding: 2.5rem 0; }
+  .pillars { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; font-family: var(--sans); }
+  dt { font-weight: 700; }
+  dd { margin: .4rem 0 1rem; }
+  figure { margin: 2rem 0 0; padding: 1rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); }
+  .diagram-viewport { overflow-x: auto; }
+  figcaption { margin-top: 1rem; color: var(--muted); font: .95rem/1.6 var(--sans); }
+  .steps { padding-left: 1.7rem; }
+  .steps li { padding: .5rem 0 1.5rem .5rem; }
+  .steps li::marker { font: 600 1.1rem var(--sans); color: var(--accent); }
+  .question { color: var(--accent-2); }
+  .refine { padding: 1.5rem; background: var(--tint); border-left: 4px solid var(--accent-2); }
+  .resources { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.5rem; }
+  .resources article { padding: 1.4rem; border: 1px solid var(--border); border-radius: 8px; }
+  .resources a { text-decoration: underline; text-underline-offset: .2em; }
+  @media (max-width: 600px) { .pillars, .resources { grid-template-columns: minmax(0,1fr); } figure { padding: .5rem; } }
+</style>

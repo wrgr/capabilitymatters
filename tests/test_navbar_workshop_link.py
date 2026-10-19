@@ -25,8 +25,8 @@ class PrimaryLinks(HTMLParser):
 
 def test_primary_navigation() -> None:
     """Desktop and mobile menus expose Approach immediately after Motivation."""
-    expected = ['/', '/capability-pipeline/index.html#cases', '/start-here/', '/case-studies/', '/experiments/', '/problems-to-prototypes/']
-    for route in ['', 'case-studies', 'experiments', 'problems-to-prototypes', 'start-here', 'about']:
+    expected = ['/', '/approach/', '/start-here/', '/case-studies/', '/experiments/', '/problems-to-prototypes/']
+    for route in ['', 'approach', 'case-studies', 'experiments', 'problems-to-prototypes', 'start-here', 'about']:
         parser = PrimaryLinks()
         parser.feed((ROOT / 'dist' / route / 'index.html').read_text())
         assert parser.links == expected * 2, (route, parser.links)

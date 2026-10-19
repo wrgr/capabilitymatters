@@ -34,19 +34,53 @@ async function checkApproachNavigation(page){
     await page.setViewportSize({width,height:900});await page.goto(origin+'/');
     const menu=page.locator(width>=900?'.desktop-nav':'.mobile-nav');
     if(width<900)await menu.locator('summary').press('Enter');
-    const link=menu.locator('a[href="/capability-pipeline/index.html#cases"]');
+    const link=menu.locator('a[href="/approach/"]');
     assert(await link.isVisible(),`Approach is visible in the ${width}px menu`);
     await page.screenshot({path:output+`/approach-menu-${width}.png`,fullPage:false});
-    await link.press('Enter');await page.waitForURL('**/capability-pipeline/index.html#cases');
-    const primary=page.getByRole('navigation',{name:'Primary',exact:true});
-    const navAudit=await new AxeBuilder({page}).include('nav[aria-label="Primary"]').withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
-    const violations=navAudit.violations.map(v=>v.id);checks.push({name:`Approach navigation ${width}px`,violations});assert.deepEqual(violations,[]);
-    assert.equal(await primary.getByRole('link',{name:'Approach',exact:true}).getAttribute('aria-current'),'page');
-    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Approach host reflows');
-    await primary.getByRole('link',{name:'Start Here',exact:true}).press('Enter');
+    await link.press('Enter');await page.waitForURL('**/approach/');
+    if(width<900)await page.locator('.mobile-nav > summary').press('Enter');
+    const primary=page.getByRole('navigation',{name:width>=900?'Primary':'Primary (mobile)',exact:true});
+    assert.equal(await primary.locator('a[href="/approach/"]').getAttribute('aria-current'),'page');
+    const navAudit=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
+    const violations=navAudit.violations.map(v=>({id:v.id,targets:v.nodes.map(n=>n.target)}));
+    checks.push({name:`Full Approach page ${width}px`,violations});assert.deepEqual(violations,[]);
+    assert.equal(await page.locator('.steps > li').count(),7);
+    assert(await page.getByRole('heading',{name:'What we mean by capability',exact:true}).isVisible());
+    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Approach reflows');
+    await page.screenshot({path:output+`/approach-page-${width}.png`,fullPage:true});
+    await primary.locator('a[href="/start-here/"]').press('Enter');
     await page.waitForURL('**/start-here/');
   }
   await page.setViewportSize({width:1440,height:1000});
+}
+/** @param {import('playwright').Page} page @returns {Promise<void>} Exercise every extracted narrative in all three learning modes. */
+async function checkWorkedCases(page){
+  await page.goto(origin+'/approach/');
+  await page.getByRole('link',{name:'Explore five worked cases',exact:true}).press('Enter');
+  await page.waitForURL('**/capability-pipeline/index.html#cases');
+  assert.equal(await page.locator('#case-tab').getAttribute('aria-selected'),'true');
+  await page.goto(origin+'/capability-pipeline/cases.html');
+  assert.equal(await page.locator('.case-card').count(),5);
+  const names=await page.locator('.case-card h3').allTextContents();
+  for(const name of names){
+    await page.locator('.case-card').filter({has:page.getByRole('heading',{name,exact:true})}).press('Enter');
+    await page.locator('[data-mode="study"]').press('Enter');
+    assert.deepEqual(await page.locator('#stepper .idx').allTextContents(),['01','02','03','04','05','06','07','↻']);
+    const row=page.locator('#stepper .step-row').last();await row.press('Enter');
+    assert(await page.locator('#stepper .step-detail').last().isVisible(),name+' refinement is keyboard accessible');
+    await page.locator('[data-mode="find"]').press('Enter');
+    assert.equal(await page.locator('.find-picker button').last().innerText(),'Refine');
+    await page.locator('.find-picker button').first().press('Enter');
+    assert(await page.locator('.find-picker .result').isVisible(),name+' find feedback');
+    await page.locator('[data-mode="predict"]').press('Enter');
+    await page.getByLabel('Your prediction before the reveal (optional)',{exact:true}).fill('Check conditions and evidence before deployment.');
+    await page.getByRole('button',{name:'Reveal what happened',exact:true}).press('Enter');
+    assert.equal(await page.locator('.step-row.locked').count(),0,name+' reveal unlocks later steps');
+  }
+  await page.goto(origin+'/approach/');
+  await page.getByRole('link',{name:'Try the branching simulation',exact:true}).press('Enter');
+  await page.waitForURL('**/capability-pipeline/index.html#simulation');
+  assert.equal(await page.locator('#sim-tab').getAttribute('aria-selected'),'true');
 }
 try{
   browser=await chromium.launch({executablePath:process.env.CHROME_BINARY||undefined,headless:true});
@@ -54,6 +88,7 @@ try{
   const page=await context.newPage(), errors=[];
   page.on('pageerror',error=>errors.push(error.message));
   await checkApproachNavigation(page);
+  await checkWorkedCases(page);
   for(const route of routes){
     await page.goto(origin+route);
     const cards=page.locator('details.resource-about');await cards.first().waitFor({timeout:5000});
@@ -94,7 +129,7 @@ try{
   await page.locator('.topbar-tabs').getByRole('button',{name:'Glossary',exact:true}).press('Enter');assert(await page.locator('.resource-about').evaluate(e=>e.open));
   const plain=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:900}});
   const reading=await plain.newPage();
-  for(const route of ['/prototypes/ai-debate-coach/','/rainbow-bug/','/agentic-le/cases/library-journey/','/capability-pipeline/simulation.html']){
+  for(const route of ['/approach/','/prototypes/ai-debate-coach/','/rainbow-bug/','/agentic-le/cases/library-journey/','/capability-pipeline/simulation.html']){
     await reading.goto(origin+route);await reading.locator('.resource-about > summary').press('Enter');
     assert(await reading.locator('.resource-about-body').isVisible(),route+' works without JavaScript');
   }
