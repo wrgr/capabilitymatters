@@ -3,6 +3,7 @@ import ResourceAbout from "../components/ResourceAbout.astro";
 // LLM101 page — embeds the interactive llm101 app at the top, then presents
 // a Capability Matters case exemplar showing how the authoring flywheel and
 // human-AI loop work in practice.
+import LearningGuideLink from "../components/LearningGuideLink.astro";
 import Base from "../layouts/Base.astro";
 import SectionHero from "../components/SectionHero.astro";
 
@@ -14,6 +15,7 @@ const LLM101_URL = "/llm101/explorer/index.html";
   description="One mechanism. Five depths. A depth-adjustable LLM explainer and a worked example of capability-first design with an explicit human-AI verification gate."
   active="llm101"
 >
+  <LearningGuideLink id="llm101" />
   <SectionHero
     eyebrow="Interactive Learning"
     title="LLM101"

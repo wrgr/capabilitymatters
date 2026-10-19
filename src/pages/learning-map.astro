@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import guides from '../data/learning-guides.json';
+const paths=[
+ {id:'systems',title:'Understand the systems process',text:'Connect a performance problem, a design decision, and evidence.',first:'capability-pipeline'},
+ {id:'ai',title:'Understand AI mechanisms',text:'Explain model behavior and question what a score rewards.',first:'llm101'},
+ {id:'evidence',title:'Examine learning and expertise',text:'Look for judgment, assessment evidence, and transfer.',first:'calibrated-judgment'},
+ {id:'design',title:'Design and test an intervention',text:'Inspect a capability gap and plan a small test.',first:'agentic-ai-lab'},
+ {id:'creative',title:'Learn through making',text:'Describe an intention, inspect a result, and revise.',first:'rainbow-bug'},
+];
+const route=[
+ {title:'See the stakes',url:'/case-studies/',text:'Choose one paired case. What did people need to do, and what did the system make possible?'},
+ {title:'Follow the process',url:'/guides/capability-pipeline/',text:'Connect the capability gap to a design and a test.'},
+ {title:'Explore a tradeoff',url:'/guides/andon/',text:'Change a decision and compare several outcomes.'},
+ {title:'Plan the evidence',url:'/guides/evidence-to-impact-mapper/',text:'Ask what would justify the next iteration.'},
+ {title:'Trace a revision',url:'/guides/agentic-ai-lab/',text:'Inspect how a challenge changed a candidate product.'},
+];
+---
+<Base title="Learning map · Capability Matters" active="start-here" description="Find a starting point, explore with a learning guide, reflect, and choose your next step.">
+ <div class="container-wide map">
+  <header class="map-header"><div><p class="eyebrow">Your learning map</p><h1>Find your way.<br />Make sense of what you try.</h1><p class="lead">Start with a question. Explore one experience. Explain what you noticed, then choose a next step.</p><p>You can use any resource independently. These routes are suggestions; you do not need to finish everything.</p></div><aside class="map-key"><h2>Four moves to carry with you</h2><ol><li><b>Orient</b> — Why this? What will I learn?</li><li><b>Explore</b> — Try one task with a prediction.</li><li><b>Digest</b> — Explain a result and another possible cause.</li><li><b>Connect</b> — Name a new setting and a next test.</li></ol><a href="/learning-notebook/">Open my reflection notebook →</a></aside></header>
+  <section aria-labelledby="first-visit"><p class="eyebrow">A first visit · Take one stop at a time</p><h2 id="first-visit">A route through the main ideas</h2><ol class="route">{route.map((stop,i)=><li><span aria-hidden="true">{String(i+1).padStart(2,'0')}</span><div><h3><a href={stop.url}>{stop.title}</a></h3><p>{stop.text}</p></div></li>)}</ol><p class="small">Allow roughly 15–25 minutes per guided stop. Timing is a planning estimate, not a requirement.</p></section>
+  <section aria-labelledby="question-heading"><p class="eyebrow">Choose by question</p><h2 id="question-heading">What are you trying to understand?</h2><div class="paths">{paths.map(path=><article><h3>{path.title}</h3><p>{path.text}</p><a href={`/guides/${path.first}/`}>Start this route →</a><button type="button" data-path={path.id}>Show related guides</button></article>)}</div></section>
+  <section class="library" id="guide-library" aria-labelledby="library-title"><h2 id="library-title">Find a learning guide</h2><p>Short guides cover {guides.filter(g=>g.kind==='experiment').length} experiments and {guides.filter(g=>g.kind==='prototype').length} prototype briefs. Each helps you prepare, try, notice, and reflect.</p>
+   <form class="filters" role="search" aria-label="Find learning guides"><label>Search by title or capability<input id="guide-search" type="search" placeholder="Try reasoning, workforce, AI…" /></label><label>Learning question<select id="guide-path"><option value="all">All questions</option>{paths.map(p=><option value={p.id}>{p.title}</option>)}</select></label><label>Resource type<select id="guide-kind"><option value="all">All resources</option><option value="experiment">Experiments</option><option value="prototype">Prototype briefs</option></select></label></form>
+   <p id="guide-count" class="small" role="status">{guides.length} guides</p><p id="no-guides" hidden>No guides match. Try a broader term or choose “All questions.”</p>
+   <ul class="guide-list">{guides.map(g=><li data-id={g.id} data-path={g.path} data-kind={g.kind} data-search={`${g.title} ${g.goal} ${g.context}`.toLowerCase()}><div><span class="small">{g.kind==='experiment'?'Experiment':g.limits.startsWith('Design brief only')?'Design brief · not built':'Prototype · working exercise'}</span><h3><a href={`/guides/${g.id}/`}>{g.title}</a></h3><p>{g.goal}</p></div><span class="reflection-status" data-reflection>Guide →</span></li>)}</ul>
+  </section>
+  <section class="stuck" aria-labelledby="stuck-title"><h2 id="stuck-title">If you feel lost, pause here.</h2><div class="stuck-grid"><article><h3>Too much information?</h3><p>Choose one guide and one task. Write a prediction before opening the project. You can leave the other material for later.</p></article><article><h3>Unsure what it means?</h3><p>Write “I observed…” and “I think this happened because…” separately. Then ask what else could explain the result.</p></article><article><h3>Unsure where to go next?</h3><p>Return to the process if the problem is unclear. Compare another example if the explanation is unclear. Plan a test if the evidence is unclear.</p></article></div></section>
+  <details class="glossary"><summary>A few terms that help you navigate</summary><dl><dt>Capability</dt><dd>The capacity of a person, team, or human-system arrangement to accomplish valued work under stated conditions, with usable opportunities to act. Capability depends on the coupling of learner performance with system performance; human flourishing supplies its purpose. <a href="/show-your-work/#2-defining-capability-and-its-evidence">Read the working definition in Show Your Work.</a></dd><dt>Learning engineering</dt><dd>A systematic, iterative approach to designing learning experiences and using evidence to improve them.</dd><dt>Transfer</dt><dd>Using what was learned in a different task or setting.</dd><dt>Prototype</dt><dd>A small implementation or proposed design used to examine an assumption.</dd><dt>Instrumentation</dt><dd>Deciding what to observe or record so a result can inform a decision.</dd><dt>Falsifying evidence</dt><dd>A result that gives you a reason to reject or revise an assumption.</dd></dl></details>
+ </div>
+</Base>
+<style>
+ .map-header{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;padding:1rem 0 2.5rem;border-bottom:1px solid var(--border)}.map-header h1{max-width:19ch}.lead{font-size:1.25rem}.map-key{align-self:center;padding:1.5rem;background:var(--tint-warm);border-radius:6px}.map-key h2{font-size:1.25rem}.map-key ol{padding-left:1.2rem}.map-key li{margin-bottom:.7rem}.map-key a{font-family:var(--sans);font-weight:600}
+ section{padding:2rem 0;border-bottom:1px solid var(--border)}.route{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;padding:0}.route li{border-top:2px solid var(--accent-2);padding-top:.8rem}.route li>span{font:.8rem var(--mono);color:var(--accent-2)}.route h3{margin-top:.5rem}.route p{font-size:.95rem}.small{display:block;font:.8rem/1.5 var(--sans);color:var(--ink-soft)}
+ .paths{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}.paths article{padding:.6rem 0}.paths a{font:600 .85rem var(--sans)}.paths button{display:block;background:none;border:0;padding:.7rem 0;text-decoration:underline;color:var(--accent-2);font:.8rem var(--sans);cursor:pointer}
+ .filters{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:1rem;background:var(--tint);padding:1rem;margin:1.5rem 0}label{font:600 .85rem var(--sans)}input,select{display:block;width:100%;font:400 .95rem var(--sans);padding:.7rem;margin-top:.5rem;border:1px solid var(--muted);border-radius:4px;background:var(--bg);color:var(--ink)}
+ .guide-list{list-style:none;padding:0;margin:0}.guide-list li{display:flex;justify-content:space-between;gap:1.5rem;padding:1.2rem 0;border-bottom:1px solid var(--border)}.guide-list li[hidden]{display:none}.guide-list h3{margin:.3rem 0}.guide-list p{max-width:48rem;margin:0;font-size:.95rem}.reflection-status{font:.8rem var(--sans);color:var(--accent-2);white-space:nowrap;padding-top:1.7rem}
+ .stuck-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}.glossary{padding:2rem 0}.glossary summary{font-family:var(--sans);font-weight:600;cursor:pointer}dt{font-weight:600;margin-top:1rem}dd{margin-left:0;max-width:45rem}
+ @media(max-width:850px){.map-header{grid-template-columns:1fr;gap:1rem}.route{grid-template-columns:1fr}.route li{display:flex;gap:1rem}.route h3{margin-top:0}.paths{grid-template-columns:1fr 1fr}.filters{grid-template-columns:1fr}.stuck-grid{grid-template-columns:1fr}}
+ @media(max-width:550px){.paths{grid-template-columns:1fr}.guide-list li{display:block}.reflection-status{display:block;padding-top:.5rem}}
+</style>
+<script>
+ import {readNotebook} from '../lib/learning-notebook';
+ const search=document.querySelector<HTMLInputElement>('#guide-search')!;
+ const path=document.querySelector<HTMLSelectElement>('#guide-path')!;
+ const kind=document.querySelector<HTMLSelectElement>('#guide-kind')!;
+ const rows=Array.from(document.querySelectorAll<HTMLElement>('.guide-list li'));
+ function filter(){const query=search.value.trim().toLowerCase();let count=0;rows.forEach(row=>{row.hidden=!(row.dataset.search!.includes(query)&&(path.value==='all'||row.dataset.path===path.value)&&(kind.value==='all'||row.dataset.kind===kind.value));if(!row.hidden)count++;});document.querySelector('#guide-count')!.textContent=`${count} ${count===1?'guide':'guides'}`;document.querySelector<HTMLElement>('#no-guides')!.hidden=count>0;}
+ document.querySelector('.filters')!.addEventListener('submit',event=>event.preventDefault());[search,path,kind].forEach(el=>el.addEventListener('input',filter));
+ document.querySelectorAll<HTMLButtonElement>('[data-path]:is(button)').forEach(button=>button.addEventListener('click',()=>{path.value=button.dataset.path!;search.value='';kind.value='all';filter();document.querySelector('#guide-library')!.scrollIntoView();search.focus({preventScroll:true});}));
+ const notes=readNotebook();rows.forEach(row=>{if(notes[row.dataset.id!])row.querySelector('[data-reflection]')!.textContent='Reflection saved';});
+</script>

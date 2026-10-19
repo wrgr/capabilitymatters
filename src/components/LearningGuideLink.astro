@@ -1,0 +1,12 @@
+---
+import guides from '../data/learning-guides.json';
+const guide=guides.find(g=>g.id===Astro.props.id);
+if(!guide)throw new Error(`Learning guide missing: ${Astro.props.id}`);
+---
+<aside class="learning-orientation container-wide" aria-label="Learning support">
+ <div><strong>Before you explore</strong><p>{guide.goal}</p></div>
+ <nav aria-label="Guide and map"><a href={`/guides/${guide.id}/`}>Learning guide &amp; reflection →</a><a href="/learning-map/">Learning map</a></nav>
+</aside>
+<style>
+ .learning-orientation{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding-top:1rem;padding-bottom:1rem;border-bottom:1px solid var(--border);font:.9rem/1.5 var(--sans)}.learning-orientation strong{color:var(--accent-2)}.learning-orientation p{margin:.25rem 0 0;max-width:44rem}.learning-orientation nav{display:flex;flex-direction:column;gap:.5rem;min-width:13rem}.learning-orientation a{text-decoration:underline;text-underline-offset:.15em}@media(max-width:700px){.learning-orientation{display:block}.learning-orientation nav{margin-top:.7rem;flex-direction:row;flex-wrap:wrap;gap:1rem}}
+</style>

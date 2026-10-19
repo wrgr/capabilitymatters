@@ -7,6 +7,7 @@ import Base from "../layouts/Base.astro";
 import SectionHero from "../components/SectionHero.astro";
 
 interface Experiment {
+  guide: string;
   title: string;
   group: "labs" | "research" | "creative";
   format: string;
@@ -34,6 +35,7 @@ const featuredPaper = {
 const experiments: Experiment[] = [
   {
     title: "Agentic AI Lab",
+    guide: "agentic-ai-lab",
     group: "labs",
     format: "Products and case replays",
     url: "/agentic-le/",
@@ -43,6 +45,7 @@ const experiments: Experiment[] = [
   },
   {
     title: "Andon Operations Lab",
+    guide: "andon",
     group: "labs",
     format: "Manager simulation",
     url: "/andon/",
@@ -52,6 +55,7 @@ const experiments: Experiment[] = [
   },
   {
     title: "The Capability Pipeline",
+    guide: "capability-pipeline",
     group: "labs",
     format: "Teaching simulation",
     url: "https://capabilitymatters.org/capability-pipeline/index.html#simulation",
@@ -61,6 +65,7 @@ const experiments: Experiment[] = [
   },
   {
     title: "Rainbow Bug Dash",
+    guide: "rainbow-bug",
     group: "creative",
     format: "Browser game",
     url: "/rainbow-bug/",
@@ -74,6 +79,7 @@ const experiments: Experiment[] = [
   },
   {
     title: "MicroGPT for AI leaders",
+    guide: "microgpt",
     group: "labs",
     format: "Interactive lab",
     url: "https://capabilitymatters.org/microgpt/",
@@ -83,6 +89,7 @@ const experiments: Experiment[] = [
   },
   {
     title: "LLM101",
+    guide: "llm101",
     group: "labs",
     format: "Guided explainer",
     url: "https://capabilitymatters.org/llm101/",
@@ -92,6 +99,7 @@ const experiments: Experiment[] = [
   },
   {
     title: "Calibrated Judgment",
+    guide: "calibrated-judgment",
     group: "research",
     format: "Assessment prototype",
     url: "https://calibratedjudgment.org/",
@@ -101,6 +109,7 @@ const experiments: Experiment[] = [
   },
   {
     title: "ExpertTrace",
+    guide: "experttrace",
     group: "research",
     format: "Mentoring prototype",
     url: "https://experttrace.org",
@@ -110,6 +119,7 @@ const experiments: Experiment[] = [
   },
   {
     title: "NeuroTrailblazers",
+    guide: "neurotrailblazers",
     group: "research",
     format: "Training and mentorship",
     url: "https://neurotrailblazers.org",
@@ -119,6 +129,7 @@ const experiments: Experiment[] = [
   },
   {
     title: "POP",
+    guide: "pop",
     group: "creative",
     format: "Physics sandbox",
     url: "https://wrgr.github.io/pop",
@@ -148,6 +159,7 @@ const groups = [
       For documented examples and their sources, read the <a href="/case-studies/">Case Studies</a>.</p>
     <details><summary>What do the experiment categories mean?</summary><dl>{groups.map(group => <><dt><strong>{group.title}</strong></dt><dd>{group.description}</dd></>)}</dl><p>A teaching lab offers guided practice; a research or practice project explores an approach; a creative demonstration illustrates a possibility. None of these labels is a claim of validated effectiveness.</p></details>
     <ResourceAbout resource="experiments" />
+    <p><a href="/learning-map/">Find your path on the learning map</a> · Each project has a short guide to help you prepare, explore, and reflect.</p>
     <nav aria-label="Experiment categories">{groups.map((group) => <a href={"#" + group.id}>{group.title}</a>)}</nav>
   </div>
 
@@ -167,6 +179,7 @@ const groups = [
           </h3>
           <p class="card-host">{exp.host}</p>
           <p class="card-summary">{exp.description}</p>
+          <p class="card-link"><a href={`/guides/${exp.guide}/`}>Read the learning guide</a></p>
           <p class="card-link">
             <a href={exp.url} target={exp.url.startsWith("https://capabilitymatters.org") || exp.url.startsWith("/") ? undefined : "_blank"} rel="noopener">Open project</a>
           </p>

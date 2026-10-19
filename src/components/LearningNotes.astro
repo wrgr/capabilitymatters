@@ -1,0 +1,62 @@
+---
+const { id, title, question } = Astro.props;
+---
+<section class="learning-notes" data-guide={id} data-title={title} aria-labelledby="reflection-title">
+  <p class="eyebrow">Pause &amp; make sense</p>
+  <h2 id="reflection-title">What are you taking away?</h2>
+  <p>{question}</p>
+  <form>
+    <div class="notes-grid">
+      <label>What did you observe?<textarea name="observation" rows="3" maxlength="6000" placeholder="Describe one specific result or decision."></textarea></label>
+      <label>How do you explain it?<textarea name="reasoning" rows="3" maxlength="6000" placeholder="Connect the observation to a mechanism. Name an alternative explanation."></textarea></label>
+      <label>Where might it transfer?<textarea name="transfer" rows="3" maxlength="6000" placeholder="Name a different task or setting—and what would need to hold true."></textarea></label>
+      <label>What would you try next?<textarea name="next" rows="3" maxlength="6000" placeholder="Choose a small next test and an outcome that could change your mind."></textarea></label>
+    </div>
+    <label class="save-choice"><input type="checkbox" name="remember" /> Save these notes in this browser</label>
+    <p class="note-small">Optional. Notes are not sent to a server or scored. Browser storage is specific to this device and can be cleared; download a copy to keep it. Avoid sensitive information on shared devices.</p>
+    <div class="notes-actions"><button type="button" data-download>Download my reflection</button><button type="button" data-clear>Clear this reflection</button><a href="/learning-notebook/">Open my notebook</a></div>
+    <p class="note-small" role="status" data-status>Notes stay on this page unless you choose to save or download them.</p>
+  </form>
+  <details class="digest-help"><summary>Help me make sense of this</summary>
+    <ol><li><strong>Separate what happened from why.</strong> Your observation is the result; your explanation is a claim that may need testing.</li><li><strong>Check another explanation.</strong> What else could account for the result? What comparison would distinguish them?</li><li><strong>Try without the support.</strong> Could you explain or perform the task in a new situation? Identify what evidence you would need.</li><li><strong>Choose one next move.</strong> Return to the concept, compare another example, or test one changed assumption.</li></ol>
+  </details>
+</section>
+<style>
+  .learning-notes{margin-top:2rem;padding:1.5rem;background:var(--tint);border:1px solid var(--border);border-radius:6px}
+  .notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}label{display:block;font-family:var(--sans);font-weight:600;font-size:.9rem}
+  textarea{display:block;width:100%;margin:.4rem 0;font:400 1rem/1.5 var(--serif);padding:.65rem;border:1px solid var(--muted);border-radius:4px;background:var(--bg);color:var(--ink);resize:vertical}
+  .save-choice{margin:1rem 0 .5rem;display:flex;gap:.5rem;align-items:center}.save-choice input{width:1.1rem;height:1.1rem}
+  .note-small{font: .85rem/1.5 var(--sans);color:var(--ink-soft);max-width:52rem}.notes-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;margin:1rem 0}
+  button{font:600 .85rem var(--sans);padding:.7rem .9rem;background:var(--bg);border:1px solid var(--accent-2);color:var(--accent-2);border-radius:4px;cursor:pointer}
+  .digest-help{border-top:1px solid var(--border);padding-top:1rem}.digest-help summary{font-family:var(--sans);font-weight:600;cursor:pointer}.digest-help li{margin-bottom:.6rem}
+  @media(max-width:650px){.notes-grid{grid-template-columns:1fr}.learning-notes{padding:1rem}}
+  @media print{.learning-notes{display:none}}
+</style>
+<script>
+  import { readNotebook, writeNotebook, downloadText } from '../lib/learning-notebook';
+  const root=document.querySelector<HTMLElement>('.learning-notes');
+  if(root){
+    const id=root.dataset.guide!;
+    const title=root.dataset.title!;
+    const fields=['observation','reasoning','transfer','next'] as const;
+    const remember=root.querySelector<HTMLInputElement>('[name="remember"]')!;
+    const status=root.querySelector<HTMLElement>('[data-status]')!;
+    const form=root.querySelector('form')!;
+    const input=(name:string)=>root.querySelector<HTMLTextAreaElement>(`[name="${name}"]`)!;
+    const saved=readNotebook()[id];
+    if(saved){fields.forEach(name=>input(name).value=saved[name]);remember.checked=true;status.textContent='Your saved reflection is loaded. Changes save in this browser.';}
+    function persist(){
+      const book=readNotebook();
+      if(remember.checked){
+        const entry={title,updated:new Date().toISOString(),observation:input('observation').value,reasoning:input('reasoning').value,transfer:input('transfer').value,next:input('next').value};
+        if(fields.some(name=>entry[name].trim()))book[id]=entry;else delete book[id];
+      }else delete book[id];
+      status.textContent=writeNotebook(book)?(remember.checked?'Saved in this browser. These notes are a reflection, not an assessment.':'Browser copy removed. Notes remain on this page.'):'Browser storage is unavailable. Download your notes before leaving.';
+    }
+    form.addEventListener('submit',event=>event.preventDefault());
+    form.addEventListener('input',()=>{if(remember.checked)persist();});
+    remember.addEventListener('change',persist);
+    root.querySelector('[data-download]')!.addEventListener('click',()=>downloadText(`${id}-reflection.txt`,`${title}\n\n${fields.map(name=>`${name.toUpperCase()}\n${input(name).value}`).join('\n\n')}\n`));
+    root.querySelector('[data-clear]')!.addEventListener('click',()=>{if(!confirm('Clear this reflection, including its saved browser copy?'))return;fields.forEach(name=>input(name).value='');persist();});
+  }
+</script>
