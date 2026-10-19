@@ -1,20 +1,16 @@
 /** Exercise every resource guide with keyboard, axe, mobile reflow, and script-free reading. */
 import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
-import {readFile, readdir, mkdir, writeFile} from 'node:fs/promises';
+import {readFile, mkdir, writeFile} from 'node:fs/promises';
 import {extname, resolve} from 'node:path';
 import {chromium} from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
-import statuses from '../src/data/prototypes/status.json' with {type:'json'};
-import {staticResources} from '../scripts/build-resource-about.mjs';
+import {execFileSync} from 'node:child_process';
 
 const root=resolve('dist'), output=resolve(process.env.RESOURCE_ABOUT_OUTPUT || '../resource-about-qa');
 const mime={'.html':'text/html','.css':'text/css','.js':'application/javascript','.json':'application/json','.png':'image/png','.svg':'image/svg+xml'};
-const routes=[...Object.values(statuses).filter(s=>s.workingPrototype).map(s=>s.url),
-  ...staticResources.map(([file])=>'/'+file),
-  '/andon/','/llm101/explorer/','/llm101/','/microgpt/','/agentic-le/','/agentic-le/roles/',
-  '/agentic-le/record/','/agentic-le/paper/','/show-your-work/','/experiments/','/problems-to-prototypes/','/field-notes/','/case-studies/',
-  ...(await readdir('src/content/case-studies')).map(file=>'/case-studies/'+file.replace(/\.mdx$/,'')+'/')];
+// Share the build guard's complete inventory; a new route cannot evade browser coverage.
+const routes=JSON.parse(execFileSync('python3',['scripts/check-resource-guidance.py','--list-resources'],{encoding:'utf8'})).map(page=>page.route);
 const server=createServer(async(req,res)=>{
   let path=new URL(req.url,'http://localhost').pathname;
   if(!extname(path))path=path.replace(/\/$/,'')+'/index.html';
@@ -32,15 +28,38 @@ async function audit(page,name){
   const violations=result.violations.map(v=>({id:v.id,targets:v.nodes.map(n=>n.target)}));
   checks.push({name,violations});assert.deepEqual(violations,[],name);
 }
+/** @param {import('playwright').Page} page @returns {Promise<void>} Keep Approach findable from both main menus and preserve a way back to the site. */
+async function checkApproachNavigation(page){
+  for(const width of [1440,390,320]){
+    await page.setViewportSize({width,height:900});await page.goto(origin+'/');
+    const menu=page.locator(width>=900?'.desktop-nav':'.mobile-nav');
+    if(width<900)await menu.locator('summary').press('Enter');
+    const link=menu.locator('a[href="/capability-pipeline/index.html#cases"]');
+    assert(await link.isVisible(),`Approach is visible in the ${width}px menu`);
+    await page.screenshot({path:output+`/approach-menu-${width}.png`,fullPage:false});
+    await link.press('Enter');await page.waitForURL('**/capability-pipeline/index.html#cases');
+    const primary=page.getByRole('navigation',{name:'Primary',exact:true});
+    const navAudit=await new AxeBuilder({page}).include('nav[aria-label="Primary"]').withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
+    const violations=navAudit.violations.map(v=>v.id);checks.push({name:`Approach navigation ${width}px`,violations});assert.deepEqual(violations,[]);
+    assert.equal(await primary.getByRole('link',{name:'Approach',exact:true}).getAttribute('aria-current'),'page');
+    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Approach host reflows');
+    await primary.getByRole('link',{name:'Start Here',exact:true}).press('Enter');
+    await page.waitForURL('**/start-here/');
+  }
+  await page.setViewportSize({width:1440,height:1000});
+}
 try{
   browser=await chromium.launch({executablePath:process.env.CHROME_BINARY||undefined,headless:true});
   const context=await browser.newContext({viewport:{width:1440,height:1000}});
   const page=await context.newPage(), errors=[];
   page.on('pageerror',error=>errors.push(error.message));
+  await checkApproachNavigation(page);
   for(const route of routes){
     await page.goto(origin+route);
-    const cards=page.locator('details.resource-about');await cards.first().waitFor();
+    const cards=page.locator('details.resource-about');await cards.first().waitFor({timeout:5000});
+    const pageHtml=await page.content();
     assert(await cards.count()>0,route);
+    assert.doesNotThrow(()=>execFileSync('python3',['scripts/check-resource-guidance.py','--check-html'],{input:pageHtml,stdio:['pipe','pipe','pipe']}),route+' has complete rendered guidance');
     assert(await cards.first().evaluate(e=>Boolean(document.querySelector('h1').compareDocumentPosition(e)&Node.DOCUMENT_POSITION_FOLLOWING)),route+' guide follows the title');
     for(const card of await cards.all()){
       const summary=card.locator(':scope > summary');

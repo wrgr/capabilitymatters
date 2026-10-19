@@ -24,18 +24,21 @@ class PrimaryLinks(HTMLParser):
             self.primary = False
 
 def test_primary_navigation() -> None:
-    """Desktop and mobile menus expose the same five valid destinations."""
-    expected = ['/', '/start-here/', '/case-studies/', '/experiments/', '/problems-to-prototypes/']
+    """Desktop and mobile menus expose Approach immediately after Motivation."""
+    expected = ['/', '/capability-pipeline/index.html#cases', '/start-here/', '/case-studies/', '/experiments/', '/problems-to-prototypes/']
     for route in ['', 'case-studies', 'experiments', 'problems-to-prototypes', 'start-here', 'about']:
         parser = PrimaryLinks()
         parser.feed((ROOT / 'dist' / route / 'index.html').read_text())
         assert parser.links == expected * 2, (route, parser.links)
     assert (ROOT / 'dist/field-notes/index.html').is_file()
+    pipeline = PrimaryLinks()
+    pipeline.feed((ROOT / 'dist/capability-pipeline/index.html').read_text())
+    assert pipeline.links == expected, pipeline.links
 
 def test_menu_descriptions() -> None:
     """Descriptions belong to the menu; the original homepage hero stays uncluttered."""
     home = (ROOT / 'dist/index.html').read_text()
-    for text in ['nav-tip-case-studies', 'nav-tip-experiments', 'nav-tip-problems-to-prototypes']:
+    for text in ['nav-tip-approach', 'nav-tip-case-studies', 'nav-tip-experiments', 'nav-tip-problems-to-prototypes']:
         assert text in home, text
     for text in ['Start here', 'Scroll for why', 'content-guide']:
         assert text not in home, text
