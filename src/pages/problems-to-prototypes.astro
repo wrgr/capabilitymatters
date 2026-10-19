@@ -1,4 +1,5 @@
 ---
+import ResourceAbout from "../components/ResourceAbout.astro";
 // Searchable design briefs distinguish built exercises from proposed interventions.
 import Base from "../layouts/Base.astro";
 import SectionHero from "../components/SectionHero.astro";
@@ -72,6 +73,7 @@ const longLabel:Record<Collection,string>={
       <p>Each brief describes one small intervention to test, a use case, its design assumptions, and an evaluation plan. Sources support the design rationale; they do not establish that the proposed intervention works.</p>
       <p>Looking for documented outcomes? Read the <a href="/case-studies/">Case Studies</a>. For standalone labs and projects, visit <a href="/experiments/">Experiments</a>.</p>
       <p><strong>{workingCount} working prototypes · {ideas.length - workingCount} design briefs awaiting a build.</strong> Filter by “Working prototype” below to try the current exercises. Working means the stated local interaction has been built, critically reviewed, and tested; it does not mean the broader concept is complete or validated.</p>
+      <ResourceAbout resource="prototype-gallery" />
     </div>
     <aside class="loop">
       <b>Seven steps with refinement throughout</b>

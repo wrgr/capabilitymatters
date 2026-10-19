@@ -12,6 +12,14 @@ import FurtherReadingTab from './components/FurtherReadingTab.jsx'
 import GlossaryTab from './components/GlossaryTab.jsx'
 import GlossaryPopover from './components/GlossaryPopover.jsx'
 import './index.css'
+import '../../../public/resource-about.css'
+import {renderResourceAbout} from '../../../src/lib/resource-about.mjs'
+
+// Reuse this element so depth and module changes preserve the native disclosure state.
+const resourceGuide = <div className="explorer-guide">
+  <p>Choose a module and explanation depth, then use the checks to test your understanding.</p>
+  <div dangerouslySetInnerHTML={{__html:renderResourceAbout('llm101')}} />
+</div>
 
 /** Contain menu focus and restore its opener through a native modal dialog. */
 function MobileDrawer({ open, onClose, children }) {
@@ -94,6 +102,7 @@ export default function App() {
 
         <main id="learning-content" tabIndex={-1} className="content-col">
           <p className="sr-only" role="status">Showing {activeTab === "content" ? `${activeModuleData.title}, ${LEVELS[level].name} depth` : TABS.find(t => t.id === activeTab).label}.</p>
+          {resourceGuide}
           {activeTab === 'content' && (
             <>
               <div className="level-area">

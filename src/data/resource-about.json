@@ -1,0 +1,493 @@
+{
+  "llm101": {
+    "what": "A depth-adjustable explanation of next-token prediction, with a worked example of designing for a capability. The current explorer has 15 authored modules across model mechanisms and their implications, presented at five explanation depths.",
+    "how": [
+      "Choose a module, then use the depth control to move from an accessible explanation toward the formal account. Start with Prediction.",
+      "Use the checks and glossary to explain the mechanism in your own words. Compare two depths and identify what each lets you explain.",
+      "Read the accompanying design exemplar and propose a new task that would test understanding without repeating the explanation."
+    ],
+    "connection": "LENS asks what a person can do with an explanation. Adjusting depth is a scaffolding hypothesis: test whether readers can recognize why plausible model output still needs verification. Navigation, coverage and confidence alone do not establish understanding or transfer.",
+    "links": [
+      {
+        "label": "MicroGPT: train and inspect a small model",
+        "href": "/microgpt/"
+      }
+    ]
+  },
+  "microgpt": {
+    "what": "Three inspectable browser examples connect tokenization, tiny-model training and synthetic bias to decisions about AI systems. Checkpoints and source explanations make the mechanism visible; the examples do not model production reliability.",
+    "how": [
+      "Start with Letters, inspect the data, and compare untrained and trained checkpoints or train in your browser.",
+      "Try Words in haikus, then change name representation and engagement labels in Bias. Change one factor at a time and predict the result first.",
+      "Compare held-out loss, generated examples and errors. Use the explained code and leadership questions to distinguish the optimized score from the outcome you need."
+    ],
+    "connection": "This connects learning-science ideas about prediction and feedback to engineering measurement. LENS couples model behavior with human judgment and operating conditions: better loss on a small corpus is different evidence from a better decision or improved capability on an unfamiliar task.",
+    "links": [
+      {
+        "label": "LLM101: explore next-token prediction",
+        "href": "/llm101/"
+      }
+    ]
+  },
+  "andon": {
+    "what": "A fictional logistics simulation for examining management decisions, support capacity and quality. Guided practice includes a narrated automated demo with pause and takeover; the control room supports a full distribution shift.",
+    "how": [
+      "Begin with Guided practice. Watch or pause the narrated demo, inspect the evidence at each decision, and take over when ready.",
+      "In the control room, read the current standard and signal, allocate help or containment, then advance the clock to observe consequences.",
+      "Review usable deliveries, defect escapes, response promises and unfinished work separately. Replay the same seed to compare strategies under the same initial conditions."
+    ],
+    "connection": "Andon makes the conditions for competent action visible: reporting a problem helps only when the system supplies timely help and authority to change work. This is the LENS coupling of learner and system performance. Compare alternative responses and delayed quality evidence before attributing improvement to coaching or training.",
+    "links": [
+      {
+        "label": "Toyota Andon case study",
+        "href": "/case-studies/toyota-production-system-andon-cord/"
+      },
+      {
+        "label": "Andon research brief",
+        "href": "/andon/research-brief.html"
+      }
+    ]
+  },
+  "pipeline": {
+    "what": "A paired resource: five worked systems cases and an editable branching simulation organized around Understand, Map, Design, Build, Instrument, Deploy, Evaluate and Refine.",
+    "how": [
+      "Choose Explore five cases to study a case, find its turning point, or predict before revealing the explanation.",
+      "Choose Choose your own adventure to make a strategy decision, inspect the outcomes and compare a revised branch. The direct links below open each view.",
+      "Explain which evidence would justify returning to an earlier stage. Treat the scenario probabilities as editable teaching assumptions."
+    ],
+    "connection": "LENS treats capability as an interaction between people and the conditions for action. The cycle connects problem framing, design and measurement: an upstream choice determines what later evaluation can observe. Revisit assumptions when results conflict with a plan rather than treating the eight stages as a completion checklist.",
+    "links": [
+      {
+        "label": "Five-case explorer",
+        "href": "/capability-pipeline/cases.html"
+      },
+      {
+        "label": "Branching simulation",
+        "href": "/capability-pipeline/simulation.html"
+      }
+    ]
+  },
+  "pipeline-cases": {
+    "what": "Five worked narratives apply an eight-step capability cycle across healthcare, government services, aviation, education and autonomous vehicles. Teaching interpretations accompany the source narratives; historical claims have not been independently rechecked here.",
+    "how": [
+      "Pick a case and begin in Study mode to inspect the steps and their teaching questions.",
+      "Try Find the turn or Predict first before revealing the decision-specific explanation. Compare your reason with the presented evidence.",
+      "Compare two cases and use the coupled-loops diagram to identify how a change to work conditions could change learner performance."
+    ],
+    "connection": "Comparing contrasting cases supports conditional judgment: the same process can turn on different constraints. In LENS terms, map both the human capability and system conditions, then ask which measurement would reveal a failure. Locating a turning point in a worked case does not establish transfer to a new system.",
+    "links": [
+      {
+        "label": "Try an editable fictional scenario",
+        "href": "/capability-pipeline/simulation.html"
+      }
+    ]
+  },
+  "pipeline-simulation": {
+    "what": "A branching fictional scenario lets you edit a strategy, inspect consequences and compare decisions. Probabilities, effect sizes and outcome ranges are authored teaching assumptions, not estimates of real-world impact.",
+    "how": [
+      "Begin with Play a scenario: read the evidence and decision guidance, choose a strategy and commit it to reveal the outcome.",
+      "Use Decisions & branches to compare a revised strategy. Separate consequences of a decision from variation in the assumed future.",
+      "Use Edit the scenario to inspect assumptions. Export the run before clearing browser storage; written explanations are recorded without machine scoring."
+    ],
+    "connection": "The exercise rehearses iteration, sensitivity analysis and evidence-based revision. LENS requires capability claims to include access, authority and usable opportunities to act; the simulation makes those constraints explicit. A favorable simulated result is a prompt for investigation, not evidence that a learning intervention works in practice.",
+    "links": [
+      {
+        "label": "Compare with five worked cases",
+        "href": "/capability-pipeline/cases.html"
+      }
+    ]
+  },
+  "rainbow-bug": {
+    "what": "A five-level rainbow-collecting game co-created by Julian, age 6, with AI as a creative partner. A visual platform game and an untimed text adventure offer different ways to explore the levels.",
+    "how": [
+      "Choose Play style. For the visual game, select Start visual game and focus the game: move with Left/Right or A/D, jump with Up/W/Space, and swat with E/F. Escape pauses. Touch controls are also available.",
+      "For an untimed alternative, choose Untimed text adventure and select the described routes. Settings include Easy Mode and bug density.",
+      "Play a level, identify a confusing cue or access barrier, and describe a change you would test. Use the linked Vibe Coding job aid to try the authoring process."
+    ],
+    "connection": "The conceptual connection is iterative human–AI design: describe an intention, inspect what was built, and revise using observed play. Comparing visual and untimed interaction highlights how system conditions change opportunities to act. Enjoyment or finishing a level does not establish a learning benefit; that requires a separate learning goal and evidence.",
+    "links": [
+      {
+        "label": "Vibe Coding job aid by James Diamond and Will Gray-Roncal (Word)",
+        "href": "/vibe-coding-job-aid.docx"
+      }
+    ]
+  },
+  "agentic-le": {
+    "what": "A collection of real agent runs on fictional workforce, school and library problems. Replays, candidate tools, role contracts and versioned artifacts expose how proposed designs changed; human pilot approval and field evidence remain pending.",
+    "how": [
+      "Choose a case and try its candidate, then open Replay this case to trace how the design developed.",
+      "Step through a scenario challenge and compare the artifact before and after it. Meeting conversation is an authored presentation of the saved contributions.",
+      "Inspect the requirements and manifest. Name an affected-person review or field observation that could challenge the candidate before use."
+    ],
+    "connection": "The lab connects multidisciplinary teaming with the LENS cycle: learning, systems, design and measurement concerns must change requirements and accountable decisions. A complete artifact or fluent agent discussion is evidence of output, not demonstrated human capability, collaboration quality or learning impact.",
+    "links": [
+      {
+        "label": "Team roles and evidence targets",
+        "href": "/agentic-le/roles/"
+      },
+      {
+        "label": "Methods working paper",
+        "href": "/agentic-le/paper/"
+      }
+    ]
+  },
+  "agentic-replay": {
+    "what": "A replay of saved project discussions, scenario challenges and artifact revisions. The selected run may contain real agent output or the separately labeled scripted rehearsal; playback does not execute new agents.",
+    "how": [
+      "Choose a Case / run, read its seed, and step with Next or the event slider before using Play.",
+      "Inspect a challenge, the following decision and the revised artifact. Compare revision shows what changed; Read full brief opens the complete record.",
+      "Use Case demo to inspect the final executable candidate independently of replay position. Compare original recorded turns with the authored Meeting conversation adaptation."
+    ],
+    "connection": "Replay supports examination of design rationale and the coordination of specialist contributions. For LENS, the question is whether evidence about people and operating conditions actually changes a requirement. Recorded roles and competency targets describe intended contributions; they do not certify proficiency or prove that human teams learn from the replay.",
+    "links": [
+      {
+        "label": "Role contracts and proficiency limits",
+        "href": "/agentic-le/roles/"
+      },
+      {
+        "label": "Browse all case candidates",
+        "href": "/agentic-le/"
+      }
+    ]
+  },
+  "agentic-record": {
+    "what": "An expandable reader for the published Agentic LE journals, manifests, inventories and evidence audits. It displays saved fields and values without adding new outcome evidence.",
+    "how": [
+      "Choose a record, expand relevant fields and follow event numbers or hashes back to the associated case.",
+      "Compare a claim with its source event and artifact. Download JSON or open Raw JSON when you need the complete structure."
+    ],
+    "connection": "Learning engineering needs traceable claims. LENS separates a finished product, demonstrated capability and impact; a journal can support provenance and design decisions while leaving learning and field outcomes unverified.",
+    "links": [
+      {
+        "label": "Case collection",
+        "href": "/agentic-le/"
+      }
+    ]
+  },
+  "agentic-roles": {
+    "what": "A guide to nine contribution roles, inherited duties, domain profiles and requested competency targets used in the agentic simulation.",
+    "how": [
+      "Choose a role and inspect its expected contribution, added duties and inherited responsibilities.",
+      "Compare two roles on a saved case. Use Proficiency and evidence to identify a task that would be needed to demonstrate a target."
+    ],
+    "connection": "LENS combines disciplinary contributions around a capability problem. These contracts make integration and accountability discussable; requested proficiency is a design target, while demonstrated proficiency requires reviewed work under stated conditions.",
+    "links": [
+      {
+        "label": "Inspect roles in a saved replay",
+        "href": "/agentic-le/replay/"
+      }
+    ]
+  },
+  "ai-debate-coach": {
+    "what": "A learner-first argument rehearsal with local feedback rules; it does not draft a speech or run a language model.",
+    "how": [
+      "Enter a claim, evidence and the reasoning that connects them; record confidence before selecting Challenge my reasoning.",
+      "Answer the skeptical follow-up in your own revision, then use Compare my revision to inspect what changed."
+    ],
+    "connection": "Generating an answer before feedback makes reasoning visible, and revision supports metacognitive monitoring. LENS asks whether that practice improves independent argument and evidence judgment on a new motion, rather than just producing more fluent text."
+  },
+  "district-ai-use-sandbox": {
+    "what": "A rule-based rehearsal for routing a proposed classroom AI use through review. It is not a policy checker or an approval system.",
+    "how": [
+      "Describe a fictional instructional purpose and the evidence that must remain the learner’s own.",
+      "Select age, use, information and oversight conditions, then draft the review route. Change one condition and compare the safeguards."
+    ],
+    "connection": "This treats AI use as a human-system design decision: instructional purpose, privacy and accountable review must align. LENS asks whether the use preserves opportunities to demonstrate capability, rather than whether a tool can generate an acceptable artifact."
+  },
+  "family-literacy-connector": {
+    "what": "A builder for optional, strategy-specific family literacy activities using fixed prompts. It supplies no AI assessment or translation and sends no reports.",
+    "how": [
+      "Enter a weekly target and a familiar context, then choose a strategy, time and oral or text format.",
+      "Prepare the home activity and inspect its download. A separate family note is optional and stays under your control."
+    ],
+    "connection": "Practice in familiar settings may help a strategy transfer, but opportunity and family burden are part of the design. LENS pairs learner development with accessible conditions and agency; missing family reports cannot be treated as missing competence."
+  },
+  "offline-practice-packet": {
+    "what": "A deterministic worksheet builder that blanks selected terms in exact approved source sentences and adds explanation and transfer prompts.",
+    "how": [
+      "Paste approved source statements and select terms copied from them; choose guided or independent support.",
+      "Build and inspect the learner packet and separate teacher guide, then download them. Saved text works offline; the website itself is not cached offline."
+    ],
+    "connection": "This couples instructional scaffolding with a connectivity constraint. LENS asks whether source fidelity, preparation burden and independent explanation improve together; filling blanks alone cannot establish conceptual understanding or transfer."
+  },
+  "mastery-pathway-planner": {
+    "what": "A fixed fraction-learning pathway based on teacher-entered observations, transparent rules and reasoned overrides. It does not diagnose a learner or certify mastery.",
+    "how": [
+      "Record prerequisite, explanation and transfer observations for adding fractions. Keep unobserved evidence distinct from observed difficulty.",
+      "Describe the work and support provided, then plan next evidence and practice. Try a teacher override with a reason and inspect the changed route."
+    ],
+    "connection": "Mastery decisions need evidence of independent performance and suitable support. LENS links learning progression to accessible task opportunities; a missing observation or an inaccessible written task must not become a judgment of incapacity."
+  },
+  "teacher-ai-practice-lab": {
+    "what": "An authored classroom decision rehearsal with contrasting consequences. No AI model is running.",
+    "how": [
+      "Read the classroom scenario and available evidence, then commit a decision and rationale before revealing consequences.",
+      "Compare the feedback with your reason and try another scenario. Identify a safeguard you would test in an unfamiliar classroom situation."
+    ],
+    "connection": "Contrasting cases and feedback rehearse context-sensitive judgment. LENS requires transfer beyond memorized labels: assess whether a teacher can justify safeguards under new learner, access and oversight conditions."
+  },
+  "workflow-practice-lab": {
+    "what": "A two-dimensional workflow and fault rehearsal using fictional conditions. It implements no XR environment.",
+    "how": [
+      "Inspect the workflow and evidence, choose an action, and observe the resulting state and feedback.",
+      "Repeat with a different decision and explain which cue supported recovery from the fault."
+    ],
+    "connection": "Practice should connect a diagnostic cue to an action and its consequence. In LENS, recovery depends on the workflow, information and authority as well as individual skill; simulation success needs a separate transfer check in the intended work setting."
+  },
+  "clinical-reasoning-calibration": {
+    "what": "A source-checking exercise using fictional clinical records and authored decisions. It is not clinical advice or a competence certification.",
+    "how": [
+      "Read the fictional source records and record an independent assessment, uncertainty and confidence before revealing the fallible advice.",
+      "Inspect the advice, cite the source evidence for accepting, challenging or investigating it, and compare the source-check feedback. Revise and export your reflection if useful."
+    ],
+    "connection": "Calibration concerns how confidence tracks evidence, not how certain a response sounds. LENS connects diagnostic reasoning with source access, uncertainty and authority; a correct practiced response cannot establish safe clinical performance."
+  },
+  "academic-navigation-practice": {
+    "what": "A navigation rehearsal grounded in authored, fictional college policies and source records. It provides no live institutional advice.",
+    "how": [
+      "Read the student situation, inspect the available policy source, and choose the next action with a rationale.",
+      "Compare the revealed consequence with the policy conditions and identify when a real case would need an authorized adviser."
+    ],
+    "connection": "The capability is finding and interpreting the right source under stated conditions. LENS treats reliable information and escalation routes as part of performance, so memorizing an answer without checking applicability is insufficient."
+  },
+  "family-communication-studio": {
+    "what": "A bilingual draft-comparison worksheet. You supply both drafts or load the authored English/Spanish example; it checks numeric tokens and prepares human review, without translating or verifying meaning.",
+    "how": [
+      "Load the practice template or enter both drafts and the intended family action.",
+      "Compare the drafts and inspect the numeric differences and review questions. Have an appropriate human reviewer check meaning and usability."
+    ],
+    "connection": "Human-centered design asks whether families can understand and act on a message. LENS links communication quality to agency and usable access; matching numbers cannot establish equivalent meaning, fluency or successful participation."
+  },
+  "curiosity-pathway-mentor": {
+    "what": "An authored challenge menu and local reflection journal. It does not infer interests, evaluate work or adapt difficulty.",
+    "how": [
+      "Choose a challenge and start the cycle. Record your attempt in a format and language that work for you.",
+      "Open reflection, describe what you learned or would change, and choose the next challenge."
+    ],
+    "connection": "Learner choice and reflection can support self-regulation when there are usable opportunities to act. LENS asks whether the learner develops independent inquiry across new tasks; the journal preserves reflection without treating activity counts as learning."
+  },
+  "language-practice-companion": {
+    "what": "An authored English classroom conversation rehearsal with fixed hints and role-play turns. It supplies no translation, speech recognition or proficiency score.",
+    "how": [
+      "Choose a classroom task and record your first attempt before opening support. You can add context and a plan in any language.",
+      "Use the fixed hints and turns to revise the attempt, then identify an authentic conversation in which to check transfer."
+    ],
+    "connection": "Producing an attempt before scaffolding helps expose what support changes. LENS connects language practice with participation in actual tasks and learner agency; completing a fixed dialogue does not demonstrate general language proficiency."
+  },
+  "workforce-capability-map": {
+    "what": "A role-based map of required capabilities and selected evidence. Coverage describes the evidence supplied, not worker readiness.",
+    "how": [
+      "Select a role and inspect the required capabilities. Mark evidence that is actually available and read the coverage summary.",
+      "Switch roles to compare requirements, then return to check the preserved selections. Identify an unseen task or condition that the evidence does not cover."
+    ],
+    "connection": "LENS capability claims include valued work and operating conditions. Mapping evidence to tasks makes coverage gaps explicit, while separating completion records from demonstrated performance and avoiding an unsupported readiness score."
+  },
+  "program-judgment-map": {
+    "what": "A checklist for mapping one judgment capability across three program stages. It does not analyze student work or generate assessments.",
+    "how": [
+      "State the observable capability and faculty-agreed performance standard, then select task opportunities and evidence for each stage.",
+      "Review the map and gaps. Revise a stage to include an independent, unfamiliar task and compare the resulting coverage."
+    ],
+    "connection": "Scaffolding should progress toward independent judgment. LENS links program design to demonstrable capability: curricular coverage and course completion do not show transfer without reviewed performance against a shared standard."
+  },
+  "frontline-performance-diagnostic": {
+    "what": "A structured review of possible explanations for a fictional frontline performance gap. It keeps training hypotheses separate from constraints on doing the work.",
+    "how": [
+      "Inspect the supplied task, observations and conditions; revise the fictional example using de-identified descriptions.",
+      "Review explanations, compare evidence gaps and next checks, then export the review if useful."
+    ],
+    "connection": "Performance analysis asks whether the barrier is knowledge, tools, access, authority or capacity before choosing an intervention. This is central to LENS coupling of people and systems: additional training cannot supply a missing permission or repair a broken workflow."
+  },
+  "training-harmonization-assistant": {
+    "what": "A source-linked comparison of common training rules and proposed local variants. Conflicts remain review holds rather than automatic approvals.",
+    "how": [
+      "Inspect the fictional source rules and local requirements. Add or remove a rule and preserve its source reference.",
+      "Compare and preview the branch, inspect conflicts and review responsibilities, then export the review JSON."
+    ],
+    "connection": "Systems thinking separates an invariant capability standard from context-specific implementation. LENS requires traceable reasons for variation and accountable resolution of conflicts; textual consistency alone cannot demonstrate effective training."
+  },
+  "edtech-alignment-auditor": {
+    "what": "A local heuristic check of alignment among a learning goal, assessment and proposed AI role. Its interpretation is provisional.",
+    "how": [
+      "Enter an observable goal, assessment, learner context and AI role, including the independent evidence that will remain.",
+      "Audit the alignment, read missing-evidence warnings, and change the assessment or delegation plan before comparing the result."
+    ],
+    "connection": "Constructive alignment connects intended performance with opportunities to practice and demonstrate it. LENS adds the system conditions: an AI-produced artifact may meet the task requirement while concealing whether the learner can do the work."
+  },
+  "evidence-to-impact-mapper": {
+    "what": "A planner that distinguishes activity, capability, transfer and operational impact. It organizes entries and checks evidence categories without evaluating measure quality or estimating effects.",
+    "how": [
+      "Name the operational decision, needed capability and proposed activity. Select an evidence type and state an observable criterion.",
+      "Plan a transfer check, comparison and rival explanation. Build the map, inspect its claim limits, and download the plan."
+    ],
+    "connection": "This applies evidence-centered evaluation to LENS capability claims. Completion, independent performance and operational impact require different evidence; a before-and-after change must be examined alongside competing explanations."
+  },
+  "human-ai-delegation-simulator": {
+    "what": "Three authored workplace-support cases rehearse whether to accept, verify, override or escalate AI advice. Rationales are recorded for reflection without machine scoring.",
+    "how": [
+      "Inspect the task, your authority and the source record. Choose an action, explain it and record confidence before revealing the consequence.",
+      "Complete the round, compare reasons across cases and download the decision record. Propose an unfamiliar case that would challenge the same rule."
+    ],
+    "connection": "Human–machine teaming requires appropriate reliance on task evidence, reversibility and authority. LENS treats those system conditions as part of capability: high-confidence wording cannot replace a valid source or grant permission to act."
+  },
+  "candidate-workforce-original": {
+    "what": "The preserved original workforce candidate from the first saved agent run. This is a candidate product; affected-person review and field evidence remain pending.",
+    "how": [
+      "Inspect the original candidate and requirements, then compare the later workforce-conversation iteration.",
+      "Open the requirements and manifest, then follow Replay this case to the design decisions. The downloadable bundle preserves the original record."
+    ],
+    "connection": "Compare the stated learning design with the actual executable behavior; a completed narrative can conceal missing implementation. Technical execution does not establish a learning benefit.",
+    "links": [
+      {
+        "label": "All cases and iterations",
+        "href": "/agentic-le/"
+      }
+    ]
+  },
+  "candidate-workforce-conversation": {
+    "what": "A fictional team-lead conversation rehearsal with authored openings, fact/explanation separation and a change in protected time and coverage. This is a candidate product; affected-person review and field evidence remain pending.",
+    "how": [
+      "Compare openings, separate observations from explanations, then reconsider the proposal when time and coverage are withdrawn.",
+      "Open the requirements and manifest, then follow Replay this case to the design decisions. The downloadable bundle preserves the original record."
+    ],
+    "connection": "Communication practice cannot supply protected time, staffing or agreement. LENS requires these conditions to remain distinct from a learner’s conversational skill. Technical execution does not establish a learning benefit.",
+    "links": [
+      {
+        "label": "All cases and iterations",
+        "href": "/agentic-le/"
+      }
+    ]
+  },
+  "candidate-school-science": {
+    "what": "A fictional school-science candidate developed through a saved agent run. This is a candidate product; affected-person review and field evidence remain pending.",
+    "how": [
+      "Try the candidate with fictional classroom input, inspect its requirements, and compare the later school-investigation iteration.",
+      "Open the requirements and manifest, then follow Replay this case to the design decisions. The downloadable bundle preserves the original record."
+    ],
+    "connection": "Separate the quality of a written answer from the learner’s scientific reasoning and the classroom conditions supporting it. Technical execution does not establish a learning benefit.",
+    "links": [
+      {
+        "label": "All cases and iterations",
+        "href": "/agentic-le/"
+      }
+    ]
+  },
+  "candidate-school-investigation": {
+    "what": "A school-investigation candidate for examining science reasoning and how an inquiry task is supported. This is a candidate product; affected-person review and field evidence remain pending.",
+    "how": [
+      "Work through the candidate’s investigation prompts, inspect its feedback and compare the requirements with the original school-science run.",
+      "Open the requirements and manifest, then follow Replay this case to the design decisions. The downloadable bundle preserves the original record."
+    ],
+    "connection": "Learning engineering makes the intended reasoning observable while preserving the evidence needed to assess an independent explanation. Technical execution does not establish a learning benefit.",
+    "links": [
+      {
+        "label": "All cases and iterations",
+        "href": "/agentic-le/"
+      }
+    ]
+  },
+  "candidate-library-access": {
+    "what": "A fictional public-library digital-access candidate from a saved agent run. This is a candidate product; affected-person review and field evidence remain pending.",
+    "how": [
+      "Try the offered service routes with fictional needs, inspect the handoff and compare the later library-journey iteration.",
+      "Open the requirements and manifest, then follow Replay this case to the design decisions. The downloadable bundle preserves the original record."
+    ],
+    "connection": "Access involves usable opportunities and control, not just availability of a digital tool. LENS asks who can act under the proposed conditions. Technical execution does not establish a learning benefit.",
+    "links": [
+      {
+        "label": "All cases and iterations",
+        "href": "/agentic-le/"
+      }
+    ]
+  },
+  "candidate-library-journey": {
+    "what": "Access Studio: a public-library service journey candidate in which a visitor chooses a route and retains control. This is a candidate product; affected-person review and field evidence remain pending.",
+    "how": [
+      "Compare the available routes and what each requires, then inspect how choices, assistance and changing conditions affect participation.",
+      "Open the requirements and manifest, then follow Replay this case to the design decisions. The downloadable bundle preserves the original record."
+    ],
+    "connection": "Human-centered design must preserve agency when access conditions differ. In LENS, a successful route and an opportunity to decline are part of the system conditions for valued participation. Technical execution does not establish a learning benefit.",
+    "links": [
+      {
+        "label": "All cases and iterations",
+        "href": "/agentic-le/"
+      }
+    ]
+  },
+  "show-your-work": {
+    "what": "A community working paper defining capability through coupled learner and system performance, with human flourishing as the intended purpose.",
+    "how": [
+      "Read the introduction and distinguish output quality, capability, learning and impact.",
+      "Apply those distinctions to a project you know, and name the conditions and evidence needed for each claim. Use the linked PDF for the matching reading edition."
+    ],
+    "connection": "The paper develops the conceptual LENS frame used across these resources. Use it to question whether a polished artifact, an immediate performance and durable learning are being confused; the proposed frame remains open to community discussion."
+  },
+  "agentic-paper": {
+    "what": "A methods working draft about agentic collaboration across fictional workforce, school and library projects, with source-linked records and an evaluation agenda.",
+    "how": [
+      "Read the abstract and scope before interpreting the case episodes.",
+      "Follow a cited episode into its replay and evidence audit; distinguish implemented behavior from proposed human-team and learning studies."
+    ],
+    "connection": "The paper connects multidisciplinary integration to the LENS capability cycle. Its contribution is an inspectable representation and method; claims about collaboration quality, human learning and field impact still require independent evidence.",
+    "links": [
+      {
+        "label": "Explore the actual case records",
+        "href": "/agentic-le/"
+      }
+    ]
+  },
+  "experiments": {
+    "what": "A directory of local teaching labs, research prototypes and creative demonstrations, with links to projects hosted elsewhere.",
+    "how": [
+      "Choose a category and open a resource. Start with its About this resource card and try one small comparison.",
+      "For an externally hosted project, use its own instructions and review its stated scope before entering data."
+    ],
+    "connection": "Compare what each resource makes observable: a mechanism, a decision, a design or a learning claim. LENS asks which capability and conditions are relevant and what additional evidence would establish transfer or benefit."
+  },
+  "prototype-gallery": {
+    "what": "An evidence-linked collection of capability gaps, design briefs and working local exercises. A visible status distinguishes runnable prototypes from briefs that have no implementation.",
+    "how": [
+      "Filter by collection, keyword and availability. Choose Try the working prototype for an exercise, or open a design brief to inspect its rationale.",
+      "Read the evidence anchors and proposed cycle. Name an observation that would challenge the design before treating its claims as established."
+    ],
+    "connection": "Each brief frames an intervention as a testable conjecture connecting a capability gap, design and evidence. This is LENS iteration in practice; a motivated design and a working interface are different claims from demonstrated learning or impact."
+  },
+  "id-or-le-what-the-field-says-about-itself": {
+    "what": "A source-linked reading of Goodell and Bozarth’s 2019 arguments about instructional design and learning engineering.",
+    "how": [
+      "Read the note, then follow the original source links to check the interpretation.",
+      "Apply the central claim to a project you know and state one condition or observation that would challenge your interpretation."
+    ],
+    "connection": "Comparing the authors’ scope claims helps identify when a capability problem requires work beyond instructional content. LENS connects instruction to measurement, infrastructure and operating conditions rather than deciding the work by its job title."
+  },
+  "icicle-five-phase-learning-engineering-process": {
+    "what": "A source-linked guide to ICICLE’s five-phase learning engineering process and its concurrent, iterative character.",
+    "how": [
+      "Read the note, then follow the original source links to check the interpretation.",
+      "Apply the central claim to a project you know and state one condition or observation that would challenge your interpretation."
+    ],
+    "connection": "Concurrent phases make iteration a response to evidence throughout design and use. Compare ICICLE’s process with the local LENS eight-stage vocabulary without treating the two as an identical sequence or professional standard."
+  },
+  "saxberg-working-definition-of-a-learning-engineer": {
+    "what": "A clause-by-clause reading of Saxberg’s working definition as quoted in Blake-Plock’s 2018 ICICLE announcement.",
+    "how": [
+      "Read the note, then follow the original source links to check the interpretation.",
+      "Apply the central claim to a project you know and state one condition or observation that would challenge your interpretation."
+    ],
+    "connection": "Applying learning-science evidence requires attention to context, reliability and cost. LENS makes those system conditions explicit alongside learner performance; an effective one-off activity does not establish affordable, reliable capability at scale."
+  },
+  "andon-research": {
+    "what": "A historical research brief distinguishing Andon source evidence, interpretation and proposed simulation design.",
+    "how": [
+      "Read the statement of purpose and source synthesis, then follow the primary references before applying the interpretation to a workplace.",
+      "Compare a management obligation in the brief with the corresponding action and measure in the Andon simulation."
+    ],
+    "connection": "The brief connects a visible signal with the system’s obligation to provide timely help. LENS asks how the combination of workforce capability, authority and support changes performance; installing a signal alone cannot establish improvement.",
+    "links": [
+      {
+        "label": "Try the Andon Operations Lab",
+        "href": "/andon/"
+      }
+    ]
+  }
+}

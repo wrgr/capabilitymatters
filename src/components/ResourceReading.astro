@@ -1,0 +1,11 @@
+---
+/** Insert resource guidance after a paper's opening without changing the canonical manuscript. */
+import ResourceAbout from './ResourceAbout.astro';
+interface Props {resource: string; html: string;}
+const {resource, html} = Astro.props;
+const boundary = html.search(/<h2 id="1-/);
+if (boundary < 0) throw new Error(`Paper introduction boundary missing: ${resource}`);
+---
+<Fragment set:html={html.slice(0, boundary)} />
+<ResourceAbout resource={resource} />
+<Fragment set:html={html.slice(boundary)} />

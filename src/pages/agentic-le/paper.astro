@@ -4,8 +4,11 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import Base from "../../layouts/Base.astro";
 import AgenticNav from "../../components/AgenticNav.astro";
-import { Content, getHeadings } from "../../papers/learning-engineering-teams.md";
+import { compiledContent, getHeadings } from "../../papers/learning-engineering-teams.md";
 
+import ResourceReading from "../../components/ResourceReading.astro";
+
+const paperHtml = await compiledContent();
 const pdfVersion = createHash("sha256").update(readFileSync("public/agentic-le/paper/paper.pdf")).digest("hex").slice(0, 12);
 const sections = getHeadings().filter((heading) => heading.depth === 2).slice(1);
 ---
@@ -29,7 +32,7 @@ const sections = getHeadings().filter((heading) => heading.depth === 2).slice(1)
           </nav>
         </details>
       </aside>
-      <article class="paper"><Content /></article>
+      <article class="paper"><ResourceReading resource="agentic-paper" html={paperHtml} /></article>
     </div>
   </div>
 </Base>

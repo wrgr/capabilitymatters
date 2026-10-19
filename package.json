@@ -12,14 +12,17 @@
     "test:prototypes": "node --test tests/test_prototypes.mjs tests/test_aile_foundation.mjs tests/test_aile_access.mjs tests/test_aile_practice.mjs tests/test_lens_tools.mjs tests/test_auditor_confirmation.mjs",
     "test:prototypes:browser": "node tests/test_prototypes_browser.mjs",
     "astro": "astro",
-    "prebuild": "npm run build:llm101 && python3 scripts/package-lifecycle.py",
+    "prebuild": "npm run build:llm101 && python3 scripts/package-lifecycle.py && npm run build:resource-about",
     "test:lifecycle": "python3 -m unittest discover -s tools/lifecycle/tests -p 'test_*.py' && node tools/lifecycle/tests/test_state.mjs && node tools/lifecycle/tests/test_conversation.mjs && node tools/lifecycle/tests/test_brief.mjs",
     "test:pipeline": "python3 tests/test_capability_pipeline.py && node --test tests/test_pipeline_teaching.mjs",
     "test:a11y:audit": "node tests/a11y-audit.mjs",
     "test:a11y": "node tests/a11y-regression.mjs && npm run test:llm101",
-    "predev": "npm run build:llm101",
+    "predev": "npm run build:llm101 && npm run build:resource-about",
     "build:llm101": "vite build --config experiments/llm101/vite.config.js",
-    "test:llm101": "node tests/llm101-regression.mjs"
+    "test:llm101": "node tests/llm101-regression.mjs",
+    "build:resource-about": "node scripts/build-resource-about.mjs",
+    "test:resource-about": "node --test tests/test_resource_about.mjs",
+    "test:resource-about:browser": "node tests/test_resource_about_browser.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",
