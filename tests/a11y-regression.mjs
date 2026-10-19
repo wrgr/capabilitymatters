@@ -29,7 +29,7 @@ try{
  await page.getByText('Accessibility preferences',{exact:true}).press('Enter');await page.getByRole('button',{name:'Reset preferences'}).press('Enter');assert.equal(await page.locator('html').evaluate(e=>e.hasAttribute('data-a11y-text')),false);
  await page.goto(origin+'/start-here/');await page.locator('.mobile-nav summary').press('Enter');assert(await page.locator('.mobile-nav').evaluate(e=>e.open));await page.locator('.mobile-nav summary').press('Escape');assert.equal(await page.locator('.mobile-nav').evaluate(e=>e.open),false);
  // Simulate the WCAG text-spacing values and 200% text size at the 320-CSS-pixel reflow viewport.
- const routes=['/','/start-here/','/experiments/','/case-studies/boeing-737-max-mcas/','/problems-to-prototypes/','/microgpt/','/andon/','/capability-pipeline/simulation.html','/agentic-le/replay/'];
+ const routes=['/','/approach/','/start-here/','/experiments/','/case-studies/boeing-737-max-mcas/','/problems-to-prototypes/','/microgpt/','/andon/','/capability-pipeline/simulation.html','/agentic-le/replay/'];
  for(const route of routes){await page.goto(origin+route);await page.addStyleTag({content:'html{font-size:200%!important}*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}'});await reflow(page,route+' 200% text and spacing');}
  await page.setViewportSize({width:1280,height:900});
  await page.goto(origin+'/capability-pipeline/index.html');await page.locator('#case-tab').press('ArrowRight');assert.equal(await page.locator('#sim-tab').getAttribute('aria-selected'),'true');await page.locator('#sim-tab').press('Home');assert.equal(await page.locator('#case-tab').getAttribute('aria-selected'),'true');

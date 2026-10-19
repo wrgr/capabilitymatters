@@ -1,0 +1,29 @@
+{
+  "description": "Every built HTML page requires guidance unless its exact path has a reviewed reason here; client-rendered resources remain mandatory browser-test targets.",
+  "exemptions": {
+    "index.html": "Motivation homepage; introduces the site rather than a learning resource.",
+    "motivation/index.html": "Preserved motivation/homepage alias.",
+    "start-here/index.html": "Site orientation and navigation.",
+    "about/index.html": "Program and site information.",
+    "about/what-you-will-do/index.html": "Unlisted program information sheet.",
+    "welcome/index.html": "Preserved welcome/orientation alias.",
+    "prototypes/index.html": "Redirect to the guided prototype gallery.",
+    "agentic-le/product/candidate.html": "Immutable executable evidence; guidance lives in its index.html host.",
+    "agentic-le/cases/library-access/candidate.html": "Immutable executable evidence; guidance lives in its index.html host.",
+    "agentic-le/cases/library-journey/candidate.html": "Immutable executable evidence; guidance lives in its index.html host.",
+    "agentic-le/cases/school-investigation/candidate.html": "Immutable executable evidence; guidance lives in its index.html host.",
+    "agentic-le/cases/school-science/candidate.html": "Immutable executable evidence; guidance lives in its index.html host.",
+    "agentic-le/cases/workforce-conversation/candidate.html": "Immutable executable evidence; guidance lives in its index.html host.",
+    "agentic-le/replay/artifacts/0610d0b96ba67450d111048bf81b5bbc118f06e8c6c74bbe43f0b90b129fed9a.html": "Preserved research artifact; surrounding replay provides guidance.",
+    "agentic-le/replay/artifacts/2adc023974e387ed8ab868daa4089133ab2851cd9cd3b269ae2ec59fd2e6151a.html": "Preserved research artifact; surrounding replay provides guidance.",
+    "agentic-le/replay/artifacts/3eb5e4470517487d9b6aef2b09042c326206b0440f6926373c277cefd86fe5d4.html": "Preserved research artifact; surrounding replay provides guidance.",
+    "agentic-le/replay/artifacts/9f75168722f5b456ef88d53d77d9414fdaf9b12e470805a9da2a93a2c4c6be30.html": "Preserved research artifact; surrounding replay provides guidance.",
+    "agentic-le/replay/artifacts/e4264e3633b0a7af12f262723fbd2a0e94404d9fec18e9534bc5ccec0d64fc5d.html": "Preserved research artifact; surrounding replay provides guidance.",
+    "agentic-le/replay/artifacts/eacb040c511d572b19b34572920944b0fffe55fcb01026f01dc29e9af1af4cfb.html": "Preserved research artifact; surrounding replay provides guidance.",
+    "agentic-le/replay/artifacts/f59ede59fd2b135d1ae21aa2683dbe1ac46eb6189fe3e5c65d794eaef59dbbc2.html": "Preserved research artifact; surrounding replay provides guidance."
+  },
+  "client_rendered": {
+    "andon/index.html": "React renders the required card; the automatically discovered browser suite must verify it.",
+    "llm101/explorer/index.html": "React renders the required card; the automatically discovered browser suite must verify it."
+  }
+}

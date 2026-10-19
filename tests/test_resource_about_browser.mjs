@@ -1,20 +1,16 @@
 /** Exercise every resource guide with keyboard, axe, mobile reflow, and script-free reading. */
 import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
-import {readFile, readdir, mkdir, writeFile} from 'node:fs/promises';
+import {readFile, mkdir, writeFile} from 'node:fs/promises';
 import {extname, resolve} from 'node:path';
 import {chromium} from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
-import statuses from '../src/data/prototypes/status.json' with {type:'json'};
-import {staticResources} from '../scripts/build-resource-about.mjs';
+import {execFileSync} from 'node:child_process';
 
 const root=resolve('dist'), output=resolve(process.env.RESOURCE_ABOUT_OUTPUT || '../resource-about-qa');
 const mime={'.html':'text/html','.css':'text/css','.js':'application/javascript','.json':'application/json','.png':'image/png','.svg':'image/svg+xml'};
-const routes=[...Object.values(statuses).filter(s=>s.workingPrototype).map(s=>s.url),
-  ...staticResources.map(([file])=>'/'+file),
-  '/andon/','/llm101/explorer/','/llm101/','/microgpt/','/agentic-le/','/agentic-le/roles/',
-  '/agentic-le/record/','/agentic-le/paper/','/show-your-work/','/experiments/','/problems-to-prototypes/','/field-notes/','/case-studies/',
-  ...(await readdir('src/content/case-studies')).map(file=>'/case-studies/'+file.replace(/\.mdx$/,'')+'/')];
+// Share the build guard's complete inventory; a new route cannot evade browser coverage.
+const routes=JSON.parse(execFileSync('python3',['scripts/check-resource-guidance.py','--list-resources'],{encoding:'utf8'})).map(page=>page.route);
 const server=createServer(async(req,res)=>{
   let path=new URL(req.url,'http://localhost').pathname;
   if(!extname(path))path=path.replace(/\/$/,'')+'/index.html';
@@ -32,15 +28,75 @@ async function audit(page,name){
   const violations=result.violations.map(v=>({id:v.id,targets:v.nodes.map(n=>n.target)}));
   checks.push({name,violations});assert.deepEqual(violations,[],name);
 }
+/** @param {import('playwright').Page} page @returns {Promise<void>} Keep Approach findable from both main menus and preserve a way back to the site. */
+async function checkApproachNavigation(page){
+  for(const width of [1440,390,320]){
+    await page.setViewportSize({width,height:900});await page.goto(origin+'/');
+    const menu=page.locator(width>=900?'.desktop-nav':'.mobile-nav');
+    if(width<900)await menu.locator('summary').press('Enter');
+    const link=menu.locator('a[href="/approach/"]');
+    assert(await link.isVisible(),`Approach is visible in the ${width}px menu`);
+    await page.screenshot({path:output+`/approach-menu-${width}.png`,fullPage:false});
+    await link.press('Enter');await page.waitForURL('**/approach/');
+    if(width<900)await page.locator('.mobile-nav > summary').press('Enter');
+    const primary=page.getByRole('navigation',{name:width>=900?'Primary':'Primary (mobile)',exact:true});
+    assert.equal(await primary.locator('a[href="/approach/"]').getAttribute('aria-current'),'page');
+    const navAudit=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
+    const violations=navAudit.violations.map(v=>({id:v.id,targets:v.nodes.map(n=>n.target)}));
+    checks.push({name:`Full Approach page ${width}px`,violations});assert.deepEqual(violations,[]);
+    assert.equal(await page.locator('.steps > li').count(),7);
+    assert(await page.getByRole('heading',{name:'What we mean by capability',exact:true}).isVisible());
+    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Approach reflows');
+    if(width<900)await page.locator('.mobile-nav > summary').press('Enter');
+    await page.screenshot({path:output+`/approach-page-${width}.png`,fullPage:true});
+    if(width<900)await page.locator('.mobile-nav > summary').press('Enter');
+    await primary.locator('a[href="/start-here/"]').press('Enter');
+    await page.waitForURL('**/start-here/');
+  }
+  await page.setViewportSize({width:1440,height:1000});
+}
+/** @param {import('playwright').Page} page @returns {Promise<void>} Exercise every extracted narrative in all three learning modes. */
+async function checkWorkedCases(page){
+  await page.goto(origin+'/approach/');
+  await page.getByRole('link',{name:'Explore five worked cases',exact:true}).press('Enter');
+  await page.waitForURL('**/capability-pipeline/index.html#cases');
+  assert.equal(await page.locator('#case-tab').getAttribute('aria-selected'),'true');
+  await page.goto(origin+'/capability-pipeline/cases.html');
+  assert.equal(await page.locator('.case-card').count(),5);
+  const names=await page.locator('.case-card h3').allTextContents();
+  for(const name of names){
+    await page.locator('.case-card').filter({has:page.getByRole('heading',{name,exact:true})}).press('Enter');
+    await page.locator('[data-mode="study"]').press('Enter');
+    assert.deepEqual(await page.locator('#stepper .idx').allTextContents(),['01','02','03','04','05','06','07','↻']);
+    const row=page.locator('#stepper .step-row').last();await row.press('Enter');
+    assert(await page.locator('#stepper .step-detail').last().isVisible(),name+' refinement is keyboard accessible');
+    await page.locator('[data-mode="find"]').press('Enter');
+    assert.equal(await page.locator('.find-picker button').last().innerText(),'Refine');
+    await page.locator('.find-picker button').first().press('Enter');
+    assert(await page.locator('.find-picker .result').isVisible(),name+' find feedback');
+    await page.locator('[data-mode="predict"]').press('Enter');
+    await page.getByLabel('Your prediction before the reveal (optional)',{exact:true}).fill('Check conditions and evidence before deployment.');
+    await page.getByRole('button',{name:'Reveal what happened',exact:true}).press('Enter');
+    assert.equal(await page.locator('.step-row.locked').count(),0,name+' reveal unlocks later steps');
+  }
+  await page.goto(origin+'/approach/');
+  await page.getByRole('link',{name:'Try the branching simulation',exact:true}).press('Enter');
+  await page.waitForURL('**/capability-pipeline/index.html#simulation');
+  assert.equal(await page.locator('#sim-tab').getAttribute('aria-selected'),'true');
+}
 try{
   browser=await chromium.launch({executablePath:process.env.CHROME_BINARY||undefined,headless:true});
   const context=await browser.newContext({viewport:{width:1440,height:1000}});
   const page=await context.newPage(), errors=[];
   page.on('pageerror',error=>errors.push(error.message));
+  await checkApproachNavigation(page);
+  await checkWorkedCases(page);
   for(const route of routes){
     await page.goto(origin+route);
-    const cards=page.locator('details.resource-about');await cards.first().waitFor();
+    const cards=page.locator('details.resource-about');await cards.first().waitFor({timeout:5000});
+    const pageHtml=await page.content();
     assert(await cards.count()>0,route);
+    assert.doesNotThrow(()=>execFileSync('python3',['scripts/check-resource-guidance.py','--check-html'],{input:pageHtml,stdio:['pipe','pipe','pipe']}),route+' has complete rendered guidance');
     assert(await cards.first().evaluate(e=>Boolean(document.querySelector('h1').compareDocumentPosition(e)&Node.DOCUMENT_POSITION_FOLLOWING)),route+' guide follows the title');
     for(const card of await cards.all()){
       const summary=card.locator(':scope > summary');
@@ -75,7 +131,7 @@ try{
   await page.locator('.topbar-tabs').getByRole('button',{name:'Glossary',exact:true}).press('Enter');assert(await page.locator('.resource-about').evaluate(e=>e.open));
   const plain=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:900}});
   const reading=await plain.newPage();
-  for(const route of ['/prototypes/ai-debate-coach/','/rainbow-bug/','/agentic-le/cases/library-journey/','/capability-pipeline/simulation.html']){
+  for(const route of ['/approach/','/prototypes/ai-debate-coach/','/rainbow-bug/','/agentic-le/cases/library-journey/','/capability-pipeline/simulation.html']){
     await reading.goto(origin+route);await reading.locator('.resource-about > summary').press('Enter');
     assert(await reading.locator('.resource-about-body').isVisible(),route+' works without JavaScript');
   }

@@ -1,3 +1,4 @@
+/** Preserve authored cases and simulation behavior while teaching the shared approach. */
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
@@ -19,12 +20,31 @@ test('Map labels keep the same stable stage keys and legacy imports',()=>{
  assert.deepEqual(plain(D.cycle.map(s=>s.id)),plain(old.LensData.cycle.map(s=>s.id)));
  E.validate(old.LensData.scenario); E.validate(D.scenario);
 });
-test('five worked cases have eight application questions and bounded interpretation',()=>{
+test('five worked cases retain seven step questions and a refinement reflection',()=>{
  assert.equal(Object.keys(T.worked).length,5);
  for(const c of Object.values(T.worked)){
   assert.equal(c.questions.length,8);assert(c.questions.every(q=>q.length>35));
   for(const k of ['why','decision','watch'])assert(c.turn[k].length>40);
  }
+});
+test('extracted narrative data preserves every authored word and branch',()=>{
+ const original=execFileSync('git',['show','e1725bb:public/capability-pipeline/cases.js'],{encoding:'utf8'});
+ const authored=original.match(/var CASES = (\[[\s\S]*?\n  \]);/)[1];
+ const extracted={};runInNewContext(read('public/capability-pipeline/case-narratives.js'),extracted);
+ assert.deepEqual(plain(extracted.CapabilityCaseNarratives),plain(runInNewContext(authored)));
+ const page=read('public/capability-pipeline/cases.html');
+ assert(page.indexOf('src="case-narratives.js')<page.indexOf('src="cases.js'));
+});
+test('Approach and worked cases share one illustration through repeatable packaging',()=>{
+ const svg=read('src/assets/capability-cycle.svg').trim();
+ const before=read('public/capability-pipeline/cases.html');
+ assert(before.includes(`<!-- capability-cycle:start -->${svg}<!-- capability-cycle:end -->`));
+ execFileSync('node',['scripts/build-capability-cycle.mjs']);
+ assert.equal(read('public/capability-pipeline/cases.html'),before);
+ const approach=read('src/pages/approach.astro');
+ assert(approach.includes("import diagram from '../assets/capability-cycle.svg?raw'"));
+ assert(approach.includes('capability-cycle.json'));
+ for(const route of ['#cases','#simulation'])assert(approach.includes('/capability-pipeline/index.html'+route));
 });
 test('every stock choice and disruption has learner guidance',()=>{
  for(const step of D.scenario.steps)for(const a of step.actions){

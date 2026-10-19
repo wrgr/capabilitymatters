@@ -14,7 +14,10 @@ catalog, events calendar, community roster) lives at
 
 ## Content organization
 
-The primary menu is Motivation (the homepage), Start Here, Case Studies, Experiments, and Prototypes.
+The primary menu is Motivation (the homepage), Approach, Start Here, Case Studies,
+Experiments, and Prototypes. Approach opens `/approach/`: the capability definition,
+pipeline diagram and step explanations. It links to the worked cases and fictional
+simulation as separate resources; their standalone host links back to Approach.
 The School of Education talk and Field Notes are no longer menu entries; their
 content has not been deleted. Learning Engineering Commons remains in the footer
 and Start Here. Existing route URLs and prototype filter URLs are preserved.
@@ -100,9 +103,25 @@ projects are outside this repository. Saved `candidate.html`, archived replay HT
 JSON journals, manifests, downloadable bundles and PDFs remain original evidence
 artifacts; their surrounding host pages carry the guide.
 
-When adding a resource, author its guide, render it immediately after introductory
-text, and include its route in `tests/test_resource_about_browser.mjs`. The prototype
-status inventory and Field Notes are checked automatically for missing guides.
+**Required for every new resource page:** author a complete guide and render it
+immediately after the introduction and before the activity. This applies to Astro,
+React and standalone HTML at any route, including newly introduced directories.
+Use at least two practical steps and explain the actual conceptual connection to
+LENS and learning engineering. Contributor instructions live in
+`AGENTS.md`, `.cursor/rules/resource-guidance.mdc` and `CLAUDE.md`.
+
+The Astro build hook runs `scripts/check-resource-guidance.py` over every generated
+HTML page. Missing cards, missing sections, unfinished explanations and default-open
+cards fail the build and stop deployment. This uses real HTML parsing: a comment,
+script string, inert template or hidden guide cannot satisfy the check. Every page
+is required by default. `src/data/resource-page-policy.json` contains only exact,
+reviewed exceptions for orientation/redirect pages and immutable evidence artifacts.
+The two existing React hosts are checked after rendering by the browser suite.
+
+The browser suite consumes the same automatically discovered output inventory.
+New resources need no manual test-list registration. New client-rendered resources
+need an explicit policy entry and still remain mandatory browser-test targets;
+adding an exception is a reviewed content decision, not an authoring shortcut.
 When changing shared guidance or markup, rebuild the committed Andon bundle with
 `npm run build --prefix public/andon/source` after installing its existing pinned
 build dependencies. No new production dependency is required.
@@ -110,6 +129,7 @@ build dependencies. No new production dependency is required.
 Validation after `npm run build`:
 
 ```sh
+npm run test:resource-guidance
 npm run test:resource-about
 npm run test:resource-about:browser
 ```
@@ -117,7 +137,8 @@ npm run test:resource-about:browser
 The browser suite checks collapsed state, Enter/Space, focus and link navigation,
 expanded-card axe WCAG 2.1 A/AA rules, 320px reflow with 200% text and spacing,
 the case explorer's dark palette, React state retention and representative
-script-free hosts. Set `CHROME_BINARY` for an installed Chrome executable and
+script-free hosts. It also verifies the desktop/mobile Approach link and the path
+back to the main site. Set `CHROME_BINARY` for an installed Chrome executable and
 `RESOURCE_ABOUT_OUTPUT` for its evidence directory. These checks supplement the
 existing activity suites; they do not replace screen-reader or user evaluation.
 
@@ -160,6 +181,21 @@ inspection across three authored cases, then exports a JSON decision record.
 The evidence mapper distinguishes activity, performance, and transfer measures,
 states the limits of the selected comparison, and exports a plain-text plan.
 Neither tool machine-scores written reasoning or estimates real-world effects.
+
+The main **Approach** menu entry opens `/approach/`, with the working capability
+definition, pipeline and step explanations. The homepage keeps a brief definition
+and links to this foundation page. Worked narratives and simulation controls stay
+in their own linked resources.
+Its diagram has seven numbered steps, a direct Evaluate → Understand return, a
+dotted Challenge → Understand entry, and continuous Refine at the center. The
+resulting capability acts on the problem through adoption and use. Each case keeps
+seven step questions plus an unnumbered refinement reflection. Original narratives,
+saved replay stage keys and the branching simulation's decision sequence retain
+their provenance and behavior. The case narratives now live separately in
+`public/capability-pipeline/case-narratives.js`; `cases.js` handles interaction.
+The shared illustration is authored in `src/assets/capability-cycle.svg`, imported
+by Approach and packaged into the case page by `scripts/build-capability-cycle.mjs`
+during `predev` / `prebuild`. Its common styling lives in `cycle.css`.
 
 The gallery and Experiments page also link to the existing Capability Pipeline
 at `/capability-pipeline/index.html#simulation`. The fragment opens “Choose your

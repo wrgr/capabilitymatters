@@ -34,10 +34,11 @@ class PipelinePublicationTests(unittest.TestCase):
     def test_approach_in_primary_navigation(self) -> None:
         """Expose the approach in the shared desktop/mobile navigation."""
         nav = (ROOT.parent.parent / 'src/components/NavBar.astro').read_text()
-        self.assertRegex(nav, r'capability-pipeline/index.html#cases", label: "Approach"')
+        self.assertRegex(nav, r'approach/", label: "Approach"')
         host = (ROOT / 'index.html').read_text()
         self.assertIn('← Capability Matters', host)
-        self.assertIn('Approach — The Capability Pipeline', host)
+        self.assertIn('Worked cases and simulation — The Capability Pipeline', host)
+        self.assertIn('href="/approach/"', host)
 
     def test_assets_resolve(self) -> None:
         """Resolve static assets and cross-links to Astro resource routes."""

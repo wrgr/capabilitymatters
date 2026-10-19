@@ -1,0 +1,29 @@
+---
+description: Require complete About this resource guidance on every new resource page.
+alwaysApply: true
+---
+
+# Required resource guidance
+
+Every new resource page must include the shared, collapsed **About this resource**
+card below its introduction and before its activity. This includes labs,
+simulations, games, prototypes, readings and resource collections, whether authored
+with Astro, React or standalone HTML.
+
+Provide resource-specific answers to all three questions: what it is, how to use
+its actual controls, and how it connects conceptually to LENS and learning
+engineering. Include at least two practical use steps. Do not substitute slogans,
+advertising or placeholders for conceptual connections.
+
+Use `src/components/ResourceAbout.astro` or the shared renderer in
+`src/lib/resource-about.mjs`. Keep keyboard access, native expanded-state semantics,
+mobile layout and collapsed default behavior intact.
+
+Every built HTML page is checked automatically. Never bypass the check by omitting
+a page from a test list or adding a broad directory exception. Exact exceptions
+in `src/data/resource-page-policy.json` need a specific, reviewed reason. Preserve
+immutable research artifacts and provide guidance in their host pages.
+
+Run `npm run build`, `npm run test:resource-guidance`,
+`npm run test:resource-about`, and `npm run test:resource-about:browser`.
+Both static and browser coverage are discovered from the completed build.
