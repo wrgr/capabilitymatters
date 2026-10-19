@@ -1,9 +1,8 @@
 ---
-// Homepage: dark navy landing experience led by system performance.
-// Uses Base with pageTheme="dark" so the NavBar + footer render on a dark
-// chrome. Interior pages keep the default cream/Charter shell.
+// Motivation explains why capability belongs in design; Start Here guides exploration.
 import Base from "../layouts/Base.astro";
 import "../styles/home.css";
+import "../styles/motivation.css";
 
 const base = import.meta.env.BASE_URL;
 const LENS_PROGRAM_URL =
@@ -20,7 +19,7 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
   title="Motivation · Capability Matters"
   description="Why human capability belongs in system design. Explore the motivation for Capability Matters and the Johns Hopkins LENS pathway."
   active="motivation"
-  pageTheme="dark"
+  pageTheme="warm"
 >
   <link slot="head" rel="canonical" href="https://capabilitymatters.org/" />
   <link
@@ -31,6 +30,7 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
 
   <section class="hero" id="argument">
     <h1>System performance depends on <em>what people can do.</em></h1>
+    <p class="hero-bridge motivation-purpose">This site features cases, labs and design briefs for exploring learning engineering: applying learning sciences, human-centered design and evidence to improve what people can do. This Motivation page explains why capability belongs in system design; <a href="/start-here/">Start Here</a> helps you choose a resource. The site is evolving, and individual drafts and unvalidated demonstrations are labeled where they appear.</p>
     <div class="hero-content">
       <div class="hero-intro">
         <p class="hero-sub">
@@ -44,13 +44,13 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
       <article class="lab-card" aria-labelledby="lab-card-title">
         <p class="lab-card-eyebrow">See the process in action</p>
         <h2 id="lab-card-title">Agentic AI Lab</h2>
-        <p class="lab-card-summary">Follow a team of specialist agents from a seed idea to a candidate product. Explore fictional workforce, school, and library projects, with the work shown.</p>
+        <p class="lab-card-summary">Follow a team of specialist AI agents from a seed idea to a candidate product. Fictional workforce, school and library problems make the decisions, disagreements and revisions available for practice without presenting them as deployments with real learners.</p>
         <ul class="lab-card-features" aria-label="Inside the lab">
           <li>Runnable demos</li>
           <li>Decision replays</li>
           <li>Working paper</li>
         </ul>
-        <a class="lab-card-link" href={base + "agentic-le/"}>Explore the lab <span aria-hidden="true">→</span></a>
+        <a class="lab-card-link" href={base + "agentic-le/"}>Explore the Agentic AI Lab <span aria-hidden="true">→</span></a>
         <p class="lab-card-note">Real agent runs on fictional problems. Human pilot approval and field evidence remain pending.</p>
       </article>
     </div>

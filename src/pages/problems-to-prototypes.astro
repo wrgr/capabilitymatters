@@ -12,6 +12,7 @@ import lxd4 from "../data/problems-to-prototypes/lxd-4.json";
 import lens1 from "../data/problems-to-prototypes/lens-1.json";
 import canonical from "../data/problems-to-prototypes/lens-canonical.json";
 import evidenceLibrary from "../data/problems-to-prototypes/evidence.json";
+import pipeline from "../data/capability-cycle.json";
 import meta from "../data/problems-to-prototypes/meta.json";
 import AiCritiqueLaunch from "../components/prototypes/AiCritiqueLaunch.astro";
 import prototypeStatus from "../data/prototypes/status.json";
@@ -73,18 +74,20 @@ const longLabel:Record<Collection,string>={
       <p><strong>{workingCount} working prototypes · {ideas.length - workingCount} design briefs awaiting a build.</strong> Filter by “Working prototype” below to try the current exercises. Working means the stated local interaction has been built, critically reviewed, and tested; it does not mean the broader concept is complete or validated.</p>
     </div>
     <aside class="loop">
-      <b>The eight-step loop</b>
-      <ol>{meta.designCycle.map((step)=><li>{step}</li>)}</ol>
+      <b>Seven steps with refinement throughout</b>
+      <ol>{pipeline.stages.slice(0,7).map(step=><li><details><summary>{step.label}</summary><p>{step.description}</p></details></li>)}</ol>
+      <details><summary>Refine throughout</summary><p>Use evidence to revisit any step. After Evaluate, return to Understand and reconsider the challenge.</p></details>
     </aside>
   </section>
 
   <section class="adventure container-wide" aria-labelledby="adventure-title">
     <h2 id="adventure-title">Try the whole systems process</h2>
-    <p>The Capability Pipeline connects the eight-step cycle to five worked examples and a fictional branching simulation. Make decisions, inspect consequences, and revisit earlier steps as the problem changes.</p>
+    <p>The Capability Pipeline connects the seven-step cycle with continuous refinement to five worked examples and a fictional branching simulation. Make decisions, inspect consequences, and revisit earlier steps as the problem changes.</p>
     <a class="try-prototype" href="/capability-pipeline/index.html#simulation">Try the simulation</a>
     <a class="try-prototype" href="/capability-pipeline/index.html#cases">Explore the worked examples</a>
   </section>
 
+  <section class="container-wide" aria-label="Collection key"><details><summary>What do AILE, LXD, LENS and LENS Canonical mean?</summary><dl>{Object.entries(longLabel).map(([short,full]) => <><dt><strong>{short}</strong></dt><dd>{full}{short === "LENS Canonical" ? ": recurring system-problem briefs in this collection; the label does not establish that a prototype is approved or validated." : ": a collection of design problems and candidate responses, not a rating of effectiveness."}</dd></>)}</dl></details></section>
   <section class="filters-shell">
     <div class="filters container-wide">
       <label><span>Keyword</span><input id="search" type="search" placeholder="Search gaps, prototypes, pedagogy…" /></label>
@@ -124,7 +127,7 @@ const longLabel:Record<Collection,string>={
             <section><h3>Questions worth carrying into the build</h3><ul>{idea.questions.map((q)=><li>{q}</li>)}</ul></section>
             <section>
               <div class="cycle-head"><div><small>LENS iteration cycle</small><h3>One possible first pass</h3></div><em>Refine → Understand</em></div>
-              <ol class="cycle">{cycleFor(idea).map(([name,text],i)=><li><span>{String(i+1).padStart(2,"0")}</span><div><b>{name}</b><p>{text}</p></div></li>)}</ol>
+              <ol class="cycle">{cycleFor(idea).map(([name,text],i)=><li><span>{i < 7 ? String(i+1).padStart(2,"0") : "↻"}</span><div><b>{name}</b><p>{text}</p></div></li>)}</ol>
             </section>
             <section class="sources"><h3>Evidence anchors</h3>
               <p class="note">These sources motivate the design logic; they do not establish that this specific prototype will work. That is what the first cycle is for.</p>

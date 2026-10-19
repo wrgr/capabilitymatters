@@ -9,7 +9,7 @@ const pdfVersion = createHash("sha256").update(readFileSync("public/papers/show-
 const sections = getHeadings().filter((heading) => heading.depth === 2).slice(1);
 ---
 
-<Base title="Show Your Work · LENS" active="experiments"
+<Base title="Show Your Work · LENS" active="show-your-work"
   description="A LENS community paper defining capability through coupled learner and system performance in pursuit of human flourishing.">
   <div class="paper-shell">
     <nav class="paper-actions" aria-label="Paper downloads">

@@ -56,7 +56,7 @@ const experiments: Experiment[] = [
     url: "https://capabilitymatters.org/capability-pipeline/index.html#simulation",
     host: "capabilitymatters.org/capability-pipeline",
     description:
-      "Explore the eight-step systems process through five worked examples and a branching teaching simulation. Make decisions, inspect consequences, revise your strategy, and compare branches; the fictional scenarios use explicit teaching assumptions.",
+      "Explore seven numbered steps, with continuous refinement, through five worked examples; a companion branching simulation preserves its original refinement phase. Make decisions, inspect consequences, revise your strategy, and compare branches; the fictional scenarios use explicit teaching assumptions.",
   },
   {
     title: "Rainbow Bug Dash",
@@ -145,6 +145,7 @@ const groups = [
   <div class="container directory-intro">
     <p>For a capability gap, design brief, and evaluation plan, visit <a href="/problems-to-prototypes/">Prototypes</a>.
       For documented examples and their sources, read the <a href="/case-studies/">Case Studies</a>.</p>
+    <details><summary>What do the experiment categories mean?</summary><dl>{groups.map(group => <><dt><strong>{group.title}</strong></dt><dd>{group.description}</dd></>)}</dl><p>A teaching lab offers guided practice; a research or practice project explores an approach; a creative demonstration illustrates a possibility. None of these labels is a claim of validated effectiveness.</p></details>
     <nav aria-label="Experiment categories">{groups.map((group) => <a href={"#" + group.id}>{group.title}</a>)}</nav>
   </div>
 

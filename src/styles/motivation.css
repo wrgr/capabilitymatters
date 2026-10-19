@@ -1,0 +1,45 @@
+/* Give the Motivation page a warm, readable palette while retaining its existing layout. */
+body.dark-shell.warm-shell {
+  --hp-navy: #fbf6ec;
+  --hp-navy-mid: #f0e7d8;
+  --hp-teal: #215f57;
+  --hp-teal-light: #215f57;
+  --hp-gold: #795514;
+  --hp-cream: #202b28;
+  --hp-text-muted: #48584f;
+  background: var(--hp-navy);
+  color: var(--hp-cream);
+}
+body.dark-shell.warm-shell header.site-nav.site-nav { background: #fbf6ec; border-color: #c6bcae; }
+body.dark-shell.warm-shell header.site-nav.site-nav a,
+body.dark-shell.warm-shell header.site-nav.site-nav .brand,
+body.dark-shell.warm-shell header.site-nav.site-nav .brand-text,
+body.dark-shell.warm-shell header.site-nav.site-nav .mobile-description,
+body.dark-shell.warm-shell header.site-nav.site-nav summary { color: #202b28; }
+body.dark-shell.warm-shell header.site-nav.site-nav .brand-mark { background: #215f57; color: #fff; }
+body.dark-shell.warm-shell header.site-nav.site-nav .desktop-nav a.active,
+body.dark-shell.warm-shell header.site-nav.site-nav .mobile-nav nav a.active { color: #215f57; text-decoration: underline; text-underline-offset: .3em; }
+body.dark-shell.warm-shell header.site-nav.site-nav .mobile-nav nav { background: #fbf6ec; border-color: #c6bcae; }
+body.dark-shell.warm-shell header.site-nav.site-nav .nav-tooltip { background: #f0e7d8; border-color: #c6bcae; color: #202b28; }
+body.dark-shell.warm-shell .hero .motivation-purpose { max-width: 65ch; margin-top: 1.5rem; }
+body.dark-shell.warm-shell .lab-card-summary,
+body.dark-shell.warm-shell .lab-card-features li,
+body.dark-shell.warm-shell .lab-card-note { color: #48584f; border-color: #c6bcae; }
+body.dark-shell.warm-shell .lab-card,
+body.dark-shell.warm-shell .domain-card { border-color: #c6bcae; }
+body.dark-shell.warm-shell .lab-card-link { color: #fff; background: #215f57; }
+body.dark-shell.warm-shell .lab-card-link:hover { background: #17473f; border-color: #17473f; color: #fff; }
+body.dark-shell.warm-shell footer { background: #f0e7d8; color: #48584f; border-color: #c6bcae; }
+body.dark-shell.warm-shell footer .footer-brand,
+body.dark-shell.warm-shell footer .footer-brand strong { color: #202b28; }
+body.dark-shell.warm-shell footer .muted,
+body.dark-shell.warm-shell footer .footer-copy,
+body.dark-shell.warm-shell footer .footer-links a { color: #48584f; }
+body.dark-shell.warm-shell :focus-visible { outline: 3px solid #795514; outline-offset: 4px; }
+
+body.dark-shell.warm-shell .capability-note { background: #f0e7d8; color: #202b28; }
+body.dark-shell.warm-shell .capability-note p,
+body.dark-shell.warm-shell .capability-note dt,
+body.dark-shell.warm-shell .capability-note dd,
+body.dark-shell.warm-shell .capability-note h2 { color: #202b28; }
+body.dark-shell.warm-shell footer a { color: #215f57; }
