@@ -152,13 +152,14 @@ const groups = [
     title="Experiments: labs and projects to explore"
     claim="Interactive teaching labs, research projects, and creative demonstrations. Each card identifies what you can open and explore."
     count={experiments.length}
-  />
+  >
+    <ResourceAbout slot="guidance" resource="experiments" />
+  </SectionHero>
 
   <div class="container directory-intro">
     <p>For a capability gap, design brief, and evaluation plan, visit <a href="/problems-to-prototypes/">Prototypes</a>.
       For documented examples and their sources, read the <a href="/case-studies/">Case Studies</a>.</p>
     <details><summary>What do the experiment categories mean?</summary><dl>{groups.map(group => <><dt><strong>{group.title}</strong></dt><dd>{group.description}</dd></>)}</dl><p>A teaching lab offers guided practice; a research or practice project explores an approach; a creative demonstration illustrates a possibility. None of these labels is a claim of validated effectiveness.</p></details>
-    <ResourceAbout resource="experiments" />
     <p><a href="/learning-map/">Find your path on the learning map</a> · Each project has a short guide to help you prepare, explore, and reflect.</p>
     <nav aria-label="Experiment categories">{groups.map((group) => <a href={"#" + group.id}>{group.title}</a>)}</nav>
   </div>

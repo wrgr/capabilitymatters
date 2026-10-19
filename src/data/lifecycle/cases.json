@@ -27,7 +27,7 @@
     "product": "/agentic-le/cases/school-investigation/",
     "domain_profile": "school-science-domain",
     "iteration_of": "school-science",
-    "scope": "Targeted product refinement; Instrument and Deploy not rerun"
+    "scope": "Targeted product refinement; Instrument and Experiment not rerun"
   },
   {
     "id": "workforce-conversation",
@@ -36,7 +36,7 @@
     "product": "/agentic-le/cases/workforce-conversation/",
     "domain_profile": "workforce-domain",
     "iteration_of": "workforce",
-    "scope": "Targeted product refinement; Instrument and Deploy not rerun"
+    "scope": "Targeted product refinement; Instrument and Experiment not rerun"
   },
   {
     "id": "library-journey",
@@ -45,6 +45,6 @@
     "product": "/agentic-le/cases/library-journey/",
     "domain_profile": "library-access-domain",
     "iteration_of": "library-access",
-    "scope": "Targeted product refinement; Instrument and Deploy not rerun"
+    "scope": "Targeted product refinement; Instrument and Experiment not rerun"
   }
 ]

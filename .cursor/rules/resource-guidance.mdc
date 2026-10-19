@@ -6,7 +6,7 @@ alwaysApply: true
 # Required resource guidance
 
 Every new resource page must include the shared, collapsed **About this resource**
-card below its introduction and before its activity. This includes labs,
+card directly under its title, before its introduction and activity. This includes labs,
 simulations, games, prototypes, readings and resource collections, whether authored
 with Astro, React or standalone HTML.
 

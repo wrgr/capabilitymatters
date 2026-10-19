@@ -122,7 +122,7 @@
           'Learner goals · intended capability','People · resources · operating conditions']);
         const loopY=shared.bottom+60;
         const learnerSteps=[['Create','Learning conditions'],['Implement','Teaching and practice'],['Investigate','Knowledge · skill · agency']];
-        const systemSteps=[['Create','Needs and design'],['Implement','Deploy and operate'],['Investigate','Technical fit and quality']];
+        const systemSteps=[['Create','Needs and design'],['Implement','Test and operate'],['Investigate','Technical fit and quality']];
         const learnerPlan=loopPlan(columnWidth,'Learner development',learnerSteps);
         const systemPlan=loopPlan(columnWidth,'System evolution',systemSteps);
         const stepHeight=Math.max(learnerPlan.stepHeight,systemPlan.stepHeight);

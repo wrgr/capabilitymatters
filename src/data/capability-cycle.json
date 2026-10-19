@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "stage_id_note": "The stable storage key model displays as Map. Historical journals and quoted artifacts retain their original wording.",
+  "stage_id_note": "Stable storage keys model and deploy display as Map and Experiment. Historical journals and quoted artifacts retain their original wording.",
   "stages": [
     {
       "id": "understand",
@@ -44,11 +44,11 @@
     },
     {
       "id": "deploy",
-      "label": "Deploy",
-      "description": "Introduce the intervention within justified bounds.",
-      "why": "Access, staffing and authority in the intended setting can differ from those of a pilot.",
-      "decision": "Match reach to permission and support; name a pause or rollback condition.",
-      "question": "Who can stop the rollout, and what support must be available?"
+      "label": "Experiment",
+      "description": "Test the instrumented intervention under representative conditions.",
+      "why": "A bounded experiment can reveal how access, staffing and support affect the result before wider use.",
+      "decision": "Specify the comparison, permissions, support and stopping rule for the test.",
+      "question": "What evidence would justify changing the intervention or moving toward deployment?"
     },
     {
       "id": "evaluate",

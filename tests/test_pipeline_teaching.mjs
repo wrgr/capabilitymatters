@@ -12,11 +12,13 @@ const plain=x=>JSON.parse(JSON.stringify(x));
 const old={};
 runInNewContext(execFileSync('git',['show','afd4896:public/capability-pipeline/scenario.js'],{encoding:'utf8'}),old);
 
-test('Map labels keep the same stable stage keys and legacy imports',()=>{
+test('Map and Experiment labels keep the same stable stage keys and legacy imports',()=>{
  const meta=JSON.parse(read('src/data/capability-cycle.json'));
  assert.equal(meta.stages.length,8);
  assert.equal(meta.stages[1].id,'model');assert.equal(meta.stages[1].label,'Map');
  assert.equal(D.cycle[1].title,'Map');
+ assert.equal(meta.stages[5].id,'deploy');assert.equal(meta.stages[5].label,'Experiment');
+ assert.equal(D.cycle[5].title,'Experiment');
  assert.deepEqual(plain(D.cycle.map(s=>s.id)),plain(old.LensData.cycle.map(s=>s.id)));
  E.validate(old.LensData.scenario); E.validate(D.scenario);
 });

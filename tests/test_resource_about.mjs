@@ -52,7 +52,8 @@ test('standalone packaging is idempotent and refuses missing or ambiguous bounda
     assert.equal(insertResourceAbout(once,key,boundary),once,file);
     assert.equal((once.match(/data-resource-about=/g)||[]).length,1,file);
     assert.match(once,/href="\/resource-about.css"/);
-    assert(once.indexOf('data-resource-about=') < once.lastIndexOf(boundary),file);
+    if (boundary === '</h1>') assert.match(once, /<\/h1><!-- resource-about:start --><details/, file);
+    else assert(once.indexOf('data-resource-about=') < once.lastIndexOf(boundary),file);
   }
   assert.throws(() => insertResourceAbout('<p>No boundary</p>','pipeline','<main>'),/Expected one/);
   assert.throws(() => insertResourceAbout('<main></main><main></main>','pipeline','<main>'),/Expected one/);

@@ -57,7 +57,7 @@
     "goal": "Connect a capability gap to a testable design decision.",
     "before": "Bring one task people need to perform more reliably. Keep the task distinct from your preferred solution.",
     "steps": [
-      "Follow one worked example through the eight-step cycle.",
+      "Follow one worked example through Understand, Map, Design, Build, Instrument, Experiment and Evaluate; use 8. Refine throughout.",
       "Try a simulation branch and explain your initial decision.",
       "Inspect the consequences, revise your strategy, and compare branches."
     ],

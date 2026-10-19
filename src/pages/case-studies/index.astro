@@ -36,6 +36,11 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
     <div class="container">
       <div class="eyebrow">Case Studies</div>
       <h1>Case Studies: What happened, and what can we learn?</h1>
+<ResourceAbout resource="case-library" content={{
+        what: 'A source-linked collection of documented cases, paired by domain to compare failures and successful interventions. Each case preserves its evidence qualifications and scope limits.',
+        how: ['Choose a domain and read both cases in the pair. Compare the system conditions, actions and outcomes before drawing a lesson.', 'Follow the sources and disclosures, then propose a new context where the explanation might fail. The linked casebook provides the wider reading edition.'],
+        connection: 'Contrasting cases support conditional judgment about human and system performance. LENS asks which capability, information, authority or support changed what people could do; a historical association alone does not establish that a proposed intervention will work elsewhere.',
+      }} />
       <p class="subhead">
         Documented examples of human capability and system performance, paired by
         domain to compare what failed with what worked. Each case connects the
@@ -48,11 +53,7 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
       </p>
       <p class="grounding">To try a teaching simulation, visit <a href={base + "experiments/"}>Experiments</a>.
         To develop and test an intervention, explore <a href={base + "problems-to-prototypes/"}>Prototypes</a>.</p>
-      <ResourceAbout resource="case-library" content={{
-        what: 'A source-linked collection of documented cases, paired by domain to compare failures and successful interventions. Each case preserves its evidence qualifications and scope limits.',
-        how: ['Choose a domain and read both cases in the pair. Compare the system conditions, actions and outcomes before drawing a lesson.', 'Follow the sources and disclosures, then propose a new context where the explanation might fail. The linked casebook provides the wider reading edition.'],
-        connection: 'Contrasting cases support conditional judgment about human and system performance. LENS asks which capability, information, authority or support changed what people could do; a historical association alone does not establish that a proposed intervention will work elsewhere.',
-      }} />
+
     </div>
   </header>
 

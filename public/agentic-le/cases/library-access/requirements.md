@@ -1,4 +1,4 @@
-Current cycle: Understand → Map → Design → Build → Instrument → Deploy → Evaluate → Refine. Map means map capabilities and conditions. Stage headings use current names; saved agent artifact text below retains its original wording.
+Current cycle: Understand → Map → Design → Build → Instrument → Experiment → Evaluate → Understand; 8. Refine throughout. Deployment puts the resulting capability to work on the challenge. Map means map capabilities and conditions. Stage headings use current names; saved agent artifact text below retains its original wording.
 
 # Understand
 
@@ -176,7 +176,7 @@ Mark language, keyboard, magnification, other access and shared-device condition
 NEXT ACTION AND GATES
 Present this revised packet with sequence 51’s whole-setting dossier and sequence 59’s claim ledger for accountable review. All roles, arrangements, technical findings and human decisions remain pending. Human invitations must wait for the prerequisites above; deployment and any pilot require their separate human gates. This draft establishes preparation only, not authorization or efficacy.
 
-# Deploy
+# Experiment
 
 STATUS AND BASIS
 Provisional integrated Deploy artifact for public deliberation. Sequence 37 supplies an untested Build candidate; 44 supplies blank evidence instruments; 49 proposes whole-setting review and withdrawal. Sequence 8’s framing gate remains unresolved. Sequence 20 separates supported planning from optional practice and learning inquiry. No participant observations, approvals, technical findings, measured outcomes or demonstrated proficiency exist. Field evidence remains pending.

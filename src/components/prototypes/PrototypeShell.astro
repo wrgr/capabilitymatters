@@ -38,6 +38,7 @@ const review = Object.values(reviewFiles).map((file) => (file as Record<string,a
       <div>
         <a class="back" href={`/problems-to-prototypes/#${idea.id}`}>← Back to this problem brief</a>
         <h1>{idea.title}</h1>
+<ResourceAbout resource={resourceKey} />
         <p class="lede">{idea.gap}</p>
       </div>
       <aside class="status-card">
@@ -46,7 +47,7 @@ const review = Object.values(reviewFiles).map((file) => (file as Record<string,a
         <p>This page is a teaching prototype, not a validated product. Its local interaction is intentionally inspectable so the design assumption stays visible.</p>
       </aside>
     </div>
-    <ResourceAbout resource={resourceKey} />
+
   </section>
 
   {learningGuide && <LearningGuideLink id={learningGuide.id} />}

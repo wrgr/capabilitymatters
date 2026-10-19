@@ -26,7 +26,7 @@ def refine_case(seed, parent, domain_profile, export):
         'status': 'preserved_parent_context',
         'parent_run_id': parent['id'], 'parent_head_hash': parent['events'][-1]['hash'],
         'prior_artifacts': {key: {'content_hash': val['content_hash'], 'revision': val['revision'], 'body': val['content']['body']} for key, val in old.items() if key in ('understand', 'model', 'design')},
-        'message': 'Public parent framing/mapping/design are background for a targeted Design refinement. They are preserved records, not newly generated contributions, reviewed requirements, human approvals or field results. The new seed proposes a stronger user experience; specialist agents must challenge and adapt it. Understand/Map/Instrument/Deploy are not rerun unless a named earlier requirement is invalidated.'})
+        'message': 'Public parent framing/mapping/design are background for a targeted Design refinement. They are preserved records, not newly generated contributions, reviewed requirements, human approvals or field results. The new seed proposes a stronger user experience; specialist agents must challenge and adapt it. Understand/Map/Instrument/Experiment are not rerun unless a named earlier requirement is invalidated.'})
     print(f'Run retained at {journal.path}', flush=True)
     try:
         journal.append('stage_started', 'design', 'orchestrator', {'status': 'targeted_refinement', 'parent_context_seq': context['seq'], 'human_approval': 'not supplied'})

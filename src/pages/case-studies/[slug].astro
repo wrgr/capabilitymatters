@@ -33,6 +33,14 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
           Part {d.partNumber} · {d.part} · <span class={`badge ${d.outcome}`}>{outcomeLabel}</span>
         </div>
         <h1>{d.title}</h1>
+<ResourceAbout resource={`case-${entry.id}`} content={{
+      what: `A documented case about ${d.title}. ${d.impact}`,
+      how: [
+        'Read the narrative and five beats, keeping the disclosures and scope limits in view.',
+        'Compare the LE insight with the LENS approach. Identify the system condition that changed what people could do, then check the cited evidence before applying the lesson elsewhere.'
+      ],
+      connection: `${d.leInsight} ${d.lensApproach}`,
+    }} />
       </div>
     </div>
     <div class="meta">
@@ -42,14 +50,7 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
 
     <p class="impact"><strong>Impact.</strong> {d.impact}</p>
 
-    <ResourceAbout resource={`case-${entry.id}`} content={{
-      what: `A documented case about ${d.title}. ${d.impact}`,
-      how: [
-        'Read the narrative and five beats, keeping the disclosures and scope limits in view.',
-        'Compare the LE insight with the LENS approach. Identify the system condition that changed what people could do, then check the cited evidence before applying the lesson elsewhere.'
-      ],
-      connection: `${d.leInsight} ${d.lensApproach}`,
-    }} />
+
 
     <div class="ask-row">
       <AskAI
