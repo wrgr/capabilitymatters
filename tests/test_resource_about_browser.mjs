@@ -22,12 +22,17 @@ const origin=`http://127.0.0.1:${server.address().port}`;
 await mkdir(output,{recursive:true});
 let browser;
 const checks=[];
-/** @param {import('playwright').Page} page @returns {Promise<void>} Verify the invitation, sidebar and complete carousel at desktop and mobile sizes. */
+/** @param {import('playwright').Page} page @returns {Promise<void>} Verify readable practice cards, invitation, sidebar and complete carousel at desktop and mobile sizes. */
 async function checkMotivation(page){
   for(const width of [1440,390]){
     await page.setViewportSize({width,height:1000});await page.goto(origin+'/');
     assert.equal(await page.locator('.community-roles li').count(),7);
     assert.equal(await page.locator('.domain-card').count(),7);
+    assert.equal(await page.locator('.toolbox-tools li').count(),9,'All areas remain visible as text');
+    const toolText=await page.locator('.toolbox-tools h3,.toolbox-tools p').evaluateAll(elements=>elements.map(e=>({size:parseFloat(getComputedStyle(e).fontSize),clipped:e.scrollWidth>e.clientWidth+1})));
+    assert(toolText.every(text=>text.size>=16&&!text.clipped),'Tool names and explanations stay readable without image zoom');
+    assert.equal(await page.locator('.toolbox-illustration').getAttribute('alt'),'','The illustration does not duplicate the readable list');
+
     assert.equal(await page.locator('a[href*="start-here"],a[href*="agentic-le"]').count(),0);
     const boxes=await page.evaluate(()=>{
       const a=document.querySelector('.motivation-main').getBoundingClientRect(),b=document.querySelector('.motivation-stats').getBoundingClientRect();
