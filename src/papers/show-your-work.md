@@ -87,6 +87,10 @@ We therefore propose recording support explicitly: what the person did, what col
 
 Human flourishing provides a reason to develop capability and a basis for questioning which capability deserves priority. We use it here as a normative commitment to agency, well-being, meaningful participation, and the opportunity to pursue valued purposes. These dimensions require interpretation with the people affected. They cannot be inferred from a productivity score or collapsed into one universal index.
 
+The OECD's *Education for Human Flourishing* (2025) places agency, meaning and security at the center of education's purpose in an AI-shaped world. [16] Its Learning Compass also orients education toward individual and collective well-being and gives learners an active role in shaping their future. [17] We draw on these conceptual frameworks for the human-purpose component; they are not evidence that a particular intervention produces flourishing.
+
+Our synthesis brings **human flourishing, learning sciences and systems engineering** together. The human, the science and the system must succeed together: people need meaningful benefit and opportunities to act; learning claims need credible evidence; and the complete work arrangement needs to function in its intended setting. Strong results in one area do not compensate for harm, unsupported claims or operational failure in another. Teams should examine all three throughout the cycle, including tensions between them.
+
 The United Nations Development Programme (UNDP) frames human development around expanding people's choices and distinguishes developing capacities from having opportunities to use them. [15] This perspective supports our concern with both learning and the conditions for action. LENS does not claim to reproduce a complete theory of human development. It asks a learning-engineering team to make the intended human benefit explicit and to examine whether its intervention supports it.
 
 A measurable outcome is not necessarily the right outcome. Completion, satisfaction, speed, eye contact, and a polished product can each be useful observations while remaining poor substitutes for the capability of interest. Choosing a criterion is a substantive decision about whose purposes the system serves and what tradeoffs are acceptable.
@@ -267,6 +271,10 @@ Show representative work. State what learners and systems each contribute, how t
 14. Gray-Roncal, W., and Diamond, J. (2026). *Capability Matters: A Casebook*. [Companion draft](https://capabilitymatters.org/capability-matters-casebook-draft.pdf). A source of case framing; empirical claims in this paper cite their primary studies directly.
 
 15. United Nations Development Programme. (1990). *Human Development Report 1990: Concept and Measurement of Human Development*. [Report and overview](https://hdr.undp.org/content/human-development-report-1990). Cited for the distinction between developing human capacities and opportunities to use them, not as validation of the LENS framework.
+
+16. OECD (2025). *Education for Human Flourishing: A Conceptual Framework*. OECD Publishing. [Publication and DOI](https://www.oecd.org/en/publications/education-for-human-flourishing_73d7cb96-en.html).
+
+17. OECD (2019, evolving framework). *The OECD Learning Compass 2030*. [Framework and concept notes](https://www.oecd.org/en/data/tools/oecd-learning-compass-2030.html).
 
 ### Acronym glossary
 

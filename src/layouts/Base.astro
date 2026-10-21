@@ -1,7 +1,9 @@
 ---
-// Shared metadata and navigation, with an optional workshop visual theme for the pilot pages.
+// Shared metadata, navigation and the workshop visual theme.
 import NavBar from "../components/NavBar.astro";
 import "../styles/workshop.css";
+import "../styles/site-sections.css";
+import "../styles/foundations.css";
 
 interface Props {
   title: string;
@@ -16,7 +18,7 @@ const {
   description = "Capability Matters — cases, experiments, and design work for engineering human capability in complex systems.",
   active,
   pageTheme = "light",
-  visualTheme,
+  visualTheme = "workshop",
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
@@ -37,7 +39,7 @@ const bodyClass = [pageTheme === "warm" ? "dark-shell warm-shell" : pageTheme ==
     <link rel="stylesheet" href={base + "accessibility/shared.css"} />
     <script is:inline src={base + "accessibility/preferences.js"}></script>
   </head>
-  <body class={bodyClass}>
+  <body class={bodyClass} data-section={active}>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <NavBar active={active} preferences={visualTheme === "workshop"} />
     {visualTheme !== "workshop" && <div data-accessibility-preferences></div>}
@@ -45,6 +47,7 @@ const bodyClass = [pageTheme === "warm" ? "dark-shell warm-shell" : pageTheme ==
       <slot />
     </main>
     <footer>
+      <div class="footer-foundation"><strong>The human, the science and the system must succeed together.</strong><a href={base + "approach/#foundations"}>Human flourishing · Learning sciences · Systems engineering →</a></div>
       <div class="footer-inner">
         <div class="footer-brand">
           <strong>Capability Matters</strong>

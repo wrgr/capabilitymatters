@@ -3,6 +3,7 @@ import ResourceAbout from "../../components/ResourceAbout.astro";
 // Case-study detail page. One route per case in the collection; the structured
 // salient fields render in a fixed order so all 14 cases read consistently,
 // with the MDX body (site-voice narrative) rendered in the lead slot.
+import FoundationCheck from "../../components/FoundationCheck.astro";
 import Base from "../../layouts/Base.astro";
 import LensBar from "../../components/LensBar.astro";
 import Disclosure from "../../components/Disclosure.astro";
@@ -74,6 +75,7 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
 
     <Disclosure coi={d.coi} evidenceFlag={d.evidenceFlag} />
 
+    <FoundationCheck context="case" compact />
     <div class="lead">
       <Content />
     </div>

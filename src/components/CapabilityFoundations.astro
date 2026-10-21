@@ -1,0 +1,16 @@
+---
+/** Connect human flourishing, learning sciences and systems engineering as the site's shared foundation. */
+interface Props { id?: string; }
+const {id = 'foundations'} = Astro.props;
+---
+<section class="capability-foundations" id={id} aria-labelledby={id + '-title'}>
+  <p class="foundation-kicker">Three foundations, one shared purpose</p>
+  <h2 id={id + '-title'}>The human, the science and the system must succeed together.</h2>
+  <p class="foundation-intro">Develop capability that serves people, rests on credible learning evidence, and works in the conditions where it matters.</p>
+  <dl class="foundation-grid">
+    <div><dt><span>Human</span>Human flourishing</dt><dd>People have a say, find purpose, and can act with dignity and security. Examine who benefits and who carries the cost.</dd><dd class="foundation-question">Does this help people live and act well?</dd></div>
+    <div><dt><span>Science</span>Learning sciences</dt><dd>Use research about learning, practice and transfer. Choose measures and comparisons that can test the explanation, including evidence that could challenge it.</dd><dd class="foundation-question">What supports the claim that learning occurred?</dd></div>
+    <div><dt><span>System</span>Systems engineering</dt><dd>Connect people, tools, tasks, authority and feedback. Test the complete arrangement, including its limits, maintenance and recovery.</dd><dd class="foundation-question">Can this work reliably in the intended setting?</dd></div>
+  </dl>
+  <p class="foundation-source">Our synthesis connects these fields. OECD’s <a href="https://www.oecd.org/en/publications/education-for-human-flourishing_73d7cb96-en.html">Education for Human Flourishing (2025)</a> informs the human-purpose component. Its <a href="https://www.oecd.org/en/data/tools/oecd-learning-compass-2030.html">Learning Compass</a> also connects agency with individual and collective well-being.</p>
+</section>

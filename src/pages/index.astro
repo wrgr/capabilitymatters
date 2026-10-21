@@ -1,5 +1,6 @@
 ---
 // Motivation invites a community to examine capability across roles and domains.
+import CapabilityFoundations from "../components/CapabilityFoundations.astro";
 import Base from "../layouts/Base.astro";
 import "../styles/home.css";
 import "../styles/motivation.css";
@@ -49,7 +50,7 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
     <p class="workshop-kicker">People. Systems. Possibility.</p>
     <div class="hero-lead"><h1>System performance depends on <em>what people can do.</em></h1><img class="hero-scene" src={base + "learning-together.svg"} width="360" height="360" alt="" fetchpriority="high" /></div>
     <p class="hero-bridge motivation-purpose">Capability Matters brings people together around a shared question: how do we help people do work that matters? Explore cases, labs and design briefs, bring your experience, and help us test what works.</p>
-    <p class="hero-bridge">Learning engineering connects learning sciences, human-centered design and evidence to improve capability. You don't need to call yourself a learning engineer to take part.</p>
+    <p class="hero-bridge">Learning engineering connects human flourishing, learning sciences and systems engineering to improve capability. You don't need to call yourself a learning engineer to take part.</p>
     <div class="workshop-actions"><a class="workshop-primary" href={base + "case-studies/"}>Explore a real case <span aria-hidden="true">↗</span></a><a href={base + "microgpt/#letters"}>Try a learning lab →</a></div>
   </section>
 
@@ -127,6 +128,8 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
     </div>
   </aside>
   </div>
+
+  <CapabilityFoundations />
 
   <section class="toolbox-feature" aria-labelledby="toolbox-heading">
     <div class="toolbox-feature-header">

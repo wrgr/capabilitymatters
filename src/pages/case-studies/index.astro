@@ -5,6 +5,7 @@
 // learning engineering. Cases are grouped by topical part and shown as
 // failure/success pairs, matching the book's per-part structure.
 import ResourceAbout from "../../components/ResourceAbout.astro";
+import FoundationCheck from "../../components/FoundationCheck.astro";
 import Base from "../../layouts/Base.astro";
 import AskAI from "../../components/AskAI.astro";
 import CaseIcon from "../../components/CaseIcon.astro";
@@ -31,7 +32,7 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
 ---
 
 <Base title="Case Studies · LENS" active="case-studies">
-  <aside class="container" aria-label="Learning orientation"><p><a href="/learning-map/">Find your path through the site</a>. For a first reading, compare one paired case: what did people need to do, how did the system support or constrain them, and what evidence supports your explanation?</p></aside>
+
   <header class="hero">
     <div class="container">
       <div class="eyebrow">Case Studies</div>
@@ -57,7 +58,9 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
     </div>
   </header>
 
+  <aside class="container" aria-label="Learning orientation"><p><a href="/learning-map/">Find your path through the site</a>. For a first reading, compare one paired case: what did people need to do, how did the system support or constrain them, and what evidence supports your explanation?</p></aside>
   <div class="container">
+    <FoundationCheck context="case" />
     <p><strong>How to read the cards:</strong> “What failed” and “What worked” describe the reported outcome in the case, not a judgment of the people involved. Paired cases invite comparison; they do not establish that one factor caused an outcome. Competency tags identify the LENS practices exercised, while topic domains identify the setting. Open a case to examine its sources and limits.</p>
     {grouped.map(([num, part]) => (
       <section class="part">

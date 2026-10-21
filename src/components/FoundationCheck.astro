@@ -1,0 +1,31 @@
+---
+/** Turn the three foundations into practical reading and design questions for each kind of resource. */
+interface Props { context: 'case' | 'experiment' | 'prototype'; compact?: boolean; }
+const {context, compact = false} = Astro.props;
+const questions = {
+  case: [
+    ['Human', 'Who gained or lost agency, opportunity or well-being? Whose experience is missing from the record?'],
+    ['Science', 'What evidence supports the proposed learning explanation, and what other causes could explain the outcome?'],
+    ['System', 'Which tools, responsibilities, interfaces or conditions enabled the result or prevented recovery?'],
+  ],
+  experiment: [
+    ['Human', 'Who could benefit, participate or be excluded? What would make the activity meaningful to them?'],
+    ['Science', 'What can you observe here, and what further evidence would be needed to establish learning or transfer?'],
+    ['System', 'What changes when this activity moves into a real setting with different resources and constraints?'],
+  ],
+  prototype: [
+    ['Human', 'Whose purpose does this serve, and how can affected people shape, question or decline it?'],
+    ['Science', 'Which learning assumption is being tested? What result would change your explanation or next design?'],
+    ['System', 'Who operates, supports and recovers the intervention, and under what conditions can it work?'],
+  ],
+};
+---
+{compact ? <details class="foundation-check compact">
+  <summary>Consider the human, the science and the system</summary>
+  <dl>{questions[context].map(([name, question]) => <div><dt>{name}</dt><dd>{question}</dd></div>)}</dl>
+  <a href="/approach/#foundations">Explore the three foundations →</a>
+</details> : <section class="foundation-check" aria-label="Three questions to carry into this resource">
+  <h2>Keep all three in view.</h2>
+  <dl>{questions[context].map(([name, question]) => <div><dt>{name}</dt><dd>{question}</dd></div>)}</dl>
+  <a href="/approach/#foundations">Human flourishing · Learning sciences · Systems engineering →</a>
+</section>}

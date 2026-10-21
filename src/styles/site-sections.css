@@ -1,0 +1,71 @@
+/* Extend the workshop identity to directories, case narratives, the Approach and shared resource shells. */
+body.workshop-shell .section-hero,
+body.workshop-shell[data-section="case-studies"] main > .hero { background: #123e49; border-bottom: .5rem solid #efbd66; }
+body.workshop-shell .section-hero .container,
+body.workshop-shell[data-section="case-studies"] .hero .container { max-width: 76rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+body.workshop-shell .section-hero h1,
+body.workshop-shell[data-section="case-studies"] .hero h1 { color: #fffdf7; font-size: clamp(2.4rem, 4.2vw, 4rem); line-height: 1.08; font-weight: 400; max-width: 25ch; }
+body.workshop-shell .section-hero :is(.eyebrow,.count),
+body.workshop-shell[data-section="case-studies"] .hero .eyebrow { color: #f3c56f; font-weight: 700; }
+body.workshop-shell .section-hero :is(.claim,.question),
+body.workshop-shell[data-section="case-studies"] .hero .subhead { color: #fffdf7; max-width: 65ch; font-size: 1.12rem; }
+body.workshop-shell .section-hero .resource-about,
+body.workshop-shell[data-section="case-studies"] .hero .resource-about { max-width: 58rem; }
+body.workshop-shell[data-section="case-studies"] .hero .grounding { background: transparent; border-left: 2px solid #efbd66; color: #e3eeeb; padding-block: .4rem; font-size: .95rem; }
+body.workshop-shell[data-section="case-studies"] .hero .grounding :is(a,strong) { color: #a9e3da; }
+body.workshop-shell[data-section="case-studies"] main > .container { max-width: 76rem; }
+body.workshop-shell[data-section="case-studies"] .part { margin-top: 3rem; }
+body.workshop-shell[data-section="case-studies"] .part h2 { font-size: 1.9rem; font-weight: 400; }
+body.workshop-shell[data-section="case-studies"] .pnum { border-radius: 50% 50% 50% 4%; padding: .3rem .65rem; }
+body.workshop-shell[data-section="case-studies"] .pair .card { background: #fffdf7; border-radius: 0 18px 0 0; padding: 1.5rem; }
+body.workshop-shell[data-section="case-studies"] .pair .card.fail { background: #fbf0e5; border-top-color: #9a452f; }
+body.workshop-shell[data-section="case-studies"] .pair .card.success { background: #edf3ee; border-top-color: #336b55; }
+body.workshop-shell[data-section="case-studies"] .pair .card h3 { font-size: 1.5rem; }
+body.workshop-shell[data-section="case-studies"] .pair .card :is(p,.year,.more) { font-size: 1rem; }
+body.workshop-shell[data-section="case-studies"] .pair .tag { font-size: .8rem; }
+body.workshop-shell[data-section="case-studies"] .case { max-width: 72rem; }
+body.workshop-shell[data-section="case-studies"] .case .title-row { padding: 1.75rem 0; border-top: 4px solid #145c64; }
+body.workshop-shell[data-section="case-studies"] .case h1 { font-size: clamp(2.2rem, 4vw, 3.8rem); font-weight: 400; }
+body.workshop-shell[data-section="case-studies"] .case .impact { background: #edf3ee; border-left: 4px solid #145c64; padding: 1.25rem; max-width: none; }
+body.workshop-shell[data-section="experiments"] .container { max-width: 76rem; }
+body.workshop-shell[data-section="experiments"] .section-grid section > h2 { font-size: 2.1rem; font-weight: 400; padding-top: 1rem; border-top: 3px solid #145c64; }
+body.workshop-shell[data-section="experiments"] .card { background: #edf3ee; border-radius: 0 18px 0 0; border: 0; border-top: 3px solid #145c64; padding: 1.5rem; }
+body.workshop-shell[data-section="experiments"] #creative .card { background: #f8ead4; border-top-color: #ad592d; }
+body.workshop-shell[data-section="experiments"] #research .card { background: #fffdf7; border: 1px solid #bdceca; border-top: 3px solid #557d69; }
+body.workshop-shell[data-section="experiments"] .card :is(.card-summary,.card-link,.card-host) { font-size: 1rem; }
+body.workshop-shell[data-section="experiments"] .card-title { font-size: 1.5rem; }
+body.workshop-shell[data-section="experiments"] .format-chip { background: #fffdf7; color: #145c64; font-size: .85rem; }
+body.workshop-shell[data-section="experiments"] .featured-banner { background: #f8ead4; border-top: 3px solid #ad592d; }
+body.workshop-shell[data-section="prototypes"] .intro .loop { background: #edf3ee; border: 0; border-top: 4px solid #145c64; border-radius: 0 24px 0 0; }
+body.workshop-shell[data-section="prototypes"] .adventure { border-left: 4px solid #ad592d; background: #f8ead4; }
+body.workshop-shell[data-section="prototypes"] .filters-shell { background: #edf3ee; border-block: 1px solid #bdceca; }
+body.workshop-shell[data-section="prototypes"] .gallery .card { background: #fffdf7; border: 1px solid #bdceca; border-top: 4px solid #145c64; border-radius: 0 20px 0 0; }
+body.workshop-shell[data-section="prototypes"] .gallery .card:nth-child(3n + 2) { border-top-color: #ad592d; }
+body.workshop-shell[data-section="prototypes"] .gallery .card > h2 { font-size: 1.6rem; line-height: 1.2; }
+body.workshop-shell[data-section="prototypes"] .gallery .example { background: #edf3ee; border: 0; border-left: 3px solid #557d69; }
+body.workshop-shell[data-section="prototypes"] .try-prototype { background: #145c64; color: #fffdf7; padding: .7rem 1rem; border-radius: 4px; }
+body.workshop-shell[data-section="prototypes"] .prototype-hero { border-top: 4px solid #145c64; margin-top: 2rem; }
+body.workshop-shell[data-section="prototypes"] .prototype-hero h1 { font-size: clamp(2.3rem, 4vw, 3.8rem); line-height: 1.1; font-weight: 400; }
+body.workshop-shell[data-section="prototypes"] .status-card { background: #f8ead4; border: 0; border-left: 4px solid #ad592d; border-radius: 0 22px 0 0; }
+body.workshop-shell[data-section="prototypes"] .workbench-app { border-top: 4px solid #145c64; border-radius: 0 20px 0 0; }
+body.workshop-shell[data-section="approach"] .approach { max-width: 76rem; }
+body.workshop-shell[data-section="approach"] .approach > header { background: #123e49; border-bottom: .5rem solid #efbd66; padding: clamp(1.5rem, 4vw, 3rem); }
+body.workshop-shell[data-section="approach"] .approach > header h1 { color: #fffdf7; font-size: clamp(3rem, 6vw, 5rem); font-weight: 400; }
+body.workshop-shell[data-section="approach"] .approach > header .eyebrow { color: #f3c56f; }
+body.workshop-shell[data-section="approach"] .approach > header .intro { color: #fffdf7; font-size: 1.15rem; max-width: 65ch; }
+body.workshop-shell[data-section="approach"] .approach > section > h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 400; }
+body.workshop-shell[data-section="approach"] .steps li { background: #edf3ee; border: 0; border-top: 3px solid #145c64; border-radius: 0 18px 0 0; }
+body.workshop-shell[data-section="approach"] .steps li:nth-child(3n + 2) { background: #f8ead4; border-top-color: #ad592d; }
+body.workshop-shell[data-section="approach"] .steps li p { font-size: 1rem; }
+body.workshop-shell[data-section="approach"] .refine { background: #123e49; color: #fffdf7; border-left-color: #efbd66; }
+body.workshop-shell[data-section="approach"] .refine h3 { color: #f3c56f; }
+body.workshop-shell .prototype-foundations { padding-block: 0; }
+body.workshop-shell .prototype-foundations .foundation-check { margin-block: 0; }
+html[data-a11y-contrast] .workshop-shell .try-prototype { background: #fff !important; color: #004e60 !important; border: 2px solid #111 !important; }
+@media(max-width:700px) {
+  body.workshop-shell .section-hero h1,body.workshop-shell[data-section="case-studies"] .hero h1 { font-size: 2.3rem; }
+  body.workshop-shell[data-section="case-studies"] .pair { grid-template-columns: minmax(0,1fr); }
+}
+/* Native select labels in flex rows must shrink when text is enlarged. */
+body.workshop-shell .workbench-app label { min-width: 0; max-width: 100%; }
+body.workshop-shell .workbench-app :is(input,select,textarea) { min-width: 0; max-width: 100%; }

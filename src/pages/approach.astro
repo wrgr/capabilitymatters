@@ -1,5 +1,6 @@
 ---
 /** Explain capability and the iterative approach before visitors enter worked examples. */
+import CapabilityFoundations from '../components/CapabilityFoundations.astro';
 import Base from '../layouts/Base.astro';
 import ResourceAbout from '../components/ResourceAbout.astro';
 import cycle from '../data/capability-cycle.json';
@@ -13,7 +14,7 @@ const guide = {
     'Start with the capability definition, then follow the pipeline from a challenge through Evaluate and back to Understand. Read the text explanation if the diagram is difficult to view.',
     'Use each step’s decision cue and question on a problem you know. Follow the worked-case or simulation link when you want to examine an example or test a decision.'
   ],
-  connection: 'Learning engineering connects learning sciences, human-centered design, systems thinking and evidence-informed iteration. In LENS, this means examining what people can do together with the tools, authority and opportunities that enable action. The cycle makes those assumptions and evidence needs explicit; completing its steps alone does not demonstrate learning or impact.',
+  connection: 'Learning engineering connects human flourishing, learning sciences and systems engineering through evidence-informed iteration. In LENS, this means examining what people can do together with the tools, authority and opportunities that enable action. The cycle makes those assumptions and evidence needs explicit; completing its steps alone does not demonstrate learning or impact.',
   links: [{label: 'Capability Matters: reasoning and evidence', href: '/show-your-work/'}, {label: 'Learning Engineering Commons', href: 'https://lecommons.org/'}]
 };
 ---
@@ -26,24 +27,22 @@ const guide = {
       <p class="eyebrow">From challenge to capability</p>
       <h1>Approach</h1>
       <ResourceAbout resource="approach" content={guide} />
-      <p class="intro">Develop capability by understanding the work, changing the conditions for action, and using evidence to revise decisions. The pipeline offers seven steps with 8. Refine throughout.</p>
+      <p class="intro">Bring human flourishing, learning sciences and systems engineering to the same challenge. Understand the work, change the conditions for action, and use evidence to revise decisions. The pipeline offers seven steps with 8. Refine throughout.</p>
     </header>
     <nav class="on-page" aria-label="On this page">
-      <a href="#capability-definition">Capability</a><a href="#pipeline">The pipeline</a><a href="#steps">Step explanations</a><a href="#try-it">Explore examples</a>
+      <a href="#capability-definition">Capability</a><a href="#foundations">Human, science and system</a><a href="#pipeline">The pipeline</a><a href="#steps">Step explanations</a><a href="#try-it">Explore examples</a>
     </nav>
 
     <section id="capability-definition" aria-labelledby="capability-title">
       <p class="eyebrow">A working definition</p>
       <h2 id="capability-title">What we mean by capability</h2>
       <p class="definition">The capacity of a person, team, or human-system arrangement to accomplish valued work under stated conditions, with usable opportunities to act.</p>
-      <dl class="pillars">
-        <div><dt>People</dt><dd>Knowledge, judgment, action, and the ability to recognize and recover from errors.</dd></div>
-        <div><dt>Systems</dt><dd>Accessible tools, reliable information, resources, authority, and coordination that make competent action possible.</dd></div>
-        <div><dt>Purpose</dt><dd>Human flourishing: agency, well-being, meaningful participation, and attention to who benefits and who bears the burden.</dd></div>
-      </dl>
+
       <p>We examine output quality, capability, learning, and impact as distinct claims. Each needs evidence that fits the work, its conditions, and the decision being made. A good output alone does not establish that someone learned, can perform independently, or can act in another setting.</p>
       <p class="muted">William Gray-Roncal &amp; James Diamond · Working definition for community discussion, developed in <a href="/show-your-work/">Capability Matters</a>.</p>
     </section>
+
+    <CapabilityFoundations />
 
     <section id="pipeline" aria-labelledby="pipeline-title">
       <h2 id="pipeline-title">The capability pipeline</h2>
@@ -100,9 +99,6 @@ const guide = {
   .on-page { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin: 2rem 0; font-family: var(--sans); }
   .on-page a { text-decoration: underline; text-underline-offset: .2em; }
   section { border-top: 1px solid var(--border); padding: 2.5rem 0; }
-  .pillars { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; font-family: var(--sans); }
-  dt { font-weight: 700; }
-  dd { margin: .4rem 0 1rem; }
   figure { margin: 2rem 0 0; padding: 1rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); }
   .diagram-viewport { overflow-x: auto; }
   .diagram-hint { font: .9rem/1.6 var(--sans); }
@@ -117,5 +113,5 @@ const guide = {
   .resources { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.5rem; }
   .resources article { padding: 1.4rem; border: 1px solid var(--border); border-radius: 8px; }
   .resources a { text-decoration: underline; text-underline-offset: .2em; }
-  @media (max-width: 600px) { .pillars, .resources, .steps { grid-template-columns: minmax(0,1fr); } figure { padding: .5rem; } }
+  @media (max-width: 600px) { .resources, .steps { grid-template-columns: minmax(0,1fr); } figure { padding: .5rem; } }
 </style>
