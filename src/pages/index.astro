@@ -5,6 +5,19 @@ import "../styles/home.css";
 import "../styles/motivation.css";
 import "../styles/toolbox.css";
 
+// Complementary areas of practice, rather than a second competency framework.
+const toolbox = [
+  { name: "Learning design", purpose: "Shape practice, feedback and support around the work people need to do." },
+  { name: "Learning sciences & research", purpose: "Draw on evidence about how people learn, retain and transfer what they know." },
+  { name: "AI & emerging technology", purpose: "Test how new technology can support learning and work." },
+  { name: "Data & learning analytics", purpose: "Make progress, capability gaps and consequences visible." },
+  { name: "Human–machine teaming", purpose: "Define roles, oversight and recovery when people and technology work together." },
+  { name: "Systems engineering & design thinking", purpose: "Connect requirements, people, tools and workflows; test assumptions in context." },
+  { name: "Communication & leadership", purpose: "Build shared understanding and coordinate decisions across a team." },
+  { name: "Ethics & compliance", purpose: "Examine rights, access, responsibilities and constraints throughout the work." },
+  { name: "Domain application", purpose: "Bring the realities of the job and the experience of the people affected." },
+];
+
 const base = import.meta.env.BASE_URL;
 const LENS_PROGRAM_URL =
   "https://education.jhu.edu/masters-programs/master-of-education-in-learning-design-and-technology/learning-engineering-next-generation-systems-concentration/";
@@ -21,6 +34,7 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
   description="Why human capability belongs in system design. Explore the motivation for Capability Matters and the Johns Hopkins LENS pathway."
   active="motivation"
   pageTheme="warm"
+  visualTheme="workshop"
 >
   <link slot="head" rel="canonical" href="https://capabilitymatters.org/" />
   <link
@@ -32,9 +46,25 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
   <div class="motivation-layout">
     <div class="motivation-main">
   <section class="hero" id="argument">
-    <h1>System performance depends on <em>what people can do.</em></h1>
+    <p class="workshop-kicker">People. Systems. Possibility.</p>
+    <div class="hero-lead"><h1>System performance depends on <em>what people can do.</em></h1><img class="hero-scene" src={base + "learning-together.svg"} width="360" height="360" alt="" fetchpriority="high" /></div>
     <p class="hero-bridge motivation-purpose">Capability Matters brings people together around a shared question: how do we help people do work that matters? Explore cases, labs and design briefs, bring your experience, and help us test what works.</p>
     <p class="hero-bridge">Learning engineering connects learning sciences, human-centered design and evidence to improve capability. You don't need to call yourself a learning engineer to take part.</p>
+    <div class="workshop-actions"><a class="workshop-primary" href={base + "case-studies/"}>Explore a real case <span aria-hidden="true">↗</span></a><a href={base + "microgpt/#letters"}>Try a learning lab →</a></div>
+  </section>
+
+  <section class="evidence-studio" aria-labelledby="evidence-studio-title">
+    <div class="evidence-studio-intro">
+      <p class="workshop-kicker">Try a judgment call</p>
+      <h2 id="evidence-studio-title">What counts as <em>ready?</em></h2>
+      <p>A team has finished its training. What evidence would you ask for before putting a new capability to work?</p>
+      <a href={base + "show-your-work/#6-what-counts-as-enough-evidence"}>Explore what evidence can tell us →</a>
+    </div>
+    <div class="evidence-choices">
+      <details><summary>Completion records</summary><p>Completion shows participation. To assess readiness, also observe people doing representative work under the expected conditions.</p></details>
+      <details><summary>Performance on representative work</summary><p>Observe the work, including exceptions and recovery. Record the tools, help and conditions so the capability claim matches the evidence.</p></details>
+      <details><summary>A confidence survey</summary><p>Confidence can reveal concerns and guide support. Compare it with observed performance before using it as evidence of readiness.</p></details>
+    </div>
   </section>
 
   <section class="community-invitation" aria-labelledby="community-title">
@@ -99,16 +129,23 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
   </div>
 
   <section class="toolbox-feature" aria-labelledby="toolbox-heading">
-    <div class="toolbox-feature-copy">
-      <p class="toolbox-eyebrow">Learning engineering in practice</p>
-      <h2 id="toolbox-heading">The right tools, <em>working together.</em></h2>
-      <p>Learning engineering draws on a toolbox of complementary methods and expertise—from learning sciences and design to systems engineering, analytics, human–machine teaming, and domain expertise.</p>
-      <p>No one practitioner has to master every tool. The important work happens at their interfaces: assembling the right people and methods around a real capability problem.</p>
+    <div class="toolbox-feature-header">
+      <div class="toolbox-feature-copy">
+        <p class="toolbox-eyebrow">Learning engineering in practice</p>
+        <h2 id="toolbox-heading">The right tools, <em>working together.</em></h2>
+        <p>Learning engineering brings complementary methods and expertise together around a capability challenge. Skills can span domains, and these examples represent only some of the fields and forms of expertise that can contribute.</p>
+      </div>
+      <img class="toolbox-illustration" src={base + "learning-engineering-toolbox.svg"} width="1140" height="580" loading="lazy" decoding="async" alt="" />
     </div>
-    <figure class="toolbox-feature-figure">
-      <img src={base + "learning-engineering-toolbox.svg"} width="1200" height="650" loading="lazy" decoding="async" alt="An open toolbox with nine tools for learning design; learning sciences and research; AI and emerging technology; data and learning analytics; human–machine teaming; systems engineering and design thinking; communication and leadership; ethics and compliance; and domain application." />
-      <figcaption>Different competencies are tools for a shared purpose—not separate definitions of learning engineering.</figcaption>
-    </figure>
+    <ul class="toolbox-tools" aria-label="Complementary methods and expertise">
+      {toolbox.map((tool) => (
+        <li>
+          <h3>{tool.name}</h3>
+          <p>{tool.purpose}</p>
+        </li>
+      ))}
+    </ul>
+    <p class="toolbox-shared-purpose">No one person needs to master every tool. Bring your expertise and work with others to connect it. <a href={base + "approach/"}>See how the work comes together →</a></p>
   </section>
 
   <section class="domains" id="domains" aria-roledescription="carousel" aria-labelledby="domains-title">
@@ -116,7 +153,7 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
       <h2 id="domains-title">Find your domain. Bring your experience.</h2>
       <p>Use these resources to explore a question from your work. Browse the domains with the buttons, keyboard arrows or a swipe.</p>
     </div>
-    <p class="domain-invitation">Your field may look different. Bring your own challenge and use what helps.</p>
+    <p class="domain-invitation">These domains are examples of where capability work happens. Bring your own field, experience and challenge, and use what helps.</p>
     <div class="domain-controls" aria-label="Browse domains"><button type="button" data-domain-direction="-1" aria-controls="domain-carousel" aria-label="Previous domain">← Previous</button><span id="domain-position" aria-live="polite" aria-atomic="true">1 of 7 · Healthcare</span><button type="button" data-domain-direction="1" aria-controls="domain-carousel" aria-label="Next domain">Next →</button></div>
     <div class="domain-cards" id="domain-carousel" tabindex="0" role="group" aria-label="Domains; use left and right arrow keys to browse">
       <div class="domain-card" role="group" aria-roledescription="slide">
@@ -171,7 +208,7 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
   </section>
 
   <section class="capability-note" aria-labelledby="capability-note-title">
-    <p class="capability-note-eyebrow">From Show Your Work · A community working paper</p>
+    <p class="capability-note-eyebrow">From our community working paper</p>
     <h2 id="capability-note-title">What we mean by capability</h2>
     <p class="capability-note-definition">The capacity of a person, team, or human-system arrangement to accomplish valued work under stated conditions, with usable opportunities to act.</p>
     <div class="capability-note-footer">

@@ -1,19 +1,49 @@
-/* Present the shared competency toolbox illustration within the compact Motivation layout. */
+/* Keep the toolbox metaphor while presenting its meaning as readable, responsive text. */
 body.dark-shell .toolbox-feature {
-  display: grid;
-  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-  align-items: center;
-  gap: 2rem;
   max-width: 76rem;
   margin: 0 auto;
   padding: 2rem var(--page-pad);
   border-top: 1px solid #c9d6d4;
 }
-body.dark-shell .toolbox-eyebrow { color: var(--hp-gold); font: 600 .75rem var(--hp-sans); text-transform: uppercase; letter-spacing: .1em; }
+body.dark-shell .toolbox-feature-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 15rem;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.25rem;
+}
+body.dark-shell .toolbox-eyebrow { color: var(--hp-gold); font: 600 .8rem var(--hp-sans); text-transform: uppercase; letter-spacing: .1em; }
 body.dark-shell .toolbox-feature h2 { font: 400 clamp(1.8rem, 3vw, 2.6rem)/1.2 var(--hp-serif); margin: .75rem 0; }
 body.dark-shell .toolbox-feature h2 em { color: var(--hp-teal-light); }
-body.dark-shell .toolbox-feature-copy > p:not(.toolbox-eyebrow) { font: 400 1rem/1.65 var(--hp-sans); color: var(--hp-text-muted); }
-body.dark-shell .toolbox-feature-figure { margin: 0; min-width: 0; }
-body.dark-shell .toolbox-feature-figure img { display: block; width: 100%; height: auto; border-radius: 12px; }
-body.dark-shell .toolbox-feature-figure figcaption { margin: .75rem 0 0; font: 400 .85rem/1.5 var(--hp-sans); color: var(--hp-text-muted); text-align: left; }
-@media (max-width: 900px) { body.dark-shell .toolbox-feature { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
+body.dark-shell .toolbox-feature-copy > p:not(.toolbox-eyebrow),
+body.dark-shell .toolbox-shared-purpose { font: 400 1rem/1.65 var(--hp-sans); color: var(--hp-text-muted); }
+body.dark-shell .toolbox-illustration { display: block; width: 100%; height: auto; border-radius: 12px; }
+body.dark-shell .toolbox-tools {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body.dark-shell .toolbox-tools li {
+  min-width: 0;
+  padding: 1.1rem 1.2rem;
+  background: #fffdf8;
+  border: 1px solid #c9d6d4;
+  border-top: 3px solid #215b70;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+body.dark-shell .toolbox-tools h3 { margin: 0 0 .5rem; color: var(--hp-cream); font: 700 1.1rem/1.35 var(--hp-sans); }
+body.dark-shell .toolbox-tools p { margin: 0; color: var(--hp-text-muted); font: 400 1rem/1.5 var(--hp-sans); }
+body.dark-shell .toolbox-shared-purpose { margin: 1.25rem 0 0; max-width: 70ch; }
+body.dark-shell .toolbox-shared-purpose a { color: var(--hp-teal-light); text-decoration: underline; text-underline-offset: .2em; }
+@media (max-width: 900px) {
+  body.dark-shell .toolbox-tools { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  body.dark-shell .toolbox-feature-header { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  body.dark-shell .toolbox-illustration { width: 11rem; max-width: 100%; }
+  body.dark-shell .toolbox-tools { grid-template-columns: minmax(0, 1fr); }
+}

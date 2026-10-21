@@ -1,0 +1,94 @@
+/* Give the three pilot pages a shared workshop identity while preserving calm, adaptable reading surfaces. */
+body.workshop-shell {
+  --bg: #fffdf7;
+  --ink: #183d46;
+  --ink-soft: #294c54;
+  --muted: #4f6266;
+  --accent: #8a442e;
+  --accent-2: #145c64;
+  --border: #bdceca;
+  --tint: #edf3ee;
+  --tint-warm: #f8ead4;
+  background: var(--bg);
+  color: var(--ink);
+}
+.workshop-shell .site-nav .nav-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .45rem 1rem;
+  max-width: 80rem;
+}
+.workshop-shell .site-nav .brand { color: #183d46; }
+.workshop-shell .site-nav .brand-mark { background: #145c64; border-radius: 50% 50% 50% 5%; height: 2.3rem; }
+.workshop-shell .site-nav .desktop-nav,
+.workshop-shell .site-nav .mobile-nav { grid-row: 2; grid-column: 1 / -1; }
+.workshop-shell .site-nav .mobile-nav { width: auto; }
+.workshop-shell .site-nav .desktop-nav ul { justify-content: flex-start; }
+.workshop-shell .site-nav .desktop-nav a { font-size: .9rem; padding: .4rem .8rem; }
+.workshop-shell .site-nav .accessibility-preferences {
+  grid-row: 1; grid-column: 2;
+  padding: 0; border: 0; background: transparent; color: #183d46; position: relative;
+}
+.workshop-shell .accessibility-preferences summary { font: 500 .875rem/1.3 var(--sans); padding: .5rem .65rem; border: 1px solid #bdceca; border-radius: 5px; max-width: 10rem; }
+.workshop-shell .accessibility-preferences .preference-options {
+  position: absolute; right: 0; top: 100%; z-index: 25;
+  width: min(25rem, calc(100vw - 2rem)); max-height: 65dvh; overflow-y: auto;
+  padding: 1.1rem; background: #fffdf7; color: #183d46; border: 1px solid #768f91; border-radius: 8px; box-shadow: 0 12px 36px #183d4626;
+}
+.workshop-shell .workshop-kicker { font: 700 .8rem/1.5 var(--sans); letter-spacing: .13em; text-transform: uppercase; color: #8a442e; margin: 0 0 1rem; }
+.workshop-shell .workshop-actions { display: flex; gap: 1rem 1.5rem; align-items: center; flex-wrap: wrap; margin: 1.5rem 0 .5rem; font: 600 1rem/1.5 var(--sans); }
+.workshop-shell .workshop-actions a { color: #145c64; text-decoration: underline; text-underline-offset: .25em; }
+.workshop-shell a.workshop-primary { display: inline-flex; gap: 1.2rem; align-items: center; color: #fffdf7; background: #145c64; border-radius: 4px; padding: .8rem 1.1rem; text-decoration: none; }
+body.workshop-shell.warm-shell { --hp-cream: #183d46; --hp-teal-light: #145c64; --hp-text-muted: #4f6266; --hp-gold: #8a442e; background: #fffdf7; }
+body.workshop-shell.warm-shell .motivation-layout { padding-top: 2.5rem; gap: 2.25rem; }
+body.workshop-shell.warm-shell .hero { padding: 0 0 2rem; }
+body.workshop-shell.warm-shell .hero::before { display: none; }
+body.workshop-shell.warm-shell .hero h1 { font-size: clamp(2.7rem, 5.6vw, 5rem); line-height: 1.03; max-width: 17ch; }
+body.workshop-shell.warm-shell .hero h1 em { color: #145c64; }
+body.workshop-shell.warm-shell .hero-bridge { font-size: 1.05rem; max-width: 54ch; }
+body.workshop-shell.warm-shell .motivation-stats { background: #f6ead3; border: 0; border-radius: 0 0 40px 0; border-top: 5px solid #ad592d; }
+body.workshop-shell.warm-shell .motivation-stats .num { color: #8a442e; font-size: 3rem; }
+body.workshop-shell.warm-shell .community-invitation { border: 0; padding-top: 2.5rem; }
+body.workshop-shell.warm-shell .community-invitation h2 { font-size: 2.6rem; }
+body.workshop-shell.warm-shell .community-roles { gap: 1.3rem 1.8rem; }
+body.workshop-shell.warm-shell .community-roles li { padding-left: 1rem; border-left: 3px solid #bdceca; }
+body.workshop-shell.warm-shell .community-roles li:nth-child(3n + 2) { border-color: #ad592d; }
+body.workshop-shell.warm-shell .community-roles h3 { font-size: 1rem; }
+body.workshop-shell.warm-shell .community-roles p { font-size: .95rem; }
+body.workshop-shell.warm-shell .statement h2 { max-width: 22ch; }
+body.workshop-shell.warm-shell .statement.right { background: #edf3ee; margin: 1.5rem 0; padding: 1.5rem; border: 0; }
+body.workshop-shell.warm-shell .domains { border-top: 2px solid #145c64; }
+body.workshop-shell.warm-shell .toolbox-feature { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+body.workshop-shell.warm-shell .toolbox-tools li { border: 0; border-top: 2px solid #145c64; background: #edf3ee; border-radius: 0; }
+body.workshop-shell.warm-shell .toolbox-tools li:nth-child(3n + 2) { border-top-color: #ad592d; }
+body.workshop-shell.warm-shell .cta-section { background: #f6ead3; max-width: none; padding-inline: max(var(--page-pad), calc((100vw - 71rem) / 2)); }
+body.workshop-shell.warm-shell .cta-section .cta-equation { color: #8a442e; }
+.workshop-shell .evidence-studio { background: #123e49; border-radius: 0 22px 0 22px; padding: clamp(1.25rem, 3vw, 2rem); color: #fffdf7; }
+.workshop-shell .evidence-studio .workshop-kicker { color: #f3c56f; }
+.workshop-shell .evidence-studio h2 { color: #fffdf7; font: 400 clamp(2rem, 3.5vw, 3rem)/1.1 var(--hp-serif); }
+.workshop-shell .evidence-studio h2 em { color: #f3c56f; }
+.workshop-shell .evidence-studio p { font: 400 1rem/1.6 var(--sans); color: #fffdf7; max-width: 48ch; }
+.workshop-shell .evidence-studio a { color: #a9e3da; text-decoration: underline; text-underline-offset: .2em; }
+.workshop-shell .evidence-choices { margin-top: 1.25rem; }
+.workshop-shell .evidence-choices details { border-top: 1px solid #6b9297; padding: .2rem 0; }
+.workshop-shell .evidence-choices summary { cursor: pointer; padding: .7rem 0; font: 600 1rem/1.5 var(--sans); }
+.workshop-shell .evidence-choices details p { padding: .3rem 0 .5rem 1rem; margin: 0; }
+.workshop-shell .evidence-choices :focus-visible { outline-color: #f3c56f; }
+@media (min-width: 1200px) {
+  .workshop-shell .site-nav .nav-inner { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .workshop-shell .site-nav .desktop-nav { grid-row: 1; grid-column: 2; }
+  .workshop-shell .site-nav .desktop-nav ul { justify-content: center; }
+  .workshop-shell .site-nav .accessibility-preferences { grid-column: 3; }
+}
+@media (max-width: 600px) {
+  .workshop-shell .site-nav .accessibility-preferences summary { max-width: 8rem; }
+  body.workshop-shell.warm-shell .motivation-layout { padding-top: 1.5rem; }
+  body.workshop-shell.warm-shell .hero h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
+}
+
+body.workshop-shell.warm-shell .hero-lead { display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, .6fr); gap: 1rem; align-items: center; }
+body.workshop-shell.warm-shell .hero-scene { display: block; width: 100%; height: auto; }
+body.workshop-shell.warm-shell .hero-lead h1 { font-size: clamp(2.7rem, 4.5vw, 4.5rem); }
+@media (max-width: 700px) { body.workshop-shell.warm-shell .hero-lead { display: block; } body.workshop-shell.warm-shell .hero-scene { display: none; } }
+
+html[data-a11y-contrast] .workshop-shell a:is(.workshop-primary,.download) { background: #fff !important; color: #004e60 !important; border: 2px solid #111 !important; }

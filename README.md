@@ -25,7 +25,7 @@ and Start Here. Existing route URLs and prototype filter URLs are preserved.
 - **Case Studies:** documented examples with evidence, caveats, and the draft casebook.
 - **Experiments:** learning labs, research/practice projects, and creative demonstrations.
 - **Prototypes:** capability gaps, design briefs, working exercises, and evaluation plans.
-- **Supporting reading:** Show Your Work is linked separately from runnable experiments.
+- **Supporting reading:** The Capability Matters community paper is linked separately from runnable experiments.
 - **Start Here:** audience pathways, a content guide, program context, and the author’s personal site.
   `/about/` remains a content alias with a canonical link to `/start-here/`;
   `/about/what-you-will-do/` remains intact and unlisted. `/welcome/` and
@@ -382,15 +382,14 @@ and educational hypotheses when revising the page.
 
 ## LENS community papers and Rainbow Bug
 
-`/show-your-work/` presents *Show Your Work. LENS: Coupling Learner and System
-Performance for Capability and Human Flourishing*. Canonical text:
+`/show-your-work/` presents *Capability Matters: Learning Engineering in the context of Next-Generation Systems*. Canonical text:
 `src/papers/show-your-work.md`; matching PDF: `public/papers/show-your-work.pdf`.
 
 `/agentic-le/paper/` presents *Learning Engineering in Action:
 Agentic Simulation for Collaboration and Learning from Success and Failure*.
 Canonical text: `src/papers/learning-engineering-teams.md`; matching PDF:
 `public/agentic-le/paper/paper.pdf`. The editable manuscript and evidence audit
-are also available from that reading page. The homepage’s **Explore Agentic LE** link opens the three-case guide; the working pages retain search-engine exclusion metadata.
+are also available from that reading page. The methods paper remains linked to its three-case guide; the working pages retain search-engine exclusion metadata.
 
 Both PDFs use `scripts/paper_pdf.py`, with linked references, wrapped tables,
 page numbering and the canonical source hash in their metadata. The agentic
@@ -446,4 +445,13 @@ Remaining manual checks and external application work are tracked in [issue #24]
 
 Motivation welcomes visitors by role and domain, with a keyboard-operable domain carousel and a responsive statistics sidebar. Approach explains capability before the worked examples. The shared cycle uses Understand, Map, Design, Build, Instrument, Experiment and Evaluate; Evaluate returns to Understand, 8. Refine stays central, and Deployment connects Capability back to Challenge. Diagram popups and the step cards use the shared teaching metadata. Historical journal keys and quoted text remain intact.
 
-About this resource appears directly under resource titles. The learning map, reflection notebook and 48 activity guides from PR 21 are incorporated; guides remain optional and reflection saving is opt-in and browser-local. Show Your Work and its linked PDF now explain the two interacting learner/system cycles, continuous refinement, experimentation and deployment. See [the feedback record](docs/feedback-2026-10-19.md) for the file inventory and validation.
+About this resource appears directly under resource titles. The learning map, reflection notebook and 48 activity guides from PR 21 are incorporated; guides remain optional and reflection saving is opt-in and browser-local. The Capability Matters paper and its linked PDF explain the two interacting learner/system cycles, continuous refinement, experimentation and deployment. See [the feedback record](docs/feedback-2026-10-19.md) for the file inventory and validation.
+
+
+## Workshop visual pilot
+
+The homepage, community paper and MicroGPT use the opt-in `visualTheme="workshop"` shell. It keeps accessibility preferences in the header and applies a warm teal, paper and ochre palette. Other resource pages retain their existing layout. The homepage adds a text-free human collaboration illustration and native evidence disclosures; the paper presents its full title before its mobile contents; the working lab keeps its training and evidence controls.
+
+The paper's route, PDF URL and resource key remain stable. Its canonical Markdown and PDF metadata use the current title. Regenerate the PDF with the existing builder after a manuscript edit.
+
+After `npm run build`, run `npm run test:workshop` for pilot-specific checks, alongside `npm run test:resource-about:browser` and `npm run test:a11y`. The workshop checks cover title and guidance order, all three evidence choices, header preferences, desktop/mobile axe checks, enlarged-text reflow and reading without JavaScript. CI stores screenshots with its accessibility evidence.

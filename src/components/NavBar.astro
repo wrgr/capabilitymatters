@@ -11,16 +11,17 @@
 
 interface Props {
   active?: string;
+  preferences?: boolean;
 }
 
-const { active } = Astro.props;
+const { active, preferences = false } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
 
 const items: { href: string; label: string; slug: string; description?: string }[] = [
   { href: base,                          label: "Motivation",  slug: "motivation", description: "Why human capability belongs in system design." },
   { href: base + "approach/", label: "Approach", slug: "approach", description: "Seven steps for developing capability, with refinement throughout and evidence returning to the challenge." },
-  { href: base + "show-your-work/", label: "Show Your Work", slug: "show-your-work", description: "The community working paper on capability, evidence and human flourishing." },
+  { href: base + "show-your-work/", label: "Working Paper", slug: "show-your-work", description: "The community working paper on capability, evidence and human flourishing." },
   { href: base + "case-studies/",        label: "Case Studies", slug: "case-studies", description: "Documented examples of what worked, what failed, and what the evidence supports." },
   { href: base + "experiments/",         label: "Experiments", slug: "experiments", description: "Interactive teaching labs, research projects, and creative demonstrations." },
   { href: base + "problems-to-prototypes/", label: "Prototypes", slug: "problems-to-prototypes", description: "Capability gaps, design briefs, working tools, and plans to test their impact." },
@@ -79,6 +80,7 @@ const activeLabel = items.find((it) => it.slug === active)?.label ?? "Menu";
         </ul>
       </nav>
     </details>
+    {preferences && <div data-accessibility-preferences></div>}
   </div>
 </header>
 

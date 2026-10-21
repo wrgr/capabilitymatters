@@ -60,7 +60,7 @@ const topic = words ? "haiku" : "letters";
       <label for={`${id}-temperature`}>Sampling temperature <output data-control="temperature-value">0.8</output></label>
       <input id={`${id}-temperature`} data-control="temperature" type="range" min="0.2" max="1.5" step="0.1" value="0.8"/>
       <button data-action="sample" disabled>Apply temperature</button>
-      <div data-control="samples" class={words ? "poem-samples" : "samples"} aria-label="Actual model-generated samples"></div>
+      <div data-control="samples" class={words ? "poem-samples" : "samples"} role="group" aria-label="Actual model-generated samples"></div>
       <p class="fine">{words ? "Three draws from the model, without a poetry or syllable checker. Long lines scroll horizontally so actual line breaks stay visible. Character and word modes predict line breaks. Line mode samples complete fixed lines and displays a newline between them. Output can repeat training text, stop early or break the example form. Character mode can spell new words; word mode uses known words; line mode uses only known whole lines." : "Eight draws from the model. Plausible spelling is not proof of understanding. Output ends at the boundary token or after 12 letters."} Sampling uses seed 2026 and never changes weights.</p>
     </div>
   </div>

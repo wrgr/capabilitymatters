@@ -1,0 +1,32 @@
+/* Present the existing working MicroGPT activities as an inviting, inspectable learning laboratory. */
+.workshop-shell .intro { background: #edf3ee; border-bottom: 0; }
+.workshop-shell .intro .container { max-width: 80rem; padding-top: 2.5rem; }
+.workshop-shell .lab-intro-layout { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr); gap: 2.5rem; align-items: start; }
+.workshop-shell .lab-intro-copy h1 { font-size: clamp(3rem, 5.8vw, 5.3rem); line-height: 1; font-weight: 400; max-width: 18ch; }
+.workshop-shell .lab-intro-copy .eyebrow { color: #8a442e; font-weight: 700; }
+.workshop-shell .lab-intro-copy .resource-about { background: #fffdf7; }
+.workshop-shell .lab-intro-copy p:not(.eyebrow) { max-width: 55ch; }
+.workshop-shell .lab-invitation { background: #123e49; color: #fffdf7; padding: clamp(1.5rem, 3vw, 2.25rem); border-radius: 0 32px 0 32px; margin-top: .2rem; }
+.workshop-shell .lab-invitation-label { color: #f3c56f; font: 700 .8rem/1.5 var(--sans); text-transform: uppercase; letter-spacing: .12em; }
+.workshop-shell .lab-invitation h2 { color: #fffdf7; font-size: clamp(1.8rem, 2.7vw, 2.4rem); font-weight: 400; margin: 1.5rem 0; }
+.workshop-shell .lab-letter-tiles { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1.5rem 0; }
+.workshop-shell .lab-letter-tiles span { display: grid; place-items: center; width: 2.4rem; height: 2.8rem; color: #183d46; background: #a9e3da; border-radius: 4px; font: 600 1.3rem var(--mono); }
+.workshop-shell .lab-letter-tiles span:last-child { background: #f3c56f; }
+.workshop-shell .lab-invitation ol { list-style: none; counter-reset: lab-invitation; padding: 0; margin: 0; }
+.workshop-shell .lab-invitation li { counter-increment: lab-invitation; border-top: 1px solid #6b9297; margin: 0; padding: 1rem 0 1rem 2.1rem; position: relative; font: 1rem/1.5 var(--sans); }
+.workshop-shell .lab-invitation li::before { content: "0" counter(lab-invitation); position: absolute; left: 0; top: 1rem; color: #f3c56f; font: .8rem/1.8 var(--mono); }
+.workshop-shell .lab-invitation li span { display: block; color: #d5e6e4; }
+.workshop-shell .lab-source-note { grid-column: 1 / -1; border-top: 1px solid #bdceca; padding-top: 1.5rem; }
+.workshop-shell .lab-source-note .attribution { border: 0; padding: 0; background: transparent; max-width: 85ch; }
+.workshop-shell .lab-source-note .contents { margin-top: 1rem; padding-bottom: .5rem; }
+.workshop-shell .learning-orientation { border: 0; }
+.workshop-shell .learning-lab { border-top: 4px solid #145c64; margin-top: 1.5rem; }
+.workshop-shell .learning-lab .metrics > div { background: #edf3ee; border: 0; border-radius: 0 14px 0 0; }
+.workshop-shell .learning-lab .metrics > div:nth-child(3) { background: #f8ead4; }
+.workshop-shell .learning-lab .metrics strong { font-size: clamp(1.7rem, 3vw, 2.4rem); }
+.workshop-shell .learning-lab .orientation { background: #edf3ee; border-left: 4px solid #145c64; }
+.workshop-shell .learning-lab .result-grid { padding: 1.5rem 0; border-block: 1px solid #bdceca; }
+@media (max-width: 900px) {
+  .workshop-shell .lab-intro-layout { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+}
+@media print { .workshop-shell .lab-invitation { color: #183d46; background: white; border: 1px solid #145c64; } }
