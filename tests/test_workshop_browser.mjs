@@ -6,7 +6,7 @@ import {extname,resolve} from 'node:path';
 import {chromium} from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 const root=resolve('dist'),output=resolve(process.env.WORKSHOP_OUTPUT||'../resource-about-qa/workshop');
-const mime={'.html':'text/html','.css':'text/css','.js':'application/javascript','.svg':'image/svg+xml','.json':'application/json','.pdf':'application/pdf'};
+const mime={'.html':'text/html','.css':'text/css','.js':'application/javascript','.svg':'image/svg+xml','.webp':'image/webp','.json':'application/json','.pdf':'application/pdf'};
 const server=createServer(async(req,res)=>{
   let path=new URL(req.url,'http://localhost').pathname;
   if(!extname(path))path=path.replace(/\/$/,'')+'/index.html';
@@ -75,6 +75,13 @@ try{
         assert(await page.locator('.capability-foundations a[href*="73d7cb96"]').isVisible(),'OECD flourishing source is visible');
       }
 
+      if(route==='/'){
+        const banner=page.locator('.community-banner img');
+        await banner.evaluate(image=>image.decode());
+        assert(await banner.isVisible(),'Community banner remains visible on desktop and mobile');
+        assert(await banner.evaluate(image=>image.naturalWidth>1000),'Banner asset loads at full resolution');
+        assert(await banner.evaluate(image=>Math.abs(image.width/image.height-image.naturalWidth/image.naturalHeight)<.02),'Banner retains its full composition');
+      }
       await audit(page,route+' '+width);await page.screenshot({path:output+'/'+(route==='/'?'home':route.split('/').filter(Boolean).join('-'))+'-'+width+'.png'});
       await page.getByText('Accessibility preferences',{exact:true}).press('Enter');
       await page.getByLabel('Higher contrast',{exact:true}).check();await page.getByLabel('Reduced motion',{exact:true}).check();

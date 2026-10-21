@@ -1,4 +1,4 @@
-/* Give the three pilot pages a shared workshop identity while preserving calm, adaptable reading surfaces. */
+/* Give shared site pages a workshop identity while preserving calm, adaptable reading surfaces. */
 body.workshop-shell {
   --bg: #fffdf7;
   --ink: #183d46;
@@ -86,9 +86,13 @@ body.workshop-shell.warm-shell .cta-section .cta-equation { color: #8a442e; }
   body.workshop-shell.warm-shell .hero h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
 }
 
-body.workshop-shell.warm-shell .hero-lead { display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, .6fr); gap: 1rem; align-items: center; }
-body.workshop-shell.warm-shell .hero-scene { display: block; width: 100%; height: auto; }
-body.workshop-shell.warm-shell .hero-lead h1 { font-size: clamp(2.7rem, 4.5vw, 4.5rem); }
-@media (max-width: 700px) { body.workshop-shell.warm-shell .hero-lead { display: block; } body.workshop-shell.warm-shell .hero-scene { display: none; } }
+/* Keep the whole illustration visible: no text overlays, animation or mobile cropping. */
+.workshop-shell .community-banner { max-width: 76rem; margin: 1.5rem auto 0; padding-inline: var(--page-pad); }
+.workshop-shell .community-banner img { display: block; width: 100%; height: auto; border-radius: 8px 8px 32px 8px; }
+body.workshop-shell.warm-shell .community-banner + .motivation-layout { padding-top: 1.75rem; }
+@media (max-width: 600px) {
+  .workshop-shell .community-banner { margin-top: 1rem; padding-inline: .75rem; }
+  .workshop-shell .community-banner img { border-radius: 5px 5px 18px 5px; }
+}
 
 html[data-a11y-contrast] .workshop-shell a:is(.workshop-primary,.download) { background: #fff !important; color: #004e60 !important; border: 2px solid #111 !important; }
