@@ -3,6 +3,7 @@ import ResourceAbout from "../components/ResourceAbout.astro";
 /** Connect Karpathy's microgpt to evidence-based AI leadership through an original guided companion. */
 import LearningGuideLink from "../components/LearningGuideLink.astro";
 import Base from "../layouts/Base.astro";
+import "../styles/microgpt-workshop.css";
 import TokenLab from "../components/microgpt/TokenLab.astro";
 import TrainingLab from "../components/microgpt/TrainingLab.astro";
 import BiasLab from "../components/microgpt/BiasLab.astro";
@@ -17,18 +18,28 @@ const mechanics = [
   ["Inference", "Fixed parameters generate a sequence through repeated sampling.", "Who checks the result before it changes a decision?"],
 ];
 ---
-<Base title="MicroGPT for AI leaders · Capability Matters" description="An attributed companion to Andrej Karpathy's microgpt: three browser examples covering letters, words in haikus, and bias, with inspectable data and explained code." active="experiments">
-  <LearningGuideLink id="microgpt" />
+<Base title="MicroGPT for AI leaders · Capability Matters" description="An attributed companion to Andrej Karpathy's microgpt: three browser examples covering letters, words in haikus, and bias, with inspectable data and explained code." active="experiments" visualTheme="workshop">
   <link slot="head" rel="stylesheet" href="/microgpt/lab.css" />
   <link slot="head" rel="canonical" href="https://capabilitymatters.org/microgpt/" />
   <header class="intro">
-    <div class="container">
+    <div class="container lab-intro-layout">
+      <div class="lab-intro-copy">
       <p class="eyebrow">AI leaders' perspectives · A guided companion</p>
       <h1>A small model.<br />Better questions.</h1>
 <ResourceAbout resource="microgpt" />
       <p class="standfirst">What should understanding a language model change about the way you lead an AI project?</p>
+      <div class="workshop-actions"><a class="workshop-primary" href="#letters">Train a small model <span aria-hidden="true">↗</span></a><a href="#practice">Bring your own question →</a></div>
       <p>Start with Andrej Karpathy's microgpt. Then follow the decisions outward: from what the model learns, to how people use it, to what counts as evidence that the system works.</p>
       <p>Work through three examples: letters, then words in example haikus (with character and whole-line comparisons), then bias in data and labels. Each step adds a question about what training can and cannot establish.</p>
+
+      </div>
+      <aside class="lab-invitation" aria-label="Inside the learning lab">
+        <p class="lab-invitation-label">Inside the learning lab</p>
+        <div class="lab-letter-tiles" aria-hidden="true"><span>L</span><span>E</span><span>A</span><span>R</span><span>N</span><span>?</span></div>
+        <h2>Small enough to inspect.<br />Real enough to question.</h2>
+        <ol><li><strong>Inspect the examples.</strong><span>What will the model encounter?</span></li><li><strong>Train and compare.</strong><span>Watch the measured losses change.</span></li><li><strong>Question the claim.</strong><span>What does the evidence support?</span></li></ol>
+      </aside>
+      <div class="lab-source-note">
       <p class="byline">Capability Matters editorial adaptation · September 30, 2026 · Read, train, compare, and inspect the code at your own pace</p>
       <aside class="attribution" aria-label="Source attribution">
         <strong>Built around Andrej Karpathy's work.</strong>
@@ -38,8 +49,10 @@ const mechanics = [
       <nav class="contents" aria-label="On this page">
         <a href="#letters">1 · Letters</a><a href="#haikus">2 · Words in haikus</a><a href="#bias">3 · Bias</a><a href="#mechanism">The mechanism</a><a href="#experiment">Temperature</a><a href="#perspectives">Leaders' perspectives</a><a href="#practice">Use it in practice</a>
       </nav>
+      </div>
     </div>
   </header>
+  <LearningGuideLink id="microgpt" />
 
   <article class="container article">
     <span id="training"></span>

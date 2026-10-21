@@ -1,14 +1,14 @@
 <!-- Canonical LENS community paper used by the HTML reading page and PDF build. -->
 
-# Show Your Work
+# Capability Matters
 
-## LENS: Coupling Learner and System Performance for Capability and Human Flourishing
+## Learning Engineering in the context of Next-Generation Systems
 
 **William Gray-Roncal and James Diamond**
 
-**Working paper for community discussion.** Learning Engineering for Next-Generation Systems (LENS) offers a framework for defining, developing, and evaluating capability. This paper presents a synthesis and a design proposal for the learning-engineering community. Revised October 19, 2026.
+**Working paper for community discussion.** Learning Engineering for Next-Generation Systems (LENS) offers a framework for defining, developing, and evaluating capability. This paper presents a synthesis and a design proposal for the learning-engineering community. Revised October 21, 2026.
 
-### Abstract
+## Abstract
 
 Learning engineering seeks to help people accomplish meaningful work in the settings where that work matters. Learning Engineering for Next-Generation Systems (LENS) frames capability as the capacity of a person, team, or human-system arrangement to accomplish valued work under stated conditions, with usable opportunities to act. Capability depends on the coupling of learner performance with system performance: knowledge and judgment must meet accessible tools, reliable information, adequate resources, authority, and workable coordination. Human flourishing supplies the purpose for this coupling, directing attention to agency, well-being, participation, and the distribution of benefits and burdens. We connect this position to assessment research and work-system design, distinguish output quality, capability, learning, and intervention impact, and propose a practical evidence record for evaluating their relationships. An iterative process and developing examples show how learning-engineering teams can examine both people and systems. The contribution is a framework for community scrutiny and a research agenda; the examples do not establish learning gains or improved flourishing. To show the work is to make the capability claim, its conditions, its evidence, and its consequences open to examination.
 

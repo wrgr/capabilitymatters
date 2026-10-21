@@ -34,6 +34,7 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
   description="Why human capability belongs in system design. Explore the motivation for Capability Matters and the Johns Hopkins LENS pathway."
   active="motivation"
   pageTheme="warm"
+  visualTheme="workshop"
 >
   <link slot="head" rel="canonical" href="https://capabilitymatters.org/" />
   <link
@@ -45,9 +46,25 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
   <div class="motivation-layout">
     <div class="motivation-main">
   <section class="hero" id="argument">
-    <h1>System performance depends on <em>what people can do.</em></h1>
+    <p class="workshop-kicker">People. Systems. Possibility.</p>
+    <div class="hero-lead"><h1>System performance depends on <em>what people can do.</em></h1><img class="hero-scene" src={base + "learning-together.svg"} width="360" height="360" alt="" fetchpriority="high" /></div>
     <p class="hero-bridge motivation-purpose">Capability Matters brings people together around a shared question: how do we help people do work that matters? Explore cases, labs and design briefs, bring your experience, and help us test what works.</p>
     <p class="hero-bridge">Learning engineering connects learning sciences, human-centered design and evidence to improve capability. You don't need to call yourself a learning engineer to take part.</p>
+    <div class="workshop-actions"><a class="workshop-primary" href={base + "case-studies/"}>Explore a real case <span aria-hidden="true">↗</span></a><a href={base + "microgpt/#letters"}>Try a learning lab →</a></div>
+  </section>
+
+  <section class="evidence-studio" aria-labelledby="evidence-studio-title">
+    <div class="evidence-studio-intro">
+      <p class="workshop-kicker">Try a judgment call</p>
+      <h2 id="evidence-studio-title">What counts as <em>ready?</em></h2>
+      <p>A team has finished its training. What evidence would you ask for before putting a new capability to work?</p>
+      <a href={base + "show-your-work/#6-what-counts-as-enough-evidence"}>Explore what evidence can tell us →</a>
+    </div>
+    <div class="evidence-choices">
+      <details><summary>Completion records</summary><p>Completion shows participation. To assess readiness, also observe people doing representative work under the expected conditions.</p></details>
+      <details><summary>Performance on representative work</summary><p>Observe the work, including exceptions and recovery. Record the tools, help and conditions so the capability claim matches the evidence.</p></details>
+      <details><summary>A confidence survey</summary><p>Confidence can reveal concerns and guide support. Compare it with observed performance before using it as evidence of readiness.</p></details>
+    </div>
   </section>
 
   <section class="community-invitation" aria-labelledby="community-title">
@@ -191,7 +208,7 @@ const OVERVIEW_PDF_URL = base + "LENS_Overview_Aug2026.pdf";
   </section>
 
   <section class="capability-note" aria-labelledby="capability-note-title">
-    <p class="capability-note-eyebrow">From Show Your Work · A community working paper</p>
+    <p class="capability-note-eyebrow">From our community working paper</p>
     <h2 id="capability-note-title">What we mean by capability</h2>
     <p class="capability-note-definition">The capacity of a person, team, or human-system arrangement to accomplish valued work under stated conditions, with usable opportunities to act.</p>
     <div class="capability-note-footer">

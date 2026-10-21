@@ -23,6 +23,7 @@
     "build:resource-about": "node scripts/build-resource-about.mjs",
     "test:resource-about": "npm run check:resource-guidance && node --test tests/test_resource_about.mjs",
     "test:resource-about:browser": "node tests/test_resource_about_browser.mjs",
+    "test:workshop": "node tests/test_workshop_browser.mjs",
     "check:resource-guidance": "python3 scripts/check-resource-guidance.py",
     "test:resource-guidance": "python3 -m unittest discover -s tests -p 'test_resource_guidance.py'"
   },
