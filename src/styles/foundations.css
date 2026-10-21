@@ -1,0 +1,29 @@
+/* Keep the three foundations legible as shared purposes and practical questions, rather than new pipeline stages. */
+.capability-foundations { padding: 2.5rem 0; border-top: 3px solid #145c64; }
+.capability-foundations .foundation-kicker { color: #8a442e; font: 700 .8rem/1.5 var(--sans); text-transform: uppercase; letter-spacing: .12em; }
+.capability-foundations h2 { max-width: 30ch; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.15; }
+.capability-foundations .foundation-intro { max-width: 65ch; font-size: 1.12rem; }
+.foundation-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.75rem; margin: 2rem 0; font-family: var(--sans); }
+.foundation-grid > div { border-top: 3px solid #ad592d; padding-top: 1rem; min-width: 0; }
+.foundation-grid > div:nth-child(2) { border-color: #145c64; }
+.foundation-grid > div:nth-child(3) { border-color: #557d69; }
+.foundation-grid dt { font-size: 1.3rem; line-height: 1.35; font-weight: 700; color: var(--ink); }
+.foundation-grid dt span { display: block; font: 700 .8rem/1.6 var(--sans); text-transform: uppercase; color: #8a442e; letter-spacing: .1em; margin-bottom: .4rem; }
+.foundation-grid dd { margin: .8rem 0 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.6; }
+.foundation-grid .foundation-question { color: #145c64; font-weight: 600; }
+.capability-foundations .foundation-source { max-width: 85ch; color: var(--muted); font: .95rem/1.6 var(--sans); }
+.capability-foundations a,.foundation-check a,.footer-foundation a { text-decoration: underline; text-underline-offset: .2em; }
+body.workshop-shell.warm-shell .capability-foundations { margin: 0 auto; max-width: 76rem; padding: 2.5rem var(--page-pad); }
+body.workshop-shell.warm-shell .capability-foundations h2 { color: #183d46; font-family: var(--hp-serif); }
+.foundation-check { background: #edf3ee; padding: 1.5rem; margin: 1.5rem 0; border-left: 4px solid #145c64; }
+.foundation-check h2 { font-size: 1.6rem; font-weight: 400; margin-bottom: 1rem; }
+.foundation-check dl { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.4rem; font: 1rem/1.55 var(--sans); margin: 0 0 1rem; }
+.foundation-check dt { font-weight: 700; color: #145c64; }
+.foundation-check dd { margin: .35rem 0 0; color: var(--ink-soft); }
+.foundation-check a { font: .95rem/1.5 var(--sans); color: #145c64; }
+.foundation-check.compact { padding: 1rem 1.25rem; }
+.foundation-check.compact summary { cursor: pointer; font: 600 1rem/1.5 var(--sans); }
+.foundation-check.compact dl { margin-top: 1rem; }
+.footer-foundation { max-width: 72rem; margin: auto; padding: 1.25rem var(--page-pad) 0; font: .95rem/1.5 var(--sans); color: #183d46; }
+.footer-foundation strong { display: block; margin-bottom: .4rem; }
+@media(max-width:700px) { .foundation-grid,.foundation-check dl { grid-template-columns: minmax(0,1fr); gap: 1.25rem; } }

@@ -1,4 +1,4 @@
-/** Verify the workshop pilot's reading order, keyboard activities, preferences and responsive presentation. */
+/** Verify the site-wide workshop's reading order, keyboard activities, preferences and responsive presentation. */
 import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
 import {readFile,mkdir} from 'node:fs/promises';
@@ -16,6 +16,7 @@ const server=createServer(async(req,res)=>{
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const origin=`http://127.0.0.1:${server.address().port}`;
 const title='Capability Matters: Learning Engineering in the context of Next-Generation Systems';
+const routes=['/','/show-your-work/','/microgpt/','/approach/','/case-studies/','/experiments/','/problems-to-prototypes/','/case-studies/boeing-737-max-mcas/','/prototypes/ai-debate-coach/'];
 await mkdir(output,{recursive:true});
 /** @param {import('playwright').Page} page @param {string} name @returns {Promise<void>} Check overflow and automated WCAG A/AA issues in the current state. */
 async function audit(page,name){
@@ -59,9 +60,22 @@ try{
   const context=await browser.newContext(),page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
   for(const width of [1440,390]){
     await page.setViewportSize({width,height:1000});await evidenceChoices(page);await preferences(page);
-    for(const route of ['/','/show-your-work/','/microgpt/']){
+    for(const route of routes){
       if(route==='/show-your-work/')await paper(page,width);else await page.goto(origin+route);
-      await audit(page,route+' '+width);await page.screenshot({path:output+'/'+(route==='/'?'home':route.split('/')[1])+'-'+width+'.png'});
+      assert.equal(await page.locator('body.workshop-shell').count(),1,'Shared workshop theme');
+      assert.equal(await page.locator('header.site-nav [data-accessibility-preferences]').count(),1,'Header preferences stay available');
+      if(route==='/problems-to-prototypes/')assert.equal(await page.locator((width>=900?'.desktop-nav':'.mobile-nav')+' a[aria-current=page]').getAttribute('href'),'/problems-to-prototypes/');
+      const checks=page.locator('.foundation-check');
+      if(await checks.count()){
+        assert.deepEqual(await checks.locator('dt').allTextContents(),['Human','Science','System']);
+        if(await checks.evaluate(e=>e.tagName==='DETAILS'))await checks.locator('summary').press('Enter');
+      }
+      if(route==='/'||route==='/approach/'){
+        assert.equal(await page.locator('.foundation-grid > div').count(),3);
+        assert(await page.locator('.capability-foundations a[href*="73d7cb96"]').isVisible(),'OECD flourishing source is visible');
+      }
+
+      await audit(page,route+' '+width);await page.screenshot({path:output+'/'+(route==='/'?'home':route.split('/').filter(Boolean).join('-'))+'-'+width+'.png'});
       await page.getByText('Accessibility preferences',{exact:true}).press('Enter');
       await page.getByLabel('Higher contrast',{exact:true}).check();await page.getByLabel('Reduced motion',{exact:true}).check();
       await page.getByText('Accessibility preferences',{exact:true}).press('Enter');await audit(page,route+' contrast/motion '+width);
@@ -70,12 +84,20 @@ try{
     }
   }
   await page.setViewportSize({width:320,height:900});
-  for(const route of ['/','/show-your-work/','/microgpt/']){
+  for(const route of routes){
     await page.goto(origin+route);await page.addStyleTag({content:'html{font-size:200%!important}*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}'});
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),route+' enlarged text reflow');
   }
+  await page.setViewportSize({width:1440,height:1000});await page.goto(origin+'/problems-to-prototypes/');
+  await page.getByLabel('Availability',{exact:true}).selectOption('runnable');
+  const available=page.locator('.gallery .card:visible');assert(await available.count()>0);
+  assert((await available.evaluateAll(cards=>cards.every(card=>card.dataset.workingPrototype==='true'))),'Working filter retains its meaning');
+  await page.getByLabel('Keyword',{exact:true}).fill('no-matching-brief-xyz');assert.equal(await available.count(),0);assert(await page.locator('#none').isVisible());
   const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:900}}),reading=await nojs.newPage();
   await evidenceChoices(reading);await reading.goto(origin+'/show-your-work/');assert(await reading.locator('h1').isVisible());assert.equal(await reading.locator('#paper-contents').evaluate(e=>e.open),false);
   await reading.locator('#paper-contents summary').press('Enter');assert(await reading.getByRole('navigation',{name:'Paper sections'}).isVisible());
-  assert.deepEqual(errors,[]);console.log('PASS: workshop title/order, desktop/mobile axe, evidence choices, persistent preferences, 320px enlarged text, and reading without JavaScript.');
+  for(const route of ['/case-studies/boeing-737-max-mcas/','/prototypes/ai-debate-coach/']){
+    await reading.goto(origin+route);await reading.locator('.foundation-check summary').press('Enter');assert(await reading.locator('.foundation-check dl').isVisible(),'Foundation questions work without JavaScript');
+  }
+  assert.deepEqual(errors,[]);console.log('PASS: site-wide workshop, three foundations, gallery filters, title/order, desktop/mobile axe, evidence choices, persistent preferences, 320px enlarged text, and reading without JavaScript.');
 }finally{await browser?.close();server.close();}

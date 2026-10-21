@@ -2,6 +2,7 @@
 import ResourceAbout from "../components/ResourceAbout.astro";
 // Searchable design briefs distinguish built exercises from proposed interventions.
 import learningGuides from "../data/learning-guides.json";
+import FoundationCheck from "../components/FoundationCheck.astro";
 import Base from "../layouts/Base.astro";
 import SectionHero from "../components/SectionHero.astro";
 import aile1 from "../data/problems-to-prototypes/aile-1.json";
@@ -61,7 +62,7 @@ const longLabel:Record<Collection,string>={
 
 <Base title="Problems → Prototypes · Capability Matters"
   description="Capability gaps, design briefs, working prototypes, and plans to test whether they help."
-  active="problems-to-prototypes">
+  active="prototypes">
   <SectionHero
     eyebrow="Problems → Prototypes"
     title="Problems to prototypes"
@@ -71,6 +72,7 @@ const longLabel:Record<Collection,string>={
     <ResourceAbout slot="guidance" resource="prototype-gallery" />
   </SectionHero>
 
+  <div class="container-wide"><FoundationCheck context="prototype" /></div>
   <section class="intro container-wide">
     <div>
       <p><strong>These are project seeds, not prescriptions.</strong> The first 32 began as abstracted themes from prospective-student essays and were deliberately rewritten as non-person-specific design problems. The six canonical LENS cards begin from recurring system problem types. No source essays, names, initials, or student IDs appear here.</p>
@@ -95,15 +97,15 @@ const longLabel:Record<Collection,string>={
   <section class="container-wide" aria-label="Collection key"><details><summary>What do AILE, LXD, LENS and LENS Canonical mean?</summary><dl>{Object.entries(longLabel).map(([short,full]) => <><dt><strong>{short}</strong></dt><dd>{full}{short === "LENS Canonical" ? ": recurring system-problem briefs in this collection; the label does not establish that a prototype is approved or validated." : ": a collection of design problems and candidate responses, not a rating of effectiveness."}</dd></>)}</dl></details></section>
   <section class="filters-shell">
     <div class="filters container-wide">
-      <label><span>Keyword</span><input id="search" type="search" placeholder="Search gaps, prototypes, pedagogy…" /></label>
-      <label><span>Concentration / collection</span>
-        <select id="collection">
+      <label><span id="keyword-label">Keyword</span><input aria-labelledby="keyword-label" id="search" type="search" placeholder="Search gaps, prototypes, pedagogy…" /></label>
+      <label><span id="collection-label">Concentration / collection</span>
+        <select aria-labelledby="collection-label" id="collection">
           <option value="all">All collections</option>
           {Object.keys(longLabel).map((collection) => <option value={collection}>{collection} · {ideas.filter((idea) => idea.collection === collection).length}</option>)}
         </select>
       </label>
-      <label><span>Availability</span>
-        <select id="availability">
+      <label><span id="availability-label">Availability</span>
+        <select aria-labelledby="availability-label" id="availability">
           <option value="all">All briefs and prototypes</option>
           <option value="runnable">Try a working prototype</option>
           <option value="brief">Design briefs only</option>

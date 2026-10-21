@@ -3,6 +3,7 @@
 import ResourceAbout from "../ResourceAbout.astro";
 import learningGuides from "../../data/learning-guides.json";
 import LearningGuideLink from "../LearningGuideLink.astro";
+import FoundationCheck from "../FoundationCheck.astro";
 import Base from "../../layouts/Base.astro";
 import AiCritiqueLaunch from "./AiCritiqueLaunch.astro";
 import evidenceLibrary from "../../data/problems-to-prototypes/evidence.json";
@@ -30,7 +31,7 @@ const review = Object.values(reviewFiles).map((file) => (file as Record<string,a
 <Base
   title={`${idea.title} · Prototype · Capability Matters`}
   description={idea.prototype}
-  active="problems-to-prototypes"
+  active="prototypes"
 >
   <section class="prototype-hero container-wide">
     <p class="eyebrow">Problems → Prototypes · {collection}</p>
@@ -50,6 +51,7 @@ const review = Object.values(reviewFiles).map((file) => (file as Record<string,a
 
   </section>
 
+  <div class="container-wide prototype-foundations"><FoundationCheck context="prototype" compact /></div>
   {learningGuide && <LearningGuideLink id={learningGuide.id} />}
   <section class="prototype-workbench container-wide">
     <div class="workbench-app">

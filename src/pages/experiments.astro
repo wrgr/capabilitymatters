@@ -3,6 +3,7 @@ import ResourceAbout from "../components/ResourceAbout.astro";
 // Experiments directory: learning labs, research projects, and creative demonstrations.
 // Papers and design briefs are linked separately from runnable projects.
 
+import FoundationCheck from "../components/FoundationCheck.astro";
 import Base from "../layouts/Base.astro";
 import SectionHero from "../components/SectionHero.astro";
 
@@ -157,6 +158,7 @@ const groups = [
   </SectionHero>
 
   <div class="container directory-intro">
+    <FoundationCheck context="experiment" />
     <p>For a capability gap, design brief, and evaluation plan, visit <a href="/problems-to-prototypes/">Prototypes</a>.
       For documented examples and their sources, read the <a href="/case-studies/">Case Studies</a>.</p>
     <details><summary>What do the experiment categories mean?</summary><dl>{groups.map(group => <><dt><strong>{group.title}</strong></dt><dd>{group.description}</dd></>)}</dl><p>A teaching lab offers guided practice; a research or practice project explores an approach; a creative demonstration illustrates a possibility. None of these labels is a claim of validated effectiveness.</p></details>
