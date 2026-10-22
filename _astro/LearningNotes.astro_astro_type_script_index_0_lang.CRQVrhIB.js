@@ -1,0 +1,7 @@
+import{r as v,d as m,w as b}from"./learning-notebook.CYbkmDts.js";const t=document.querySelector(".learning-notes");if(t){let s=function(){const e=v();if(r.checked){const u={title:i,updated:new Date().toISOString(),observation:o("observation").value,reasoning:o("reasoning").value,transfer:o("transfer").value,next:o("next").value};a.some(f=>u[f].trim())?e[n]=u:delete e[n]}else delete e[n];c.textContent=b(e)?r.checked?"Saved in this browser. These notes are a reflection, not an assessment.":"Browser copy removed. Notes remain on this page.":"Browser storage is unavailable. Download your notes before leaving."};const n=t.dataset.guide,i=t.dataset.title,a=["observation","reasoning","transfer","next"],r=t.querySelector('[name="remember"]'),c=t.querySelector("[data-status]"),d=t.querySelector("form"),o=e=>t.querySelector(`[name="${e}"]`),l=v()[n];l&&(a.forEach(e=>o(e).value=l[e]),r.checked=!0,c.textContent="Your saved reflection is loaded. Changes save in this browser."),d.addEventListener("submit",e=>e.preventDefault()),d.addEventListener("input",()=>{r.checked&&s()}),r.addEventListener("change",s),t.querySelector("[data-download]").addEventListener("click",()=>m(`${n}-reflection.txt`,`${i}
+
+${a.map(e=>`${e.toUpperCase()}
+${o(e).value}`).join(`
+
+`)}
+`)),t.querySelector("[data-clear]").addEventListener("click",()=>{confirm("Clear this reflection, including its saved browser copy?")&&(a.forEach(e=>o(e).value=""),s())})}

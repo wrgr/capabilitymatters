@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#8fd3ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Rainbow Bug Dash</title>
+  <link rel="icon" type="image/png" href="assets/boy-happy.png?v=20260314j">
+  <link rel="stylesheet" href="style.css?v=a11y-20261013">
+<link rel="stylesheet" href="/accessibility/shared.css"><script src="/accessibility/preferences.js"></script><link rel="stylesheet" href="/resource-about.css"></head>
+<body><nav aria-label="Learning support" style="display:flex;flex-wrap:wrap;gap:1rem;padding:.7rem 1rem;background:#fefdf8;font:14px/1.5 system-ui;color:#1a1d1a"><a style="color:#2c5f6f;text-decoration:underline" href="/guides/rainbow-bug/">Learning guide &amp; reflection</a><a style="color:#2c5f6f;text-decoration:underline" href="/learning-map/">Learning map</a></nav>
+  <a class="skip" href="#game-main">Skip to game</a>
+  <main id="game-main" tabindex="-1" class="game-shell">
+    <section class="hud">
+      <div>
+        <h1>J-Bug Version 1: Julian Searches for Rainbows</h1><!-- resource-about:start --><details class="resource-about" data-resource-about="rainbow-bug">
+<summary>About this resource<span class="resource-about-hint"> · How to use it · Learning engineering connections</span></summary>
+<div class="resource-about-body">
+<section><h2>What is this resource?</h2><p>A five-level rainbow-collecting game co-created by Julian, age 6, with AI as a creative partner. A visual platform game and an untimed text adventure offer different ways to explore the levels.</p></section>
+<section><h2>How should I use it?</h2><ol><li>Choose Play style. For the visual game, select Start visual game and focus the game: move with Left/Right or A/D, jump with Up/W/Space, and swat with E/F. Escape pauses. Touch controls are also available.</li><li>For an untimed alternative, choose Untimed text adventure and select the described routes. Settings include Easy Mode and bug density.</li><li>Play a level, identify a confusing cue or access barrier, and describe a change you would test. Use the linked Vibe Coding job aid to try the authoring process.</li></ol></section>
+<section><h2>How does this connect to LENS and learning engineering?</h2><p>The conceptual connection is iterative human–AI design: describe an intention, inspect what was built, and revise using observed play. Comparing visual and untimed interaction highlights how system conditions change opportunities to act. Enjoyment or finishing a level does not establish a learning benefit; that requires a separate learning goal and evidence.</p><ul class="resource-about-links"><li><a href="/vibe-coding-job-aid.docx">Vibe Coding job aid by James Diamond and Will Gray-Roncal (Word)</a></li><li><a href="/show-your-work/">LENS: capabilities and conditions</a></li><li><a href="https://lecommons.org/">Learning Engineering Commons</a></li></ul></section>
+</div></details><!-- resource-about:end -->
+
+        <p>Help the little boy collect every rainbow, dodge bugs, and clear each level.</p>
+      </div>
+      <div class="stats">
+        <span id="level">Level: 1 / 5</span>
+        <span id="score">Rainbows: 0 / 5</span>
+        <span id="status">Collect rainbows, avoid bugs, and use Settings for options.</span>
+      </div>
+    </section>
+    <section class="controls-panel">
+      <details class="controls-details">
+        <summary>Settings</summary>
+        <section class="controls">
+      <label class="mode-toggle" for="gameMode">
+        <span>Game:</span>
+        <select id="gameMode">
+          <option value="platformer">Rainbow Hunt</option>
+        </select>
+      </label>
+      <label class="mode-toggle" for="contraptionType" id="contraptionTypeWrap">
+        <span>Piece:</span>
+        <select id="contraptionType">
+          <option value="domino">Domino</option>
+          <option value="ramp">Ramp</option>
+          <option value="marble">Marble</option>
+          <option value="funnel">Funnel</option>
+          <option value="car">Toy Car</option>
+        </select>
+      </label>
+      <label class="mode-toggle" for="dominoLevelSelect" id="dominoLevelWrap">
+        <span>Puzzle:</span>
+        <select id="dominoLevelSelect"></select>
+      </label>
+      <label class="easy-mode-toggle density-toggle" for="pinballSpeed" id="pinballSpeedWrap">
+        <span>Game Speed</span>
+        <input id="pinballSpeed" type="range" min="70" max="130" step="5" value="100">
+        <span id="pinballSpeedValue">100%</span>
+      </label>
+      <p><strong>Move:</strong> Left / Right or A / D</p>
+      <p><strong>Jump:</strong> Up / W / Space</p>
+      <label class="easy-mode-toggle" for="easyMode">
+        <input id="easyMode" type="checkbox">
+        Easy Mode: bugs are harmless
+      </label>
+      <label class="easy-mode-toggle density-toggle" for="bugDensity">
+        <span>Bug Density</span>
+        <input id="bugDensity" type="range" min="25" max="200" step="25" value="100">
+        <span id="bugDensityValue">100%</span>
+      </label>
+      <label class="easy-mode-toggle" for="musicEnabled">
+        <input id="musicEnabled" type="checkbox" >
+        Music On
+      </label>
+      <label class="easy-mode-toggle" for="sfxEnabled">
+        <input id="sfxEnabled" type="checkbox" >
+        SFX On
+      </label>
+      <button id="actionButton" type="button">Start Chain</button>
+      <button id="restart" type="button">Restart</button>
+        </section>
+      </details>
+    </section>
+    <section class="play-options" aria-label="Ways to play">
+      <label for="play-style">Play style</label><select id="play-style"><option value="visual">Visual platform game</option><option value="text">Untimed text adventure</option></select>
+      <button id="pause-game" type="button">Start visual game</button>
+      <p id="game-instructions">Visual game: focus the game after starting. Use Left/Right or A/D to move, Up/W/Space to jump, E/F to swat. Escape pauses and returns to Start. Leaving the game pauses it. The untimed adventure uses the same five levels and rainbow locations; choose described routes without timed movement.</p>
+    </section>
+    <section id="text-adventure" hidden aria-label="Untimed rainbow adventure">
+      <h2 id="adventure-heading" tabindex="-1"></h2><p id="adventure-score"></p><p id="adventure-status" role="status"></p>
+      <ol id="adventure-routes"></ol><button id="next-adventure-level" type="button" hidden>Continue to next level</button><button id="restart-adventure" type="button">Restart text adventure</button>
+    </section>
+    <section class="game-stage">
+      <canvas id="game" width="960" height="540" tabindex="0" aria-describedby="game-instructions" aria-label="Rainbow Bug Dash visual game"></canvas>
+      <section class="touch-overlay" aria-label="Touch controls">
+        <div class="touch-move" aria-label="Movement controls">
+          <button class="touch-icon touch-icon-move" id="leftButton" type="button" aria-label="Move left">←</button>
+          <button class="touch-icon touch-icon-move" id="rightButton" type="button" aria-label="Move right">→</button>
+        </div>
+        <div class="touch-actions">
+          <button class="touch-icon touch-icon-expand" id="expandButton" type="button" aria-label="Expand game">⤢</button>
+          <button class="touch-icon touch-icon-jump" id="jumpButton" type="button" aria-label="Jump">↑</button>
+          <button class="touch-icon touch-icon-swat" id="swatButton" type="button" aria-label="Swat bug">✋</button>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="game.js?v=a11y-20261013"></script>
+  <script src="accessibility.js?v=a11y-20261013"></script>
+</body>
+</html>
