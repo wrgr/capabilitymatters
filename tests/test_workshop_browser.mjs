@@ -79,7 +79,11 @@ try{
         const banner=page.locator('.community-banner img');
         await banner.evaluate(image=>image.decode());
         assert(await banner.isVisible(),'Community banner remains visible on desktop and mobile');
-        assert(await banner.evaluate(image=>image.naturalWidth>1000),'Banner asset loads at full resolution');
+        // Browsers may round density-corrected naturalWidth down by one CSS pixel.
+        assert(await banner.evaluate(image=>image.naturalWidth+1>=image.clientWidth),'Banner asset is sharp at its displayed size');
+        assert(await banner.getAttribute('srcset'),'Banner supplies responsive image sizes');
+        assert.match(await banner.getAttribute('alt'),/learning sciences/);
+        assert(await page.locator('.community-banner figcaption').isVisible(),'The competency caption is readable');
         assert(await banner.evaluate(image=>Math.abs(image.width/image.height-image.naturalWidth/image.naturalHeight)<.02),'Banner retains its full composition');
       }
       await audit(page,route+' '+width);await page.screenshot({path:output+'/'+(route==='/'?'home':route.split('/').filter(Boolean).join('-'))+'-'+width+'.png'});
