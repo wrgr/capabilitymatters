@@ -97,3 +97,11 @@ voices = json.loads((REPO / "src/data/lifecycle/meeting-voices.json").read_text(
 assert set(voices["roles"]) == set(registry["default_roles"])
 (WEB / "meeting-voices.js").write_text("// Generated from src/data/lifecycle/meeting-voices.json; presentation only.\nexport const meetingVoices=" + json.dumps(voices, ensure_ascii=False) + ";\n")
 print("Source-linked meeting presentation voices packaged.")
+
+# The hosted GUI can author configurations and replay imports without a model service.
+from experiment_config import catalog, default_config
+experiment_web = WEB.parent / "experiments"
+experiment_web.mkdir(parents=True, exist_ok=True)
+(experiment_web / "catalog.json").write_text(json.dumps(catalog(), indent=2, ensure_ascii=False) + "\n")
+(experiment_web / "default.json").write_text(json.dumps(default_config(), indent=2, ensure_ascii=False) + "\n")
+print("Configurable experiment catalog and fictional default packaged.")

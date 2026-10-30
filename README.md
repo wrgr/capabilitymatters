@@ -159,6 +159,33 @@ python3 tests/test_slick_sheet.py
 node --test tests/test_prototypes.mjs
 ```
 
+## Configurable Agentic LE experiments
+
+The GUI at `/agentic-le/experiments/` assembles a fictional team, assigns explicit
+competency instructions, changes interaction behaviors and working conditions,
+and schedules fixed challenges. The same exported configuration drives the local
+runner. Review the resolved coverage and call schedule before execution, then
+replay each retained contribution, prompt, decision, challenge, and artifact.
+
+```sh
+npm ci
+npm run build
+python3 tools/lifecycle/server.py
+```
+
+Open `http://127.0.0.1:8767/agentic-le/experiments/`. Offline dry runs check the
+execution and replay pipeline without model calls or ablation findings. Live runs
+require the installed, authenticated Codex CLI, an explicit model identifier, and
+`CAPABILITY_MATTERS_LIVE=1` when starting the service. The hosted static page can
+configure experiments and import saved records; it does not run models.
+
+The four-condition comparison crosses explicit measurement support with assigned
+integration responsibility. Configurations, resolved instructions, fixed schedules,
+and journal hashes remain inspectable. Human review stays separate from agent
+input and from the observed technical record. See
+[the experiment guide](docs/lifecycle/EXPERIMENTS.md) for batches, budgets,
+cancellation, review evidence, and limits of interpretation.
+
 ## Problems to Prototypes
 
 `/problems-to-prototypes/` holds 38 evidence-linked briefs across AILE, LXD,

@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "id": "workforce-measurement-omitted",
+  "name": "Fictional workforce team with measurement support omitted",
+  "seed": {
+    "title": "Supporting difficult feedback conversations",
+    "idea": "A fictional service team requests a small browser-based resource to support difficult feedback conversations for new team leads. Its supplied brief describes recurring misunderstandings after conversations.",
+    "domain": "Fictional workforce learning and first-time team leadership",
+    "people": "New team leads, colleagues, supervisors, and a learning coordinator in a fictional service organization",
+    "constraints": "Use fictional examples only. Do not collect identifiable employee records or produce employee rankings. The proposed resource must be usable on shared laptops."
+  },
+  "team": [
+    {
+      "id": "coordinator",
+      "name": "Coordinator",
+      "role": "Stage coordinator",
+      "competencies": [],
+      "stages": [],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "decision",
+      "available": true
+    },
+    {
+      "id": "member-1",
+      "name": "Contributor 1",
+      "role": "Team contributor",
+      "competencies": [
+        "framing"
+      ],
+      "stages": [
+        "understand"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true
+    },
+    {
+      "id": "member-2",
+      "name": "Contributor 2",
+      "role": "Team contributor",
+      "competencies": [
+        "systems"
+      ],
+      "stages": [
+        "model",
+        "refine"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true
+    },
+    {
+      "id": "member-3",
+      "name": "Contributor 3",
+      "role": "Team contributor",
+      "competencies": [
+        "learning"
+      ],
+      "stages": [
+        "design",
+        "refine"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true
+    },
+    {
+      "id": "member-4",
+      "name": "Contributor 4",
+      "role": "Team contributor",
+      "competencies": [
+        "design"
+      ],
+      "stages": [
+        "understand",
+        "build"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true
+    },
+    {
+      "id": "member-5",
+      "name": "Contributor 5",
+      "role": "Team contributor",
+      "competencies": [
+        "implementation"
+      ],
+      "stages": [
+        "build"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true
+    },
+    {
+      "id": "member-6",
+      "name": "Contributor 6",
+      "role": "Team contributor",
+      "competencies": [
+        "measurement"
+      ],
+      "stages": [
+        "design",
+        "instrument",
+        "evaluate"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true
+    },
+    {
+      "id": "member-7",
+      "name": "Contributor 7",
+      "role": "Team contributor",
+      "competencies": [
+        "human"
+      ],
+      "stages": [
+        "design",
+        "deploy"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true
+    }
+  ],
+  "integration": {
+    "mode": "explicit",
+    "coordinator": "coordinator"
+  },
+  "omit_competencies": [
+    "measurement"
+  ],
+  "environment": {
+    "time_pressure": "standard",
+    "resources": "One facilitator, shared laptops, and twenty minutes of protected practice time per participant.",
+    "constraints": [
+      "The proposed resource is needed in four weeks."
+    ]
+  },
+  "challenges": [
+    {
+      "id": "practice-time-withdrawn",
+      "stage": "design",
+      "description": "The organization withdraws protected practice time. The implementation date remains unchanged."
+    }
+  ],
+  "execution": {
+    "provider": "dry-run",
+    "model": "",
+    "through": "refine",
+    "repetitions": 3,
+    "max_calls": 40,
+    "max_output_chars": 48000
+  }
+}

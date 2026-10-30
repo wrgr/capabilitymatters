@@ -88,7 +88,7 @@ class Journal:
             raise ValueError("Only a stopped run can be reopened")
         return journal
 
-    def __init__(self, path, seed, mode, parent=None, role_profiles=None):
+    def __init__(self, path, seed, mode, parent=None, role_profiles=None, experiment=None):
         validate_seed(seed)
         self.path = Path(path)
         self.path.mkdir(parents=True, exist_ok=False)
@@ -96,7 +96,9 @@ class Journal:
         contract = json.loads(canonical(role_profiles or DEFAULT_CONTRACT))
         roster = {k: {"name": p["name"], "competency": p["competency"]} for k, p in contract["roles"].items()}
         self.run = {"schema_version": 1, "id": self.path.name, "created_at": now(), "seed": seed, "mode": mode, "parent": parent, "roster": roster, "role_profiles": contract, "events": self.events}
-        self.append("seed", "understand", "human", {"seed": seed, "mode": mode, "run_id": self.path.name, "roster": self.run["roster"], "role_profiles": contract, "parent": parent, "note": "Project input; not a pilot authorization.", "source": "Capability Matters / Problems to Prototypes; project-specific competency synthesis"})
+        experiment_pin = {} if experiment is None else {"experiment": json.loads(canonical(experiment))}
+        self.run.update(experiment_pin)
+        self.append("seed", "understand", "human", {"seed": seed, "mode": mode, "run_id": self.path.name, "roster": self.run["roster"], "role_profiles": contract, "parent": parent, "note": "Project input; not a pilot authorization.", "source": "Capability Matters / Problems to Prototypes; project-specific competency synthesis", **experiment_pin})
         (self.path / "manifest.json").write_text(json.dumps({k: v for k, v in self.run.items() if k != "events"}, indent=2))
 
     def append(self, kind, stage, agent, payload):
@@ -132,6 +134,10 @@ def verify(run):
         raise ValueError("Run metadata differs from its journal")
     if run.get("role_profiles") != manifest.get("role_profiles"):
         raise ValueError("Role profile metadata differs from its journal")
+    if run.get("experiment") != manifest.get("experiment"):
+        raise ValueError("Experiment configuration differs from its journal")
+    if run.get("experiment") and run["experiment"].get("config_hash") != digest(run["experiment"].get("config")):
+        raise ValueError("Experiment configuration hash differs from its content")
     previous = "0" * 64
     revisions = {}
     for seq, event in enumerate(run["events"], 1):
