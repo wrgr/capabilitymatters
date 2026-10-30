@@ -1,7 +1,7 @@
 {
   "description": "Define explicit simulation instructions so experiment configurations can vary contributions without legacy role inheritance.",
   "schema_version": 1,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "framework_version": "1.1.0",
   "status": "Proposed experiment modules, not a replacement competency taxonomy or a validated model of human proficiency.",
   "foundations": [
@@ -13,7 +13,8 @@
     "Withdrawing an instruction does not remove knowledge from the underlying model.",
     "Behavior settings are requested interaction behaviors, not validated personality measures.",
     "Dry runs verify configuration and execution only; their authored outputs are not ablation findings.",
-    "The response-character limit bounds accepted output; it is not a model-token or spending limit."
+    "The response-character limit bounds accepted output; it is not a model-token or spending limit.",
+    "Named personas are editable instruction presets, not demonstrated human expertise or validated personality models."
   ],
   "stages": [
     {
@@ -191,5 +192,224 @@
   "integration_instructions": {
     "explicit": "Reconcile the supplied contributions into a coherent stage decision. Identify disagreements, make the tradeoffs visible, and show which contributions changed the resulting artifact. Preserve unresolved questions.",
     "handoff": "Record the supplied contributions and the next stage handoff. No designated responsibility to reconcile contributions is assigned. You may still connect ideas or resolve a disagreement spontaneously; integration is not prohibited."
-  }
+  },
+  "personas": [
+    {
+      "id": "framing-specialist",
+      "version": "1.0.0",
+      "name": "Problem framing specialist",
+      "description": "Assigns the problem framing module as a configurable task perspective; proficiency is unverified.",
+      "competencies": [
+        "framing"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "recommended_stages": [
+        "understand"
+      ]
+    },
+    {
+      "id": "systems-specialist",
+      "version": "1.0.0",
+      "name": "Systems and conditions specialist",
+      "description": "Assigns the systems and conditions module as a configurable task perspective; proficiency is unverified.",
+      "competencies": [
+        "systems"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "recommended_stages": [
+        "model",
+        "refine"
+      ]
+    },
+    {
+      "id": "learning-specialist",
+      "version": "1.0.0",
+      "name": "Learning and practice specialist",
+      "description": "Assigns the learning and practice module as a configurable task perspective; proficiency is unverified.",
+      "competencies": [
+        "learning"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "recommended_stages": [
+        "design",
+        "refine"
+      ]
+    },
+    {
+      "id": "design-specialist",
+      "version": "1.0.0",
+      "name": "Interaction design specialist",
+      "description": "Assigns the interaction design module as a configurable task perspective; proficiency is unverified.",
+      "competencies": [
+        "design"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "recommended_stages": [
+        "understand",
+        "build"
+      ]
+    },
+    {
+      "id": "implementation-specialist",
+      "version": "1.0.0",
+      "name": "Implementation specialist",
+      "description": "Assigns the implementation module as a configurable task perspective; proficiency is unverified.",
+      "competencies": [
+        "implementation"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "recommended_stages": [
+        "build"
+      ]
+    },
+    {
+      "id": "measurement-specialist",
+      "version": "1.0.0",
+      "name": "Measurement and inference specialist",
+      "description": "Assigns the measurement and inference module as a configurable task perspective; proficiency is unverified.",
+      "competencies": [
+        "measurement"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "recommended_stages": [
+        "design",
+        "instrument",
+        "evaluate"
+      ]
+    },
+    {
+      "id": "human-specialist",
+      "version": "1.0.0",
+      "name": "Human agency and burden specialist",
+      "description": "Assigns the human agency and burden module as a configurable task perspective; proficiency is unverified.",
+      "competencies": [
+        "human"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "recommended_stages": [
+        "design",
+        "deploy"
+      ]
+    },
+    {
+      "id": "generalist",
+      "version": "1.0.0",
+      "name": "All-competency generalist",
+      "description": "Assigns every explicit module; each contribution still receives only the duties scheduled for that slot.",
+      "competencies": [
+        "framing",
+        "systems",
+        "learning",
+        "design",
+        "implementation",
+        "measurement",
+        "human"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "recommended_stages": [
+        "understand",
+        "model",
+        "design",
+        "build",
+        "instrument",
+        "deploy",
+        "evaluate",
+        "refine"
+      ]
+    },
+    {
+      "id": "learning-designer",
+      "version": "1.0.0",
+      "name": "Learning and interaction designer",
+      "description": "Combines learning-and-practice instructions with interaction-design instructions.",
+      "competencies": [
+        "learning",
+        "design"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "recommended_stages": [
+        "design",
+        "build",
+        "refine"
+      ]
+    },
+    {
+      "id": "evidence-engineer",
+      "version": "1.0.0",
+      "name": "Implementation and evidence contributor",
+      "description": "Combines implementation instructions with measurement-and-inference instructions.",
+      "competencies": [
+        "implementation",
+        "measurement"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "recommended_stages": [
+        "design",
+        "build",
+        "instrument",
+        "evaluate"
+      ]
+    },
+    {
+      "id": "human-systems",
+      "version": "1.0.0",
+      "name": "Human and systems contributor",
+      "description": "Combines operating-condition instructions with human-agency-and-burden instructions.",
+      "competencies": [
+        "systems",
+        "human"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "recommended_stages": [
+        "model",
+        "design",
+        "deploy",
+        "refine"
+      ]
+    }
+  ]
 }

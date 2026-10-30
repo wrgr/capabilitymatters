@@ -7,7 +7,7 @@ This workbench makes a team's assigned competencies, interaction behaviors, work
 From the repository root:
 
 ```sh
-npm install
+npm ci
 npm run build
 python3 tools/lifecycle/server.py
 ```
@@ -15,9 +15,9 @@ python3 tools/lifecycle/server.py
 Open `http://127.0.0.1:8767/agentic-le/experiments/`.
 
 1. Start with the fictional example or import a configuration previously exported from this page.
-2. Configure the people: names, functional roles, competency assignments, stage participation, authority, availability, and defined interaction behaviors. One actor may hold several competencies, and several actors may share one.
+2. Choose Default team, Competency ablation, or Individual agent, then apply the arrangement. Choose named competency personas or edit names, functional roles, competency assignments, stage participation, authority, availability, and interaction behaviors. One actor may hold several competencies, and several actors may share one.
 3. Choose the coordinator and either explicit integration or procedural handoff. Keep the same coordinator when comparing integration responsibility.
-4. Set environmental constraints and challenges. Each challenge is inserted before contributions at its selected stage, with the same content and timing in every matching condition.
+4. Set environmental constraints, outcome-model assumptions, and challenges. Each challenge is inserted before contributions at its selected stage. A challenge may also replace specified simulation conditions when it arrives.
 5. Inspect the resolved configuration and coverage. A named competency can be assigned yet unavailable or unscheduled; global omission removes its explicit module from every resolved actor, including the coordinator.
 6. Run a dry run to check configuration, event recording, and replay. For model generation, use a locally installed, authenticated Codex CLI, select `codex`, and enter a model identifier. The existing explicit live-mode setting is required:
 
@@ -27,9 +27,39 @@ CAPABILITY_MATTERS_LIVE=1 python3 tools/lifecycle/server.py
 
 The hosted static page can configure, export, and inspect imported records. It cannot start local model calls. Start the local service to execute a configuration. Exporting or replaying a saved record does not invoke a model.
 
+## Study arrangements and competency personas
+
+| Arrangement | What changes | What stays available for inspection |
+|---|---|---|
+| Default team | Restores the supplied roster, integration policy, omissions, and team participation mode | The current case, execution settings, environment, challenges, and outcome settings are preserved |
+| Competency ablation | Omits the selected instruction module globally and selects team participation | Current actors and stages remain; other explicit omissions are preserved |
+| Individual agent | One selected persona performs every contribution and coordination slot | The reference team's ordered opportunities, effective slot duties, case, conditions, and limits remain explicit |
+
+An arrangement prepares a configuration. The comparison selector then chooses whether to repeat it, compare retained versus omitted support, or compare a team with its selected individual. The generalized ablation selector accepts any of the seven catalog modules. It refuses a presence condition without an available, scheduled contribution carrying that module.
+
+The catalog provides seven module-specific personas, an all-competency generalist, and three combinations: Learning and interaction designer, Implementation and evidence contributor, and Human and systems contributor. Applying a persona copies its competency selections and requested behavior. It retains the actor's identity, name, role, authority, availability, and existing stages; recommended stages in the catalog are guidance, not an automatic rescheduling operation. The materialized selections are editable. A persona reference records the preset's identity and version, not hidden inherited duties or verified expertise.
+
+Individual mode separates **identity** from **scheduled duty**. The default reference team has 13 contribution slots and eight coordination decisions, for 21 calls. The generalist individual performs those same 21 slots as one actor, including the decisions. A slot receives the same competency duties at the same stage as the corresponding team slot. The individual does not receive every module on every call, and there is no second, hidden coordinating actor.
+
+Selecting a specialist individual intersects its selected modules with each reference slot's modules. Slots with no remaining module still execute, making the reduced explicit support visible without reducing the call opportunities. This is a different comparison from the all-competency individual. The matching audit reports altered competency exposure. The individual's single requested behavior applies throughout; if the source team has heterogeneous behaviors, the audit also identifies the resulting behavior changes. These are models executing assigned task perspectives, not validated models of one human's workload or multidisciplinary proficiency.
+
+Version 1 configurations remain accepted with their original normalized fields and canonical configuration hashes. Choosing a new study arrangement explicitly upgrades a legacy configuration to version 2, adding persona references, the participation configuration, and outcome settings. Existing version 1 journals retain their original response format and replay behavior. Version 2 individual IDs must differ from reference-team IDs so persona edits have an unambiguous target.
+
+## Standardized agent execution contract
+
+Every resolved run pins a versioned `agent-turn` contract and a specification for each effective profile. The specification records identity, purpose, selected competencies and resolved duties, behavior, authority, requested tools, stages, turn kinds, context policy, stopping conditions, and hashes. The common typed signature takes a case brief, stage, effective instructions, and visible context and returns a contribution or decision, evidence references, an artifact, and, on the version 2 Build decision, a typed design declaration.
+
+The contract uses explicit input and output schemas. Runtime validation rejects malformed outputs, future evidence references, an absent Build declaration, and executable source on the wrong turn. Persona titles, source-person identities, condition labels, and human-review predictions remain audit metadata rather than extra model instructions. The same interface is used in every experimental condition; its human/system fields and declared-design fields remain common cues that must be considered when interpreting an ablation.
+
+This is an application execution contract informed by typed signatures, schema validation, and agent-description practices. It does not claim A2A protocol compliance, cryptographic actor authentication, or demonstrated human competence. Its source links are retained in the pinned contract. A hash establishes consistency with recorded content; it does not authenticate a real person or establish the truth of a model's statements.
+
+The design draws on [DSPy typed signatures](https://dspy.ai/3.1.3/learn/programming/signatures/), [JSON Schema object contracts](https://json-schema.org/understanding-json-schema/reference/object), [A2A identity and capability descriptions](https://a2a-protocol.org/latest/specification/), and [independent agent outcome evaluation](https://www.anthropic.com/research/demystifying-evals-for-ai-agents). The requested tool set is empty. Instructions request no tool use, while the CLI filesystem sandbox is read-only; this does not certify that the provider invoked no read-only tools. Raw provider receipts remain available for inspection.
+
+Historical typed responses are checked against the output schema pinned in their own run, so later required fields are not silently imposed on old records. When integral numeric representations are normalized for portable JSON hashes, the original parsed-value representation and its hash are retained. Malformed nonfinite provider output is rejected and preserved as text without invalidating the failure journal's JSON.
+
 ## Trace and replay
 
-Each run retains its original configuration, resolved role contract, instruction-catalog hash, configuration hash, and fixed schedule. Recorded events include stage transitions, fixed challenges, provider requests with prompts, contributions, coordinator decisions, versioned artifacts, completion, and retained failures.
+Each run retains its original configuration, resolved role contract, instruction-catalog hash, configuration hash, ordered execution plan, standardized agent specifications, and outcome-model definition. Recorded events include stage transitions, fixed challenges, provider requests with typed inputs and exact prompts, contributions, coordination decisions, versioned artifacts, illustrative outcome assessments, completion, and retained failures.
 
 The GUI's replay controls move through this saved history. Inspect the configuration, prompts, responses, source event references, and artifact revisions alongside the selected point in time. A later artifact revision does not replace an earlier event. Executable candidates are displayed inside an isolated frame; loading the frame is a technical inspection, not a learning study.
 
@@ -41,11 +71,26 @@ Hash verification detects changes relative to the recorded chain and manifest. I
 
 The named model is the requested provider identifier. It does not by itself prove a service's exact underlying model revision. Each live call retains its provider receipt and metadata for inspection. Model or prompt changes can alter regenerated outputs; replay reproduces the saved record, not a new model response.
 
-The prompt context policy is pinned with the run: the ten most recent public contributions, bounded excerpts of their bodies and current artifacts, and only challenges that have already arrived. Truncated excerpts are explicitly marked. The complete earlier responses, artifacts, and exact assembled prompts remain in the journal.
+The prompt context policy is pinned with the run: the ten most recent public contributions, bounded excerpts of their bodies and current artifacts, only challenges that have already arrived, and simulation assessments that have already been recorded. Truncated excerpts are explicitly marked. The complete earlier responses, artifacts, and exact assembled prompts remain in the journal.
 
-## The initial comparison
+## Comparisons and matching
 
-The predefined comparison crosses explicit measurement support with a designated integration responsibility:
+The generalized planner accepts a comparison specification separately from the configuration:
+
+```json
+{
+  "schema_version": 1,
+  "kind": "ablation",
+  "competency": "human",
+  "integration_modes": ["explicit"]
+}
+```
+
+`configured` repeats the current configuration for each selected integration mode. `ablation` creates retained and omitted conditions for the selected competency. `team_individual` creates team and individual conditions using the selected individual persona. The latter two kinds produce two conditions per integration mode; `competency` must be `null` for kinds other than ablation. A single integration mode is useful when studying one factor first.
+
+Every planned item carries a matching audit against the first item. It compares ordered opportunities, effective competency exposure, behavior, authority, model-facing profiles, case, environment, challenges, outcome settings, provider and limits, integration, actor identity, and execution-contract and outcome-model hashes. Some differences are intentional experimental factors; the audit makes them inspectable rather than declaring every contrast equivalent. Equal calls and accepted-character bounds do not establish equal token consumption, elapsed time, or human workload.
+
+The original predefined comparison remains available through the legacy matrix interface. It crosses explicit measurement support with a designated integration responsibility:
 
 | Condition | Explicit measurement support | Coordination instruction |
 |---|---|---|
@@ -56,11 +101,37 @@ The predefined comparison crosses explicit measurement support with a designated
 
 Team membership, contribution opportunities, case facts, environment, challenges, provider selection, and call/output limits remain the same. Procedural handoff preserves access to previous contributions while omitting a designated responsibility to reconcile them; spontaneous integration is allowed. The presence cells require measurement support assigned to an available actor with an opportunity to contribute. Other explicit omissions are preserved across all four conditions.
 
-Three repetitions per cell produce 12 fresh executions. These are exploratory repetitions, not a powered study. A single-configuration repetition option is also available. Configuration and catalog hashes bind each planned execution to its inputs. Responses are generated afresh; saved responses are not replayed as new observations.
+Three repetitions per cell produce 12 fresh executions. The default full-cycle plan has 21 calls per execution, or 252 planned calls for this matrix. These are exploratory repetitions, not a powered study. A single-configuration repetition option is also available. Configuration, catalog, plan, agent-contract, agent-specification, and outcome-model hashes bind each planned execution to its inputs. Responses are generated afresh; saved responses are not replayed as new observations.
+
+Repetitions are interleaved deterministically: A1, B1, C1, D1, then A2, B2, C2, D2. The order and its policy are recorded. This avoids finishing every repetition of one condition before beginning the next, but it is not randomization and does not eliminate provider drift or order effects.
 
 The existing contribution output schema includes human/system and flourishing fields in every condition. These shared fields remain a residual prompt cue and must be reported when interpreting results. Withdrawing a module does not erase a language model's knowledge, prohibit compensation by another contributor, or establish that a human competency has been removed.
 
 The runtime uses a fixed finite stage schedule. It records requested revisits without silently adding unequal model-call opportunities. Inspect outstanding requests and changed requirements when judging the artifacts; completing the schedule does not establish that every concern was resolved.
+
+## Simulated success and failure
+
+Version 2 adds an explicit, illustrative outcome model. The Build decision declares practice minutes, feedback type, revision opportunity, support minutes per learner, offline fallback, preserved choice, and personal-data handling. A separate evaluator applies the recorded conditions, assumptions, thresholds, synthetic cohort size, and random seed. It does not read persona names, competency selections, or ablation labels to decide whether a condition succeeds.
+
+The declaration also records `model_applicability` and `scope_rationale`. A proposal involving workflow redesign, another mechanism, or a novel approach outside the practice/support model can be marked `outside_scope` with an explanation. It receives **indeterminate**, with the source evidence and an explicit agent claim awaiting human review. The simulator does not sample or award a success/failure score in that case. The declaration does not prove that the approach is valid or out of scope; a reviewer decides whether another model or additional checks are needed.
+
+The model checks three dimensions separately:
+
+| Dimension | Illustrative calculation or check |
+|---|---|
+| Learner | Success across the full synthetic cohort, including non-completers, using assumed practice, feedback, revision, and transfer relationships |
+| Human | Requested practice fits available time; practice plus support burden meets its limit; choice is preserved; identified personal data are not requested |
+| System | Synthetic completion meets its threshold under digital access, offline fallback, and total support-capacity assumptions |
+
+Overall status is `success` when all three dimensions pass, `failure` when none pass, and `partial` otherwise. A missing declared design or disabled outcome model is `indeterminate`. These results are independent of execution status: a completed run can have a simulated failure, and a failed or cancelled execution can retain an earlier assessment. Human review scores remain separate and unfilled.
+
+Initial-condition presets cover adequate conditions, limited practice time, and limited digital access. Each has explicit numerical settings; none guarantees a particular result. A challenge's optional `simulation_effects` changes only specified conditions once that challenge arrives. **The default Design challenge replaces available practice time with five minutes.** Selecting an initial twenty-minute preset does not remove this later override. Change or remove the challenge effect when exploring a world where protected time remains available.
+
+The model's assumptions and criteria are pinned independently of the competency manipulation and are preserved across batch conditions. Thresholds and coefficients are editable assumptions, not estimates from learner data. Numeric inputs permit four decimal places; reported metrics and threshold checks use the declared four-place precision. The seeded sampler consumes the same two draws per synthetic person across comparable assessments, so changes in design or conditions can be explored without changing the random stream. This numerical reproducibility is not empirical validation.
+
+Assessments cite the retained Build decision and its artifact, identify applied challenge effects, and retain the evaluator, formulas, model hash, parameters, and limits. After an assessment occurs, later turns may inspect that recorded simulation feedback. The fixed schedule does not silently rebuild the candidate in response; a late revision remains a recorded proposal unless a separate iteration is run.
+
+The evaluator checks the **declared design**, not whether the generated HTML implements those declarations. Inspect the actual candidate and record technical evidence separately. Dry-run designs are authored fixtures; their simulated results test the calculation and replay path. An individual generated result does not establish that a competency caused a difference. Comparative live runs still require analysis of the manipulation and resulting work. No generated run observes actual learner success, human wellbeing, or operational system performance.
 
 ## Batch CLI
 
@@ -82,6 +153,20 @@ Repeat only the supplied configuration:
 python3 tools/lifecycle/experiment_batch.py --config experiment.json --single
 ```
 
+Inspect an ablation of any selected module, keeping one integration policy:
+
+```sh
+python3 tools/lifecycle/experiment_batch.py --config experiment.json --comparison ablation --competency human --integration-mode explicit --plan
+```
+
+Compare the team with the individual persona configured in the exported file:
+
+```sh
+python3 tools/lifecycle/experiment_batch.py --config experiment.json --comparison team_individual --integration-mode explicit
+```
+
+Repeat `--integration-mode` with `handoff` to include both integration conditions. Omit `--plan` to execute an inspected plan. `--single` and `--comparison` are mutually exclusive. Without either option, the original measurement-by-integration matrix is used.
+
 The provider in the configuration controls whether these are dry runs or live model calls. Live runs require the existing `CAPABILITY_MATTERS_LIVE=1` setting and an explicit model. A maximum-call limit is enforced. The accepted-response character bound is not an output-token or spending cap; it rejects oversized returned responses after generation.
 
 The batch runner continues after a run fails so failures remain visible in the comparison. A failed run and its earlier events are retained. It never silently substitutes a new execution or reuses a response. The CLI returns a nonzero exit status if any run failed or the batch was cancelled. To repeat a completed batch, start a new batch. An interrupted batch remains visibly unfinished; automatic resumption is not implemented.
@@ -94,8 +179,8 @@ Batch records are stored under `data/lifecycle/batches/<batch-id>/`:
 
 | File | Purpose |
 |---|---|
-| `manifest.json` | Original configuration, complete planned conditions, hashes, state transitions, and run identities |
-| `comparison.json` | Actual execution counts, completion/failure/cancellation states, skipped runs, journal heads, and artifact/event links |
+| `manifest.json` | Original configuration, comparison selector, complete conditions, matching audits, execution order, hashes, state transitions, and run identities |
+| `comparison.json` | Execution counts and states, matching audits, latest retained illustrative outcome summaries, journal heads, and artifact/event links |
 | `review.json` | Separate, initially unscored human review scaffold |
 
 Run journals remain directly under `data/lifecycle/<run-id>/` so normal replay and run lookup work. Comparison paths are relative to their batch directory.
@@ -130,7 +215,7 @@ The review scaffold keeps learner, human, and system dimensions separate. It als
 
 No scores are filled automatically. A score requires a named human reviewer, a rationale, and a retained event citation. Event references include `run_id`, `event_seq`, and `event_hash`; artifact citations also include the exact `artifact_hash`. The `experiment_review.validate_review` function checks these against verified journals and the batch's retained heads.
 
-A technical output can be inspected directly. Effects on actual learning, human agency or burden, and operational system performance remain hypotheses until observed independently. An unexpected idea is unexpected relative to the predeclared expectations, not automatically novel to the field. Dry-run fixtures provide no ablation evidence at all.
+A technical output can be inspected directly. The human rubric assesses the evidence carried into decisions and implementation; it is not an automatic learner-success score. Effects on actual learning, human agency or burden, and operational system performance remain hypotheses until observed independently. An unexpected idea is unexpected relative to the predeclared expectations, not automatically novel to the field. Dry-run fixtures provide no ablation evidence at all.
 
 ## Scope and remaining interpretation limits
 

@@ -63,6 +63,7 @@ async function configure(page) {
   await page.goto(origin + '/agentic-le/experiments/');
   await page.locator('#workspace').waitFor({state: 'visible'});
   await page.screenshot({path: resolve(output, 'overview.png'), fullPage: false});
+  await studyPresets(page);
   const card = page.locator('[data-actor="member-6"]');
   await card.locator('summary').first().click();
   await card.getByLabel('Name', {exact: true}).fill('Case reviewer');
@@ -90,6 +91,29 @@ async function configure(page) {
   report.checks.push('Roster name, runtime behavior, global omission, exact resolution, and comparison count');
 }
 
+/** @param {import('playwright').Page} page @returns {Promise<void>} Exercise named study transformations and a persona's materialized assignments. */
+async function studyPresets(page) {
+  await page.getByLabel('Case title', {exact: true}).fill('A preserved GUI case');
+  await page.getByLabel('Study preset', {exact: true}).selectOption('ablation');
+  await page.getByLabel('Competency to omit', {exact: true}).selectOption('systems');
+  await page.getByRole('button', {name: 'Apply study preset', exact: true}).click();
+  await page.locator('#notice').filter({hasText: 'Applied competency ablation'}).waitFor();
+  assert.match(await page.locator('#study-editor').innerText(), /Current omissions: Systems and conditions/);
+  await page.getByLabel('Study preset', {exact: true}).selectOption('default');
+  await page.getByRole('button', {name: 'Apply study preset', exact: true}).click();
+  await page.locator('#notice').filter({hasText: 'Applied default team'}).waitFor();
+  assert.equal(await page.getByLabel('Case title', {exact: true}).inputValue(), 'A preserved GUI case');
+  const card = page.locator('[data-actor="member-1"]');
+  await card.locator('summary').first().click();
+  await card.getByLabel('Competency persona', {exact: true}).selectOption('learning-designer');
+  await card.getByRole('button', {name: 'Apply persona', exact: true}).click();
+  assert(await card.getByLabel('Learning and practice', {exact: true}).isChecked());
+  assert(await card.getByLabel('Interaction design', {exact: true}).isChecked());
+  assert(await card.getByLabel('Understand', {exact: true}).isChecked());
+  await card.locator('summary').first().click();
+  report.checks.push('Any-module ablation, default restoration preserving the case, and materialized named persona with unchanged stage timing');
+}
+
 /** @param {import('playwright').Page} page @returns {Promise<object>} Execute the pipeline through GUI controls and inspect the original journal. */
 async function executeAndReplay(page) {
   const created = page.waitForResponse(response => response.url().endsWith('/api/experiments/runs') && response.request().method() === 'POST');
@@ -102,6 +126,7 @@ async function executeAndReplay(page) {
   const request = run.events.find(event => event.kind === 'request');
   await page.locator('#replay-first').click();
   assert.match(await page.locator('#artifact-list').innerText(), /Stage artifacts appear/);
+  await outcomePlayback(page, run);
   await page.locator('#replay-range').evaluate((input, value) => { input.value = value; input.dispatchEvent(new Event('input', {bubbles: true})); }, String(request.seq));
   assert.equal(await page.locator('#event-detail .prompt').innerText(), request.payload.prompt);
   await page.locator('#replay-last').click();
@@ -116,6 +141,80 @@ async function executeAndReplay(page) {
   await audit(page, 'Replay desktop');
   report.checks.push('GUI dry run, pinned edited configuration, exact prompt, temporal artifacts, and working isolated candidate');
   return run;
+}
+
+/** @param {import('playwright').Page} page @param {object} run @returns {Promise<void>} Keep model results hidden until their original assessment event. */
+async function outcomePlayback(page, run) {
+  const assessment = run.events.find(event => event.kind === 'outcome_assessment');
+  assert(assessment);
+  assert.equal(await page.locator('#outcome-assessment .outcome-card').count(), 0);
+  await page.locator('#replay-range').evaluate((input, value) => { input.value = value; input.dispatchEvent(new Event('input', {bubbles: true})); }, String(assessment.seq - 1));
+  assert.equal(await page.locator('#outcome-assessment .outcome-card').count(), 0);
+  await page.locator('#replay-next').click();
+  assert.equal(await page.locator('#outcome-assessment .outcome-card').count(), 3);
+  assert.equal(await page.locator('#outcome-assessment .outcome-status').innerText(), `Simulated ${assessment.payload.status}`);
+  assert.match(await page.locator('#outcome-assessment').innerText(), /Authored fixture input/);
+  assert.equal(assessment.payload.status, 'success');
+  await page.locator('#outcome-assessment').screenshot({path: resolve(output, 'outcomes-success.png')});
+  await page.locator('#outcome-assessment').getByRole('button', {name: /^Evidence #/}).first().click();
+  assert.equal(await page.locator('#outcome-assessment .outcome-card').count(), 0);
+  report.checks.push('Three synthetic dimensions appear only at their hashed event, with backward evidence navigation and authored-input labeling');
+}
+
+/** @param {import('playwright').Page} page @returns {Promise<object>} Start one actual GUI execution and return its saved journal. */
+async function runCurrent(page) {
+  await page.locator('#review-tab').click();
+  const created = page.waitForResponse(response => response.url().endsWith('/api/experiments/runs') && response.request().method() === 'POST');
+  await page.locator('#start-run').click();
+  const response = await created; assert(response.ok(), await response.text());
+  const {run_id: id} = await response.json();
+  await page.waitForFunction(expected => document.getElementById('run-identity').textContent.includes(expected)
+    && document.getElementById('run-status').textContent.includes('Completed record'), id, {timeout: 15000});
+  return (await page.request.get(`${origin}/api/runs/${id}`)).json();
+}
+
+/** @param {import('playwright').Page} page @param {object} reference @returns {Promise<void>} Verify the one-agent mode retains the reference call opportunities and exposes its actual signature. */
+async function individualMode(page, reference) {
+  await page.locator('#configure-tab').click();
+  await page.getByLabel('Study preset', {exact: true}).selectOption('individual');
+  await page.getByLabel('Individual persona', {exact: true}).selectOption('generalist');
+  await page.getByRole('button', {name: 'Apply study preset', exact: true}).click();
+  await page.locator('#notice').filter({hasText: 'Applied individual agent'}).waitFor();
+  assert.equal(await page.locator('#team-editor > [data-actor]').count(), 1);
+  assert.equal(await page.getByText('Reference team and matched contribution opportunities', {exact: true}).locator('..').evaluate(node => node.open), false);
+  const run = await runCurrent(page);
+  const requests = run.events.filter(event => event.kind === 'request');
+  assert.deepEqual([...new Set(requests.map(event => event.agent))], ['individual']);
+  assert.equal(requests.length, reference.events.filter(event => event.kind === 'request').length);
+  assert.equal(await page.locator('#replay-filter option').count(), 2);
+  const request = requests[0];
+  await page.locator('#replay-range').evaluate((input, value) => { input.value = value; input.dispatchEvent(new Event('input', {bubbles: true})); }, String(request.seq));
+  await page.locator('#event-detail').getByText('Standard agent signature and effective profiles', {exact: true}).click();
+  assert.match(await page.locator('#event-detail .signature').innerText(), /case_brief/);
+  await page.screenshot({path: resolve(output, 'individual-signature.png'), fullPage: true});
+  report.checks.push('One actual model identity across matched reference slots, unique replay filter, and the pinned typed signature');
+}
+
+/** @param {import('playwright').Page} page @returns {Promise<void>} Demonstrate world-condition failure independently of technical execution or persona labels. */
+async function failedWorld(page) {
+  await page.locator('#configure-tab').click();
+  await page.locator('#conditions-editor').getByRole('button', {name: 'Remove challenge', exact: true}).click();
+  const model = page.locator('#outcome-editor');
+  await model.getByLabel('World condition preset', {exact: true}).selectOption('access_limited');
+  await model.getByRole('button', {name: 'Apply world conditions', exact: true}).click();
+  assert.equal(await model.getByLabel('Digital access fraction', {exact: true}).inputValue(), '0.5');
+  await model.getByLabel('Available practice minutes', {exact: true}).fill('0');
+  await model.getByLabel('Total support capacity in minutes', {exact: true}).fill('0');
+  const run = await runCurrent(page);
+  const result = run.events.find(event => event.kind === 'outcome_assessment').payload;
+  assert.equal(result.status, 'failure');
+  assert.equal(run.events.at(-1).kind, 'completed');
+  if (await page.locator('#replay-last').isEnabled()) await page.locator('#replay-last').click();
+  assert.equal(await page.locator('#outcome-assessment .outcome-status').innerText(), 'Simulated failure');
+  assert.match(await page.locator('#run-status').innerText(), /Completed record/);
+  await page.screenshot({path: resolve(output, 'synthetic-failure.png'), fullPage: true});
+  await page.locator('#outcome-assessment').screenshot({path: resolve(output, 'outcomes-failure.png')});
+  report.checks.push('Changed synthetic conditions produce recorded failure while the execution still completes successfully');
 }
 
 /** @param {import('playwright').Page} page @param {object} run @returns {Promise<void>} Export exact bytes, import the journal, and reject a modified prompt. */
@@ -172,20 +271,27 @@ async function backgroundExecution(page) {
   report.checks.push('Completion monitoring survives navigation to a previous saved run');
 }
 
-/** @param {import('playwright').Page} page @returns {Promise<void>} Run all four controlled conditions through the actual batch endpoint. */
-async function compare(page) {
+/** @param {import('playwright').Page} page @param {string} kind @param {number} expected @returns {Promise<void>} Run selected comparison conditions through the actual batch endpoint. */
+async function compare(page, kind = 'ablation', expected = 4) {
   await page.locator('#review-tab').click();
+  await page.getByLabel('Comparison design', {exact: true}).selectOption(kind);
+  if (kind === 'team_individual') {
+    const panel = page.locator('#comparison-setup details');
+    if (!await panel.evaluate(node => node.open)) await panel.locator('summary').click();
+    await panel.getByLabel('Procedural handoff', {exact: true}).uncheck();
+  }
   const created = page.waitForResponse(response => response.url().endsWith('/api/experiments/batches') && response.request().method() === 'POST');
   await page.locator('#start-comparison').click();
   const {batch_id: id} = await (await created).json();
   await page.locator('#notice').filter({hasText: /Comparison completed/}).waitFor({timeout: 20000});
   const batch = await (await page.request.get(`${origin}/api/experiments/batches/${id}`)).json();
-  assert.equal(batch.runs.length, 4);
+  assert.equal(batch.runs.length, expected);
   assert(batch.runs.every(item => item.run_id));
-  assert.equal(await page.locator('#comparison-results').getByRole('button', {name: 'Replay run', exact: true}).count(), 4);
+  assert(batch.runs.every(item => item.outcome?.status));
+  assert.equal(await page.locator('#comparison-results').getByRole('button', {name: 'Replay run', exact: true}).count(), expected);
   await page.locator('#comparison-results').getByRole('button', {name: 'Replay run', exact: true}).first().click();
-  await page.locator('#run-title').waitFor({state: 'visible'});
-  report.checks.push('Four-condition repeated-run controls and direct comparison-to-journal replay');
+  await page.waitForFunction(id => document.getElementById('run-identity').textContent.includes(id), batch.runs[0].run_id);
+  report.checks.push(`${kind} comparison: ${expected} saved executions, synthetic outcome summaries, and direct journal replay`);
 }
 
 /** @param {import('playwright').Page} page @returns {Promise<void>} Check compact screens for full-page horizontal overflow and accessible controls. */
@@ -213,6 +319,11 @@ async function staticFallback(browser, run) {
   await page.goto(staticOrigin + '/agentic-le/experiments/');
   await page.locator('#workspace').waitFor({state: 'visible'});
   assert.equal(await page.locator('#connection-state').innerText(), 'Configuration and replay');
+  await page.getByLabel('Study preset', {exact: true}).selectOption('individual');
+  await page.getByRole('button', {name: 'Apply study preset', exact: true}).click();
+  await page.locator('#notice').filter({hasText: 'Applied individual agent'}).waitFor();
+  assert.equal(await page.locator('#team-editor > [data-actor]').count(), 1);
+  assert.equal(await page.getByLabel('Synthetic cohort size', {exact: true}).inputValue(), '100');
   await page.locator('#review-tab').click();
   assert(await page.locator('#start-run').isDisabled());
   await page.locator('#run-file').setInputFiles({name: 'run.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(run))});
@@ -235,6 +346,9 @@ try {
   await staleResolution(page);
   await backgroundExecution(page);
   await compare(page);
+  await individualMode(page, run);
+  await failedWorld(page);
+  await compare(page, 'team_individual', 2);
   await mobile(page);
   await staticFallback(browser, run);
   assert.deepEqual(errors, [], 'No uncaught browser errors');

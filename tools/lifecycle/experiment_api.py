@@ -11,7 +11,9 @@ from pathlib import Path
 from types import ModuleType
 from typing import Any
 
-from experiment_config import catalog, default_config, resolve_config, validate_config
+from experiment_config import catalog, default_config, resolve_config, validate_config, apply_study_preset
+from experiment_contract import agent_contract
+from experiment_outcomes import outcome_catalog
 from experiment_runtime import create_experiment, execute_experiment, ExperimentRunError
 
 SAFE_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]{0,159}\Z")
@@ -64,7 +66,8 @@ def handle_get(handler: Any, root: Path) -> bool:
         return False
     try:
         if handler.path == "/api/experiments/catalog":
-            handler.send_json({"catalog": catalog(), "default_config": default_config()})
+            handler.send_json({"catalog": catalog(), "default_config": default_config(),
+                               "outcome_catalog": outcome_catalog(), "agent_contract": agent_contract()})
         elif handler.path == "/api/experiments/runs":
             handler.send_json({"runs": _list_runs(root)})
         elif handler.path.startswith("/api/experiments/batches/"):
@@ -134,16 +137,24 @@ def _start_run(handler: Any, state: ModuleType, config: dict) -> None:
     handler.send_json({"run_id": journal.run["id"]}, 202)
 
 
-def _start_batch(handler: Any, state: ModuleType, config: dict, matrix: bool) -> None:
+def _start_batch(handler: Any, state: ModuleType, config: dict, matrix: bool, comparison: dict | None = None) -> None:
     from experiment_batch import prepare_batch, execute_batch
     with state.LOCK:
         if state.ACTIVE:
             handler.send_json({"error": "A run or batch is already active", "run_id": state.ACTIVE}, 409)
             return
-        batch = prepare_batch(config, state.RUNS, matrix=matrix)
+        batch = prepare_batch(config, state.RUNS, matrix=matrix, comparison=comparison)
         state.ACTIVE = batch["batch_id"]
     threading.Thread(target=_background, args=(state, lambda: execute_batch(batch, state.RUNS)), daemon=True).start()
     handler.send_json({"batch_id": batch["batch_id"]}, 202)
+
+
+def _preset(handler: Any, body: dict) -> None:
+    if not {"config", "mode"} <= set(body) or set(body) - {"config", "mode", "competency", "persona_id"}:
+        raise ValueError("A study preset requires config and mode with optional competency and persona_id")
+    config = apply_study_preset(body["config"], body["mode"], body.get("competency", "measurement"),
+                                body.get("persona_id", "generalist"))
+    handler.send_json({"config": config, "resolved": resolve_config(config)})
 
 
 def handle_post(handler: Any, state: ModuleType) -> None:
@@ -152,15 +163,19 @@ def handle_post(handler: Any, state: ModuleType) -> None:
         body = _body(handler)
         if handler.path == "/api/experiments/cancel":
             return _cancel(handler, state, body)
+        if handler.path == "/api/experiments/presets":
+            return _preset(handler, body)
         if handler.path == "/api/experiments/resolve":
             if set(body) != {"config"}:
                 raise ValueError("Resolve requires only a config object")
             return handler.send_json(resolve_config(body["config"]))
         if handler.path not in ("/api/experiments/runs", "/api/experiments/batches"):
             return handler.send_json({"error": "Unknown experiment operation"}, 404)
-        allowed = {"config", "matrix"} if handler.path.endswith("/batches") else {"config"}
+        allowed = {"config", "matrix", "comparison"} if handler.path.endswith("/batches") else {"config"}
         if "config" not in body or set(body) - allowed:
             raise ValueError("Unexpected experiment request fields")
+        if "comparison" in body and ("matrix" in body or not isinstance(body["comparison"], dict)):
+            raise ValueError("Use one comparison object or the legacy matrix flag, not both")
         config = validate_config(body["config"])
         _check_provider(config)
         if handler.path.endswith("/runs"):
@@ -168,7 +183,7 @@ def handle_post(handler: Any, state: ModuleType) -> None:
         matrix = body.get("matrix", True)
         if type(matrix) is not bool:
             raise ValueError("matrix must be true or false")
-        _start_batch(handler, state, config, matrix)
+        _start_batch(handler, state, config, matrix, body.get("comparison"))
     except (ValueError, TypeError, KeyError, RuntimeError) as error:
         handler.send_json({"error": str(error)}, 400)
     except OSError as error:

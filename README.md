@@ -161,11 +161,13 @@ node --test tests/test_prototypes.mjs
 
 ## Configurable Agentic LE experiments
 
-The GUI at `/agentic-le/experiments/` assembles a fictional team, assigns explicit
-competency instructions, changes interaction behaviors and working conditions,
-and schedules fixed challenges. The same exported configuration drives the local
-runner. Review the resolved coverage and call schedule before execution, then
-replay each retained contribution, prompt, decision, challenge, and artifact.
+The GUI at `/agentic-le/experiments/` offers a default fictional team, competency
+ablation, and an individual performing the same scheduled work. Eleven named
+persona presets materialize editable competency and behavior instructions. The
+individual baseline retains the team's 21 contribution and coordination calls,
+with one actual executing identity. Review the resolved duties, typed agent
+signature, coverage, and schedule before execution, then replay each retained
+input, response, decision, challenge, artifact, and outcome assessment.
 
 ```sh
 npm ci
@@ -179,10 +181,14 @@ require the installed, authenticated Codex CLI, an explicit model identifier, an
 `CAPABILITY_MATTERS_LIVE=1` when starting the service. The hosted static page can
 configure experiments and import saved records; it does not run models.
 
-The four-condition comparison crosses explicit measurement support with assigned
-integration responsibility. Configurations, resolved instructions, fixed schedules,
-and journal hashes remain inspectable. Human review stays separate from agent
-input and from the observed technical record. See
+Comparisons can withdraw any competency, vary integration responsibility, or
+compare team and individual execution. Configurations, resolved instructions,
+fixed schedules, and journal hashes remain inspectable. An independent illustrative
+simulator applies explicit resource conditions and assumptions to declared Build
+choices, producing separate learner, human, and system assessments. Its equations
+do not read persona or ablation labels. It does not verify the implementation or
+predict real human outcomes; outside-model proposals remain indeterminate for
+human review. See
 [the experiment guide](docs/lifecycle/EXPERIMENTS.md) for batches, budgets,
 cancellation, review evidence, and limits of interpretation.
 

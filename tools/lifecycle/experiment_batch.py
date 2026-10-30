@@ -4,21 +4,18 @@ from __future__ import annotations
 import argparse
 import copy
 from datetime import datetime, timezone
+import hashlib
 import json
 from pathlib import Path
 from typing import Any, Callable
 from urllib.parse import quote
 import uuid
 
-from experiment_config import default_config, resolve_config, validate_config
+from experiment_config import catalog, default_config, resolve_config, upgrade_config, validate_config
 from experiment_review import review_template
 
-CONDITIONS = (
-    ("A", False, "explicit"),
-    ("B", True, "explicit"),
-    ("C", False, "handoff"),
-    ("D", True, "handoff"),
-)
+def _hash(value: Any) -> str:
+    return hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
 
 
 def _now() -> str:
@@ -36,30 +33,90 @@ def _item(condition: str, replicate: int, config: dict[str, Any]) -> dict[str, A
         "config": resolved["config"],
         "config_hash": resolved["config_hash"],
         "catalog_hash": resolved["catalog_hash"],
+        "execution_plan_hash": resolved["execution_plan_hash"],
+        "agent_contract_hash": resolved["agent_contract_hash"],
+        "agent_specs_hash": resolved["agent_specs_hash"],
+        "outcome_model_hash": resolved.get("outcome_model_hash"),
+        "comparison_signature": resolved["comparison_signature"],
         "planned_calls": resolved["planned_calls"],
         "status": "pending",
     }
 
 
+def validate_comparison(spec: dict[str, Any]) -> dict[str, Any]:
+    """Validate a bounded comparison selector without accepting predictions as agent settings."""
+    fields = {"schema_version", "kind", "competency", "integration_modes"}
+    if not isinstance(spec, dict) or set(spec) != fields:
+        raise ValueError("Comparison requires schema_version, kind, competency, and integration_modes")
+    if type(spec["schema_version"]) is not int or spec["schema_version"] != 1:
+        raise ValueError("Unsupported comparison schema_version")
+    if spec["kind"] not in ("configured", "ablation", "team_individual"):
+        raise ValueError("Unknown comparison kind")
+    modes = spec["integration_modes"]
+    if not isinstance(modes, list) or not 1 <= len(modes) <= 2 or any(mode not in ("explicit", "handoff") for mode in modes) or len(set(modes)) != len(modes):
+        raise ValueError("Comparison requires one or two distinct integration modes")
+    competency = spec["competency"]
+    if spec["kind"] == "ablation":
+        if not isinstance(competency, str) or competency not in [item["id"] for item in catalog()["competencies"]]:
+            raise ValueError("An ablation comparison requires a catalog competency")
+    elif competency is not None:
+        raise ValueError("Only an ablation comparison selects a competency")
+    return copy.deepcopy(spec)
+
+
+def _conditions(base: dict, spec: dict) -> list[tuple[str, dict]]:
+    if spec["kind"] == "team_individual":
+        base = upgrade_config(base)
+    if spec["kind"] == "ablation":
+        key = spec["competency"]
+        base["omit_competencies"] = [value for value in base["omit_competencies"] if value != key]
+        if not resolve_config(base)["coverage"][key]["scheduled_actors"]:
+            raise ValueError(f"Assign {key} support to an available scheduled actor or coordinator before comparing it")
+    variants = {"configured": ("configured",), "ablation": ("retained", "omitted"), "team_individual": ("team", "individual")}
+    result = []
+    for integration in spec["integration_modes"]:
+        for condition in variants[spec["kind"]]:
+            configured = copy.deepcopy(base)
+            configured["integration"]["mode"] = integration
+            configured["execution"]["repetitions"] = 1
+            if condition == "omitted":
+                configured["omit_competencies"].append(spec["competency"])
+            if spec["kind"] == "team_individual":
+                configured["participation"]["mode"] = condition
+            result.append((condition + "-" + integration, configured))
+    return result
+
+
+def _matching_audit(plans: list[dict]) -> None:
+    reference = plans[0]
+    fields = ("opportunities", "competency_exposure", "behavior", "authority", "model_profiles", "case", "environment",
+              "challenges", "outcomes", "execution", "integration", "actor_identity", "agent_contract", "outcome_model")
+    for ordinal, item in enumerate(plans, 1):
+        item["execution_order"] = ordinal
+        item["matching"] = {"reference_item_id": reference["item_id"],
+                            "matches": {key: item["comparison_signature"][key + "_hash"] == reference["comparison_signature"][key + "_hash"] for key in fields},
+                            "notes": copy.deepcopy(item["comparison_signature"]["notes"])}
+
+
+def plan_comparison(config: dict[str, Any], spec: dict[str, Any]) -> list[dict[str, Any]]:
+    """Interleave fresh repetitions of configured, competency-ablation, or actor-allocation conditions."""
+    base, selection = validate_config(config), validate_comparison(spec)
+    conditions = _conditions(copy.deepcopy(base), selection)
+    plans = [_item(condition, repetition, configured) for repetition in range(1, base["execution"]["repetitions"] + 1)
+             for condition, configured in conditions]
+    _matching_audit(plans)
+    return plans
+
+
 def plan_matrix(config: dict[str, Any]) -> list[dict[str, Any]]:
-    """Plan the measurement-support by integration comparison with fresh repetitions."""
-    base = validate_config(config)
-    repeats = base["execution"]["repetitions"]
-    baseline = copy.deepcopy(base)
-    baseline["omit_competencies"] = [x for x in base["omit_competencies"] if x != "measurement"]
-    coverage = resolve_config(baseline)["coverage"]["measurement"]
-    coordinator = baseline["integration"]["coordinator"]
-    if not coverage["scheduled_actors"] and coordinator not in coverage["available_to"]:
-        raise ValueError("Assign measurement support to an available scheduled actor or coordinator before comparing it")
-    plans = []
-    for condition, omitted, integration in CONDITIONS:
-        configured = copy.deepcopy(baseline)
-        if omitted:
-            configured["omit_competencies"].append("measurement")
-        configured["integration"]["mode"] = integration
-        configured["execution"]["repetitions"] = 1
-        for replicate in range(1, repeats + 1):
-            plans.append(_item(condition, replicate, copy.deepcopy(configured)))
+    """Preserve the measurement-by-integration matrix with interleaved fresh repetitions."""
+    spec = {"schema_version": 1, "kind": "ablation", "competency": "measurement", "integration_modes": ["explicit", "handoff"]}
+    plans = plan_comparison(config, spec)
+    labels = {"retained-explicit": "A", "omitted-explicit": "B", "retained-handoff": "C", "omitted-handoff": "D"}
+    for item in plans:
+        item["condition"] = labels[item["condition"]]
+        item["item_id"] = f"{item['condition']}-r{item['replicate']:02d}"
+    _matching_audit(plans)
     return plans
 
 
@@ -68,7 +125,9 @@ def plan_repetitions(config: dict[str, Any]) -> list[dict[str, Any]]:
     base = validate_config(config)
     repeats = base["execution"]["repetitions"]
     base["execution"]["repetitions"] = 1
-    return [_item("custom", number, copy.deepcopy(base)) for number in range(1, repeats + 1)]
+    plans = [_item("custom", number, copy.deepcopy(base)) for number in range(1, repeats + 1)]
+    _matching_audit(plans)
+    return plans
 
 
 def _write_json(path: Path, value: Any) -> None:
@@ -88,6 +147,8 @@ def _comparison(batch: dict[str, Any]) -> dict[str, Any]:
         "design": batch["design"],
         "result_kind": batch["result_kind"],
         "interpretation": batch["interpretation"],
+        "comparison_spec": batch["comparison_spec"], "comparison_spec_hash": batch["comparison_spec_hash"],
+        "execution_order": batch["execution_order"], "execution_order_policy": batch["execution_order_policy"],
         "planned_runs": len(batch["plans"]),
         "completed_runs": sum(item["status"] == "completed" for item in batch["plans"]),
         "failed_runs": sum(item["status"] == "failed" for item in batch["plans"]),
@@ -109,7 +170,7 @@ def _persist(batch: dict[str, Any], output_root: Path) -> None:
 
 def prepare_batch(
     config: dict[str, Any], output_root: Path, matrix: bool = True,
-    expectations: list[str] | None = None,
+    expectations: list[str] | None = None, *, comparison: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Persist the complete plan and separate human expectations before execution starts."""
     if type(matrix) is not bool:
@@ -120,7 +181,11 @@ def prepare_batch(
         not isinstance(value, str) or not value.strip() or len(value) > 3000 for value in expectations
     ):
         raise ValueError("Expected observations must be at most 50 nonempty bounded statements")
-    plans = plan_matrix(base) if matrix else plan_repetitions(base)
+    selection = validate_comparison(comparison) if comparison is not None else {
+        "schema_version": 1, "kind": "ablation" if matrix else "configured",
+        "competency": "measurement" if matrix else None,
+        "integration_modes": ["explicit", "handoff"] if matrix else [base["integration"]["mode"]]}
+    plans = plan_comparison(base, selection) if comparison is not None else (plan_matrix(base) if matrix else plan_repetitions(base))
     batch_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-batch-" + uuid.uuid4().hex[:8]
     folder = Path(output_root) / "batches" / batch_id
     folder.mkdir(parents=True, exist_ok=False)
@@ -128,7 +193,10 @@ def prepare_batch(
     batch = {
         "schema_version": 1, "id": batch_id, "batch_id": batch_id,
         "created_at": _now(), "status": "prepared",
-        "design": "measurement-by-integration-2x2" if matrix else "configured-repetitions",
+        "design": selection["kind"] if comparison is not None else ("measurement-by-integration-2x2" if matrix else "configured-repetitions"),
+        "comparison_spec": selection, "comparison_spec_hash": _hash(selection),
+        "execution_order": [item["item_id"] for item in plans],
+        "execution_order_policy": "Replicate-major, declared-condition order; interleaved deterministically, not randomized.",
         "source_config": base, "source_config_hash": resolve_config(base)["config_hash"],
         "repetitions_per_condition": base["execution"]["repetitions"],
         "planned_total_calls": sum(item["planned_calls"] for item in plans),
@@ -163,6 +231,9 @@ def _summarize_journal(journal: Any) -> dict[str, Any]:
          "replay_url": replay + "&event=" + str(event["seq"])}
         for event in events if event["kind"] == "artifact"
     ]
+    assessments = [event for event in events if event["kind"] == "outcome_assessment"]
+    outcome = ({key: copy.deepcopy(assessments[-1]["payload"].get(key)) for key in ("status", "dimensions", "evaluator", "evidence_kind")}
+               if assessments else None)
     return {
         "run_id": run["id"], "run_path": f"../../{run['id']}/run.json",
         "run_head_hash": events[-1]["hash"], "mode": run["mode"],
@@ -173,7 +244,7 @@ def _summarize_journal(journal: Any) -> dict[str, Any]:
                      "challenges": sum(e["kind"] == "challenge" for e in events),
                      "artifacts": len(artifacts)},
         "terminal_kind": events[-1]["kind"], "terminal_status": events[-1]["payload"].get("status"),
-        "artifacts": artifacts,
+        "artifacts": artifacts, "outcome": outcome,
     }
 
 
@@ -199,7 +270,8 @@ def _execute_item(
     try:
         configured = copy.deepcopy(item["config"])
         resolved = resolve_config(configured)
-        if resolved["config_hash"] != item["config_hash"] or resolved["catalog_hash"] != item["catalog_hash"]:
+        pinned = ("config_hash", "catalog_hash", "execution_plan_hash", "agent_contract_hash", "agent_specs_hash", "outcome_model_hash")
+        if any(resolved.get(key) != item[key] for key in pinned):
             raise ValueError("Prepared configuration or instruction catalog changed before execution")
         provider = provider_factory(copy.deepcopy(configured)) if provider_factory else None
         journal = run_experiment(configured, output_root, provider=provider,
@@ -288,9 +360,10 @@ def execute_batch(
 def run_batch(
     config: dict[str, Any], output_root: Path, matrix: bool = True,
     provider_factory: Callable | None = None, expectations: list[str] | None = None,
+    *, comparison: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Prepare and execute a new batch with review expectations kept outside agent input."""
-    return execute_batch(prepare_batch(config, output_root, matrix, expectations), output_root, provider_factory)
+    return execute_batch(prepare_batch(config, output_root, matrix, expectations, comparison=comparison), output_root, provider_factory)
 
 
 def main() -> None:
@@ -300,17 +373,27 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, help="Configuration exported by the GUI; defaults to its example")
     parser.add_argument("--output-root", type=Path, default=RUNS)
-    parser.add_argument("--single", action="store_true", help="Repeat one configuration instead of the four conditions")
+    choices = parser.add_mutually_exclusive_group()
+    choices.add_argument("--single", action="store_true", help="Repeat one configuration instead of the four conditions")
+    choices.add_argument("--comparison", choices=("configured", "ablation", "team_individual"), help="Select a generalized comparison")
+    parser.add_argument("--competency", default="measurement", help="Catalog module selected for an ablation")
+    parser.add_argument("--integration-mode", action="append", choices=("explicit", "handoff"), help="Integration condition; may be repeated")
     parser.add_argument("--plan", action="store_true", help="Print resolved plans without creating a batch or calling a provider")
     parser.add_argument("--expectations", type=Path, help="Separate JSON array of expected observations, never passed to agents")
     args = parser.parse_args()
     try:
         config = json.loads(args.config.read_text()) if args.config else default_config()
+        comparison = ({"schema_version": 1, "kind": args.comparison,
+                       "competency": args.competency if args.comparison == "ablation" else None,
+                       "integration_modes": args.integration_mode or [config["integration"]["mode"]]} if args.comparison else None)
+        if args.integration_mode and comparison is None:
+            raise ValueError("--integration-mode requires --comparison")
         if args.plan:
-            print(json.dumps(plan_repetitions(config) if args.single else plan_matrix(config), indent=2))
+            plans = plan_comparison(config, comparison) if comparison else (plan_repetitions(config) if args.single else plan_matrix(config))
+            print(json.dumps(plans, indent=2))
             return
         expectations = json.loads(args.expectations.read_text()) if args.expectations else None
-        batch = run_batch(config, args.output_root, matrix=not args.single, expectations=expectations)
+        batch = run_batch(config, args.output_root, matrix=not args.single, expectations=expectations, comparison=comparison)
         print(json.dumps({"batch_id": batch["id"], "status": batch["status"],
                           "result_kind": batch["result_kind"], "directory": str(args.output_root / "batches" / batch["id"])}))
         if batch["status"] != "completed":

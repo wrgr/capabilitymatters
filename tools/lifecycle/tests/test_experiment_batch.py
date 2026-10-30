@@ -11,8 +11,8 @@ import uuid
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from engine import Journal, SCHEMA
-from experiment_batch import execute_batch, plan_matrix, plan_repetitions, prepare_batch, run_batch
-from experiment_config import default_config, resolve_config
+from experiment_batch import execute_batch, plan_comparison, plan_matrix, plan_repetitions, prepare_batch, run_batch, validate_comparison
+from experiment_config import apply_study_preset, default_config, resolve_config
 from experiment_review import validate_review
 
 
@@ -68,6 +68,71 @@ class BatchPlanTests(unittest.TestCase):
         plans = plan_matrix(config)
         self.assertEqual(plans[0]["config"]["omit_competencies"], ["learning"])
         self.assertEqual(plans[3]["config"]["omit_competencies"], ["learning", "measurement"])
+
+    def test_any_catalog_module_can_be_ablated_without_changing_the_evaluator(self) -> None:
+        """The comparison changes only the selected instruction omission, not authored outcomes."""
+        config = default_config()
+        config["omit_competencies"] = ["learning", "human"]
+        spec = {"schema_version": 1, "kind": "ablation", "competency": "human", "integration_modes": ["explicit"]}
+        plans = plan_comparison(config, spec)
+        self.assertEqual(len(plans), 6)
+        self.assertEqual([item["condition"] for item in plans], ["retained-explicit", "omitted-explicit"] * 3)
+        for item in plans:
+            self.assertEqual(item["config"]["outcomes"], config["outcomes"])
+            self.assertEqual(item["config"]["challenges"], config["challenges"])
+            self.assertTrue(item["matching"]["matches"]["opportunities"])
+            self.assertTrue(item["matching"]["matches"]["outcomes"])
+            self.assertTrue(item["matching"]["matches"]["behavior"])
+        self.assertEqual(plans[0]["config"]["omit_competencies"], ["learning"])
+        self.assertEqual(plans[1]["config"]["omit_competencies"], ["learning", "human"])
+        self.assertFalse(plans[1]["matching"]["matches"]["competency_exposure"])
+
+    def test_interleaved_matrix_order_is_explicit_and_not_randomized(self) -> None:
+        """Provider drift is not silently confounded with completing every repetition of one cell first."""
+        plans = plan_matrix(default_config())
+        self.assertEqual([item["condition"] for item in plans], list("ABCD") * 3)
+        self.assertEqual([item["replicate"] for item in plans], [1] * 4 + [2] * 4 + [3] * 4)
+        self.assertEqual([item["execution_order"] for item in plans], list(range(1, 13)))
+        self.assertTrue(all(item["matching"]["reference_item_id"] == "A-r01" for item in plans))
+
+    def test_team_individual_comparison_retains_matching_or_discloses_changed_support(self) -> None:
+        """A specialist individual is not reported as having the generalist's matched capability exposure."""
+        config = default_config()
+        spec = {"schema_version": 1, "kind": "team_individual", "competency": None, "integration_modes": ["explicit"]}
+        plans = plan_comparison(config, spec)
+        self.assertEqual(len(plans), 6)
+        self.assertEqual([row["planned_calls"] for row in plans], [21] * 6)
+        for key in ("opportunities", "competency_exposure", "behavior", "authority", "outcomes", "execution"):
+            self.assertTrue(plans[1]["matching"]["matches"][key])
+        self.assertFalse(plans[1]["matching"]["matches"]["actor_identity"])
+        self.assertFalse(plans[1]["matching"]["matches"]["model_profiles"])
+        specialist = apply_study_preset(config, "individual", persona_id="learning-specialist")
+        changed = plan_comparison(specialist, spec)
+        self.assertTrue(changed[1]["matching"]["matches"]["opportunities"])
+        self.assertFalse(changed[1]["matching"]["matches"]["competency_exposure"])
+        self.assertIn("measurement", changed[1]["comparison_signature"]["individual_filtered_competencies"])
+
+    def test_comparison_validation_and_missing_exposure_fail_explicitly(self) -> None:
+        """An unsupported target or ambiguous selector cannot create a nominal ablation."""
+        spec = {"schema_version": 1, "kind": "ablation", "competency": "measurement", "integration_modes": ["explicit"]}
+        for key, value in (("competency", "unknown"), ("kind", "expected_failure"),
+                           ("integration_modes", []), ("integration_modes", ["explicit", "explicit"])):
+            candidate = {**spec, key: value}
+            with self.subTest(key=key), self.assertRaises(ValueError):
+                validate_comparison(candidate)
+        config = default_config()
+        config["execution"]["through"] = "understand"
+        with self.assertRaisesRegex(ValueError, "Assign measurement"):
+            plan_comparison(config, spec)
+
+    def test_configured_comparison_can_repeat_each_selected_integration(self) -> None:
+        """Configured repetitions use the explicit selector without introducing an omission condition."""
+        config = default_config()
+        spec = {"schema_version": 1, "kind": "configured", "competency": None, "integration_modes": ["explicit", "handoff"]}
+        plans = plan_comparison(config, spec)
+        self.assertEqual(len(plans), 6)
+        self.assertTrue(all(row["config"]["omit_competencies"] == [] for row in plans))
+        self.assertEqual([row["condition"] for row in plans[:2]], ["configured-explicit", "configured-handoff"])
 
 
 class BatchExecutionTests(unittest.TestCase):
@@ -140,6 +205,21 @@ class BatchExecutionTests(unittest.TestCase):
             with patch.dict(sys.modules, {"experiment_runtime": SimpleNamespace(run_experiment=fixture_run)}):
                 result = execute_batch(batch, self.root)
         self.assertTrue(all(row["status"] == "failed" for row in result["plans"]))
+        self.assertEqual(list(self.root.glob("*/run.json")), [])
+
+    def test_changed_execution_contract_or_outcome_model_cannot_enter_a_prepared_batch(self) -> None:
+        """Prepared plans bind the evaluator and typed interface as well as the competency catalog."""
+        for field in ("agent_contract_hash", "outcome_model_hash"):
+            batch = prepare_batch(self.config, self.root, matrix=False)
+            def changed(config: dict) -> dict:
+                resolved = resolve_config(config)
+                resolved[field] = "changed-after-preparation"
+                return resolved
+            with self.subTest(field=field), patch("experiment_batch.resolve_config", side_effect=changed):
+                with patch.dict(sys.modules, {"experiment_runtime": SimpleNamespace(run_experiment=fixture_run)}):
+                    result = execute_batch(batch, self.root)
+            self.assertEqual(result["plans"][0]["status"], "failed")
+            self.assertEqual(result["plans"][0]["failure_phase"], "before_retained_journal")
         self.assertEqual(list(self.root.glob("*/run.json")), [])
 
     def test_review_requires_exact_event_hash_and_human_rationale(self) -> None:
@@ -262,6 +342,26 @@ class BatchExecutionTests(unittest.TestCase):
         self.assertEqual(comparison["running_runs"], 0)
         review = json.loads((folder / "review.json").read_text())
         self.assertTrue(all(entry["ratings"]["learner"]["score"] is None for entry in review["reviews"]))
+
+    def test_generalized_batch_pins_selector_and_retains_simulated_outcome_summary(self) -> None:
+        """Illustrative success is recorded separately from execution completion and human review."""
+        spec = {"schema_version": 1, "kind": "configured", "competency": None, "integration_modes": ["explicit"]}
+        assessment = {"status": "partial_success", "dimensions": {"learner": {"status": "failure"}},
+                      "evaluator": {"id": "test-fixture", "version": "1"}, "evidence_kind": "illustrative_simulation"}
+        def run(config: dict, root: Path, **kwargs: object) -> Journal:
+            journal = fixture_run(config, root, **kwargs)
+            journal.append("outcome_assessment", "evaluate", "orchestrator", assessment)
+            journal.append("completed", "refine", "orchestrator", {"status": "dry_run_completed"})
+            return journal
+        with patch.dict(sys.modules, {"experiment_runtime": SimpleNamespace(run_experiment=run)}):
+            batch = run_batch(self.config, self.root, comparison=spec)
+        self.assertEqual(batch["comparison_spec"], spec)
+        self.assertEqual(batch["status"], "completed")
+        self.assertEqual(batch["plans"][0]["outcome"], assessment)
+        self.assertEqual(batch["execution_order"], ["configured-explicit-r01"])
+        self.assertIn("not randomized", batch["execution_order_policy"])
+        persisted = json.loads((self.root / "batches" / batch["id"] / "comparison.json").read_text())
+        self.assertEqual(persisted["rows"][0]["outcome"]["evidence_kind"], "illustrative_simulation")
 
 
 if __name__ == "__main__":

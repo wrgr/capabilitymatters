@@ -102,6 +102,31 @@ main{max-width:1600px;margin:auto;padding:2.4rem max(3.5vw,20px) 1rem}
 .action-bar p{margin:0 auto 0 0;color:var(--muted);font-size:.84rem;max-width:650px}
 .action-bar button{font-size:.85rem}
 .mode-note{border:1px solid #c5d8d0;padding:.75rem;background:#f0f6f2;border-radius:7px;font-size:.82rem;color:#36564a;margin:.7rem 0}
+.study-controls{display:grid;grid-template-columns:minmax(220px,1fr) minmax(220px,1fr) auto;gap:.8rem;align-items:end}
+.study-controls .field{margin-bottom:0}
+.study-controls>button{justify-self:start;min-height:40px}
+.study-controls+p{margin:.75rem 0 0;max-width:1000px}
+.persona-picker{padding:.85rem;background:#f5f8f4;border:1px solid var(--line);border-radius:8px;margin:.6rem 0 1rem}
+.persona-controls{display:flex;gap:.6rem;align-items:flex-end;flex-wrap:wrap}
+.persona-controls>.field{flex:1;min-width:160px;margin-bottom:0}
+.persona-controls>button{font-size:.78rem;min-height:40px}
+.persona-controls+p{margin-top:.6rem;margin-bottom:0}
+.signature{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;background:#f4f7f3;padding:.8rem;border-radius:7px}
+.signature-fields{display:grid;grid-template-columns:minmax(120px,.7fr) minmax(0,1.3fr);gap:.4rem .8rem;font-size:.78rem}
+.signature-fields dt{font-weight:650;overflow-wrap:anywhere}
+.signature-fields dd{margin:0;overflow-wrap:anywhere}
+.outcome-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.85rem;margin:1rem 0}
+.outcome-card{border:1px solid var(--line);border-radius:9px;padding:1rem;background:#fcfdfb;min-width:0}
+.outcome-card h3{margin-bottom:.4rem}
+.outcome-label{font-weight:650;text-transform:capitalize;color:var(--accent);margin-bottom:.55rem}
+.outcome-card[data-status=failure] .outcome-label{color:var(--danger)}
+.outcome-status[data-status=failure]{color:var(--danger);background:#fff0ee}
+.outcome-card[data-status=partial] .outcome-label{color:var(--warning)}
+.outcome-status[data-status=partial]{color:var(--warning);background:#fff1df}
+.outcome-card[data-status=indeterminate] .outcome-label{color:var(--muted)}
+.outcome-metrics{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.3rem .8rem;margin:1rem 0;font-size:.76rem}
+.outcome-metrics dt{color:var(--muted)}
+.outcome-metrics dd{margin:0;font-weight:650;text-align:right}
 .run-actions>button{width:100%;margin:.3rem 0}
 .table-scroll{width:100%;overflow-x:auto}
 table{border-collapse:collapse;width:100%;font-size:.8rem}
@@ -168,6 +193,8 @@ footer p{margin-bottom:.35rem}
 }
 
 @media(max-width:760px){main{padding:1.6rem 16px 1rem}
+.study-controls{grid-template-columns:1fr}
+.outcome-cards{grid-template-columns:1fr}
 .topbar{padding:1rem 16px;align-items:flex-start}
 .topbar nav{gap:.7rem;flex-wrap:wrap;justify-content:flex-end;max-width:65%;font-size:.75rem}
 .configuration-grid,.review-grid,.replay-grid{grid-template-columns:1fr}
@@ -198,6 +225,7 @@ footer p{margin-bottom:.35rem}
 }
 
 @media(max-width:440px){.summary-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}
+.signature-fields{grid-template-columns:1fr}
 .team-grid,.two-columns,.review-grid .three-columns{grid-template-columns:1fr}
 .actor-card[open]{grid-column:auto}
 .summary-stat span{max-width:70px}

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "id": "workforce-measurement-omitted",
   "name": "Fictional workforce team with measurement support omitted",
   "seed": {
@@ -22,7 +22,8 @@
         "communication": "concise"
       },
       "authority": "decision",
-      "available": true
+      "available": true,
+      "persona_ref": null
     },
     {
       "id": "member-1",
@@ -40,7 +41,11 @@
         "communication": "concise"
       },
       "authority": "advisory",
-      "available": true
+      "available": true,
+      "persona_ref": {
+        "id": "framing-specialist",
+        "version": "1.0.0"
+      }
     },
     {
       "id": "member-2",
@@ -59,7 +64,11 @@
         "communication": "concise"
       },
       "authority": "advisory",
-      "available": true
+      "available": true,
+      "persona_ref": {
+        "id": "systems-specialist",
+        "version": "1.0.0"
+      }
     },
     {
       "id": "member-3",
@@ -78,7 +87,11 @@
         "communication": "concise"
       },
       "authority": "advisory",
-      "available": true
+      "available": true,
+      "persona_ref": {
+        "id": "learning-specialist",
+        "version": "1.0.0"
+      }
     },
     {
       "id": "member-4",
@@ -97,7 +110,11 @@
         "communication": "concise"
       },
       "authority": "advisory",
-      "available": true
+      "available": true,
+      "persona_ref": {
+        "id": "design-specialist",
+        "version": "1.0.0"
+      }
     },
     {
       "id": "member-5",
@@ -115,7 +132,11 @@
         "communication": "concise"
       },
       "authority": "advisory",
-      "available": true
+      "available": true,
+      "persona_ref": {
+        "id": "implementation-specialist",
+        "version": "1.0.0"
+      }
     },
     {
       "id": "member-6",
@@ -135,7 +156,11 @@
         "communication": "concise"
       },
       "authority": "advisory",
-      "available": true
+      "available": true,
+      "persona_ref": {
+        "id": "measurement-specialist",
+        "version": "1.0.0"
+      }
     },
     {
       "id": "member-7",
@@ -154,7 +179,11 @@
         "communication": "concise"
       },
       "authority": "advisory",
-      "available": true
+      "available": true,
+      "persona_ref": {
+        "id": "human-specialist",
+        "version": "1.0.0"
+      }
     }
   ],
   "integration": {
@@ -175,7 +204,10 @@
     {
       "id": "practice-time-withdrawn",
       "stage": "design",
-      "description": "The organization withdraws protected practice time. The implementation date remains unchanged."
+      "description": "The organization withdraws protected practice time. The implementation date remains unchanged.",
+      "simulation_effects": {
+        "available_minutes": 5
+      }
     }
   ],
   "execution": {
@@ -185,5 +217,68 @@
     "repetitions": 3,
     "max_calls": 40,
     "max_output_chars": 48000
+  },
+  "participation": {
+    "mode": "team",
+    "individual": {
+      "id": "individual",
+      "name": "Individual contributor",
+      "role": "Project contributor",
+      "competencies": [
+        "framing",
+        "systems",
+        "learning",
+        "design",
+        "implementation",
+        "measurement",
+        "human"
+      ],
+      "stages": [
+        "understand",
+        "model",
+        "design",
+        "build",
+        "instrument",
+        "deploy",
+        "evaluate",
+        "refine"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "decision",
+      "available": true,
+      "persona_ref": {
+        "id": "generalist",
+        "version": "1.0.0"
+      }
+    },
+    "allocation": "matched_slots"
+  },
+  "outcomes": {
+    "enabled": true,
+    "model_id": "declared-design-v1",
+    "seed": 2026,
+    "cohort_size": 100,
+    "conditions": {
+      "available_minutes": 20,
+      "support_capacity_minutes": 200,
+      "digital_access": 0.9
+    },
+    "assumptions": {
+      "baseline_success": 0.35,
+      "practice_gain_per_minute": 0.02,
+      "feedback_gain": 0.2,
+      "revision_gain": 0.1,
+      "transfer_penalty": 0.1,
+      "offline_recovery": 0.8
+    },
+    "criteria": {
+      "learner_success_min": 0.6,
+      "max_burden_minutes": 20,
+      "system_completion_min": 0.8
+    }
   }
 }

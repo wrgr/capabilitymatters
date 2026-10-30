@@ -27,8 +27,21 @@ export async function verifyExperimentRun(run) {
       throw new Error(`Invalid evidence reference at event ${event.seq}.`);
     }
     if (event.kind === 'artifact') await verifyArtifact(event, run, revisions);
+    if (event.kind === 'outcome_assessment') verifyOutcomeReferences(event, run);
   }
   return true;
+}
+
+/** @param {object} event @param {object} run @returns {void} Reject outcome citations that point outside the recorded earlier evidence. */
+function verifyOutcomeReferences(event, run) {
+  const refs = Object.values(event.payload.dimensions || {}).flatMap(item => item.evidence_refs || []);
+  for (const ref of refs) {
+    const source = run.events[ref.event_seq - 1];
+    if (!Number.isInteger(ref.event_seq) || ref.event_seq < 1 || ref.event_seq >= event.seq || !source
+      || ref.event_hash !== source.hash || (ref.artifact_hash && ref.artifact_hash !== source.payload.content_hash)) {
+      throw new Error(`Invalid outcome evidence at event ${event.seq}.`);
+    }
+  }
 }
 
 /** @param {object} event @param {object} run @param {object} revisions @returns {Promise<void>} Check artifact revision lineage and content hashes. */
@@ -62,4 +75,18 @@ export function runStatus(run) {
 /** @param {object} run @returns {boolean} Identify fixture modes for conspicuous evidence labeling. */
 export function isFixture(run) {
   return /dry|scripted|fixture/.test(run.mode || '');
+}
+
+/** @param {object} run @returns {Map<string,string>} Use actual executing identities rather than individual-mode reference profile keys. */
+export function replayActors(run) {
+  const specs = Object.values(run.experiment?.agent_specs || {});
+  if (specs.length) return new Map(specs.map(spec => [spec.identity.actor_id, spec.identity.display_name]));
+  return new Map(Object.entries(run.roster || {}).map(([id, actor]) => [id, actor.name]));
+}
+
+/** @param {object} run @param {object} event @returns {string} Label actual model identities separately from technical journal actors. */
+export function actorName(run, event) {
+  return event.payload?.actor_name || replayActors(run).get(event.agent)
+    || ({'outcome-evaluator': 'Outcome evaluator', scenario: 'Fixed challenge', human: 'Human input or gate', orchestrator: 'Orchestration'})[event.agent]
+    || run.roster?.[event.agent]?.name || event.agent;
 }

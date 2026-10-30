@@ -120,6 +120,34 @@ class ExperimentApiTests(unittest.TestCase):
         finally:
             server.ACTIVE = None
 
+    def test_presets_expose_one_individual_and_standard_contract(self) -> None:
+        """Apply a named individual through HTTP and inspect its typed matched execution plan."""
+        status, body = self._request("POST", "/api/experiments/presets", {
+            "config": default_config(), "mode": "individual", "persona_id": "generalist"})
+        self.assertEqual(status, 200)
+        self.assertEqual(body["config"]["participation"]["mode"], "individual")
+        self.assertEqual({slot["actor_id"] for slot in body["resolved"]["execution_plan"]}, {"individual"})
+        self.assertEqual(body["resolved"]["planned_calls"], 21)
+        catalog = self._request("GET", "/api/experiments/catalog")[1]
+        self.assertEqual(catalog["agent_contract"]["id"], "agent-turn")
+        self.assertIn("formulas", catalog["outcome_catalog"])
+
+    def test_generalized_comparison_executes_both_identity_allocations(self) -> None:
+        """A configurable team-individual comparison retains distinct journals and outcome records."""
+        config = default_config()
+        config["execution"]["repetitions"] = 1
+        comparison = {"schema_version": 1, "kind": "team_individual", "competency": None, "integration_modes": ["explicit"]}
+        status, response = self._request("POST", "/api/experiments/batches", {"config": config, "comparison": comparison})
+        self.assertEqual(status, 202)
+        self._wait()
+        batch = self._request("GET", "/api/experiments/batches/" + response["batch_id"])[1]
+        self.assertEqual(batch["status"], "completed")
+        self.assertEqual(len(batch["runs"]), 2)
+        self.assertEqual({row["observed"]["requests"] for row in batch["runs"]}, {21})
+        self.assertTrue(all(row["outcome"]["evidence_kind"] == "illustrative_simulation" for row in batch["runs"]))
+        status, _ = self._request("POST", "/api/experiments/batches", {"config": config, "comparison": comparison, "matrix": True})
+        self.assertEqual(status, 400)
+
 
 if __name__ == "__main__":
     unittest.main()

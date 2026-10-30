@@ -17,7 +17,8 @@ export async function loadWorkspace() {
     return {...data, connection};
   } catch (error) {
     const [catalog, config] = await Promise.all([fetchJSON('./catalog.json'), fetchJSON('./default.json')]);
-    return {catalog, default_config: config, connection: {local_runner: false, unavailable_reason: error.message}};
+    const extras = config.schema_version === 2 ? await Promise.all([fetchJSON('./outcome-catalog.json'), fetchJSON('./agent-contract.json')]) : [];
+    return {catalog, default_config: config, outcome_catalog: extras[0], agent_contract: extras[1], connection: {local_runner: false, unavailable_reason: error.message}};
   }
 }
 

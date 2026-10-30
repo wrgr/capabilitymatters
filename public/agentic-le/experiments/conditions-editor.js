@@ -1,6 +1,8 @@
 /** Configure the case and controlled conditions independently of team membership. */
 import {el, field, select, button, disclosure} from './dom.js';
 import {assignmentChecks} from './config-editor.js';
+import {isIndividual} from './study-model.js';
+import {simulationEffects} from './outcome-editor.js';
 
 /** @param {HTMLElement} root @param {object} config @param {Function} changed @returns {void} Render the fictional project brief. */
 export function renderCase(root, config, changed) {
@@ -25,22 +27,23 @@ export function renderIntegration(root, config, catalog, changed) {
     [['explicit', 'Explicit integration'], ['handoff', 'Procedural handoff']], value => { config.integration.mode = value; changed(); }));
   const actors = config.team.filter(actor => actor.available).map(actor => [actor.id, actor.name]);
   if (!actors.some(([id]) => id === config.integration.coordinator)) actors.unshift(['', 'Choose an available person']);
-  root.append(select('Coordinator', config.integration.coordinator, actors, value => { config.integration.coordinator = value; changed(); }),
+  root.append(select(isIndividual(config) ? 'Reference coordinator slot' : 'Coordinator', config.integration.coordinator, actors, value => { config.integration.coordinator = value; changed(); }),
     el('p', 'muted small', 'Both policies retain the coordinator slot. Handoff omits the duty to reconcile contributions; spontaneous integration remains possible.'));
+  if (isIndividual(config)) root.append(el('p', 'muted small', `Actual coordinating identity: ${config.participation.individual.name} (${config.participation.individual.id}).`));
   const omissions = disclosure('Withdraw explicit competency support');
   omissions.append(el('p', 'muted small', 'Withdraw the selected instructions from every actor, including the coordinator. The model may still supply that knowledge.'),
     assignmentChecks('Instructions omitted everywhere', catalog.competencies, config.omit_competencies, values => { config.omit_competencies = values; changed(true); }));
   root.append(omissions);
 }
 
-/** @param {HTMLElement} root @param {object} config @param {object} catalog @param {Function} changed @returns {void} Render environmental constraints and externally fixed changes. */
-export function renderConditions(root, config, catalog, changed) {
+/** @param {HTMLElement} root @param {object} config @param {object} catalog @param {Function} changed @param {object|null} outcomeCatalog @returns {void} Render environmental constraints and externally fixed changes. */
+export function renderConditions(root, config, catalog, changed, outcomeCatalog = null) {
   root.replaceChildren(el('h2', '', 'Conditions and challenges'));
   root.append(select('Time pressure', config.environment.time_pressure, [['standard', 'Standard'], ['high', 'High']], value => { config.environment.time_pressure = value; changed(); }),
     field('Available resources', config.environment.resources, value => { config.environment.resources = value; changed(); }, {multiline: true, rows: 2, maxLength: 3000}),
     field('Environmental constraints', config.environment.constraints.join('\n'), value => { config.environment.constraints = value.split('\n').filter(item => item.trim()); changed(); }, {multiline: true, rows: 3, maxLength: 12000, help: 'One constraint per line.'}));
   const list = el('div', 'challenge-list');
-  for (const challenge of config.challenges) list.append(challengeCard(challenge, config, catalog, changed));
+  for (const challenge of config.challenges) list.append(challengeCard(challenge, config, catalog, changed, outcomeCatalog));
   root.append(el('h3', '', 'Fixed challenges'), el('p', 'muted small', 'Introduce the same changed facts before the selected stage in every comparable run.'), list,
     button('Add challenge', () => {
       let index = 1;
@@ -50,12 +53,13 @@ export function renderConditions(root, config, catalog, changed) {
     }));
 }
 
-/** @param {object} challenge @param {object} config @param {object} catalog @param {Function} changed @returns {HTMLElement} Edit one externally controlled event. */
-function challengeCard(challenge, config, catalog, changed) {
+/** @param {object} challenge @param {object} config @param {object} catalog @param {Function} changed @param {object|null} outcomeCatalog @returns {HTMLElement} Edit one externally controlled event. */
+function challengeCard(challenge, config, catalog, changed, outcomeCatalog) {
   const card = el('div', 'challenge-card');
   card.append(select('Introduce before stage', challenge.stage, catalog.stages.map(stage => [stage.id, stage.label]), value => { challenge.stage = value; changed(); }),
     field('Changed fact', challenge.description, value => { challenge.description = value; changed(); }, {multiline: true, rows: 3, maxLength: 3000}),
     button('Remove challenge', () => { config.challenges = config.challenges.filter(item => item.id !== challenge.id); changed(true); }, 'text-danger'));
+  if (config.outcomes && outcomeCatalog) card.append(simulationEffects(challenge, outcomeCatalog, changed));
   return card;
 }
 

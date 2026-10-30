@@ -1,13 +1,27 @@
 /** Expose fictional team assignments as ordinary controls while preserving stable actor identities. */
 import {el, field, select, check, button, disclosure} from './dom.js';
 import {membership, newActor} from './config-model.js';
+import {isIndividual} from './study-model.js';
+import {personaPicker} from './persona-view.js';
 
 /** @param {HTMLElement} root @param {object} config @param {object} catalog @param {Function} changed @returns {void} Render the editable roster. */
 export function renderTeam(root, config, catalog, changed) {
   root.replaceChildren();
+  if (isIndividual(config)) {
+    root.append(el('h2', '', 'One executing agent'), el('p', 'muted small', 'This identity handles every contribution and coordination slot. The reference team supplies matched opportunities, not additional executing people.'),
+      actorCard(config.participation.individual, config, catalog, changed, {individual: true}));
+    const reference = disclosure('Reference team and matched contribution opportunities');
+    reference.append(el('p', 'muted small', 'These profiles define the source slots and duties. Editing their availability or stages changes the matched schedule; these identities do not execute in individual mode.'));
+    renderRoster(reference, config, catalog, changed, true);
+    root.append(reference);
+  } else renderRoster(root, config, catalog, changed);
+}
+
+/** @param {HTMLElement} root @param {object} config @param {object} catalog @param {Function} changed @param {boolean} [reference] @returns {void} Render source team assignments with their actual execution role stated. */
+function renderRoster(root, config, catalog, changed, reference = false) {
   const heading = el('div', 'section-heading');
   const title = el('div');
-  title.append(el('h2', '', 'People and contributions'), el('p', 'muted', 'Assign several competencies to one person, or distribute them across the team.'));
+  title.append(el(reference ? 'h3' : 'h2', '', reference ? 'Reference contributions' : 'People and contributions'), el('p', 'muted', 'Assign several competencies to one person, or distribute them across the team.'));
   const add = button('Add team member', () => {
     if (config.team.length >= 20) return;
     const actor = newActor(config);
@@ -18,12 +32,12 @@ export function renderTeam(root, config, catalog, changed) {
   add.disabled = config.team.length >= 20;
   heading.append(title, add);
   const cards = el('div', 'team-grid');
-  for (const actor of config.team) cards.append(actorCard(actor, config, catalog, changed));
+  for (const actor of config.team) cards.append(actorCard(actor, config, catalog, changed, {reference}));
   root.append(heading, cards);
 }
 
-/** @param {object} actor @param {object} config @param {object} catalog @param {Function} changed @returns {HTMLElement} Build one member's identity and assignments. */
-function actorCard(actor, config, catalog, changed) {
+/** @param {object} actor @param {object} config @param {object} catalog @param {Function} changed @param {object} options @returns {HTMLElement} Build one member's identity and assignments. */
+function actorCard(actor, config, catalog, changed, options = {}) {
   const card = disclosure('');
   card.classList.add('actor-card');
   card.dataset.actor = actor.id;
@@ -32,7 +46,7 @@ function actorCard(actor, config, catalog, changed) {
   const name = el('strong', '', actor.name);
   const role = el('small', 'muted', actor.role);
   identity.append(name, role);
-  summary.append(identity, el('span', `pill ${actor.available ? '' : 'quiet'}`, actor.available ? 'On team' : 'Unavailable'));
+  summary.append(identity, el('span', `pill ${actor.available ? '' : 'quiet'}`, options.individual ? 'Sole agent' : options.reference ? 'Reference' : actor.available ? 'On team' : 'Unavailable'));
   const badges = el('span', 'badges');
   for (const key of actor.competencies) {
     const module = catalog.competencies.find(item => item.id === key);
@@ -43,13 +57,16 @@ function actorCard(actor, config, catalog, changed) {
   const fields = el('div', 'two-columns');
   fields.append(field('Name', actor.name, value => { actor.name = value; name.textContent = value; changed(); }, {maxLength: 120}),
     field('Responsibility', actor.role, value => { actor.role = value; role.textContent = value; changed(); }, {maxLength: 120}));
-  body.append(fields, check('Available to contribute', actor.available, value => { actor.available = value; changed(true); }));
-  body.append(assignmentChecks('Assigned competencies', catalog.competencies, actor.competencies, values => { actor.competencies = values; changed(true); }));
-  body.append(assignmentChecks('Contribution stages', catalog.stages, actor.stages, values => { actor.stages = values; changed(); }));
+  body.append(fields, personaPicker(actor, catalog, changed));
+  if (!options.individual) body.append(check('Available to contribute', actor.available, value => { actor.available = value; changed(true); }));
+  body.append(assignmentChecks('Assigned competencies', catalog.competencies, actor.competencies, values => { actor.competencies = values; if ('persona_ref' in actor) actor.persona_ref = null; changed(true); }));
+  if (!options.individual) body.append(assignmentChecks('Contribution stages', catalog.stages, actor.stages, values => { actor.stages = values; changed(); }));
+  else body.append(el('p', 'muted small', 'Contribution timing comes from the reference team. Each slot receives only duties covered by this agent’s selected competencies.'));
   body.append(behaviorControls(actor, changed));
   const remove = button('Remove from team', () => { config.team = config.team.filter(item => item.id !== actor.id); changed(true); }, 'text-danger');
   remove.disabled = config.team.length <= 1;
-  body.append(el('p', 'muted small', `Stable identity: ${actor.id}. Profiles describe assigned behavior, not demonstrated human proficiency.`), remove);
+  body.append(el('p', 'muted small', `Stable identity: ${actor.id}. Profiles describe assigned behavior, not demonstrated human proficiency.`));
+  if (!options.individual) body.append(remove);
   card.append(body);
   return card;
 }
@@ -74,7 +91,7 @@ export function assignmentChecks(title, options, selected, change) {
 function behaviorControls(actor, changed) {
   const panel = disclosure('Behavior and decision authority');
   const grid = el('div', 'two-columns');
-  const bind = key => value => { actor.behavior[key] = value; changed(); };
+  const bind = key => value => { actor.behavior[key] = value; if ('persona_ref' in actor) actor.persona_ref = null; changed(true); };
   grid.append(select('Challenging a proposal', actor.behavior.challenge,
     [['balanced', 'Balanced'], ['persistent', 'Persistent questioning'], ['deferential', 'Deferential']], bind('challenge')),
   select('Revising a position', actor.behavior.revision, [['open', 'Open to revision'], ['reluctant', 'Reluctant to revise']], bind('revision')),

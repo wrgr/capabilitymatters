@@ -7,9 +7,14 @@ import {renderSummary, renderReview} from './review-view.js';
 import {RunView} from './run-view.js';
 import {fetchJSON, loadWorkspace, batchFinished} from './remote.js';
 import {renderComparison} from './comparison-view.js';
+import {renderStudy, renderComparisonSetup} from './study-editor.js';
+import {applyStudyPreset, comparisonCount} from './study-model.js';
+import {renderOutcomes} from './outcome-editor.js';
 
 const $ = id => document.getElementById(id);
-let catalog, config, original, resolved = null, connection = {}, busy = false;
+let catalog, config, original, outcomeCatalog, agentContract, resolved = null, connection = {}, busy = false, presetBusy = false;
+const studyChoice = {mode: 'default', competency: 'measurement', persona_id: 'generalist'};
+const comparison = {schema_version: 1, kind: 'ablation', competency: 'measurement', integration_modes: ['explicit', 'handoff']};
 let runTimer = null, batchTimer = null, latestBatch = null;
 let activeExecution = null, runEpoch = 0, activeMonitorTimer = null;
 const replay = new RunView(notify);
@@ -46,22 +51,48 @@ function changed(structural = false) {
   resolved = null;
   if (structural) renderConfiguration();
   renderSummary($('summary-stats'), config, catalog);
-  renderReview($('coverage-review'), config, catalog, resolved);
-  $('comparison-count').textContent = `Four conditions × ${config.execution.repetitions} repetitions = ${4 * config.execution.repetitions} runs.`;
+  renderReview($('coverage-review'), config, catalog, resolved, agentContract);
+  updateComparisonCount();
   updateActions();
 }
 
 /** @returns {void} Build case, team, and condition controls from the same configuration. */
 function renderConfiguration() {
   const panels = openPanels();
+  renderStudy($('study-editor'), config, catalog, studyChoice, applyStudy, presetBusy);
   renderCase($('case-editor'), config, changed);
   renderTeam($('team-editor'), config, catalog, changed);
   renderIntegration($('integration-editor'), config, catalog, changed);
-  renderConditions($('conditions-editor'), config, catalog, changed);
+  renderConditions($('conditions-editor'), config, catalog, changed, outcomeCatalog);
+  renderOutcomes($('outcome-editor'), config, outcomeCatalog, changed);
   renderExecution($('execution-editor'), config, catalog, changed);
+  renderComparisonSetup($('comparison-setup'), config, catalog, comparison, updateComparisonCount);
   for (const node of $('configure-panel').querySelectorAll('details')) {
     if (panels.has(panelKey(node))) node.open = panels.get(panelKey(node));
   }
+}
+
+/** @returns {void} Keep comparison workload visible when repeats or design factors change. */
+function updateComparisonCount() {
+  $('comparison-count').textContent = `${comparison.kind === 'configured' ? 1 : 2} participation/support conditions × ${comparison.integration_modes.length} coordination conditions × ${config.execution.repetitions} repetitions = ${comparisonCount(comparison, config.execution.repetitions)} runs.`;
+}
+
+/** @returns {Promise<void>} Apply the same explicit study transformation locally or through the authoritative runner. */
+async function applyStudy() {
+  const submitted = JSON.stringify(config);
+  const choice = {...studyChoice};
+  presetBusy = true;
+  renderStudy($('study-editor'), config, catalog, studyChoice, applyStudy, true);
+  try {
+    const result = connection.local_runner
+      ? await fetchJSON('/api/experiments/presets', {config: JSON.parse(submitted), ...choice})
+      : {config: applyStudyPreset(config, original, catalog, choice)};
+    if (JSON.stringify(config) !== submitted) throw new Error('Configuration changed while the preset was being applied. Apply it again to the updated configuration.');
+    config = importConfig(result.config); renderConfiguration(); changed();
+    if (result.resolved) { resolved = result.resolved; renderReview($('coverage-review'), config, catalog, resolved, agentContract); }
+    notify(`Applied ${choice.mode === 'default' ? 'default team' : choice.mode === 'ablation' ? 'competency ablation' : 'individual agent'} preset. The case and recorded run journals are preserved.`);
+  } catch (error) { notify(error.message, true); }
+  finally { presetBusy = false; renderStudy($('study-editor'), config, catalog, studyChoice, applyStudy); }
 }
 
 /** @returns {void} Explain execution availability without hiding the offline builder. */
@@ -88,18 +119,19 @@ async function resolveCurrent() {
   const result = await fetchJSON('/api/experiments/resolve', {config: JSON.parse(submitted)});
   if (JSON.stringify(config) !== submitted) throw new Error('Configuration changed while it was being resolved. Review and resolve the updated configuration.');
   resolved = result;
-  renderReview($('coverage-review'), config, catalog, resolved);
+  renderReview($('coverage-review'), config, catalog, resolved, agentContract);
   notify(`Configuration resolved. ${result.planned_calls} calls planned per run; hashes and effective responsibilities are available below.`);
   return result;
 }
 
-/** @param {boolean} matrix @returns {Promise<void>} Start one independent execution or the fixed four-condition comparison. */
-async function start(matrix) {
+/** @param {boolean} compare @returns {Promise<void>} Start one execution or an explicitly selected set of fresh comparisons. */
+async function start(compare) {
+  const comparisonPlan = structuredClone(comparison);
   busy = true; updateActions();
   try {
     const plan = await resolveCurrent();
-    if (matrix) {
-      const batch = await fetchJSON('/api/experiments/batches', {config: plan.config, matrix: true});
+    if (compare) {
+      const batch = await fetchJSON('/api/experiments/batches', {config: plan.config, comparison: comparisonPlan});
       activeExecution = {id: batch.batch_id || batch.id, kind: 'batch'}; updateActions();
       $('comparison-panel').hidden = false;
       notify('Comparison started. Each condition receives the fixed case and challenge schedule.');
@@ -257,7 +289,7 @@ async function main() {
   bindActions();
   try {
     const workspace = await loadWorkspace();
-    catalog = workspace.catalog; original = importConfig(workspace.default_config);
+    catalog = workspace.catalog; outcomeCatalog = workspace.outcome_catalog; agentContract = workspace.agent_contract; original = importConfig(workspace.default_config);
     config = structuredClone(original); connection = workspace.connection;
     renderConfiguration(); changed();
     $('loading').hidden = true; $('workspace').hidden = false;

@@ -6,7 +6,8 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from experiment_config import STAGES, catalog, default_config, resolve_config, validate_config
+from experiment_config import (STAGES, apply_persona, apply_study_preset, catalog, default_config,
+                               resolve_config, upgrade_config, validate_config)
 
 
 class ConfigurationTests(unittest.TestCase):
@@ -177,6 +178,126 @@ class ConfigurationTests(unittest.TestCase):
         schedules = [resolve_config(preset)["schedule"] for preset in presets]
         self.assertTrue(all(schedule == schedules[0] for schedule in schedules))
         self.assertEqual({tuple(preset["omit_competencies"]) for preset in presets}, {(), ("measurement",)})
+
+    def test_legacy_configuration_keeps_its_original_fields_and_hash(self) -> None:
+        """Version-one callers do not acquire new settings or a different canonical identity."""
+        legacy = copy.deepcopy(self.config)
+        legacy["schema_version"] = 1
+        del legacy["participation"], legacy["outcomes"]
+        for actor in legacy["team"]:
+            del actor["persona_ref"]
+        for challenge in legacy["challenges"]:
+            challenge.pop("simulation_effects", None)
+        resolved = resolve_config(legacy)
+        self.assertEqual(resolved["config"], legacy)
+        self.assertEqual(resolved["config_hash"], "27d27fa965595c8293aed8e50da935c68ec1ec808178dc105ad2fb77ed980296")
+        self.assertNotIn("design", resolved["agent_contract"]["output_schema"]["properties"])
+        upgraded = upgrade_config(legacy)
+        self.assertEqual(upgraded["schema_version"], 2)
+        self.assertEqual(upgraded["seed"], legacy["seed"])
+        self.assertTrue(all(actor["persona_ref"] is None for actor in upgraded["team"]))
+        self.assertNotIn("participation", legacy)
+        legacy["participation"] = upgraded["participation"]
+        with self.assertRaisesRegex(ValueError, "exactly"):
+            validate_config(legacy)
+
+    def test_persona_is_materialized_without_changing_identity_or_opportunities(self) -> None:
+        """Choosing a named module bundle cannot silently reschedule or promote its contributor."""
+        before = copy.deepcopy(self.config["team"][6])
+        value = apply_persona(self.config, before["id"], "evidence-engineer")
+        actor = value["team"][6]
+        self.assertEqual(actor["competencies"], ["implementation", "measurement"])
+        self.assertEqual(actor["persona_ref"], {"id": "evidence-engineer", "version": "1.0.0"})
+        for key in ("id", "name", "role", "stages", "authority", "available"):
+            self.assertEqual(actor[key], before[key])
+        self.assertEqual(self.config["team"][6], before)
+        actor["competencies"] = []
+        actor["persona_ref"] = None
+        self.assertEqual(validate_config(value)["team"][6]["competencies"], [])
+        self.assertEqual(len(catalog()["personas"]), 11)
+        with self.assertRaisesRegex(ValueError, "existing team"):
+            apply_persona(self.config, "missing-actor", "generalist")
+
+    def test_study_presets_preserve_case_and_independent_outcome_settings(self) -> None:
+        """Changing the study arrangement retains the supplied case, conditions, and evaluator criteria."""
+        self.config["name"] = "Locally edited case"
+        self.config["outcomes"]["conditions"]["available_minutes"] = 7
+        self.config["team"][1]["available"] = False
+        self.config["integration"]["mode"] = "handoff"
+        self.config["omit_competencies"] = ["learning"]
+        ablated = apply_study_preset(self.config, "ablation", competency="human")
+        self.assertEqual(ablated["team"], self.config["team"])
+        self.assertEqual(ablated["omit_competencies"], ["learning", "human"])
+        restored = apply_study_preset(ablated, "default")
+        for key in ("id", "name", "seed", "execution", "environment", "challenges", "outcomes"):
+            self.assertEqual(restored[key], self.config[key])
+        for key in ("team", "integration", "omit_competencies", "participation"):
+            self.assertEqual(restored[key], default_config()[key])
+
+    def test_individual_preserves_per_slot_capabilities_authority_and_call_opportunities(self) -> None:
+        """One actor performs all matched duties, including coordination, without extra module exposure."""
+        team = resolve_config(self.config)
+        individual = resolve_config(apply_study_preset(self.config, "individual"))
+        self.assertEqual(individual["planned_calls"], 21)
+        self.assertEqual({slot["actor_id"] for slot in individual["execution_plan"]}, {"individual"})
+        self.assertEqual({profile["actor_id"] for profile in individual["role_contract"]["roles"].values()}, {"individual"})
+        for left, right in zip(team["execution_plan"], individual["execution_plan"]):
+            for key in ("slot_id", "stage", "kind", "source_actor_id", "competency_ids"):
+                self.assertEqual(left[key], right[key])
+            source = team["role_contract"]["roles"][left["profile_key"]]
+            target = individual["role_contract"]["roles"][right["profile_key"]]
+            for key in ("duties", "authority", "behavior_instructions"):
+                self.assertEqual(source[key], target[key])
+        signature = individual["comparison_signature"]
+        for key in ("opportunities_hash", "competency_exposure_hash", "behavior_hash", "authority_hash", "outcomes_hash"):
+            self.assertEqual(signature[key], team["comparison_signature"][key])
+        self.assertNotEqual(signature["model_profiles_hash"], team["comparison_signature"]["model_profiles_hash"])
+        self.assertEqual(individual["coverage"]["measurement"]["scheduled_actors"], ["individual"])
+
+    def test_specialist_individual_filters_duties_without_dropping_turns(self) -> None:
+        """A narrower persona changes explicit support and remains labeled as a different contrast."""
+        value = apply_study_preset(self.config, "individual", persona_id="measurement-specialist")
+        resolved = resolve_config(value)
+        self.assertEqual(resolved["planned_calls"], 21)
+        slots = resolved["execution_plan"]
+        self.assertEqual([slot["stage"] for slot in slots if slot["competency_ids"]], ["design", "instrument", "evaluate"])
+        self.assertEqual(resolved["coverage"]["learning"]["scheduled_actors"], [])
+        self.assertIn("learning", resolved["comparison_signature"]["individual_filtered_competencies"])
+        self.assertTrue(any("filters source-slot" in message for message in resolved["warnings"]))
+        value["omit_competencies"] = ["measurement"]
+        omitted = resolve_config(value)
+        self.assertTrue(all(not profile["duties"] for profile in omitted["role_contract"]["roles"].values()))
+
+    def test_individual_behavior_changes_are_visible_in_the_matching_audit(self) -> None:
+        """Consolidating heterogeneous requested behaviors cannot be described as an identity-only change."""
+        self.config["team"][1]["behavior"]["challenge"] = "persistent"
+        value = apply_study_preset(self.config, "individual")
+        resolved = resolve_config(value)
+        self.assertEqual(resolved["comparison_signature"]["individual_behavior_changed_slots"], ["understand-contribution-01"])
+        self.assertTrue(any("changes behavior" in message for message in resolved["warnings"]))
+
+    def test_invalid_new_fields_fail_before_execution(self) -> None:
+        """Persona, participation, and challenge-effect boundaries remain strict in version two."""
+        candidates = []
+        for path, replacement in (("mode", "crowd"), ("allocation", "adaptive")):
+            value = copy.deepcopy(self.config)
+            value["participation"][path] = replacement
+            candidates.append(value)
+        value = apply_study_preset(self.config, "individual")
+        value["participation"]["individual"]["available"] = False
+        candidates.append(value)
+        value = copy.deepcopy(self.config)
+        value["team"][1]["persona_ref"]["version"] = "999"
+        candidates.append(value)
+        value = copy.deepcopy(self.config)
+        value["challenges"][0]["simulation_effects"] = {"success_rate": 0.1}
+        candidates.append(value)
+        value = copy.deepcopy(self.config)
+        value["outcomes"]["criteria"]["learner_success_min"] = float("nan")
+        candidates.append(value)
+        for index, value in enumerate(candidates):
+            with self.subTest(index=index), self.assertRaises(ValueError):
+                validate_config(value)
 
 
 if __name__ == "__main__":

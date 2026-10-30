@@ -27,7 +27,7 @@
 <summary>About this resource<span class="resource-about-hint"> · How to use it · Learning engineering connections</span></summary>
 <div class="resource-about-body">
 <section><h2>What is this resource?</h2><p>A configurable learning engineering simulation for examining team contributions, coordination, and working conditions. The GUI can prepare experiments, start a local execution, and replay the original journal. Dry runs verify the workflow with labeled fixture responses.</p></section>
-<section><h2>How should I use it?</h2><ol><li>Edit the case and team, then choose competency assignments, observable behaviors, environmental constraints, and fixed challenges.</li><li>Use Review &amp; run to inspect effective coverage and responsibilities before starting one run or the four-condition comparison on the local runner.</li><li>Load a saved run, use the event slider or Play, and inspect exact prompts, cited evidence, artifact revisions, and the pinned configuration. Export records to retain the complete trail.</li></ol></section>
+<section><h2>How should I use it?</h2><ol><li>Apply a default team, competency ablation, or individual-agent study preset. Edit the case, named competency personas, observable behaviors, environmental conditions, and fixed challenges.</li><li>Set synthetic-world assumptions and success criteria, then use Review &amp; run to inspect the typed agent signature, effective coverage, and matched call schedule before starting an execution or comparison.</li><li>Load a saved run and use the event slider or Play to inspect prompts, evidence, artifact revisions, and synthetic learner, human, and system assessments at the time they were recorded. Export the original record to retain the complete trail.</li></ol></section>
 <section><h2>How does this connect to LENS and learning engineering?</h2><p>For LENS and learning engineering, the experiment asks whether a competency changes decisions and implementation under specified conditions. Human flourishing, learning sciences, and systems engineering provide complementary foundations. Configured roles are hypotheses about contributions; their presence does not demonstrate human proficiency, learning outcomes, or the validity of a simulated team.</p><ul class="resource-about-links"><li><a href="/agentic-le/replay/">Existing agentic case replay</a></li><li><a href="/agentic-le/roles/">Role contracts and proficiency limits</a></li><li><a href="/show-your-work/">LENS: capabilities and conditions</a></li><li><a href="https://lecommons.org/">Learning Engineering Commons</a></li></ul></section>
 </div></details><!-- resource-about:end -->
       <div class="intro-row"><p class="intro">Explore how team contributions and working conditions shape decisions, artifacts, and questions worth investigating.</p><span id="connection-state" class="connection-state">Checking runner…</span></div>
@@ -45,8 +45,9 @@
       </div>
       <div id="summary-stats" class="summary-stats" aria-label="Current configuration summary"></div>
       <section id="configure-panel" role="tabpanel" aria-labelledby="configure-tab">
+        <section id="study-editor" class="panel"></section>
         <div class="configuration-grid">
-          <div class="main-column"><div id="case-editor" class="panel"></div><section id="team-editor" class="panel"></section></div>
+          <div class="main-column"><div id="case-editor" class="panel"></div><section id="team-editor" class="panel"></section><section id="outcome-editor" class="panel"></section></div>
           <aside class="side-column" aria-label="Controlled conditions"><section id="integration-editor" class="panel"></section><section id="conditions-editor" class="panel"></section></aside>
         </div>
         <div class="action-bar"><p>Assignments are editable hypotheses. Review the resolved responsibilities before running.</p><button id="reset-config" type="button">Restore baseline</button><button id="review-configuration" class="primary" type="button">Review configuration</button></div>
@@ -59,10 +60,8 @@
               <h2>Run this experiment</h2><p id="runner-help" class="muted"></p>
               <button id="resolve-config" type="button">Resolve configuration</button>
               <button id="start-run" class="primary" type="button" disabled>Start one run</button>
-              <hr><h3>Compare four conditions</h3>
-              <p class="muted small">Measurement support included or omitted, crossed with explicit integration or procedural handoff. Other configured conditions stay fixed.</p>
-              <p id="comparison-count" class="small"></p>
-              <button id="start-comparison" type="button" disabled>Run 2 × 2 comparison</button>
+              <hr><div id="comparison-setup"></div>
+              <button id="start-comparison" type="button" disabled>Run comparison</button>
             </section>
           </div>
         </div>
@@ -77,6 +76,7 @@
             <label class="range-label" for="replay-range">Event <output id="replay-position">1 / 1</output></label><input id="replay-range" type="range" min="1" max="1" value="1" aria-label="Replay event">
             <label class="compact-label">Speed<select id="replay-speed"><option value="1400">Slow</option><option value="700" selected>Normal</option><option value="250">Fast</option></select></label><span id="replay-stage" class="pill"></span><button id="event-link" type="button">Copy event link</button>
           </section>
+          <section id="outcome-assessment" class="panel" aria-label="Synthetic outcomes visible at the selected event"></section>
           <div class="replay-grid">
             <aside class="panel timeline-panel" aria-label="Reached events"><h2>Event trail</h2><label class="field"><span class="field-label">Contributor</span><select id="replay-filter"><option value="all">All contributors</option></select></label><div id="event-list" class="event-list"></div></aside>
             <section id="event-detail" class="panel event-detail" aria-label="Selected original event"></section>

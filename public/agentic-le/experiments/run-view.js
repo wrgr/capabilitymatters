@@ -1,9 +1,10 @@
 /** Control temporal playback of verified run records without executing new agents. */
 import {jsonBlock} from './dom.js';
-import {verifyExperimentRun, replayAt, runStatus, isFixture} from './replay-model.js';
+import {verifyExperimentRun, replayAt, runStatus, isFixture, replayActors} from './replay-model.js';
 import {renderEvent, renderTimeline} from './event-view.js';
 import {renderArtifacts} from './artifact-view.js';
 import {stageLabels} from '../replay/stage-labels.js';
+import {renderOutcomes} from './outcome-view.js';
 
 /** Control one verified journal and its replay position. */
 export class RunView {
@@ -47,7 +48,7 @@ export class RunView {
       this.filter = 'all';
       const filter = document.getElementById('replay-filter');
       filter.replaceChildren(new Option('All contributors', 'all'));
-      for (const [key, actor] of Object.entries(run.roster || {})) filter.add(new Option(actor.name, key));
+      for (const [key, name] of replayActors(run)) filter.add(new Option(name, key));
     } else if (this.follow) this.position = run.events.length;
     document.getElementById('replay-empty').hidden = true;
     document.getElementById('replay-content').hidden = false;
@@ -120,6 +121,7 @@ export class RunView {
     renderTimeline(document.getElementById('event-list'), state, this.run, seq => this.seek(seq), this.filter);
     renderEvent(document.getElementById('event-detail'), this.run, state.selected, seq => this.seek(seq));
     renderArtifacts(document.getElementById('artifact-list'), state, seq => this.seek(seq));
+    renderOutcomes(document.getElementById('outcome-assessment'), state, seq => this.seek(seq));
     document.getElementById('pinned-config').replaceChildren(jsonBlock(this.run.experiment || {role_profiles: this.run.role_profiles, seed: this.run.seed}));
     document.getElementById('run-export').disabled = false;
     document.getElementById('use-run-config').disabled = !this.run.experiment?.config;

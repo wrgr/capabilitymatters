@@ -1,12 +1,14 @@
 /** Present exact recorded events with navigable evidence references and inspectable prompts. */
 import {el, button, disclosure, jsonBlock} from './dom.js';
 import {stageLabels} from '../replay/stage-labels.js';
+import {contractView} from './contract-view.js';
+import {actorName} from './replay-model.js';
 
 /** @param {HTMLElement} root @param {object} run @param {object} event @param {Function} seek @returns {void} Render one original event and its source links. */
 export function renderEvent(root, run, event, seek) {
   root.replaceChildren();
   const payload = event.payload;
-  const name = run.roster?.[event.agent]?.name || event.agent;
+  const name = actorName(run, event);
   root.append(el('div', 'eyebrow', `Event ${event.seq} · ${stageLabels[event.stage] || event.stage} · ${event.kind.replaceAll('_', ' ')}`),
     el('h3', '', name), el('p', 'fingerprint', `Event SHA-256: ${event.hash}`));
   if (payload.hypothetical) root.append(el('p', 'mode-note', 'Hypothetical challenge. This is not an observed external event.'));
@@ -28,6 +30,9 @@ export function renderEvent(root, run, event, seek) {
     provider.append(jsonBlock(payload.provider));
     root.append(provider);
   }
+  const profileKey = payload.profile_key || request?.payload?.profile_key;
+  const spec = run.experiment?.agent_specs?.[profileKey];
+  if (spec) root.append(contractView(run.experiment.agent_contract, {[profileKey]: spec}));
   const original = disclosure('Original event JSON');
   original.append(jsonBlock(event));
   root.append(original);
@@ -62,7 +67,7 @@ function responseView(response, seek) {
 export function renderTimeline(root, state, run, seek, filter = 'all') {
   root.replaceChildren();
   for (const event of state.events.filter(item => filter === 'all' || item.agent === filter).slice(-120)) {
-    const name = run.roster?.[event.agent]?.name || event.agent;
+    const name = actorName(run, event);
     const node = button('', () => seek(event.seq), 'timeline-event');
     node.classList.toggle('selected', event.seq === state.position);
     if (event.seq === state.position) node.setAttribute('aria-current', 'step');

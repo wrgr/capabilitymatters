@@ -1,4 +1,5 @@
 /** Build accessible controls without interpreting configuration or model output as markup. */
+let labelIndex = 0;
 
 /** @param {string} tag @param {string} [className] @param {string} [text] @returns {HTMLElement} Create a text-safe element. */
 export function el(tag, className = '', text = '') {
@@ -19,25 +20,34 @@ export function button(text, action, className = '') {
 /** @param {string} label @param {string|number} value @param {Function} change @param {object} [options] @returns {HTMLElement} Bind a labeled text control. */
 export function field(label, value, change, options = {}) {
   const wrapper = el('label', 'field');
-  wrapper.append(el('span', 'field-label', label));
+  const title = el('span', 'field-label', label);
+  title.id = `control-label-${++labelIndex}`;
+  wrapper.append(title);
   const input = document.createElement(options.multiline ? 'textarea' : 'input');
+  input.setAttribute('aria-labelledby', title.id);
   if (!options.multiline) input.type = options.type || 'text';
   input.value = String(value ?? '');
-  for (const key of ['min', 'max', 'maxLength', 'rows', 'placeholder']) {
+  for (const key of ['min', 'max', 'maxLength', 'rows', 'placeholder', 'step']) {
     if (options[key] !== undefined) input[key] = options[key];
   }
   if (options.required) input.required = true;
   input.addEventListener('input', () => change(input.type === 'number' ? Number(input.value) : input.value));
   wrapper.append(input);
-  if (options.help) wrapper.append(el('small', 'muted', options.help));
+  if (options.help) {
+    const help = el('small', 'muted', options.help);
+    help.id = `${title.id}-help`; input.setAttribute('aria-describedby', help.id); wrapper.append(help);
+  }
   return wrapper;
 }
 
 /** @param {string} label @param {string} value @param {Array} options @param {Function} change @returns {HTMLElement} Bind a labeled selection control. */
 export function select(label, value, options, change) {
   const wrapper = el('label', 'field');
-  wrapper.append(el('span', 'field-label', label));
+  const title = el('span', 'field-label', label);
+  title.id = `control-label-${++labelIndex}`;
+  wrapper.append(title);
   const input = document.createElement('select');
+  input.setAttribute('aria-labelledby', title.id);
   for (const option of options) {
     const [key, text] = typeof option === 'string' ? [option, option] : option;
     input.add(new Option(text, key));

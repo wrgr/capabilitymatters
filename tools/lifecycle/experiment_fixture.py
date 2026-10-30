@@ -31,6 +31,12 @@ class DryRunProvider:
                          "decision": "Continue the fixed technical verification schedule. Scientific interpretation remains unavailable.",
                          "revisit_stage": "", "challenged_assumption": "",
                          "evidence_refs": context["prior_event_sequences"][-3:]})
+        if context.get("config_version", 1) >= 2:
+            # The same authored policy is used in every arm; omissions never manufacture a fixture effect.
+            response["design"] = {"model_applicability": "within_scope", "scope_rationale": "Authored fixture for the declared practice model.",
+                                  "practice_minutes": 5, "feedback": "specific", "revision_opportunity": True,
+                                  "support_minutes_per_learner": 1, "offline_fallback": True,
+                                  "choice_preserved": True, "personal_data": "none"} if context["coordinator"] and stage == "build" else None
         metadata = {"provider": "offline-fixture", "model_requested": "none", "actual_model": "none",
                     "scientific_evidence": False, "fresh_call": True, "response_reused": False,
                     "prompt_hash": hashlib.sha256(prompt.encode()).hexdigest(), "ordinal": ordinal}
