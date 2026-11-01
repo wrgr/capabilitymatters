@@ -50,29 +50,42 @@ def validate_comparison(spec: dict[str, Any]) -> dict[str, Any]:
         raise ValueError("Comparison requires schema_version, kind, competency, and integration_modes")
     if type(spec["schema_version"]) is not int or spec["schema_version"] != 1:
         raise ValueError("Unsupported comparison schema_version")
-    if spec["kind"] not in ("configured", "ablation", "team_individual"):
+    if spec["kind"] not in ("configured", "ablation", "competency_emphasis", "team_individual"):
         raise ValueError("Unknown comparison kind")
     modes = spec["integration_modes"]
     if not isinstance(modes, list) or not 1 <= len(modes) <= 2 or any(mode not in ("explicit", "handoff") for mode in modes) or len(set(modes)) != len(modes):
         raise ValueError("Comparison requires one or two distinct integration modes")
     competency = spec["competency"]
-    if spec["kind"] == "ablation":
+    if spec["kind"] in ("ablation", "competency_emphasis"):
         if not isinstance(competency, str) or competency not in [item["id"] for item in catalog()["competencies"]]:
-            raise ValueError("An ablation comparison requires a catalog competency")
+            raise ValueError("A competency comparison requires a catalog competency")
     elif competency is not None:
-        raise ValueError("Only an ablation comparison selects a competency")
+        raise ValueError("Only an ablation or emphasis comparison selects a competency")
     return copy.deepcopy(spec)
+
+
+def _emphasis_coordinator(base: dict, competency: str) -> dict:
+    """Require an additional coordinator exposure without silently changing actor allocation."""
+    if base.get("participation", {}).get("mode") == "individual":
+        raise ValueError("Coordinator reinforcement requires team participation; select the team arrangement first")
+    actor = next(item for item in base["team"] if item["id"] == base["integration"]["coordinator"])
+    if competency in actor["competencies"]:
+        raise ValueError("The coordinator already has this competency; reinforcement would not create a new exposure")
+    return actor
 
 
 def _conditions(base: dict, spec: dict) -> list[tuple[str, dict]]:
     if spec["kind"] == "team_individual":
         base = upgrade_config(base)
-    if spec["kind"] == "ablation":
+    if spec["kind"] in ("ablation", "competency_emphasis"):
         key = spec["competency"]
         base["omit_competencies"] = [value for value in base["omit_competencies"] if value != key]
         if not resolve_config(base)["coverage"][key]["scheduled_actors"]:
             raise ValueError(f"Assign {key} support to an available scheduled actor or coordinator before comparing it")
-    variants = {"configured": ("configured",), "ablation": ("retained", "omitted"), "team_individual": ("team", "individual")}
+    if spec["kind"] == "competency_emphasis":
+        _emphasis_coordinator(base, spec["competency"])
+    variants = {"configured": ("configured",), "ablation": ("retained", "omitted"),
+                "competency_emphasis": ("retained", "omitted", "reinforced"), "team_individual": ("team", "individual")}
     result = []
     for integration in spec["integration_modes"]:
         for condition in variants[spec["kind"]]:
@@ -81,6 +94,11 @@ def _conditions(base: dict, spec: dict) -> list[tuple[str, dict]]:
             configured["execution"]["repetitions"] = 1
             if condition == "omitted":
                 configured["omit_competencies"].append(spec["competency"])
+            if condition == "reinforced":
+                coordinator = _emphasis_coordinator(configured, spec["competency"])
+                coordinator["competencies"].append(spec["competency"])
+                if "persona_ref" in coordinator:
+                    coordinator["persona_ref"] = None  # The edited bundle is no longer an unchanged named preset.
             if spec["kind"] == "team_individual":
                 configured["participation"]["mode"] = condition
             result.append((condition + "-" + integration, configured))
@@ -99,12 +117,19 @@ def _matching_audit(plans: list[dict]) -> None:
 
 
 def plan_comparison(config: dict[str, Any], spec: dict[str, Any]) -> list[dict[str, Any]]:
-    """Interleave fresh repetitions of configured, competency-ablation, or actor-allocation conditions."""
+    """Interleave fresh repetitions of configured, competency-support, or actor-allocation conditions."""
     base, selection = validate_config(config), validate_comparison(spec)
     conditions = _conditions(copy.deepcopy(base), selection)
     plans = [_item(condition, repetition, configured) for repetition in range(1, base["execution"]["repetitions"] + 1)
              for condition, configured in conditions]
     _matching_audit(plans)
+    if selection["kind"] == "competency_emphasis":
+        for item in plans:
+            slots = resolve_config(item["config"])["execution_plan"]
+            carrying = [slot["slot_id"] for slot in slots if selection["competency"] in slot["competency_ids"]]
+            item["instruction_intervention"] = {"competency": selection["competency"], "carrying_slots": carrying,
+                                                "carrying_slot_count": len(carrying)}
+            item["matching"]["notes"].append("Coordinator reinforcement changes module placement and exposure, not evaluator weights. Tokens are not matched; assigned emphasis is not proficiency evidence.")
     return plans
 
 
@@ -375,8 +400,8 @@ def main() -> None:
     parser.add_argument("--output-root", type=Path, default=RUNS)
     choices = parser.add_mutually_exclusive_group()
     choices.add_argument("--single", action="store_true", help="Repeat one configuration instead of the four conditions")
-    choices.add_argument("--comparison", choices=("configured", "ablation", "team_individual"), help="Select a generalized comparison")
-    parser.add_argument("--competency", default="measurement", help="Catalog module selected for an ablation")
+    choices.add_argument("--comparison", choices=("configured", "ablation", "competency_emphasis", "team_individual"), help="Select a generalized comparison")
+    parser.add_argument("--competency", default="measurement", help="Catalog module selected for an ablation or coordinator reinforcement")
     parser.add_argument("--integration-mode", action="append", choices=("explicit", "handoff"), help="Integration condition; may be repeated")
     parser.add_argument("--plan", action="store_true", help="Print resolved plans without creating a batch or calling a provider")
     parser.add_argument("--expectations", type=Path, help="Separate JSON array of expected observations, never passed to agents")
@@ -384,7 +409,7 @@ def main() -> None:
     try:
         config = json.loads(args.config.read_text()) if args.config else default_config()
         comparison = ({"schema_version": 1, "kind": args.comparison,
-                       "competency": args.competency if args.comparison == "ablation" else None,
+                       "competency": args.competency if args.comparison in ("ablation", "competency_emphasis") else None,
                        "integration_modes": args.integration_mode or [config["integration"]["mode"]]} if args.comparison else None)
         if args.integration_mode and comparison is None:
             raise ValueError("--integration-mode requires --comparison")

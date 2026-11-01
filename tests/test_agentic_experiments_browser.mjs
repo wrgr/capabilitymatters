@@ -275,10 +275,14 @@ async function backgroundExecution(page) {
 async function compare(page, kind = 'ablation', expected = 4) {
   await page.locator('#review-tab').click();
   await page.getByLabel('Comparison design', {exact: true}).selectOption(kind);
-  if (kind === 'team_individual') {
+  if (kind === 'team_individual' || kind === 'competency_emphasis') {
     const panel = page.locator('#comparison-setup details');
     if (!await panel.evaluate(node => node.open)) await panel.locator('summary').click();
     await panel.getByLabel('Procedural handoff', {exact: true}).uncheck();
+  }
+  if (kind === 'competency_emphasis') {
+    assert.equal(await page.getByLabel('Compared competency', {exact: true}).inputValue(), 'learning');
+    assert.match(await page.locator('#comparison-count').innerText(), /3 participation\/support conditions.*= 3 runs/);
   }
   const created = page.waitForResponse(response => response.url().endsWith('/api/experiments/batches') && response.request().method() === 'POST');
   await page.locator('#start-comparison').click();
@@ -288,6 +292,11 @@ async function compare(page, kind = 'ablation', expected = 4) {
   assert.equal(batch.runs.length, expected);
   assert(batch.runs.every(item => item.run_id));
   assert(batch.runs.every(item => item.outcome?.status));
+  if (kind === 'competency_emphasis') {
+    assert.deepEqual(batch.runs.map(item => item.condition), ['retained-explicit', 'omitted-explicit', 'reinforced-explicit']);
+    assert(batch.runs.every(item => item.planned_calls === 21 && item.matching.matches.outcomes && item.matching.matches.opportunities));
+    assert(batch.runs[2].config.team.find(actor => actor.id === batch.runs[2].config.integration.coordinator).competencies.includes('learning'));
+  }
   assert.equal(await page.locator('#comparison-results').getByRole('button', {name: 'Replay run', exact: true}).count(), expected);
   await page.locator('#comparison-results').getByRole('button', {name: 'Replay run', exact: true}).first().click();
   await page.waitForFunction(id => document.getElementById('run-identity').textContent.includes(id), batch.runs[0].run_id);
@@ -346,6 +355,7 @@ try {
   await staleResolution(page);
   await backgroundExecution(page);
   await compare(page);
+  await compare(page, 'competency_emphasis', 3);
   await individualMode(page, run);
   await failedWorld(page);
   await compare(page, 'team_individual', 2);

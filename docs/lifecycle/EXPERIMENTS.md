@@ -35,7 +35,7 @@ The hosted static page can configure, export, and inspect imported records. It c
 | Competency ablation | Omits the selected instruction module globally and selects team participation | Current actors and stages remain; other explicit omissions are preserved |
 | Individual agent | One selected persona performs every contribution and coordination slot | The reference team's ordered opportunities, effective slot duties, case, conditions, and limits remain explicit |
 
-An arrangement prepares a configuration. The comparison selector then chooses whether to repeat it, compare retained versus omitted support, or compare a team with its selected individual. The generalized ablation selector accepts any of the seven catalog modules. It refuses a presence condition without an available, scheduled contribution carrying that module.
+An arrangement prepares a configuration. The comparison selector then chooses whether to repeat it, compare retained versus omitted support, add a coordinator-reinforced condition, or compare a team with its selected individual. The generalized competency selectors accept any of the seven catalog modules. They refuse a presence condition without an available, scheduled contribution carrying that module.
 
 The catalog provides seven module-specific personas, an all-competency generalist, and three combinations: Learning and interaction designer, Implementation and evidence contributor, and Human and systems contributor. Applying a persona copies its competency selections and requested behavior. It retains the actor's identity, name, role, authority, availability, and existing stages; recommended stages in the catalog are guidance, not an automatic rescheduling operation. The materialized selections are editable. A persona reference records the preset's identity and version, not hidden inherited duties or verified expertise.
 
@@ -86,7 +86,34 @@ The generalized planner accepts a comparison specification separately from the c
 }
 ```
 
-`configured` repeats the current configuration for each selected integration mode. `ablation` creates retained and omitted conditions for the selected competency. `team_individual` creates team and individual conditions using the selected individual persona. The latter two kinds produce two conditions per integration mode; `competency` must be `null` for kinds other than ablation. A single integration mode is useful when studying one factor first.
+`configured` repeats the current configuration for each selected integration mode. `ablation` creates retained and omitted conditions for the selected competency. `competency_emphasis` adds a third, coordinator-reinforced condition. `team_individual` creates team and individual conditions using the selected individual persona. `competency` selects a catalog module for ablation or emphasis and must be `null` otherwise. A single integration mode is useful when studying one factor first.
+
+### Learning and practice emphasis
+
+In Review & run, choose **Included, omitted, coordinator reinforced** and **Learning and practice**. Keep one coordination condition for a three-condition study. This comparison uses the existing configuration fields and leaves the source configuration unchanged:
+
+```json
+{
+  "schema_version": 1,
+  "kind": "competency_emphasis",
+  "competency": "learning",
+  "integration_modes": ["explicit"]
+}
+```
+
+| Condition | Instruction change | Exposure in the default 21-call schedule |
+|---|---|---|
+| Retained | Restore the selected module at its configured assignments | Two contributor turns, at Design and Refine |
+| Omitted | Withdraw the selected module from every resolved actor | Zero turns carrying the module |
+| Reinforced | Retain those assignments and also give the same module to the coordinator | Ten turns: the two contributor turns plus eight coordinator decisions |
+
+The exact module duties are: “Describe what the learner should become able to do in the supplied situation” and “Design meaningful practice decisions with feedback and an opportunity to revise an approach.” Interaction design remains a separate module, and participation, access, agency, and burden remain in Human agency and burden. This example therefore tests learning-and-practice instruction placement and exposure, not every aspect of learner-centered design.
+
+The roster, actor identities, stages, behavior, authority, case, challenges, execution settings, and outcome model stay fixed. Other omissions are preserved. Reinforcement adds no calls and changes no scoring coefficients or success thresholds. Prompt length and token consumption are not matched; repeating the module at integration decisions is the intended intervention. This treatment does not separately identify effects of placement, repetition, or prompt length. Assigned emphasis does not establish proficiency, and any result would concern model-generated work under this operationalization.
+
+The comparison requires team participation and a coordinator who does not already hold the selected module; otherwise it refuses a misleading no-op condition. The coordinator's preset reference is cleared when its explicit module bundle changes. It does not add modules to other contributors or silently upgrade a version-one configuration. Existing configurations, the original matrix, and saved journals retain their behavior.
+
+This selector was added after the frozen measurement-by-integration pilot. Its planning, fixed-factor audit, and dry-run GUI path are implementation checks, not new empirical results. Useful prospective observations include objective–practice alignment, whether feedback responds to a learner decision, revision opportunities, coherence between the design declaration and working interface, and any burden or access tradeoff. Keep the observation rubric fixed across conditions and review actual artifacts; the narrow synthetic calculator cannot establish learning effectiveness.
 
 Every planned item carries a matching audit against the first item. It compares ordered opportunities, effective competency exposure, behavior, authority, model-facing profiles, case, environment, challenges, outcome settings, provider and limits, integration, actor identity, and execution-contract and outcome-model hashes. Some differences are intentional experimental factors; the audit makes them inspectable rather than declaring every contrast equivalent. Equal calls and accepted-character bounds do not establish equal token consumption, elapsed time, or human workload.
 
@@ -157,6 +184,12 @@ Inspect an ablation of any selected module, keeping one integration policy:
 
 ```sh
 python3 tools/lifecycle/experiment_batch.py --config experiment.json --comparison ablation --competency human --integration-mode explicit --plan
+```
+
+Inspect retained, omitted, and coordinator-reinforced learning-and-practice conditions:
+
+```sh
+python3 tools/lifecycle/experiment_batch.py --config experiment.json --comparison competency_emphasis --competency learning --integration-mode explicit --plan
 ```
 
 Compare the team with the individual persona configured in the exported file:

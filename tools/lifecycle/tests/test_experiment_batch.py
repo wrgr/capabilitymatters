@@ -87,6 +87,53 @@ class BatchPlanTests(unittest.TestCase):
         self.assertEqual(plans[1]["config"]["omit_competencies"], ["learning", "human"])
         self.assertFalse(plans[1]["matching"]["matches"]["competency_exposure"])
 
+    def test_learning_emphasis_changes_only_selected_instruction_exposure(self) -> None:
+        """Coordinator reinforcement holds the case, opportunities, behavior, and evaluator fixed."""
+        config = default_config()
+        config["omit_competencies"] = ["learning", "human"]
+        before = copy.deepcopy(config)
+        spec = {"schema_version": 1, "kind": "competency_emphasis", "competency": "learning", "integration_modes": ["explicit"]}
+        plans = plan_comparison(config, spec)
+        self.assertEqual(config, before)
+        self.assertEqual(len(plans), 9)
+        self.assertEqual([item["condition"] for item in plans], ["retained-explicit", "omitted-explicit", "reinforced-explicit"] * 3)
+        self.assertEqual([item["planned_calls"] for item in plans], [21] * 9)
+        exposure = []
+        for item in plans[:3]:
+            expected = copy.deepcopy(before)
+            expected["execution"]["repetitions"] = 1
+            expected["omit_competencies"] = ["human"]
+            if item["condition"].startswith("omitted"):
+                expected["omit_competencies"].append("learning")
+            if item["condition"].startswith("reinforced"):
+                expected["team"][0]["competencies"].append("learning")
+            self.assertEqual(item["config"], expected)
+            resolved = resolve_config(item["config"])
+            exposure.append(sum("learning" in slot["competency_ids"] for slot in resolved["execution_plan"]))
+            for field in ("opportunities", "behavior", "authority", "case", "environment", "challenges", "outcomes", "execution", "integration", "actor_identity", "agent_contract", "outcome_model"):
+                self.assertTrue(item["matching"]["matches"][field], field)
+        self.assertEqual(exposure, [2, 0, 10])
+        self.assertEqual([item["instruction_intervention"]["carrying_slot_count"] for item in plans[:3]], exposure)
+        self.assertEqual(len(plans[2]["instruction_intervention"]["carrying_slots"]), 10)
+        for item in plans[1:3]:
+            self.assertFalse(item["matching"]["matches"]["competency_exposure"])
+            self.assertFalse(item["matching"]["matches"]["model_profiles"])
+
+    def test_reinforcement_rejects_noop_and_individual_conditions(self) -> None:
+        """An emphasis label cannot conceal unchanged exposure or a different participation design."""
+        spec = {"schema_version": 1, "kind": "competency_emphasis", "competency": "learning", "integration_modes": ["explicit"]}
+        config = default_config()
+        config["team"][0]["competencies"].append("learning")
+        with self.assertRaisesRegex(ValueError, "already has"):
+            plan_comparison(config, spec)
+        individual = apply_study_preset(default_config(), "individual")
+        with self.assertRaisesRegex(ValueError, "team participation"):
+            plan_comparison(individual, spec)
+        config = default_config()
+        config["execution"]["through"] = "understand"
+        with self.assertRaisesRegex(ValueError, "Assign learning"):
+            plan_comparison(config, spec)
+
     def test_interleaved_matrix_order_is_explicit_and_not_randomized(self) -> None:
         """Provider drift is not silently confounded with completing every repetition of one cell first."""
         plans = plan_matrix(default_config())

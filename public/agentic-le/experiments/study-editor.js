@@ -1,6 +1,6 @@
 /** Make study manipulations explicit before changing editable experiment settings. */
 import {el, select, button, check, disclosure} from './dom.js';
-import {isIndividual, comparisonCount} from './study-model.js';
+import {isIndividual, comparisonCount, comparisonConditionCount} from './study-model.js';
 
 const descriptions = {
   default: 'Restore the default team, coordination, and competency support. Keep this case, environment, challenges, outcome model, and execution settings.',
@@ -28,17 +28,18 @@ export function renderStudy(root, config, catalog, choice, apply, pending = fals
   if (config.omit_competencies.length) root.append(el('p', 'small', `Current omissions: ${config.omit_competencies.map(id => catalog.competencies.find(item => item.id === id)?.name || id).join(', ')}.`));
 }
 
-/** @param {HTMLElement} root @param {object} config @param {object} catalog @param {object} comparison @param {Function} changed @returns {void} Select fresh repetition and ablation comparisons without changing the source configuration. */
+/** @param {HTMLElement} root @param {object} config @param {object} catalog @param {object} comparison @param {Function} changed @returns {void} Select fresh competency and participation comparisons without changing the source configuration. */
 export function renderComparisonSetup(root, config, catalog, comparison, changed) {
   root.replaceChildren(el('h3', '', 'Compare conditions'));
   const redraw = () => { renderComparisonSetup(root, config, catalog, comparison, changed); changed(); };
   root.append(select('Comparison design', comparison.kind,
-    [['configured', 'Repeat current configuration'], ['ablation', 'Competency included vs omitted'], ['team_individual', 'Team vs individual agent']], value => {
+    [['configured', 'Repeat current configuration'], ['ablation', 'Competency included vs omitted'],
+      ['competency_emphasis', 'Included, omitted, coordinator reinforced'], ['team_individual', 'Team vs individual agent']], value => {
       comparison.kind = value;
-      comparison.competency = value === 'ablation' ? comparison.competency || 'measurement' : null;
+      comparison.competency = value === 'competency_emphasis' ? 'learning' : value === 'ablation' ? comparison.competency || 'measurement' : null;
       redraw();
     }));
-  if (comparison.kind === 'ablation') root.append(select('Compared competency', comparison.competency,
+  if (['ablation', 'competency_emphasis'].includes(comparison.kind)) root.append(select('Compared competency', comparison.competency,
     catalog.competencies.map(item => [item.id, item.name]), value => { comparison.competency = value; changed(); }));
   const policies = disclosure('Coordination conditions');
   for (const [id, label] of [['explicit', 'Explicit integration'], ['handoff', 'Procedural handoff']]) {
@@ -50,7 +51,9 @@ export function renderComparisonSetup(root, config, catalog, comparison, changed
   }
   root.append(policies, el('p', 'muted small', comparison.kind === 'team_individual'
     ? 'Use the configured individual persona and preserve the source team’s slot schedule. Identity changes; call opportunities stay matched.'
+    : comparison.kind === 'competency_emphasis'
+      ? 'Compare current support, global omission, and the same module additionally assigned to the coordinator. Reinforcement changes instruction placement and exposure at decision turns; it does not change the scoring model. Use team mode and a coordinator without the selected module. Calls stay matched, but tokens do not.'
     : 'Each condition creates a fresh journal. Other configured conditions stay fixed.'));
-  const count = el('p', 'small', `${comparison.kind === 'configured' ? 1 : 2} participation/support conditions × ${comparison.integration_modes.length} coordination conditions × ${config.execution.repetitions} repetitions = ${comparisonCount(comparison, config.execution.repetitions)} runs.`);
+  const count = el('p', 'small', `${comparisonConditionCount(comparison)} participation/support conditions × ${comparison.integration_modes.length} coordination conditions × ${config.execution.repetitions} repetitions = ${comparisonCount(comparison, config.execution.repetitions)} runs.`);
   count.id = 'comparison-count'; root.append(count);
 }

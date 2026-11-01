@@ -8,7 +8,7 @@ import {fileURLToPath} from 'node:url';
 import {importConfig, newActor, membership, declaredCoverage} from '../../../public/agentic-le/experiments/config-model.js';
 import {verifyExperimentRun, replayAt, isFixture, runStatus, replayActors} from '../../../public/agentic-le/experiments/replay-model.js';
 import {batchFinished} from '../../../public/agentic-le/experiments/remote.js';
-import {applyStudyPreset, applyPersona, upgradeConfig, comparisonCount} from '../../../public/agentic-le/experiments/study-model.js';
+import {applyStudyPreset, applyPersona, upgradeConfig, comparisonCount, comparisonConditionCount} from '../../../public/agentic-le/experiments/study-model.js';
 import {latestAssessment} from '../../../public/agentic-le/experiments/outcome-view.js';
 
 const root = fileURLToPath(new URL('../../../', import.meta.url));
@@ -149,4 +149,7 @@ test('comparison count follows selected factors instead of assuming a fixed four
   assert.equal(comparisonCount({kind: 'configured', integration_modes: ['explicit']}, 3), 3);
   assert.equal(comparisonCount({kind: 'ablation', integration_modes: ['explicit', 'handoff']}, 2), 8);
   assert.equal(comparisonCount({kind: 'team_individual', integration_modes: ['explicit']}, 1), 2);
+  assert.equal(comparisonConditionCount({kind: 'competency_emphasis'}), 3);
+  assert.equal(comparisonCount({kind: 'competency_emphasis', integration_modes: ['explicit']}, 3), 9);
+  assert.equal(comparisonCount({kind: 'competency_emphasis', integration_modes: ['explicit', 'handoff']}, 2), 12);
 });

@@ -8,7 +8,7 @@ import {RunView} from './run-view.js';
 import {fetchJSON, loadWorkspace, batchFinished} from './remote.js';
 import {renderComparison} from './comparison-view.js';
 import {renderStudy, renderComparisonSetup} from './study-editor.js';
-import {applyStudyPreset, comparisonCount} from './study-model.js';
+import {applyStudyPreset, comparisonCount, comparisonConditionCount} from './study-model.js';
 import {renderOutcomes} from './outcome-editor.js';
 
 const $ = id => document.getElementById(id);
@@ -74,7 +74,7 @@ function renderConfiguration() {
 
 /** @returns {void} Keep comparison workload visible when repeats or design factors change. */
 function updateComparisonCount() {
-  $('comparison-count').textContent = `${comparison.kind === 'configured' ? 1 : 2} participation/support conditions × ${comparison.integration_modes.length} coordination conditions × ${config.execution.repetitions} repetitions = ${comparisonCount(comparison, config.execution.repetitions)} runs.`;
+  $('comparison-count').textContent = `${comparisonConditionCount(comparison)} participation/support conditions × ${comparison.integration_modes.length} coordination conditions × ${config.execution.repetitions} repetitions = ${comparisonCount(comparison, config.execution.repetitions)} runs.`;
 }
 
 /** @returns {Promise<void>} Apply the same explicit study transformation locally or through the authoritative runner. */

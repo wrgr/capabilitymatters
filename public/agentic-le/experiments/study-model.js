@@ -43,9 +43,14 @@ export function applyStudyPreset(config, baseline, catalog, choice) {
   return copy;
 }
 
+/** @param {object} comparison @returns {number} Count explicitly supported participation or competency conditions. */
+export function comparisonConditionCount(comparison) {
+  return comparison.kind === 'configured' ? 1 : comparison.kind === 'competency_emphasis' ? 3 : 2;
+}
+
 /** @param {object} comparison @param {number} repetitions @returns {number} Count planned fresh executions from an explicit comparison specification. */
 export function comparisonCount(comparison, repetitions) {
-  return (comparison.kind === 'configured' ? 1 : 2) * comparison.integration_modes.length * repetitions;
+  return comparisonConditionCount(comparison) * comparison.integration_modes.length * repetitions;
 }
 
 /** @param {object} config @returns {object[]} Identify actors that can actually execute requests in the selected participation mode. */
