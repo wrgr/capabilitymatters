@@ -159,6 +159,49 @@ python3 tests/test_slick_sheet.py
 node --test tests/test_prototypes.mjs
 ```
 
+## Configurable Agentic LE experiments
+
+The GUI at `/agentic-le/experiments/` offers a default fictional team, competency
+ablation, and an individual performing the same scheduled work. Eleven named
+persona presets materialize editable competency and behavior instructions. The
+individual baseline retains the team's 21 contribution and coordination calls,
+with one actual executing identity. Review the resolved duties, typed agent
+signature, coverage, and schedule before execution, then replay each retained
+input, response, decision, challenge, artifact, and outcome assessment.
+
+```sh
+npm ci
+npm run build
+python3 tools/lifecycle/server.py
+```
+
+Open `http://127.0.0.1:8767/agentic-le/experiments/`. Offline dry runs check the
+execution and replay pipeline without model calls or ablation findings. Live runs
+require the installed, authenticated Codex CLI, an explicit model identifier, and
+`CAPABILITY_MATTERS_LIVE=1` when starting the service. The hosted static page can
+configure experiments and import saved records; it does not run models.
+
+Comparisons can withdraw any competency, vary integration responsibility, or
+compare team and individual execution. Configurations, resolved instructions,
+fixed schedules, and journal hashes remain inspectable. An independent illustrative
+simulator applies explicit resource conditions and assumptions to declared Build
+choices, producing separate learner, human, and system assessments. Its equations
+do not read persona or ablation labels. It does not verify the implementation or
+predict real human outcomes; outside-model proposals remain indeterminate for
+human review. See
+[the experiment guide](docs/lifecycle/EXPERIMENTS.md) for batches, budgets,
+cancellation, review evidence, and limits of interpretation.
+
+The Scorecard tab adds independent evidence review on **human flourishing,
+system performance, and learning**, with three fictional scenario presets and
+immutable study iterations. Freeze rubric thresholds, criterion floors, and
+person/context sensitivity assumptions before review. Export opaque candidate
+packets to the separate blind workspace, retain the assignment key separately,
+then reveal the complete frozen set. The three axes have conditional modeled
+ranges and pass probabilities; none is a validated prediction about real people.
+See [the scorecard method](docs/lifecycle/SCORECARD.md) for its equations, evidence
+requirements, exact replay, and limits.
+
 ## Problems to Prototypes
 
 `/problems-to-prototypes/` holds 38 evidence-linked briefs across AILE, LXD,

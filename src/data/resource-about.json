@@ -489,5 +489,35 @@
         "href": "/andon/"
       }
     ]
+  },
+  "agentic-blind-review": {
+    "what": "An isolated evidence review workspace for scoring opaque learning engineering candidates before revealing team assignments. It preserves task-level human flourishing support, system performance, and learning evidence as three separate axes.",
+    "how": [
+      "Import an opaque packet or packet bundle from the experiment studio. Inspect the task, constraints, rubric anchors, and original evidence text without loading a journal or assignment key.",
+      "For each criterion, record a supported rating, plausible lower and upper bounds, rationale, and an exact evidence quotation. Keep insufficient evidence unknown and describe any identity clues in the limitations.",
+      "Inspect the probability assumptions, export a draft if needed, then freeze the review with the local runner. Export the frozen record to the organizer for comparison and identity reveal after the selected reviews are frozen."
+    ],
+    "connection": "Learning engineering connects designed contributions to evidence about what learners and systems can do. LENS also asks whether people have agency, access, and viable conditions for action. Withholding assignment labels helps test the artifact rather than reward the intended expertise, while modeled uncertainty makes incomplete evidence and contextual assumptions visible. These task-level indices do not establish observed learning gains or human flourishing."
+  },
+  "agentic-experiments": {
+    "what": "A configurable learning engineering simulation for examining team contributions, coordination, and working conditions across three fictional scenarios. The studio preserves iterations, runs local experiments, replays original journals, and compares separately frozen evidence scorecards. Dry runs are labeled workflow fixtures.",
+    "how": [
+      "Apply a scenario and a default team, competency ablation, or individual-agent preset. Inspect the learner target, affected-person constraints, competency personas, environmental conditions, and fixed challenges.",
+      "Set the three outcome thresholds, essential criterion floors, and explicit variation assumptions. Save an iteration with a change note before using Review & run to inspect responsibilities and the matched call schedule.",
+      "Replay a saved run to inspect prompts, evidence, and artifact revisions. The original declared-design synthetic outcome cards remain separate from the new blind evidence scorecard.",
+      "In Scorecard, prepare opaque packets and keep the private assignment key separate. Use the isolated blind workspace to cite evidence, retain unknowns, and freeze all reviews before revealing assignments or comparing candidates within a scenario.",
+      "Fork an iteration when changing a team, assumption, or design. Export the preserved snapshot, frozen scorecards, and original journals to retain the complete parent-linked evidence trail."
+    ],
+    "connection": "For LENS and learning engineering, the experiment asks whether a competency changes decisions and implementation under specified conditions. Human flourishing, learning sciences, and systems engineering provide complementary foundations. Configured roles are hypotheses about contributions; their presence does not demonstrate human proficiency, learning outcomes, or the validity of a simulated team.",
+    "links": [
+      {
+        "label": "Existing agentic case replay",
+        "href": "/agentic-le/replay/"
+      },
+      {
+        "label": "Role contracts and proficiency limits",
+        "href": "/agentic-le/roles/"
+      }
+    ]
   }
 }

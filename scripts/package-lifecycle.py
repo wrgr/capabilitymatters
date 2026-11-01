@@ -1,4 +1,4 @@
-"""Build the public role contract and exemplar product from versioned source."""
+"""Package preserved cases and versioned experiment contracts for the public interfaces."""
 import json
 from pathlib import Path
 import sys
@@ -9,6 +9,8 @@ from engine import WEB
 from package_exemplar import package
 from product import write_product
 from role_profiles import load_contract, resolve_profile, REGISTRY, FRAMEWORK
+from experiment_contract import agent_contract
+from experiment_outcomes import outcome_catalog
 
 contract = load_contract()
 registry, framework = json.loads(REGISTRY.read_text()), json.loads(FRAMEWORK.read_text())
@@ -97,3 +99,13 @@ voices = json.loads((REPO / "src/data/lifecycle/meeting-voices.json").read_text(
 assert set(voices["roles"]) == set(registry["default_roles"])
 (WEB / "meeting-voices.js").write_text("// Generated from src/data/lifecycle/meeting-voices.json; presentation only.\nexport const meetingVoices=" + json.dumps(voices, ensure_ascii=False) + ";\n")
 print("Source-linked meeting presentation voices packaged.")
+
+# The hosted GUI can author configurations and replay imports without a model service.
+from experiment_config import catalog, default_config
+experiment_web = WEB.parent / "experiments"
+experiment_web.mkdir(parents=True, exist_ok=True)
+(experiment_web / "catalog.json").write_text(json.dumps(catalog(), indent=2, ensure_ascii=False) + "\n")
+(experiment_web / "default.json").write_text(json.dumps(default_config(), indent=2, ensure_ascii=False) + "\n")
+(experiment_web / "agent-contract.json").write_text(json.dumps(agent_contract(), indent=2, ensure_ascii=False) + "\n")
+(experiment_web / "outcome-catalog.json").write_text(json.dumps(outcome_catalog(), indent=2, ensure_ascii=False) + "\n")
+print("Experiment personas, typed agent contract, outcome model, and fictional default packaged.")

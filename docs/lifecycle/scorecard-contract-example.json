@@ -1,0 +1,707 @@
+{
+  "description": "Concrete blind scorecard contract example. Unknown criteria remain null and produce an incomplete assessment. Assignment mapping is never included in the blind packet.",
+  "packet": {
+    "schema_version": 1,
+    "id": "candidate-0123456789abcdef",
+    "task": {
+      "title": "Fictional task",
+      "brief": "Build an inspectable practice activity.",
+      "constraints": [
+        "Use fictional examples."
+      ]
+    },
+    "scenario": {
+      "id": "example",
+      "version": "1.0.0",
+      "axis_targets": {
+        "human_flourishing": 60,
+        "system_performance": 60,
+        "learning": 60
+      },
+      "evidence_anchors": {
+        "human_flourishing": [
+          "Inspect implementation and relevant checks."
+        ],
+        "system_performance": [
+          "Inspect implementation and relevant checks."
+        ],
+        "learning": [
+          "Inspect implementation and relevant checks."
+        ]
+      },
+      "population_profiles": [
+        {
+          "id": "reference",
+          "label": "Reference conditions",
+          "weight": 1,
+          "axis_shift": {
+            "human_flourishing": 0,
+            "system_performance": 0,
+            "learning": 0
+          },
+          "axis_sd": {
+            "human_flourishing": 8,
+            "system_performance": 8,
+            "learning": 8
+          },
+          "rationale": "Illustrative population sensitivity, not measured humans."
+        }
+      ]
+    },
+    "rubric": {
+      "id": "blind-evidence-rubric",
+      "version": "1.0.0",
+      "axes": {
+        "human_flourishing": {
+          "label": "Human flourishing",
+          "criteria": [
+            "agency_dignity",
+            "access_inclusion",
+            "burden_wellbeing"
+          ]
+        },
+        "system_performance": {
+          "label": "System performance",
+          "criteria": [
+            "functional_correctness",
+            "reliability_recovery",
+            "feasibility"
+          ]
+        },
+        "learning": {
+          "label": "Learning",
+          "criteria": [
+            "alignment",
+            "practice_feedback",
+            "transfer_evidence"
+          ]
+        }
+      },
+      "criteria": {
+        "agency_dignity": {
+          "axis": "human_flourishing",
+          "label": "Agency and dignity",
+          "description": "Inspect meaningful choice, respectful framing, freedom from coercion, and appropriate control of personal information."
+        },
+        "access_inclusion": {
+          "axis": "human_flourishing",
+          "label": "Access and inclusion",
+          "description": "Inspect participation barriers and supported alternatives for the stated population and circumstances."
+        },
+        "burden_wellbeing": {
+          "axis": "human_flourishing",
+          "label": "Burden and wellbeing",
+          "description": "Inspect effort, demands, support, and foreseeable burdens relative to the task's purpose and constraints."
+        },
+        "functional_correctness": {
+          "axis": "system_performance",
+          "label": "Functional correctness",
+          "description": "Inspect whether the actual artifact implements required input-output behavior; distinguish executed checks from source inspection."
+        },
+        "reliability_recovery": {
+          "axis": "system_performance",
+          "label": "Reliability and recovery",
+          "description": "Inspect correction, clearing, failure recovery, and behavior under the task's stated operating conditions."
+        },
+        "feasibility": {
+          "axis": "system_performance",
+          "label": "Feasibility",
+          "description": "Inspect implementation and delivery requirements against available time, resources, and support; declarations alone do not verify them."
+        },
+        "alignment": {
+          "axis": "learning",
+          "label": "Capability alignment",
+          "description": "Inspect whether the activity exercises the intended capability and makes success criteria relevant to the stated task."
+        },
+        "practice_feedback": {
+          "axis": "learning",
+          "label": "Practice feedback and revision",
+          "description": "Inspect consequential practice choices, feedback contingent on those choices, and opportunities to revise; do not reward mere terminology."
+        },
+        "transfer_evidence": {
+          "axis": "learning",
+          "label": "Learning evidence design",
+          "description": "Inspect what could establish independent capability or use on a changed task, and whether claims respect absent evidence; supported completion is not measured learning."
+        }
+      },
+      "anchors": {
+        "0": "Clear contradiction, observed failure, or absent essential provision in the inspected scope.",
+        "1": "Major supported gap; relevant intent is largely unimplemented.",
+        "2": "Partially supported; consequential gaps or unverified requirements remain.",
+        "3": "Adequately supported by the cited artifact and checks within the inspected scope.",
+        "4": "Strong, coherent support across relevant evidence, with material limitations accurately stated."
+      },
+      "unknown": "Use null when evidence is insufficient to rate; missing evidence is not automatically zero.",
+      "aggregation": "Equal criterion weights within each axis; no weighted total across axes.",
+      "scope": "Task-level evidence indices. Human flourishing means support conditions here, not a whole-life flourishing measure. Learning is design/evidence quality, not an observed learning gain."
+    },
+    "evidence": [
+      {
+        "id": "E1",
+        "kind": "artifact",
+        "text": "<html><body><label>Choose an explanation</label><select><option>Try one</option></select><button>Revise</button></body></html>",
+        "sha256": "359ccaa2946b8eddaba159411ebe254b43902e1c7814beaf34a06e6a40d85dc0"
+      }
+    ],
+    "blinding": {
+      "assignment_metadata_withheld": true,
+      "content_disclosure_possible": true
+    },
+    "packet_hash": "e002d3a10a05632c2ddfa80c3cacf3e90711e95693c43f2bdf0f31f966c672fe"
+  },
+  "review": {
+    "schema_version": 1,
+    "packet_id": "candidate-0123456789abcdef",
+    "packet_hash": "e002d3a10a05632c2ddfa80c3cacf3e90711e95693c43f2bdf0f31f966c672fe",
+    "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+    "status": "unscored",
+    "reviewer": {
+      "id": "",
+      "kind": "human",
+      "model": ""
+    },
+    "ratings": {
+      "agency_dignity": {
+        "score": null,
+        "lower": null,
+        "upper": null,
+        "rationale": "",
+        "evidence_refs": []
+      },
+      "access_inclusion": {
+        "score": null,
+        "lower": null,
+        "upper": null,
+        "rationale": "",
+        "evidence_refs": []
+      },
+      "burden_wellbeing": {
+        "score": null,
+        "lower": null,
+        "upper": null,
+        "rationale": "",
+        "evidence_refs": []
+      },
+      "functional_correctness": {
+        "score": null,
+        "lower": null,
+        "upper": null,
+        "rationale": "",
+        "evidence_refs": []
+      },
+      "reliability_recovery": {
+        "score": null,
+        "lower": null,
+        "upper": null,
+        "rationale": "",
+        "evidence_refs": []
+      },
+      "feasibility": {
+        "score": null,
+        "lower": null,
+        "upper": null,
+        "rationale": "",
+        "evidence_refs": []
+      },
+      "alignment": {
+        "score": null,
+        "lower": null,
+        "upper": null,
+        "rationale": "",
+        "evidence_refs": []
+      },
+      "practice_feedback": {
+        "score": null,
+        "lower": null,
+        "upper": null,
+        "rationale": "",
+        "evidence_refs": []
+      },
+      "transfer_evidence": {
+        "score": null,
+        "lower": null,
+        "upper": null,
+        "rationale": "",
+        "evidence_refs": []
+      }
+    },
+    "limitations": [],
+    "reviewed_at": ""
+  },
+  "settings": {
+    "schema_version": 1,
+    "seed": 2026,
+    "draws": 1000,
+    "cohort_size": 100,
+    "meaningful_difference": 5,
+    "thresholds": {
+      "human_flourishing": 60,
+      "system_performance": 60,
+      "learning": 60
+    },
+    "criterion_floors": {
+      "agency_dignity": 2,
+      "access_inclusion": 2,
+      "burden_wellbeing": 2,
+      "functional_correctness": 2,
+      "reliability_recovery": 0,
+      "feasibility": 0,
+      "alignment": 2,
+      "practice_feedback": 2,
+      "transfer_evidence": 0
+    },
+    "variability": {
+      "team_sd": {
+        "human_flourishing": 0,
+        "system_performance": 0,
+        "learning": 0
+      },
+      "scenario_sd": {
+        "human_flourishing": 3,
+        "system_performance": 3,
+        "learning": 3
+      },
+      "shared_correlation": 0.5,
+      "person_sd_scale": 1,
+      "profile_shift_scale": 1
+    },
+    "calibration": "uncalibrated_illustrative"
+  },
+  "assessment_shape": {
+    "schema_version": 1,
+    "model_id": "blind-scorecard-v1",
+    "model_hash": "769c7b3134f6c42e867d65d66b290133221ffe84f3e1bfef0e08407925bed3bf",
+    "packet_id": "candidate-0123456789abcdef",
+    "packet_hash": "e002d3a10a05632c2ddfa80c3cacf3e90711e95693c43f2bdf0f31f966c672fe",
+    "review_hash": "9755f385e2c1e6f4819e2ea03bb6325a128ad59d5a1120b88d47fc2ea140a848",
+    "settings_hash": "d35fbfe5c10520c652ad4e59a911dabc6233bb8dcb49223235835d2bb3e258c4",
+    "scenario": {
+      "axis_targets": {
+        "human_flourishing": 60,
+        "system_performance": 60,
+        "learning": 60
+      },
+      "evidence_anchors": {
+        "human_flourishing": [
+          "Inspect implementation and relevant checks."
+        ],
+        "system_performance": [
+          "Inspect implementation and relevant checks."
+        ],
+        "learning": [
+          "Inspect implementation and relevant checks."
+        ]
+      },
+      "id": "example",
+      "population_profiles": [
+        {
+          "id": "reference",
+          "label": "Reference conditions",
+          "weight": 1,
+          "axis_shift": {
+            "human_flourishing": 0,
+            "system_performance": 0,
+            "learning": 0
+          },
+          "axis_sd": {
+            "human_flourishing": 8,
+            "system_performance": 8,
+            "learning": 8
+          },
+          "rationale": "Illustrative population sensitivity, not measured humans."
+        }
+      ],
+      "version": "1.0.0"
+    },
+    "status": "incomplete",
+    "missing_criteria": [
+      "agency_dignity",
+      "access_inclusion",
+      "burden_wellbeing",
+      "functional_correctness",
+      "reliability_recovery",
+      "feasibility",
+      "alignment",
+      "practice_feedback",
+      "transfer_evidence"
+    ],
+    "axes": null,
+    "joint": null,
+    "samples": null,
+    "calibration": "uncalibrated_illustrative",
+    "basis": "Blind evidence ratings propagated through an explicit, uncalibrated rubric-index sensitivity model.",
+    "human_outcomes_observed": false,
+    "independent_empirical_sample_size": 0,
+    "modeled_draws": 1000,
+    "modeled_cohort_size": 100,
+    "interval_meaning": "Modeled 5th–95th percentile interval; not a confidence interval for human outcomes.",
+    "variance_sources": {
+      "review": "Triangular uncertainty over evidence ratings, independently sampled across candidate reviews.",
+      "person": "Declared population-mixture shifts and dispersions with explicit sensitivity multipliers; hypothetical, not fitted to humans.",
+      "scenario": "Explicit contextual sensitivity shared in matched comparisons.",
+      "team": "Optional residual sensitivity, zero by default; observed candidate spread is reported separately."
+    },
+    "blinding": {
+      "assignment_metadata_withheld": true,
+      "content_disclosure_possible": true
+    },
+    "reviewer_kind": "human"
+  },
+  "frozen_example": {
+    "schema_version": 1,
+    "id": "scorecard-0cf3d9526a274f1c",
+    "packet_id": "candidate-0123456789abcdef",
+    "packet_hash": "e002d3a10a05632c2ddfa80c3cacf3e90711e95693c43f2bdf0f31f966c672fe",
+    "review_hash": "9755f385e2c1e6f4819e2ea03bb6325a128ad59d5a1120b88d47fc2ea140a848",
+    "settings_hash": "d35fbfe5c10520c652ad4e59a911dabc6233bb8dcb49223235835d2bb3e258c4",
+    "packet": {
+      "schema_version": 1,
+      "id": "candidate-0123456789abcdef",
+      "task": {
+        "title": "Fictional task",
+        "brief": "Build an inspectable practice activity.",
+        "constraints": [
+          "Use fictional examples."
+        ]
+      },
+      "scenario": {
+        "axis_targets": {
+          "human_flourishing": 60,
+          "system_performance": 60,
+          "learning": 60
+        },
+        "evidence_anchors": {
+          "human_flourishing": [
+            "Inspect implementation and relevant checks."
+          ],
+          "system_performance": [
+            "Inspect implementation and relevant checks."
+          ],
+          "learning": [
+            "Inspect implementation and relevant checks."
+          ]
+        },
+        "id": "example",
+        "population_profiles": [
+          {
+            "id": "reference",
+            "label": "Reference conditions",
+            "weight": 1,
+            "axis_shift": {
+              "human_flourishing": 0,
+              "system_performance": 0,
+              "learning": 0
+            },
+            "axis_sd": {
+              "human_flourishing": 8,
+              "system_performance": 8,
+              "learning": 8
+            },
+            "rationale": "Illustrative population sensitivity, not measured humans."
+          }
+        ],
+        "version": "1.0.0"
+      },
+      "rubric": {
+        "id": "blind-evidence-rubric",
+        "version": "1.0.0",
+        "axes": {
+          "human_flourishing": {
+            "label": "Human flourishing",
+            "criteria": [
+              "agency_dignity",
+              "access_inclusion",
+              "burden_wellbeing"
+            ]
+          },
+          "system_performance": {
+            "label": "System performance",
+            "criteria": [
+              "functional_correctness",
+              "reliability_recovery",
+              "feasibility"
+            ]
+          },
+          "learning": {
+            "label": "Learning",
+            "criteria": [
+              "alignment",
+              "practice_feedback",
+              "transfer_evidence"
+            ]
+          }
+        },
+        "criteria": {
+          "agency_dignity": {
+            "axis": "human_flourishing",
+            "label": "Agency and dignity",
+            "description": "Inspect meaningful choice, respectful framing, freedom from coercion, and appropriate control of personal information."
+          },
+          "access_inclusion": {
+            "axis": "human_flourishing",
+            "label": "Access and inclusion",
+            "description": "Inspect participation barriers and supported alternatives for the stated population and circumstances."
+          },
+          "burden_wellbeing": {
+            "axis": "human_flourishing",
+            "label": "Burden and wellbeing",
+            "description": "Inspect effort, demands, support, and foreseeable burdens relative to the task's purpose and constraints."
+          },
+          "functional_correctness": {
+            "axis": "system_performance",
+            "label": "Functional correctness",
+            "description": "Inspect whether the actual artifact implements required input-output behavior; distinguish executed checks from source inspection."
+          },
+          "reliability_recovery": {
+            "axis": "system_performance",
+            "label": "Reliability and recovery",
+            "description": "Inspect correction, clearing, failure recovery, and behavior under the task's stated operating conditions."
+          },
+          "feasibility": {
+            "axis": "system_performance",
+            "label": "Feasibility",
+            "description": "Inspect implementation and delivery requirements against available time, resources, and support; declarations alone do not verify them."
+          },
+          "alignment": {
+            "axis": "learning",
+            "label": "Capability alignment",
+            "description": "Inspect whether the activity exercises the intended capability and makes success criteria relevant to the stated task."
+          },
+          "practice_feedback": {
+            "axis": "learning",
+            "label": "Practice feedback and revision",
+            "description": "Inspect consequential practice choices, feedback contingent on those choices, and opportunities to revise; do not reward mere terminology."
+          },
+          "transfer_evidence": {
+            "axis": "learning",
+            "label": "Learning evidence design",
+            "description": "Inspect what could establish independent capability or use on a changed task, and whether claims respect absent evidence; supported completion is not measured learning."
+          }
+        },
+        "anchors": {
+          "0": "Clear contradiction, observed failure, or absent essential provision in the inspected scope.",
+          "1": "Major supported gap; relevant intent is largely unimplemented.",
+          "2": "Partially supported; consequential gaps or unverified requirements remain.",
+          "3": "Adequately supported by the cited artifact and checks within the inspected scope.",
+          "4": "Strong, coherent support across relevant evidence, with material limitations accurately stated."
+        },
+        "unknown": "Use null when evidence is insufficient to rate; missing evidence is not automatically zero.",
+        "aggregation": "Equal criterion weights within each axis; no weighted total across axes.",
+        "scope": "Task-level evidence indices. Human flourishing means support conditions here, not a whole-life flourishing measure. Learning is design/evidence quality, not an observed learning gain."
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "artifact",
+          "text": "<html><body><label>Choose an explanation</label><select><option>Try one</option></select><button>Revise</button></body></html>",
+          "sha256": "359ccaa2946b8eddaba159411ebe254b43902e1c7814beaf34a06e6a40d85dc0"
+        }
+      ],
+      "blinding": {
+        "assignment_metadata_withheld": true,
+        "content_disclosure_possible": true
+      },
+      "packet_hash": "e002d3a10a05632c2ddfa80c3cacf3e90711e95693c43f2bdf0f31f966c672fe"
+    },
+    "review": {
+      "schema_version": 1,
+      "packet_id": "candidate-0123456789abcdef",
+      "packet_hash": "e002d3a10a05632c2ddfa80c3cacf3e90711e95693c43f2bdf0f31f966c672fe",
+      "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+      "status": "unscored",
+      "reviewer": {
+        "id": "",
+        "kind": "human",
+        "model": ""
+      },
+      "ratings": {
+        "agency_dignity": {
+          "score": null,
+          "lower": null,
+          "upper": null,
+          "rationale": "",
+          "evidence_refs": []
+        },
+        "access_inclusion": {
+          "score": null,
+          "lower": null,
+          "upper": null,
+          "rationale": "",
+          "evidence_refs": []
+        },
+        "burden_wellbeing": {
+          "score": null,
+          "lower": null,
+          "upper": null,
+          "rationale": "",
+          "evidence_refs": []
+        },
+        "functional_correctness": {
+          "score": null,
+          "lower": null,
+          "upper": null,
+          "rationale": "",
+          "evidence_refs": []
+        },
+        "reliability_recovery": {
+          "score": null,
+          "lower": null,
+          "upper": null,
+          "rationale": "",
+          "evidence_refs": []
+        },
+        "feasibility": {
+          "score": null,
+          "lower": null,
+          "upper": null,
+          "rationale": "",
+          "evidence_refs": []
+        },
+        "alignment": {
+          "score": null,
+          "lower": null,
+          "upper": null,
+          "rationale": "",
+          "evidence_refs": []
+        },
+        "practice_feedback": {
+          "score": null,
+          "lower": null,
+          "upper": null,
+          "rationale": "",
+          "evidence_refs": []
+        },
+        "transfer_evidence": {
+          "score": null,
+          "lower": null,
+          "upper": null,
+          "rationale": "",
+          "evidence_refs": []
+        }
+      },
+      "limitations": [],
+      "reviewed_at": ""
+    },
+    "settings": {
+      "schema_version": 1,
+      "seed": 2026,
+      "draws": 1000,
+      "cohort_size": 100,
+      "meaningful_difference": 5,
+      "thresholds": {
+        "human_flourishing": 60,
+        "system_performance": 60,
+        "learning": 60
+      },
+      "criterion_floors": {
+        "agency_dignity": 2,
+        "access_inclusion": 2,
+        "burden_wellbeing": 2,
+        "functional_correctness": 2,
+        "reliability_recovery": 0,
+        "feasibility": 0,
+        "alignment": 2,
+        "practice_feedback": 2,
+        "transfer_evidence": 0
+      },
+      "variability": {
+        "team_sd": {
+          "human_flourishing": 0,
+          "system_performance": 0,
+          "learning": 0
+        },
+        "scenario_sd": {
+          "human_flourishing": 3,
+          "system_performance": 3,
+          "learning": 3
+        },
+        "shared_correlation": 0.5,
+        "person_sd_scale": 1,
+        "profile_shift_scale": 1
+      },
+      "calibration": "uncalibrated_illustrative"
+    },
+    "assessment": {
+      "schema_version": 1,
+      "model_id": "blind-scorecard-v1",
+      "model_hash": "769c7b3134f6c42e867d65d66b290133221ffe84f3e1bfef0e08407925bed3bf",
+      "packet_id": "candidate-0123456789abcdef",
+      "packet_hash": "e002d3a10a05632c2ddfa80c3cacf3e90711e95693c43f2bdf0f31f966c672fe",
+      "review_hash": "9755f385e2c1e6f4819e2ea03bb6325a128ad59d5a1120b88d47fc2ea140a848",
+      "settings_hash": "d35fbfe5c10520c652ad4e59a911dabc6233bb8dcb49223235835d2bb3e258c4",
+      "scenario": {
+        "axis_targets": {
+          "human_flourishing": 60,
+          "system_performance": 60,
+          "learning": 60
+        },
+        "evidence_anchors": {
+          "human_flourishing": [
+            "Inspect implementation and relevant checks."
+          ],
+          "system_performance": [
+            "Inspect implementation and relevant checks."
+          ],
+          "learning": [
+            "Inspect implementation and relevant checks."
+          ]
+        },
+        "id": "example",
+        "population_profiles": [
+          {
+            "id": "reference",
+            "label": "Reference conditions",
+            "weight": 1,
+            "axis_shift": {
+              "human_flourishing": 0,
+              "system_performance": 0,
+              "learning": 0
+            },
+            "axis_sd": {
+              "human_flourishing": 8,
+              "system_performance": 8,
+              "learning": 8
+            },
+            "rationale": "Illustrative population sensitivity, not measured humans."
+          }
+        ],
+        "version": "1.0.0"
+      },
+      "status": "incomplete",
+      "missing_criteria": [
+        "agency_dignity",
+        "access_inclusion",
+        "burden_wellbeing",
+        "functional_correctness",
+        "reliability_recovery",
+        "feasibility",
+        "alignment",
+        "practice_feedback",
+        "transfer_evidence"
+      ],
+      "axes": null,
+      "joint": null,
+      "samples": null,
+      "calibration": "uncalibrated_illustrative",
+      "basis": "Blind evidence ratings propagated through an explicit, uncalibrated rubric-index sensitivity model.",
+      "human_outcomes_observed": false,
+      "independent_empirical_sample_size": 0,
+      "modeled_draws": 1000,
+      "modeled_cohort_size": 100,
+      "interval_meaning": "Modeled 5th–95th percentile interval; not a confidence interval for human outcomes.",
+      "variance_sources": {
+        "review": "Triangular uncertainty over evidence ratings, independently sampled across candidate reviews.",
+        "person": "Declared population-mixture shifts and dispersions with explicit sensitivity multipliers; hypothetical, not fitted to humans.",
+        "scenario": "Explicit contextual sensitivity shared in matched comparisons.",
+        "team": "Optional residual sensitivity, zero by default; observed candidate spread is reported separately."
+      },
+      "blinding": {
+        "assignment_metadata_withheld": true,
+        "content_disclosure_possible": true
+      },
+      "reviewer_kind": "human"
+    },
+    "locked_before_unblinding": true,
+    "record_hash": "9f84e4d501c5ee50dae0163d092882cf1164710cb00e7c6afbf74b511d5b27a5"
+  }
+}
