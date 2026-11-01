@@ -27,6 +27,26 @@ CAPABILITY_MATTERS_LIVE=1 python3 tools/lifecycle/server.py
 
 The hosted static page can configure, export, and inspect imported records. It cannot start local model calls. Start the local service to execute a configuration. Exporting or replaying a saved record does not invoke a model.
 
+## Three scenarios and independent scorecards
+
+The Configure tab includes feedback conversations, scientific-evidence reasoning, and public-library digital access. Apply a scenario to replace the brief, environment, fixed challenges, and initial legacy simulation conditions while preserving the team, provider, call schedule, and comparison. Each case has explicit learner targets, affected-person constraints, functional requirements, evidence anchors, and a versioned hypothetical population mixture.
+
+Before generating candidates, choose **One run** or **Configured comparison**, set the scorecard assumptions, and save an iteration. The snapshot pins the complete configuration, scenario reference, comparison, assumptions, and a change note. Editing these inputs requires a new immutable fork for a fresh execution to carry its iteration ID. Single runs and comparison batches have distinct saved plans. Original execution journals are linked through sidecars and remain unchanged.
+
+The scorecard workflow is:
+
+1. Generate candidates under the saved iteration. A dry run verifies transport and replay; it supplies no experimental result.
+2. In **Scorecard**, select the completed or stopped runs and their case, then prepare an assessment set. The first preparation fixes its candidate membership and assumptions. Repeating the exact request recovers the same set; it does not generate new review IDs.
+3. Export the **opaque packet bundle** for the assessor and keep the **private assignment key** separately. The blind workspace accepts the task, candidate artifact, rubric, and pinned assumptions. It has no source-run or assignment loaders. A sandboxed preview supports inspection, while the source and evidence hashes remain accessible.
+4. Rate nine criteria with uncertainty bounds, rationale, and exact evidence anchors. Unknown evidence remains unknown. Freeze every review, including explicitly incomplete reviews, before revealing the complete original assessment set. Ratings and probability assumptions cannot be changed after freeze.
+5. Load the frozen records in the organizer, reveal the assignment key, and compare matching candidates. Records retain the packet, ratings, settings, conditional samples, hashes, and original-run links. New packets cannot make an already revealed source artifact blind again.
+
+Human flourishing, system performance, and learning remain separate. The first axis means task-level support for flourishing; the third concerns learning design and evidence. The sampler reports a modeled range, gated threshold probability, criterion-floor failure, individual pass fraction, and joint all-axis probability. Comparison reports probabilities of a meaningful gain, loss, or difference within a chosen margin. None establishes actual human learning or wellbeing.
+
+Person and context sensitivity, reviewer uncertainty, optional residual team sensitivity, and observed spread across fresh generated candidates are distinct. The latter is reported only after reveal, within the same task, scenario, settings, model, condition, and iteration. More Monte Carlo draws improve computational precision without adding participants or generated teams. The [scorecard method](SCORECARD.md) documents the implemented model; the [prospective study plan](SCORECARD_STUDY.md) describes the proposed, unrun eighteen-run comparison.
+
+Assignment masking is procedural. Someone who generated the candidates is not made blind by hiding their IDs, and the artifact itself may contain identity clues. Use an independent reviewer or a fresh scoring context without the private key. Imported content hashes establish consistency, not independent authenticity. The local runner can certify its own freeze/reveal sequence only; an imported frozen file remains inspectable but cannot establish prior local freezing.
+
 ## Study arrangements and competency personas
 
 | Arrangement | What changes | What stays available for inspection |

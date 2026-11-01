@@ -79,7 +79,9 @@ export function disclosure(title, open = false) {
 
 /** @param {unknown} value @returns {HTMLPreElement} Display data as literal JSON. */
 export function jsonBlock(value) {
-  return el('pre', 'json', JSON.stringify(value, null, 2));
+  const node = el('pre', 'json', JSON.stringify(value, null, 2));
+  node.tabIndex = 0; node.setAttribute('role', 'region'); node.setAttribute('aria-label', 'Exact JSON record');
+  return node;
 }
 
 /** @param {unknown} value @param {string} name @returns {void} Download an original JSON record. */

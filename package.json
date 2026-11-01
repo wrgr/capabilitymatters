@@ -13,7 +13,7 @@
     "test:prototypes:browser": "node tests/test_prototypes_browser.mjs",
     "astro": "astro",
     "prebuild": "npm run build:llm101 && python3 scripts/package-lifecycle.py && npm run build:resource-about && node scripts/build-capability-cycle.mjs",
-    "test:lifecycle": "python3 -m unittest discover -s tools/lifecycle/tests -p 'test_*.py' && node tools/lifecycle/tests/test_state.mjs && node tools/lifecycle/tests/test_conversation.mjs && node tools/lifecycle/tests/test_brief.mjs && node tools/lifecycle/tests/test_experiments_gui.mjs",
+    "test:lifecycle": "python3 -m unittest discover -s tools/lifecycle/tests -p 'test_*.py' && node tools/lifecycle/tests/test_state.mjs && node tools/lifecycle/tests/test_conversation.mjs && node tools/lifecycle/tests/test_brief.mjs && node tools/lifecycle/tests/test_experiments_gui.mjs && node tools/lifecycle/tests/test_scorecard_gui.mjs",
     "test:experiments:browser": "node tests/test_agentic_experiments_browser.mjs",
     "test:pipeline": "python3 tests/test_capability_pipeline.py && node --test tests/test_pipeline_teaching.mjs",
     "test:a11y:audit": "node tests/a11y-audit.mjs",
@@ -26,7 +26,8 @@
     "test:resource-about:browser": "node tests/test_resource_about_browser.mjs",
     "test:workshop": "node tests/test_workshop_browser.mjs",
     "check:resource-guidance": "python3 scripts/check-resource-guidance.py",
-    "test:resource-guidance": "python3 -m unittest discover -s tests -p 'test_resource_guidance.py'"
+    "test:resource-guidance": "python3 -m unittest discover -s tests -p 'test_resource_guidance.py'",
+    "test:scorecards:browser": "node tests/test_scorecard_browser.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",

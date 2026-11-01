@@ -1,0 +1,60 @@
+<!doctype html>
+<!-- An isolated review page keeps assignment metadata outside evidence-linked scorecard judgments. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Review opaque learning engineering candidate evidence, record uncertainty, and freeze scorecards before revealing team assignments.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; frame-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Blind evidence review · Agentic LE · Capability Matters</title>
+  <link rel="stylesheet" href="/accessibility/shared.css">
+  <link rel="stylesheet" href="/resource-about.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./scorecard.css">
+  <script src="/accessibility/preferences.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to blind evidence review</a>
+  <header class="topbar blind-topbar"><span class="brand">Agentic LE <span>Evidence review</span></span><span id="blind-connection" class="connection-state">Checking freeze service…</span></header>
+  <main id="main" tabindex="-1">
+    <section class="hero">
+      <div class="eyebrow">Opaque candidates · Evidence before identity</div>
+      <h1>Blind evidence review</h1><!-- resource-about:start --><details class="resource-about" data-resource-about="agentic-blind-review">
+<summary>About this resource<span class="resource-about-hint"> · How to use it · Learning engineering connections</span></summary>
+<div class="resource-about-body">
+<section><h2>What is this resource?</h2><p>An isolated evidence review workspace for scoring opaque learning engineering candidates before revealing team assignments. It preserves task-level human flourishing support, system performance, and learning evidence as three separate axes.</p></section>
+<section><h2>How should I use it?</h2><ol><li>Import an opaque packet or packet bundle from the experiment studio. Inspect the task, constraints, rubric anchors, and original evidence text without loading a journal or assignment key.</li><li>For each criterion, record a supported rating, plausible lower and upper bounds, rationale, and an exact evidence quotation. Keep insufficient evidence unknown and describe any identity clues in the limitations.</li><li>Inspect the probability assumptions, export a draft if needed, then freeze the review with the local runner. Export the frozen record to the organizer for comparison and identity reveal after the selected reviews are frozen.</li></ol></section>
+<section><h2>How does this connect to LENS and learning engineering?</h2><p>Learning engineering connects designed contributions to evidence about what learners and systems can do. LENS also asks whether people have agency, access, and viable conditions for action. Withholding assignment labels helps test the artifact rather than reward the intended expertise, while modeled uncertainty makes incomplete evidence and contextual assumptions visible. These task-level indices do not establish observed learning gains or human flourishing.</p><ul class="resource-about-links"><li><a href="/show-your-work/">LENS: capabilities and conditions</a></li><li><a href="https://lecommons.org/">Learning Engineering Commons</a></li></ul></section>
+</div></details><!-- resource-about:end -->
+
+            <p class="intro">Assess the work against the task, record what remains uncertain, and freeze each judgment before opening the assignment key.</p>
+    </section>
+    <p id="blind-notice" class="notice" role="status" aria-live="polite">Preparing the blind review workspace…</p>
+    <div class="blind-heading"><div id="candidate-picker"></div><button id="import-packets" class="primary" type="button">Import opaque packets</button></div>
+    <section id="blind-empty" class="panel empty-state">
+      <div class="eyebrow">Three axes, nine criteria</div><h2>Start with evidence</h2>
+      <p>Import a packet prepared in the studio. It includes a task, the common rubric, and bounded artifact or observation evidence under an opaque candidate identifier.</p>
+      <p>Human flourishing support, system performance, and learning evidence stay separate. Missing evidence stays unknown. This page has no assignment-key or original-journal loader.</p>
+    </section>
+    <div id="blind-workspace" hidden>
+      <p id="review-status" class="review-state" role="status" aria-live="polite"></p>
+      <div class="blind-grid">
+        <aside id="blind-evidence" class="panel blind-evidence" aria-label="Opaque task and evidence"></aside>
+        <div>
+          <fieldset id="blind-lockable" class="blind-lockable"><legend class="sr-only">Evidence review and probability assumptions</legend>
+            <section id="blind-reviewer" class="panel"></section>
+            <section id="blind-ratings" class="panel" aria-label="Three-axis evidence ratings"></section>
+            <section id="blind-assumptions" class="panel"></section>
+          </fieldset>
+          <details class="disclosure"><summary>Review completeness and evidence checks</summary><ul id="review-issues" class="review-issues"></ul></details>
+          <div class="blind-controls"><button id="import-review" type="button">Import review draft</button><button id="export-draft" type="button">Export review draft</button><button id="freeze-review" class="primary" type="button" disabled>Freeze scorecard</button><button id="export-frozen" type="button" disabled>Export frozen scorecard</button></div>
+          <p class="small muted">Freeze stores the exact review and assumptions with content hashes. Comparison and identity reveal take place in the organizer’s studio after all selected packets have frozen reviews. Procedural blinding cannot remove identity clues already present in an artifact.</p>
+        </div>
+      </div>
+    </div>
+    <input id="packet-file" type="file" accept="application/json,.json" hidden><input id="review-file" type="file" accept="application/json,.json" hidden>
+    <footer><p>Human flourishing · System performance · Learning</p><p>Modeled uncertainty helps examine assumptions. It does not replace observed people, teams, or learning outcomes.</p></footer>
+  </main>
+  <script type="module" src="./blind-review.js"></script>
+</body>
+</html>

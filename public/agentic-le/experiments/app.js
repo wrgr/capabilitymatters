@@ -10,6 +10,8 @@ import {renderComparison} from './comparison-view.js';
 import {renderStudy, renderComparisonSetup} from './study-editor.js';
 import {applyStudyPreset, comparisonCount, comparisonConditionCount} from './study-model.js';
 import {renderOutcomes} from './outcome-editor.js';
+import {IterationWorkspace} from './iteration-workspace.js';
+import {ScorecardWorkspace} from './scorecard-workspace.js';
 
 const $ = id => document.getElementById(id);
 let catalog, config, original, outcomeCatalog, agentContract, resolved = null, connection = {}, busy = false, presetBusy = false;
@@ -17,6 +19,7 @@ const studyChoice = {mode: 'default', competency: 'measurement', persona_id: 'ge
 const comparison = {schema_version: 1, kind: 'ablation', competency: 'measurement', integration_modes: ['explicit', 'handoff']};
 let runTimer = null, batchTimer = null, latestBatch = null;
 let activeExecution = null, runEpoch = 0, activeMonitorTimer = null;
+let iteration = null, scorecards = null;
 const replay = new RunView(notify);
 
 /** @param {string} message @param {boolean} [error] @returns {void} Keep action outcomes visible and accessible. */
@@ -27,13 +30,14 @@ function notify(message, error = false) {
 
 /** @param {string} name @returns {void} Switch application views with explicit tab semantics. */
 function showTab(name) {
-  for (const key of ['configure', 'review', 'replay']) {
+  for (const key of ['configure', 'review', 'replay', 'scorecard']) {
     const selected = key === name;
     $(`${key}-tab`).setAttribute('aria-selected', String(selected));
     $(`${key}-tab`).tabIndex = selected ? 0 : -1;
     $(`${key}-panel`).hidden = !selected;
   }
   if (name !== 'replay') replay.stop();
+  if (name === 'scorecard' && connection.local_runner) scorecards?.refreshRuns();
 }
 
 /** @returns {Map<string, boolean>} Preserve disclosure states across deliberate structural edits. */
@@ -53,6 +57,7 @@ function changed(structural = false) {
   renderSummary($('summary-stats'), config, catalog);
   renderReview($('coverage-review'), config, catalog, resolved, agentContract);
   updateComparisonCount();
+  iteration?.changed();
   updateActions();
 }
 
@@ -66,7 +71,7 @@ function renderConfiguration() {
   renderConditions($('conditions-editor'), config, catalog, changed, outcomeCatalog);
   renderOutcomes($('outcome-editor'), config, outcomeCatalog, changed);
   renderExecution($('execution-editor'), config, catalog, changed);
-  renderComparisonSetup($('comparison-setup'), config, catalog, comparison, updateComparisonCount);
+  renderComparisonSetup($('comparison-setup'), config, catalog, comparison, () => { updateComparisonCount(); iteration?.changed(); });
   for (const node of $('configure-panel').querySelectorAll('details')) {
     if (panels.has(panelKey(node))) node.open = panels.get(panelKey(node));
   }
@@ -131,13 +136,13 @@ async function start(compare) {
   try {
     const plan = await resolveCurrent();
     if (compare) {
-      const batch = await fetchJSON('/api/experiments/batches', {config: plan.config, comparison: comparisonPlan});
+      const batch = await fetchJSON('/api/experiments/batches', {config: plan.config, comparison: comparisonPlan, ...iteration?.executionRef(plan.config, comparisonPlan)});
       activeExecution = {id: batch.batch_id || batch.id, kind: 'batch'}; updateActions();
       $('comparison-panel').hidden = false;
       notify('Comparison started. Each condition receives the fixed case and challenge schedule.');
       watchBatch(batch.batch_id || batch.id);
     } else {
-      const result = await fetchJSON('/api/experiments/runs', {config: plan.config});
+      const result = await fetchJSON('/api/experiments/runs', {config: plan.config, ...iteration?.executionRef(plan.config)});
       activeExecution = {id: result.run_id, kind: 'run'}; updateActions();
       showTab('replay');
       notify('Run started. New journal events will appear in Replay.');
@@ -220,13 +225,13 @@ async function importFile(event, runFile) {
 /** @returns {void} Bind navigation, import/export, and execution actions. */
 function bindActions() {
   const action = (id, callback) => $(id).addEventListener('click', callback);
-  const names = ['configure', 'review', 'replay'];
+  const names = ['configure', 'review', 'replay', 'scorecard'];
   for (const [index, name] of names.entries()) {
     action(`${name}-tab`, () => showTab(name));
     $(`${name}-tab`).addEventListener('keydown', event => {
       if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
       event.preventDefault();
-      const next = event.key === 'Home' ? 0 : event.key === 'End' ? 2 : (index + (event.key === 'ArrowRight' ? 1 : 2)) % 3;
+      const next = event.key === 'Home' ? 0 : event.key === 'End' ? names.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : names.length - 1)) % names.length;
       showTab(names[next]); $(`${names[next]}-tab`).focus();
     });
   }
@@ -247,6 +252,21 @@ function bindActions() {
   action('refresh-runs', refreshRuns);
   $('config-file').addEventListener('change', event => importFile(event, false));
   $('run-file').addEventListener('change', event => importFile(event, true));
+}
+
+/** @returns {Promise<void>} Add scenario snapshots and scorecards while retaining the existing configuration and replay workflow. */
+async function initializeStudyTools() {
+  iteration = new IterationWorkspace({scenarioRoot: $('scenario-editor'), iterationRoot: $('iteration-editor'),
+    assumptionsRoot: $('scorecard-assumptions'), local: Boolean(connection.local_runner), baseline: original, notify,
+    getState: () => ({config, comparison}), applyState: next => {
+      config = importConfig(next.config);
+      if (next.comparison) { Object.keys(comparison).forEach(key => delete comparison[key]); Object.assign(comparison, structuredClone(next.comparison)); }
+      renderConfiguration(); changed();
+    }});
+  await iteration.init();
+  scorecards = new ScorecardWorkspace({root: $('scorecard-panel'), local: Boolean(connection.local_runner), notify,
+    getIteration: () => iteration, replay: id => { showTab('replay'); watchRun(id); }});
+  await scorecards.init();
 }
 
 /** @returns {Promise<void>} Request a bounded stop while retaining the in-progress journal. */
@@ -291,12 +311,14 @@ async function main() {
     const workspace = await loadWorkspace();
     catalog = workspace.catalog; outcomeCatalog = workspace.outcome_catalog; agentContract = workspace.agent_contract; original = importConfig(workspace.default_config);
     config = structuredClone(original); connection = workspace.connection;
+    await initializeStudyTools();
     renderConfiguration(); changed();
     $('loading').hidden = true; $('workspace').hidden = false;
     notify(connection.local_runner ? 'Ready to configure, run, and inspect an experiment.' : 'Configuration and imported replay are ready. New execution uses the local runner.');
     await refreshRuns();
     resumeActive();
     const params = new URLSearchParams(location.search);
+    if (params.get('view') === 'scorecard') showTab('scorecard');
     if (params.get('run')) {
       showTab('replay'); await watchRun(params.get('run'), false, Number(params.get('event')) || 1);
     }

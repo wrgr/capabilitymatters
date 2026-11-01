@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/accessibility/shared.css">
   <link rel="stylesheet" href="/resource-about.css">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./scorecard.css">
   <script src="/accessibility/preferences.js"></script>
 </head>
 <body>
@@ -22,15 +23,15 @@
   <main id="main" tabindex="-1">
     <section class="hero">
       <div class="eyebrow">Learning engineering · Configurable simulation</div>
-      <h1>Experiment studio</h1>
-      <!-- resource-about:start --><details class="resource-about" data-resource-about="agentic-experiments">
+      <h1>Experiment studio</h1><!-- resource-about:start --><details class="resource-about" data-resource-about="agentic-experiments">
 <summary>About this resource<span class="resource-about-hint"> · How to use it · Learning engineering connections</span></summary>
 <div class="resource-about-body">
-<section><h2>What is this resource?</h2><p>A configurable learning engineering simulation for examining team contributions, coordination, and working conditions. The GUI can prepare experiments, start a local execution, and replay the original journal. Dry runs verify the workflow with labeled fixture responses.</p></section>
-<section><h2>How should I use it?</h2><ol><li>Apply a default team, competency ablation, or individual-agent study preset. Edit the case, named competency personas, observable behaviors, environmental conditions, and fixed challenges.</li><li>Set synthetic-world assumptions and success criteria, then use Review &amp; run to inspect the typed agent signature, effective coverage, and matched call schedule before starting an execution or comparison.</li><li>Load a saved run and use the event slider or Play to inspect prompts, evidence, artifact revisions, and synthetic learner, human, and system assessments at the time they were recorded. Export the original record to retain the complete trail.</li></ol></section>
+<section><h2>What is this resource?</h2><p>A configurable learning engineering simulation for examining team contributions, coordination, and working conditions across three fictional scenarios. The studio preserves iterations, runs local experiments, replays original journals, and compares separately frozen evidence scorecards. Dry runs are labeled workflow fixtures.</p></section>
+<section><h2>How should I use it?</h2><ol><li>Apply a scenario and a default team, competency ablation, or individual-agent preset. Inspect the learner target, affected-person constraints, competency personas, environmental conditions, and fixed challenges.</li><li>Set the three outcome thresholds, essential criterion floors, and explicit variation assumptions. Save an iteration with a change note before using Review &amp; run to inspect responsibilities and the matched call schedule.</li><li>Replay a saved run to inspect prompts, evidence, and artifact revisions. The original declared-design synthetic outcome cards remain separate from the new blind evidence scorecard.</li><li>In Scorecard, prepare opaque packets and keep the private assignment key separate. Use the isolated blind workspace to cite evidence, retain unknowns, and freeze all reviews before revealing assignments or comparing candidates within a scenario.</li><li>Fork an iteration when changing a team, assumption, or design. Export the preserved snapshot, frozen scorecards, and original journals to retain the complete parent-linked evidence trail.</li></ol></section>
 <section><h2>How does this connect to LENS and learning engineering?</h2><p>For LENS and learning engineering, the experiment asks whether a competency changes decisions and implementation under specified conditions. Human flourishing, learning sciences, and systems engineering provide complementary foundations. Configured roles are hypotheses about contributions; their presence does not demonstrate human proficiency, learning outcomes, or the validity of a simulated team.</p><ul class="resource-about-links"><li><a href="/agentic-le/replay/">Existing agentic case replay</a></li><li><a href="/agentic-le/roles/">Role contracts and proficiency limits</a></li><li><a href="/show-your-work/">LENS: capabilities and conditions</a></li><li><a href="https://lecommons.org/">Learning Engineering Commons</a></li></ul></section>
 </div></details><!-- resource-about:end -->
-      <div class="intro-row"><p class="intro">Explore how team contributions and working conditions shape decisions, artifacts, and questions worth investigating.</p><span id="connection-state" class="connection-state">Checking runner…</span></div>
+
+            <div class="intro-row"><p class="intro">Explore how team contributions and working conditions shape decisions, artifacts, and questions worth investigating.</p><span id="connection-state" class="connection-state">Checking runner…</span></div>
     </section>
     <p id="notice" class="notice" role="status" aria-live="polite">Loading the experiment catalog…</p>
     <p id="loading" class="panel">Preparing the configuration workspace…</p>
@@ -40,16 +41,20 @@
           <button id="configure-tab" type="button" role="tab" aria-selected="true" aria-controls="configure-panel">1. Configure</button>
           <button id="review-tab" type="button" role="tab" aria-selected="false" aria-controls="review-panel" tabindex="-1">2. Review &amp; run</button>
           <button id="replay-tab" type="button" role="tab" aria-selected="false" aria-controls="replay-panel" tabindex="-1">3. Replay</button>
+          <button id="scorecard-tab" type="button" role="tab" aria-selected="false" aria-controls="scorecard-panel" tabindex="-1">4. Scorecard</button>
         </div>
         <div class="file-actions"><button id="import-config" type="button">Import configuration</button><button id="export-config" type="button">Export configuration</button><button id="import-run" type="button">Load run record</button><button id="cancel-execution" class="text-danger" type="button" hidden>Request stop</button></div>
       </div>
       <div id="summary-stats" class="summary-stats" aria-label="Current configuration summary"></div>
       <section id="configure-panel" role="tabpanel" aria-labelledby="configure-tab">
+        <section id="scenario-editor" class="panel"></section>
         <section id="study-editor" class="panel"></section>
         <div class="configuration-grid">
           <div class="main-column"><div id="case-editor" class="panel"></div><section id="team-editor" class="panel"></section><section id="outcome-editor" class="panel"></section></div>
           <aside class="side-column" aria-label="Controlled conditions"><section id="integration-editor" class="panel"></section><section id="conditions-editor" class="panel"></section></aside>
         </div>
+        <section id="scorecard-assumptions" class="panel"></section>
+        <section id="iteration-editor" class="panel"></section>
         <div class="action-bar"><p>Assignments are editable hypotheses. Review the resolved responsibilities before running.</p><button id="reset-config" type="button">Restore baseline</button><button id="review-configuration" class="primary" type="button">Review configuration</button></div>
       </section>
       <section id="review-panel" role="tabpanel" aria-labelledby="review-tab" hidden>
@@ -86,6 +91,7 @@
         </div>
         <section class="panel saved-panel"><div class="section-heading"><h2>Saved local runs</h2><button id="refresh-runs" type="button">Refresh</button></div><div id="saved-runs" class="saved-runs"><p class="muted">Connect to the local runner to browse its journals. Exported records can be loaded anywhere.</p></div></section>
       </section>
+      <section id="scorecard-panel" role="tabpanel" aria-labelledby="scorecard-tab" hidden></section>
       <input id="config-file" type="file" accept="application/json,.json" hidden><input id="run-file" type="file" accept="application/json,.json" hidden>
     </div>
     <footer><p>Human flourishing · Learning sciences · Systems engineering</p><p>Simulated contributions can surface assumptions and questions. They do not establish human proficiency, team behavior, or learning outcomes.</p></footer>

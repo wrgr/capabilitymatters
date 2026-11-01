@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "version": "1.0.0",
+  "description": "Three fictional task strata for prospective, artifact-based comparisons of configurable learning-engineering teams. Applying a case replaces only the brief, environment, challenges, and initial legacy-model conditions; it does not assign a competency advantage.",
+  "interpretation_limits": [
+    "The cases are deliberately different fixed examples, not a representative sample of the problem space. Report each case separately before any explicitly weighted summary.",
+    "Population-profile weights, shifts, dispersions, and score thresholds are uncalibrated sensitivity assumptions on a 0–100 rubric index. They are not estimated human distributions or probabilities of real learning, performance, or flourishing.",
+    "Human flourishing denotes observable conditions that may support agency, dignity, access, privacy, and manageable burden here. This is not a validated measure of holistic human flourishing.",
+    "Competency labels and treatment assignments are not scoring inputs. Any apparent advantage, overlap, reversal, or null effect must come from independently judged artifact evidence.",
+    "A usable practice resource and a successful simulated task do not establish real learning or transfer. Mark unsupported claims as unknown and retain failures.",
+    "The original pilot and declared-design-v1 outcome coefficients are unchanged. These presets define new studies; their probability model is an additional analysis layer."
+  ],
+  "scenarios": [
+    {
+      "id": "feedback-conversation",
+      "version": "1.0.0",
+      "name": "Feedback conversation under time pressure",
+      "description": "A workplace-practice case anchored in the existing fictional feedback brief, with an explicit learner target for a new prospective study.",
+      "seed": {
+        "title": "Supporting difficult feedback conversations",
+        "idea": "A fictional service team requests a small browser-based practice resource for new team leads after recurring misunderstandings in feedback conversations. The learner should distinguish an observation from an assumption, ask a clarifying question about context, and propose a feasible next step. Use a fictional missed handoff as the initial situation, then offer a changed situation so a learner can try the approach again. Make the resource's behavior observable; do not claim that completing it proves learning.",
+        "domain": "Fictional workforce learning and first-time team leadership",
+        "people": "New team leads, colleagues, supervisors, and a learning coordinator in a fictional service organization",
+        "constraints": "Use fictional examples only. Do not collect identifiable employee records or produce employee rankings. The resource must work on shared laptops, preserve the option to skip or revise a response, and avoid presenting a single script as suitable for every conversation."
+      },
+      "environment": {
+        "time_pressure": "standard",
+        "resources": "One facilitator, shared laptops, and twenty minutes of protected practice time per participant.",
+        "constraints": ["The proposed resource is needed in four weeks.", "All cases and responses must remain fictional; no account or personal disclosure is required."]
+      },
+      "challenges": [
+        {
+          "id": "practice-time-withdrawn",
+          "stage": "design",
+          "description": "The organization withdraws protected practice time. The implementation date remains unchanged; at most five minutes are now available for a participant's first session.",
+          "simulation_effects": {"available_minutes": 5}
+        }
+      ],
+      "legacy_outcome_conditions": {"available_minutes": 20, "support_capacity_minutes": 200, "digital_access": 0.9},
+      "learner_target": "Distinguish observations from assumptions, ask a context-sensitive clarifying question, and select a feasible next step in a changed feedback situation.",
+      "affected_person_constraints": ["A colleague may have constraints unknown to the team lead.", "Practice must not require employee disclosures, ranking, or coerced agreement.", "The first usable activity must fit the reduced five-minute session."],
+      "system_task": "Deliver a functioning browser practice resource that accepts different choices, gives traceable responses, permits correction, and supports a changed practice situation within the time constraint.",
+      "axis_targets": {"human_flourishing": 70, "system_performance": 70, "learning": 70},
+      "axis_definitions": {
+        "human_flourishing": "Observable support for participant and colleague agency, respectful interpretation, privacy, access, and manageable burden.",
+        "system_performance": "Correct, usable behavior of the practice resource under the changed time constraint, including input changes and recovery.",
+        "learning": "Evidence that practice and feedback address observation, inference, contextual inquiry, revision, and use in a changed situation."
+      },
+      "evidence_anchors": {
+        "human_flourishing": ["A learner can skip, revise, or choose a reasonable alternative without public ranking or required disclosure.", "The scenario permits contextual explanations without labeling a fictional colleague's motives or personality as facts.", "A first activity is usable within five minutes and shared-device use does not expose personal responses."],
+        "system_performance": ["Different choices produce the corresponding visible response; a correct response is not shown regardless of input.", "Revise, clear, and restart paths work without inconsistent state, including after a changed situation.", "The artifact provides an actionable first activity under the arrived five-minute constraint; declared support needs are feasible."],
+        "learning": ["A choice requires distinguishing an observation from an assumption and selecting an appropriate contextual question.", "Feedback explains the consequence of the learner's actual choice and gives a useful next attempt.", "A changed situation allows a separate attempt; completing or copying an answer is not labeled demonstrated transfer."]
+      },
+      "population_profiles": [
+        {"id": "first-practice", "label": "First structured practice", "weight": 0.5, "axis_shift": {"human_flourishing": -2, "system_performance": 0, "learning": -6}, "axis_sd": {"human_flourishing": 8, "system_performance": 5, "learning": 12}, "rationale": "Illustrative sensitivity to unfamiliar practice and uncertain interpretation of feedback; no claim about the prevalence or effect size in a workforce."},
+        {"id": "some-familiarity", "label": "Some prior familiarity", "weight": 0.35, "axis_shift": {"human_flourishing": 0, "system_performance": 0, "learning": 4}, "axis_sd": {"human_flourishing": 6, "system_performance": 4, "learning": 8}, "rationale": "Illustrative modest familiarity benefit with narrower dispersion; familiarity does not guarantee good judgment or make any team module necessary."},
+        {"id": "interrupted-session", "label": "Interrupted session", "weight": 0.15, "axis_shift": {"human_flourishing": -8, "system_performance": -5, "learning": -4}, "axis_sd": {"human_flourishing": 10, "system_performance": 9, "learning": 12}, "rationale": "A deliberately adverse interruption stress condition with modest burden and continuity penalties; these offsets do not test actual interruption recovery."}
+      ]
+    },
+    {
+      "id": "science-evidence",
+      "version": "1.0.0",
+      "name": "Interpreting scientific evidence",
+      "description": "A community-science practice case with differing prior familiarity, a tempting causal inference, and a later limitation in the evidence.",
+      "seed": {
+        "title": "Reasoning from a fictional plant-growing comparison",
+        "idea": "Create a small browser-based practice resource for a community science group. In a fictional pilot, six pots receiving plant food average 14 cm of growth and six pots without it average 10 cm. No assignment method or variability is reported. Learners should distinguish an observed difference from a supported causal claim, identify missing information, choose a fair follow-up comparison, and revise a claim when new evidence appears. Use only the supplied fictional figures, label any additional examples as invented, and include a changed comparison for another attempt. A useful response may explain why the available evidence is insufficient.",
+        "domain": "Fictional community science and interpretation of evidence",
+        "people": "Community science participants with different prior familiarity, a volunteer facilitator, and readers of a fictional garden report",
+        "constraints": "No medical, clinical, employment, or other high-stakes decisions. Do not infer participant ability from a demographic category. Use plain language, permit revising an answer, require no personal data or account, and do not present fictional figures as real research."
+      },
+      "environment": {
+        "time_pressure": "standard",
+        "resources": "A volunteer facilitator, browser-capable shared devices, and fifteen minutes per participant. Some participants know fair-comparison terminology and others do not.",
+        "constraints": ["The activity must be usable without external links or specialist software.", "All data are fictional and insufficient evidence must remain an acceptable conclusion."]
+      },
+      "challenges": [
+        {
+          "id": "confounding-and-shorter-session",
+          "stage": "design",
+          "description": "The organizer reveals that all plant-food pots were also placed in a brighter window while the comparison pots were not. Practice time is reduced to eight minutes. The resource must let a learner reconsider the causal claim and propose a comparison that addresses the light difference.",
+          "simulation_effects": {"available_minutes": 8}
+        }
+      ],
+      "legacy_outcome_conditions": {"available_minutes": 15, "support_capacity_minutes": 150, "digital_access": 0.9},
+      "learner_target": "Separate a descriptive difference from a causal conclusion, identify the light confound, choose a fair follow-up comparison, and revise the claim using the new evidence.",
+      "affected_person_constraints": ["Prior familiarity and starting explanations may differ without determining a learner's capability.", "A mistaken initial answer must be usable for explanation and revision without humiliation or ranking.", "The fictional report's readers need uncertainty and limits to remain visible."],
+      "system_task": "Present the fictional evidence accurately, accept and respond to different interpretations, reveal the added limitation coherently, and support a changed comparison within eight minutes.",
+      "axis_targets": {"human_flourishing": 70, "system_performance": 70, "learning": 70},
+      "axis_definitions": {
+        "human_flourishing": "Observable support for accessible language, respectful revision, voluntary participation, privacy, and proportionate demands.",
+        "system_performance": "Accurate presentation and interaction with the fictional data, changed evidence, choice-dependent responses, and recovery paths.",
+        "learning": "Evidence that a learner must use the comparison and its limits to explain and revise a claim, then attempt a changed case."
+      },
+      "evidence_anchors": {
+        "human_flourishing": ["The resource explains unfamiliar terms and allows uncertainty without labeling or ranking participants.", "A learner can revise or ask for an explanation, and no personal information is required.", "The first activity remains manageable within eight minutes and does not require outside software or sources."],
+        "system_performance": ["The resource accurately retains 14 cm versus 10 cm, six pots in each group, and the absence of assignment or variability information.", "The brighter-window reveal updates the relevant claim or feedback, and all visible controls work for changed choices.", "Clear, repeat, or correction paths preserve coherent data and visible task state."],
+        "learning": ["The learner must distinguish an observed difference from evidence sufficient for a causal conclusion.", "Feedback addresses the selected interpretation and explains how unequal light affects the inference; uncertainty can be an appropriate answer.", "A new comparison asks the learner to identify or control a different relevant difference, with rationale rather than a copied answer. Correcting the first answer alone is not called transfer."]
+      },
+      "population_profiles": [
+        {"id": "new-to-comparisons", "label": "New to fair comparisons", "weight": 0.45, "axis_shift": {"human_flourishing": -2, "system_performance": -1, "learning": -7}, "axis_sd": {"human_flourishing": 7, "system_performance": 6, "learning": 13}, "rationale": "An uncalibrated stress assumption for unfamiliar terminology and uncertain reasoning; the weights are chosen for exploration, not estimated prevalence."},
+        {"id": "comparison-familiarity", "label": "Some comparison experience", "weight": 0.35, "axis_shift": {"human_flourishing": 1, "system_performance": 1, "learning": 5}, "axis_sd": {"human_flourishing": 5, "system_performance": 4, "learning": 8}, "rationale": "Illustrative small benefit from familiarity with comparisons. It neither assumes complete understanding nor rewards any named competency."},
+        {"id": "initial-causal-rule", "label": "Strong initial causal rule", "weight": 0.2, "axis_shift": {"human_flourishing": -2, "system_performance": 0, "learning": -5}, "axis_sd": {"human_flourishing": 7, "system_performance": 5, "learning": 14}, "rationale": "An illustrative starting belief that a larger average proves causation. Wider learning-index dispersion is a sensitivity assumption, not a validated misconception or personality model."}
+      ]
+    },
+    {
+      "id": "library-digital-access",
+      "version": "1.0.0",
+      "name": "Library access with optional support",
+      "description": "A low-risk digital-practice case in which a person chooses a fictional event under device, schedule, and access constraints, with optional assistance.",
+      "seed": {
+        "title": "Choosing a fictional library workshop",
+        "idea": "Create a browser-based practice resource for finding and choosing a fictional public-library workshop, recognizing a confirmation, and correcting an invalid selection. Supply three invented sessions: Map Reading, Tuesday 17:00, in person, step-free room; Story Sketching, Thursday 18:00, online, connection required; Photo Stories, Saturday 10:00, in person, step-free room. For the first practice task, the fictional visitor can attend only after 17:30 on a weekday and has a stable connection, making Story Sketching feasible. For a second task, a different fictional visitor is available on Saturday morning and needs a step-free room, making Photo Stories feasible. Let the learner use optional support, then attempt a changed task with less support. Use a practice confirmation only; do not make a real booking or require personal data.",
+        "domain": "Fictional public-library digital access and task practice",
+        "people": "Library visitors with differing device familiarity and access conditions, a volunteer helper, and library staff supporting shared-device use",
+        "constraints": "All sessions, people, and confirmations are invented. No real account, booking, eligibility decision, personal data, or external website. Use readable responsive content and keyboard-operable controls. Preserve optional support and a clear way to start over on a shared device."
+      },
+      "environment": {
+        "time_pressure": "standard",
+        "resources": "Shared laptops and small-screen devices, one optional volunteer helper, and ten minutes per visitor. The initial planning assumption is that most visitors have reliable digital access.",
+        "constraints": ["The resource must contain the task information locally and avoid dependence on an external event service.", "A visitor may choose independent practice or optional help without losing the ability to complete the task."]
+      },
+      "challenges": [
+        {
+          "id": "intermittent-device-access",
+          "stage": "design",
+          "description": "Planning reveals intermittent connectivity and shared-device interruptions. Only about 55% of the illustrative cohort is assumed to have uninterrupted digital access, and helper capacity falls to fifty minutes in total. The first fictional visitor's stable connection remains a fact within the practice example; the new constraint concerns access to the resource itself. Provide an appropriate recovery or locally usable route without implying an actual service booking.",
+          "simulation_effects": {"digital_access": 0.55, "support_capacity_minutes": 50}
+        }
+      ],
+      "legacy_outcome_conditions": {"available_minutes": 10, "support_capacity_minutes": 120, "digital_access": 0.85},
+      "learner_target": "Independently select a feasible fictional session from stated constraints, recognize a practice confirmation, and recover from an invalid choice in a changed task.",
+      "affected_person_constraints": ["Access and device familiarity can vary independently of motivation or capability.", "Help must remain optional and shared-device recovery must avoid personal-data exposure.", "The volunteer's limited capacity and a visitor's ten-minute window constrain the feasible support design."],
+      "system_task": "Provide correct filtering or selection, accessible controls, constraint-sensitive feedback, an unambiguous practice confirmation, and a restart or recovery path under intermittent access.",
+      "axis_targets": {"human_flourishing": 70, "system_performance": 70, "learning": 70},
+      "axis_definitions": {
+        "human_flourishing": "Observable support for independent choice, optional help, accessibility, privacy, manageable burden, and respectful recovery from errors.",
+        "system_performance": "Correct task completion and recovery with the supplied fictional sessions, clear practice-only confirmation, and feasible access and support demands.",
+        "learning": "Evidence that the visitor can understand a choice, use support productively, and attempt a changed selection without simply copying a fixed answer."
+      },
+      "evidence_anchors": {
+        "human_flourishing": ["Help is optional; a visitor can try independently, correct a selection, or restart without blame or forced disclosure.", "Labels and controls are readable and keyboard usable, with small-screen and shared-device behavior inspectable.", "The resource makes support demands visible and offers a workable local or recovery route within the visitor and helper constraints."],
+        "system_performance": ["The first task accepts Story Sketching for the stated weekday and connection conditions; the second accepts Photo Stories for Saturday and step-free access.", "An invalid selection gets a relevant correction path rather than a false success; confirmation is explicitly practice-only.", "Changed choices, restart, and interrupted-use recovery leave consistent task state, and no task depends on a real account or external booking."],
+        "learning": ["The learner must use schedule and access constraints to choose, with an explanation linked to the actual choice.", "Optional scaffolding explains how to decide and can be reduced for the changed task.", "A changed task offers an independent attempt and distinguishes a successful task from evidence of retained or transferable skill."]
+      },
+      "population_profiles": [
+        {"id": "familiar-uninterrupted", "label": "Familiar device and uninterrupted access", "weight": 0.45, "axis_shift": {"human_flourishing": 1, "system_performance": 3, "learning": 2}, "axis_sd": {"human_flourishing": 5, "system_performance": 5, "learning": 8}, "rationale": "Illustrative favorable access condition with small rubric-index shifts; these values are not an estimate of library visitors."},
+        {"id": "unfamiliar-intermittent", "label": "Unfamiliar device and intermittent access", "weight": 0.35, "axis_shift": {"human_flourishing": -6, "system_performance": -9, "learning": -4}, "axis_sd": {"human_flourishing": 10, "system_performance": 13, "learning": 11}, "rationale": "A deliberate access stress assumption. Actual accessibility and recovery still require functional evidence; the profile does not grant credit for merely claiming an offline route."},
+        {"id": "optional-help-interrupted", "label": "Optional help with an interrupted session", "weight": 0.2, "axis_shift": {"human_flourishing": -3, "system_performance": -4, "learning": -3}, "axis_sd": {"human_flourishing": 9, "system_performance": 10, "learning": 12}, "rationale": "Illustrative mixed support and interruption conditions with wider uncertainty. Assistance is not assumed to erase learning or produce dependence."}
+      ]
+    }
+  ]
+}

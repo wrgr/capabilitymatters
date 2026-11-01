@@ -148,6 +148,40 @@ class ExperimentApiTests(unittest.TestCase):
         status, _ = self._request("POST", "/api/experiments/batches", {"config": config, "comparison": comparison, "matrix": True})
         self.assertEqual(status, 400)
 
+    def test_scenario_iteration_and_blind_review_http_lifecycle(self) -> None:
+        """Freeze an unknown review before reveal and keep the new provenance outside the old journal."""
+        status, scenarios = self._request("GET", "/api/experiments/scenarios")
+        self.assertEqual(status, 200)
+        self.assertEqual(len(scenarios["scenarios"]), 3)
+        status, case = self._request("POST", "/api/experiments/scenarios/apply", {
+            "config": default_config(), "scenario_id": "science-evidence"})
+        self.assertEqual(status, 200)
+        settings = self._request("GET", "/api/experiments/scorecards/catalog")[1]["defaults"]
+        status, iteration = self._request("POST", "/api/experiments/iterations", {
+            "config": case["config"], "comparison": None, "scenario_reference": case["scenario_reference"],
+            "scorecard_assumptions": settings, "change_note": "Prespecify the scientific evidence case."})
+        self.assertEqual(status, 200)
+        status, execution = self._request("POST", "/api/experiments/runs", {
+            "config": case["config"], "iteration_id": iteration["iteration_id"]})
+        self.assertEqual(status, 202)
+        self._wait()
+        status, bundle = self._request("POST", "/api/experiments/scorecards/packets", {
+            "run_ids": [execution["run_id"]], "scenario_id": "science-evidence", "iteration_id": iteration["iteration_id"]})
+        self.assertEqual(status, 200)
+        packet = bundle["packets"][0]
+        status, review = self._request("POST", "/api/experiments/scorecards/template", {"packet": packet})
+        self.assertEqual(status, 200)
+        body = {"packet": packet, "review": review, "settings": settings}
+        status, frozen = self._request("POST", "/api/experiments/scorecards/freeze", body)
+        self.assertEqual(status, 200)
+        self.assertEqual(frozen["assessment"]["status"], "incomplete")
+        status, revealed = self._request("POST", "/api/experiments/scorecards/unblind", {
+            "record_refs": [{"packet_id": frozen["packet_id"], "record_hash": frozen["record_hash"]}],
+            "mapping": bundle["private_mapping"]})
+        self.assertEqual(status, 200)
+        self.assertIn("reveal", revealed)
+        self.assertEqual(self._request("POST", "/api/experiments/scorecards/freeze", body)[0], 400)
+
 
 if __name__ == "__main__":
     unittest.main()

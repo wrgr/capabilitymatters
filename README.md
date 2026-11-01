@@ -192,6 +192,16 @@ human review. See
 [the experiment guide](docs/lifecycle/EXPERIMENTS.md) for batches, budgets,
 cancellation, review evidence, and limits of interpretation.
 
+The Scorecard tab adds independent evidence review on **human flourishing,
+system performance, and learning**, with three fictional scenario presets and
+immutable study iterations. Freeze rubric thresholds, criterion floors, and
+person/context sensitivity assumptions before review. Export opaque candidate
+packets to the separate blind workspace, retain the assignment key separately,
+then reveal the complete frozen set. The three axes have conditional modeled
+ranges and pass probabilities; none is a validated prediction about real people.
+See [the scorecard method](docs/lifecycle/SCORECARD.md) for its equations, evidence
+requirements, exact replay, and limits.
+
 ## Problems to Prototypes
 
 `/problems-to-prototypes/` holds 38 evidence-linked briefs across AILE, LXD,

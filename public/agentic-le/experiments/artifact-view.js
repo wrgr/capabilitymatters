@@ -24,13 +24,13 @@ export function renderArtifacts(root, state, seek) {
         button(`Go to previous artifact #${previous.seq}`, () => seek(previous.seq), 'text-action'));
       panel.append(comparison);
     }
-    if (artifact.content.prototype_html) panel.append(preview(artifact.content.prototype_html));
+    if (artifact.content.prototype_html) panel.append(createCandidatePreview(artifact.content.prototype_html));
     root.append(panel);
   }
 }
 
 /** @param {string} source @returns {HTMLElement} Keep generated code inert until the user opens a sandboxed preview. */
-function preview(source) {
+export function createCandidatePreview(source) {
   const wrapper = el('div', 'candidate-preview');
   wrapper.append(el('p', 'muted small', 'Candidate implementation. The isolated preview blocks external resources and has no access to the surrounding page. Its behavior does not establish learning outcomes.'));
   const holder = el('div');

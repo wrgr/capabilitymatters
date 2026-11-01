@@ -15,6 +15,7 @@ from experiment_config import catalog, default_config, resolve_config, validate_
 from experiment_contract import agent_contract
 from experiment_outcomes import outcome_catalog
 from experiment_runtime import create_experiment, execute_experiment, ExperimentRunError
+from experiment_iteration import link_execution, verify_execution_iteration
 
 SAFE_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]{0,159}\Z")
 
@@ -33,7 +34,8 @@ def _identifier(value: str) -> str:
 
 def _body(handler: Any) -> dict:
     length = int(handler.headers.get("Content-Length", "0"))
-    if not 0 < length <= 300000 or not handler.headers.get("Content-Type", "").startswith("application/json"):
+    limit = 12000000 if handler.path.startswith("/api/experiments/scorecards/") else 300000
+    if not 0 < length <= limit or not handler.headers.get("Content-Type", "").startswith("application/json"):
         raise ValueError("A bounded JSON request is required")
     body = json.loads(handler.rfile.read(length))
     if not isinstance(body, dict):
@@ -65,6 +67,9 @@ def handle_get(handler: Any, root: Path) -> bool:
     if not handler.path.startswith("/api/experiments/"):
         return False
     try:
+        from experiment_scorecard_api import handle_get as scorecard_get
+        if scorecard_get(handler, root):
+            return True
         if handler.path == "/api/experiments/catalog":
             handler.send_json({"catalog": catalog(), "default_config": default_config(),
                                "outcome_catalog": outcome_catalog(), "agent_contract": agent_contract()})
@@ -126,24 +131,27 @@ def _cancel(handler: Any, state: ModuleType, body: dict) -> None:
     handler.send_json({"id": run_id, "status": "cancellation_requested", "boundary": boundary}, 202)
 
 
-def _start_run(handler: Any, state: ModuleType, config: dict) -> None:
+def _start_run(handler: Any, state: ModuleType, config: dict, iteration: dict | None = None) -> None:
     with state.LOCK:
         if state.ACTIVE:
             handler.send_json({"error": "A run or batch is already active", "run_id": state.ACTIVE}, 409)
             return
         journal = create_experiment(config, state.RUNS)
+        link_execution(state.RUNS, iteration, journal.run["id"], "run")
         state.ACTIVE = journal.run["id"]
     threading.Thread(target=_background, args=(state, lambda: execute_experiment(journal)), daemon=True).start()
     handler.send_json({"run_id": journal.run["id"]}, 202)
 
 
-def _start_batch(handler: Any, state: ModuleType, config: dict, matrix: bool, comparison: dict | None = None) -> None:
+def _start_batch(handler: Any, state: ModuleType, config: dict, matrix: bool, comparison: dict | None = None,
+                 iteration: dict | None = None) -> None:
     from experiment_batch import prepare_batch, execute_batch
     with state.LOCK:
         if state.ACTIVE:
             handler.send_json({"error": "A run or batch is already active", "run_id": state.ACTIVE}, 409)
             return
         batch = prepare_batch(config, state.RUNS, matrix=matrix, comparison=comparison)
+        link_execution(state.RUNS, iteration, batch["batch_id"], "batch")
         state.ACTIVE = batch["batch_id"]
     threading.Thread(target=_background, args=(state, lambda: execute_batch(batch, state.RUNS)), daemon=True).start()
     handler.send_json({"batch_id": batch["batch_id"]}, 202)
@@ -161,6 +169,9 @@ def handle_post(handler: Any, state: ModuleType) -> None:
     """Process same-origin experiment requests after the host enforces its origin boundary."""
     try:
         body = _body(handler)
+        from experiment_scorecard_api import handle_post as scorecard_post
+        if scorecard_post(handler, state.RUNS, body):
+            return
         if handler.path == "/api/experiments/cancel":
             return _cancel(handler, state, body)
         if handler.path == "/api/experiments/presets":
@@ -171,19 +182,27 @@ def handle_post(handler: Any, state: ModuleType) -> None:
             return handler.send_json(resolve_config(body["config"]))
         if handler.path not in ("/api/experiments/runs", "/api/experiments/batches"):
             return handler.send_json({"error": "Unknown experiment operation"}, 404)
-        allowed = {"config", "matrix", "comparison"} if handler.path.endswith("/batches") else {"config"}
+        allowed = {"config", "matrix", "comparison", "iteration_id"} if handler.path.endswith("/batches") else {"config", "iteration_id"}
         if "config" not in body or set(body) - allowed:
             raise ValueError("Unexpected experiment request fields")
         if "comparison" in body and ("matrix" in body or not isinstance(body["comparison"], dict)):
             raise ValueError("Use one comparison object or the legacy matrix flag, not both")
         config = validate_config(body["config"])
         _check_provider(config)
+        from experiment_batch import validate_comparison
+        comparison = validate_comparison(body["comparison"]) if "comparison" in body else None
         if handler.path.endswith("/runs"):
-            return _start_run(handler, state, config)
+            iteration = verify_execution_iteration(state.RUNS, body.get("iteration_id"), config, None)
+            return _start_run(handler, state, config, iteration)
         matrix = body.get("matrix", True)
         if type(matrix) is not bool:
             raise ValueError("matrix must be true or false")
-        _start_batch(handler, state, config, matrix, body.get("comparison"))
+        effective = comparison if comparison is not None else {
+            "schema_version": 1, "kind": "ablation" if matrix else "configured",
+            "competency": "measurement" if matrix else None,
+            "integration_modes": ["explicit", "handoff"] if matrix else [config["integration"]["mode"]]}
+        iteration = verify_execution_iteration(state.RUNS, body.get("iteration_id"), config, effective)
+        _start_batch(handler, state, config, matrix, comparison, iteration)
     except (ValueError, TypeError, KeyError, RuntimeError) as error:
         handler.send_json({"error": str(error)}, 400)
     except OSError as error:
