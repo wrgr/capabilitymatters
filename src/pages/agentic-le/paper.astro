@@ -1,29 +1,29 @@
 ---
-// Preserve the previously published working paper and direct readers to current experiment methods.
+// Current flower working paper, with earlier artifacts retained as a distinct archive.
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import Base from "../../layouts/Base.astro";
 import AgenticNav from "../../components/AgenticNav.astro";
-import { compiledContent, getHeadings } from "../../papers/learning-engineering-teams.md";
+import { compiledContent, getHeadings } from "../../papers/flower-team-study.md";
 
 import ResourceReading from "../../components/ResourceReading.astro";
 
 const paperHtml = await compiledContent();
-const pdfVersion = createHash("sha256").update(readFileSync("public/agentic-le/paper/paper.pdf")).digest("hex").slice(0, 12);
-const sections = getHeadings().filter((heading) => heading.depth === 2).slice(1);
+const pdfVersion = createHash("sha256").update(readFileSync("public/agentic-le/paper/flower-team-study.pdf")).digest("hex").slice(0, 12);
+const sections = getHeadings().filter((heading) => heading.depth === 2);
 ---
 
-<Base title="Earlier working paper · Capability Matters"
-  description="The previously published agentic learning engineering paper, retained with its original evidence and links to the current flower framework and experiment studio.">
+<Base title="Exploring and Modeling Team Competencies in Learning Engineering through Agentic Simulation · Capability Matters"
+  description="A flower-based protocol for configurable learning engineering teams, with five comparisons and preserved earlier evidence.">
   <meta slot="head" name="robots" content="noindex, nofollow" />
  <AgenticNav active="paper" />
   <div class="paper-shell">
-    <section class="archive-notice" aria-label="Publication context"><p class="eyebrow">Earlier working paper</p><p>This reading edition and its downloads preserve the previously published paper and evidence. For the current experiment methods, visit <a href="/agentic-le/roles/">the learning engineering flower guide</a> and <a href="/agentic-le/experiments/">the experiment studio</a>.</p></section>
     <nav class="paper-actions" aria-label="Paper downloads">
-      <a class="download" href={`/agentic-le/paper/paper.pdf?v=${pdfVersion}`} download>Download earlier PDF</a>
-      <a href={`/agentic-le/paper/manuscript.md?v=${pdfVersion}`} download>Download earlier manuscript</a>
-      <a href={`/agentic-le/record/?file=%2Fagentic-le%2Fpaper%2Fevidence.json&v=${pdfVersion}`}>Inspect earlier evidence audit</a>
+      <a class="download" href={`/agentic-le/paper/flower-team-study.pdf?v=${pdfVersion}`} download>Download PDF</a>
+      <a href={`/agentic-le/paper/flower-team-study.md?v=${pdfVersion}`} download>Download editable manuscript</a>
+      <a href={`/agentic-le/paper/flower-team-study.docx?v=${pdfVersion}`} download>Download Word document</a>
     </nav>
+    <p class="archive-note">Current flower framework and comparison protocol. Earlier evidence retains its original design. <a href="/agentic-le/paper/paper.pdf">Archived earlier paper</a> · <a href="/agentic-le/paper/manuscript.md">Earlier manuscript</a> · <a href="/agentic-le/record/?file=%2Fagentic-le%2Fpaper%2Fevidence.json">Earlier evidence audit</a></p>
     <div class="reading-layout">
       <aside>
         <details open>
@@ -39,8 +39,7 @@ const sections = getHeadings().filter((heading) => heading.depth === 2).slice(1)
 </Base>
 
 <style>
-  .archive-notice { margin-bottom: 1.5rem; padding: 1.1rem; border: 1px solid var(--border); border-radius: 6px; background: var(--tint); }
-  .archive-notice p:last-child { margin-bottom: 0; }
+  .archive-note { margin-bottom: 2rem; font-size: .9rem; color: var(--muted); }
   .paper-shell { max-width: 76rem; margin: auto; padding: 2rem var(--page-pad); }
   .paper-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem 1.5rem; padding-bottom: 2rem; font-family: var(--sans); font-size: .9rem; }
   .download { padding: .65rem 1rem; background: var(--accent-2); color: white; border-radius: 4px; }
@@ -70,8 +69,6 @@ const sections = getHeadings().filter((heading) => heading.depth === 2).slice(1)
   @media print {
     aside, .paper-actions { display: none; }
     .reading-layout { display: block; }
-    .archive-notice { margin-bottom: 1.5rem; padding: 1.1rem; border: 1px solid var(--border); border-radius: 6px; background: var(--tint); }
-  .archive-notice p:last-child { margin-bottom: 0; }
-  .paper-shell { padding: 0; }
+    .paper-shell { padding: 0; }
   }
 </style>
