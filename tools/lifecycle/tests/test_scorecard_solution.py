@@ -47,6 +47,15 @@ class FullSolutionTests(unittest.TestCase):
         plans = [json.loads(item["text"]) for item in packet["evidence"] if item["kind"] == "generated_plan"]
         self.assertEqual([plan["stage"] for plan in plans], list(LABELS.values()))
         self.assertTrue(all(plan["evidence_boundary"] == PLAN_BOUNDARY for plan in plans))
+        artifacts = [event for event in self.run["events"] if event["kind"] == "artifact"]
+        for plan, artifact in zip(plans, artifacts):
+            record = plan["integrated_record"]
+            self.assertEqual(record["artifact_title"], artifact["payload"]["content"]["title"])
+            self.assertEqual(record["artifact_body"], artifact["payload"]["content"]["body"])
+            decision = self.run["events"][artifact["payload"]["trigger_seq"] - 1]
+            self.assertEqual(record["decision"], decision["payload"]["response"]["decision"])
+        build_plan = next(plan["integrated_record"] for plan in plans if plan["stage"] == "Build")
+        self.assertEqual(build_plan["design"], self.run["events"][build["payload"]["trigger_seq"] - 1]["payload"]["response"]["design"])
         encoded = json.dumps(packet)
         for private in ("PRIVATE_CONDITION_LABEL", self.run["id"], "config_hash", "actor_id", "source_actor_id", "prior_contributions"):
             self.assertNotIn(private, encoded)
@@ -58,10 +67,10 @@ class FullSolutionTests(unittest.TestCase):
     def test_latest_integrated_record_replaces_old_plan_without_member_transcripts(self) -> None:
         """A later plan updates the plan snapshot and cannot silently replace the executable source."""
         events = [
-            {"kind": "artifact", "stage": "refine", "payload": {"content": {"artifact_body": "Old plan."}}},
+            {"kind": "artifact", "stage": "refine", "payload": {"content": {"body": "Old plan."}}},
             {"kind": "contribution", "stage": "refine", "payload": {"content": {"message": "PRIVATE_MEMBER_TRANSCRIPT"}}},
             {"kind": "artifact", "stage": "refine", "agent": "PRIVATE_AGENT", "payload": {"content": {
-                "artifact_body": "Propose a repaired reset path.", "prototype_html": "UNEXECUTED_SOURCE",
+                "body": "Propose a repaired reset path.", "prototype_html": "UNEXECUTED_SOURCE",
                 "message": "PRIVATE_COORDINATOR_TRANSCRIPT", "evidence_refs": [1], "revisit_stage": "build"}}},
         ]
         plans = solution_evidence({"events": events}, 2)

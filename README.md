@@ -193,6 +193,12 @@ software checks support inspection; observed learning, burden, and transfer stil
 require evaluation with people. New flower configurations are not relabeled
 historical results.
 
+The [evidence-only study review workflow](docs/lifecycle/STUDY_REVIEWS.md) uses
+the existing authenticated Codex CLI for two isolated model reviews per completed
+candidate, with a maximum of 30 review invocations. It retains actual browser
+observations, original responses, failed attempts, raw rubric indices, and reviewer
+disagreement. It does not run the probability sampler or alter historical scores.
+
 ## Problems to Prototypes
 
 `/problems-to-prototypes/` holds 38 evidence-linked briefs across AILE, LXD,

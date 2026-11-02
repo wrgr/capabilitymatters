@@ -22,6 +22,22 @@ def packet_scope(packet: dict) -> str:
     return packet.get("evaluation_scope", "artifact")
 
 
+def _integrated_record(run: dict, artifact: dict) -> dict:
+    """Join the artifact body with its integrated decision, excluding conversation and identity fields."""
+    payload = artifact["payload"]
+    content = payload["content"]
+    decision = next((event for event in run["events"]
+                     if event.get("seq") == payload.get("trigger_seq")
+                     and event["kind"] == "decision" and event["stage"] == artifact["stage"]), None)
+    response = decision["payload"]["response"] if decision else {}
+    record = {key: copy.deepcopy(response[key]) for key in PLAN_FIELDS if key in response}
+    # Journal artifacts use title/body; these retained values are authoritative.
+    for source, target in (("title", "artifact_title"), ("body", "artifact_body")):
+        if source in content:
+            record[target] = copy.deepcopy(content[source])
+    return record
+
+
 def solution_evidence(run: dict, first_index: int) -> list[dict]:
     """Take only the latest integrated artifact per stage, excluding member transcripts and identities."""
     latest = {event["stage"]: event for event in run["events"] if event["kind"] == "artifact" and event["stage"] in STAGES}
@@ -29,9 +45,8 @@ def solution_evidence(run: dict, first_index: int) -> list[dict]:
     for stage in STAGES:
         if stage not in latest:
             continue
-        content = latest[stage]["payload"]["content"]
         # Source sequence numbers, profile metadata, and raw contributions stay outside blind packets.
-        record = {key: copy.deepcopy(content[key]) for key in PLAN_FIELDS if key in content}
+        record = _integrated_record(run, latest[stage])
         value = json.dumps({"stage": LABELS[stage], "evidence_boundary": PLAN_BOUNDARY,
                             "integrated_record": record}, ensure_ascii=False, indent=2)
         text(value, 100000, "generated design record")
