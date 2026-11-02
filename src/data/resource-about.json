@@ -428,24 +428,25 @@
     "connection": "The paper develops the conceptual LENS frame used across these resources. Use it to question whether a polished artifact, an immediate performance and durable learning are being confused; the proposed frame remains open to community discussion."
   },
   "agentic-paper": {
-    "what": "The current working paper on modeling team contributions with the learning engineering flower. It distinguishes the flower comparison protocol from the preserved earlier eighteen-run exploration and separates executable behavior from claims requiring evaluation with people.",
+    "what": "Exploring the learning engineering flower with agentic simulation reports the new five-condition study, its actual retained solutions, fixed browser observations, and frozen model reviews. It distinguishes design evidence and generated proposals from human outcomes.",
     "how": [
-      "Read the flower framework and five-condition protocol, then compare them with the current experiment studio.",
-      "Read the worked examples as historical evidence. Inspect the stated limitations before attributing any effect to a flower domain; no new scored flower study is claimed."
+      "Read the controlled comparisons and review method before interpreting the results. The study varies explicit expertise instructions and contribution opportunities in one fictional scenario.",
+      "Follow the completed-study link to inspect condition means, individual reviewer pairs, unknown values, browser coverage, and the exact generated prototypes.",
+      "Use the limitations and audit notes to judge what the evidence supports. Model judgments, repeated checks, and generated plans do not establish human learning or causal effects in human teams."
     ],
-    "connection": "The paper connects multidisciplinary integration to the LENS capability cycle. Its contribution is an inspectable representation and method; claims about collaboration quality, human learning and field impact still require independent evidence.",
+    "connection": "The paper connects multidisciplinary integration to the LENS capability cycle. Its simulation represents explicit responsibilities around shared understanding while assessing human flourishing support, system performance, and learning as separate dimensions of the available evidence.",
     "links": [
       {
-        "label": "Current flower framework and comparison methods",
+        "label": "Completed study results and prototypes",
+        "href": "/agentic-le/flower-study/"
+      },
+      {
+        "label": "Flower framework and comparison methods",
         "href": "/agentic-le/roles/"
       },
       {
-        "label": "Current experiment studio",
+        "label": "Experiment studio",
         "href": "/agentic-le/experiments/"
-      },
-      {
-        "label": "Preserved earlier case records",
-        "href": "/agentic-le/#cases"
       }
     ]
   },
@@ -534,14 +535,18 @@
     "connection": "Learning engineering connects designed contributions to evidence about what learners and systems can do. LENS also asks whether people have agency, access, and viable conditions for action. Withholding assignment labels helps test the artifact rather than reward the intended expertise, while modeled uncertainty makes incomplete evidence and contextual assumptions visible. These task-level indices do not establish observed learning gains or human flourishing."
   },
   "agentic-flower-study": {
-    "what": "A fixed, timestamped preliminary snapshot of the new five-condition flower study. It shows execution progress and exact generated Build prototypes. Comparative review is pending; no human outcomes are measured in this batch.",
+    "what": "The completed five-condition learning engineering flower study. It presents separate rubric indices from frozen model reviews, observed browser coverage, missing evidence, and the exact retained Build prototypes. No human outcomes were measured.",
     "how": [
-      "Read the cutoff time and progress table before interpreting the figures; this page is not a live counter.",
-      "Choose Open this candidate to run its exact source in an isolated, network-blocked preview. Use Copy meeting link to share this view.",
-      "Inspect the audit detail and source fingerprints, and separate visible prototype behavior from claims that still require functional checks, comparative review and evaluation with people."
+      "Compare each of the three axes separately. Read the known/planned counts, standard deviations, and unknown values before interpreting a condition mean.",
+      "Open a repetition. Included candidates show two reviewer indices, browser-check states, an exact source fingerprint, and an isolated preview. Excluded candidates retain the reason and have no evaluated preview.",
+      "Read the paper and provenance notes for the controlled contrasts and evidence limits. Observed browser flows and model ratings do not establish human learning or field impact."
     ],
-    "connection": "The study makes expertise assignments and shared understanding inspectable across the LENS capability cycle. The flower organizes contributing domains; human flourishing support, system performance and learning remain distinct evidence questions. Generation progress does not establish any of those outcomes.",
+    "connection": "The study makes expertise assignments, shared understanding, and work allocation inspectable across the LENS capability cycle. The flower organizes contributing domains; human flourishing support, system performance, and learning remain distinct evidence questions.",
     "links": [
+      {
+        "label": "Study paper and methods",
+        "href": "/agentic-le/paper/"
+      },
       {
         "label": "Learning engineering flower and five comparisons",
         "href": "/agentic-le/roles/"
@@ -549,10 +554,6 @@
       {
         "label": "Experiment studio",
         "href": "/agentic-le/experiments/"
-      },
-      {
-        "label": "Current working paper",
-        "href": "/agentic-le/paper/"
       }
     ]
   }

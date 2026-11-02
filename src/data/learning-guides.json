@@ -11,11 +11,11 @@
     "steps": [
       "Inspect the eight flower domains and the responsibilities shared by every member.",
       "Open the experiment studio and compare domain omission, member-specific withdrawal, member removal, and one agent with matched contribution slots. Review the planned call counts.",
-      "Inspect an earlier case replay or import a new run. Trace one concern into a decision and distinguish an implemented change from a proposal."
+      "Inspect a retained prototype, its browser observations, and its paired model reviews in the completed flower study. Trace a concern into a decision and separate implemented behavior from later proposals."
     ],
     "notice": "Could overlapping expertise compensate, and what observation would support that explanation?",
     "takeaway": "A controlled comparison with an explicit responsibility change, capacity statement, and evidence needed.",
-    "limits": "Dry runs check software workflow. Historical cases retain their original configurations. A new scored flower study and human outcomes require fresh evidence.",
+    "limits": "Dry runs check software workflow. The completed flower study reports generated designs and repeated model judgments; it does not establish human outcomes. Historical replays retain their original configurations.",
     "time": "15–25 minutes",
     "question": "What changed in your explanation after trying this?",
     "next": [

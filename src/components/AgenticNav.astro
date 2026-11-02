@@ -1,17 +1,19 @@
 ---
-interface Props { active?: "cases" | "replay" | "paper" | "roles" | "experiments" }
+interface Props { active?: "cases" | "replay" | "paper" | "roles" | "experiments" | "study" }
 const { active } = Astro.props;
+const paperTitle = "Exploring the learning engineering flower with agentic simulation";
 const links = [
+  { id: "study", href: "/agentic-le/flower-study/", label: "Study results", title: paperTitle },
   { id: "experiments", href: "/agentic-le/experiments/", label: "Experiment studio" },
   { id: "cases", href: "/agentic-le/#cases", label: "All cases" },
   { id: "replay", href: "/agentic-le/replay/?v=quality-6", label: "Replay" },
-  { id: "paper", href: "/agentic-le/paper/", label: "Working paper" },
+  { id: "paper", href: "/agentic-le/paper/", label: "Working paper", title: paperTitle },
   { id: "roles", href: "/agentic-le/roles/", label: "Team flower" },
 ];
 ---
 <nav class="agentic-nav" aria-label="Agentic LE">
   <a class="project-home" href="/agentic-le/">Agentic LE</a>
-  <div>{links.map(link => <a href={link.href} aria-current={active === link.id ? "page" : undefined}>{link.label}</a>)}</div>
+  <div>{links.map(link => <a href={link.href} title={link.title} aria-current={active === link.id ? "page" : undefined}>{link.label}</a>)}</div>
 </nav>
 <style>
   .agentic-nav{max-width:72rem;margin:auto;padding:.65rem var(--page-pad);display:flex;align-items:center;justify-content:space-between;gap:.65rem 1.5rem;flex-wrap:wrap;font-family:var(--sans);font-size:.9rem;border-bottom:1px solid var(--border)}

@@ -1,5 +1,5 @@
 ---
-// Current flower working paper, with earlier artifacts retained as a distinct archive.
+/** Read the current actual-results paper and link its complete candidate evidence. */
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import Base from "../../layouts/Base.astro";
@@ -8,23 +8,25 @@ import { compiledContent, getHeadings } from "../../papers/flower-team-study.md"
 
 import ResourceReading from "../../components/ResourceReading.astro";
 
-const paperHtml = await compiledContent();
+let tableNumber = 0;
+// Preserve the manuscript while making its wide tables reachable by keyboard.
+const paperHtml = (await compiledContent()).replace(/<table\b[^>]*>[\s\S]*?<\/table>/g,
+  (table) => `<div class="paper-table" role="region" aria-label="Paper table ${++tableNumber}" tabindex="0">${table}</div>`);
 const pdfVersion = createHash("sha256").update(readFileSync("public/agentic-le/paper/flower-team-study.pdf")).digest("hex").slice(0, 12);
 const sections = getHeadings().filter((heading) => heading.depth === 2);
 ---
 
-<Base title="Exploring and Modeling Team Competencies in Learning Engineering through Agentic Simulation · Capability Matters"
-  description="A flower-based protocol for configurable learning engineering teams, with five comparisons and preserved earlier evidence.">
+<Base title="Exploring the learning engineering flower with agentic simulation · Capability Matters"
+  description="The new five-condition flower study: generated solutions, observed browser behavior, frozen model reviews, and explicit evidence limits.">
   <meta slot="head" name="robots" content="noindex, nofollow" />
  <AgenticNav active="paper" />
   <div class="paper-shell">
-    <p class="interim-link"><strong>New study running:</strong> <a href="/agentic-le/flower-study/">Open the preliminary flower-study snapshot and actual generated prototypes</a>. Comparative reviews are pending; the current downloads remain the earlier working-paper version until the full new results are ready.</p>
+    <p class="study-link"><a href="/agentic-le/flower-study/"><strong>Inspect the complete study results and retained prototypes</strong></a>. Compare the three axes separately, inspect each reviewer pair and browser record, and keep unknown evidence explicit.</p>
     <nav class="paper-actions" aria-label="Paper downloads">
-      <a class="download" href={`/agentic-le/paper/flower-team-study.pdf?v=${pdfVersion}`} download>Download PDF</a>
-      <a href={`/agentic-le/paper/flower-team-study.md?v=${pdfVersion}`} download>Download editable manuscript</a>
-      <a href={`/agentic-le/paper/flower-team-study.docx?v=${pdfVersion}`} download>Download Word document</a>
+      <a class="download" href={`/agentic-le/paper/flower-team-study.pdf?v=${pdfVersion}`} download aria-label="Download PDF: Exploring the learning engineering flower with agentic simulation">Download study PDF</a>
+      <a href={`/agentic-le/paper/flower-team-study.md?v=${pdfVersion}`} download aria-label="Download manuscript: Exploring the learning engineering flower with agentic simulation">Download study manuscript</a>
+      <a href={`/agentic-le/paper/flower-team-study.docx?v=${pdfVersion}`} download aria-label="Download Word document: Exploring the learning engineering flower with agentic simulation">Download study Word document</a>
     </nav>
-    <p class="archive-note">Current flower framework and comparison protocol. Earlier evidence retains its original design. <a href="/agentic-le/paper/paper.pdf">Archived earlier paper</a> · <a href="/agentic-le/paper/manuscript.md">Earlier manuscript</a> · <a href="/agentic-le/record/?file=%2Fagentic-le%2Fpaper%2Fevidence.json">Earlier evidence audit</a></p>
     <div class="reading-layout">
       <aside>
         <details open>
@@ -40,8 +42,7 @@ const sections = getHeadings().filter((heading) => heading.depth === 2);
 </Base>
 
 <style>
-  .interim-link { padding: 1rem 1.2rem; margin: 0 0 1.5rem; background: var(--tint-warm); border-left: 4px solid var(--accent); border-radius: 5px; font-size: .95rem; max-width: none; }
-  .archive-note { margin-bottom: 2rem; font-size: .9rem; color: var(--muted); }
+  .study-link { padding: 1rem 1.2rem; margin: 0 0 1.5rem; background: var(--tint-warm); border-left: 4px solid var(--accent); border-radius: 5px; font-size: .95rem; max-width: none; }
   .paper-shell { max-width: 76rem; margin: auto; padding: 2rem var(--page-pad); }
   .paper-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem 1.5rem; padding-bottom: 2rem; font-family: var(--sans); font-size: .9rem; }
   .download { padding: .65rem 1rem; background: var(--accent-2); color: white; border-radius: 4px; }
@@ -57,7 +58,9 @@ const sections = getHeadings().filter((heading) => heading.depth === 2);
   .paper :global(h2) { margin-top: 2.5rem; scroll-margin-top: 7rem; }
   .paper :global(h1 + h2) { margin-top: 0; font-size: 1.5rem; font-weight: 400; color: var(--ink-soft); line-height: 1.4; }
   .paper :global(h3) { margin-top: 1.8rem; }
-  .paper :global(table) { margin: 1.5rem 0; font-size: .92rem; }
+  .paper :global(.paper-table) { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+  .paper :global(.paper-table:focus-visible) { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+  .paper :global(table) { display: table; max-width: none; overflow: visible; margin: 0; font-size: .92rem; }
   .paper :global(th), .paper :global(td) { min-width: 9rem; padding: .7rem; }
   .paper :global(ol) { padding-left: 1.4rem; font-size: .95rem; }
   .paper :global(ol li) { margin-bottom: .8rem; }
