@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "model_id": "declared-design-v1",
+  "version": "1.0.0",
+  "name": "Illustrative declared-design simulation",
+  "description": "Explore how declared design choices interact with explicit conditions and assumptions. This uncalibrated model does not predict actual people or verify the candidate interface.",
+  "numeric_precision": {
+    "input_decimal_places": 4,
+    "reported_decimal_places": 4,
+    "threshold_basis": "Rounded sampled fractions and human effort; counts remain exact. Coefficients are inputs, not estimates."
+  },
+  "defaults": {
+    "enabled": true,
+    "model_id": "declared-design-v1",
+    "seed": 2026,
+    "cohort_size": 100,
+    "conditions": {
+      "available_minutes": 20,
+      "support_capacity_minutes": 200,
+      "digital_access": 0.9
+    },
+    "assumptions": {
+      "baseline_success": 0.35,
+      "practice_gain_per_minute": 0.02,
+      "feedback_gain": 0.2,
+      "revision_gain": 0.1,
+      "transfer_penalty": 0.1,
+      "offline_recovery": 0.8
+    },
+    "criteria": {
+      "learner_success_min": 0.6,
+      "max_burden_minutes": 20,
+      "system_completion_min": 0.8
+    }
+  },
+  "fields": {
+    "conditions": [
+      {
+        "id": "available_minutes",
+        "label": "Available practice minutes",
+        "minimum": 0,
+        "maximum": 120,
+        "step": 1,
+        "description": "Practice time available to each simulated learner."
+      },
+      {
+        "id": "support_capacity_minutes",
+        "label": "Total support capacity in minutes",
+        "minimum": 0,
+        "maximum": 1200000,
+        "step": 1,
+        "description": "Human support time available across the whole simulated cohort."
+      },
+      {
+        "id": "digital_access",
+        "label": "Digital access fraction",
+        "minimum": 0,
+        "maximum": 1,
+        "step": 0.01,
+        "description": "Fraction assumed able to use the digital delivery channel."
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "baseline_success",
+        "label": "Baseline conditional success",
+        "minimum": 0,
+        "maximum": 1,
+        "step": 0.01,
+        "description": "Assumed success probability among completers before design gains and transfer penalty."
+      },
+      {
+        "id": "practice_gain_per_minute",
+        "label": "Practice gain per minute",
+        "minimum": 0,
+        "maximum": 0.1,
+        "step": 0.0001,
+        "description": "Assumed additive gain per effective practice minute; this is not an estimated learning rate."
+      },
+      {
+        "id": "feedback_gain",
+        "label": "Specific-feedback gain",
+        "minimum": 0,
+        "maximum": 1,
+        "step": 0.01,
+        "description": "Assumed gain for specific feedback; generic feedback receives half this gain."
+      },
+      {
+        "id": "revision_gain",
+        "label": "Revision-opportunity gain",
+        "minimum": 0,
+        "maximum": 1,
+        "step": 0.01,
+        "description": "Assumed additive gain when the design declares a revision opportunity."
+      },
+      {
+        "id": "transfer_penalty",
+        "label": "Transfer penalty",
+        "minimum": 0,
+        "maximum": 1,
+        "step": 0.01,
+        "description": "Assumed reduction when applying the practiced capability in the target context."
+      },
+      {
+        "id": "offline_recovery",
+        "label": "Offline recovery fraction",
+        "minimum": 0,
+        "maximum": 1,
+        "step": 0.01,
+        "description": "Fraction without digital access assumed served when the design declares an offline fallback."
+      }
+    ],
+    "criteria": [
+      {
+        "id": "learner_success_min",
+        "label": "Minimum simulated learner success fraction",
+        "minimum": 0,
+        "maximum": 1,
+        "step": 0.01,
+        "description": "Required sampled successes divided by the full cohort, including non-completers."
+      },
+      {
+        "id": "max_burden_minutes",
+        "label": "Maximum human effort per learner",
+        "minimum": 0,
+        "maximum": 240,
+        "step": 1,
+        "description": "Maximum requested practice plus allocated support minutes per learner. Choice and data conditions also apply."
+      },
+      {
+        "id": "system_completion_min",
+        "label": "Minimum simulated completion fraction",
+        "minimum": 0,
+        "maximum": 1,
+        "step": 0.01,
+        "description": "Required sampled completions divided by the full cohort."
+      }
+    ]
+  },
+  "presets": [
+    {
+      "id": "adequate",
+      "name": "Adequate conditions",
+      "description": "Default illustrative conditions; no successful result is guaranteed.",
+      "conditions": {
+        "available_minutes": 20,
+        "support_capacity_minutes": 200,
+        "digital_access": 0.9
+      }
+    },
+    {
+      "id": "time_limited",
+      "name": "Limited practice time",
+      "description": "Five minutes are available; other initial conditions remain at their defaults.",
+      "conditions": {
+        "available_minutes": 5,
+        "support_capacity_minutes": 200,
+        "digital_access": 0.9
+      }
+    },
+    {
+      "id": "access_limited",
+      "name": "Limited digital access",
+      "description": "Half the cohort has digital access; offline fallback may change coverage under the stated assumptions.",
+      "conditions": {
+        "available_minutes": 20,
+        "support_capacity_minutes": 200,
+        "digital_access": 0.5
+      }
+    }
+  ],
+  "formulas": {
+    "applicability": "The model covers the declared practice, feedback, revision, access, and support relationships only. An outside_scope declaration returns indeterminate without sampling. Its rationale is an agent claim awaiting human review, not proof of eligibility or a successful outcome.",
+    "effective_practice": "min(declared practice minutes, available practice minutes)",
+    "conditional_success": "clip(baseline + effective practice × practice gain + feedback gain × feedback factor + revision gain × revision indicator − transfer penalty, 0, 1); feedback factor is 0 for none, 0.5 for generic, and 1 for specific",
+    "coverage": "digital access + (1 − digital access) × offline recovery when fallback exists; otherwise digital access",
+    "capacity": "min(1, total support capacity / (cohort size × support minutes per learner)); 1 when no support is requested",
+    "completion": "coverage × capacity",
+    "expected_learner_success": "completion probability × conditional success probability",
+    "sampling": "For every simulated person, draw two uniform values from a fixed-seed Python random.Random generator. Completion uses the first draw; conditional success uses the second, even when the person does not complete.",
+    "numeric_precision": "Numeric inputs accept at most four decimal places. Reported metrics are rounded to four decimal places, and integral values are serialized as integers. Threshold checks use the reported sampled fractions and human effort; counts remain exact.",
+    "human_effort": "declared practice minutes + declared support minutes per learner",
+    "human_criterion": "Requested practice fits available time; human effort is within the threshold; choice is preserved; identified personal data are not requested.",
+    "overall_status": "Success when all three dimensions pass; failure when none pass; partial otherwise. Missing design information is indeterminate."
+  },
+  "limitations": [
+    "All coefficients and relationships are illustrative, uncalibrated assumptions, not empirical estimates or forecasts.",
+    "The simulator reads the declared Build design. It does not verify that the candidate interface implements that design.",
+    "Workflow changes, system redesigns, and other novel mechanisms may require a new outcome model. Declaring such a design outside_scope preserves an indeterminate assessment and the stated rationale for human review; it does not award success or establish that the scope claim is correct.",
+    "Agent identity, persona, competency assignments, and ablation labels do not enter the outcome equations.",
+    "The cohort is synthetic and simplified; human learning, behavior, wellbeing, and organizational dynamics are not validated by these results.",
+    "The simulator assigns no score for including a particular competency. Any effect must pass through a changed declared design or changed conditions.",
+    "Sampled fractions depend on the recorded seed and cohort size. Conditional success is not success across the full cohort.",
+    "Reported metrics and threshold comparisons use four decimal places. This explicit quantization preserves portable replay hashes and can affect decisions extremely close to a threshold.",
+    "No real learner or human outcomes are observed. A successful simulation does not authorize deployment."
+  ]
+}

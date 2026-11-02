@@ -4,9 +4,10 @@ import argparse
 import json
 from pathlib import Path
 import threading
+import sys
 import uuid
 from datetime import datetime, timezone
-from engine import ROOT, REPO, WEB, RUNS, Journal, SEED, validate_seed, CodexProvider, execute, verify
+from engine import REPO, RUNS, Journal, SEED, validate_seed, CodexProvider, execute
 from exemplar import ScriptedProvider
 from role_profiles import load_contract
 
@@ -28,6 +29,9 @@ class Handler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
+        from experiment_api import handle_get, capabilities
+        if handle_get(self, RUNS):
+            return
         if self.path.startswith("/api/prototypes/"):
             key = self.path.removeprefix("/api/prototypes/")
             if len(key) != 64 or any(c not in "0123456789abcdef" for c in key):
@@ -46,7 +50,7 @@ class Handler(SimpleHTTPRequestHandler):
                         return self.wfile.write(body)
             return self.send_json({"error": "Artifact not found"}, 404)
         if self.path == "/api/status":
-            return self.send_json({"local_runner": True, "active_run": ACTIVE, "providers": ["scripted", "codex"]})
+            return self.send_json({"local_runner": True, "active_run": ACTIVE, "providers": ["scripted", "dry-run", "codex"], "capabilities": capabilities()})
         if self.path.startswith("/api/products/"):
             run_id = self.path.removeprefix("/api/products/").removesuffix(".zip")
             if not run_id or any(c not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_" for c in run_id):
@@ -84,6 +88,9 @@ class Handler(SimpleHTTPRequestHandler):
         host = self.headers.get("Host", "")
         if host != f"127.0.0.1:{self.server.server_port}" or self.headers.get("Origin") != expected_origin:
             return self.send_json({"error": "Start runs from the local workbench"}, 403)
+        if self.path.startswith("/api/experiments/"):
+            from experiment_api import handle_post
+            return handle_post(self, sys.modules[__name__])
         if self.path != "/api/runs":
             return self.send_json({"error": "Unknown operation"}, 404)
         try:

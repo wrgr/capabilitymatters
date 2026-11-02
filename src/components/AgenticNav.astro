@@ -1,11 +1,12 @@
 ---
-interface Props { active?: "cases" | "replay" | "paper" | "roles" }
+interface Props { active?: "cases" | "replay" | "paper" | "roles" | "experiments" }
 const { active } = Astro.props;
 const links = [
+  { id: "experiments", href: "/agentic-le/experiments/", label: "Experiment studio" },
   { id: "cases", href: "/agentic-le/#cases", label: "All cases" },
   { id: "replay", href: "/agentic-le/replay/?v=quality-6", label: "Replay" },
   { id: "paper", href: "/agentic-le/paper/", label: "Working paper" },
-  { id: "roles", href: "/agentic-le/roles/", label: "Roles & proficiency" },
+  { id: "roles", href: "/agentic-le/roles/", label: "Team flower" },
 ];
 ---
 <nav class="agentic-nav" aria-label="Agentic LE">

@@ -5,17 +5,17 @@
     "path": "design",
     "title": "Agentic AI Lab",
     "url": "/agentic-le/",
-    "context": "Trace how a challenge changes a candidate product.",
-    "goal": "Trace how a challenge changes a candidate product.",
-    "before": "Choose one fictional case. You are examining a saved process, not commissioning a new agent run.",
+    "context": "Inspect how flower-domain contributions shape a candidate design.",
+    "goal": "Distinguish a withdrawn responsibility from a reduction in team capacity.",
+    "before": "Choose a fictional challenge. The flower studio configures new experiments; earlier replays preserve the original teams that produced those records.",
     "steps": [
-      "Try the candidate and identify the decision it asks a learner to make.",
-      "Replay the same case. Find one challenge and the revision that follows it.",
-      "Compare the candidate with the earlier idea. Name a requirement that changed."
+      "Inspect the eight flower domains and the responsibilities shared by every member.",
+      "Open the experiment studio and compare domain omission, member-specific withdrawal, member removal, and one agent with matched contribution slots. Review the planned call counts.",
+      "Inspect an earlier case replay or import a new run. Trace one concern into a decision and distinguish an implemented change from a proposal."
     ],
-    "notice": "Which revision addresses a real capability need, and which only improves presentation?",
-    "takeaway": "A challenge → revision → evidence chain.",
-    "limits": "Real agent execution on fictional problems. Human pilot approval and field evidence remain pending.",
+    "notice": "Could overlapping expertise compensate, and what observation would support that explanation?",
+    "takeaway": "A controlled comparison with an explicit responsibility change, capacity statement, and evidence needed.",
+    "limits": "Dry runs check software workflow. Historical cases retain their original configurations. A new scored flower study and human outcomes require fresh evidence.",
     "time": "15–25 minutes",
     "question": "What changed in your explanation after trying this?",
     "next": [

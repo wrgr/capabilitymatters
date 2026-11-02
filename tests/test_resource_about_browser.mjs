@@ -33,7 +33,8 @@ async function checkMotivation(page){
     assert(toolText.every(text=>text.size>=16&&!text.clipped),'Tool names and explanations stay readable without image zoom');
     assert.equal(await page.locator('.toolbox-illustration').getAttribute('alt'),'','The illustration does not duplicate the readable list');
 
-    assert.equal(await page.locator('a[href*="start-here"],a[href*="agentic-le"]').count(),0);
+    assert.equal(await page.locator('a[href*="start-here"]').count(),0);
+    assert(await page.getByRole('link',{name:'Explore the team flower',exact:false}).isVisible(),'The flower guide is reachable from the competency toolbox');
     const boxes=await page.evaluate(()=>{
       const a=document.querySelector('.motivation-main').getBoundingClientRect(),b=document.querySelector('.motivation-stats').getBoundingClientRect();
       return {mainRight:a.right,mainBottom:a.bottom,sideLeft:b.left,sideTop:b.top,overflow:document.documentElement.scrollWidth>innerWidth};

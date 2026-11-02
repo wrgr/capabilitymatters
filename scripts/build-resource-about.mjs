@@ -12,6 +12,8 @@ export const staticResources = [
   ['capability-pipeline/simulation.html', 'pipeline-simulation', '</h1>'],
   ['rainbow-bug/index.html', 'rainbow-bug', '</h1>'],
   ['agentic-le/replay/index.html', 'agentic-replay', '</h1>'],
+  ['agentic-le/experiments/index.html', 'agentic-experiments', '</h1>'],
+  ['agentic-le/experiments/blind-review.html', 'agentic-blind-review', '</h1>'],
   ...[
     ['product', 'workforce-original'],
     ['cases/workforce-conversation', 'workforce-conversation'],

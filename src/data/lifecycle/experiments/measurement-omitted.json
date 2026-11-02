@@ -1,0 +1,284 @@
+{
+  "schema_version": 2,
+  "id": "workforce-measurement-omitted",
+  "name": "Fictional workforce team with measurement support omitted",
+  "seed": {
+    "title": "Supporting difficult feedback conversations",
+    "idea": "A fictional service team requests a small browser-based resource to support difficult feedback conversations for new team leads. Its supplied brief describes recurring misunderstandings after conversations.",
+    "domain": "Fictional workforce learning and first-time team leadership",
+    "people": "New team leads, colleagues, supervisors, and a learning coordinator in a fictional service organization",
+    "constraints": "Use fictional examples only. Do not collect identifiable employee records or produce employee rankings. The proposed resource must be usable on shared laptops."
+  },
+  "team": [
+    {
+      "id": "coordinator",
+      "name": "Coordinator",
+      "role": "Stage coordinator",
+      "competencies": [],
+      "stages": [],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "decision",
+      "available": true,
+      "persona_ref": null
+    },
+    {
+      "id": "member-1",
+      "name": "Contributor 1",
+      "role": "Team contributor",
+      "competencies": [
+        "framing"
+      ],
+      "stages": [
+        "understand"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "framing-specialist",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "member-2",
+      "name": "Contributor 2",
+      "role": "Team contributor",
+      "competencies": [
+        "systems"
+      ],
+      "stages": [
+        "model",
+        "refine"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "systems-specialist",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "member-3",
+      "name": "Contributor 3",
+      "role": "Team contributor",
+      "competencies": [
+        "learning"
+      ],
+      "stages": [
+        "design",
+        "refine"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "learning-specialist",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "member-4",
+      "name": "Contributor 4",
+      "role": "Team contributor",
+      "competencies": [
+        "design"
+      ],
+      "stages": [
+        "understand",
+        "build"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "design-specialist",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "member-5",
+      "name": "Contributor 5",
+      "role": "Team contributor",
+      "competencies": [
+        "implementation"
+      ],
+      "stages": [
+        "build"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "implementation-specialist",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "member-6",
+      "name": "Contributor 6",
+      "role": "Team contributor",
+      "competencies": [
+        "measurement"
+      ],
+      "stages": [
+        "design",
+        "instrument",
+        "evaluate"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "measurement-specialist",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "member-7",
+      "name": "Contributor 7",
+      "role": "Team contributor",
+      "competencies": [
+        "human"
+      ],
+      "stages": [
+        "design",
+        "deploy"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "human-specialist",
+        "version": "1.0.0"
+      }
+    }
+  ],
+  "integration": {
+    "mode": "explicit",
+    "coordinator": "coordinator"
+  },
+  "omit_competencies": [
+    "measurement"
+  ],
+  "environment": {
+    "time_pressure": "standard",
+    "resources": "One facilitator, shared laptops, and twenty minutes of protected practice time per participant.",
+    "constraints": [
+      "The proposed resource is needed in four weeks."
+    ]
+  },
+  "challenges": [
+    {
+      "id": "practice-time-withdrawn",
+      "stage": "design",
+      "description": "The organization withdraws protected practice time. The implementation date remains unchanged.",
+      "simulation_effects": {
+        "available_minutes": 5
+      }
+    }
+  ],
+  "execution": {
+    "provider": "dry-run",
+    "model": "",
+    "through": "refine",
+    "repetitions": 3,
+    "max_calls": 40,
+    "max_output_chars": 48000
+  },
+  "participation": {
+    "mode": "team",
+    "individual": {
+      "id": "individual",
+      "name": "Individual contributor",
+      "role": "Project contributor",
+      "competencies": [
+        "framing",
+        "systems",
+        "learning",
+        "design",
+        "implementation",
+        "measurement",
+        "human"
+      ],
+      "stages": [
+        "understand",
+        "model",
+        "design",
+        "build",
+        "instrument",
+        "deploy",
+        "evaluate",
+        "refine"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "decision",
+      "available": true,
+      "persona_ref": {
+        "id": "generalist",
+        "version": "1.0.0"
+      }
+    },
+    "allocation": "matched_slots"
+  },
+  "outcomes": {
+    "enabled": true,
+    "model_id": "declared-design-v1",
+    "seed": 2026,
+    "cohort_size": 100,
+    "conditions": {
+      "available_minutes": 20,
+      "support_capacity_minutes": 200,
+      "digital_access": 0.9
+    },
+    "assumptions": {
+      "baseline_success": 0.35,
+      "practice_gain_per_minute": 0.02,
+      "feedback_gain": 0.2,
+      "revision_gain": 0.1,
+      "transfer_penalty": 0.1,
+      "offline_recovery": 0.8
+    },
+    "criteria": {
+      "learner_success_min": 0.6,
+      "max_burden_minutes": 20,
+      "system_completion_min": 0.8
+    }
+  }
+}

@@ -36,6 +36,9 @@ def digest(value):
 def now():
     return datetime.now(timezone.utc).isoformat()
 
+def _reject_nonfinite_json(value: str) -> None:
+    raise ValueError(f"Provider returned nonfinite JSON constant {value}; raw response file is retained")
+
 def validate_seed(seed):
     if not isinstance(seed, dict):
         raise ValueError("Seed must be an object")
@@ -88,7 +91,7 @@ class Journal:
             raise ValueError("Only a stopped run can be reopened")
         return journal
 
-    def __init__(self, path, seed, mode, parent=None, role_profiles=None):
+    def __init__(self, path, seed, mode, parent=None, role_profiles=None, experiment=None):
         validate_seed(seed)
         self.path = Path(path)
         self.path.mkdir(parents=True, exist_ok=False)
@@ -96,7 +99,9 @@ class Journal:
         contract = json.loads(canonical(role_profiles or DEFAULT_CONTRACT))
         roster = {k: {"name": p["name"], "competency": p["competency"]} for k, p in contract["roles"].items()}
         self.run = {"schema_version": 1, "id": self.path.name, "created_at": now(), "seed": seed, "mode": mode, "parent": parent, "roster": roster, "role_profiles": contract, "events": self.events}
-        self.append("seed", "understand", "human", {"seed": seed, "mode": mode, "run_id": self.path.name, "roster": self.run["roster"], "role_profiles": contract, "parent": parent, "note": "Project input; not a pilot authorization.", "source": "Capability Matters / Problems to Prototypes; project-specific competency synthesis"})
+        experiment_pin = {} if experiment is None else {"experiment": json.loads(canonical(experiment))}
+        self.run.update(experiment_pin)
+        self.append("seed", "understand", "human", {"seed": seed, "mode": mode, "run_id": self.path.name, "roster": self.run["roster"], "role_profiles": contract, "parent": parent, "note": "Project input; not a pilot authorization.", "source": "Capability Matters / Problems to Prototypes; project-specific competency synthesis", **experiment_pin})
         (self.path / "manifest.json").write_text(json.dumps({k: v for k, v in self.run.items() if k != "events"}, indent=2))
 
     def append(self, kind, stage, agent, payload):
@@ -132,6 +137,10 @@ def verify(run):
         raise ValueError("Run metadata differs from its journal")
     if run.get("role_profiles") != manifest.get("role_profiles"):
         raise ValueError("Role profile metadata differs from its journal")
+    if run.get("experiment") != manifest.get("experiment"):
+        raise ValueError("Experiment configuration differs from its journal")
+    if run.get("experiment") and run["experiment"].get("config_hash") != digest(run["experiment"].get("config")):
+        raise ValueError("Experiment configuration hash differs from its content")
     previous = "0" * 64
     revisions = {}
     for seq, event in enumerate(run["events"], 1):
@@ -140,7 +149,11 @@ def verify(run):
             raise ValueError(f"Journal integrity failed at event {seq}")
         previous = event["hash"]
         if event["kind"] in ("contribution", "scenario", "decision"):
-            validate_response(event["payload"]["response"], seq - 1)
+            if run.get("experiment", {}).get("config", {}).get("schema_version", 1) >= 2:
+                from experiment_contract import validate_recorded_response
+                validate_recorded_response(event["payload"]["response"], seq - 1, run["experiment"], event["stage"], event["kind"])
+            else:
+                validate_response(event["payload"]["response"], seq - 1)
         if event["kind"] == "verification" and event["payload"].get("status") == "file_source_attached":
             p = event["payload"]
             artifact = next((e for e in run["events"][:seq-1] if e["seq"] == p.get("artifact_seq") and e["kind"] == "artifact"), None)
@@ -156,6 +169,9 @@ def verify(run):
             if p["revision"] != prior + 1 or p["parent_revision"] != (prior or None) or p["content_hash"] != digest(p["content"]) or not 0 < p["trigger_seq"] < seq or run["events"][p["trigger_seq"] - 1]["kind"] != "decision":
                 raise ValueError("Artifact integrity failed")
             revisions[p["id"]] = p["revision"]
+    if run.get("experiment"):
+        from experiment_contract import verify_experiment_extension
+        verify_experiment_extension(run)
     return True
 
 def snapshot(run, seq):
@@ -168,19 +184,20 @@ def snapshot(run, seq):
 
 class CodexProvider:
     mode = "live-codex"
-    def __init__(self, model=None, executable="codex"):
+    def __init__(self, model=None, executable="codex", response_schema=None):
         if os.environ.get("CAPABILITY_MATTERS_LIVE") != "1":
             raise RuntimeError("Live calls require CAPABILITY_MATTERS_LIVE=1; scripted mode remains offline")
         self.executable = shutil.which(executable)
         if not self.executable:
             raise RuntimeError("Codex CLI is not installed or on PATH")
         self.model = model
+        self.response_schema = SCHEMA if response_schema is None else response_schema
 
     def call(self, role, stage, prompt, directory, ordinal):
         directory = Path(directory).resolve()
         schema_path = directory / "contribution-schema.json"
         if not schema_path.exists():
-            schema_path.write_text(json.dumps(SCHEMA))
+            schema_path.write_text(json.dumps(self.response_schema))
         output = directory / f"response-{ordinal:03d}.json"
         # The model has read-only tools; it returns public deliberation through stdout.
         command = [self.executable, "exec", "--ephemeral", "--sandbox", "read-only", "--skip-git-repo-check", "--color", "never", "--json", "-C", str(ROOT), "--output-schema", str(schema_path), "-o", str(output)]
@@ -192,7 +209,7 @@ class CodexProvider:
             process = subprocess.run(command, input=prompt, text=True, stdout=receipt, stderr=errors, timeout=240)
         if process.returncode:
             raise RuntimeError(f"Codex exited {process.returncode}; inspect provider-{ordinal:03d}.stderr.txt in the run directory")
-        response = json.loads(output.read_text())
+        response = json.loads(output.read_text(), parse_constant=_reject_nonfinite_json)
         key = digest({"prompt": prompt, "response": response})
         CACHE.mkdir(parents=True, exist_ok=True)
         cache_path = CACHE / (key + ".json")

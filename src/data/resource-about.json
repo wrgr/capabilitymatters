@@ -113,20 +113,20 @@
     ]
   },
   "agentic-le": {
-    "what": "A collection of real agent runs on fictional workforce, school and library problems. Replays, candidate tools, role contracts and versioned artifacts expose how proposed designs changed; human pilot approval and field evidence remain pending.",
+    "what": "A flower-based experiment studio and a collection of preserved agent runs on fictional problems. Configure team contributions, examine the original journals and candidate tools, and identify the observations still needed with real learners and practitioners.",
     "how": [
-      "Choose a case and try its candidate, then open Replay this case to trace how the design developed.",
-      "Step through a scenario challenge and compare the artifact before and after it. Meeting conversation is an authored presentation of the saved contributions.",
+      "Open the experiment studio to inspect the eight flower domains and configure a team or a five-condition comparison.",
+      "Choose an earlier case and replay its original discussion. Compare a challenge, decision, and artifact; those records retain their original team assignments.",
       "Inspect the requirements and manifest. Name an affected-person review or field observation that could challenge the candidate before use."
     ],
-    "connection": "The lab connects multidisciplinary teaming with the LENS cycle: learning, systems, design and measurement concerns must change requirements and accountable decisions. A complete artifact or fluent agent discussion is evidence of output, not demonstrated human capability, collaboration quality or learning impact.",
+    "connection": "The flower makes complementary expertise and shared understanding explicit across a learning engineering cycle. LENS connects Human flourishing, Learning sciences, and Systems engineering; the simulation asks how contributions enter decisions and executable designs. Output alone does not demonstrate human capability or learning impact.",
     "links": [
       {
-        "label": "Team roles and evidence targets",
+        "label": "Flower domains and team responsibilities",
         "href": "/agentic-le/roles/"
       },
       {
-        "label": "Methods working paper",
+        "label": "Earlier working paper and evidence",
         "href": "/agentic-le/paper/"
       }
     ]
@@ -138,10 +138,10 @@
       "Inspect a challenge, the following decision and the revised artifact. Compare revision shows what changed; Read full brief opens the complete record.",
       "Use Case demo to inspect the final executable candidate independently of replay position. Compare original recorded turns with the authored Meeting conversation adaptation."
     ],
-    "connection": "Replay supports examination of design rationale and the coordination of specialist contributions. For LENS, the question is whether evidence about people and operating conditions actually changes a requirement. Recorded roles and competency targets describe intended contributions; they do not certify proficiency or prove that human teams learn from the replay.",
+    "connection": "Replay shows whether evidence about people and operating conditions changes a requirement. Historical journals preserve their original roles and prompts; they are not relabeled as flower experiments. The current flower framework organizes new team configurations around shared understanding and responsibility to learners and stakeholders. Neither a recorded role nor a fluent discussion certifies proficiency or human learning.",
     "links": [
       {
-        "label": "Role contracts and proficiency limits",
+        "label": "Current flower and historical role contracts",
         "href": "/agentic-le/roles/"
       },
       {
@@ -165,16 +165,21 @@
     ]
   },
   "agentic-roles": {
-    "what": "A guide to nine contribution roles, inherited duties, domain profiles and requested competency targets used in the agentic simulation.",
+    "what": "A guide to the learning engineering flower and its eight starting expertise domains, shared learner and stakeholder responsibilities, and controlled team comparisons. Earlier role contracts remain available for interpreting historical runs.",
     "how": [
-      "Choose a role and inspect its expected contribution, added duties and inherited responsibilities.",
-      "Compare two roles on a saved case. Use Proficiency and evidence to identify a task that would be needed to demonstrate a target."
+      "Inspect the flower and choose a domain to examine its requested contribution. Consider which expertise the particular challenge needs.",
+      "Open the experiment studio, assign a domain to one or several members, and compare global omission, member-specific withdrawal, member removal, and one agent using matched slots.",
+      "Use the historical roster section when interpreting an earlier replay; retain the assignments and evidence from that run."
     ],
-    "connection": "LENS combines disciplinary contributions around a capability problem. These contracts make integration and accountability discussable; requested proficiency is a design target, while demonstrated proficiency requires reviewed work under stated conditions.",
+    "connection": "Shared understanding connects domain contributions into a coherent design. Team composition may change with the challenge and stage. Flower domains organize expertise; they are not validated individual competency scores or a replacement for involving learners and stakeholders. LENS foundations remain Human flourishing, Learning sciences, and Systems engineering.",
     "links": [
       {
-        "label": "Inspect roles in a saved replay",
-        "href": "/agentic-le/replay/"
+        "label": "Configure flower experiments",
+        "href": "/agentic-le/experiments/"
+      },
+      {
+        "label": "Learning engineering is a team sport",
+        "href": "https://edtecharchives.org/conference_proceeding/2109/21837"
       }
     ]
   },
@@ -423,16 +428,24 @@
     "connection": "The paper develops the conceptual LENS frame used across these resources. Use it to question whether a polished artifact, an immediate performance and durable learning are being confused; the proposed frame remains open to community discussion."
   },
   "agentic-paper": {
-    "what": "A methods working draft about agentic collaboration across fictional workforce, school and library projects, with source-linked records and an evaluation agenda.",
+    "what": "The previously published working paper about agentic collaboration across fictional workforce, school, and library projects. This reading edition preserves its original text, downloads, and evidence; the flower guide and studio describe the current experiment methods.",
     "how": [
-      "Read the abstract and scope before interpreting the case episodes.",
-      "Follow a cited episode into its replay and evidence audit; distinguish implemented behavior from proposed human-team and learning studies."
+      "Read the publication context and the original abstract before interpreting the case episodes.",
+      "Follow the earlier evidence audit and saved replays to inspect the original records. Use the flower guide and experiment studio for the current configuration and comparison methods."
     ],
     "connection": "The paper connects multidisciplinary integration to the LENS capability cycle. Its contribution is an inspectable representation and method; claims about collaboration quality, human learning and field impact still require independent evidence.",
     "links": [
       {
-        "label": "Explore the actual case records",
-        "href": "/agentic-le/"
+        "label": "Current flower framework and comparison methods",
+        "href": "/agentic-le/roles/"
+      },
+      {
+        "label": "Current experiment studio",
+        "href": "/agentic-le/experiments/"
+      },
+      {
+        "label": "Preserved earlier case records",
+        "href": "/agentic-le/#cases"
       }
     ]
   },
@@ -489,5 +502,35 @@
         "href": "/andon/"
       }
     ]
+  },
+  "agentic-experiments": {
+    "what": "A configurable simulation organized around the learning engineering flower: eight starting expertise domains, shared understanding, and responsibilities to learners and other stakeholders. Configure and export experiments here; a local runner executes new model calls. Saved historical journals keep their original assignments.",
+    "how": [
+      "Choose a fictional scenario and the full flower team. Inspect domain assignments, overlapping responsibilities, behavioral settings, conditions, and fixed challenges.",
+      "In Review & run, choose Flower: five conditions and the domain and member to compare. Inspect call counts: domain omissions preserve contribution opportunities, while member removal changes capacity. Export configuration or run through the local runner.",
+      "Replay a saved run to inspect prompts, evidence, and artifact revisions. The original declared-design synthetic outcome cards remain separate from the new blind evidence scorecard.",
+      "In Scorecard, prepare opaque packets and keep the private assignment key separate. Use the isolated blind workspace to cite evidence, retain unknowns, and freeze all reviews before revealing assignments or comparing candidates within a scenario.",
+      "Fork an iteration when changing a team, assumption, or design. Export the preserved snapshot, frozen scorecards, and original journals to retain the complete parent-linked evidence trail."
+    ],
+    "connection": "The flower organizes complementary contributions around shared understanding. Learner and stakeholder responsibilities remain shared; represented expertise does not establish proficiency. LENS retains Human flourishing, Learning sciences, and Systems engineering as its foundations. The evidence scorecard separately examines human flourishing support, system performance, and learning; simulated outputs do not establish outcomes with people.",
+    "links": [
+      {
+        "label": "Existing agentic case replay",
+        "href": "/agentic-le/replay/"
+      },
+      {
+        "label": "Role contracts and proficiency limits",
+        "href": "/agentic-le/roles/"
+      }
+    ]
+  },
+  "agentic-blind-review": {
+    "what": "An isolated evidence review workspace for scoring opaque learning engineering candidates before revealing team assignments. It preserves task-level human flourishing support, system performance, and learning evidence as three separate axes.",
+    "how": [
+      "Import an opaque packet or bundle. Inspect the task, constraints, rubric, and evidence. Full-solution packets separate executable Build, generated stage records, and observations; proposed repairs receive no implementation credit. Keep historical artifact-only reviews in their original scope.",
+      "For each criterion, record a supported rating, plausible lower and upper bounds, rationale, and an exact evidence quotation. Keep insufficient evidence unknown and describe any identity clues in the limitations.",
+      "Inspect the probability assumptions, export a draft if needed, then freeze the review with the local runner. Export the frozen record to the organizer for comparison and identity reveal after the selected reviews are frozen."
+    ],
+    "connection": "Learning engineering connects designed contributions to evidence about what learners and systems can do. LENS also asks whether people have agency, access, and viable conditions for action. Withholding assignment labels helps test the artifact rather than reward the intended expertise, while modeled uncertainty makes incomplete evidence and contextual assumptions visible. These task-level indices do not establish observed learning gains or human flourishing."
   }
 }

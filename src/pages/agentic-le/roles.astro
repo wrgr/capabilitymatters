@@ -1,104 +1,73 @@
 ---
+/** Explain current flower responsibilities while preserving the earlier roster's provenance. */
 import ResourceAbout from "../../components/ResourceAbout.astro";
 import Base from "../../layouts/Base.astro";
 import AgenticNav from "../../components/AgenticNav.astro";
-import meeting from "../../data/lifecycle/meeting-voices.json";
-import registry from "../../data/lifecycle/roles.json";
-import contract from "../../data/lifecycle/resolved-roles.json";
-const framework = contract.framework;
-const domains = Object.fromEntries(framework.domains.map(d => [d.id, d.name]));
-const team = Object.entries(contract.roles);
-const specializations = Object.entries(contract.available_domain_profiles).filter(([key]) => key !== "domain");
-// Reading aids describe expected work, not additional runtime instructions or performance evidence.
-const contributions: Record<string, string> = {
- orchestrator: "A stage artifact and decision that connect specialist drafts, preserve disagreements, and explain what to revisit. At Build, an executable candidate.",
- learning: "A draft connecting practice and feedback to observable performance, with separate questions about retention and transfer.",
- systems: "A draft of coupled human and system requirements, constraints, recovery needs, and alternatives to training.",
- design: "A draft explaining affected people’s needs, participation, access, agency, and the burden of the proposed design.",
- measurement: "A draft identifying task evidence, comparisons, coverage gaps, and limits on what results could establish.",
- responsible: "A draft examining delegation, privacy, correction, and the decisions that require accountable human review.",
- implementation: "A draft of a small runnable approach, its technical limits, instrumentation, and fallback. The orchestrator integrates the candidate.",
- domain: "A draft grounded in the supplied domain context, with limits of expertise and the practitioner review still needed.",
- scenario: "A labeled hypothetical objection or unexpected event, the assumption it challenges, and a requested requirement change."
-};
-const caseLinks: Record<string, {id: string, label: string, note: string}> = {
- "workforce-domain": {id: "workforce", label: "Workforce", note: "Available for new runs. The published workforce case used earlier fixed prompts; this profile is not assigned to its history."},
- "school-science-domain": {id: "school-science", label: "School science", note: "Used by the published school science run, with registry 1.1.0."},
- "library-access-domain": {id: "library-access", label: "Public-library access", note: "Used by the published public-library access run, with registry 1.1.0."}
-};
-const profiles = [...team, ...specializations];
+import LearningEngineeringFlower from "../../components/LearningEngineeringFlower.astro";
+import catalog from "../../data/lifecycle/flower-catalog.json";
+import historical from "../../data/lifecycle/resolved-roles.json";
+const flower = catalog.flower;
+const conditions = [
+  ["Full team", "Retain the configured assignments and available members.", "Reference contribution schedule."],
+  ["Domain omitted everywhere", "Withdraw the selected domain’s explicit instructions from every member.", "Retain members and contribution slots."],
+  ["Domain withdrawn from one member", "Withdraw that domain from one selected member; other assignments remain.", "Retain this member’s contribution slots; overlap may compensate."],
+  ["Member removed", "Remove the selected member’s contributions and all of their assigned domains.", "Report reduced work capacity separately."],
+  ["One agent with matched slots", "One identity covers the reference team’s contribution and coordination slots.", "Match opportunities and the duties exposed at each slot."],
+];
 ---
-<Base title="Team roles · Agentic LE · Capability Matters"
- description="Meet the nine learning engineering simulation roles: responsibilities, expected contributions, inherited duties, domain specializations and LENS competency targets.">
- <meta slot="head" name="robots" content="noindex, nofollow" />
- <AgenticNav active="roles" />
- <header class="container-wide intro">
-  <p class="eyebrow">Agentic learning engineering · Team roles</p>
-  <h1>Who does what?</h1>
-<ResourceAbout resource="agentic-roles" />
-  <p>A learning engineer orchestrates eight complementary roles. Each profile contains a remit, inherited responsibilities, and requested LENS competency targets. Domain specializations add the context of a particular problem.</p>
-
-  <nav class="page-links" aria-label="Role guide"><a href="#team">Meet the nine roles</a><a href="#domain-profiles">Domain specializations</a><a href="#shared">Shared responsibilities</a><a href="#levels">Proficiency and evidence</a></nav>
- </header>
- <div class="container-wide roles">
-  <section id="team" aria-labelledby="team-heading">
-   <h2 id="team-heading">Meet the nine roles</h2>
-   <p>Choose a role to inspect its contents. These are agent contribution contracts for the simulation; human teams may combine or distribute this work differently.</p>
-   <nav class="directory" aria-label="Team role directory">{team.map(([id, profile]) => <a href={`#${id}`}><strong>{profile.name}</strong><span>{id === "orchestrator" ? "Orchestrates the team" : id === "scenario" ? "Challenges assumptions" : id === "domain" ? "Adds problem context" : "Contributes a specialist draft"}</span></a>)}</nav>
-   <p class="notice">The targets below describe expected contributions. Demonstrated proficiency remains <strong>unverified</strong>; it requires separately reviewed performance evidence.</p>
-  </section>
-  <section id="shared" aria-labelledby="shared-heading">
-   <h2 id="shared-heading">Responsibilities every role inherits</h2>
-   <ul>{registry.profiles.contributor.duties.map(duty => <li>{duty}</li>)}</ul>
-   <p><strong>Specialist draft contributors also:</strong> {registry.profiles.specialist.duties[0]}</p>
-   <p>Specialists brief the learning engineer. The learning engineer integrates their work; the scenario agent tests assumptions. Human approval remains a separate, accountable decision.</p>
-  </section>
-  <section aria-labelledby="contents-heading">
-   <h2 id="contents-heading">Inside each role</h2>
-   {profiles.map(([id, profile], index) => <>
-    {index === team.length && <header id="domain-profiles"><h2>Domain specializations</h2><p>A specialization fills the domain specialist’s place in the team. It inherits the domain role’s duties and adds context; it does not add another agent or establish domain expertise.</p></header>}
-    <article id={id} class="profile" aria-labelledby={`${id}-heading`}>
-     <p class="eyebrow">{profile.category === "orchestrator" ? "Orchestration" : profile.category === "scenario" ? "Scenario challenge" : profile.category === "domain" ? "Domain context" : "Specialist contribution"}</p>
-     <h3 id={`${id}-heading`}>{profile.name}</h3>
-     <p>{profile.competency}</p>
-     {contributions[id] && <p class="contribution"><strong>Expected contribution:</strong> {contributions[id]}</p>}
-     {meeting.roles[id] && <p class="meeting-voice"><strong>Meeting voice: {meeting.roles[id].style}.</strong> {meeting.roles[id].description} This personality belongs to the conversational presentation, separate from the role contract.</p>}
-     <h4>Responsibilities added by this profile</h4>
-     <ul>{registry.profiles[id].duties.map(duty => <li>{duty}</li>)}</ul>
-     <p class="inheritance"><strong>Inherits from:</strong> {profile.lineage.slice(0, -1).map((key, i) => <>{i > 0 && " → "}<a href={key === "contributor" || key === "specialist" ? "#shared" : `#${key}`}>{registry.profiles[key].name}</a></>)}. <a href="#shared">Review shared responsibilities</a>.</p>
-     {profile.focus_lenses?.length > 0 && <><h4>Assigned simulation subdomains</h4><p class="provenance">Proposed task lenses for this simulation, awaiting community review; these are not an adopted LENS subdomain taxonomy or demonstrated expertise.</p><ul>{profile.focus_lenses.map(key => {const lens=framework.task_lenses.find(l=>l.id===key);return lens && <li><strong>{lens.name} ({domains[lens.domain]}).</strong> {lens.question}</li>;})}</ul></>}
-     <h4>Requested LENS competency targets</h4>
-     <dl class="targets">{Object.entries(framework.proficiencies).map(([level, descriptor]) => {
-      const entries = Object.entries(profile.proficiency_targets).filter(([, target]) => target === level);
-      return entries.length > 0 && <div><dt>{descriptor.name}</dt><dd>{entries.map(([domain]) => domains[domain]).join(" · ")}</dd></div>;
-     })}</dl>
-     {caseLinks[id] && <p><strong>Case connection:</strong> {caseLinks[id].note} <a href={`/agentic-le/replay/?case=${caseLinks[id].id}&v=case-demos-3`}>Explore {caseLinks[id].label.toLowerCase()}</a>.</p>}
-     <details><summary>Inspect the full resolved contract</summary><p class="lineage">Profile: {profile.profile_id} · {profile.lineage.join(" → ")}</p><ul>{profile.duties.map(duty => <li>{duty}</li>)}</ul><p><a href="/agentic-le/record/?file=%2Fagentic-le%2Froles.json">Open the versioned role contract</a></p></details>
-     <p class="back"><a href={index < team.length ? "#team" : "#domain-profiles"}>Back to {index < team.length ? "team roles" : "domain specializations"}</a></p>
-    </article>
-   </>)}
-  </section>
-  <section id="contributions" aria-labelledby="contributions-heading">
-   <h2 id="contributions-heading">What a contribution contains</h2>
-   <p>The runner asks agents to expose their reasoning for review: a message; advantages, drawbacks, tradeoffs, risks and objections; separate human and system capability requirements; and implications for flourishing. A response also contains a draft artifact, a decision, any challenged assumption or stage to revisit, and references to earlier journal events. Fields may be empty when they do not apply.</p>
-   <p><a href="/agentic-le/replay/?view=conversation&v=meeting-2">Explore meeting conversation mode</a> for source-linked highlights with distinct role voices. The original recorded turns remain available alongside the adaptation.</p>
-   <p>Only the learning engineer’s integrated response becomes a versioned stage artifact. The Build response contains executable candidate code. Scenario challenges are explicitly hypothetical; the transcript preserves them as challenges to requirements.</p>
-   <p><a href="/agentic-le/replay/?v=case-demos-3">See contributions and revisions in replay</a> · <a href="https://github.com/wrgr/capabilitymatters/blob/main/tools/lifecycle/engine.py">Runner prompts and contribution schema</a></p>
-  </section>
-  <section id="levels" aria-labelledby="levels-heading">
-   <h2 id="levels-heading">Requested proficiency and the evidence needed</h2>
-   <p>These are proposed simulation expectations, not an adopted credentialing standard or an assessment of human or model proficiency. The five domain names come from Capability Matters’ public LENS framework.</p>
-   <div class="levels">{Object.entries(framework.proficiencies).map(([id, level]) => <article><h3>{level.name}</h3><p>{level.expectation}</p><p><strong>Evidence needed to review performance:</strong></p><ul>{level.evidence_required.map(item => <li>{item}</li>)}</ul></article>)}</div>
-   <p>Inheritance supplies shared duties. Child targets replace the parent target for the same domain; other targets remain. It supplies no performance evidence. Review context-specific task performance, support conditions, evidence coverage and transfer before making a capability claim.</p>
-  </section>
-  <section aria-labelledby="reuse-heading">
-   <h2 id="reuse-heading">Reuse and extend the roles</h2>
-   <p><strong>Registry {contract.registry_version}; framework {contract.framework_version}.</strong> Extend an existing concrete profile in the versioned registry, assign relevant task lenses, name the domain assumptions and required practitioner validation, then test resolution. New runs store the exact resolved profiles and framework hashes. Historical runs retain their original contracts.</p>
-   <p>A future authoritative competency framework needs source and version identifiers, an explicit crosswalk and separately reviewed proficiency evidence. A name match or successful model response does not establish equivalence. Runtime permissions and human approval boundaries do not expand through role inheritance.</p>
-   <p><a href="/agentic-le/record/?file=%2Fagentic-le%2Froles.json">Resolved role contract</a> · <a href="https://github.com/wrgr/capabilitymatters/tree/main/src/data/lifecycle">Versioned registry source</a> · <a href="https://github.com/wrgr/capabilitymatters/blob/main/docs/lifecycle/ROLES.md">Role documentation</a> · <a href="https://github.com/wrgr/capabilitymatters/blob/main/docs/lifecycle/PROFICIENCY.md">Evidence and proficiency rules</a></p>
-  </section>
- </div>
+<Base title="Learning engineering flower · Capability Matters" description="Eight starting expertise domains, shared understanding, responsibilities to learners and stakeholders, and controlled team comparisons.">
+  <AgenticNav active="roles" />
+  <header class="container-wide intro">
+    <p class="eyebrow">Agentic learning engineering · Team framework</p>
+    <h1>The learning engineering flower</h1>
+    <ResourceAbout resource="agentic-roles" />
+    <p>Learning engineering brings complementary expertise together around a shared challenge. The flower places <strong>shared understanding</strong> at the center and connects the whole team with <strong>learners and other stakeholders</strong>.</p>
+    <nav class="page-links" aria-label="Flower guide"><a href="#domains">Eight starting domains</a><a href="#shared">Shared responsibilities</a><a href="#comparisons">Five comparisons</a><a href="#historical">Historical role contracts</a></nav>
+  </header>
+  <div class="container-wide roles">
+    <LearningEngineeringFlower />
+    <section id="domains" aria-labelledby="domains-heading">
+      <h2 id="domains-heading">Expertise contributes to the work</h2>
+      <p>The default simulation assigns one member to each domain and a coordinator. A particular challenge may need a different mix. One person can contribute several domains, and several people can share a domain. These editable instructions organize contributions; they do not establish anyone’s professional competence.</p>
+      <div class="domain-grid">{flower.domains.map((domain, index) => <article id={domain.id}>
+        <p class="eyebrow">Domain {index + 1}</p><h3>{domain.name}</h3><p>{domain.description}</p>
+      </article>)}</div>
+      <p class="source">Source: <a href={flower.source.url}>Ali and colleagues, Learning engineering is a team sport (2025)</a>. The flower domains are starting points and are not conclusive. Composition may shift with the challenge and stage.</p>
+    </section>
+    <section id="shared" aria-labelledby="shared-heading">
+      <h2 id="shared-heading">The center is everyone’s responsibility</h2>
+      <ul>{flower.shared_responsibilities.map(duty => <li>{duty}</li>)}</ul>
+      <p>Assigning a responsibility does not substitute for involving learners, practitioners, and other stakeholders. Every configuration should distinguish supplied facts, proposed interpretations, and information still needed from those people.</p>
+      <div class="distinctions">
+        <article><h3>Flower domains</h3><p>Organize the expertise contributing to a team’s design work.</p></article>
+        <article><h3>LENS foundations</h3><p><strong>Human flourishing, Learning sciences, and Systems engineering</strong> remain the three foundations of the program’s approach.</p></article>
+        <article><h3>Evidence scorecard</h3><p><strong>Human flourishing support, system performance, and learning</strong> are assessed separately. They describe the design and available evidence; human outcomes need evaluation with people.</p></article>
+      </div>
+    </section>
+    <section id="comparisons" aria-labelledby="comparisons-heading">
+      <h2 id="comparisons-heading">Five comparisons ask different questions</h2>
+      <p>Distinguish a missing responsibility from losing a member’s time and contribution opportunities. Fix the case facts, challenge schedule, execution settings, and coordination policy, then inspect what each contrast actually changes.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Five flower comparison conditions"><table><thead><tr><th scope="col">Condition</th><th scope="col">Change</th><th scope="col">Capacity and interpretation</th></tr></thead><tbody>{conditions.map(row => <tr>{row.map((cell, index) => index === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>)}</tr>)}</tbody></table></div>
+      <p>The default full team schedules forty calls across Understand, Map, Design, Build, Instrument, Experiment, Evaluate, and Refine: four contributions from each domain and eight coordinator decisions. Removing one default domain member leaves thirty-six calls; the other default conditions retain forty. Custom schedules must be resolved before comparison.</p>
+      <p>Overlap may allow another member to identify a concern. Omission does not erase a model’s latent knowledge, and no condition is programmed to fail. Matching calls also does not match token volume, independent perspectives, or human effort.</p>
+      <p><a class="primary-link" href="/agentic-le/experiments/">Configure and compare flower teams</a></p>
+    </section>
+    <section aria-labelledby="evidence-heading">
+      <h2 id="evidence-heading">Inspect the design and its evidence</h2>
+      <p>The current protocol carries the shared case and integrated stage records into review. Keep the executable Build separate from later proposals: a recommendation to repair an artifact is not evidence that the repair was implemented. Freeze evidence-based ratings before revealing assignments.</p>
+      <p>The earlier eighteen-run exploration used a different fixed roster. Its examples inform questions for further inquiry; they are not new flower results. Repeated software checks, model reviews, and simulated draws do not create observations of human learning.</p>
+      <p><a href="/agentic-le/paper/">Read the earlier working paper</a> · <a href="https://github.com/wrgr/capabilitymatters/tree/main/docs/lifecycle">Read the execution and evaluation documentation</a></p>
+    </section>
+    <details id="historical" class="historical">
+      <summary>Historical roster and role contracts</summary>
+      <p>These profiles document the earlier replay collection. Their original duties and requested LENS targets remain attached to those saved runs. They are not a crosswalk from the flower domains to a validated competency framework.</p>
+      <nav class="page-links" aria-label="Historical role directory">{Object.entries(historical.roles).map(([id, role]) => <a href={`#${id}`}>{role.name}</a>)}</nav>
+      {Object.entries(historical.roles).map(([id, role]) => <article id={id}><p class="eyebrow">Earlier roster</p><h3>{role.name}</h3><p>{role.competency}</p><details><summary>Original responsibilities</summary><ul>{role.duties.map(duty => <li>{duty}</li>)}</ul></details></article>)}
+      <p>Registry {historical.registry_version}; framework {historical.framework_version}. Requested targets have no demonstrated proficiency evidence by themselves.</p>
+      <p><a href="/agentic-le/record/?file=%2Fagentic-le%2Froles.json">Inspect the original resolved role contract</a> · <a href="/agentic-le/replay/">Open a historical replay</a></p>
+    </details>
+  </div>
 </Base>
 <style>
- .intro{padding-top:1.4rem;padding-bottom:1rem}.intro h1{font-size:clamp(2rem,4vw,3rem);margin-bottom:.7rem}.intro>p:last-of-type{max-width:55rem}.page-links{display:flex;gap:.7rem 1.5rem;flex-wrap:wrap;font-family:var(--sans);font-size:.95rem}.roles{padding-top:1rem;padding-bottom:3rem}.roles section{margin-bottom:2.5rem}.roles section,.profile,#domain-profiles{scroll-margin-top:7rem}.directory{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1.2rem 0}.directory a{display:block;padding:1rem;background:var(--tint);border:1px solid var(--border);border-radius:6px;text-decoration:none}.directory strong,.directory span{display:block}.directory span{font-family:var(--sans);color:var(--muted);font-size:.85rem;margin-top:.35rem}.directory a:hover{border-color:var(--accent)}.notice{font-size:.95rem}.levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}article{border:1px solid var(--border);padding:1.3rem;border-radius:6px;margin-bottom:1.4rem}.profile .eyebrow{margin-bottom:.4rem}.profile h3{font-size:1.6rem;margin:0 0 .8rem}.profile h4{font-size:1rem;margin:1.2rem 0 .5rem}.contribution{background:var(--tint);padding:.9rem}.inheritance,.back{font-size:.9rem}.targets{display:grid;gap:.6rem;font-family:var(--sans);font-size:.9rem}.targets div{display:grid;grid-template-columns:13rem 1fr;gap:1rem;border-bottom:1px solid var(--border);padding-bottom:.6rem}.targets dt{font-weight:700}.targets dd{margin:0}.lineage{font-family:var(--mono);font-size:.85rem;color:var(--muted);overflow-wrap:anywhere}details{margin-top:1rem}summary{cursor:pointer;font-family:var(--sans);font-size:.9rem}a:focus-visible,summary:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px}@media(max-width:760px){.directory,.levels{grid-template-columns:1fr}.targets div{grid-template-columns:1fr;gap:.3rem}.profile{padding:1rem}}
+  .intro{padding-top:1.4rem;padding-bottom:1rem}.intro h1{font-size:clamp(2rem,4vw,3rem);margin-bottom:.7rem}.intro>p:last-of-type{max-width:58rem}.page-links{display:flex;gap:.7rem 1.5rem;flex-wrap:wrap;font-family:var(--sans);font-size:.95rem}.roles{padding-bottom:3rem}.roles section{margin:2.5rem 0}.roles section,.roles article,#historical{scroll-margin-top:7rem}.domain-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.4rem 0}.distinctions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.4rem}article{border:1px solid var(--border);padding:1.2rem;border-radius:8px;background:var(--bg)}article .eyebrow{margin:0 0 .5rem}article h3{font-size:1.2rem;margin:0 0 .8rem}article p:last-child{margin-bottom:0}.source{font-size:.85rem;color:var(--muted)}.table-scroll{overflow-x:auto;margin:1.5rem 0}table{width:100%;min-width:42rem;font-size:.93rem}th,td{text-align:left;vertical-align:top;padding:.85rem;border-bottom:1px solid var(--border)}th{font-family:var(--sans)}tbody th{min-width:11rem}thead{background:var(--tint)}.primary-link{display:inline-block;padding:.7rem 1rem;background:var(--ink);color:white;border-radius:5px;font-family:var(--sans);text-decoration:none}.historical{border:1px solid var(--border);border-radius:8px;padding:1.25rem}.historical>summary{font:700 1.15rem var(--sans);cursor:pointer}.historical article{margin:1rem 0}.historical>p:first-of-type{margin-top:1rem}a:focus-visible,summary:focus-visible,.table-scroll:focus-visible{outline:3px solid var(--accent-2);outline-offset:3px}@media(max-width:760px){.domain-grid,.distinctions{grid-template-columns:1fr}th,td{padding:.65rem}.table-scroll{font-size:.85rem}}
 </style>

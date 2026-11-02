@@ -159,6 +159,40 @@ python3 tests/test_slick_sheet.py
 node --test tests/test_prototypes.mjs
 ```
 
+## Flower framework experiments
+
+The studio at `/agentic-le/experiments/` starts with the learning engineering
+flower's eight expertise domains, a coordinator, and shared responsibility for
+understanding learners and stakeholders. The default schedules forty calls over
+eight stages. Domain instructions, member identity, behavior, authority, and work
+opportunities remain separately inspectable. See the
+[flower guide](https://capabilitymatters.org/agentic-le/roles/) and
+[experiment protocol](docs/lifecycle/EXPERIMENTS.md).
+
+```sh
+npm ci
+npm run build
+python3 tools/lifecycle/server.py
+```
+
+Open `http://127.0.0.1:8767/agentic-le/experiments/` for local execution. The
+published static studio can configure teams and import saved records. Its offline
+dry runs verify software and replay; they produce no empirical research findings.
+Live runs require an authenticated Codex CLI, an explicit model identifier, and
+`CAPABILITY_MATTERS_LIVE=1` when starting the service.
+
+The protocol distinguishes full-team work, withdrawing a domain everywhere,
+withdrawing it from one member, removing a member, and one agent covering matched
+contribution slots. Member removal changes capacity; withdrawing responsibility
+retains the scheduled work. Shared case facts remain available in every condition.
+Frozen historical replays retain their original rosters and evidence scope.
+
+The [scorecard method](docs/lifecycle/SCORECARD.md) keeps human flourishing
+support, system performance, and learning separate. Generated design records and
+software checks support inspection; observed learning, burden, and transfer still
+require evaluation with people. New flower configurations are not relabeled
+historical results.
+
 ## Problems to Prototypes
 
 `/problems-to-prototypes/` holds 38 evidence-linked briefs across AILE, LXD,

@@ -3,7 +3,7 @@ import ResourceAbout from "../../components/ResourceAbout.astro";
 import LearningGuideLink from "../../components/LearningGuideLink.astro";
 import Base from "../../layouts/Base.astro";
 import AgenticNav from "../../components/AgenticNav.astro";
-import roles from "../../data/lifecycle/resolved-roles.json";
+import LearningEngineeringFlower from "../../components/LearningEngineeringFlower.astro";
 import cases from "../../../public/agentic-le/cases.json";
 import run from "../../../public/agentic-le/replay/live-exemplar.json";
 import workforce from "../../../public/agentic-le/replay/workforce-conversation.json";
@@ -23,15 +23,22 @@ const artifacts = run.events.filter(e => e.kind === "artifact").length;
  <AgenticNav active="cases" />
  <header class="intro container-wide">
   <p class="eyebrow">Agentic learning engineering · Problems → Products</p>
-  <h1>Teams at work. Every case, with its work shown.</h1>
+  <h1>Explore learning engineering teams</h1>
 <ResourceAbout resource="agentic-le" />
-  <p>A learning engineer orchestrates specialist agents from a seed idea to a candidate product. Explore the discussion, challenges, revisions and code for each project.</p>
+  <p>Configure complementary expertise around the learning engineering flower. Follow how shared understanding, contributions, and operating conditions shape a candidate design, then inspect the evidence behind it.</p>
 
  </header>
  <section class="container-wide lab">
+  <section aria-labelledby="flower-heading">
+   <h2 id="flower-heading">A shared framework for the experiments</h2>
+   <p>Eight starting expertise domains surround shared understanding. Learners and other stakeholders remain connected to the whole team. Assign one or several domains to a member, share responsibilities, and select the expertise the challenge needs.</p>
+   <LearningEngineeringFlower />
+   <p><a class="studio-link" href="/agentic-le/experiments/">Open the flower experiment studio</a> <a href="/agentic-le/roles/#comparisons">Understand the five comparisons</a></p>
+   <p>Compare the full team, domain omission everywhere, withdrawal from one member, member removal, and one agent using matched contribution slots. Separate responsibility changes from reduced work capacity. New runs use the local runner; the public studio supports configuration, export, and imported replay.</p>
+  </section>
   <section id="cases" aria-labelledby="cases-heading">
-   <h2 id="cases-heading">Explore {originalCases.length} problems · {cases.cases.length} agent runs</h2>
-   <p class="case-note">Real agent execution on fictional problems. Each refinement keeps its original run available for comparison. Human pilot approval and field evidence remain pending.</p>
+   <h2 id="cases-heading">Earlier case records · {originalCases.length} problems · {cases.cases.length} runs</h2>
+   <p class="case-note">Preserved agent execution on fictional problems, using the original team configurations. These replays are historical examples, not new flower study results. Each refinement keeps its original run available; human pilot approval and field evidence remain pending.</p>
    <div class="case-grid">{displayedCases.map(c => <article class="case-card" id={`case-${c.id}`}>
     {c.refined && <><span id={`case-${c.original.id}`}></span><p class="refinement-label">New product iteration</p></>}
     <p class="case-domain">{c.label.replace(" · live agents", "")}</p>
@@ -48,13 +55,12 @@ const artifacts = run.events.filter(e => e.kind === "artifact").length;
    <p class="source"><a href="/agentic-le/record/?file=%2Fagentic-le%2Fcases.json">Case inventory and journal hashes</a> · <a href="https://github.com/wrgr/capabilitymatters/blob/main/docs/lifecycle/CASES.md">Expansion checklist</a></p>
   </section>
   <section id="team" class="team-overview" aria-labelledby="team-heading">
-   <h2 id="team-heading">Meet the learning engineering team</h2>
-   <p>The learning engineer integrates the work; specialists contribute disciplinary and domain drafts; the scenario agent challenges assumptions.</p>
-   <nav class="role-links" aria-label="Explore team roles">{Object.entries(roles.roles).map(([id, role]) => <a href={`/agentic-le/roles/#${id}`}>{role.name}{id === "orchestrator" && " · orchestrator"}</a>)}</nav>
-   <p><a href="/agentic-le/replay/?view=conversation&v=quality-6"><strong>Follow the meeting conversation</strong></a>: source-linked discussion highlights with distinct role voices and the original turns alongside them.</p>
-   <p><a href="/agentic-le/roles/"><strong>See what each role contains</strong></a>: responsibilities, expected contributions, inherited duties, LENS competency targets, and domain specializations.</p>
+   <h2 id="team-heading">Trace contributions into the design</h2>
+   <p>Shared understanding means integrating domain concerns into requirements, decisions, implementation, and evaluation. Every team member has responsibility for the learners and stakeholders affected by the design.</p>
+   <p><a href="/agentic-le/roles/"><strong>Explore the flower domains and shared responsibilities</strong></a>. The guide also preserves the original role contracts for interpreting historical replays.</p>
+   <p>The scorecard examines <strong>human flourishing support, system performance, and learning</strong> separately. Ratings concern the design and available evidence. Claims about learning or impact require suitable evaluation with people.</p>
   </section>
-  <p class="paper-link"><a href="/agentic-le/paper/"><strong>Read the working paper: Learning Engineering in Action</strong></a></p>
+  <p class="paper-link"><a href="/agentic-le/paper/"><strong>Read the earlier working paper and find the current experiment methods</strong></a></p>
   <div class="grid">
    <article><h2>Inside the workforce candidate</h2><p><strong>{workforce.seed.title}</strong> lets a new team lead compare authored openings, separate facts from explanations, and reconsider a proposal when protected time and coverage are withdrawn. Access, authority, capacity and agreement remain independent. Its reflection is descriptive; it does not assess employees.</p><p>The handoff contains executable HTML, requirements, versioned artifacts, the project journal and a source-linked manifest. It is a candidate product requiring affected-person review and field validation.</p><p><a href={`/agentic-le/record/?file=${encodeURIComponent(workforceProduct+"manifest.json")}`}>Inspect the product handoff</a> · <a href={`${workforceProduct}requirements.md`}>Read the requirements</a></p></article>
    <article><h2>The preserved original workforce record</h2><p>The saved fictional workforce project contains {modelResponses} model requests, including a rejected correction, and {artifacts} artifact versions. Scenarios changed interruption privacy and reviewer-conflict requirements. An actual missing-code finding reopened Build.</p><p>The replay preserves original drafts, dissent, prompts, provider metadata, failed validation and the corrected candidate. Recorded browser checks support only the behavior exercised in that environment.</p><p><a href="/agentic-le/record/?file=%2Fagentic-le%2Freplay%2Flive-exemplar.json">Inspect the source journal</a> · <a href="/agentic-le/replay/?case=workforce&v=quality-6">Follow the original workforce revisions</a></p></article>
@@ -64,5 +70,5 @@ const artifacts = run.events.filter(e => e.kind === "artifact").length;
  </section>
 </Base>
 <style>
- .refinement-label{font-family:var(--sans);font-size:.75rem;font-weight:700;color:#155948;background:#d4f4eb;padding:.35rem .55rem;border-radius:4px;width:fit-content;margin-bottom:.7rem}.team-overview{margin-top:2rem}.role-links{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0;font-family:var(--sans);font-size:.9rem}.role-links a{background:var(--tint);border:1px solid var(--border);border-radius:5px;padding:.55rem .75rem;text-decoration:none}.role-links a:hover{border-color:var(--accent)}#team{scroll-margin-top:7rem}#cases{scroll-margin-top:7rem}.intro{padding-top:1.4rem;padding-bottom:1rem}.intro .eyebrow{margin-bottom:.6rem}.intro h1{font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:.45rem}.intro p:last-child{max-width:52rem;margin-bottom:0}.lab{padding-top:.6rem;padding-bottom:3rem}.case-note{max-width:none;color:var(--muted);font-size:.95rem;margin-bottom:1rem}.case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.case-card{display:flex;flex-direction:column;min-width:0;background:var(--tint);padding:1.15rem}.case-domain{font-family:var(--sans);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin-bottom:.7rem}.case-card h3{font-size:1.3rem;min-height:2.4em}.case-counts{font-family:var(--sans);font-size:.85rem;color:var(--muted);line-height:1.5}.case-actions{display:grid;gap:.45rem;margin-top:auto;font-family:var(--sans);font-size:.9rem}.case-actions a{width:fit-content}.case-actions .replay-link{background:var(--ink);color:white;padding:.45rem .75rem;border-radius:4px;margin-bottom:.2rem}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}article{border:1px solid var(--border);border-radius:8px;padding:1.4rem;margin-bottom:1.4rem;background:var(--bg)}h2{font-size:1.4rem;margin-top:0}.source{font-size:.85rem;max-width:none}.paper-link{margin:1.6rem 0}.lab a:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px}@media(max-width:760px){.case-grid,.grid{grid-template-columns:1fr}.case-card h3{min-height:0}.case-card{margin-bottom:0}.case-grid{margin-bottom:1rem}}
+ .studio-link{display:inline-block;background:var(--ink);color:white;padding:.7rem 1rem;border-radius:5px;margin-right:1rem;font-family:var(--sans);text-decoration:none}.refinement-label{font-family:var(--sans);font-size:.75rem;font-weight:700;color:#155948;background:#d4f4eb;padding:.35rem .55rem;border-radius:4px;width:fit-content;margin-bottom:.7rem}.team-overview{margin-top:2rem}.role-links{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0;font-family:var(--sans);font-size:.9rem}.role-links a{background:var(--tint);border:1px solid var(--border);border-radius:5px;padding:.55rem .75rem;text-decoration:none}.role-links a:hover{border-color:var(--accent)}#team{scroll-margin-top:7rem}#cases{scroll-margin-top:7rem}.intro{padding-top:1.4rem;padding-bottom:1rem}.intro .eyebrow{margin-bottom:.6rem}.intro h1{font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:.45rem}.intro p:last-child{max-width:52rem;margin-bottom:0}.lab{padding-top:.6rem;padding-bottom:3rem}.case-note{max-width:none;color:var(--muted);font-size:.95rem;margin-bottom:1rem}.case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.case-card{display:flex;flex-direction:column;min-width:0;background:var(--tint);padding:1.15rem}.case-domain{font-family:var(--sans);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin-bottom:.7rem}.case-card h3{font-size:1.3rem;min-height:2.4em}.case-counts{font-family:var(--sans);font-size:.85rem;color:var(--muted);line-height:1.5}.case-actions{display:grid;gap:.45rem;margin-top:auto;font-family:var(--sans);font-size:.9rem}.case-actions a{width:fit-content}.case-actions .replay-link{background:var(--ink);color:white;padding:.45rem .75rem;border-radius:4px;margin-bottom:.2rem}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}article{border:1px solid var(--border);border-radius:8px;padding:1.4rem;margin-bottom:1.4rem;background:var(--bg)}h2{font-size:1.4rem;margin-top:0}.source{font-size:.85rem;max-width:none}.paper-link{margin:1.6rem 0}.lab a:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px}@media(max-width:760px){.case-grid,.grid{grid-template-columns:1fr}.case-card h3{min-height:0}.case-card{margin-bottom:0}.case-grid{margin-bottom:1rem}}
 </style>

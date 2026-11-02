@@ -1,0 +1,38 @@
+---
+/** Explain the flower's shared center and starting domains with an accessible schematic. */
+import catalog from "../data/lifecycle/flower-catalog.json";
+const flower = catalog.flower;
+const domains = flower.domains;
+---
+<figure class="flower-figure">
+  <div class="flower-layout">
+    <svg viewBox="0 0 440 440" role="img" aria-label="Eight expertise domains arranged around shared understanding, connected to learners and other stakeholders">
+      <circle cx="220" cy="210" r="183" fill="none" stroke="currentColor" stroke-dasharray="3 7" opacity=".3" />
+      {domains.map((domain, index) => <g transform={`rotate(${index * 45} 220 210)`}>
+        <ellipse cx="220" cy="107" rx="47" ry="88" class="petal" />
+        <text x="220" y="69" text-anchor="middle" dominant-baseline="middle" transform={`rotate(${-index * 45} 220 69)`}>{index + 1}</text>
+      </g>)}
+      <circle cx="220" cy="210" r="76" class="flower-center" />
+      <text x="220" y="203" text-anchor="middle" class="center-label">Shared</text>
+      <text x="220" y="226" text-anchor="middle" class="center-label">understanding</text>
+      <path d="M220 393V400" fill="none" stroke="#347466" stroke-width="2" />
+      <text x="220" y="417" text-anchor="middle" class="stakeholder-label">Learners and other stakeholders</text>
+    </svg>
+    <ol class="flower-key">
+      {domains.map((domain, index) => <li><a href={`/agentic-le/roles/#${domain.id}`}><span class="number" aria-hidden="true">{index + 1}</span><span>{domain.name}</span></a></li>)}
+    </ol>
+  </div>
+  <figcaption>Eight starting domains of expertise around a shared challenge. Team composition can change with the problem and stage. Schematic based on <a href={flower.source.url}>Ali and colleagues (2025)</a>; it is not an exhaustive taxonomy or a proficiency scale.</figcaption>
+</figure>
+<style>
+  .flower-figure{margin:1.5rem 0;padding:1.2rem;border:1px solid var(--border);border-radius:12px;background:var(--tint)}
+  .flower-layout{display:grid;grid-template-columns:minmax(14rem,1fr) minmax(18rem,1.15fr);align-items:center;gap:1.5rem}
+  svg{width:100%;max-width:28rem;display:block;margin:auto;color:var(--ink)}
+  .petal{fill:#e7f2ed;stroke:#347466;stroke-width:1.5}.flower-center{fill:#174e45;stroke:#fff;stroke-width:3}
+  svg text{font:700 19px var(--sans);fill:#174e45}svg .center-label{fill:#fff;font-size:17px}svg .stakeholder-label{font-size:17px;fill:var(--ink)}
+  .flower-key{list-style:none;padding:0;margin:0;display:grid;gap:.7rem}.flower-key a{display:flex;align-items:center;gap:.7rem;font:600 .98rem/1.4 var(--sans);text-decoration:none;color:var(--ink)}
+  .flower-key a:hover{text-decoration:underline}.number{display:grid;place-items:center;flex:none;width:1.8rem;height:1.8rem;border-radius:50%;background:#174e45;color:#fff;font-size:.85rem}
+  figcaption{font-size:.85rem;line-height:1.55;color:var(--muted);margin-top:1rem;max-width:70rem}
+  a:focus-visible{outline:3px solid var(--accent-2);outline-offset:4px}
+  @media(max-width:650px){.flower-layout{grid-template-columns:1fr;gap:1rem}.flower-key{gap:.55rem}svg{max-width:22rem}}
+</style>

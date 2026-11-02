@@ -1,5 +1,7 @@
 # Simulation role contract
 
+This document preserves the fixed roster used by the historical replay examples. The current configurable experiment team starts from [the learning engineering flower](FLOWER_EXPERIMENTS.md); its domain packages have no crosswalk to the legacy targets below.
+
 Registry version 1.1.0. Source: `src/data/lifecycle/roles.json`. Resolver: `tools/lifecycle/role_profiles.py`. The public role explorer and the local runner consume the same resolved contract.
 
 ## Composition

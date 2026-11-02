@@ -1,5 +1,7 @@
 # Run and replay
 
+For the current configurable flower team, matched comparison arms, and offline verification, use [the flower experiment guide](FLOWER_EXPERIMENTS.md). The fixed-role replay commands below continue to support retained historical examples.
+
 All current source lives in Capability Matters. The static website and local generation service share the public replay assets; generation uses the installed, authenticated Codex command-line interface and Python's standard library.
 
 From the repository root:
