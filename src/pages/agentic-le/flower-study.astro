@@ -1,0 +1,78 @@
+---
+/** Present one timestamped study snapshot with opt-in isolated previews and explicit evidence limits. */
+import Base from "../../layouts/Base.astro";
+import AgenticNav from "../../components/AgenticNav.astro";
+import ResourceAbout from "../../components/ResourceAbout.astro";
+import snapshot from "../../../public/agentic-le/flower-study/summary.json";
+const title = "Exploring the learning engineering flower with agentic simulation";
+const labels = {"full-team": "Full team", "domain-omitted": "Domain omitted everywhere", "domain-withdrawn": "Domain withdrawn from one member", "member-removed": "Member removed", "individual": "One agent with matched slots"};
+const statusLabel = {completed: "Complete", in_progress: "In progress", not_started: "Not started"};
+const cutoff = new Date(snapshot.captured_at_utc).toLocaleString("en-GB", {timeZone: "UTC", day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false}) + " UTC";
+const discrepancies = snapshot.audit.journal_file_consistency_discrepancies || [];
+---
+<Base title={`${title} · Preliminary snapshot · Capability Matters`} description="An interim view of the new five-condition flower study: progress at a fixed cutoff, exact generated prototypes, and clear limits before comparative review.">
+  <AgenticNav />
+  <div class="study-shell">
+    <header>
+      <p class="eyebrow">New flower study · Meeting snapshot</p>
+      <h1>{title}</h1>
+      <ResourceAbout resource="agentic-flower-study" />
+      <div class="snapshot-banner"><strong>Preliminary snapshot — full study running; model reviews pending</strong><p>Captured <time datetime={snapshot.captured_at_utc}>{cutoff}</time>. This page is a fixed snapshot, not a live counter. The complete study will replace this interim view.</p></div>
+      <p>Five configurations address the same fictional challenge: helping new team leads practise a difficult feedback conversation. The first repetition of every condition has produced a Build prototype. Open the actual candidates below and keep the progress figures separate from evidence about quality.</p>
+      <div class="page-actions"><button class="primary" id="open-meeting">Open meeting view</button><button id="copy-link">Copy meeting link</button><a href="#progress">See progress</a><span id="copy-status" role="status" aria-live="polite"></span></div>
+    </header>
+    <section id="progress" aria-labelledby="progress-title">
+      <h2 id="progress-title">What exists at this cutoff</h2>
+      <div class="metrics"><div><strong>{snapshot.run_status_counts.completed}/{snapshot.planned_runs}</strong><span>runs complete</span></div><div><strong>{snapshot.first_block_candidates.length}</strong><span>retained Build prototypes</span></div><div><strong>{snapshot.accepted_calls}</strong><span>accepted generation responses</span></div><div><strong>Pending</strong><span>comparative reviews</span></div></div>
+      <p>{snapshot.run_status_counts.in_progress} runs are in progress and {snapshot.run_status_counts.not_started} have not started. The plan is three repetitions per condition. Accepted responses and prototype availability describe execution progress; they are not quality scores.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="First repetition by condition"><table><caption>First repetition · five comparison conditions</caption><thead><tr><th scope="col">Condition</th><th scope="col">Run status</th><th scope="col">Accepted / planned calls</th><th scope="col">Latest recorded stage</th></tr></thead><tbody>{snapshot.first_block_candidates.map(candidate => <tr><th scope="row"><a href={`#candidate-${candidate.condition}`}>{labels[candidate.condition]}</a></th><td>{statusLabel[candidate.status]}</td><td>{candidate.accepted_calls} / {candidate.planned_calls}</td><td>{candidate.latest_stage}</td></tr>)}</tbody></table></div>
+    </section>
+    <section id="prototypes" aria-labelledby="prototypes-title">
+      <div class="section-heading"><div><p class="eyebrow">Exact retained Build artifacts</p><h2 id="prototypes-title">Try the generated candidates</h2></div><a href="#progress">Back to progress</a></div>
+      <p>Each preview opens in an isolated frame with external resources and API requests blocked. The original generated source is preserved. This snapshot includes no browser assessment or comparative ratings; using a preview does not establish that its intended task works.</p>
+      <div class="candidate-grid">{snapshot.first_block_candidates.map(candidate => <article class="candidate-card" id={`candidate-${candidate.condition}`}>
+        <p class="eyebrow">Repetition 1 · {statusLabel[candidate.status]}</p><h3>{labels[candidate.condition]}</h3>
+        <p class="candidate-title">{candidate.build.title}</p>
+        <p class="small">Build retained {new Date(candidate.build.generated_at_utc).toLocaleTimeString("en-GB", {timeZone: "UTC", hour12: false})} UTC. Review pending.</p>
+        <button class="open-candidate" data-source={`/agentic-le/flower-study/${candidate.build.file}`} data-sha={candidate.build.sha256}>Open this candidate</button>
+        <p class="preview-status" role="status" aria-live="polite"></p><div class="preview-host"></div>
+        <details class="source-details"><summary>Source fingerprint</summary><p>Exact HTML SHA-256</p><code>{candidate.build.sha256}</code><p>Build content hash</p><code>{candidate.build.content_hash}</code></details>
+      </article>)}</div>
+    </section>
+    <section class="context-grid" aria-label="Study interpretation">
+      <article><h2>What the comparison tests</h2><p>The flower provides eight starting domains of expertise around shared understanding. This study changes explicit responsibility for <strong>Assessment, Measurement, Evaluation</strong>: omit it across the team, withdraw it from the primary member while a colleague retains it, remove that member and four contribution calls, or place the matched contribution slots with one agent.</p><p>The same fictional scenario, shared records, and duties to expose assumptions and disagreements apply across conditions. These comparisons concern assigned instructions and work allocation; they do not measure human expertise.</p><p><a href="/agentic-le/roles/">Read the flower framework</a> · <a href="/agentic-le/experiments/">Explore the experiment studio</a></p></article>
+      <article><h2>What remains open</h2><p><strong>No ranking or winner is supported by this snapshot.</strong> Comparative reviews have not started, and no human learning outcomes have been observed. Later plans do not change the retained Build prototype.</p><p>{snapshot.audit.terminal_calls_with_receipt_gaps} accepted calls lack complete provider receipts, so their token and tool-use evidence remains unknown. {discrepancies.length > 0 && "An event-log consistency discrepancy is also retained below; no cause is inferred."}</p><details><summary>Audit detail and snapshot data</summary><ul>{discrepancies.map(item => <li>{item.description}</li>)}</ul><p>The hash-chained run snapshots and exact Build hashes are preserved. The discrepancy remains part of the record; no evidence was repaired.</p><p><a href="/agentic-le/flower-study/summary.json">Inspect the timestamped snapshot data</a></p></details></article>
+    </section>
+  </div>
+</Base>
+<script is:inline type="module">
+  import {createCandidatePreview} from '/agentic-le/experiments/artifact-view.js';
+  const buttons = [...document.querySelectorAll('.open-candidate')];
+  async function openCandidate(button) {
+    const card = button.closest('.candidate-card'), status = card.querySelector('.preview-status');
+    if (button.disabled) return;
+    button.disabled = true; status.textContent = 'Loading the retained source…';
+    try {
+      if (!button.dataset.source.endsWith('.txt')) throw new Error('The source must be served as plain text.');
+      const response = await fetch(`${button.dataset.source}?v=${button.dataset.sha.slice(0, 12)}`);
+      if (!response.ok) throw new Error(`Source request returned ${response.status}.`);
+      const bytes = await response.arrayBuffer(), digest = await crypto.subtle.digest('SHA-256', bytes);
+      const hash = [...new Uint8Array(digest)].map(value => value.toString(16).padStart(2, '0')).join('');
+      if (hash !== button.dataset.sha) throw new Error('The source hash differs from this snapshot.');
+      const preview = createCandidatePreview(new TextDecoder('utf-8', {fatal: true}).decode(bytes));
+      card.querySelector('.preview-host').replaceChildren(preview); card.classList.add('is-open');
+      preview.querySelector('button').click(); button.hidden = true; status.textContent = 'Exact source verified. Isolated preview open; review remains pending.';
+      card.scrollIntoView({behavior: 'smooth', block: 'start'});
+    } catch (error) { status.textContent = `Preview could not open: ${error.message}`; button.disabled = false; }
+  }
+  buttons.forEach(button => button.addEventListener('click', () => openCandidate(button)));
+  document.querySelector('#open-meeting').addEventListener('click', () => openCandidate(buttons.find(button => !button.hidden) || buttons[0]));
+  document.querySelector('#copy-link').addEventListener('click', async () => {
+    const status = document.querySelector('#copy-status');
+    try { await navigator.clipboard.writeText(`${location.origin}/agentic-le/flower-study/#prototypes`); status.textContent = 'Meeting link copied.'; }
+    catch (error) { status.textContent = `Copy this link: ${location.origin}/agentic-le/flower-study/#prototypes`; }
+  });
+</script>
+<style>
+  .study-shell{max-width:76rem;margin:auto;padding:2rem var(--page-pad) 4rem}h1{max-width:57rem;font-size:clamp(2rem,4.4vw,3.5rem);line-height:1.12;margin:.4rem 0 1rem}h2{font-size:1.65rem}header>p{max-width:61rem}.snapshot-banner{background:var(--tint-warm);border-left:4px solid var(--accent);border-radius:6px;padding:1.1rem 1.3rem;margin:1.5rem 0}.snapshot-banner p{margin:.4rem 0 0;font-size:.95rem;max-width:none}.page-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;margin:1.5rem 0 2rem}button{font:600 .95rem var(--sans);padding:.65rem 1rem;border:1px solid var(--border);border-radius:5px;background:var(--bg);color:var(--ink);cursor:pointer}button.primary,.open-candidate{background:var(--ink);color:white;border-color:var(--ink)}button:disabled{opacity:.65;cursor:wait}section{margin-top:2.5rem;scroll-margin-top:6rem}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:1.4rem 0}.metrics>div{border:1px solid var(--border);border-radius:8px;padding:1.1rem;background:var(--tint)}.metrics strong{display:block;font:700 clamp(1.5rem,3vw,2rem) var(--sans)}.metrics span{display:block;font-size:.9rem;margin-top:.3rem}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:40rem}caption{text-align:left;font:600 .9rem var(--sans);padding:.75rem 0}th,td{text-align:left;padding:.8rem;border-bottom:1px solid var(--border)}thead{background:var(--tint)}tbody th{font-weight:600}.section-heading{display:flex;justify-content:space-between;align-items:end;gap:1rem}.section-heading h2{margin:.25rem 0}.candidate-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.4rem 0}.candidate-card,.context-grid>article{min-width:0;border:1px solid var(--border);border-radius:8px;padding:1.3rem;background:var(--bg)}.candidate-card{scroll-margin-top:6rem}.candidate-card h3{font-size:1.35rem;margin:.4rem 0}.candidate-card.is-open{grid-column:1/-1}.candidate-title,.small,.preview-status{font-size:.9rem}.source-details{margin-top:1rem;font-size:.82rem}.source-details code{overflow-wrap:anywhere;font-size:.75rem}.source-details p{margin:.6rem 0 .3rem}summary{cursor:pointer;font-family:var(--sans);font-weight:600}.context-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.context-grid h2{font-size:1.3rem;margin-top:0}.context-grid p{font-size:.95rem}.study-shell :global(.candidate-preview iframe){display:block;width:100%;height:760px;background:white;border:1px solid var(--border);border-radius:6px;margin:1rem 0}.study-shell :global(.candidate-preview pre){max-height:24rem;overflow:auto;white-space:pre-wrap;font-size:.8rem}.study-shell :global(.candidate-preview .muted){font-size:.85rem;color:var(--muted)}button:focus-visible,a:focus-visible,summary:focus-visible,.table-scroll:focus-visible{outline:3px solid var(--accent-2);outline-offset:3px}@media(max-width:760px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.candidate-grid,.context-grid{grid-template-columns:1fr}.section-heading{align-items:start;flex-direction:column}.study-shell :global(.candidate-preview iframe){height:740px}.table-scroll{font-size:.9rem}}@media print{.page-actions,.open-candidate,.preview-host{display:none}}
+</style>

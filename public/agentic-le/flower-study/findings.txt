@@ -1,0 +1,11 @@
+Preliminary flower-study snapshot — 2026-11-02 16:43:07 UTC
+
+The study has 156 accepted responses from 160 requested calls, against 588 planned generation calls across 15 runs. At this cutoff, 1 run is complete; 4 are in progress and 10 have not started. All five first-block conditions have a retained Build prototype. A Build is an intermediate generated artifact: it does not establish run completion, successful task behavior, or learning. Comparative reviews have not started.
+
+The captured configuration and observed prompt assignments match the declared interventions. No accepted schema/character-limit violations or response-provenance errors were found. One separate append-only event-log copy omits a request that remains in its hash-verified run snapshot; that journal-file consistency discrepancy is unresolved. Complete provider receipts cover 146 of 156 accepted calls; 10 accepted calls have receipt gaps. Available receipts show 0 tool items. Missing receipts leave tool-use evidence and token usage unknown for those calls. No cause, ranking, comparative score, or human outcome is inferred.
+
+Full team: 26/40 accepted/planned calls; in_progress; latest recorded stage Experiment; Build retained: True.
+AME domain omitted: 35/40 accepted/planned calls; in_progress; latest recorded stage Refine; Build retained: True.
+AME withdrawn from primary member: 29/40 accepted/planned calls; in_progress; latest recorded stage Experiment; Build retained: True.
+Primary AME member removed: 36/36 accepted/planned calls; completed; latest recorded stage Refine; Build retained: True.
+Single actor with matched slots: 30/40 accepted/planned calls; in_progress; latest recorded stage Evaluate; Build retained: True.

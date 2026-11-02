@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "title": "Flower study: preliminary live snapshot",
+  "status": "preliminary_generation_in_progress",
+  "captured_at_utc": "2026-11-02T16:43:07.093174+00:00",
+  "capture_started_at_utc": "2026-11-02T16:43:06.800366+00:00",
+  "latest_recorded_event_at_utc": "2026-11-02T16:43:04.158280+00:00",
+  "study_id": "flower-feedback-overlap-live-v1",
+  "model_requested": "gpt-6.1-sol",
+  "reasoning_effort_requested": "low",
+  "scenario": "Fictional practice for difficult feedback conversations",
+  "planned_runs": 15,
+  "planned_generation_calls": 588,
+  "repetitions_per_condition": 3,
+  "run_status_counts": {
+    "completed": 1,
+    "in_progress": 4,
+    "not_started": 10
+  },
+  "accepted_calls": 156,
+  "requested_calls": 160,
+  "generation_failure_calls": 0,
+  "review_status": "not_started",
+  "comparative_scores": null,
+  "human_outcomes_observed": false,
+  "first_block_candidates": [
+    {
+      "candidate_id": "full-team-explicit-r01",
+      "condition": "full-team",
+      "label": "Full team",
+      "replicate": 1,
+      "status": "in_progress",
+      "accepted_calls": 26,
+      "requested_calls": 27,
+      "planned_calls": 40,
+      "latest_stage": "Experiment",
+      "last_recorded_at_utc": "2026-11-02T16:42:37.253883+00:00",
+      "journal_head_hash": "8176bebc5c6b525d99d8e291d89d50fc836cf1e149540b596dc12928398d75b5",
+      "intervention_audit": "verified",
+      "build": {
+        "file": "builds/full-team-r01.txt",
+        "sha256": "81e2e913d75f8d190a0beb87f13454d6f2623645777fbea0bb13383ad62da6a6",
+        "content_hash": "e549f4403aa96735f9c385b49860f6e9b057e50c55e8b69e2c75aab7627fd2a5",
+        "title": "Build record: fictional feedback-conversation practice candidate",
+        "generated_at_utc": "2026-11-02T16:36:23.666985+00:00",
+        "stage": "Build",
+        "revision": 1,
+        "bytes": 14060,
+        "exact_retained_source": true,
+        "status": "Unreviewed generated prototype; full run may still be in progress",
+        "browser_qa": "Not assessed in this preliminary snapshot"
+      },
+      "review_status": "not_started",
+      "scores": null
+    },
+    {
+      "candidate_id": "domain-omitted-explicit-r01",
+      "condition": "domain-omitted",
+      "label": "AME domain omitted",
+      "replicate": 1,
+      "status": "in_progress",
+      "accepted_calls": 35,
+      "requested_calls": 36,
+      "planned_calls": 40,
+      "latest_stage": "Refine",
+      "last_recorded_at_utc": "2026-11-02T16:43:04.158280+00:00",
+      "journal_head_hash": "b4447d79964b3fb4a9ded091e677359bb7d42cefa6a8fa0335b4d2358c46166f",
+      "intervention_audit": "verified",
+      "build": {
+        "file": "builds/domain-omitted-r01.txt",
+        "sha256": "457cc0411c96af07f27d609e82d696e9bc5a9b6821b952c5e624aeb6bac6c3b7",
+        "content_hash": "0631c580d8483530ad09b1dfc27bce780e7b71ad594c0601f0be161442d7e980",
+        "title": "Build record: fictional feedback-conversation practice candidate",
+        "generated_at_utc": "2026-11-02T16:32:58.623918+00:00",
+        "stage": "Build",
+        "revision": 1,
+        "bytes": 13402,
+        "exact_retained_source": true,
+        "status": "Unreviewed generated prototype; full run may still be in progress",
+        "browser_qa": "Not assessed in this preliminary snapshot"
+      },
+      "review_status": "not_started",
+      "scores": null
+    },
+    {
+      "candidate_id": "domain-withdrawn-explicit-r01",
+      "condition": "domain-withdrawn",
+      "label": "AME withdrawn from primary member",
+      "replicate": 1,
+      "status": "in_progress",
+      "accepted_calls": 29,
+      "requested_calls": 30,
+      "planned_calls": 40,
+      "latest_stage": "Experiment",
+      "last_recorded_at_utc": "2026-11-02T16:43:00.442681+00:00",
+      "journal_head_hash": "1c7e2c7dbb935edf5e96e1772e083481e1ed67a9d8382f003d2102d9b4cd8700",
+      "intervention_audit": "verified",
+      "build": {
+        "file": "builds/domain-withdrawn-r01.txt",
+        "sha256": "813aa90fbebc24769f0028a3ad7072da819c8f9494bad1a91d7502c9b234c7b0",
+        "content_hash": "6ba7dd4f38bfa230c625176e1fd65f64db3f040f5d2f6c68e5e88313b149067b",
+        "title": "Build candidate: Supporting difficult feedback conversations",
+        "generated_at_utc": "2026-11-02T16:34:22.443738+00:00",
+        "stage": "Build",
+        "revision": 1,
+        "bytes": 12617,
+        "exact_retained_source": true,
+        "status": "Unreviewed generated prototype; full run may still be in progress",
+        "browser_qa": "Not assessed in this preliminary snapshot"
+      },
+      "review_status": "not_started",
+      "scores": null
+    },
+    {
+      "candidate_id": "member-removed-explicit-r01",
+      "condition": "member-removed",
+      "label": "Primary AME member removed",
+      "replicate": 1,
+      "status": "completed",
+      "accepted_calls": 36,
+      "requested_calls": 36,
+      "planned_calls": 36,
+      "latest_stage": "Refine",
+      "last_recorded_at_utc": "2026-11-02T16:42:17.416284+00:00",
+      "journal_head_hash": "3a06c3b7d1dcafb99b5620bee21034ebf96650cd5a76dbd94040f69c4bdd7951",
+      "intervention_audit": "verified",
+      "build": {
+        "file": "builds/member-removed-r01.txt",
+        "sha256": "9c93f6aeb6601fc726bb6175b288614b2dc1cfcbb0b27ae8e5da782b111b3e34",
+        "content_hash": "7feaf92295b109185484086a73d358c0ea7ecf8c654ad13bd1285c3811c55372",
+        "title": "Build record: fictional feedback practice candidate",
+        "generated_at_utc": "2026-11-02T16:30:05.198185+00:00",
+        "stage": "Build",
+        "revision": 1,
+        "bytes": 13036,
+        "exact_retained_source": true,
+        "status": "Unreviewed generated prototype; full run may still be in progress",
+        "browser_qa": "Not assessed in this preliminary snapshot"
+      },
+      "review_status": "not_started",
+      "scores": null
+    },
+    {
+      "candidate_id": "individual-explicit-r01",
+      "condition": "individual",
+      "label": "Single actor with matched slots",
+      "replicate": 1,
+      "status": "in_progress",
+      "accepted_calls": 30,
+      "requested_calls": 31,
+      "planned_calls": 40,
+      "latest_stage": "Evaluate",
+      "last_recorded_at_utc": "2026-11-02T16:42:25.124523+00:00",
+      "journal_head_hash": "5e51be57965d014736e273c0bb84a3c6552d8bb4ca712ff123f09055425614fc",
+      "intervention_audit": "verified",
+      "build": {
+        "file": "builds/individual-r01.txt",
+        "sha256": "b54f28970ab1434f99e23f87883d41e85e8bdb6f7b0af2d7301b2ccc374baac4",
+        "content_hash": "4bef6dcf7973c97597a60d414d315d2c4c626cda85139db2fe5437afc4595cd1",
+        "title": "Build record — fictional feedback-conversation practice candidate",
+        "generated_at_utc": "2026-11-02T16:32:55.679631+00:00",
+        "stage": "Build",
+        "revision": 1,
+        "bytes": 14389,
+        "exact_retained_source": true,
+        "status": "Unreviewed generated prototype; full run may still be in progress",
+        "browser_qa": "Not assessed in this preliminary snapshot"
+      },
+      "review_status": "not_started",
+      "scores": null
+    }
+  ],
+  "audit": {
+    "study_integrity": "verified",
+    "planned_interventions_verified": true,
+    "observed_prompt_assignments_verified": true,
+    "accepted_schema_violations": 0,
+    "provenance_error_calls": 0,
+    "accepted_calls_with_complete_receipts": 146,
+    "terminal_calls_with_receipt_gaps": 10,
+    "tool_items_observed_in_available_receipts": 0,
+    "provider_errors_observed_in_available_receipts": 0,
+    "receipt_gaps": [
+      {
+        "candidate_id": "domain-withdrawn-explicit-r01",
+        "call": 21,
+        "stage": "Instrument",
+        "response_status": "accepted",
+        "receipt_state": "empty"
+      },
+      {
+        "candidate_id": "member-removed-explicit-r01",
+        "call": 24,
+        "stage": "Experiment",
+        "response_status": "accepted",
+        "receipt_state": "empty"
+      },
+      {
+        "candidate_id": "member-removed-explicit-r01",
+        "call": 28,
+        "stage": "Experiment",
+        "response_status": "accepted",
+        "receipt_state": "empty"
+      },
+      {
+        "candidate_id": "member-removed-explicit-r01",
+        "call": 30,
+        "stage": "Evaluate",
+        "response_status": "accepted",
+        "receipt_state": "empty"
+      },
+      {
+        "candidate_id": "domain-omitted-explicit-r01",
+        "call": 8,
+        "stage": "Map",
+        "response_status": "accepted",
+        "receipt_state": "empty"
+      },
+      {
+        "candidate_id": "domain-omitted-explicit-r01",
+        "call": 29,
+        "stage": "Experiment",
+        "response_status": "accepted",
+        "receipt_state": "empty"
+      },
+      {
+        "candidate_id": "domain-omitted-explicit-r01",
+        "call": 31,
+        "stage": "Evaluate",
+        "response_status": "accepted",
+        "receipt_state": "empty"
+      },
+      {
+        "candidate_id": "full-team-explicit-r01",
+        "call": 10,
+        "stage": "Map",
+        "response_status": "accepted",
+        "receipt_state": "empty"
+      },
+      {
+        "candidate_id": "individual-explicit-r01",
+        "call": 26,
+        "stage": "Experiment",
+        "response_status": "accepted",
+        "receipt_state": "present"
+      },
+      {
+        "candidate_id": "individual-explicit-r01",
+        "call": 30,
+        "stage": "Experiment",
+        "response_status": "accepted",
+        "receipt_state": "empty"
+      }
+    ],
+    "available_token_usage": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 1055488,
+      "completed_turn_usage_objects": 146,
+      "field_observation_counts": {
+        "cache_write_input_tokens": 146,
+        "cached_input_tokens": 146,
+        "input_tokens": 146,
+        "output_tokens": 146,
+        "reasoning_output_tokens": 146
+      },
+      "input_plus_output_tokens": 3699277,
+      "input_tokens": 3502807,
+      "issues": [],
+      "output_tokens": 196470,
+      "reasoning_output_tokens": 1128,
+      "uncached_input_tokens": 2447319
+    },
+    "generation_audit_hash": "cab8ad34768c5da7fbf263e2f5f599b596c58c0dbe666c92df12d32524d0ceeb",
+    "hash_chained_run_snapshots_verified": true,
+    "journal_file_consistency_discrepancies": [
+      {
+        "candidate_id": "domain-omitted-explicit-r01",
+        "check": "event_log_contains_snapshot_prefix",
+        "description": "The append-only event-log copy omits request event 104, which remains in the hash-verified run snapshot. No cause is inferred and no evidence was repaired."
+      }
+    ]
+  },
+  "limits": [
+    "This is an early progress snapshot, not a comparison of quality or efficacy.",
+    "The five previews are exact retained Build artifacts; Build availability does not mean the full run or evaluation is complete.",
+    "No comparative reviews or human learning outcomes are included.",
+    "All figures exclude the separately retained connectivity preflight.",
+    "Missing provider receipts leave token usage and tool-use evidence unknown for those calls; no cause is inferred.",
+    "Cached input tokens are a subset of input tokens and are not added again.",
+    "Later plans do not change the retained Build. These generated prototypes require review and should be displayed in a network-blocked sandbox.",
+    "One append-only event-log copy has a consistency discrepancy; its hash-verified run snapshot preserves the missing request. The discrepancy remains unresolved."
+  ],
+  "public_snapshot_hash": "c02ceeda07b4f16c36aafabdf98947b4242dd5e3e70a16bd28f3e16dfa3c0b61"
+}

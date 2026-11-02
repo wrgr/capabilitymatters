@@ -532,5 +532,28 @@
       "Inspect the probability assumptions, export a draft if needed, then freeze the review with the local runner. Export the frozen record to the organizer for comparison and identity reveal after the selected reviews are frozen."
     ],
     "connection": "Learning engineering connects designed contributions to evidence about what learners and systems can do. LENS also asks whether people have agency, access, and viable conditions for action. Withholding assignment labels helps test the artifact rather than reward the intended expertise, while modeled uncertainty makes incomplete evidence and contextual assumptions visible. These task-level indices do not establish observed learning gains or human flourishing."
+  },
+  "agentic-flower-study": {
+    "what": "A fixed, timestamped preliminary snapshot of the new five-condition flower study. It shows execution progress and exact generated Build prototypes. Comparative review is pending; no human outcomes are measured in this batch.",
+    "how": [
+      "Read the cutoff time and progress table before interpreting the figures; this page is not a live counter.",
+      "Choose Open this candidate to run its exact source in an isolated, network-blocked preview. Use Copy meeting link to share this view.",
+      "Inspect the audit detail and source fingerprints, and separate visible prototype behavior from claims that still require functional checks, comparative review and evaluation with people."
+    ],
+    "connection": "The study makes expertise assignments and shared understanding inspectable across the LENS capability cycle. The flower organizes contributing domains; human flourishing support, system performance and learning remain distinct evidence questions. Generation progress does not establish any of those outcomes.",
+    "links": [
+      {
+        "label": "Learning engineering flower and five comparisons",
+        "href": "/agentic-le/roles/"
+      },
+      {
+        "label": "Experiment studio",
+        "href": "/agentic-le/experiments/"
+      },
+      {
+        "label": "Current working paper",
+        "href": "/agentic-le/paper/"
+      }
+    ]
   }
 }

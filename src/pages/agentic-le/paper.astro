@@ -18,6 +18,7 @@ const sections = getHeadings().filter((heading) => heading.depth === 2);
   <meta slot="head" name="robots" content="noindex, nofollow" />
  <AgenticNav active="paper" />
   <div class="paper-shell">
+    <p class="interim-link"><strong>New study running:</strong> <a href="/agentic-le/flower-study/">Open the preliminary flower-study snapshot and actual generated prototypes</a>. Comparative reviews are pending; the current downloads remain the earlier working-paper version until the full new results are ready.</p>
     <nav class="paper-actions" aria-label="Paper downloads">
       <a class="download" href={`/agentic-le/paper/flower-team-study.pdf?v=${pdfVersion}`} download>Download PDF</a>
       <a href={`/agentic-le/paper/flower-team-study.md?v=${pdfVersion}`} download>Download editable manuscript</a>
@@ -39,6 +40,7 @@ const sections = getHeadings().filter((heading) => heading.depth === 2);
 </Base>
 
 <style>
+  .interim-link { padding: 1rem 1.2rem; margin: 0 0 1.5rem; background: var(--tint-warm); border-left: 4px solid var(--accent); border-radius: 5px; font-size: .95rem; max-width: none; }
   .archive-note { margin-bottom: 2rem; font-size: .9rem; color: var(--muted); }
   .paper-shell { max-width: 76rem; margin: auto; padding: 2rem var(--page-pad); }
   .paper-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem 1.5rem; padding-bottom: 2rem; font-family: var(--sans); font-size: .9rem; }
