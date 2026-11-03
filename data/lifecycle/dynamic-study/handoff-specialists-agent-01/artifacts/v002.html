@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta http-equiv='Content-Security-Policy' content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>A difficult handoff conversation</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#172e36;background:#f1f5f5;font-size:16px;line-height:1.55}*{box-sizing:border-box}body{margin:0}main{max-width:72rem;margin:auto;padding:1rem 1rem 3rem}header{max-width:55rem;margin:1rem 0 1.4rem}h1,h2,h3,h4{line-height:1.25}h1{font-size:clamp(1.8rem,4vw,2.6rem);margin:.3rem 0 .7rem}h2{font-size:1.3rem;margin:0 0 .85rem}h3{font-size:1.15rem;margin:.75rem 0}h4{font-size:1rem;margin:1.1rem 0 .4rem}p{margin:.65rem 0}li{margin:.45rem 0}ul,ol{padding-left:1.5rem}.eyebrow{font-weight:700;color:#285b63;letter-spacing:.04em}.panel{background:#fff;border:1px solid #bccdce;border-radius:.85rem;padding:1.25rem;margin-top:1rem;min-width:0}.layout{display:grid;grid-template-columns:1fr;gap:1rem}.layout .panel{margin-top:0}.notice{padding:.85rem 1rem;background:#e3eeee;border-left:4px solid #28656d;border-radius:.25rem}.status{background:#173e48;color:#fff;padding:.9rem 1rem;border-radius:.55rem;margin:1rem 0;font-weight:600;overflow-wrap:anywhere}.muted,.help{color:#455c63;font-size:.95rem}label{display:block;font-weight:700;margin:.8rem 0 .35rem}textarea{display:block;width:100%;min-width:0;max-width:100%;font:inherit;line-height:1.5;border:1px solid #758e95;border-radius:.4rem;padding:.75rem;background:#fff;color:#172e36;resize:vertical}textarea:disabled{background:#edf1f1;color:#455c63}#scenario-input{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9rem}.actions{display:flex;flex-wrap:wrap;gap:.65rem;margin:1rem 0 .25rem}button{font:inherit;font-weight:650;min-height:44px;padding:.6rem .95rem;border:1px solid #205764;border-radius:.45rem;background:#fff;color:#164b59;cursor:pointer}button.primary{background:#165d6c;color:#fff}button:disabled{cursor:default;background:#edf1f1;color:#52676d;border-color:#a6b7bb}button:hover:enabled{box-shadow:0 0 0 2px #c9e1e3}:focus-visible{outline:3px solid #a34b00;outline-offset:3px}.error{color:#821e1e;background:#fff0ee;border:1px solid #ba6760;border-radius:.4rem;padding:.75rem}.review-list{padding-left:1.35rem}.review-list li{margin:.85rem 0}details{margin-top:1rem;border-top:1px solid #d0dddd;padding-top:.8rem}summary{cursor:pointer;font-weight:650;min-height:44px;padding:.3rem 0}pre{font:inherit;white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5f5;padding:.85rem;border-radius:.35rem}#scenario-view,#feedback{overflow-wrap:anywhere}#scenario-view li,#scenario-view p{white-space:pre-wrap}[hidden]{display:none!important}footer{margin-top:1.3rem}@media(min-width:56rem){.layout{grid-template-columns:1.05fr 1fr}}@media(max-width:34rem){main{padding:.7rem .7rem 2rem}.panel{padding:1rem}.actions button{flex:1 1 13rem}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class='eyebrow'>Fictional practice · optional</p>
+<h1>A difficult handoff conversation</h1>
+<p>State what the facts support, ask about one important unknown, and propose a next step that fits the conditions.</p>
+<p class='notice'>Use fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.</p>
+</header>
+<noscript><p class='error'>JavaScript is required for the scenario controls, response and review in this practice. Enable scripts to use them.</p></noscript>
+<p id='practice-status' class='status' role='status' aria-live='polite' aria-atomic='true' data-state='starting'>Starting practice.</p>
+<div class='layout'>
+<section id='scenario-view' class='panel' tabindex='-1' aria-label='Applied fictional case'></section>
+<section class='panel' aria-labelledby='response-heading'>
+<h2 id='response-heading'>Your response</h2>
+<p id='response-help' class='help'>Use the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.</p>
+<label for='response-input'>Response to the applied fictional case</label>
+<textarea id='response-input' rows='8' autocomplete='off' aria-describedby='response-help response-error'></textarea>
+<p id='response-error' class='error' role='alert' hidden></p>
+<div class='actions'>
+<button id='try-response' class='primary' type='button'>Try response</button>
+<button id='revise-response' type='button' disabled>Revise response</button>
+<button id='skip-practice' type='button' aria-describedby='skip-help'>Skip this practice</button>
+<button id='return-practice' type='button' hidden>Return to this case</button>
+</div>
+<p id='skip-help' class='help'>Skipping clears this draft and its review. You can return voluntarily with a fresh draft.</p>
+</section>
+</div>
+<section id='feedback' class='panel' tabindex='-1' aria-labelledby='feedback-heading'>
+<h2 id='feedback-heading'>Practice review</h2>
+<div id='review-body'><p>Try a response to open explanatory self-review, or skip this practice.</p></div>
+<div id='reflection-panel' hidden>
+<label for='reflection-input'>What did you change, or why did you keep your response? (optional)</label>
+<textarea id='reflection-input' rows='3' autocomplete='off' aria-describedby='reflection-help'></textarea>
+<p id='reflection-help' class='help'>This reflection is for your own review. It is not scored or interpreted by the tool.</p>
+</div>
+</section>
+<section class='panel' aria-labelledby='scenario-editor-heading'>
+<h2 id='scenario-editor-heading'>Change the fictional case</h2>
+<p id='scenario-help' class='help'>Edit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.</p>
+<label for='scenario-input'>Scenario JSON</label>
+<textarea id='scenario-input' rows='11' spellcheck='false' autocomplete='off' aria-describedby='scenario-help scenario-edit-status scenario-error'></textarea>
+<p id='scenario-edit-status' class='help' role='status' aria-live='polite'>The editor matches the applied case.</p>
+<p id='scenario-error' class='error' role='alert' hidden></p>
+<div class='actions'><button id='apply-scenario' type='button'>Apply scenario</button></div>
+</section>
+<footer class='panel' aria-labelledby='reset-heading'>
+<h2 id='reset-heading'>Finish or start again</h2>
+<p id='reset-help'>Reset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.</p>
+<button id='reset-practice' type='button' aria-describedby='reset-help privacy-help'>Reset practice and restore starting case</button>
+<p id='privacy-help' class='help'>This page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.</p>
+</footer>
+</main>
+<script>
+(function(){
+'use strict';
+const seed={
+ title:'The missing handoff note',
+ facts:[
+  'For fictional ticket F-17, the outgoing team agreed to enter status, next action and owner in the shared queue by 14:00.',
+  'At 14:10, the shared queue contained no handoff entry for F-17.',
+  "The latest ticket entry visible at 14:10 was recorded at 13:50, said 'waiting for customer reply', and named no owner for after 14:00.",
+  'At 14:12, the incoming team asked the lead what to do next with F-17.'
+ ],
+ constraints:[
+  'The lead and incoming team can read and update the shared queue and use the team channel.',
+  'The outgoing team can be contacted through the team channel, but their current availability is unknown.',
+  'Temporary coverage requires an available incoming teammate to agree; no such agreement is supplied in this case.'
+ ],
+ task:'As the fictional service-team lead, write a brief response or action proposal that states a supported observation, asks a useful clarifying question, and proposes a feasible next step. You may skip.'
+};
+const byId=function(id){return document.getElementById(id);};
+const scenarioInput=byId('scenario-input');
+const scenarioView=byId('scenario-view');
+const scenarioError=byId('scenario-error');
+const editorStatus=byId('scenario-edit-status');
+const responseInput=byId('response-input');
+const responseError=byId('response-error');
+const feedback=byId('feedback');
+const reviewBody=byId('review-body');
+const reflectionPanel=byId('reflection-panel');
+const reflectionInput=byId('reflection-input');
+const practiceStatus=byId('practice-status');
+const tryButton=byId('try-response');
+const reviseButton=byId('revise-response');
+const skipButton=byId('skip-practice');
+const returnButton=byId('return-practice');
+let applied;
+let submittedCount=0;
+let firstResponse='';
+let latestResponse='';
+let skipped=false;
+function node(tag,text,className){
+ const element=document.createElement(tag);
+ if(text!==undefined){element.textContent=text;}
+ if(className){element.className=className;}
+ return element;
+}
+function copyScenario(value){
+ return {title:value.title,facts:value.facts.slice(),constraints:value.constraints.slice(),task:value.task};
+}
+function scenarioProblem(value){
+ if(value===null||typeof value!=='object'||Array.isArray(value)){return 'Scenario JSON must be an object containing title, facts, constraints and task.';}
+ if(typeof value.title!=='string'){return 'The title field must be a string.';}
+ if(typeof value.task!=='string'){return 'The task field must be a string.';}
+ if(!Array.isArray(value.facts)||!value.facts.every(function(item){return typeof item==='string';})){return 'The facts field must be an array containing only strings.';}
+ if(!Array.isArray(value.constraints)||!value.constraints.every(function(item){return typeof item==='string';})){return 'The constraints field must be an array containing only strings.';}
+ return '';
+}
+function status(state,message){
+ practiceStatus.dataset.state=state;
+ practiceStatus.textContent=message;
+}
+function clearError(input,output){
+ input.removeAttribute('aria-invalid');
+ output.textContent='';
+ output.hidden=true;
+}
+function showError(input,output,message){
+ output.textContent=message;
+ output.hidden=false;
+ input.setAttribute('aria-invalid','true');
+ input.focus();
+}
+function appendEntries(parent,entries,tag,emptyText){
+ if(entries.length===0){parent.append(node('p',emptyText,'help'));return;}
+ const list=node(tag);
+ entries.forEach(function(entry){list.append(node('li',entry.trim()?entry:'(Blank entry supplied.)'));});
+ parent.append(list);
+}
+function renderCase(){
+ scenarioView.replaceChildren();
+ scenarioView.append(node('h2','Applied fictional case'));
+ scenarioView.append(node('h3',applied.title.trim()?applied.title:'Untitled fictional case'));
+ scenarioView.append(node('h4','Facts'));
+ appendEntries(scenarioView,applied.facts,'ol','No facts supplied. Missing information remains unknown.');
+ scenarioView.append(node('h4','Operating conditions'));
+ appendEntries(scenarioView,applied.constraints,'ul','No operating conditions supplied. Do not assume that a needed permission or resource is available.');
+ scenarioView.append(node('h4','Task'));
+ scenarioView.append(node('p',applied.task.trim()?applied.task:'No task text supplied. You can update the fictional case or skip.'));
+}
+function beginPractice(message){
+ submittedCount=0;
+ firstResponse='';
+ latestResponse='';
+ skipped=false;
+ responseInput.value='';
+ reflectionInput.value='';
+ responseInput.disabled=false;
+ tryButton.disabled=false;
+ tryButton.textContent='Try response';
+ reviseButton.disabled=true;
+ skipButton.disabled=false;
+ returnButton.hidden=true;
+ reflectionPanel.hidden=true;
+ clearError(responseInput,responseError);
+ reviewBody.replaceChildren(node('p','Try a response to open explanatory self-review, or skip this practice.'));
+ status('ready',message);
+}
+function renderReview(){
+ reviewBody.replaceChildren();
+ reviewBody.append(node('p','These prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.'));
+ reviewBody.append(node('p','Review context: '+(applied.title.trim()?applied.title:'Untitled fictional case')+'. Use the applied case shown above, including any conditions that remain unknown.','help'));
+ const list=node('ol',undefined,'review-list');
+ const prompts=[
+  ['Observation and evidence. ','An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.'],
+  ['Explanation and uncertainty. ','An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.'],
+  ['Useful clarification. ','A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.'],
+  ['Feasible next step. ','A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.']
+ ];
+ prompts.forEach(function(parts){
+  const item=node('li');
+  item.append(node('strong',parts[0]),document.createTextNode(parts[1]));
+  list.append(item);
+ });
+ reviewBody.append(list);
+ reviewBody.append(node('p','You may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.'));
+ reviewBody.append(node('p','These are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.','help'));
+ const history=node('details');
+ history.append(node('summary','View submitted wording for this applied case'));
+ history.append(node('h3','First submitted response'),node('pre',firstResponse));
+ if(submittedCount>1){history.append(node('h3','Most recently submitted response'),node('pre',latestResponse));}
+ history.append(node('p','Edits in the response box are not submitted until you press the submit button. This wording is cleared when you apply a case, skip or reset.','help'));
+ reviewBody.append(history);
+ reflectionPanel.hidden=false;
+}
+function resetAll(moveFocus){
+ applied=copyScenario(seed);
+ scenarioInput.value=JSON.stringify(applied,null,2);
+ clearError(scenarioInput,scenarioError);
+ editorStatus.textContent='The editor matches the applied case.';
+ renderCase();
+ beginPractice(moveFocus?'Reset. Starting fictional case restored; all entered responses, review and pending scenario edits cleared.':'Ready. Read the applied fictional case, draft a response, or skip.');
+ if(moveFocus){scenarioView.focus();}
+}
+byId('apply-scenario').addEventListener('click',function(){
+ let parsed;
+ try{parsed=JSON.parse(scenarioInput.value);}catch(error){
+  showError(scenarioInput,scenarioError,'Scenario JSON could not be read. Check quotation marks, commas and brackets, then apply again. The applied case and current practice have not changed.');
+  editorStatus.textContent='Edit not applied. The case shown above remains the evidence for this practice.';
+  return;
+ }
+ const problem=scenarioProblem(parsed);
+ if(problem){
+  showError(scenarioInput,scenarioError,problem+' Fix this field and apply again. The applied case and current practice have not changed.');
+  editorStatus.textContent='Edit not applied. The case shown above remains the evidence for this practice.';
+  return;
+ }
+ applied=copyScenario(parsed);
+ scenarioInput.value=JSON.stringify(applied,null,2);
+ clearError(scenarioInput,scenarioError);
+ editorStatus.textContent='Applied. The editor matches the case shown above.';
+ renderCase();
+ beginPractice('New case applied. Ready for a fresh response; the preceding draft, reflection and review were cleared.');
+ scenarioView.focus();
+});
+scenarioInput.addEventListener('input',function(){
+ clearError(scenarioInput,scenarioError);
+ editorStatus.textContent='Unapplied edit. The case shown above and its current practice have not changed.';
+});
+tryButton.addEventListener('click',function(){
+ if(skipped){return;}
+ const response=responseInput.value;
+ if(!response.trim()){
+  showError(responseInput,responseError,'Enter a response before opening review, or choose Skip this practice. A blank draft is not submitted.');
+  status('response-required','No new response submitted. Enter a response or skip; a blank draft is not evidence of capability.');
+  return;
+ }
+ clearError(responseInput,responseError);
+ const initial=submittedCount===0;
+ const unchanged=!initial&&response===latestResponse;
+ if(initial){firstResponse=response;}
+ latestResponse=response;
+ submittedCount+=1;
+ renderReview();
+ reviseButton.disabled=false;
+ tryButton.textContent='Submit revision or keep response';
+ if(initial){status('response-submitted','Response submitted. Review it against the applied case; no correctness judgment was made.');}
+ else if(unchanged){status('response-kept','Unchanged response submitted. No correctness or improvement judgment was made.');}
+ else{status('revision-submitted','Revision submitted. No correctness or improvement judgment was made.');}
+ feedback.focus();
+});
+reviseButton.addEventListener('click',function(){
+ if(skipped||submittedCount===0){return;}
+ status('revising','Reviewing or revising the current response. You may change the draft or keep justified wording, then submit again.');
+ responseInput.focus();
+});
+responseInput.addEventListener('input',function(){
+ clearError(responseInput,responseError);
+ if(skipped){return;}
+ if(submittedCount>0){status('editing','Editing the response for this applied case. Submit again when ready. Review prompts remain available; submitted wording is shown separately.');}
+ else{status('drafting','Draft in progress for the applied case. Try your response when ready, or skip.');}
+});
+skipButton.addEventListener('click',function(){
+ beginPractice('Skipped. No capability judgment was made. You may leave or voluntarily return to this case.');
+ skipped=true;
+ responseInput.disabled=true;
+ tryButton.disabled=true;
+ reviseButton.disabled=true;
+ skipButton.disabled=true;
+ returnButton.hidden=false;
+ reviewBody.replaceChildren(node('p','Practice skipped. No review is requested. Your draft and any earlier review have been cleared. You can leave or return to the same applied case.'));
+ status('skipped','Skipped. No capability judgment was made. You may leave or voluntarily return to this case.');
+ returnButton.focus();
+});
+returnButton.addEventListener('click',function(){
+ beginPractice('Returned to the applied case. Ready for a fresh response; returning is optional.');
+ responseInput.focus();
+});
+byId('reset-practice').addEventListener('click',function(){resetAll(true);});
+resetAll(false);
+})();
+</script>
+</body>
+</html>

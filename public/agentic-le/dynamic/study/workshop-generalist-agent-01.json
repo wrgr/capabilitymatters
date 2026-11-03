@@ -5308,6 +5308,671 @@
       },
       "prev_hash": "06166f92d06226b440caa286ac7ea7cc901ea1b609d4ce865ccc7ac06a62c51b",
       "hash": "3f6e2ea53f43bc3421f9770d0f3bbd22fd6ec0e967d31807530c6d014b2c48f5"
+    },
+    {
+      "seq": 17,
+      "at": "2026-11-03T04:49:31.928739+00:00",
+      "kind": "evaluation",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "scope": "result",
+        "artifact_version": 1,
+        "scenario_id": "shared_equipment_easy",
+        "scores": [
+          {
+            "dimension_id": "agency_access",
+            "score": 3,
+            "rationale": "Human flourishing: The recorded desktop interaction supports learner control: revision preserves the proposal, skipping preserves the draft without assigning an assessment, and reset clears the response. Directions permit free-form writing and clarification questions. The recorded keyboard sequence reaches the required controls, and Enter on Try this plan produces the second review. No horizontal overflow is recorded at 1280 by 800. These are coherent observations of basic access and agency. They do not establish screen-reader usability or manageable burden for actual learners. The lengthy, repeated feedback could add reading burden, but no human burden measurement is supplied.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/skip",
+                "quote": "Practice skipped. Your draft is retained. No assessment was made. Choose Revise response or edit the draft to resume."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/open_revision",
+                "quote": "Revising; draft retained · Applied case 2 · Review attempts 1"
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/revised_feedback",
+                "quote": "Review attempt 2 for applied case 2"
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "<label for='response-input'>Your workshop proposal</label>"
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/apply_case",
+                "quote": "You may write freely. Explicit references such as F1 and C1 help connect the proposal to the evidence."
+              }
+            ]
+          },
+          {
+            "dimension_id": "task_behavior",
+            "score": 2,
+            "rationale": "System performance: The replacement case is displayed accurately, and the feedback retains the actual three-kit stock, three-pair arrangement, one-kit-per-pair requirement, and support constraint. The initial submitted proposal assigns a kit to each of six participants, which would exceed the three available kits. The revised input uses three pairs with one kit each, resolving that quantity mismatch, and calls for a clear facilitator route without specifying its procedure. The tool does not explain either distinction: both inputs receive the same resource-checking prompt and source lists. This is a usable, transparent self-review mechanism, and it never falsely approves the infeasible input. Its substantive checking remains limited because the learner must identify the quantity conflict and judge the support explanation.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/check/case_applied",
+                "quote": "F1 — Six participants work in three pairs.\nF2 — Three complete kits and one facilitator are available.\nF3 — The activity requires one kit per pair."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/check/case_applied",
+                "quote": "C1 — Keep one clear support route."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/check/feedback_present",
+                "quote": "For every required resource, connect its quantity and available time to an applied fact. If availability is not supplied, ask instead of assuming."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/check/revision_feedback_present",
+                "quote": "For every required resource, connect its quantity and available time to an applied fact. If availability is not supplied, ask instead of assuming."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/initial_feedback",
+                "quote": "This review describes the submitted text. It does not verify feasibility or demonstrate learning."
+              }
+            ]
+          },
+          {
+            "dimension_id": "recovery",
+            "score": 3,
+            "rationale": "System performance: The observed transitions are usable and explicit. Applying the easy case replaces the starting case and begins with zero review attempts. Opening revision retains the existing response and returns focus to its input. Editing marks the previous feedback as stale, and resubmitting produces attempt two. Skip retains the revised proposal; reset clears the response and attempt count while preserving the applied case. These observations support reliable recovery within the exercised sequence. The apply step occurred before any proposal, so preservation of a nonempty draft during a later fact change is not demonstrated here. Invalid JSON, empty-response submission, resumption after skip, and interrupted resources were not exercised in this scenario and remain unknown as executed behavior.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/apply_case",
+                "quote": "New case applied. Inspect the new facts and constraints before trying your draft again. Old source IDs may now refer to different text. Explain any needed change in resources, support, timing or fallback."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/revised_response",
+                "quote": "Your draft has changed. The feedback below describes the previous submitted proposal; try again to review the current text."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/skip",
+                "quote": "Practice skipped. Your draft is retained. No assessment was made. Choose Revise response or edit the draft to resume."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/reset",
+                "quote": "Ready; practice reset · Applied case 2 · Review attempts 0"
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/reset",
+                "quote": "Practice reset. The applied case and case editor are retained. Write a proposal or a clarification question, then choose Try this plan."
+              }
+            ]
+          },
+          {
+            "dimension_id": "capability_support",
+            "score": 2,
+            "rationale": "Learning: The activity directly asks for the intended capability: allocating shared equipment and explaining access to help using supplied facts. The feedback supports self-explanation about quantities, constraints, support, uncertainty, and a reasoned fallback, while presenting the actual evidence for comparison. This is a defensible simple scaffold for planning practice. The observed output does not model the specific stock calculation or evaluate the explanation of the support route, so it relies on the learner already being able to make those judgments. The scripted revision supplies a better allocation, but its origin is the supplied test sequence; it is not evidence that this scaffold caused learning. No changed-resource decision or independently generated fallback is observed in the easy scenario.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/apply_case",
+                "quote": "Propose a feasible kit allocation and explain how participants will get help."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/initial_feedback",
+                "quote": "Connect any required help to the stated availability. Address the supplied participant needs and avoid adding needs that were not given."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/initial_feedback",
+                "quote": "Name the condition that makes the main plan unusable. Propose an alternative using available resources and support, explain why it meets the same constraints and stated needs, or ask for clarification if no feasible alternative is supported."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/revised_feedback",
+                "quote": "A reference match only reports that the ID appears in your text. It does not check whether your interpretation is right."
+              }
+            ]
+          },
+          {
+            "dimension_id": "feedback_and_revision",
+            "score": 2,
+            "rationale": "Learning: Feedback provides concrete questions about how quantities, help, constraints, and alternatives follow from the case, and revision is operationally supported. The system honestly describes its checks as observations of IDs and headings. Nevertheless, the initial infeasible allocation and the revised feasible allocation produce substantively identical guidance: both lack explicit IDs and optional headings, and both receive the same six revision prompts and per-source questions. The output neither explains the initial six-versus-three conflict nor acknowledges the corrected pair allocation or identifies what remains unspecified about support. Thus it provides useful self-review guidance with clear limits, but little response-specific explanatory feedback. The observed improvement in the supplied response cannot be attributed to the feedback.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/check/feedback_present",
+                "quote": "No explicit source IDs were detected. Connect the resources, constraints and fallback to the relevant facts, using IDs if helpful."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/check/revision_feedback_present",
+                "quote": "No explicit source IDs were detected. Connect the resources, constraints and fallback to the relevant facts, using IDs if helpful."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/check/revision_feedback_present",
+                "quote": "The automatic observations below only identify explicit source IDs and optional headings containing text. An ID or heading can be present even when the reasoning is incomplete or contradicts the evidence. Free-form writing may cover a point without using these labels."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/check/feedback_present",
+                "quote": "Check every applied constraint. Explain how the main plan meets it, why it does not apply, or what needs clarification."
+              }
+            ]
+          },
+          {
+            "dimension_id": "credible_use",
+            "score": 3,
+            "rationale": "Human flourishing: In this fictional, adequately supplied workshop scenario, the tool is credible as an ungraded planning and reflection aid. It preserves the supplied constraints, avoids inventing participant needs, welcomes clarification and supported alternatives, and makes its inability to verify feasibility or establish learning prominent. Skipping is available without an adverse assessment, and the page explains that progress is not saved. No runtime errors or network requests were recorded in the restricted browser run. Responsible use remains bounded by self-review: the learner must resolve the stock conflict and provide a workable support procedure, because the output does not determine either. This rating credits the observed modest use case, not specialist approval or readiness for unattended real-world assessment.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/initial_feedback",
+                "quote": "This is a reflection tool. It does not award a score, verify a plan, or establish that learning occurred."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/apply_case",
+                "quote": "Use only the participant needs that are supplied."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/revised_feedback",
+                "quote": "A different proposal can be reasonable if it is supported by the applied facts."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/apply_case",
+                "quote": "A question about a missing fact is a valid next step."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_easy/action/reset",
+                "quote": "The page does not transmit entries or save progress for later sessions. Keep a separate copy if you want to retain your proposal or edited case."
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "This is a result review only for frozen artifact version 1 and the recorded shared_equipment_easy scenario. The medium and hard scenario definitions are present, but their execution results are not supplied for this review.",
+          "Scripted actions and supplied initial and revised responses do not measure human learning, causation, workplace transfer, lived experience, completion time, or independent planning capability.",
+          "The observed desktop viewport, focus sequence, and Enter activation support narrow access conclusions. Screen-reader operation, other assistive technologies, human comprehension, and actual reading burden are unknown.",
+          "The record exercises initial case replacement, revision, stale-feedback signaling, resubmission, skip, and reset. Invalid inputs, a fact update with an existing draft, resumption after skipping, and real resource interruptions are not observed here; source code and interface promises are not substituted for those missing executions.",
+          "No network requests or runtime errors were recorded, but the browser harness restricted external resources. That observation is not a comprehensive deployment, security, or privacy validation.",
+          "All specialist review domains remain not_reviewed. This limits the available signoff evidence but is not itself an observed product failure. The substantive feedback limitations identified above follow from the actual inputs and outputs.",
+          "The evaluator has access to assignments and the full public conversation. This review is not blinded or a statistically independent human evaluation, and the criterion scores are not combined into an axis total or overall ranking."
+        ],
+        "request_seq": 16,
+        "packet_sha256": "a1621fa996e2e9b04f1930e35ad1e8ec5ce3d0e34a7f8e23b085215aca1cb283",
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/wg_eval_005",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "07607abad404065576d432d6ec17ae9b8144037453f882e5111ad48d9aea49d1",
+          "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+          "dispatch_prompt_sha256": "bc250c5288fcff9e7a2e3ad16f9aeb040f140b055f6d83453d74cda3db4be406",
+          "raw_response_sha256": "07bf17db815d980e404a4f21aac456fa14e2009bcf3407877f59ce7996fe6085",
+          "raw_response_file": "calls/0005/collaboration-response.json",
+          "collected_at": "2026-11-03T04:49:31.902551+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Read the complete prompt, in chunks if necessary; do not rely on a truncated tool result. Return only the evaluator response schema supplied in schema.json. Use the exact criterion IDs and exact source IDs from the supplied packet. Every evidence quote must be an exact substring of that named source representation. Do not infer any observations beyond the packet. This is a separate evaluator turn, so the authoring-message schema does not apply."
+        }
+      },
+      "prev_hash": "3f6e2ea53f43bc3421f9770d0f3bbd22fd6ec0e967d31807530c6d014b2c48f5",
+      "hash": "42987918bc889cc6672db6286ca75b54665aaf94c1ea1da6435651f65619b813"
+    },
+    {
+      "seq": 18,
+      "at": "2026-11-03T04:49:32.294145+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "ordinal": 6,
+        "purpose": "evaluation",
+        "prompt_file": "calls/0006/prompt.txt",
+        "prompt_sha256": "ed678422a0e2f0f4bc1c61400eb7501dbe2e4aef59b513e8bb6c211437fab4da",
+        "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+        "scope": "result",
+        "scenario_id": "shared_equipment_medium",
+        "artifact_version": 1,
+        "packet_sha256": "23c62f5db1d4b4299590a504228ad59e44c36747ce35268ce2f11660a7bac9f3"
+      },
+      "prev_hash": "42987918bc889cc6672db6286ca75b54665aaf94c1ea1da6435651f65619b813",
+      "hash": "3100fac25dfa206c97f016cf5ba89b4cededee59b3e37e97733b7a7b9f8b5b01"
+    },
+    {
+      "seq": 19,
+      "at": "2026-11-03T04:53:49.872775+00:00",
+      "kind": "evaluation",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "scope": "result",
+        "artifact_version": 1,
+        "scenario_id": "shared_equipment_medium",
+        "scores": [
+          {
+            "dimension_id": "agency_access",
+            "score": 3,
+            "rationale": "Human flourishing: the recorded 390 by 844 viewport had no horizontal overflow, the keyboard focus sequence reached the required controls, and Enter produced the second review. Revision retained an editable draft; skipping retained it without an assessment; reset cleared it. The directions permit free prose and clarification questions rather than requiring a particular answer format. These are coherent supports for agency and access in the observed interaction. The long, repeated feedback and JSON editing requirements may impose reading or editing burden, but actual human burden, comprehension and assistive-technology experience were not observed.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/skip",
+                "quote": "Practice skipped. Your draft is retained. No assessment was made. Choose Revise response or edit the draft to resume."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/initial_feedback",
+                "quote": "You may write freely. Explicit references such as F1 and C1 help connect the proposal to the evidence. Optional headings are Plan, Resources, Constraints, Support, Fallback, and Questions. A question about a missing fact is a valid next step."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "<label for='response-input'>Your workshop proposal</label>"
+              }
+            ]
+          },
+          {
+            "dimension_id": "task_behavior",
+            "score": 2,
+            "rationale": "System performance: the replacement case was accurately displayed, including two available kits, one-group facilitator capacity and both constraints. The tool accepted both supplied proposals, produced inspectable feedback and completed the recorded control sequence without reported runtime errors. Its source-linked self-review is a valid limited mechanism and does not invent a kit or approve the initial proposal. However, the first input explicitly assumes an additional kit, and the output does not identify that contradiction. The revised input introduces two-kit rotation but leaves meaningful participation and the actual help schedule underspecified; the second output does not distinguish those remaining issues. Mechanical success therefore supports only limited substantive task guidance.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/check/case_applied",
+                "quote": "F1 — Six participants work in pairs.\nF2 — Only two complete kits are currently available.\nF3 — A facilitator can support one group at a time."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/initial_feedback",
+                "quote": "C2 — A changed plan must not invent a third kit."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/revised_feedback",
+                "quote": "The automatic observations below only identify explicit source IDs and optional headings containing text. An ID or heading can be present even when the reasoning is incomplete or contradicts the evidence. Free-form writing may cover a point without using these labels."
+              }
+            ]
+          },
+          {
+            "dimension_id": "recovery",
+            "score": 3,
+            "rationale": "System performance: applying the supplied case replaced the starting facts and prompted renewed inspection. Revision preserved the first proposal; editing it visibly marked the previous feedback as stale; resubmission produced review attempt 2. Skip retained the revised draft, while reset cleared the response and attempt count and preserved the applied medium case. These transitions provide strong evidence of usable recovery along the recorded path. Applying another changed case after a populated submission, malformed JSON, empty-response errors, reload recovery and resource interruptions during use were not executed here; source handlers or displayed assurances do not establish those outcomes.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/apply_case",
+                "quote": "New case applied. Inspect the new facts and constraints before trying your draft again. Old source IDs may now refer to different text. Explain any needed change in resources, support, timing or fallback."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/revised_response",
+                "quote": "Your draft has changed. The feedback below describes the previous submitted proposal; try again to review the current text."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/reset",
+                "quote": "Ready; practice reset · Applied case 2 · Review attempts 0"
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/reset",
+                "quote": "Practice reset. The applied case and case editor are retained. Write a proposal or a clarification question, then choose Try this plan."
+              }
+            ]
+          },
+          {
+            "dimension_id": "capability_support",
+            "score": 2,
+            "rationale": "Learning: the activity practices the intended act of explaining a resource-constrained plan, and the feedback places the actual facts beside prompts about quantities, support, inclusion, fallback and uncertainty. This provides substantive scaffolding for self-explanation and can support comparison of a three-kit assumption with a two-kit rotation. It is more than a nonempty feedback banner. Its limitation is that the learner must independently identify the contradiction and judge whether the alternative is meaningful and the facilitator allocation workable. The recorded output neither demonstrates that reasoning nor supplies a response-specific explanation of it. The scripted revision is not evidence of learner attainment.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/check/case_applied",
+                "quote": "Revise the activity plan to use two kits without excluding the waiting pair."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/initial_feedback",
+                "quote": "For every required resource, connect its quantity and available time to an applied fact. If availability is not supplied, ask instead of assuming."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/initial_feedback",
+                "quote": "Name the condition that makes the main plan unusable. Propose an alternative using available resources and support, explain why it meets the same constraints and stated needs, or ask for clarification if no feasible alternative is supported."
+              }
+            ]
+          },
+          {
+            "dimension_id": "feedback_and_revision",
+            "score": 2,
+            "rationale": "Learning: feedback offers useful resource, support and fallback questions and explicitly limits its claims to writing observations. It correctly avoids treating missing labels as missing reasoning or a changed proposal as proof of learning. Nevertheless, the initial proposal invents a kit while the revised proposal offers a potentially useful rotation, and both receive the same substantive prompts and source observations. Beyond updating review state, the feedback does not explain the initial resource conflict, recognize the revised allocation, or focus attention on the still-unstated participation details and facilitator schedule. This is adequate generic self-review support with a clear limit in responsive explanatory feedback.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/initial_feedback",
+                "quote": "No optional labeled sections with text were detected. You may keep free-form writing; use the prompts below to inspect its coverage."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/revised_feedback",
+                "quote": "No optional labeled sections with text were detected. You may keep free-form writing; use the prompts below to inspect its coverage."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/revised_feedback",
+                "quote": "The lists below are the sources used for this review. A reference match only reports that the ID appears in your text. It does not check whether your interpretation is right."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/revised_feedback",
+                "quote": "This review describes the submitted text. It does not verify feasibility or demonstrate learning."
+              }
+            ]
+          },
+          {
+            "dimension_id": "credible_use",
+            "score": 3,
+            "rationale": "Human flourishing: the observed tool is credibly bounded as fictional planning reflection. It retains the waiting pair's inclusion requirement, displays the actual equipment and support limits, allows questions and alternative plans, and discourages inventing participant needs. Skipping carries no assessment claim, and the output repeatedly states that it does not verify feasibility or learning. Those limits support responsible use as a self-review aid. They do not establish that the revised activity would meaningfully include the waiting pair or manage real help requests: the revised input leaves those details open and the tool supplies no operational validation. Specialist signoff is absent, but that absence is not itself an observed product failure.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/revised_feedback",
+                "quote": "C1 — Allow a meaningful alternative while a pair waits."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/revised_feedback",
+                "quote": "Connect any required help to the stated availability. Address the supplied participant needs and avoid adding needs that were not given."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/revised_feedback",
+                "quote": "A different proposal can be reasonable if it is supported by the applied facts."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_medium/action/revised_feedback",
+                "quote": "This is a reflection tool. It does not award a score, verify a plan, or establish that learning occurred."
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "This result evaluation applies only to frozen artifact version 1 and the recorded shared_equipment_medium scenario at a 390 by 844 viewport with offline set to false. The other supplied scenario definitions are not observations for this rating.",
+          "The proposals and their revision were supplied by the scripted scenario. Human learning, independent revision, workplace transfer, completion time, actual inclusion and lived experience remain unknown.",
+          "Keyboard focus traversal, Enter submission and absence of horizontal overflow support limited access claims. Human comprehension, reading burden, visual usability and assistive-technology behavior were not established by the packet.",
+          "The run did not exercise malformed JSON, empty submissions, a further case change with a populated reviewed draft, page reload or an interruption during use. Those outcomes remain unknown despite inspectable source handlers.",
+          "No runtime errors or network requests were reported for this execution; the fresh browser context and restrictive content policy limit what can be inferred about other environments or deployments.",
+          "The assigned evaluator saw the author assignments and full public conversation. This is a bounded, nonblinded agent evaluation, not an independent human review. Missing specialist approvals were not treated as automatic product failures. Process, the six result criteria and their three axes have not been combined into a total or ranking."
+        ],
+        "request_seq": 18,
+        "packet_sha256": "23c62f5db1d4b4299590a504228ad59e44c36747ce35268ce2f11660a7bac9f3",
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/wg_eval_006",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "ed678422a0e2f0f4bc1c61400eb7501dbe2e4aef59b513e8bb6c211437fab4da",
+          "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+          "dispatch_prompt_sha256": "674f8adc21c8f00d604c9a178b1fecf5a40e0b9feac2e613f85bd05da5b691fc",
+          "raw_response_sha256": "aa61f4dabcc73a881075478d5ae723d908ad23b57522bee94c1e830ac819a1d9",
+          "raw_response_file": "calls/0006/collaboration-response.json",
+          "collected_at": "2026-11-03T04:53:49.839628+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Read the complete prompt, in chunks if necessary; do not rely on a truncated tool result. Return only the evaluator response schema supplied in schema.json. Use the exact criterion IDs and exact source IDs from the supplied packet. Every evidence quote must be an exact substring of that named source representation. Do not infer any observations beyond the packet. This is a separate evaluator turn, so the authoring-message schema does not apply."
+        }
+      },
+      "prev_hash": "3100fac25dfa206c97f016cf5ba89b4cededee59b3e37e97733b7a7b9f8b5b01",
+      "hash": "b8fc394553916f63dd4c25b918d257d980ac8a59eac82d09cedb9d8dddfda149"
+    },
+    {
+      "seq": 20,
+      "at": "2026-11-03T04:53:50.222722+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "ordinal": 7,
+        "purpose": "evaluation",
+        "prompt_file": "calls/0007/prompt.txt",
+        "prompt_sha256": "2e59f8623da615a37402d8239530ab0044a0645b0eac748fc28ae07152c8eac0",
+        "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+        "scope": "result",
+        "scenario_id": "shared_equipment_hard",
+        "artifact_version": 1,
+        "packet_sha256": "4f2f4320f6f4a6932738d8fe76afd160eeb4d9e73ca9d4eede7ecb329e5481b3"
+      },
+      "prev_hash": "b8fc394553916f63dd4c25b918d257d980ac8a59eac82d09cedb9d8dddfda149",
+      "hash": "95b4248991578eb0fc799250866e1d4b70314a9f418f900bbccaf33a8c7a7a62"
+    },
+    {
+      "seq": 21,
+      "at": "2026-11-03T04:57:53.135816+00:00",
+      "kind": "evaluation",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "scope": "result",
+        "artifact_version": 1,
+        "scenario_id": "shared_equipment_hard",
+        "scores": [
+          {
+            "dimension_id": "agency_access",
+            "score": 3,
+            "rationale": "Human flourishing: The recorded run supports voluntary participation and correction. Revision retains the submitted draft, skipping retains it without assigning an assessment, and reset clears the response and attempt count while retaining the case. Free-form writing and clarification questions are explicitly permitted. The observation records keyboard focus reaching the required controls, successful Enter activation of the second review, and no horizontal overflow at 360 by 740. These are concrete access mechanisms, not evidence of a complete accessibility audit. The repeated heading observations and fact-by-fact prompts make the review lengthy on this viewport; actual reading burden and comprehension were not observed. The evidence supports strong agency and basic access, with broader usability still unknown.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/skip",
+                "quote": "Practice skipped. Your draft is retained. No assessment was made. Choose Revise response or edit the draft to resume."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/open_revision",
+                "quote": "Revising; draft retained · Applied case 2 · Review attempts 1"
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/apply_case",
+                "quote": "A question about a missing fact is a valid next step."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/revised_feedback",
+                "quote": "Review attempt 2 for applied case 2"
+              }
+            ]
+          },
+          {
+            "dimension_id": "task_behavior",
+            "score": 3,
+            "rationale": "System performance: Within its declared reflection function, the artifact behaves coherently under the supplied hard scenario. It applies the replacement facts and constraints, presents the one-kit limit and ten-minute absence accurately, accepts both supplied proposals, and returns the actual applied evidence with relevant review prompts. The recorded run is offline and reports no runtime errors or network requests. It neither invents an additional resource nor asserts that all kit activities necessarily require supervision: the supplied supervision restriction remains conditional. The initial indiscriminate-start proposal and its completion-as-readiness claim receive no semantic diagnosis, but they are also not approved or scored as correct. This rating credits a functioning, honest self-review tool; substantive feasibility checking is outside the behavior demonstrated here.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/check/case_applied",
+                "quote": "F1 — Only one complete kit remains."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/check/case_applied",
+                "quote": "F2 — The facilitator is unavailable for the next ten minutes."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/check/case_applied",
+                "quote": "C3 — Do not start an activity that the supplied facts say requires absent supervision."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/initial_feedback",
+                "quote": "This review describes the submitted text. It does not verify feasibility or demonstrate learning."
+              }
+            ]
+          },
+          {
+            "dimension_id": "recovery",
+            "score": 3,
+            "rationale": "System performance: The observed transitions are recoverable and understandable. Applying the interrupted-equipment case replaces the starting case and gives an explicit instruction to inspect the changed evidence. Revision keeps the initial proposal, editing marks the earlier feedback as stale, and resubmission produces a second review. Skip retains the revised proposal; reset actually empties the response, returns the attempt count to zero, and keeps the interrupted-equipment case visible. This all occurs in the recorded offline condition. The application step began with an empty response, so retaining an existing nonempty draft through a case replacement was not demonstrated. Invalid JSON, blank submission, reload, and return after skipping were not exercised. Those exceptions remain unknown rather than observed failures.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/apply_case",
+                "quote": "New case applied. Inspect the new facts and constraints before trying your draft again. Old source IDs may now refer to different text. Explain any needed change in resources, support, timing or fallback."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/revised_response",
+                "quote": "Your draft has changed. The feedback below describes the previous submitted proposal; try again to review the current text."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/reset",
+                "quote": "Ready; practice reset · Applied case 2 · Review attempts 0"
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/reset",
+                "quote": "Practice reset. The applied case and case editor are retained. Write a proposal or a clarification question, then choose Try this plan."
+              }
+            ]
+          },
+          {
+            "dimension_id": "capability_support",
+            "score": 2,
+            "rationale": "Learning: The activity provides a meaningful but limited scaffold for planning under constraints. It asks for quantities, timing, available help, justified alternatives, and questions grounded in the supplied case. Keeping the current facts beside revision prompts supports evidence-based self-explanation and permits clarification instead of unsupported assumptions. However, the observed output does not help discriminate the initial immediate-start proposal from the revised conditional pause and alternative. It does not identify which tasks require supervision, establish whether a proposed alternative is feasible for all six participants, or determine whether the revised text sufficiently explains its bounds. The supplied facts themselves leave some of these details unspecified, so clarification is legitimate and a specific safe activity cannot be inferred. The tool supports practicing the reasoning structure; demonstrated mastery, independent error recognition, and transfer remain unknown.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/initial_feedback",
+                "quote": "For every required resource, connect its quantity and available time to an applied fact. If availability is not supplied, ask instead of assuming."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/revised_feedback",
+                "quote": "Connect any required help to the stated availability. Address the supplied participant needs and avoid adding needs that were not given."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/revised_feedback",
+                "quote": "Name the condition that makes the main plan unusable. Propose an alternative using available resources and support, explain why it meets the same constraints and stated needs, or ask for clarification if no feasible alternative is supported."
+              }
+            ]
+          },
+          {
+            "dimension_id": "feedback_and_revision",
+            "score": 2,
+            "rationale": "Learning: Both reviews contain useful explanation prompts and the exact applied sources, with honest limits on what the automated observations mean. The revision workflow also distinguishes an edited draft from previously submitted text. The substantive feedback, however, remains the same across the two supplied responses: both lack explicit source IDs and optional headings, so both receive the same writing observations, revision prompts, and evidence comparisons. It neither directly challenges treating completion as readiness in the initial response nor identifies the improved conditional handling of supervision in the revision. The revised alternative also remains undescribed in detail, and the feedback does not prioritize that unresolved issue. This is more useful than a nonempty or correctness banner, but it supplies general self-review guidance rather than response-specific explanatory feedback. The scripted replacement response cannot be attributed to learning from that guidance.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/check/feedback_present",
+                "quote": "No optional labeled sections with text were detected. You may keep free-form writing; use the prompts below to inspect its coverage."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/check/revision_feedback_present",
+                "quote": "No optional labeled sections with text were detected. You may keep free-form writing; use the prompts below to inspect its coverage."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/revised_feedback",
+                "quote": "An ID or heading can be present even when the reasoning is incomplete or contradicts the evidence. Free-form writing may cover a point without using these labels."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/revised_feedback",
+                "quote": "A reference match only reports that the ID appears in your text. It does not check whether your interpretation is right."
+              }
+            ]
+          },
+          {
+            "dimension_id": "credible_use",
+            "score": 3,
+            "rationale": "Human flourishing: The artifact can credibly serve as a bounded fictional planning exercise in the recorded interruption: it remains usable offline, permits skipping and questions, asks for alternatives grounded in available support, and avoids assigning participant needs that were not supplied. It repeatedly distinguishes reflection from feasibility verification or learning evidence, and warns that progress is not retained for later sessions. These limits make its use as a self-review aid reasonably transparent. It does not demonstrate that an unsupervised novice could decide safely what to do next, and it provides no verified alternative or readiness judgment. That is a limit on the use supported by this record, not evidence that an activity was actually started or harm occurred. Missing specialist approvals do not by themselves reduce this result score.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/apply_case",
+                "quote": "This is a reflection tool. It does not award a score, verify a plan, or establish that learning occurred."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/apply_case",
+                "quote": "Use only the participant needs that are supplied."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/revised_feedback",
+                "quote": "A different proposal can be reasonable if it is supported by the applied facts."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/shared_equipment_hard/action/reset",
+                "quote": "The page does not transmit entries or save progress for later sessions. Keep a separate copy if you want to retain your proposal or edited case."
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "This is a result review only of frozen artifact version 1 for shared_equipment_hard. It does not rate process or either other scenario, and no axis scores are combined.",
+          "The evidence is the supplied source and recorded scripted browser observations. I did not execute the artifact or conduct additional tests. Selector checks and nonempty feedback checks alone do not establish substantive quality.",
+          "Human learning, comprehension, actual burden, completion time, readiness, workplace transfer, and lived experience were not observed. The revised response was supplied by the script, so its improvement is not evidence that the artifact caused learning.",
+          "Keyboard traversal, Enter activation, focus changes, and absence of horizontal overflow were recorded, but a full assistive-technology audit and human usability study were not. Error recovery for invalid JSON or empty responses, nonempty-draft preservation during a case update, and resumption after skipping remain unobserved.",
+          "The hard case supplies a conditional supervision rule but does not identify every task that requires supervision or specify a concrete independent alternative. Those unknowns must not be filled by assuming all kit tasks are prohibited or by certifying the scripted alternative as feasible.",
+          "The authored artifact had no specialist signoff. That absence is distinct from observed behavior and is not treated as an automatic product failure. The evaluator is an informed simulated reviewer, not a blinded or statistically independent human evaluator."
+        ],
+        "request_seq": 20,
+        "packet_sha256": "4f2f4320f6f4a6932738d8fe76afd160eeb4d9e73ca9d4eede7ecb329e5481b3",
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/wg_eval_007",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "2e59f8623da615a37402d8239530ab0044a0645b0eac748fc28ae07152c8eac0",
+          "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+          "dispatch_prompt_sha256": "73a75a264633a859c6ebd7a7e62ea2ba296dacdc0a8ef694a7c530cd1cf1f780",
+          "raw_response_sha256": "6c52c5bfbcac20ca5e0f5f8f4810ae838293995e199a7921c65fa9727415bfc9",
+          "raw_response_file": "calls/0007/collaboration-response.json",
+          "collected_at": "2026-11-03T04:57:53.102098+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Read the complete prompt, in chunks if necessary; do not rely on a truncated tool result. Return only the evaluator response schema supplied in schema.json. Use the exact criterion IDs and exact source IDs from the supplied packet. Every evidence quote must be an exact substring of that named source representation. Do not infer any observations beyond the packet. This is a separate evaluator turn, so the authoring-message schema does not apply."
+        }
+      },
+      "prev_hash": "95b4248991578eb0fc799250866e1d4b70314a9f418f900bbccaf33a8c7a7a62",
+      "hash": "e803efdfdce24bb828b19c842454cd1e298d5ef9b2e54d9c5a3fa4d95966d305"
     }
   ]
 }

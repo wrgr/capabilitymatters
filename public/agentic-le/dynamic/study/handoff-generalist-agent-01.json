@@ -5343,6 +5343,714 @@
       },
       "prev_hash": "b86d86827bfd6463c06e731d98b9032468071a7f3b53eff560665214fdbdc004",
       "hash": "878dd94a9add76b4a1d64e5a1d4095fba7a0029a2ed58adef0144df63e71f3c1"
+    },
+    {
+      "seq": 19,
+      "at": "2026-11-03T04:46:26.836715+00:00",
+      "kind": "evaluation",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "scope": "result",
+        "artifact_version": 1,
+        "scenario_id": "feedback_handoff_easy",
+        "scores": [
+          {
+            "dimension_id": "agency_access",
+            "score": 3,
+            "rationale": "The recorded easy-scenario interaction supports learner choice and accessible correction: directions request only a few sentences, avoid scoring or a required script, and allow skipping. Revision returns focus to the response field, and skipping actually clears the response and feedback while permitting a fresh draft. The recorded initial keyboard sequence reaches the enabled controls, and the revised submission is activated with Enter. No horizontal overflow is recorded at the supplied 1280 by 800 viewport. These are strong observations of the available interaction paths, rather than evidence that every user can navigate them comfortably. Reading burden, assistive-technology experience, phone access, and actual human completion time remain unknown in this scenario.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/apply_case",
+                "quote": "A few sentences are enough to start. Include a supported observation, one useful clarification, and a possible next step. There is no score or required script."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/open_revision",
+                "quote": "Revising. Edit your response, then choose Try response to refresh feedback."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/skip",
+                "quote": "Skipped. No response is required. You may type a new draft whenever you want."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "<label for=\"response-input\">Your response as the team lead</label>"
+              }
+            ]
+          },
+          {
+            "dimension_id": "task_behavior",
+            "score": 3,
+            "rationale": "The applied case and subsequent feedback use the supplied queue record, colleague availability, time, and instruction to seek context before assigning a cause. The initial response attributes an unsupported motive and offers a vague demand; the observed feedback identifies the relevant 'do not care' phrase, explains the possible motive inference, prompts clarification, and asks the learner to inspect action clarity and feasibility. For the revised response, it displays the new observation and questions and changes its limited text hints without declaring correctness. The revised wording is compatible with seeking context and proposing agreement about ownership, although no actual agreement is observed. This is a coherent, valid guided-review implementation for the easy case. Its semantic judgments remain learner-led, and the artifact does not establish that the revised next step is fully specified or feasible.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/check/case_applied",
+                "quote": "The shared queue shows one task was not handed over at 16:00.\nThe colleague is available to discuss the record.\nTen minutes and a quiet space are available."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/initial_feedback",
+                "quote": "Tentative text cue: “do not care”. Such wording can imply motive, character, or an absolute claim. It may also be quoted, negated, or used in a question. This check cannot tell which; use the facts to decide whether a revision is needed."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/initial_feedback",
+                "quote": "Compare your proposed action with every operating condition below. Is the action clear, is someone able to take it, and does its timing fit? If ownership or resources are uncertain, make the next step conditional or ask for that information."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/revised_feedback",
+                "quote": "The queue shows the 16:00 task was not handed over. What happened around that time? Can we agree who will confirm the next handoff?"
+              }
+            ]
+          },
+          {
+            "dimension_id": "recovery",
+            "score": 3,
+            "rationale": "The observed sequence supports usable state changes: applying the supplied scenario replaces the sample case; opening revision retains the submitted draft; editing produces an explicit notice that the displayed feedback still belongs to the previous draft; resubmission displays draft 2 and the revised response. Skip clears the response and feedback, and reset restores the fictional sample with an empty response. These observations establish recovery through the exercised edit, resubmit, skip, and reset paths. The apply action began with an empty draft, and reset followed skip, so those actions do not independently demonstrate every advertised clearing behavior with populated data. Invalid JSON, an empty submission, reapplication over a populated draft, and interruptions were not exercised here; their recovery behavior is unknown despite relevant code and interface instructions.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/apply_case",
+                "quote": "New case applied. Previous draft and feedback cleared. Ready to practice."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/revised_response",
+                "quote": "Feedback below is for the previous draft. Try your edited response to refresh it."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/revised_feedback",
+                "quote": "Feedback ready for draft 2. Read it, revise if useful, or skip. There is no score."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/skip",
+                "quote": "Practice skipped. Your draft and feedback have been cleared. You can leave now, reset, or return by writing a new draft."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/reset",
+                "quote": "Reset complete. Draft, feedback, and scenario edits cleared; the fictional sample is restored."
+              }
+            ]
+          },
+          {
+            "dimension_id": "capability_support",
+            "score": 3,
+            "rationale": "The activity asks the learner to produce the target response rather than merely recognize a label. It defines observation versus assumption, places the actual case facts beside the submitted draft, asks the learner to trace claims to evidence, invites a question about consequential missing context, and checks action ownership, timing, and constraints. The revision instructions connect these checks to specific possible edits. This sequence provides strong support for practicing the intended capability in the easy case and allows different reasonable questions and plans. Its principal limit is that the learner must perform the substantive evidence and feasibility judgments: the tool does not explain exactly why every sentence in either draft is supported or unsupported. The supplied revision illustrates compatible wording; it is a scripted input and provides no evidence of human attainment or transfer.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/apply_case",
+                "quote": "An observation is a specific detail supported by the supplied facts. An assumption adds an explanation or motive the facts do not establish. An event alone does not tell you why someone acted."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/initial_feedback",
+                "quote": "Trace each factual claim in your response to the supplied facts below. If you added a motive, explanation, or character judgment, check whether the case explicitly supports it. Otherwise, remove it or make the uncertainty clear."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/initial_feedback",
+                "quote": "Which unknown matters most for acting on this case? Ask about that without treating your suspected explanation as established."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/revised_feedback",
+                "quote": "If useful, tighten one claim to the facts, improve one clarifying question, or make one action fit the conditions. Choose Revise response, edit your draft, then choose Try response again. You may also leave your draft as it is or skip."
+              }
+            ]
+          },
+          {
+            "dimension_id": "feedback_and_revision",
+            "score": 3,
+            "rationale": "The initial feedback supplies useful explanatory guidance for this particular input: it identifies the phrase carrying the unsupported motive and notes the absent question mark while allowing for clarification expressed in another form. After the supplied revision removes that phrase and adds questions, the feedback changes both hints, displays the revised draft, and explicitly avoids treating either change as proof of correctness. This is more informative than a nonempty response or an approval banner, and the revision cycle is coherent. Most of the substantive feedback nevertheless remains the same self-review checklist. It does not compare the two drafts' reasoning, explain the revised observation's specific relation to the queue fact, or diagnose what remains to be agreed about ownership. The evidence therefore supports strong bounded guided feedback, rather than demonstrated individualized semantic assessment or learner improvement.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/check/feedback_present",
+                "quote": "You ignored the handoff because you do not care. Just do better."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/check/feedback_present",
+                "quote": "No question mark was found. You may have asked for clarification in another form. Check whether the other person has a clear invitation to explain missing context, and add one if needed."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/check/revision_feedback_present",
+                "quote": "No phrase from the small cue list was found. Unsupported assumptions can use many other words, so this is not a correctness check."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/check/revision_feedback_present",
+                "quote": "A question mark was found. Check whether the question invites missing information that could change the next step. A question can still assume blame or an unsupported explanation."
+              }
+            ]
+          },
+          {
+            "dimension_id": "credible_use",
+            "score": 3,
+            "rationale": "The recorded tool is credible as optional introductory practice with fictional material in the supplied easy situation. It requests no real colleague identity, presents no rankings, explains the visibility of a draft on a shared device, and supplies observed skip and reset paths. Its guidance encourages context before blame, permits different plans, and states that wording checks cannot establish meaning or feasibility. The available colleague, quiet space, and ten-minute operating condition make the proposed conversation plausible, but do not establish the time needed to use the tool or that any agreement would occur. The full guidance is useful as self-review; its adequacy for an individual novice and its suitability for workplace deployment remain unobserved. Missing specialist signoff is a review limit, not an observed product failure.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/apply_case",
+                "quote": "Use fictional records only. Do not enter personal details or real employee information. On a shared device, reset before leaving."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/apply_case",
+                "quote": "This is a guided review, not an assessment. Optional text hints check a small set of English phrases and question marks. They can misread quotations or negation and miss paraphrases or other languages. They do not verify evidence, meaning, tone, or feasibility. A missing hint does not mean a response is sound."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/revised_feedback",
+                "quote": "If conditions conflict, suggest a smaller possible step or ask which priority to use. Several different plans may fit; this tool cannot determine feasibility from your wording alone."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/reset",
+                "quote": "Fictional handoff at Cedar Service Desk"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "This result review concerns only frozen artifact version 1 and feedback_handoff_easy. The medium and hard scenario descriptions are not observations of their behavior and receive no rating here.",
+          "The evaluator sees the author assignments and full public conversation. This is a bounded model evaluation, not a blinded or independent human review, and it supplies no process rating or combined score.",
+          "The initial and revised responses were supplied by the script. Their difference does not establish a human learning gain, independent performance, retention, workplace transfer, or an actual agreement with a colleague.",
+          "Human completion time and perceived burden remain unknown. The ten-minute condition belongs to the fictional situation; the recorded execution duration is not a measure of human task time.",
+          "Keyboard focus traversal and Enter activation are recorded, and no horizontal overflow is recorded at 1280 by 800. Mobile usability, screen-reader experience, broader accessibility, and lived user experience are not established by this scenario.",
+          "Invalid JSON, empty submissions, populated-draft scenario replacement, interruption recovery, and resumed work after leaving the page were not exercised. Source-level handlers or claims do not substitute for observations of those paths.",
+          "The browser record contains no runtime errors or network requests, but the fresh context's restrictive content policy also blocks external resources. This is not evidence of unconstrained deployment behavior; offline operation is not exercised in the easy scenario.",
+          "The interface's semantic limitations are explicit. Phrase and punctuation checks do not verify factual support, tone, question quality, or action feasibility, and generic self-review guidance does not establish that every learner can make those judgments.",
+          "All specialist review domains remain not_reviewed in the frozen record. This limits claims of approval and deployment readiness without independently demonstrating a failure of the observed artifact."
+        ],
+        "request_seq": 18,
+        "packet_sha256": "ea891b93c4971ad9369d1c94fd4a85336b099afe346c522d8ef6441d1411bfc3",
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hg_eval_006",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "ddac0380f31c44d462fd1a3174bd78373210527553bbe2822ef31e7a1ee62b71",
+          "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+          "dispatch_prompt_sha256": "0b976a7d64b6303a21bfaef553a2a6f83691f5ba1d85249db7c0ccdc394f9614",
+          "raw_response_sha256": "94d604bc39023fa58a0b83c7bd899b6b018c29d16ada5df664326027a79d20c8",
+          "raw_response_file": "calls/0006/collaboration-response.json",
+          "collected_at": "2026-11-03T04:46:26.812148+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Read the complete prompt, in chunks if necessary; do not rely on a truncated tool result. Return only the evaluator response schema supplied in schema.json. Use the exact criterion IDs and exact source IDs from the supplied packet. Every evidence quote must be an exact substring of that named source representation. Do not infer any observations beyond the packet. This is a separate evaluator turn, so the authoring-message schema does not apply."
+        }
+      },
+      "prev_hash": "878dd94a9add76b4a1d64e5a1d4095fba7a0029a2ed58adef0144df63e71f3c1",
+      "hash": "cde6c79ee1e14204bbf4eef4a2533ac864a10238e6630b407cb17910a2e30faf"
+    },
+    {
+      "seq": 20,
+      "at": "2026-11-03T04:46:27.207454+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "ordinal": 7,
+        "purpose": "evaluation",
+        "prompt_file": "calls/0007/prompt.txt",
+        "prompt_sha256": "19ac48d8a8e4a88ce88544c2abb3bc8029beed3b057760e7b3d7127beac26d6f",
+        "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+        "scope": "result",
+        "scenario_id": "feedback_handoff_medium",
+        "artifact_version": 1,
+        "packet_sha256": "e3700b04135f1d8ca9c99796f0d922638734cd8b7ddff2cb8a127decef7bd25c"
+      },
+      "prev_hash": "cde6c79ee1e14204bbf4eef4a2533ac864a10238e6630b407cb17910a2e30faf",
+      "hash": "c32bdbf799512d091fa5ced9d96dfc04e208cf769f58b9ab9eee3d644c517c6a"
+    },
+    {
+      "seq": 21,
+      "at": "2026-11-03T04:51:20.290880+00:00",
+      "kind": "evaluation",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "scope": "result",
+        "artifact_version": 1,
+        "scenario_id": "feedback_handoff_medium",
+        "scores": [
+          {
+            "dimension_id": "agency_access",
+            "score": 3,
+            "rationale": "Human flourishing: The recorded path supports voluntary participation and correction. Skip cleared the entered response and feedback, revision retained an editable draft, and the directions explicitly allow leaving a response unchanged. The recorded initial keyboard sequence reached the available controls, and Enter on Try response produced the revised feedback. Every recorded observation reported no horizontal overflow at the supplied 390 by 844 viewport; the source also provides a single-column layout at narrow widths and an explicit response label. These are coherent access mechanisms for this observed path. The repeated instructions, facts and four feedback sections leave actual reading burden within the fictional five-minute window unknown. Screen-reader use, touch comfort and human completion time were not observed.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/skip",
+                "quote": "Practice skipped. Your draft and feedback have been cleared. You can leave now, reset, or return by writing a new draft."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/revised_feedback",
+                "quote": "You may also leave your draft as it is or skip."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "<label for=\"response-input\">Your response as the team lead</label>"
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "@media (max-width: 740px) { .grid { grid-template-columns: 1fr; } main { padding: 20px 12px 32px; } .panel { padding: 17px; } }"
+              }
+            ]
+          },
+          {
+            "dimension_id": "task_behavior",
+            "score": 3,
+            "rationale": "System performance: Applying the medium scenario displayed its stale-timestamp warning, coverage message, five-minute condition and task. Both submitted responses appeared accurately in feedback, and the feedback reused the current facts and constraints. No runtime errors or network requests were recorded. The simple guided-review strategy provides relevant claim checking, clarification and conditional-action prompts without asserting that it can establish correctness. Its small cue list did not identify the unsupported assertion that the timestamp proves failure, but the output explicitly warned that the absence of a cue is not a correctness judgment and placed the contradictory uncertainty beside the submitted claim. This is strong behavior for the stated limited review function. Semantic verification of the response and the feasibility of its proposed action remain outside what the implementation demonstrated.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/check/case_applied",
+                "quote": "The queue shows a missing handoff, but the timestamp may be stale."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/check/case_applied",
+                "quote": "A second message says coverage changed that afternoon."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/check/feedback_present",
+                "quote": "Trace each factual claim in your response to the supplied facts below. If you added a motive, explanation, or character judgment, check whether the case explicitly supports it. Otherwise, remove it or make the uncertainty clear."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/check/feedback_present",
+                "quote": "No phrase from the small cue list was found. Unsupported assumptions can use many other words, so this is not a correctness check."
+              }
+            ]
+          },
+          {
+            "dimension_id": "recovery",
+            "score": 3,
+            "rationale": "System performance: The observed state transitions are usable and explicit. Applying the valid scenario replaced the sample case. Opening revision preserved the initial response, editing it labeled the displayed feedback as belonging to the previous draft, and resubmission refreshed feedback with the revised response. Skip cleared the actual entered response and feedback; reset restored the fictional sample and left the response empty. These observations substantiate recovery within the recorded interaction. The initial application began with an empty response, so clearing an occupied draft on a later case change was not demonstrated. Invalid JSON, invalid field types, empty submission and interruptions were not exercised. The source contains an invalid-scenario preservation path, but its runtime recovery remains unknown in this packet.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/apply_case",
+                "quote": "New case applied. Previous draft and feedback cleared. Ready to practice."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/open_revision",
+                "quote": "Feedback below is for the last submitted draft. Try your revised response to refresh it."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/revised_response",
+                "quote": "Draft edited. Previous feedback has not been updated. Choose Try response when ready."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/skip",
+                "quote": "Practice skipped. Your draft and feedback have been cleared. You can leave now, reset, or return by writing a new draft."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/reset",
+                "quote": "Reset complete. Draft, feedback, and scenario edits cleared; the fictional sample is restored."
+              }
+            ]
+          },
+          {
+            "dimension_id": "capability_support",
+            "score": 3,
+            "rationale": "Learning: The activity coherently connects the intended capability to writing, checking and revising an actual conversation opening. It defines observation versus assumption, places the uncertain records beside the learner's claims, asks which missing information would change action, and prompts checks of timing, ownership and resources. This supports reasoning about the medium case rather than requiring one script. The supplied revised response asks which record is current and who had the handoff before proposing confirmation, which is aligned with the scenario's ambiguity. Its confirmation step still leaves details to be agreed, and the tool delegates the judgments of factual support and feasibility to the learner. Those limits constrain independent instructional support. The revised text was supplied by the scripted scenario; it provides no evidence that a human acquired or transferred the capability.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/apply_case",
+                "quote": "An observation is a specific detail supported by the supplied facts. An assumption adds an explanation or motive the facts do not establish. An event alone does not tell you why someone acted."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/initial_feedback",
+                "quote": "Which unknown matters most for acting on this case? Ask about that without treating your suspected explanation as established."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/revised_feedback",
+                "quote": "The queue and coverage message differ. Can we check which record is current and who had the handoff? Then let us agree a short confirmation step."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/revised_feedback",
+                "quote": "Compare your proposed action with every operating condition below. Is the action clear, is someone able to take it, and does its timing fit? If ownership or resources are uncertain, make the next step conditional or ask for that information."
+              }
+            ]
+          },
+          {
+            "dimension_id": "feedback_and_revision",
+            "score": 2,
+            "rationale": "Learning: Feedback gives useful explanations for self-review and supports an actual editable revision cycle, with honest limits on phrase and question-mark interpretation. Its adaptation to these two responses is narrow. The initial assertion that the timestamp proves failure receives the no-cue message despite the supplied uncertainty; the general claim-to-facts prompt and displayed case must carry the correction. After revision, the substantive change is acknowledged only through the submitted text and a question-mark cue. The feedback does not explain why checking record currency and handoff responsibility addresses the initial inference, nor does it specifically examine the remaining vagueness of the confirmation step. The same broad four-part guidance is repeated. This is adequate, limited feedback for learner-led reflection, with a material gap in response-specific explanation and comparison of the initial and revised reasoning.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/check/feedback_present",
+                "quote": "The timestamp proves you failed; I will report it."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/check/feedback_present",
+                "quote": "No phrase from the small cue list was found. Unsupported assumptions can use many other words, so this is not a correctness check."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/check/revision_feedback_present",
+                "quote": "The queue and coverage message differ. Can we check which record is current and who had the handoff? Then let us agree a short confirmation step."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/check/revision_feedback_present",
+                "quote": "A question mark was found. Check whether the question invites missing information that could change the next step. A question can still assume blame or an unsupported explanation."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/check/revision_feedback_present",
+                "quote": "If useful, tighten one claim to the facts, improve one clarifying question, or make one action fit the conditions. Choose Revise response, edit your draft, then choose Try response again. You may also leave your draft as it is or skip."
+              }
+            ]
+          },
+          {
+            "dimension_id": "credible_use",
+            "score": 3,
+            "rationale": "Human flourishing: The implementation is credible as a bounded fictional reflection exercise on the supplied shared device. It asks for no real identities, provides no scores or employee rankings, discloses that text stays visible until cleared or reloaded, and offers working skip and reset paths. Its guidance preserves uncertainty and permits different feasible plans, while expressly limiting the authority of automated hints. The recorded lack of network requests and the source's absence of response-storage code are consistent with this modest use. Actual privacy during a shared-device handoff, usefulness to a learner who cannot independently check the reasoning, and completion within the fictional five-minute condition remain unknown. The observed text supports cautious practice use; the packet contains no evidence of human deployment or professional approval.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/apply_case",
+                "quote": "Use fictional records only. Do not enter personal details or real employee information. On a shared device, reset before leaving. This page does not send responses or save them to browser storage; the current case and draft stay visible in this tab until cleared or reloaded."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/initial_feedback",
+                "quote": "This is a guided review, not an assessment. Optional text hints check a small set of English phrases and question marks. They can misread quotations or negation and miss paraphrases or other languages. They do not verify evidence, meaning, tone, or feasibility. A missing hint does not mean a response is sound."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/revised_feedback",
+                "quote": "If conditions conflict, suggest a smaller possible step or ask which priority to use. Several different plans may fit; this tool cannot determine feasibility from your wording alone."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_medium/action/revised_feedback",
+                "quote": "Feedback ready for draft 2. Read it, revise if useful, or skip. There is no score."
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "This review covers result evidence only for frozen artifact version 1, case version 1 and feedback_handoff_medium. The easy and hard scenario specifications do not constitute observations for this review, and no process scores or combined ranking are produced.",
+          "The packet contains one scripted browser sequence at 390 by 844 with offline set to false. Its initial tab sequence and one Enter submission provide limited keyboard evidence; full assistive-technology access, touch use and other browser conditions remain unknown.",
+          "The initial and revised responses were supplied by the scenario. Human learning, motivation, lived experience, workplace transfer and actual completion time were not observed. The recorded execution duration cannot establish fit within the fictional five-minute work condition.",
+          "Invalid scenario input, empty response handling, applying a new case over an occupied draft, interruptions, reload recovery and return after skipping were not executed in this observation. Source code for an unexecuted branch is not a demonstrated runtime result.",
+          "The fresh context and restrictive content policy limit conclusions drawn from the empty network log. The observed clearing paths and visible privacy directions do not establish real shared-device privacy or deployment readiness.",
+          "All specialist review domains were recorded as not_reviewed. This is an explicit approval gap, not an observed product failure. The evaluator saw assignments and the public conversation and is neither a blinded nor an independent human reviewer."
+        ],
+        "request_seq": 20,
+        "packet_sha256": "e3700b04135f1d8ca9c99796f0d922638734cd8b7ddff2cb8a127decef7bd25c",
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hg_eval_007",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "19ac48d8a8e4a88ce88544c2abb3bc8029beed3b057760e7b3d7127beac26d6f",
+          "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+          "dispatch_prompt_sha256": "056fe94956693abf8e38ed55324494113a319c1f94e22977dc7984cf0ba6782e",
+          "raw_response_sha256": "e0878133ce758ecee86b58e36e861cdde5c2b703bf6cebe68d2d3efc5fff791e",
+          "raw_response_file": "calls/0007/collaboration-response.json",
+          "collected_at": "2026-11-03T04:51:20.258615+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Read the complete prompt, in chunks if necessary; do not rely on a truncated tool result. Return only the evaluator response schema supplied in schema.json. Use the exact criterion IDs and exact source IDs from the supplied packet. Every evidence quote must be an exact substring of that named source representation. Do not infer any observations beyond the packet. This is a separate evaluator turn, so the authoring-message schema does not apply."
+        }
+      },
+      "prev_hash": "c32bdbf799512d091fa5ced9d96dfc04e208cf769f58b9ab9eee3d644c517c6a",
+      "hash": "b6f535df29136bf4aa8a9d7a03df9c407f52effc1e5100a8fe2806ec4e3cf4ca"
+    },
+    {
+      "seq": 22,
+      "at": "2026-11-03T04:51:20.664765+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "ordinal": 8,
+        "purpose": "evaluation",
+        "prompt_file": "calls/0008/prompt.txt",
+        "prompt_sha256": "3d1fa761ca82526054e6c65e00368d65df39d4e8feb191fe50a2052c2fe1401a",
+        "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+        "scope": "result",
+        "scenario_id": "feedback_handoff_hard",
+        "artifact_version": 1,
+        "packet_sha256": "f7856eb56277ce30081d53bd333d623c4bedcb4a4e00cae8186732533930c062"
+      },
+      "prev_hash": "b6f535df29136bf4aa8a9d7a03df9c407f52effc1e5100a8fe2806ec4e3cf4ca",
+      "hash": "5bc1182be531b71f86a1ccbf808b4dff321dfb8245fea307c7c451dda351edb1"
+    },
+    {
+      "seq": 23,
+      "at": "2026-11-03T04:55:37.827856+00:00",
+      "kind": "evaluation",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "scope": "result",
+        "artifact_version": 1,
+        "scenario_id": "feedback_handoff_hard",
+        "scores": [
+          {
+            "dimension_id": "agency_access",
+            "score": 3,
+            "rationale": "The recorded path supports voluntary participation and correction: the learner could edit, submit again, skip without a response, and reset. Directions make these choices explicit and avoid a score or required script. The observation record reports no horizontal overflow at 360 by 740, keyboard focus reaching the initially enabled controls, and an Enter-triggered second submission. These are concrete access observations, not a comprehensive accessibility assessment. The substantial explanatory text and four-part review remain a possible burden in the fictional two-minute situation; actual reading time, comprehension, assistive-technology use, and human experience are unknown.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/apply_case",
+                "quote": "A few sentences are enough to start. Include a supported observation, one useful clarification, and a possible next step. There is no score or required script."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/skip",
+                "quote": "Skipped. No response is required. You may type a new draft whenever you want."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/open_revision",
+                "quote": "Revising. Edit your response, then choose Try response to refresh feedback."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/revised_feedback",
+                "quote": "Feedback ready for draft 2. Read it, revise if useful, or skip. There is no score."
+              }
+            ]
+          },
+          {
+            "dimension_id": "task_behavior",
+            "score": 3,
+            "rationale": "Version 1 applied the hard case accurately and produced usable review content for both actual submissions while offline; the observation record reports no runtime errors or network requests. It retained the stale record, absent colleague, coverage prerequisite, and two-minute condition as facts, and its advice permits conditional actions and smaller steps rather than demanding immediate resolution. The initial claim of proven carelessness and instruction to proceed without coverage conflict with those facts. The output exposes the relevant evidence and prompts reconsideration, but does not explicitly diagnose either contradiction: the phrase detector misses 'carelessness'. Its warning that an absent cue is not a correctness check prevents that miss from becoming a false approval. This is strong behavior as a transparent guided-review tool, with limited semantic interpretation.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/check/case_applied",
+                "quote": "The queue snapshot is stale and the colleague is not currently available."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/check/case_applied",
+                "quote": "The proposed next handoff cannot occur until coverage is confirmed."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/initial_feedback",
+                "quote": "The stale record is enough to prove carelessness. Fix it immediately even without coverage."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/initial_feedback",
+                "quote": "No phrase from the small cue list was found. Unsupported assumptions can use many other words, so this is not a correctness check."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/initial_feedback",
+                "quote": "If conditions conflict, suggest a smaller possible step or ask which priority to use. Several different plans may fit; this tool cannot determine feasibility from your wording alone."
+              }
+            ]
+          },
+          {
+            "dimension_id": "recovery",
+            "score": 3,
+            "rationale": "The observed sequence provides coherent case application, revision, feedback refresh, skip, and reset behavior under the declared offline condition. Opening revision retained the initial draft; editing explicitly marked the displayed feedback as belonging to the previous draft; resubmission displayed the revised text as draft 2. Skip cleared the response and feedback while retaining the hard case, and reset showed the fictional sample with an empty response. The code contains a recoverable invalid-scenario path, but no invalid input was exercised in this observation. Applying a replacement case over an existing draft, actual interruption, reload, and recovery after device loss were not observed and remain unknown.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/apply_case",
+                "quote": "New case applied. Previous draft and feedback cleared. Ready to practice."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/revised_response",
+                "quote": "Draft edited. Previous feedback has not been updated. Choose Try response when ready."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/revised_feedback",
+                "quote": "Draft 2: a guided review"
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/skip",
+                "quote": "Practice skipped. Your draft and feedback have been cleared. You can leave now, reset, or return by writing a new draft."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/reset",
+                "quote": "Reset complete. Draft, feedback, and scenario edits cleared; the fictional sample is restored."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "The current case, draft, and feedback were kept. Edit the JSON and try again."
+              }
+            ]
+          },
+          {
+            "dimension_id": "capability_support",
+            "score": 3,
+            "rationale": "The activity and actual output align with all three intended capabilities: the learner drafts an opening, receives a distinction between evidence and assumed motive, checks claims against the applied facts, identifies consequential missing information, and considers ownership, resources, timing, and conditional action. This offers a valid simple scaffold for the hard case without imposing an immediate conversation with an unavailable colleague or a universal script. The facts about coverage and availability remain visible, although the next-step section repeats only the scenario's constraints array, so integrating those operational facts into feasibility still rests with the learner. The revised fixture expresses uncertainty and a conditional follow-up, demonstrating that the tool accommodates such a response. It does not demonstrate that a person acquired the capability or that feedback caused improvement.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/apply_case",
+                "quote": "An observation is a specific detail supported by the supplied facts. An assumption adds an explanation or motive the facts do not establish. An event alone does not tell you why someone acted."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/initial_feedback",
+                "quote": "Trace each factual claim in your response to the supplied facts below. If you added a motive, explanation, or character judgment, check whether the case explicitly supports it. Otherwise, remove it or make the uncertainty clear."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/initial_feedback",
+                "quote": "Which unknown matters most for acting on this case? Ask about that without treating your suspected explanation as established."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/revised_feedback",
+                "quote": "Compare your proposed action with every operating condition below. Is the action clear, is someone able to take it, and does its timing fit? If ownership or resources are uncertain, make the next step conditional or ask for that information."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/revised_feedback",
+                "quote": "The current record is uncertain, so I will not assign a motive. I can request confirmation of coverage and arrange a short conversation when the colleague is available; the handoff step remains conditional."
+              }
+            ]
+          },
+          {
+            "dimension_id": "feedback_and_revision",
+            "score": 2,
+            "rationale": "The review supplies useful explanatory questions, current facts, explicit limits, and an operational revision cycle. It neither falsely praises the initial response nor rejects the revised response simply for lacking a question mark. However, the two substantively different submissions receive the same instructional commentary: both return no phrase cue and no question mark, despite the initial unsupported carelessness claim and infeasible immediate demand, and the revised retention of uncertainty and conditional follow-up. Refreshing the quotation and draft number accurately tracks revision, but the feedback does not explain the specific initial errors or recognize what improved. Consequently the evidence supports a limited self-review aid rather than strong response-specific feedback. The scripted revision cannot be attributed to the tool.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/check/feedback_present",
+                "quote": "The stale record is enough to prove carelessness. Fix it immediately even without coverage."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/check/revision_feedback_present",
+                "quote": "The current record is uncertain, so I will not assign a motive. I can request confirmation of coverage and arrange a short conversation when the colleague is available; the handoff step remains conditional."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/check/feedback_present",
+                "quote": "No phrase from the small cue list was found. Unsupported assumptions can use many other words, so this is not a correctness check."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/check/revision_feedback_present",
+                "quote": "No question mark was found. You may have asked for clarification in another form. Check whether the other person has a clear invitation to explain missing context, and add one if needed."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/check/revision_feedback_present",
+                "quote": "If useful, tighten one claim to the facts, improve one clarifying question, or make one action fit the conditions. Choose Revise response, edit your draft, then choose Try response again. You may also leave your draft as it is or skip."
+              }
+            ]
+          },
+          {
+            "dimension_id": "credible_use",
+            "score": 3,
+            "rationale": "The observed tool is credible as optional fictional practice in this offline setting. It gives no employee ranking or correctness score, warns against entering personal information, explains the visibility of tab contents on a shared device, and provides observed clearing controls. It permits smaller or conditional steps and explicitly limits the authority of its wording checks. These features support respectful use despite the absence of specialist signoff, which is not itself a product failure. Credibility remains bounded: the tool does not establish the learner's judgment, cannot ensure that a user avoids disclosures, and has no observed evidence of fitting a human two-minute session or preserving a response across an interruption. Its value here is guided reflection rather than a certified workplace decision or learning assessment.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/apply_case",
+                "quote": "Use fictional records only. Do not enter personal details or real employee information. On a shared device, reset before leaving. This page does not send responses or save them to browser storage; the current case and draft stay visible in this tab until cleared or reloaded."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/apply_case",
+                "quote": "Only two minutes are available now; a follow-up can be arranged."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/revised_feedback",
+                "quote": "This is a guided review, not an assessment. Optional text hints check a small set of English phrases and question marks. They can misread quotations or negation and miss paraphrases or other languages. They do not verify evidence, meaning, tone, or feasibility. A missing hint does not mean a response is sound."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_hard/action/revised_feedback",
+                "quote": "If conditions conflict, suggest a smaller possible step or ask which priority to use. Several different plans may fit; this tool cannot determine feasibility from your wording alone."
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "This result review is restricted to frozen artifact version 1 and the observed feedback_handoff_hard scenario. It does not rate process, the easy or medium scenarios, later versions, or deployment readiness.",
+          "The initial and revised responses were supplied scripted inputs. Their difference is not evidence of human learning, feedback uptake, workplace transfer, or a causal effect of the tool. Human completion time, burden, and lived experience remain unknown.",
+          "Keyboard traversal, Enter submission, and absence of horizontal overflow support only the recorded interactions at the supplied viewport. Screen-reader behavior, visual usability, and broader accessibility were not observed.",
+          "The supplied sequence did not exercise invalid scenario input, empty submission, replacement of a case over an existing response, or an actual interruption or reload. Source-level error handling is implementation evidence rather than an executed recovery result.",
+          "The observation used a fresh browser context with a restrictive resource policy and an offline condition. Its empty network-request and runtime-error records do not establish behavior across all browsers, devices, or deployment conditions.",
+          "The authoring roster had no assigned domain specialists and the frozen review statuses remain not_reviewed. This missing signoff is distinguished from observed behavior. The evaluator has access to assignments and the public conversation and is not a blinded or statistically independent human reviewer.",
+          "All six result criteria have sufficient evidence for bounded ratings; unobserved subclaims are explicitly left unknown. No composite, axis total, or ranking is calculated."
+        ],
+        "request_seq": 22,
+        "packet_sha256": "f7856eb56277ce30081d53bd333d623c4bedcb4a4e00cae8186732533930c062",
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hg_eval_008",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "3d1fa761ca82526054e6c65e00368d65df39d4e8feb191fe50a2052c2fe1401a",
+          "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+          "dispatch_prompt_sha256": "2e6425d7c58e4bce773b105852315e322eadcab97a922a898f0bbb53e8e63082",
+          "raw_response_sha256": "94af9666952bcb40d0fddb262753928d48d77342b7c38126f4921ac2c7069256",
+          "raw_response_file": "calls/0008/collaboration-response.json",
+          "collected_at": "2026-11-03T04:55:37.790461+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Read the complete prompt, in chunks if necessary; do not rely on a truncated tool result. Return only the evaluator response schema supplied in schema.json. Use the exact criterion IDs and exact source IDs from the supplied packet. Every evidence quote must be an exact substring of that named source representation. Do not infer any observations beyond the packet. This is a separate evaluator turn, so the authoring-message schema does not apply."
+        }
+      },
+      "prev_hash": "5bc1182be531b71f86a1ccbf808b4dff321dfb8245fea307c7c451dda351edb1",
+      "hash": "f15ffe4fa9756d4859a90118cceccab70279386796efb0c871f616111bacd564"
     }
   ]
 }
