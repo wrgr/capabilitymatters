@@ -1,6 +1,6 @@
 {
   "schema_version": "dynamic-flower-overview-1",
-  "updated_at": "2026-11-03T20:20:31.023689+00:00",
+  "updated_at": "2026-11-03T20:38:05.659564+00:00",
   "methods": {
     "design": "Four independent case-by-condition conversations; two cases, two conditions, one conversation per cell.",
     "response_origin": "Actual fresh collaboration-agent output submitted through manual transport.",
@@ -302,7 +302,7 @@
       "design_call_count": 19,
       "failed_attempts": 2,
       "state": "awaiting_tests_or_review",
-      "journal_head": "3927cddedf493a40ac58dbc6e837ed63916bc0e2170b8b18dae5cf1e72e620e9",
+      "journal_head": "0e48cb842509728b6e790671e6aa4631943ecdf1c799f06a44a3c34667424d14",
       "scenarios": [
         {
           "id": "feedback_handoff_easy",
@@ -491,7 +491,68 @@
           "user_update_ids": [
             "user-summary-request"
           ],
-          "reviews": [],
+          "reviews": [
+            {
+              "scope": "process",
+              "scenario_id": null,
+              "scores": [
+                {
+                  "dimension_id": "agency_and_burden",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "domain_boundaries",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "responsive_dialogue",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "decision_traceability",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "learning_reasoning",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "participation",
+                  "score": 3
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "feedback_handoff_easy",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 2
+                }
+              ]
+            }
+          ],
           "observations": [
             {
               "scenario_id": "feedback_handoff_easy",

@@ -9053,6 +9053,507 @@
       },
       "prev_hash": "4186d54daf5f52107ac0ccc963d21e569ec933d1db7d0b944e4c1afd37ad07ff",
       "hash": "3927cddedf493a40ac58dbc6e837ed63916bc0e2170b8b18dae5cf1e72e620e9"
+    },
+    {
+      "seq": 80,
+      "at": "2026-11-03T20:30:31.819729+00:00",
+      "kind": "evaluation",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "scope": "process",
+        "artifact_version": 3,
+        "scenario_id": null,
+        "scores": [
+          {
+            "dimension_id": "agency_and_burden",
+            "score": 4,
+            "rationale": "Human-flourishing axis: agency, access and burden concerns materially influenced the decisions leading to version 3. The learning proposal made skipping independent of an attempted answer and rejected compulsory wording changes. Experience review identified repeated reading, the layout-dependent directions and the difficulty of returning from feedback to the draft. The summary addition subsequently used an optional disclosure, explicit last-submission labeling, manual keyboard copying and a return-to-draft control; copying and reflection remained optional. Clearing descriptions also retained the distinction between this page and copies elsewhere. These are traceable responses to concerns, rather than credit for merely mentioning accessibility. The team appropriately retained actual reading burden, completion time and learner understanding as unknown; source-based access provisions were not presented as observed human usability.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "Skipping must be a complete, meaningful route: 'Skip this practice' should permit leaving without entering a response, displaying corrective feedback, or receiving a failure label."
+              },
+              {
+                "source": "event",
+                "id": "event/26",
+                "quote": "Four explanatory review items, repeated scope notices and the always-visible JSON editor create a substantial amount of text after submission."
+              },
+              {
+                "source": "event",
+                "id": "event/61",
+                "quote": "To reduce the repeated reading identified in m00026, the complete summary text may sit in an optional disclosure within feedback, with its heading, submission label and route to the text always visible."
+              },
+              {
+                "source": "html",
+                "id": "artifact/3",
+                "quote": "<details id='summary-details'>"
+              },
+              {
+                "source": "html",
+                "id": "artifact/3",
+                "quote": "<button id='return-to-draft' type='button'>Return to draft</button>"
+              },
+              {
+                "source": "event",
+                "id": "event/72",
+                "quote": "The optional disclosure addresses the identified risk of repeated reading through organization, but actual reading burden, completion time and learner understanding remain unknown."
+              }
+            ]
+          },
+          {
+            "dimension_id": "domain_boundaries",
+            "score": 4,
+            "rationale": "System-performance axis: substantive claims and approvals remained tied to actual assigned expertise and implemented versions. The facilitator routed content, learning, assessment, experience and deployment questions without substituting its own specialist approval. Implementation authors distinguished inspectable source choices from execution evidence, and the assessment objection was closed by its author after the implemented repair. Version 3 readiness explicitly retained only its two current domain approvals and did not transfer earlier approvals or treat authorship as software verification. Missing delivery information and unreviewed domains were stated as limitations rather than invented agreement or automatic product failure. The record therefore supports a strong boundary-management judgment even though it does not establish complete current-version signoff or real-world deployment readiness.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/5",
+                "quote": "Dependencies: Learning Sciences should decide how to sequence the response, feedback and revision."
+              },
+              {
+                "source": "event",
+                "id": "event/28",
+                "quote": "These missing delivery details limit claims about a real rollout; they do not require an additional feature or establish a product failure."
+              },
+              {
+                "source": "event",
+                "id": "event/65",
+                "quote": "These statements describe the returned source and its intended transitions, not executed results."
+              },
+              {
+                "source": "event",
+                "id": "event/74",
+                "quote": "The current version 3 review record therefore has assessment_measurement_evaluation and learning_experience_design approved. data_science, education_training_professionals, learning_environment_engineering, learning_sciences, software_engineering and subject_matter_expertise remain not_reviewed for this version."
+              },
+              {
+                "source": "event",
+                "id": "event/74",
+                "quote": "These are their approvals of the supplied implementation within their assigned domains, not a claim of team consensus or browser verification."
+              }
+            ]
+          },
+          {
+            "dimension_id": "responsive_dialogue",
+            "score": 4,
+            "rationale": "Learning axis: later contributions substantively answered earlier questions and changed decisions. The assessment reviewer challenged the claim that unchanged wording meant self-review had occurred, despite an earlier learning-domain approval of the broader version 1 design. The facilitator routed a narrow correction; the engineer implemented it; and the objection's author resolved it on version 2. Version 3 retains the corrected event wording. A second consequential exchange concerned associating the copied scenario, response and guidance with one submission. Assessment specified the invariant, experience addressed presentation during revision, implementation supplied a saved submission record, and the assessment reviewer directly evaluated that answer. These chains show consequential dialogue and an accountable resolution process, rather than parallel role statements or a summary asserting consensus.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/24",
+                "quote": "Unchanged wording establishes a repeated submission, but it does not establish that the learner examined the evidence, considered the review prompts or made a justified decision to retain the response."
+              },
+              {
+                "source": "event",
+                "id": "event/35",
+                "quote": "I resolve my objection m00024 for implemented artifact version 2, supplied in m00032, in response to the review request in m00030."
+              },
+              {
+                "source": "html",
+                "id": "artifact/3",
+                "quote": "Unchanged response submitted. No correctness or improvement judgment was made."
+              },
+              {
+                "source": "event",
+                "id": "event/59",
+                "quote": "The necessary invariant is that the scenario, submitted response and feedback in a summary describe the same submission."
+              },
+              {
+                "source": "event",
+                "id": "event/65",
+                "quote": "The summary textarea receives that saved string; selecting it never reads the current draft or pending scenario JSON."
+              },
+              {
+                "source": "event",
+                "id": "event/70",
+                "quote": "Software Engineering's direct answer in m00065 addresses the concern I raised in m00059."
+              }
+            ]
+          },
+          {
+            "dimension_id": "decision_traceability",
+            "score": 4,
+            "rationale": "System-performance axis: the summary requirement is traceable from the user's update through attributed assessment and experience proposals, the request to extend version 2, actual version 3 source, scoped reviews and readiness for a separate freeze. The source constructs a record containing the applied scenario snapshot, submitted wording and guidance, and includes the required practice label. This supports the claimed implementation link without relying solely on an author's change summary. The choice of native text selection instead of the optional direct-copy button was explained, including its inability to certify a completed copy. Required corrections, optional refinements, current approvals and proposed checks were distinguished. The later browser records do not establish the complete summary-copying path; the process receives credit for traceability and honest test boundaries, not for unperformed verification.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/55",
+                "quote": "After each practice attempt, include a concise copyable plain-text practice summary within the feedback. Include the current scenario, the learner's own response, the feedback, and one next action."
+              },
+              {
+                "source": "event",
+                "id": "event/63",
+                "quote": "Extend the latest accepted artifact, version 2, with artifact.parent_version set to 2."
+              },
+              {
+                "source": "html",
+                "id": "artifact/3",
+                "quote": "const record={number:submittedCount+1,wording:wording,event:event,scenario:snapshot,response:response,guidance:makeGuidance(snapshot)};"
+              },
+              {
+                "source": "html",
+                "id": "artifact/3",
+                "quote": "PRACTICE SUMMARY — fictional exercise; not a verified workplace outcome."
+              },
+              {
+                "source": "event",
+                "id": "event/70",
+                "quote": "I approve implemented artifact version 3 within assessment and evaluation design, specifically the practice-summary content, its association with the submitted response and offered guidance, and the event descriptions and inference limits requested in m00068."
+              },
+              {
+                "source": "event",
+                "id": "event/74",
+                "quote": "Selection feedback and actual copying require separate observations: a message that text was selected does not establish that the clipboard received it."
+              }
+            ]
+          },
+          {
+            "dimension_id": "learning_reasoning",
+            "score": 4,
+            "rationale": "Learning axis: the reasoning consistently connects an observable evidence-based response capability to composition, explanatory self-review, optional revision and proposed evidence. The target is adaptation to facts and operating conditions, with useful clarification connected to a decision rather than rewarded for punctuation or preferred wording. Contributors explained why tracing evidence, testing explanations and checking prerequisites could support that capability, while recognizing that generic self-review may not correct a learner's misunderstanding. They separated supported production from independent transfer, supplied observations that would challenge a transfer claim, and retained alternative explanations for changed wording. The version 3 summary preserves those limits and invites a practice action without converting a copied record into assessment or workplace success. This is strong learning-design reasoning; no human attainment is inferred.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "This is a capability to reason from evidence under changing conditions, not to reproduce one preferred sentence."
+              },
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "Each prompt has a learning purpose: tracing a statement to a fact exposes an unsupported inference; connecting a question to a decision distinguishes useful clarification from a question included merely to satisfy the task; checking conditions makes feasibility part of the reasoning."
+              },
+              {
+                "source": "event",
+                "id": "event/22",
+                "quote": "A material limitation remains: a learner may lack the understanding needed to recognize a problem in their own response, and these general prompts do not establish that such a misunderstanding was corrected."
+              },
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "Proposed evidence that could challenge a learning claim: learners improve the prompted revision yet continue to assert unsupported explanations on a new case; reproduce the seed's action when changed constraints make it infeasible; or ask a question whose answer cannot inform their proposed next step."
+              },
+              {
+                "source": "event",
+                "id": "event/70",
+                "quote": "An independent assessment would require a separately collected first response to a reviewed changed task, with relevant case evidence available and without a worked response or component-by-component guidance before that attempt."
+              }
+            ]
+          },
+          {
+            "dimension_id": "participation",
+            "score": 3,
+            "rationale": "Human-flourishing axis: multiple relevant perspectives affected the work, and the user update received a concrete response with consequences and limits. Subject-matter evidence boundaries shaped the case, learning and assessment proposals shaped the practice, and experience and deployment reviews raised reading, navigation, device and clearing concerns. For version 3, the facilitator sought focused assessment and experience advice, those contributors addressed each other, and their requirements influenced the implemented summary and copying route. Coverage remains limited in a substantive way: the environment reviewer explicitly identified unresolved delivery questions concerning time, available assistance and access-blocked or interrupted participants, but the supplied conversation contains no educator response resolving them and no direct learner observations. This limits the breadth of informed participation for actual delivery; it is not a product-failure judgment based merely on absent role signoff.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/57",
+                "quote": "The recorded user-summary-request adds a requirement after the version 2 test: after each practice attempt, provide a concise copyable plain-text summary within the feedback containing the current scenario, the learner's own response, the feedback and one next action."
+              },
+              {
+                "source": "event",
+                "id": "event/61",
+                "quote": "Assessment, Measurement, Evaluation: your content and interpretation boundaries in m00059 are compatible with this experience proposal."
+              },
+              {
+                "source": "event",
+                "id": "event/65",
+                "quote": "The supplied complete HTML extends accepted version 2 and implements the practice-summary addition requested in m00063 using the content and interaction proposals in m00059 and m00061."
+              },
+              {
+                "source": "event",
+                "id": "event/28",
+                "quote": "For Education and Training Professionals' delivery planning, the unresolved inputs are the practical session window, whether a device-navigation helper is available, and how an interrupted or access-blocked participant can leave or return voluntarily."
+              },
+              {
+                "source": "event",
+                "id": "event/72",
+                "quote": "No human observation establishes that someone distinguishes the record from the draft or uses the next action productively."
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "This is one process review of frozen artifact version 3 under case version 2. Earlier versions and reviews provide decision history; their approvals are not transferred to version 3. No result criterion, scenario ranking or combined score is supplied.",
+          "The reviewer sees the actual assignments and full supplied public conversation. This is a bounded agent simulation, not a blinded or statistically independent human review, and the ratings do not demonstrate human professional competence or stakeholder consensus.",
+          "Version 3 has recorded assessment_measurement_evaluation and learning_experience_design approvals. The other six domain statuses remain not_reviewed for this version. Missing signoff is a coverage limitation, not an observed implementation failure.",
+          "The supplied version 3 browser actions cover scenario application, scripted initial and changed submissions, revision, skip and reset. They do not include opening, selecting or copying the complete summary, unchanged or blank submissions, pending or invalid scenario edits, or voluntary return. Source inspection and proposed checks cannot establish those unobserved execution results.",
+          "Actual learner understanding, reading burden, completion time, accessibility in use, retention, independent transfer and workplace outcomes remain unknown. Scripted responses, mechanically nonempty feedback and elapsed browser-action times do not establish those human outcomes.",
+          "The actual delivery route, intended device and browser combinations, session arrangements and availability of assistance were not settled in the public design conversation. The later recorded viewports and offline condition describe bounded browser observations, not a complete delivery evaluation."
+        ],
+        "request_seq": 79,
+        "packet_sha256": "4ad1c2179e9445871fd2bdbb5900a05292e710f0ab8c0dd559d93fc9d824cbea",
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_eval_033",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "68f04d747913685bff4fe25e37255b39a9394f60ba89c5f428fa3bb5dcdaba05",
+          "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+          "dispatch_prompt_sha256": "843abf042bad93db3ec6836b138b582b0808cbeaace9f4ce03a8123875f78d5e",
+          "raw_response_sha256": "69052b3fdf804332583ddeec6a59f10db4d5785c3131ced07186c98ab03301ee",
+          "raw_response_file": "calls/0033/collaboration-response.json",
+          "collected_at": "2026-11-03T20:30:31.619144+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Read the complete prompt, in chunks if necessary; do not rely on a truncated tool result. Return only the evaluator response schema supplied in schema.json. Use the exact criterion IDs and exact source IDs from the supplied packet. Every evidence quote must be an exact substring of that named source representation. Do not infer any observations beyond the packet. This is a separate evaluator turn, so the authoring-message schema does not apply.",
+          "transport_followup": "Transport status request only; no change to the assigned review, inputs, rubric or required response. Please send a brief control-channel status saying whether you are still reading the supplied packet, composing the response, or blocked by a tool problem, then continue the same review. Do not inspect other files or alter your substantive judgment to accelerate completion.\n\nResume the same pending review using only your original retained prompt and schema. Your prior turn is marked interrupted, and no response has been accepted. Preserve your assigned scope, evidence, rubric and substantive judgment. Continue reading the complete packet as necessary and write the one required response file; do not inspect any other study files or start a different review. This is a transport continuation of the same recorded request, not new task evidence. Please report a brief control-channel status, then finish the review.",
+          "transport_followup_sha256": "58fdb60efe38da7606ff9b33ca375c990b408f35dc85d9c4295f5cbaeb340764"
+        }
+      },
+      "prev_hash": "3927cddedf493a40ac58dbc6e837ed63916bc0e2170b8b18dae5cf1e72e620e9",
+      "hash": "e47406d95204215b5587ef43a2e60eb85d8ef93844e6270a33d8a42168aec01a"
+    },
+    {
+      "seq": 81,
+      "at": "2026-11-03T20:30:34.352982+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "ordinal": 34,
+        "purpose": "evaluation",
+        "prompt_file": "calls/0034/prompt.txt",
+        "prompt_sha256": "56af32603849a7238a3dfc44243e30029f0aa8669540a1d3b37ded9b997bfc03",
+        "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+        "scope": "result",
+        "scenario_id": "feedback_handoff_easy",
+        "artifact_version": 3,
+        "packet_sha256": "40c51a9cc2a54a884a37ebca871dde6c5996e2b662be9a39604ada14ecbdc3ba"
+      },
+      "prev_hash": "e47406d95204215b5587ef43a2e60eb85d8ef93844e6270a33d8a42168aec01a",
+      "hash": "7904df3e5a0685599ece64c0aee584a5987c9f1d701c436963a163303a63f8f7"
+    },
+    {
+      "seq": 82,
+      "at": "2026-11-03T20:37:13.474042+00:00",
+      "kind": "evaluation",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "scope": "result",
+        "artifact_version": 3,
+        "scenario_id": "feedback_handoff_easy",
+        "scores": [
+          {
+            "dimension_id": "agency_access",
+            "score": 3,
+            "rationale": "The recorded desktop route provides clear directions, an editable response, optional reflection, voluntary revision or retention of wording, and a functioning neutral skip route. Skipping cleared the recorded response and removed the active review and summary presentation while offering voluntary return. The keyboard trace reached the initial main controls, and Enter activated the revised submission; no horizontal overflow was recorded at 1280 by 800. These support basic access and agency in this observed setting. The summary disclosure reduces immediate repetition of the case and guidance, and its source supplies a labeled read-only textarea and manual copying instructions. Opening that disclosure, selecting or copying its full contents, post-submission keyboard traversal, phone use and assistive-technology use were not observed. The considerable review text has an organized structure, but manageable human reading burden and completion time remain unknown.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/skip",
+                "quote": "Skipped. No capability judgment was made. You may leave or voluntarily return to this case."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/initial_feedback",
+                "quote": "You may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response or Return to draft to return to your draft, then submit again when ready."
+              },
+              {
+                "source": "html",
+                "id": "artifact/3",
+                "quote": "<textarea id='practice-summary' rows='16' readonly wrap='soft' spellcheck='false' autocomplete='off' aria-describedby='summary-submission-label summary-note summary-copy-help'></textarea>"
+              }
+            ]
+          },
+          {
+            "dimension_id": "task_behavior",
+            "score": 3,
+            "rationale": "The applied case accurately displays the supplied 16:00 missed-handoff record, colleague availability, available discussion conditions and instruction to seek context before assigning a cause. Feedback uses that case's title and general evidence-based prompts rather than carrying forward the seed's 14:00 deadline or coverage permissions. The initial supplied response asserts an unsupported lack-of-care motive and offers a vague admonition; the tool responds with relevant review guidance without falsely classifying that response as correct. The later supplied response reports the queue evidence, asks what happened and proposes reaching agreement about confirmation. The output truthfully identifies changed wording without claiming improvement or an agreement already achieved. Summary labels advance from submission 1 to submission 2. Source inspection supports a same-submission record containing the applied scenario, submitted response and guidance. The full generated summary and actual copied text were not captured, so those parts of the new requirement remain unverified in execution. The rating credits substantive, appropriate behavior in the recorded route, not merely the nonempty-feedback checks.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/check/case_applied",
+                "quote": "The shared queue shows one task was not handed over at 16:00.\nThe colleague is available to discuss the record.\nTen minutes and a quiet space are available.\nOperating conditions\nUse the record, then seek context before assigning a cause."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/initial_feedback",
+                "quote": "The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/revised_feedback",
+                "quote": "Changed response submitted; improvement not assessed."
+              },
+              {
+                "source": "html",
+                "id": "artifact/3",
+                "quote": "const record={number:submittedCount+1,wording:wording,event:event,scenario:snapshot,response:response,guidance:makeGuidance(snapshot)};"
+              }
+            ]
+          },
+          {
+            "dimension_id": "recovery",
+            "score": 2,
+            "rationale": "There is adequate execution evidence for a limited set of recovery and update behaviors. Applying the supplied case establishes a fresh context. Revision returns focus to the response while retaining its wording and review; editing preserves the visible submission-1 label, and resubmission changes that label to submission 2. Skip clears the recorded response and removes the active review and summary presentation. Reset then restores the starting case and ready-state review. Because reset follows skip, the response was already empty: this sequence does not independently demonstrate reset clearing a nonempty response or every hidden stored field. Invalid JSON, type errors, blank and unchanged resubmissions, replacement of a case after an attempt, voluntary return after skip, interrupted sessions and summary-copy fallback were not exercised. Their source mechanisms and explanatory text are present, but the recorded evidence cannot establish those recovery outcomes. No failure is inferred for these unobserved branches.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/open_revision",
+                "quote": "Draft available to edit or keep. The review and summary describe the last submitted attempt; submit again to update them."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/revised_response",
+                "quote": "Editing the draft for this applied case. The review and practice summary still describe the last submitted attempt. Submit again when ready."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/revised_feedback",
+                "quote": "Last submitted response — submission 2 in this applied case — changed wording"
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/reset",
+                "quote": "Reset. Starting fictional case restored; this page's entered responses, reflection, review, practice summary and pending scenario edits cleared."
+              }
+            ]
+          },
+          {
+            "dimension_id": "capability_support",
+            "score": 3,
+            "rationale": "The actual activity aligns well with the intended capability: the learner composes an observation, clarification and next-step proposal against supplied evidence, then can examine and revise that response. The review explains evidence limits, distinguishes explanations needing confirmation, connects a question to a decision and makes action prerequisites explicit. In this easy case, the recorded handoff and available colleague support a conversation to obtain context and seek agreement; they do not establish the initial response's alleged motive. The revised scripted wording addresses those distinctions but proposes agreement rather than demonstrating that agreement occurred. The tool avoids imposing the seed's particular script and allows supported explanations when facts establish them. This is coherent support for cued production and self-review. The observed run does not test independent adaptation to a materially harder condition, demonstrate that a learner understood the prompts, or establish transfer, retention or learning gains.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/check/case_applied",
+                "quote": "Write an observation, a clarifying question and an agreed next step."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/initial_feedback",
+                "quote": "Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/initial_feedback",
+                "quote": "Identify the missing information your question could reveal and how an answer could change your next step."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/initial_feedback",
+                "quote": "Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it."
+              }
+            ]
+          },
+          {
+            "dimension_id": "feedback_and_revision",
+            "score": 3,
+            "rationale": "The feedback contains useful explanations and actionable review operations rather than merely acknowledging submission. For the unsupported initial accusation, it directs the learner to distinguish case evidence from a motive needing confirmation, identify a meaningful information gap and check a proposed action's conditions. The same principles remain appropriate to scrutinizing the more evidence-based revised wording, including whether its broad question leads to a sufficiently concrete agreement. The revision route retains the draft and review, and the output distinguishes draft edits from the last submitted attempt. It permits retaining justified wording and makes reflection optional. The feedback is intentionally general and does not identify a particular unsupported phrase, assess the revised response or show that misunderstanding was corrected. That is a limitation of its self-review function, not evidence of a misleading classifier. Its explicit interpretation limits and neutral changed-submission label preserve the distinction between useful practice support and an independently established improvement.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/initial_feedback",
+                "quote": "An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/revised_feedback",
+                "quote": "Next practice action: Check one part of your submitted response against the applied facts and operating conditions, revising or keeping the wording as warranted."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/revised_feedback",
+                "quote": "These are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/revised_feedback",
+                "quote": "Submission and revision do not establish improvement, learning, transfer or workplace competence."
+              }
+            ]
+          },
+          {
+            "dimension_id": "credible_use",
+            "score": 2,
+            "rationale": "The evidence supports limited, respectful use as optional fictional desktop practice. The page discourages names, rankings and personal disclosures, does not request identity, provides neutral exit choices and explains shared-device cleanup and the limits of clearing external copies. The source includes the required standalone practice label and a manual copying route, without presenting the learner's proposed workplace action as endorsed. The recorded run reports no runtime errors or network requests, but its restrictive browser environment and offline=false condition do not establish all deployment or offline behavior. The full summary, copying, actual shared-device handover, phone use and interruption recovery were not observed. The fictional availability of ten minutes and a quiet space cannot establish that people can complete or benefit from the activity within that time. Thus a bounded practice use is credible, while broader usability, delivery feasibility and completion within the stated operating window remain unknown. Missing specialist signoffs are not treated as product failures.",
+            "evidence_refs": [
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/apply_case",
+                "quote": "Use fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/reset",
+                "quote": "No identity is requested. This page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control."
+              },
+              {
+                "source": "html",
+                "id": "artifact/3",
+                "quote": "PRACTICE SUMMARY — fictional exercise; not a verified workplace outcome."
+              },
+              {
+                "source": "rendered",
+                "id": "scenario/feedback_handoff_easy/action/reset",
+                "quote": "It does not remove copies you made elsewhere or from a clipboard."
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "This is a result-only evaluation of frozen artifact version 3 for feedback_handoff_easy, under case version 2 including the summary request. It does not rate the process, earlier artifacts or other difficulties, and it computes no combined score across criteria or axes.",
+          "Only the supplied packet was examined. No artifact execution or additional testing was performed for this evaluation. Source inspection, author and reviewer statements, and recorded browser outcomes are distinguished throughout.",
+          "The observation is a scripted desktop run at 1280 by 800 with offline=false. Medium and hard scenario definitions are supplied but no observations for them belong to this result review. Their phone and offline conditions cannot be credited as executed here.",
+          "The initial and revised responses are scripted inputs, not observed human learning. The revised wording's stronger alignment with the case cannot be attributed to the feedback. Human comprehension, actual review, engagement, completion time, retention, independent transfer and workplace outcomes remain unknown.",
+          "The summary heading and last-submission labels were observed, but the disclosure was not opened and the summary textarea value, complete copied content and clipboard transfer were not recorded. Source construction supports the intended contents and association without establishing successful copying or full rendered access.",
+          "The run did not exercise blank or unchanged submissions, invalid or pending scenario edits after an attempt, successful replacement of a case with existing practice, voluntary return after skip, interruption recovery, summary selection fallback, phone interaction or assistive technology. Reset followed skip, so nonempty-response clearing by reset was not independently tested.",
+          "Version 3 has recorded assessment and learning-experience approvals; the other domain reviews remain not_reviewed for that version. Earlier approvals retain their original version and scope. Neither approval coverage nor its gaps substitute for observed product behavior or human evidence."
+        ],
+        "request_seq": 81,
+        "packet_sha256": "40c51a9cc2a54a884a37ebca871dde6c5996e2b662be9a39604ada14ecbdc3ba",
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_eval_034",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "56af32603849a7238a3dfc44243e30029f0aa8669540a1d3b37ded9b997bfc03",
+          "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+          "dispatch_prompt_sha256": "6c131d7bb6e3978b24519a5e334e66553e1631992abcc3a094515cc4d04e4c95",
+          "raw_response_sha256": "e6669c9d32595c0d624dcd01689e491c96c42b76e5cd80b241aab633f21348ed",
+          "raw_response_file": "calls/0034/collaboration-response.json",
+          "collected_at": "2026-11-03T20:37:13.240332+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Read the complete prompt, in chunks if necessary; do not rely on a truncated tool result. Return only the evaluator response schema supplied in schema.json. Use the exact criterion IDs and exact source IDs from the supplied packet. Every evidence quote must be an exact substring of that named source representation. Do not infer any observations beyond the packet. This is a separate evaluator turn, so the authoring-message schema does not apply.",
+          "transport_followup": "Transport status request only; no change to the assigned review, inputs, rubric or required response. Please send a brief control-channel status saying whether you are still reading the supplied packet, composing the response, or blocked by a tool problem, then continue the same review. Do not inspect other files or alter your substantive judgment to accelerate completion.",
+          "transport_followup_sha256": "e4d9b96d30f9d6224c7f94e828680867f54cc44326dee93459868de7aa208852"
+        }
+      },
+      "prev_hash": "7904df3e5a0685599ece64c0aee584a5987c9f1d701c436963a163303a63f8f7",
+      "hash": "c65754e83619685c4b2f452e605e6704413c387a1d159e01f1fc4f94e0695aec"
+    },
+    {
+      "seq": 83,
+      "at": "2026-11-03T20:37:16.026821+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "ordinal": 35,
+        "purpose": "evaluation",
+        "prompt_file": "calls/0035/prompt.txt",
+        "prompt_sha256": "3d24830f31b49f332b58051ba1d8b86fbe77f0ccae7790c73fa6e1e61df86137",
+        "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+        "scope": "result",
+        "scenario_id": "feedback_handoff_medium",
+        "artifact_version": 3,
+        "packet_sha256": "a0865c98eb96ee5b5aec03c267a119792ce4e42a057094e5e411fe5bdd3fd45b"
+      },
+      "prev_hash": "c65754e83619685c4b2f452e605e6704413c387a1d159e01f1fc4f94e0695aec",
+      "hash": "0e48cb842509728b6e790671e6aa4631943ecdf1c799f06a44a3c34667424d14"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": "dynamic-flower-progress-1",
-  "updated_at": "2026-11-03T20:20:31.023689+00:00",
+  "updated_at": "2026-11-03T20:38:05.659564+00:00",
   "initial": {
     "frozen": 4,
     "observed": 12,
@@ -9,7 +9,7 @@
   "update": {
     "frozen": 1,
     "observed": 3,
-    "reviewed": 0
+    "reviewed": 2
   },
   "paper": {
     "status": "in_progress",
@@ -19,5 +19,5 @@
     "status": "in_progress",
     "detail": "Dynamic workspace and saved conversations are available. Results snapshots are updated as evidence is accepted."
   },
-  "estimate": "Initial comparison complete. All three regression scenarios and the separate direct feature inspection are complete for the frozen user update. Four fresh expert reviews remain in progress. Working completion window: 3:30–3:45 p.m. Eastern on 3 November, including final paper/site publication."
+  "estimate": "Working estimate: 4:00–4:10 p.m. Eastern on 3 November 2026 for the remaining two reviews, final paper verification and publication. This is a saved progress snapshot, not a live countdown."
 }
