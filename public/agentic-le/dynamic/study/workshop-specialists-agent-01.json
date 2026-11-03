@@ -4012,6 +4012,76 @@
       },
       "prev_hash": "d06487c8f3d55a3754c4a8c8c09dc435f2e64443266e827ccf77dad9ddcf3b77",
       "hash": "d154552edeed3dfceda9d86eb7fece2eaf103fc40f0f6ce6242d139044343f21"
+    },
+    {
+      "seq": 7,
+      "at": "2026-11-03T04:10:37.179398+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "learning_sciences",
+      "payload": {
+        "message_id": "m00007",
+        "request_seq": 6,
+        "response": {
+          "kind": "answer",
+          "to": [
+            "facilitator",
+            "software_engineering",
+            "assessment_measurement_evaluation",
+            "learning_experience_design"
+          ],
+          "reply_to": [
+            "m00003"
+          ],
+          "domains": [
+            "learning_sciences"
+          ],
+          "content": "Learning-design proposal answering m00003. No implementation or learner evidence exists yet, so this is a proposed instructional design, not approval or a claim that learning has occurred. The concrete workshop facts and operating permissions come from Subject-Matter Expertise's proposed fixture in m00005. The learning design should also work when the user replaces that fixture.\n\nObservable capability: given a supplied fictional case, the learner can propose a plan, explain how its material resource, timing, assistance and participant-support choices follow from the stated facts and constraints, identify an uncertainty that requires clarification, and adapt the plan when a relevant condition changes. When the original activity cannot be supported, the learner should justify an available alternative or a request for clarification. The target is the connection between evidence and action, including recognizing what is unknown; a particular preferred activity is not the target. Feasibility judgments about the workshop itself remain within Subject-Matter Expertise's remit.\n\nDistinguish three levels of performance. Recognition is identifying a listed constraint or choosing an offered alternative; it can orient the learner but does not demonstrate plan construction. Supported production is writing and revising a plan with the facts, reasoning prompts, feedback or examples available; this is the main practice proposed here. Independent transfer would require constructing and justifying a plan in a meaningfully different supplied case without answer-specific hints, the previous model plan or corrective feedback before submission. The case facts should remain available, because the target is using facts rather than memorizing the inventory. Success in this same-case, immediately prompted revision would remain supported production, not independent transfer. A later independent opportunity would be needed to examine retention.\n\nProposed short activity:\n1. Inspect. Show the applied facts, constraints and task together. Ask the learner to notice what is available, when and under what conditions; what participant needs are explicitly stated; and what is unknown. Keep the worked example out of this initial view so that the first response is not simply copying it. Reading or completing this step is not evidence of the capability.\n2. Plan. Invite one editable response containing the proposed activity, the relevant resource and assistance arrangements, the supplied participant provisions, supporting facts, a fallback and any clarification needed. A compact prompt can use 'I propose ... because the case says ...; if ... changes, I would ... because ...; I still need to know ...'. This scaffold makes the intended reasoning visible but also makes the performance supported. Do not require an invented participant need or unnecessary clarification merely to fill a field. A learner may explain that the supplied facts resolve the relevant uncertainty.\n3. Feedback. After the attempt, focus attention on a plan-to-fact connection that needs checking and explain why that connection matters. When a contradiction is actually established, feedback should identify the relevant supplied constraint, its consequence for the proposed action, and the issue the learner needs to revise. For example, using m00005's explicitly proposed changed case, a printer's physical availability is insufficient when its required operator is absent. This is a case-specific explanation, not a rule to carry into replacement cases. Accept the possibility of multiple justified plans; do not reward printer use as the desired answer. If the tool cannot establish whether an open response fits arbitrary replacement facts, it can still offer an honest reflection prompt: 'Which supplied fact supports this part of your plan? Is any required condition missing?' Such a prompt is instructional support, not a verified correctness judgment. A generic checklist alone must not be presented as evidence that the response was understood or validated.\n4. Revise under a changed condition. For the starting fixture, m00005 supplies the change in Bea's availability. Invite the learner to state which dependency is affected, revise the affected action, and explain which other participant provisions still need to be maintained. A learner who initially chose the manual activity may reasonably retain it and explain why the changed printer assistance does not affect that plan. Requiring a visibly different answer would penalize that reasoning. Use the applied replacement scenario's own facts for subsequent cases; do not assume it contains a printer, the same permissions, or a viable manual alternative. If the change is unclear or contradictory, a specific clarification can be the appropriate response.\n\nThe proposed mechanism is repeated construction of an evidence-to-action explanation, followed by a focused opportunity to repair that explanation. Revealing a complete model plan before the learner's attempt would reduce the opportunity to observe their own construction. A worked example can be useful after an attempt or when explicitly requested, but a subsequent answer should then remain identified as supported. Skipping should allow the learner to inspect the case or leave practice without implying failure or completion of a learning objective. Resetting should allow a fresh attempt without generating a learning claim.\n\nEvidence that could challenge the intended learning claim: a learner can name the assistance rule but still proposes the unsupported printer activity after the assistant is removed; a revision copies the suggested fallback without explaining its connection to available resources; a learner treats an unavailable resource as available in a different case despite success on the starting example; or a later unsupported attempt loses the plan-to-constraint reasoning. These observations would count against the specific claim being examined. An unexplained answer is insufficient evidence, rather than proof that the learner lacks the capability; difficulty understanding the prompt or expressing reasoning remains an alternative explanation to examine. Conversely, satisfaction, button clicks, completion and one prompted correct choice do not establish learning. Even a well-justified first answer shows performance and may reflect prior knowledge. A claim of improvement needs evidence beyond the existence of that answer.\n\nDependencies for the facilitator's next routing step: Assessment, Measurement, Evaluation should advise on a practical review method and the strength of claims warranted by baseline responses, supported revisions and any later transfer opportunity. Software Engineering should advise how the implemented interaction can keep each response and its feedback associated with the scenario actually applied, and make the support available at each attempt apparent; I am not specifying or certifying a technical solution. Learning Experience Design can advise whether the prompts and change/revision flow are understandable and manageable. Until the implemented bytes and those relevant decisions are available, my domain remains unapproved. No learner outcome or empirical effectiveness is asserted.",
+          "artifact_version": null,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/ws_003",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "41387e81faf54ca21eb5c4ba1fa68828f2addafef02dc6b8e824e3c174449515",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "59fda72db080eb63f7cd35688b327317a427c87317173c300b58999c9e234509",
+          "raw_response_sha256": "6056505e82e70d3e751ead2b6419fad245c3f995795d8518dcfd288ab6fc9e6b",
+          "raw_response_file": "calls/0003/collaboration-response.json",
+          "collected_at": "2026-11-03T04:10:37.171204+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version."
+        }
+      },
+      "prev_hash": "d154552edeed3dfceda9d86eb7fece2eaf103fc40f0f6ce6242d139044343f21",
+      "hash": "a29f3a9e52a7cdd3db306edabc2b47a971f2b84f1cad1df49b4ec105005287c5"
+    },
+    {
+      "seq": 8,
+      "at": "2026-11-03T04:10:37.500534+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "assessment_measurement_evaluation",
+      "payload": {
+        "ordinal": 4,
+        "purpose": "conversation",
+        "prompt_file": "calls/0004/prompt.txt",
+        "prompt_sha256": "137f3a25359396dbe98eb7102fd8a2113b35c2a1ee0a2d8850dc3ebf51002bb2",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00003"
+      },
+      "prev_hash": "a29f3a9e52a7cdd3db306edabc2b47a971f2b84f1cad1df49b4ec105005287c5",
+      "hash": "827aad41c98ab343a6d97c6d9c38e06a7098b50771560828843f7ecc04a0e25d"
     }
   ]
 }

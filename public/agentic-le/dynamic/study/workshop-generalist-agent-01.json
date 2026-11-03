@@ -3725,6 +3725,614 @@
       },
       "prev_hash": "953ebf18c7eb2807dc4a64da8830ffd0423d31f89d64646815bd02afddcfdf48",
       "hash": "31cfbe0efcb01f678a261098830dc5ee117f278e48612ff1a8f1d2d6ae05f0a5"
+    },
+    {
+      "seq": 5,
+      "at": "2026-11-03T04:10:42.039699+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "generalist",
+      "payload": {
+        "message_id": "m00005",
+        "request_seq": 4,
+        "response": {
+          "kind": "implementation",
+          "to": [
+            "facilitator"
+          ],
+          "reply_to": [
+            "m00003"
+          ],
+          "domains": [],
+          "content": "I am supplying the first complete, self-contained HTML candidate. It includes a fictional workshop case, a replaceable JSON case editor, source labels tied to the applied facts and constraints, an editable proposal, review feedback, revision, skipping, and a reset that keeps the applied case. Applying changed facts retains the draft and clears the previous feedback. Invalid JSON or an empty proposal produces a visible recoverable error. Case text is displayed as text, and the document uses no external assets, network calls, or persistent storage. The feedback makes only modest writing observations: which explicit source IDs appear and which optional labeled sections contain text. It then presents the actual applied evidence and prompts the learner to check resource availability, constraints, support, stated needs, a reasoned fallback, and unresolved questions. It does not certify feasibility, interpret arbitrary prose as correct, or infer learning from a preferred plan. Useful implementation was possible with the supplied input. Remaining review questions are whether this source-linked self-review gives enough help to the intended learner and whether the controls and feedback are understandable in use. I have not executed or tested these bytes and cannot provide specialist approval; specialist reviews remain not_reviewed.",
+          "artifact_version": null,
+          "issue_id": "",
+          "artifact": {
+            "html": "<!doctype html>\n<html lang='en'>\n<head>\n<meta charset='utf-8'>\n<meta name='viewport' content='width=device-width, initial-scale=1'>\n<meta http-equiv='Content-Security-Policy' content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'\">\n<title>Workshop planning practice</title>\n<style>\n:root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#203341;background:#f1f5f5;line-height:1.55}*{box-sizing:border-box}body{margin:0}main{max-width:1160px;margin:auto;padding:24px}header{max-width:860px;margin-bottom:24px}.eyebrow{font-size:.8rem;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#3e686a}h1{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.15;margin:8px 0 16px}h2{font-size:1.25rem;margin:0 0 14px}h3{font-size:1.12rem;margin:8px 0 12px}h4{font-size:1rem;margin:22px 0 10px}p{margin:10px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel{background:#fff;border:1px solid #cbd9dc;border-radius:14px;padding:24px;margin-bottom:20px;min-width:0}.grid .panel{margin-bottom:0}.full{margin-top:20px}.status{padding:14px 18px;border-left:5px solid #27646b;background:#e0eeee;margin-bottom:20px;border-radius:4px;font-weight:650}.muted,.hint{color:#47616a;font-size:.94rem}.source-list{list-style:none;padding:0;margin:12px 0}.source-list li{padding:12px;border:1px solid #d4dfe2;border-radius:7px;margin-bottom:9px;overflow-wrap:anywhere}.source-list strong{color:#194e58}.source-list .hint{margin:7px 0 0}.task{background:#edf4f6;padding:12px 14px;border-radius:7px;white-space:pre-wrap;overflow-wrap:anywhere}label{display:block;font-weight:700;margin:16px 0 7px}textarea{width:100%;border:1px solid #7f959e;border-radius:7px;padding:12px;font:inherit;background:#fff;color:#172e3b;resize:vertical;min-height:150px}#scenario-input{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9rem}button{font:inherit;font-weight:650;min-height:44px;border:1px solid #245967;border-radius:7px;padding:9px 15px;background:#fff;color:#245967;cursor:pointer}.primary{background:#245967;color:#fff}.buttons{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}button:hover{background:#edf3f5}.primary:hover{background:#183f49}:focus-visible{outline:3px solid #aa4d0d;outline-offset:3px}.error{color:#932a21;font-weight:650;white-space:pre-wrap}.error:empty{display:none}.notice{background:#fff2d9;border-left:4px solid #9b5d05;padding:12px;border-radius:3px}.proposal{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;background:#f3f6f7;padding:12px;border-radius:6px}summary{cursor:pointer;font-weight:650}li+li{margin-top:8px}code{background:#edf2f4;padding:1px 4px;border-radius:3px}footer{font-size:.87rem;color:#47616a;padding:4px 0 24px}@media(max-width:760px){main{padding:16px}.grid{grid-template-columns:1fr}.panel{padding:18px}button{flex-grow:1}}\n</style>\n</head>\n<body>\n<main>\n<header>\n<p class='eyebrow'>Fictional workshop · Planning practice</p>\n<h1>Make a plan you can explain.</h1>\n<p>Inspect the available resources, propose an activity, and compare your proposal with the evidence. If a resource or helper becomes unavailable, revise the plan or ask for the information you need.</p>\n<p class='muted'>This is a reflection tool. It does not award a score, verify a plan, or establish that learning occurred.</p>\n</header>\n<div id='practice-status' class='status' role='status' aria-live='polite'></div>\n<div class='grid'>\n<section class='panel' aria-labelledby='case-heading'>\n<h2 id='case-heading'>1. Inspect the applied case</h2>\n<div id='scenario-view' role='region' aria-label='Applied case facts, constraints and task'></div>\n</section>\n<section class='panel' aria-labelledby='proposal-heading'>\n<h2 id='proposal-heading'>2. Propose a plan or ask a question</h2>\n<p>Explain which available resources your activity needs, how it meets the constraints, and what you would do if the main plan cannot work. Use only the participant needs that are supplied.</p>\n<label for='response-input'>Your workshop proposal</label>\n<p id='response-help' class='hint'>You may write freely. Explicit references such as F1 and C1 help connect the proposal to the evidence. Optional headings are Plan, Resources, Constraints, Support, Fallback, and Questions. A question about a missing fact is a valid next step.</p>\n<textarea id='response-input' rows='15' spellcheck='false' aria-describedby='response-help response-error' placeholder='Plan: activity, timing, and participants&#10;Resources: evidence and availability, using fact IDs&#10;Constraints: how the plan meets each relevant rule&#10;Support: available help and stated participant needs&#10;Fallback: what changes if the main plan cannot work, and why the alternative fits the facts&#10;Questions: what remains unknown, or why no clarification is needed'></textarea>\n<p id='response-error' class='error' role='alert'></p>\n<div class='buttons'>\n<button id='try-response' class='primary' type='button'>Try this plan</button>\n<button id='revise-response' type='button'>Revise response</button>\n<button id='skip-practice' type='button'>Skip practice</button>\n<button id='reset-practice' type='button'>Reset practice</button>\n</div>\n<p class='hint'>Revise and Skip keep your draft. Reset clears your draft and attempt count while keeping the applied case and the case editor.</p>\n</section>\n</div>\n<section class='panel full' aria-labelledby='feedback-heading'>\n<h2 id='feedback-heading'>3. Review the evidence and revise</h2>\n<div id='feedback' tabindex='-1' role='region' aria-labelledby='feedback-heading'></div>\n</section>\n<section class='panel' aria-labelledby='editor-heading'>\n<h2 id='editor-heading'>Replace or change the case</h2>\n<p>Use fictional information. The JSON must contain <code>title</code> and <code>task</code> as strings, plus <code>facts</code> and <code>constraints</code> as arrays of strings. The page displays their contents as data.</p>\n<p id='scenario-help' class='hint'>To introduce a change, edit an availability or support fact and apply it. Your draft stays in place; previous feedback is cleared. Source IDs are assigned from the newly applied lists, so an ID may refer to different text after a change. Unapplied edits do not change the active case.</p>\n<label for='scenario-input'>Scenario JSON</label>\n<textarea id='scenario-input' rows='17' spellcheck='false' aria-describedby='scenario-help scenario-error scenario-edit-status'></textarea>\n<p id='scenario-error' class='error' role='alert'></p>\n<div class='buttons'><button id='apply-scenario' type='button' class='primary'>Apply scenario</button></div>\n<p id='scenario-edit-status' class='hint' role='status' aria-live='polite'></p>\n</section>\n<footer>The page does not transmit entries or save progress for later sessions. Keep a separate copy if you want to retain your proposal or edited case.</footer>\n</main>\n<script>\n'use strict';\n(function () {\n  const initialCase = {\n    title: 'The fictional Maple Room workshop',\n    facts: [\n      'Six participants will attend from 14:00 to 14:30. Two tables and six paper-building kits are available for the full session.',\n      'One shared label printer is available from 14:00 to 14:15. The paper-building kits can be used without the printer.',\n      'Robin, the fictional workshop helper, is available only from 14:00 to 14:10.',\n      'One participant has requested a seated activity. No other participant needs have been supplied.'\n    ],\n    constraints: [\n      'Under this fictional workshop rule, the shared label printer may be used only while Robin is present.',\n      'Keep a seated place at a table available. Ask before assuming any other participant support need.',\n      'Finish the activity and return all shared equipment by 14:30.'\n    ],\n    task: 'Plan a making activity for all six participants. Explain the resources and timing, how the rules and stated participant need are met, and a fallback if the printer or helper is unavailable. Ask for clarification if the supplied facts do not support a decision.'\n  };\n  const byId = function (id) { return document.getElementById(id); };\n  const scenarioInput = byId('scenario-input');\n  const responseInput = byId('response-input');\n  const feedback = byId('feedback');\n  const scenarioError = byId('scenario-error');\n  const responseError = byId('response-error');\n  let applied = initialCase;\n  let caseNumber = 1;\n  let attempts = 0;\n  let lastReviewedText = null;\n  let reviewNote = null;\n  let lastAppliedEditorText = JSON.stringify(initialCase, null, 2);\n\n  function add(parent, tag, text, className) {\n    const element = document.createElement(tag);\n    if (text !== undefined) element.textContent = text;\n    if (className) element.className = className;\n    parent.appendChild(element);\n    return element;\n  }\n\n  function setStatus(phase) {\n    byId('practice-status').textContent = phase + ' · Applied case ' + caseNumber + ' · Review attempts ' + attempts;\n  }\n\n  function feedbackMessage(message) {\n    feedback.replaceChildren();\n    reviewNote = null;\n    add(feedback, 'p', message);\n  }\n\n  function sourceList(parent, heading, values, prefix, references) {\n    add(parent, 'h4', heading);\n    if (!values.length) {\n      const missing = prefix === 'F'\n        ? 'No facts were supplied. Ask about available resources, timing, assistance and stated participant needs before relying on them.'\n        : 'No constraints were supplied. Clarify whether any operating rules or participant requirements are missing; an empty list does not establish that none apply.';\n      add(parent, 'p', missing, 'notice');\n      return;\n    }\n    const list = add(parent, 'ul', undefined, 'source-list');\n    values.forEach(function (value, index) {\n      const id = prefix + (index + 1);\n      const item = add(list, 'li');\n      add(item, 'strong', id + ' — ');\n      add(item, 'span', value.trim() ? value : '[No detail supplied; clarify this entry.]');\n      if (references !== null) {\n        const found = references.has(id);\n        const prompt = prefix === 'F'\n          ? 'Explain how this fact affects your resource choice, timing, support or fallback, or explain why it is not relevant.'\n          : 'Explain how the plan meets this constraint, or ask a specific question if it is unclear.';\n        add(item, 'p', (found ? 'Explicit ID detected. ' : 'No explicit ID detected; it may still be discussed in your prose. ') + prompt, 'hint');\n      }\n    });\n  }\n\n  function renderCase() {\n    const view = byId('scenario-view');\n    view.replaceChildren();\n    add(view, 'h3', applied.title.trim() ? applied.title : 'Untitled case');\n    add(view, 'p', applied.task.trim() ? applied.task : 'No task was supplied. Ask what the activity is meant to accomplish.', 'task');\n    sourceList(view, 'Facts', applied.facts, 'F', null);\n    sourceList(view, 'Constraints', applied.constraints, 'C', null);\n  }\n\n  function validateCase(value) {\n    if (value === null || typeof value !== 'object' || Array.isArray(value)) {\n      return 'The scenario must be a JSON object.';\n    }\n    if (typeof value.title !== 'string' || typeof value.task !== 'string') {\n      return 'Provide title and task as strings.';\n    }\n    for (const key of ['facts', 'constraints']) {\n      if (!Array.isArray(value[key]) || !value[key].every(function (item) { return typeof item === 'string'; })) {\n        return key + ' must be an array of strings, such as [\\\"A fictional fact\\\"].';\n      }\n    }\n    return null;\n  }\n\n  function detectReferences(text) {\n    const found = new Set();\n    const invalid = new Set();\n    const pattern = /\\b([FC])(\\d+)\\b/gi;\n    let match;\n    while ((match = pattern.exec(text)) !== null) {\n      const prefix = match[1].toUpperCase();\n      const index = Number(match[2]);\n      const length = prefix === 'F' ? applied.facts.length : applied.constraints.length;\n      if (index >= 1 && index <= length) found.add(prefix + index);\n      else invalid.add(prefix + match[2]);\n    }\n    return { found: found, invalid: invalid };\n  }\n\n  function detectSections(text) {\n    const sections = {};\n    let current = null;\n    text.split(/\\r?\\n/).forEach(function (line) {\n      const match = line.match(/^\\s*(Plan|Resources|Constraints|Support|Fallback|Questions)\\s*:\\s*(.*)$/i);\n      if (match) {\n        current = match[1].toLowerCase();\n        sections[current] = (sections[current] || '') + ' ' + match[2];\n      } else if (current !== null) {\n        sections[current] += ' ' + line;\n      }\n    });\n    return sections;\n  }\n\n  function clearResponseError() {\n    responseError.textContent = '';\n    responseInput.removeAttribute('aria-invalid');\n  }\n\n  function tryResponse() {\n    const proposal = responseInput.value;\n    if (!proposal.trim()) {\n      responseError.textContent = 'Add a proposal, a fallback, or a question about missing facts before trying. You can also choose Skip practice.';\n      responseInput.setAttribute('aria-invalid', 'true');\n      setStatus('A response is needed for review');\n      responseInput.focus();\n      return;\n    }\n    clearResponseError();\n    attempts += 1;\n    lastReviewedText = proposal;\n    const refs = detectReferences(proposal);\n    const sections = detectSections(proposal);\n    feedback.replaceChildren();\n    add(feedback, 'h3', 'Review attempt ' + attempts + ' for applied case ' + caseNumber);\n    reviewNote = add(feedback, 'p', 'This review describes the submitted text. It does not verify feasibility or demonstrate learning.', 'notice');\n    if (scenarioInput.value !== lastAppliedEditorText) {\n      add(feedback, 'p', 'There are unapplied JSON edits. This review uses the applied case shown above, not the edited JSON.', 'notice');\n    }\n    add(feedback, 'p', 'The automatic observations below only identify explicit source IDs and optional headings containing text. An ID or heading can be present even when the reasoning is incomplete or contradicts the evidence. Free-form writing may cover a point without using these labels.');\n    add(feedback, 'h4', 'Writing observations');\n    const observations = add(feedback, 'ul');\n    const knownIds = Array.from(refs.found).sort();\n    add(observations, 'li', knownIds.length ? 'Recognized explicit source IDs: ' + knownIds.join(', ') + '. Compare the explanation for each ID with its actual text below.' : 'No explicit source IDs were detected. Connect the resources, constraints and fallback to the relevant facts, using IDs if helpful.');\n    if (refs.invalid.size) {\n      add(observations, 'li', 'Source IDs outside the applied lists: ' + Array.from(refs.invalid).join(', ') + '. Check these references against the current case.');\n    }\n    const present = ['plan', 'resources', 'constraints', 'support', 'fallback', 'questions'].filter(function (key) { return sections[key] && sections[key].trim(); });\n    add(observations, 'li', present.length ? 'Optional headings with nonempty text: ' + present.join(', ') + '. This is a writing observation, not a completeness check.' : 'No optional labeled sections with text were detected. You may keep free-form writing; use the prompts below to inspect its coverage.');\n    add(feedback, 'h4', 'Revision prompts');\n    const prompts = [\n      ['plan', 'State the activity, who it includes, and the sequence or timing. If a decision is blocked, explain what information would let you decide.'],\n      ['resources', 'For every required resource, connect its quantity and available time to an applied fact. If availability is not supplied, ask instead of assuming.'],\n      ['constraints', 'Check every applied constraint. Explain how the main plan meets it, why it does not apply, or what needs clarification.'],\n      ['support', 'Connect any required help to the stated availability. Address the supplied participant needs and avoid adding needs that were not given.'],\n      ['fallback', 'Name the condition that makes the main plan unusable. Propose an alternative using available resources and support, explain why it meets the same constraints and stated needs, or ask for clarification if no feasible alternative is supported.'],\n      ['questions', 'Identify uncertainty that could change the plan. State whom or what you would need to check. If you think nothing is missing, explain which supplied facts support that judgment.']\n    ];\n    const promptList = add(feedback, 'ul');\n    prompts.forEach(function (entry) {\n      const isPresent = Boolean(sections[entry[0]] && sections[entry[0]].trim());\n      const item = add(promptList, 'li');\n      const label = entry[0].charAt(0).toUpperCase() + entry[0].slice(1);\n      add(item, 'strong', label + ': ');\n      add(item, 'span', (isPresent ? 'A labeled section is present; inspect its reasoning. ' : 'No nonempty labeled section was detected; add this reasoning if it is not already in your prose. ') + entry[1]);\n    });\n    add(feedback, 'h4', 'Compare your proposal with the actual applied evidence');\n    add(feedback, 'p', 'The lists below are the sources used for this review. A reference match only reports that the ID appears in your text. It does not check whether your interpretation is right.', 'hint');\n    sourceList(feedback, 'Applied facts', applied.facts, 'F', refs.found);\n    sourceList(feedback, 'Applied constraints', applied.constraints, 'C', refs.found);\n    const snapshot = add(feedback, 'details');\n    add(snapshot, 'summary', 'Proposal used for this review');\n    add(snapshot, 'pre', proposal, 'proposal');\n    add(feedback, 'p', 'Choose Revise response to improve your explanation, then try again. To practice changed conditions, edit and apply the scenario JSON. A different proposal can be reasonable if it is supported by the applied facts.');\n    setStatus('Feedback available; feasibility is not verified');\n    feedback.focus();\n  }\n\n  byId('apply-scenario').addEventListener('click', function () {\n    let parsed;\n    let problem = null;\n    try { parsed = JSON.parse(scenarioInput.value); }\n    catch (error) { problem = 'The JSON could not be read. Check quotation marks, commas and brackets, then apply again.'; }\n    if (!problem) problem = validateCase(parsed);\n    if (problem) {\n      scenarioError.textContent = problem + ' The previously applied case and your draft are unchanged.';\n      scenarioInput.setAttribute('aria-invalid', 'true');\n      byId('scenario-edit-status').textContent = 'Update not applied. Applied case ' + caseNumber + ' remains active.';\n      setStatus('Case update needs correction; previous case remains active');\n      scenarioInput.focus();\n      return;\n    }\n    applied = { title: parsed.title, facts: parsed.facts.slice(), constraints: parsed.constraints.slice(), task: parsed.task };\n    caseNumber += 1;\n    attempts = 0;\n    lastReviewedText = null;\n    lastAppliedEditorText = scenarioInput.value;\n    scenarioError.textContent = '';\n    scenarioInput.removeAttribute('aria-invalid');\n    clearResponseError();\n    renderCase();\n    byId('scenario-edit-status').textContent = 'Applied as case ' + caseNumber + '. The draft has been retained and earlier feedback cleared.';\n    feedbackMessage('New case applied. Inspect the new facts and constraints before trying your draft again. Old source IDs may now refer to different text. Explain any needed change in resources, support, timing or fallback.');\n    setStatus(responseInput.value.trim() ? 'Case changed; draft needs review' : 'New case ready for a proposal');\n  });\n\n  scenarioInput.addEventListener('input', function () {\n    byId('scenario-edit-status').textContent = scenarioInput.value === lastAppliedEditorText\n      ? 'The editor matches the applied JSON.'\n      : 'There are unapplied JSON edits. The case shown above remains active until you apply a valid update.';\n  });\n\n  responseInput.addEventListener('input', function () {\n    clearResponseError();\n    if (lastReviewedText !== null) {\n      const changed = responseInput.value !== lastReviewedText;\n      if (reviewNote) reviewNote.textContent = changed\n        ? 'Your draft has changed. The feedback below describes the previous submitted proposal; try again to review the current text.'\n        : 'This review describes the current text. It does not verify feasibility or demonstrate learning.';\n      setStatus(changed ? 'Draft changed; previous feedback needs updating' : 'Feedback available; feasibility is not verified');\n    } else {\n      setStatus(responseInput.value.trim() ? 'Drafting a proposal' : 'Ready for a proposal');\n    }\n  });\n\n  byId('try-response').addEventListener('click', tryResponse);\n  byId('revise-response').addEventListener('click', function () {\n    clearResponseError();\n    if (reviewNote) reviewNote.textContent = 'Revision in progress. The feedback below refers to your last submitted proposal; try again after editing.';\n    else feedbackMessage('Editing resumed. Connect your proposal to the applied facts, explain a fallback, and identify any uncertainty. Try the response when you want feedback.');\n    setStatus('Revising; draft retained');\n    responseInput.focus();\n  });\n  byId('skip-practice').addEventListener('click', function () {\n    clearResponseError();\n    lastReviewedText = null;\n    feedbackMessage('Practice skipped. Your draft is retained. No assessment was made. Choose Revise response or edit the draft to resume.');\n    setStatus('Skipped; no assessment made');\n  });\n  byId('reset-practice').addEventListener('click', function () {\n    responseInput.value = '';\n    attempts = 0;\n    lastReviewedText = null;\n    clearResponseError();\n    feedbackMessage('Practice reset. The applied case and case editor are retained. Write a proposal or a clarification question, then choose Try this plan.');\n    setStatus('Ready; practice reset');\n    responseInput.focus();\n  });\n\n  scenarioInput.value = lastAppliedEditorText;\n  renderCase();\n  feedbackMessage('Write a proposal or a clarification question, then choose Try this plan. Feedback will help you compare the proposal with the applied evidence; it will not score or certify it.');\n  byId('scenario-edit-status').textContent = 'The fictional starting case is applied. You can replace the JSON above.';\n  setStatus('Ready for a proposal');\n})();\n</script>\n</body>\n</html>",
+            "change_summary": "First implementation: a fictional shared-equipment planning activity with a data-only JSON case editor, visible applied sources, editable proposal, transparent source-reference and optional-heading observations, evidence-linked revision prompts, changed-case handling, skip/reset controls, and recoverable input errors. Feedback does not claim feasibility, learning, testing, or specialist approval.",
+            "parent_version": null
+          },
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/wg_002",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "4c49e32a2e96c2ec4a9837a937d36a397855cfbe9c51c043807c406a8180046d",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "e72c240b6d2aef752658d67e1cdea18ae6f08124a0da493917736e21b0a08f8e",
+          "raw_response_sha256": "997dbe4bf9ff38961f47071c2a1823a61f275617df7afabe1d7aaa6cc0fe1403",
+          "raw_response_file": "calls/0002/collaboration-response.json",
+          "collected_at": "2026-11-03T04:10:42.032820+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_followup": "Transport/schema clarification, with no change to your substantive task: the top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. Preserve all other required fields. This clarification is being retained in the external-dispatch record.",
+          "transport_followup_sha256": "4dae51578bf7bf8a91df63a010a8bff7ae826a66d5ccb0e0a590d239f357c681"
+        }
+      },
+      "prev_hash": "31cfbe0efcb01f678a261098830dc5ee117f278e48612ff1a8f1d2d6ae05f0a5",
+      "hash": "7715839f056a2ebe0c857e24146b325099734cff9f54b160a894297c01f375dd"
+    },
+    {
+      "seq": 6,
+      "at": "2026-11-03T04:10:42.040158+00:00",
+      "kind": "artifact",
+      "phase": "design_develop",
+      "actor": "generalist",
+      "payload": {
+        "version": 1,
+        "parent_version": null,
+        "sha256": "627079b0de488b556d49060b0c4dbc5e958fc14509daf4b201603a6aa3afd34c",
+        "file": "artifacts/v001.html",
+        "change_summary": "First implementation: a fictional shared-equipment planning activity with a data-only JSON case editor, visible applied sources, editable proposal, transparent source-reference and optional-heading observations, evidence-linked revision prompts, changed-case handling, skip/reset controls, and recoverable input errors. Feedback does not claim feasibility, learning, testing, or specialist approval.",
+        "message_id": "m00005"
+      },
+      "prev_hash": "7715839f056a2ebe0c857e24146b325099734cff9f54b160a894297c01f375dd",
+      "hash": "b5a5023b54805d9bacc4b56450ffe6643ebb4a9fb28a738abc4d8e8b0af625e5"
+    },
+    {
+      "seq": 7,
+      "at": "2026-11-03T04:10:42.361939+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "ordinal": 3,
+        "purpose": "conversation",
+        "prompt_file": "calls/0003/prompt.txt",
+        "prompt_sha256": "e43b7071577cc0c506ff62a260d45a97b812c91899cb8d6233e131f769c62f83",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "integrate_procedurally:m00005"
+      },
+      "prev_hash": "b5a5023b54805d9bacc4b56450ffe6643ebb4a9fb28a738abc4d8e8b0af625e5",
+      "hash": "2020b3ca433cec6dc7fcb7bfb1286f5d0625bcd428dcfc2ce8020af9177139cc"
+    },
+    {
+      "seq": 8,
+      "at": "2026-11-03T04:11:18.798526+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "message_id": "m00008",
+        "request_seq": 7,
+        "response": {
+          "kind": "ready",
+          "to": [
+            "generalist"
+          ],
+          "reply_to": [
+            "m00005"
+          ],
+          "domains": [],
+          "content": "Version 1 is ready to be frozen as a bounded candidate for testing. This is a procedural transition, not approval of its technical behavior, instructional quality, or effectiveness. Generalist's implementation message m00005 supplies the candidate and describes replaceable case facts, an editable proposal, source-linked reflection feedback, changed-case revision, and the required controls. Generalist also explicitly reports that the bytes have not been executed or tested. There are no recorded open objections or unanswered questions blocking this transition. Carry both of generalist's remaining review concerns into testing: whether the source-linked self-review gives the intended learner enough guidance, and whether the controls and feedback are understandable in use. Observations of the required controls, changed-case handling, and error recovery can inform the next response without establishing learning or substantive plan correctness. All eight specialist review domains remain not_reviewed, and there are no approval references. Keep those limits visible in any test report or subsequent decision; an observed failure or concern should be returned to generalist for a targeted response and, if needed, a repair extending version 1.",
+          "artifact_version": 1,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/wg_003",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "e43b7071577cc0c506ff62a260d45a97b812c91899cb8d6233e131f769c62f83",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "a4fb0aa8d947f5cdedc8a9d2fa458a8c77798db16fc34d35733ac1b8c8758a05",
+          "raw_response_sha256": "b775dba8eb783c3839f24368f5f2b717082bead302084fb6d8acd229f922c15f",
+          "raw_response_file": "calls/0003/collaboration-response.json",
+          "collected_at": "2026-11-03T04:11:18.790372+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version."
+        }
+      },
+      "prev_hash": "2020b3ca433cec6dc7fcb7bfb1286f5d0625bcd428dcfc2ce8020af9177139cc",
+      "hash": "ff781479a85e7bf7196c5e89b52980ff0cf010d3f308952b0943bc62ee160eeb"
+    },
+    {
+      "seq": 9,
+      "at": "2026-11-03T04:11:24.707280+00:00",
+      "kind": "frozen",
+      "phase": "design_develop",
+      "actor": "user",
+      "payload": {
+        "schema_version": "dynamic-flower-frozen-1",
+        "run_id": "workshop-generalist-agent-01",
+        "config_sha256": "d93e54a31f08894f9b00b6c4b831a250d404e7389f692698361650db60431e10",
+        "evidence_kind": "candidate_artifact",
+        "execution_mode": "manual",
+        "artifact_version": 1,
+        "artifact_sha256": "627079b0de488b556d49060b0c4dbc5e958fc14509daf4b201603a6aa3afd34c",
+        "artifact_file": "artifacts/v001.html",
+        "case": {
+          "id": "shared_equipment",
+          "title": "Planning a shared-equipment workshop",
+          "brief": "Develop a small learning tool for a fictional workshop volunteer who must plan an activity using shared equipment while respecting availability, support and participant needs. Let the learner inspect facts, propose a plan, receive feedback and revise when conditions change. A user must be able to replace the case facts.",
+          "constraints": [
+            "Use fictional stock, people and operating rules only.",
+            "Do not infer participant needs that have not been supplied.",
+            "Prefer a feasible alternative or request for clarification when the original plan cannot work."
+          ],
+          "requirements": [
+            "Connect the proposed plan to the actual available resources and stated constraints.",
+            "Support a reasoned fallback when equipment or assistance is unavailable.",
+            "Explain uncertainty and avoid treating a preferred plan as proof of learning.",
+            "Executable browser contract: expose scenario JSON in textarea #scenario-input and apply it with button #apply-scenario. Show the applied case in #scenario-view. Provide editable learner response #response-input, button #try-response, visible feedback #feedback, button #revise-response, button #skip-practice, button #reset-practice and visible state #practice-status. Scenario JSON has title, facts (string array), constraints (string array), and task. Read these as data; do not expect particular fixture content. The interface supports automated observation and user updates; it does not prescribe which instructional feedback strategy to use. Use explicit labels, keyboard-operable buttons and visible recoverable errors. No network requests or external assets."
+          ],
+          "case_version": 1,
+          "user_updates": []
+        },
+        "scenarios": [
+          {
+            "id": "shared_equipment_easy",
+            "case_id": "shared_equipment",
+            "difficulty": "easy",
+            "title": "Enough equipment for the planned activity",
+            "brief": "Test the frozen tool under these supplied fictional conditions; judge observed behavior and capability support.",
+            "conditions": {
+              "viewport": {
+                "width": 1280,
+                "height": 800
+              },
+              "offline": false,
+              "focus": [
+                "Allocation within stock",
+                "Support route",
+                "Participant choice"
+              ],
+              "human_time_note": "The time constraint is a fictional operating condition; scripted execution does not establish human completion time."
+            },
+            "task": {
+              "title": "Enough equipment for the planned activity",
+              "facts": [
+                "Six participants work in three pairs.",
+                "Three complete kits and one facilitator are available.",
+                "The activity requires one kit per pair."
+              ],
+              "constraints": [
+                "Keep one clear support route."
+              ],
+              "task": "Propose a feasible kit allocation and explain how participants will get help."
+            },
+            "actions": [
+              {
+                "id": "apply_case",
+                "type": "scenario",
+                "selector": "#scenario-input",
+                "trigger": "#apply-scenario",
+                "value": {
+                  "title": "Enough equipment for the planned activity",
+                  "facts": [
+                    "Six participants work in three pairs.",
+                    "Three complete kits and one facilitator are available.",
+                    "The activity requires one kit per pair."
+                  ],
+                  "constraints": [
+                    "Keep one clear support route."
+                  ],
+                  "task": "Propose a feasible kit allocation and explain how participants will get help."
+                }
+              },
+              {
+                "id": "initial_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "Give every participant a kit; the stock will cover it."
+              },
+              {
+                "id": "initial_feedback",
+                "type": "click",
+                "selector": "#try-response"
+              },
+              {
+                "id": "open_revision",
+                "type": "click",
+                "selector": "#revise-response"
+              },
+              {
+                "id": "revised_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "Use three pairs with one kit per pair. Explain the task, make the facilitator support route clear, and check whether anyone needs another way to participate."
+              },
+              {
+                "id": "revised_feedback",
+                "type": "press",
+                "selector": "#try-response",
+                "key": "Enter"
+              },
+              {
+                "id": "skip",
+                "type": "click",
+                "selector": "#skip-practice"
+              },
+              {
+                "id": "reset",
+                "type": "click",
+                "selector": "#reset-practice"
+              }
+            ],
+            "checks": [
+              {
+                "id": "case_applied",
+                "type": "text_contains",
+                "selector": "#scenario-view",
+                "expected": "Enough equipment for the planned activity",
+                "after_action": "apply_case"
+              },
+              {
+                "id": "feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "initial_feedback"
+              },
+              {
+                "id": "revision_available",
+                "type": "editable",
+                "selector": "#response-input",
+                "after_action": "open_revision"
+              },
+              {
+                "id": "revision_feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "revised_feedback"
+              },
+              {
+                "id": "skip_state_visible",
+                "type": "nonempty",
+                "selector": "#practice-status",
+                "after_action": "skip"
+              },
+              {
+                "id": "response_cleared",
+                "type": "value_equals",
+                "selector": "#response-input",
+                "expected": "",
+                "after_action": "reset"
+              }
+            ],
+            "required_result_dimensions": [
+              "human_flourishing",
+              "system_performance",
+              "learning"
+            ],
+            "interpretation": "Mechanical checks describe browser behavior. The expert evaluator must inspect the actual inputs, outputs and case facts; a success label alone is not evidence of learning."
+          },
+          {
+            "id": "shared_equipment_medium",
+            "case_id": "shared_equipment",
+            "difficulty": "medium",
+            "title": "A kit becomes unavailable",
+            "brief": "Test the frozen tool under these supplied fictional conditions; judge observed behavior and capability support.",
+            "conditions": {
+              "viewport": {
+                "width": 390,
+                "height": 844
+              },
+              "offline": false,
+              "focus": [
+                "No invented resource",
+                "Meaningful alternative",
+                "Support capacity acknowledged"
+              ],
+              "human_time_note": "The time constraint is a fictional operating condition; scripted execution does not establish human completion time."
+            },
+            "task": {
+              "title": "A kit becomes unavailable",
+              "facts": [
+                "Six participants work in pairs.",
+                "Only two complete kits are currently available.",
+                "A facilitator can support one group at a time."
+              ],
+              "constraints": [
+                "Allow a meaningful alternative while a pair waits.",
+                "A changed plan must not invent a third kit."
+              ],
+              "task": "Revise the activity plan to use two kits without excluding the waiting pair."
+            },
+            "actions": [
+              {
+                "id": "apply_case",
+                "type": "scenario",
+                "selector": "#scenario-input",
+                "trigger": "#apply-scenario",
+                "value": {
+                  "title": "A kit becomes unavailable",
+                  "facts": [
+                    "Six participants work in pairs.",
+                    "Only two complete kits are currently available.",
+                    "A facilitator can support one group at a time."
+                  ],
+                  "constraints": [
+                    "Allow a meaningful alternative while a pair waits.",
+                    "A changed plan must not invent a third kit."
+                  ],
+                  "task": "Revise the activity plan to use two kits without excluding the waiting pair."
+                }
+              },
+              {
+                "id": "initial_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "Keep all three pairs on kits simultaneously; assume another kit appears."
+              },
+              {
+                "id": "initial_feedback",
+                "type": "click",
+                "selector": "#try-response"
+              },
+              {
+                "id": "open_revision",
+                "type": "click",
+                "selector": "#revise-response"
+              },
+              {
+                "id": "revised_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "Use two pairs on kits and one pair on a related planning or observation task, then rotate. State how the waiting pair participates and when facilitator help is available."
+              },
+              {
+                "id": "revised_feedback",
+                "type": "press",
+                "selector": "#try-response",
+                "key": "Enter"
+              },
+              {
+                "id": "skip",
+                "type": "click",
+                "selector": "#skip-practice"
+              },
+              {
+                "id": "reset",
+                "type": "click",
+                "selector": "#reset-practice"
+              }
+            ],
+            "checks": [
+              {
+                "id": "case_applied",
+                "type": "text_contains",
+                "selector": "#scenario-view",
+                "expected": "A kit becomes unavailable",
+                "after_action": "apply_case"
+              },
+              {
+                "id": "feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "initial_feedback"
+              },
+              {
+                "id": "revision_available",
+                "type": "editable",
+                "selector": "#response-input",
+                "after_action": "open_revision"
+              },
+              {
+                "id": "revision_feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "revised_feedback"
+              },
+              {
+                "id": "skip_state_visible",
+                "type": "nonempty",
+                "selector": "#practice-status",
+                "after_action": "skip"
+              },
+              {
+                "id": "response_cleared",
+                "type": "value_equals",
+                "selector": "#response-input",
+                "expected": "",
+                "after_action": "reset"
+              }
+            ],
+            "required_result_dimensions": [
+              "human_flourishing",
+              "system_performance",
+              "learning"
+            ],
+            "interpretation": "Mechanical checks describe browser behavior. The expert evaluator must inspect the actual inputs, outputs and case facts; a success label alone is not evidence of learning."
+          },
+          {
+            "id": "shared_equipment_hard",
+            "case_id": "shared_equipment",
+            "difficulty": "hard",
+            "title": "Equipment and support are interrupted",
+            "brief": "Test the frozen tool under these supplied fictional conditions; judge observed behavior and capability support.",
+            "conditions": {
+              "viewport": {
+                "width": 360,
+                "height": 740
+              },
+              "offline": true,
+              "focus": [
+                "Resource and supervision constraints",
+                "A bounded alternative",
+                "Completion not equated with readiness"
+              ],
+              "human_time_note": "The time constraint is a fictional operating condition; scripted execution does not establish human completion time."
+            },
+            "task": {
+              "title": "Equipment and support are interrupted",
+              "facts": [
+                "Only one complete kit remains.",
+                "The facilitator is unavailable for the next ten minutes.",
+                "Six participants still need a useful activity, and no extra kit can be obtained now."
+              ],
+              "constraints": [
+                "The page must work without connectivity.",
+                "Keyboard access, skipping and recovery are required.",
+                "Do not start an activity that the supplied facts say requires absent supervision."
+              ],
+              "task": "Decide what can proceed, what should wait, and how to communicate a feasible alternative."
+            },
+            "actions": [
+              {
+                "id": "apply_case",
+                "type": "scenario",
+                "selector": "#scenario-input",
+                "trigger": "#apply-scenario",
+                "value": {
+                  "title": "Equipment and support are interrupted",
+                  "facts": [
+                    "Only one complete kit remains.",
+                    "The facilitator is unavailable for the next ten minutes.",
+                    "Six participants still need a useful activity, and no extra kit can be obtained now."
+                  ],
+                  "constraints": [
+                    "The page must work without connectivity.",
+                    "Keyboard access, skipping and recovery are required.",
+                    "Do not start an activity that the supplied facts say requires absent supervision."
+                  ],
+                  "task": "Decide what can proceed, what should wait, and how to communicate a feasible alternative."
+                }
+              },
+              {
+                "id": "initial_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "Start all kit tasks immediately and count completion as readiness."
+              },
+              {
+                "id": "initial_feedback",
+                "type": "click",
+                "selector": "#try-response"
+              },
+              {
+                "id": "open_revision",
+                "type": "click",
+                "selector": "#revise-response"
+              },
+              {
+                "id": "revised_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "Pause any kit task that requires the missing facilitator. Offer a clearly bounded planning or observation alternative, explain the resource limit, and schedule supervised kit practice when support returns."
+              },
+              {
+                "id": "revised_feedback",
+                "type": "press",
+                "selector": "#try-response",
+                "key": "Enter"
+              },
+              {
+                "id": "skip",
+                "type": "click",
+                "selector": "#skip-practice"
+              },
+              {
+                "id": "reset",
+                "type": "click",
+                "selector": "#reset-practice"
+              }
+            ],
+            "checks": [
+              {
+                "id": "case_applied",
+                "type": "text_contains",
+                "selector": "#scenario-view",
+                "expected": "Equipment and support are interrupted",
+                "after_action": "apply_case"
+              },
+              {
+                "id": "feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "initial_feedback"
+              },
+              {
+                "id": "revision_available",
+                "type": "editable",
+                "selector": "#response-input",
+                "after_action": "open_revision"
+              },
+              {
+                "id": "revision_feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "revised_feedback"
+              },
+              {
+                "id": "skip_state_visible",
+                "type": "nonempty",
+                "selector": "#practice-status",
+                "after_action": "skip"
+              },
+              {
+                "id": "response_cleared",
+                "type": "value_equals",
+                "selector": "#response-input",
+                "expected": "",
+                "after_action": "reset"
+              }
+            ],
+            "required_result_dimensions": [
+              "human_flourishing",
+              "system_performance",
+              "learning"
+            ],
+            "interpretation": "Mechanical checks describe browser behavior. The expert evaluator must inspect the actual inputs, outputs and case facts; a success label alone is not evidence of learning."
+          }
+        ],
+        "scenario_hashes": {
+          "shared_equipment_easy": "16a001d45ee4e4a7cb2c707c26033bfab0fc7dc02eb240ebf7e03a6df74f44ad",
+          "shared_equipment_medium": "6dfe0db9b89728b8d261a6c76f8c44209ad70d8535e4857ae11a600b6c66890a",
+          "shared_equipment_hard": "c03ad758dd1098719653ce46a42e374ed7b54197c72155bdac3cf0986767c3de"
+        },
+        "review_status": {
+          "learning_sciences": "not_reviewed",
+          "learning_experience_design": "not_reviewed",
+          "data_science": "not_reviewed",
+          "assessment_measurement_evaluation": "not_reviewed",
+          "learning_environment_engineering": "not_reviewed",
+          "software_engineering": "not_reviewed",
+          "subject_matter_expertise": "not_reviewed",
+          "education_training_professionals": "not_reviewed"
+        },
+        "accepted_risks": [],
+        "risk_acceptance_reason": "",
+        "frozen_event_seq": 9,
+        "file": "frozen/v001.json",
+        "export_sha256": "511c84bc5d13e4dc96bef95c1ccf638560b6d7b6d0f57ae2d7893c45ba9feea3"
+      },
+      "prev_hash": "ff781479a85e7bf7196c5e89b52980ff0cf010d3f308952b0943bc62ee160eeb",
+      "hash": "8266cbbe1ef568d3f34deae4ac0ac3fbd552642fb7a9422b1c1213352e46f07d"
     }
   ]
 }

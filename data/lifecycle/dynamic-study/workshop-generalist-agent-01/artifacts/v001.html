@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta http-equiv='Content-Security-Policy' content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Workshop planning practice</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#203341;background:#f1f5f5;line-height:1.55}*{box-sizing:border-box}body{margin:0}main{max-width:1160px;margin:auto;padding:24px}header{max-width:860px;margin-bottom:24px}.eyebrow{font-size:.8rem;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#3e686a}h1{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.15;margin:8px 0 16px}h2{font-size:1.25rem;margin:0 0 14px}h3{font-size:1.12rem;margin:8px 0 12px}h4{font-size:1rem;margin:22px 0 10px}p{margin:10px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel{background:#fff;border:1px solid #cbd9dc;border-radius:14px;padding:24px;margin-bottom:20px;min-width:0}.grid .panel{margin-bottom:0}.full{margin-top:20px}.status{padding:14px 18px;border-left:5px solid #27646b;background:#e0eeee;margin-bottom:20px;border-radius:4px;font-weight:650}.muted,.hint{color:#47616a;font-size:.94rem}.source-list{list-style:none;padding:0;margin:12px 0}.source-list li{padding:12px;border:1px solid #d4dfe2;border-radius:7px;margin-bottom:9px;overflow-wrap:anywhere}.source-list strong{color:#194e58}.source-list .hint{margin:7px 0 0}.task{background:#edf4f6;padding:12px 14px;border-radius:7px;white-space:pre-wrap;overflow-wrap:anywhere}label{display:block;font-weight:700;margin:16px 0 7px}textarea{width:100%;border:1px solid #7f959e;border-radius:7px;padding:12px;font:inherit;background:#fff;color:#172e3b;resize:vertical;min-height:150px}#scenario-input{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9rem}button{font:inherit;font-weight:650;min-height:44px;border:1px solid #245967;border-radius:7px;padding:9px 15px;background:#fff;color:#245967;cursor:pointer}.primary{background:#245967;color:#fff}.buttons{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}button:hover{background:#edf3f5}.primary:hover{background:#183f49}:focus-visible{outline:3px solid #aa4d0d;outline-offset:3px}.error{color:#932a21;font-weight:650;white-space:pre-wrap}.error:empty{display:none}.notice{background:#fff2d9;border-left:4px solid #9b5d05;padding:12px;border-radius:3px}.proposal{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;background:#f3f6f7;padding:12px;border-radius:6px}summary{cursor:pointer;font-weight:650}li+li{margin-top:8px}code{background:#edf2f4;padding:1px 4px;border-radius:3px}footer{font-size:.87rem;color:#47616a;padding:4px 0 24px}@media(max-width:760px){main{padding:16px}.grid{grid-template-columns:1fr}.panel{padding:18px}button{flex-grow:1}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class='eyebrow'>Fictional workshop · Planning practice</p>
+<h1>Make a plan you can explain.</h1>
+<p>Inspect the available resources, propose an activity, and compare your proposal with the evidence. If a resource or helper becomes unavailable, revise the plan or ask for the information you need.</p>
+<p class='muted'>This is a reflection tool. It does not award a score, verify a plan, or establish that learning occurred.</p>
+</header>
+<div id='practice-status' class='status' role='status' aria-live='polite'></div>
+<div class='grid'>
+<section class='panel' aria-labelledby='case-heading'>
+<h2 id='case-heading'>1. Inspect the applied case</h2>
+<div id='scenario-view' role='region' aria-label='Applied case facts, constraints and task'></div>
+</section>
+<section class='panel' aria-labelledby='proposal-heading'>
+<h2 id='proposal-heading'>2. Propose a plan or ask a question</h2>
+<p>Explain which available resources your activity needs, how it meets the constraints, and what you would do if the main plan cannot work. Use only the participant needs that are supplied.</p>
+<label for='response-input'>Your workshop proposal</label>
+<p id='response-help' class='hint'>You may write freely. Explicit references such as F1 and C1 help connect the proposal to the evidence. Optional headings are Plan, Resources, Constraints, Support, Fallback, and Questions. A question about a missing fact is a valid next step.</p>
+<textarea id='response-input' rows='15' spellcheck='false' aria-describedby='response-help response-error' placeholder='Plan: activity, timing, and participants&#10;Resources: evidence and availability, using fact IDs&#10;Constraints: how the plan meets each relevant rule&#10;Support: available help and stated participant needs&#10;Fallback: what changes if the main plan cannot work, and why the alternative fits the facts&#10;Questions: what remains unknown, or why no clarification is needed'></textarea>
+<p id='response-error' class='error' role='alert'></p>
+<div class='buttons'>
+<button id='try-response' class='primary' type='button'>Try this plan</button>
+<button id='revise-response' type='button'>Revise response</button>
+<button id='skip-practice' type='button'>Skip practice</button>
+<button id='reset-practice' type='button'>Reset practice</button>
+</div>
+<p class='hint'>Revise and Skip keep your draft. Reset clears your draft and attempt count while keeping the applied case and the case editor.</p>
+</section>
+</div>
+<section class='panel full' aria-labelledby='feedback-heading'>
+<h2 id='feedback-heading'>3. Review the evidence and revise</h2>
+<div id='feedback' tabindex='-1' role='region' aria-labelledby='feedback-heading'></div>
+</section>
+<section class='panel' aria-labelledby='editor-heading'>
+<h2 id='editor-heading'>Replace or change the case</h2>
+<p>Use fictional information. The JSON must contain <code>title</code> and <code>task</code> as strings, plus <code>facts</code> and <code>constraints</code> as arrays of strings. The page displays their contents as data.</p>
+<p id='scenario-help' class='hint'>To introduce a change, edit an availability or support fact and apply it. Your draft stays in place; previous feedback is cleared. Source IDs are assigned from the newly applied lists, so an ID may refer to different text after a change. Unapplied edits do not change the active case.</p>
+<label for='scenario-input'>Scenario JSON</label>
+<textarea id='scenario-input' rows='17' spellcheck='false' aria-describedby='scenario-help scenario-error scenario-edit-status'></textarea>
+<p id='scenario-error' class='error' role='alert'></p>
+<div class='buttons'><button id='apply-scenario' type='button' class='primary'>Apply scenario</button></div>
+<p id='scenario-edit-status' class='hint' role='status' aria-live='polite'></p>
+</section>
+<footer>The page does not transmit entries or save progress for later sessions. Keep a separate copy if you want to retain your proposal or edited case.</footer>
+</main>
+<script>
+'use strict';
+(function () {
+  const initialCase = {
+    title: 'The fictional Maple Room workshop',
+    facts: [
+      'Six participants will attend from 14:00 to 14:30. Two tables and six paper-building kits are available for the full session.',
+      'One shared label printer is available from 14:00 to 14:15. The paper-building kits can be used without the printer.',
+      'Robin, the fictional workshop helper, is available only from 14:00 to 14:10.',
+      'One participant has requested a seated activity. No other participant needs have been supplied.'
+    ],
+    constraints: [
+      'Under this fictional workshop rule, the shared label printer may be used only while Robin is present.',
+      'Keep a seated place at a table available. Ask before assuming any other participant support need.',
+      'Finish the activity and return all shared equipment by 14:30.'
+    ],
+    task: 'Plan a making activity for all six participants. Explain the resources and timing, how the rules and stated participant need are met, and a fallback if the printer or helper is unavailable. Ask for clarification if the supplied facts do not support a decision.'
+  };
+  const byId = function (id) { return document.getElementById(id); };
+  const scenarioInput = byId('scenario-input');
+  const responseInput = byId('response-input');
+  const feedback = byId('feedback');
+  const scenarioError = byId('scenario-error');
+  const responseError = byId('response-error');
+  let applied = initialCase;
+  let caseNumber = 1;
+  let attempts = 0;
+  let lastReviewedText = null;
+  let reviewNote = null;
+  let lastAppliedEditorText = JSON.stringify(initialCase, null, 2);
+
+  function add(parent, tag, text, className) {
+    const element = document.createElement(tag);
+    if (text !== undefined) element.textContent = text;
+    if (className) element.className = className;
+    parent.appendChild(element);
+    return element;
+  }
+
+  function setStatus(phase) {
+    byId('practice-status').textContent = phase + ' · Applied case ' + caseNumber + ' · Review attempts ' + attempts;
+  }
+
+  function feedbackMessage(message) {
+    feedback.replaceChildren();
+    reviewNote = null;
+    add(feedback, 'p', message);
+  }
+
+  function sourceList(parent, heading, values, prefix, references) {
+    add(parent, 'h4', heading);
+    if (!values.length) {
+      const missing = prefix === 'F'
+        ? 'No facts were supplied. Ask about available resources, timing, assistance and stated participant needs before relying on them.'
+        : 'No constraints were supplied. Clarify whether any operating rules or participant requirements are missing; an empty list does not establish that none apply.';
+      add(parent, 'p', missing, 'notice');
+      return;
+    }
+    const list = add(parent, 'ul', undefined, 'source-list');
+    values.forEach(function (value, index) {
+      const id = prefix + (index + 1);
+      const item = add(list, 'li');
+      add(item, 'strong', id + ' — ');
+      add(item, 'span', value.trim() ? value : '[No detail supplied; clarify this entry.]');
+      if (references !== null) {
+        const found = references.has(id);
+        const prompt = prefix === 'F'
+          ? 'Explain how this fact affects your resource choice, timing, support or fallback, or explain why it is not relevant.'
+          : 'Explain how the plan meets this constraint, or ask a specific question if it is unclear.';
+        add(item, 'p', (found ? 'Explicit ID detected. ' : 'No explicit ID detected; it may still be discussed in your prose. ') + prompt, 'hint');
+      }
+    });
+  }
+
+  function renderCase() {
+    const view = byId('scenario-view');
+    view.replaceChildren();
+    add(view, 'h3', applied.title.trim() ? applied.title : 'Untitled case');
+    add(view, 'p', applied.task.trim() ? applied.task : 'No task was supplied. Ask what the activity is meant to accomplish.', 'task');
+    sourceList(view, 'Facts', applied.facts, 'F', null);
+    sourceList(view, 'Constraints', applied.constraints, 'C', null);
+  }
+
+  function validateCase(value) {
+    if (value === null || typeof value !== 'object' || Array.isArray(value)) {
+      return 'The scenario must be a JSON object.';
+    }
+    if (typeof value.title !== 'string' || typeof value.task !== 'string') {
+      return 'Provide title and task as strings.';
+    }
+    for (const key of ['facts', 'constraints']) {
+      if (!Array.isArray(value[key]) || !value[key].every(function (item) { return typeof item === 'string'; })) {
+        return key + ' must be an array of strings, such as [\"A fictional fact\"].';
+      }
+    }
+    return null;
+  }
+
+  function detectReferences(text) {
+    const found = new Set();
+    const invalid = new Set();
+    const pattern = /\b([FC])(\d+)\b/gi;
+    let match;
+    while ((match = pattern.exec(text)) !== null) {
+      const prefix = match[1].toUpperCase();
+      const index = Number(match[2]);
+      const length = prefix === 'F' ? applied.facts.length : applied.constraints.length;
+      if (index >= 1 && index <= length) found.add(prefix + index);
+      else invalid.add(prefix + match[2]);
+    }
+    return { found: found, invalid: invalid };
+  }
+
+  function detectSections(text) {
+    const sections = {};
+    let current = null;
+    text.split(/\r?\n/).forEach(function (line) {
+      const match = line.match(/^\s*(Plan|Resources|Constraints|Support|Fallback|Questions)\s*:\s*(.*)$/i);
+      if (match) {
+        current = match[1].toLowerCase();
+        sections[current] = (sections[current] || '') + ' ' + match[2];
+      } else if (current !== null) {
+        sections[current] += ' ' + line;
+      }
+    });
+    return sections;
+  }
+
+  function clearResponseError() {
+    responseError.textContent = '';
+    responseInput.removeAttribute('aria-invalid');
+  }
+
+  function tryResponse() {
+    const proposal = responseInput.value;
+    if (!proposal.trim()) {
+      responseError.textContent = 'Add a proposal, a fallback, or a question about missing facts before trying. You can also choose Skip practice.';
+      responseInput.setAttribute('aria-invalid', 'true');
+      setStatus('A response is needed for review');
+      responseInput.focus();
+      return;
+    }
+    clearResponseError();
+    attempts += 1;
+    lastReviewedText = proposal;
+    const refs = detectReferences(proposal);
+    const sections = detectSections(proposal);
+    feedback.replaceChildren();
+    add(feedback, 'h3', 'Review attempt ' + attempts + ' for applied case ' + caseNumber);
+    reviewNote = add(feedback, 'p', 'This review describes the submitted text. It does not verify feasibility or demonstrate learning.', 'notice');
+    if (scenarioInput.value !== lastAppliedEditorText) {
+      add(feedback, 'p', 'There are unapplied JSON edits. This review uses the applied case shown above, not the edited JSON.', 'notice');
+    }
+    add(feedback, 'p', 'The automatic observations below only identify explicit source IDs and optional headings containing text. An ID or heading can be present even when the reasoning is incomplete or contradicts the evidence. Free-form writing may cover a point without using these labels.');
+    add(feedback, 'h4', 'Writing observations');
+    const observations = add(feedback, 'ul');
+    const knownIds = Array.from(refs.found).sort();
+    add(observations, 'li', knownIds.length ? 'Recognized explicit source IDs: ' + knownIds.join(', ') + '. Compare the explanation for each ID with its actual text below.' : 'No explicit source IDs were detected. Connect the resources, constraints and fallback to the relevant facts, using IDs if helpful.');
+    if (refs.invalid.size) {
+      add(observations, 'li', 'Source IDs outside the applied lists: ' + Array.from(refs.invalid).join(', ') + '. Check these references against the current case.');
+    }
+    const present = ['plan', 'resources', 'constraints', 'support', 'fallback', 'questions'].filter(function (key) { return sections[key] && sections[key].trim(); });
+    add(observations, 'li', present.length ? 'Optional headings with nonempty text: ' + present.join(', ') + '. This is a writing observation, not a completeness check.' : 'No optional labeled sections with text were detected. You may keep free-form writing; use the prompts below to inspect its coverage.');
+    add(feedback, 'h4', 'Revision prompts');
+    const prompts = [
+      ['plan', 'State the activity, who it includes, and the sequence or timing. If a decision is blocked, explain what information would let you decide.'],
+      ['resources', 'For every required resource, connect its quantity and available time to an applied fact. If availability is not supplied, ask instead of assuming.'],
+      ['constraints', 'Check every applied constraint. Explain how the main plan meets it, why it does not apply, or what needs clarification.'],
+      ['support', 'Connect any required help to the stated availability. Address the supplied participant needs and avoid adding needs that were not given.'],
+      ['fallback', 'Name the condition that makes the main plan unusable. Propose an alternative using available resources and support, explain why it meets the same constraints and stated needs, or ask for clarification if no feasible alternative is supported.'],
+      ['questions', 'Identify uncertainty that could change the plan. State whom or what you would need to check. If you think nothing is missing, explain which supplied facts support that judgment.']
+    ];
+    const promptList = add(feedback, 'ul');
+    prompts.forEach(function (entry) {
+      const isPresent = Boolean(sections[entry[0]] && sections[entry[0]].trim());
+      const item = add(promptList, 'li');
+      const label = entry[0].charAt(0).toUpperCase() + entry[0].slice(1);
+      add(item, 'strong', label + ': ');
+      add(item, 'span', (isPresent ? 'A labeled section is present; inspect its reasoning. ' : 'No nonempty labeled section was detected; add this reasoning if it is not already in your prose. ') + entry[1]);
+    });
+    add(feedback, 'h4', 'Compare your proposal with the actual applied evidence');
+    add(feedback, 'p', 'The lists below are the sources used for this review. A reference match only reports that the ID appears in your text. It does not check whether your interpretation is right.', 'hint');
+    sourceList(feedback, 'Applied facts', applied.facts, 'F', refs.found);
+    sourceList(feedback, 'Applied constraints', applied.constraints, 'C', refs.found);
+    const snapshot = add(feedback, 'details');
+    add(snapshot, 'summary', 'Proposal used for this review');
+    add(snapshot, 'pre', proposal, 'proposal');
+    add(feedback, 'p', 'Choose Revise response to improve your explanation, then try again. To practice changed conditions, edit and apply the scenario JSON. A different proposal can be reasonable if it is supported by the applied facts.');
+    setStatus('Feedback available; feasibility is not verified');
+    feedback.focus();
+  }
+
+  byId('apply-scenario').addEventListener('click', function () {
+    let parsed;
+    let problem = null;
+    try { parsed = JSON.parse(scenarioInput.value); }
+    catch (error) { problem = 'The JSON could not be read. Check quotation marks, commas and brackets, then apply again.'; }
+    if (!problem) problem = validateCase(parsed);
+    if (problem) {
+      scenarioError.textContent = problem + ' The previously applied case and your draft are unchanged.';
+      scenarioInput.setAttribute('aria-invalid', 'true');
+      byId('scenario-edit-status').textContent = 'Update not applied. Applied case ' + caseNumber + ' remains active.';
+      setStatus('Case update needs correction; previous case remains active');
+      scenarioInput.focus();
+      return;
+    }
+    applied = { title: parsed.title, facts: parsed.facts.slice(), constraints: parsed.constraints.slice(), task: parsed.task };
+    caseNumber += 1;
+    attempts = 0;
+    lastReviewedText = null;
+    lastAppliedEditorText = scenarioInput.value;
+    scenarioError.textContent = '';
+    scenarioInput.removeAttribute('aria-invalid');
+    clearResponseError();
+    renderCase();
+    byId('scenario-edit-status').textContent = 'Applied as case ' + caseNumber + '. The draft has been retained and earlier feedback cleared.';
+    feedbackMessage('New case applied. Inspect the new facts and constraints before trying your draft again. Old source IDs may now refer to different text. Explain any needed change in resources, support, timing or fallback.');
+    setStatus(responseInput.value.trim() ? 'Case changed; draft needs review' : 'New case ready for a proposal');
+  });
+
+  scenarioInput.addEventListener('input', function () {
+    byId('scenario-edit-status').textContent = scenarioInput.value === lastAppliedEditorText
+      ? 'The editor matches the applied JSON.'
+      : 'There are unapplied JSON edits. The case shown above remains active until you apply a valid update.';
+  });
+
+  responseInput.addEventListener('input', function () {
+    clearResponseError();
+    if (lastReviewedText !== null) {
+      const changed = responseInput.value !== lastReviewedText;
+      if (reviewNote) reviewNote.textContent = changed
+        ? 'Your draft has changed. The feedback below describes the previous submitted proposal; try again to review the current text.'
+        : 'This review describes the current text. It does not verify feasibility or demonstrate learning.';
+      setStatus(changed ? 'Draft changed; previous feedback needs updating' : 'Feedback available; feasibility is not verified');
+    } else {
+      setStatus(responseInput.value.trim() ? 'Drafting a proposal' : 'Ready for a proposal');
+    }
+  });
+
+  byId('try-response').addEventListener('click', tryResponse);
+  byId('revise-response').addEventListener('click', function () {
+    clearResponseError();
+    if (reviewNote) reviewNote.textContent = 'Revision in progress. The feedback below refers to your last submitted proposal; try again after editing.';
+    else feedbackMessage('Editing resumed. Connect your proposal to the applied facts, explain a fallback, and identify any uncertainty. Try the response when you want feedback.');
+    setStatus('Revising; draft retained');
+    responseInput.focus();
+  });
+  byId('skip-practice').addEventListener('click', function () {
+    clearResponseError();
+    lastReviewedText = null;
+    feedbackMessage('Practice skipped. Your draft is retained. No assessment was made. Choose Revise response or edit the draft to resume.');
+    setStatus('Skipped; no assessment made');
+  });
+  byId('reset-practice').addEventListener('click', function () {
+    responseInput.value = '';
+    attempts = 0;
+    lastReviewedText = null;
+    clearResponseError();
+    feedbackMessage('Practice reset. The applied case and case editor are retained. Write a proposal or a clarification question, then choose Try this plan.');
+    setStatus('Ready; practice reset');
+    responseInput.focus();
+  });
+
+  scenarioInput.value = lastAppliedEditorText;
+  renderCase();
+  feedbackMessage('Write a proposal or a clarification question, then choose Try this plan. Feedback will help you compare the proposal with the applied evidence; it will not score or certify it.');
+  byId('scenario-edit-status').textContent = 'The fictional starting case is applied. You can replace the JSON above.';
+  setStatus('Ready for a proposal');
+})();
+</script>
+</body>
+</html>

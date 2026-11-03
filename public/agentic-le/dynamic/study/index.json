@@ -4,25 +4,25 @@
       "id": "handoff-generalist-agent-01",
       "label": "A difficult handoff conversation \u00b7 Generalist",
       "url": "/agentic-le/dynamic/study/handoff-generalist-agent-01.json",
-      "status": "In progress: 1 accepted agent messages. No completed deployment tests or expert scores in this snapshot."
+      "status": "1 accepted agent messages. Design in progress; deployment tests and expert scores pending."
     },
     {
       "id": "handoff-specialists-agent-01",
       "label": "A difficult handoff conversation \u00b7 Specialist team",
       "url": "/agentic-le/dynamic/study/handoff-specialists-agent-01.json",
-      "status": "In progress: 3 accepted agent messages. No completed deployment tests or expert scores in this snapshot."
+      "status": "3 accepted agent messages. Design in progress; deployment tests and expert scores pending."
     },
     {
       "id": "workshop-generalist-agent-01",
       "label": "Planning a shared-equipment workshop \u00b7 Generalist",
       "url": "/agentic-le/dynamic/study/workshop-generalist-agent-01.json",
-      "status": "In progress: 1 accepted agent messages. No completed deployment tests or expert scores in this snapshot."
+      "status": "3 accepted agent messages. Version 1 frozen; deployment tests and expert scores pending."
     },
     {
       "id": "workshop-specialists-agent-01",
       "label": "Planning a shared-equipment workshop \u00b7 Specialist team",
       "url": "/agentic-le/dynamic/study/workshop-specialists-agent-01.json",
-      "status": "In progress: 2 accepted agent messages. No completed deployment tests or expert scores in this snapshot."
+      "status": "3 accepted agent messages. Design in progress; deployment tests and expert scores pending."
     }
   ]
 }
