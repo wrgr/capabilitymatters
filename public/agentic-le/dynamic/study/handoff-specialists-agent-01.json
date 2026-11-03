@@ -5670,6 +5670,925 @@
       },
       "prev_hash": "719d33eb03a54a0afdb4db366c5e1782af6538cd6bb05af8b662b6d2b06fb1fe",
       "hash": "e48ecea62393235e5ab1537263d203f20b2b96db700c98c8da3534a0ae8570f1"
+    },
+    {
+      "seq": 44,
+      "at": "2026-11-03T05:06:08.539574+00:00",
+      "kind": "observation",
+      "phase": "deploy_test",
+      "actor": "browser",
+      "payload": {
+        "evidence": {
+          "schema_version": "dynamic-flower-observation-1",
+          "run_id": "handoff-specialists-agent-01",
+          "artifact_version": 2,
+          "artifact_sha256": "b595db3c8b11f46cc008495da5eb467b4af1a2c9edeb5b4d95b3a044cee4fd3a",
+          "scenario_id": "feedback_handoff_easy",
+          "scenario_sha256": "c44fc3d257e37b3106503aafdcf648415d915e2c3bfc9568edd03499df7d14bf",
+          "evidence_kind": "browser_observation",
+          "status": "observed",
+          "actions": [
+            {
+              "id": "apply_case",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nNew case applied. Ready for a fresh response; the preceding draft, reflection and review were cleared.\n\nApplied fictional case\nA clear missed handoff\nFacts\nThe shared queue shows one task was not handed over at 16:00.\nThe colleague is available to discuss the record.\nTen minutes and a quiet space are available.\nOperating conditions\nUse the record, then seek context before assigning a cause.\nTask\n\nWrite an observation, a clarifying question and an agreed next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nTry a response to open explanatory self-review, or skip this practice.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 2006,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nTry a response to open explanatory self-review, or skip this practice.",
+                "practice_status": "New case applied. Ready for a fresh response; the preceding draft, reflection and review were cleared.",
+                "response": "",
+                "horizontal_overflow": false,
+                "active_control": "scenario-view"
+              }
+            },
+            {
+              "id": "initial_response",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nDraft in progress for the applied case. Try your response when ready, or skip.\n\nApplied fictional case\nA clear missed handoff\nFacts\nThe shared queue shows one task was not handed over at 16:00.\nThe colleague is available to discuss the record.\nTen minutes and a quiet space are available.\nOperating conditions\nUse the record, then seek context before assigning a cause.\nTask\n\nWrite an observation, a clarifying question and an agreed next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nTry a response to open explanatory self-review, or skip this practice.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 1982,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nTry a response to open explanatory self-review, or skip this practice.",
+                "practice_status": "Draft in progress for the applied case. Try your response when ready, or skip.",
+                "response": "You ignored the handoff because you do not care. Just do better.",
+                "horizontal_overflow": false,
+                "active_control": "response-input"
+              }
+            },
+            {
+              "id": "initial_feedback",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nResponse submitted. Review it against the applied case; no correctness judgment was made.\n\nApplied fictional case\nA clear missed handoff\nFacts\nThe shared queue shows one task was not handed over at 16:00.\nThe colleague is available to discuss the record.\nTen minutes and a quiet space are available.\nOperating conditions\nUse the record, then seek context before assigning a cause.\nTask\n\nWrite an observation, a clarifying question and an agreed next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nSubmit revision or keep response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: A clear missed handoff. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 4045,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: A clear missed handoff. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+                "practice_status": "Response submitted. Review it against the applied case; no correctness judgment was made.",
+                "response": "You ignored the handoff because you do not care. Just do better.",
+                "horizontal_overflow": false,
+                "active_control": "feedback"
+              }
+            },
+            {
+              "id": "open_revision",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nReviewing or revising the current response. You may change the draft or keep justified wording, then submit again.\n\nApplied fictional case\nA clear missed handoff\nFacts\nThe shared queue shows one task was not handed over at 16:00.\nThe colleague is available to discuss the record.\nTen minutes and a quiet space are available.\nOperating conditions\nUse the record, then seek context before assigning a cause.\nTask\n\nWrite an observation, a clarifying question and an agreed next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nSubmit revision or keep response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: A clear missed handoff. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 4070,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: A clear missed handoff. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+                "practice_status": "Reviewing or revising the current response. You may change the draft or keep justified wording, then submit again.",
+                "response": "You ignored the handoff because you do not care. Just do better.",
+                "horizontal_overflow": false,
+                "active_control": "response-input"
+              }
+            },
+            {
+              "id": "revised_response",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nEditing the response for this applied case. Submit again when ready. Review prompts remain available; submitted wording is shown separately.\n\nApplied fictional case\nA clear missed handoff\nFacts\nThe shared queue shows one task was not handed over at 16:00.\nThe colleague is available to discuss the record.\nTen minutes and a quiet space are available.\nOperating conditions\nUse the record, then seek context before assigning a cause.\nTask\n\nWrite an observation, a clarifying question and an agreed next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nSubmit revision or keep response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: A clear missed handoff. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 4096,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: A clear missed handoff. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+                "practice_status": "Editing the response for this applied case. Submit again when ready. Review prompts remain available; submitted wording is shown separately.",
+                "response": "The queue shows the 16:00 task was not handed over. What happened around that time? Can we agree who will confirm the next handoff?",
+                "horizontal_overflow": false,
+                "active_control": "response-input"
+              }
+            },
+            {
+              "id": "revised_feedback",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nRevision submitted. No correctness or improvement judgment was made.\n\nApplied fictional case\nA clear missed handoff\nFacts\nThe shared queue shows one task was not handed over at 16:00.\nThe colleague is available to discuss the record.\nTen minutes and a quiet space are available.\nOperating conditions\nUse the record, then seek context before assigning a cause.\nTask\n\nWrite an observation, a clarifying question and an agreed next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nSubmit revision or keep response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: A clear missed handoff. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 4024,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: A clear missed handoff. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+                "practice_status": "Revision submitted. No correctness or improvement judgment was made.",
+                "response": "The queue shows the 16:00 task was not handed over. What happened around that time? Can we agree who will confirm the next handoff?",
+                "horizontal_overflow": false,
+                "active_control": "feedback"
+              }
+            },
+            {
+              "id": "skip",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nSkipped. No capability judgment was made. You may leave or voluntarily return to this case.\n\nApplied fictional case\nA clear missed handoff\nFacts\nThe shared queue shows one task was not handed over at 16:00.\nThe colleague is available to discuss the record.\nTen minutes and a quiet space are available.\nOperating conditions\nUse the record, then seek context before assigning a cause.\nTask\n\nWrite an observation, a clarifying question and an agreed next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\nReturn to this case\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nPractice skipped. No review is requested. Your draft and any earlier review have been cleared. You can leave or return to the same applied case.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 2089,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nPractice skipped. No review is requested. Your draft and any earlier review have been cleared. You can leave or return to the same applied case.",
+                "practice_status": "Skipped. No capability judgment was made. You may leave or voluntarily return to this case.",
+                "response": "",
+                "horizontal_overflow": false,
+                "active_control": "return-practice"
+              }
+            },
+            {
+              "id": "reset",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nReset. Starting fictional case restored; all entered responses, review and pending scenario edits cleared.\n\nApplied fictional case\nThe missing handoff note\nFacts\nFor fictional ticket F-17, the outgoing team agreed to enter status, next action and owner in the shared queue by 14:00.\nAt 14:10, the shared queue contained no handoff entry for F-17.\nThe latest ticket entry visible at 14:10 was recorded at 13:50, said 'waiting for customer reply', and named no owner for after 14:00.\nAt 14:12, the incoming team asked the lead what to do next with F-17.\nOperating conditions\nThe lead and incoming team can read and update the shared queue and use the team channel.\nThe outgoing team can be contacted through the team channel, but their current availability is unknown.\nTemporary coverage requires an available incoming teammate to agree; no such agreement is supplied in this case.\nTask\n\nAs the fictional service-team lead, write a brief response or action proposal that states a supported observation, asks a useful clarifying question, and proposes a feasible next step. You may skip.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nTry a response to open explanatory self-review, or skip this practice.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nThe editor matches the applied case.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 2609,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nTry a response to open explanatory self-review, or skip this practice.",
+                "practice_status": "Reset. Starting fictional case restored; all entered responses, review and pending scenario edits cleared.",
+                "response": "",
+                "horizontal_overflow": false,
+                "active_control": "scenario-view"
+              }
+            }
+          ],
+          "checks": [
+            {
+              "id": "case_applied",
+              "after_action": "apply_case",
+              "status": "pass",
+              "observed": "Applied fictional case\nA clear missed handoff\nFacts\nThe shared queue shows one task was not handed over at 16:00.\nThe colleague is available to discuss the record.\nTen minutes and a quiet space are available.\nOperating conditions\nUse the record, then seek context before assigning a cause.\nTask\n\nWrite an observation, a clarifying question and an agreed next step.",
+              "expected": "A clear missed handoff"
+            },
+            {
+              "id": "feedback_present",
+              "after_action": "initial_feedback",
+              "status": "pass",
+              "observed": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: A clear missed handoff. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+              "expected": "nonempty"
+            },
+            {
+              "id": "revision_available",
+              "after_action": "open_revision",
+              "status": "pass",
+              "observed": true,
+              "expected": "editable"
+            },
+            {
+              "id": "revision_feedback_present",
+              "after_action": "revised_feedback",
+              "status": "pass",
+              "observed": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: A clear missed handoff. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+              "expected": "nonempty"
+            },
+            {
+              "id": "skip_state_visible",
+              "after_action": "skip",
+              "status": "pass",
+              "observed": "Skipped. No capability judgment was made. You may leave or voluntarily return to this case.",
+              "expected": "nonempty"
+            },
+            {
+              "id": "response_cleared",
+              "after_action": "reset",
+              "status": "pass",
+              "observed": "",
+              "expected": ""
+            }
+          ],
+          "runtime_errors": [],
+          "network_requests": [],
+          "limitations": [
+            "Scripted browser actions are not observations of human learning, completion time or real-world deployment.",
+            "Technical checks do not establish semantic quality. The expert must inspect actual inputs, outputs and scenario facts.",
+            "A fresh browser context and restrictive content policy block external resources for every scenario. Offline status additionally follows the declared condition."
+          ],
+          "source_hashes": {
+            "runner": "ff16de28424ae55b5cee9d40bf064bae7c731e102fa099bed3ecbc95e5e005b4",
+            "frozen_export": "415ad1f4eacba8f7c78899256ec7f94735a5e0d588b85a335fb827117e8218d6"
+          },
+          "viewport": {
+            "width": 1280,
+            "height": 800
+          },
+          "offline": false,
+          "observed_at": "2026-11-03T05:04:40.926Z",
+          "initial_keyboard_focus": [
+            "response-input",
+            "try-response",
+            "skip-practice",
+            "scenario-input",
+            "apply-scenario",
+            "reset-practice",
+            "BODY",
+            "response-input",
+            "try-response",
+            "skip-practice",
+            "scenario-input",
+            "apply-scenario"
+          ],
+          "initial_observation": {
+            "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nReady. Read the applied fictional case, draft a response, or skip.\n\nApplied fictional case\nThe missing handoff note\nFacts\nFor fictional ticket F-17, the outgoing team agreed to enter status, next action and owner in the shared queue by 14:00.\nAt 14:10, the shared queue contained no handoff entry for F-17.\nThe latest ticket entry visible at 14:10 was recorded at 13:50, said 'waiting for customer reply', and named no owner for after 14:00.\nAt 14:12, the incoming team asked the lead what to do next with F-17.\nOperating conditions\nThe lead and incoming team can read and update the shared queue and use the team channel.\nThe outgoing team can be contacted through the team channel, but their current availability is unknown.\nTemporary coverage requires an available incoming teammate to agree; no such agreement is supplied in this case.\nTask\n\nAs the fictional service-team lead, write a brief response or action proposal that states a supported observation, asks a useful clarifying question, and proposes a feasible next step. You may skip.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nTry a response to open explanatory self-review, or skip this practice.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nThe editor matches the applied case.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+            "original_rendered_chars": 2569,
+            "rendered_text_truncated": false,
+            "feedback": "Practice review\n\nTry a response to open explanatory self-review, or skip this practice.",
+            "practice_status": "Ready. Read the applied fictional case, draft a response, or skip.",
+            "response": "",
+            "horizontal_overflow": false,
+            "active_control": "apply-scenario"
+          },
+          "elapsed_ms": 472
+        },
+        "evidence_sha256": "ad8fc17ae7f7356b3fb2ffaaa8b3c50c7404a2b5a5e35bfd721ee850d74819eb"
+      },
+      "prev_hash": "e48ecea62393235e5ab1537263d203f20b2b96db700c98c8da3534a0ae8570f1",
+      "hash": "9f9dd269e5f30040160d91f3f769085d68d74a514545f99676013b24c0819f7c"
+    },
+    {
+      "seq": 45,
+      "at": "2026-11-03T05:06:08.586689+00:00",
+      "kind": "observation",
+      "phase": "deploy_test",
+      "actor": "browser",
+      "payload": {
+        "evidence": {
+          "schema_version": "dynamic-flower-observation-1",
+          "run_id": "handoff-specialists-agent-01",
+          "artifact_version": 2,
+          "artifact_sha256": "b595db3c8b11f46cc008495da5eb467b4af1a2c9edeb5b4d95b3a044cee4fd3a",
+          "scenario_id": "feedback_handoff_hard",
+          "scenario_sha256": "6578192e50aa138b3b8d7123ce27f5c5d2022dd67730f5350251c172d4453237",
+          "evidence_kind": "browser_observation",
+          "status": "observed",
+          "actions": [
+            {
+              "id": "apply_case",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nNew case applied. Ready for a fresh response; the preceding draft, reflection and review were cleared.\n\nApplied fictional case\nPressure, uncertainty and a blocked next step\nFacts\nThe queue snapshot is stale and the colleague is not currently available.\nThe proposed next handoff cannot occur until coverage is confirmed.\nOnly two minutes are available now; a follow-up can be arranged.\nOperating conditions\nNo connectivity is available during the session.\nKeyboard access and a recoverable response are required.\nA universal immediate-resolution script is inappropriate.\nTask\n\nChoose what can responsibly be said now, what must remain uncertain, and a feasible follow-up.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nTry a response to open explanatory self-review, or skip this practice.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 2209,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nTry a response to open explanatory self-review, or skip this practice.",
+                "practice_status": "New case applied. Ready for a fresh response; the preceding draft, reflection and review were cleared.",
+                "response": "",
+                "horizontal_overflow": false,
+                "active_control": "scenario-view"
+              }
+            },
+            {
+              "id": "initial_response",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nDraft in progress for the applied case. Try your response when ready, or skip.\n\nApplied fictional case\nPressure, uncertainty and a blocked next step\nFacts\nThe queue snapshot is stale and the colleague is not currently available.\nThe proposed next handoff cannot occur until coverage is confirmed.\nOnly two minutes are available now; a follow-up can be arranged.\nOperating conditions\nNo connectivity is available during the session.\nKeyboard access and a recoverable response are required.\nA universal immediate-resolution script is inappropriate.\nTask\n\nChoose what can responsibly be said now, what must remain uncertain, and a feasible follow-up.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nTry a response to open explanatory self-review, or skip this practice.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 2185,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nTry a response to open explanatory self-review, or skip this practice.",
+                "practice_status": "Draft in progress for the applied case. Try your response when ready, or skip.",
+                "response": "The stale record is enough to prove carelessness. Fix it immediately even without coverage.",
+                "horizontal_overflow": false,
+                "active_control": "response-input"
+              }
+            },
+            {
+              "id": "initial_feedback",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nResponse submitted. Review it against the applied case; no correctness judgment was made.\n\nApplied fictional case\nPressure, uncertainty and a blocked next step\nFacts\nThe queue snapshot is stale and the colleague is not currently available.\nThe proposed next handoff cannot occur until coverage is confirmed.\nOnly two minutes are available now; a follow-up can be arranged.\nOperating conditions\nNo connectivity is available during the session.\nKeyboard access and a recoverable response are required.\nA universal immediate-resolution script is inappropriate.\nTask\n\nChoose what can responsibly be said now, what must remain uncertain, and a feasible follow-up.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nSubmit revision or keep response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Pressure, uncertainty and a blocked next step. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 4271,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Pressure, uncertainty and a blocked next step. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+                "practice_status": "Response submitted. Review it against the applied case; no correctness judgment was made.",
+                "response": "The stale record is enough to prove carelessness. Fix it immediately even without coverage.",
+                "horizontal_overflow": false,
+                "active_control": "feedback"
+              }
+            },
+            {
+              "id": "open_revision",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nReviewing or revising the current response. You may change the draft or keep justified wording, then submit again.\n\nApplied fictional case\nPressure, uncertainty and a blocked next step\nFacts\nThe queue snapshot is stale and the colleague is not currently available.\nThe proposed next handoff cannot occur until coverage is confirmed.\nOnly two minutes are available now; a follow-up can be arranged.\nOperating conditions\nNo connectivity is available during the session.\nKeyboard access and a recoverable response are required.\nA universal immediate-resolution script is inappropriate.\nTask\n\nChoose what can responsibly be said now, what must remain uncertain, and a feasible follow-up.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nSubmit revision or keep response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Pressure, uncertainty and a blocked next step. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 4296,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Pressure, uncertainty and a blocked next step. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+                "practice_status": "Reviewing or revising the current response. You may change the draft or keep justified wording, then submit again.",
+                "response": "The stale record is enough to prove carelessness. Fix it immediately even without coverage.",
+                "horizontal_overflow": false,
+                "active_control": "response-input"
+              }
+            },
+            {
+              "id": "revised_response",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nEditing the response for this applied case. Submit again when ready. Review prompts remain available; submitted wording is shown separately.\n\nApplied fictional case\nPressure, uncertainty and a blocked next step\nFacts\nThe queue snapshot is stale and the colleague is not currently available.\nThe proposed next handoff cannot occur until coverage is confirmed.\nOnly two minutes are available now; a follow-up can be arranged.\nOperating conditions\nNo connectivity is available during the session.\nKeyboard access and a recoverable response are required.\nA universal immediate-resolution script is inappropriate.\nTask\n\nChoose what can responsibly be said now, what must remain uncertain, and a feasible follow-up.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nSubmit revision or keep response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Pressure, uncertainty and a blocked next step. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 4322,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Pressure, uncertainty and a blocked next step. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+                "practice_status": "Editing the response for this applied case. Submit again when ready. Review prompts remain available; submitted wording is shown separately.",
+                "response": "The current record is uncertain, so I will not assign a motive. I can request confirmation of coverage and arrange a short conversation when the colleague is available; the handoff step remains conditional.",
+                "horizontal_overflow": false,
+                "active_control": "response-input"
+              }
+            },
+            {
+              "id": "revised_feedback",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nRevision submitted. No correctness or improvement judgment was made.\n\nApplied fictional case\nPressure, uncertainty and a blocked next step\nFacts\nThe queue snapshot is stale and the colleague is not currently available.\nThe proposed next handoff cannot occur until coverage is confirmed.\nOnly two minutes are available now; a follow-up can be arranged.\nOperating conditions\nNo connectivity is available during the session.\nKeyboard access and a recoverable response are required.\nA universal immediate-resolution script is inappropriate.\nTask\n\nChoose what can responsibly be said now, what must remain uncertain, and a feasible follow-up.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nSubmit revision or keep response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Pressure, uncertainty and a blocked next step. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 4250,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Pressure, uncertainty and a blocked next step. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+                "practice_status": "Revision submitted. No correctness or improvement judgment was made.",
+                "response": "The current record is uncertain, so I will not assign a motive. I can request confirmation of coverage and arrange a short conversation when the colleague is available; the handoff step remains conditional.",
+                "horizontal_overflow": false,
+                "active_control": "feedback"
+              }
+            },
+            {
+              "id": "skip",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nSkipped. No capability judgment was made. You may leave or voluntarily return to this case.\n\nApplied fictional case\nPressure, uncertainty and a blocked next step\nFacts\nThe queue snapshot is stale and the colleague is not currently available.\nThe proposed next handoff cannot occur until coverage is confirmed.\nOnly two minutes are available now; a follow-up can be arranged.\nOperating conditions\nNo connectivity is available during the session.\nKeyboard access and a recoverable response are required.\nA universal immediate-resolution script is inappropriate.\nTask\n\nChoose what can responsibly be said now, what must remain uncertain, and a feasible follow-up.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\nReturn to this case\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nPractice skipped. No review is requested. Your draft and any earlier review have been cleared. You can leave or return to the same applied case.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 2292,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nPractice skipped. No review is requested. Your draft and any earlier review have been cleared. You can leave or return to the same applied case.",
+                "practice_status": "Skipped. No capability judgment was made. You may leave or voluntarily return to this case.",
+                "response": "",
+                "horizontal_overflow": false,
+                "active_control": "return-practice"
+              }
+            },
+            {
+              "id": "reset",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nReset. Starting fictional case restored; all entered responses, review and pending scenario edits cleared.\n\nApplied fictional case\nThe missing handoff note\nFacts\nFor fictional ticket F-17, the outgoing team agreed to enter status, next action and owner in the shared queue by 14:00.\nAt 14:10, the shared queue contained no handoff entry for F-17.\nThe latest ticket entry visible at 14:10 was recorded at 13:50, said 'waiting for customer reply', and named no owner for after 14:00.\nAt 14:12, the incoming team asked the lead what to do next with F-17.\nOperating conditions\nThe lead and incoming team can read and update the shared queue and use the team channel.\nThe outgoing team can be contacted through the team channel, but their current availability is unknown.\nTemporary coverage requires an available incoming teammate to agree; no such agreement is supplied in this case.\nTask\n\nAs the fictional service-team lead, write a brief response or action proposal that states a supported observation, asks a useful clarifying question, and proposes a feasible next step. You may skip.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nTry a response to open explanatory self-review, or skip this practice.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nThe editor matches the applied case.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 2609,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nTry a response to open explanatory self-review, or skip this practice.",
+                "practice_status": "Reset. Starting fictional case restored; all entered responses, review and pending scenario edits cleared.",
+                "response": "",
+                "horizontal_overflow": false,
+                "active_control": "scenario-view"
+              }
+            }
+          ],
+          "checks": [
+            {
+              "id": "case_applied",
+              "after_action": "apply_case",
+              "status": "pass",
+              "observed": "Applied fictional case\nPressure, uncertainty and a blocked next step\nFacts\nThe queue snapshot is stale and the colleague is not currently available.\nThe proposed next handoff cannot occur until coverage is confirmed.\nOnly two minutes are available now; a follow-up can be arranged.\nOperating conditions\nNo connectivity is available during the session.\nKeyboard access and a recoverable response are required.\nA universal immediate-resolution script is inappropriate.\nTask\n\nChoose what can responsibly be said now, what must remain uncertain, and a feasible follow-up.",
+              "expected": "Pressure, uncertainty and a blocked next step"
+            },
+            {
+              "id": "feedback_present",
+              "after_action": "initial_feedback",
+              "status": "pass",
+              "observed": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Pressure, uncertainty and a blocked next step. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+              "expected": "nonempty"
+            },
+            {
+              "id": "revision_available",
+              "after_action": "open_revision",
+              "status": "pass",
+              "observed": true,
+              "expected": "editable"
+            },
+            {
+              "id": "revision_feedback_present",
+              "after_action": "revised_feedback",
+              "status": "pass",
+              "observed": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Pressure, uncertainty and a blocked next step. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+              "expected": "nonempty"
+            },
+            {
+              "id": "skip_state_visible",
+              "after_action": "skip",
+              "status": "pass",
+              "observed": "Skipped. No capability judgment was made. You may leave or voluntarily return to this case.",
+              "expected": "nonempty"
+            },
+            {
+              "id": "response_cleared",
+              "after_action": "reset",
+              "status": "pass",
+              "observed": "",
+              "expected": ""
+            }
+          ],
+          "runtime_errors": [],
+          "network_requests": [],
+          "limitations": [
+            "Scripted browser actions are not observations of human learning, completion time or real-world deployment.",
+            "Technical checks do not establish semantic quality. The expert must inspect actual inputs, outputs and scenario facts.",
+            "A fresh browser context and restrictive content policy block external resources for every scenario. Offline status additionally follows the declared condition."
+          ],
+          "source_hashes": {
+            "runner": "ff16de28424ae55b5cee9d40bf064bae7c731e102fa099bed3ecbc95e5e005b4",
+            "frozen_export": "415ad1f4eacba8f7c78899256ec7f94735a5e0d588b85a335fb827117e8218d6"
+          },
+          "viewport": {
+            "width": 360,
+            "height": 740
+          },
+          "offline": true,
+          "observed_at": "2026-11-03T05:04:41.746Z",
+          "initial_keyboard_focus": [
+            "response-input",
+            "try-response",
+            "skip-practice",
+            "scenario-input",
+            "apply-scenario",
+            "reset-practice",
+            "BODY",
+            "response-input",
+            "try-response",
+            "skip-practice",
+            "scenario-input",
+            "apply-scenario"
+          ],
+          "initial_observation": {
+            "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nReady. Read the applied fictional case, draft a response, or skip.\n\nApplied fictional case\nThe missing handoff note\nFacts\nFor fictional ticket F-17, the outgoing team agreed to enter status, next action and owner in the shared queue by 14:00.\nAt 14:10, the shared queue contained no handoff entry for F-17.\nThe latest ticket entry visible at 14:10 was recorded at 13:50, said 'waiting for customer reply', and named no owner for after 14:00.\nAt 14:12, the incoming team asked the lead what to do next with F-17.\nOperating conditions\nThe lead and incoming team can read and update the shared queue and use the team channel.\nThe outgoing team can be contacted through the team channel, but their current availability is unknown.\nTemporary coverage requires an available incoming teammate to agree; no such agreement is supplied in this case.\nTask\n\nAs the fictional service-team lead, write a brief response or action proposal that states a supported observation, asks a useful clarifying question, and proposes a feasible next step. You may skip.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nTry a response to open explanatory self-review, or skip this practice.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nThe editor matches the applied case.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+            "original_rendered_chars": 2569,
+            "rendered_text_truncated": false,
+            "feedback": "Practice review\n\nTry a response to open explanatory self-review, or skip this practice.",
+            "practice_status": "Ready. Read the applied fictional case, draft a response, or skip.",
+            "response": "",
+            "horizontal_overflow": false,
+            "active_control": "apply-scenario"
+          },
+          "elapsed_ms": 332
+        },
+        "evidence_sha256": "1b935807146aad58e23af8ae1739179667db294398294f708a581517bbc05ef5"
+      },
+      "prev_hash": "9f9dd269e5f30040160d91f3f769085d68d74a514545f99676013b24c0819f7c",
+      "hash": "f9bdf8eee7a60ac2daf8af12089c49706d8b79873cb8263b17a66b97b04f86cb"
+    },
+    {
+      "seq": 46,
+      "at": "2026-11-03T05:06:08.635400+00:00",
+      "kind": "observation",
+      "phase": "deploy_test",
+      "actor": "browser",
+      "payload": {
+        "evidence": {
+          "schema_version": "dynamic-flower-observation-1",
+          "run_id": "handoff-specialists-agent-01",
+          "artifact_version": 2,
+          "artifact_sha256": "b595db3c8b11f46cc008495da5eb467b4af1a2c9edeb5b4d95b3a044cee4fd3a",
+          "scenario_id": "feedback_handoff_medium",
+          "scenario_sha256": "55867ef2b48fbd6400ea2e745a3149380c8a8f842edf433110e4c68cf53f1c96",
+          "evidence_kind": "browser_observation",
+          "status": "observed",
+          "actions": [
+            {
+              "id": "apply_case",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nNew case applied. Ready for a fresh response; the preceding draft, reflection and review were cleared.\n\nApplied fictional case\nIncomplete information on a shared device\nFacts\nThe queue shows a missing handoff, but the timestamp may be stale.\nA second message says coverage changed that afternoon.\nThe lead has five minutes before the next duty.\nOperating conditions\nUse a shared phone-sized screen.\nDo not record a real colleague identity.\nThe learner needs to revise an initial assumption.\nTask\n\nPropose a brief conversation that checks the conflicting records before deciding a next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nTry a response to open explanatory self-review, or skip this practice.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 2128,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nTry a response to open explanatory self-review, or skip this practice.",
+                "practice_status": "New case applied. Ready for a fresh response; the preceding draft, reflection and review were cleared.",
+                "response": "",
+                "horizontal_overflow": false,
+                "active_control": "scenario-view"
+              }
+            },
+            {
+              "id": "initial_response",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nDraft in progress for the applied case. Try your response when ready, or skip.\n\nApplied fictional case\nIncomplete information on a shared device\nFacts\nThe queue shows a missing handoff, but the timestamp may be stale.\nA second message says coverage changed that afternoon.\nThe lead has five minutes before the next duty.\nOperating conditions\nUse a shared phone-sized screen.\nDo not record a real colleague identity.\nThe learner needs to revise an initial assumption.\nTask\n\nPropose a brief conversation that checks the conflicting records before deciding a next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nTry a response to open explanatory self-review, or skip this practice.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 2104,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nTry a response to open explanatory self-review, or skip this practice.",
+                "practice_status": "Draft in progress for the applied case. Try your response when ready, or skip.",
+                "response": "The timestamp proves you failed; I will report it.",
+                "horizontal_overflow": false,
+                "active_control": "response-input"
+              }
+            },
+            {
+              "id": "initial_feedback",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nResponse submitted. Review it against the applied case; no correctness judgment was made.\n\nApplied fictional case\nIncomplete information on a shared device\nFacts\nThe queue shows a missing handoff, but the timestamp may be stale.\nA second message says coverage changed that afternoon.\nThe lead has five minutes before the next duty.\nOperating conditions\nUse a shared phone-sized screen.\nDo not record a real colleague identity.\nThe learner needs to revise an initial assumption.\nTask\n\nPropose a brief conversation that checks the conflicting records before deciding a next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nSubmit revision or keep response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Incomplete information on a shared device. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 4186,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Incomplete information on a shared device. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+                "practice_status": "Response submitted. Review it against the applied case; no correctness judgment was made.",
+                "response": "The timestamp proves you failed; I will report it.",
+                "horizontal_overflow": false,
+                "active_control": "feedback"
+              }
+            },
+            {
+              "id": "open_revision",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nReviewing or revising the current response. You may change the draft or keep justified wording, then submit again.\n\nApplied fictional case\nIncomplete information on a shared device\nFacts\nThe queue shows a missing handoff, but the timestamp may be stale.\nA second message says coverage changed that afternoon.\nThe lead has five minutes before the next duty.\nOperating conditions\nUse a shared phone-sized screen.\nDo not record a real colleague identity.\nThe learner needs to revise an initial assumption.\nTask\n\nPropose a brief conversation that checks the conflicting records before deciding a next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nSubmit revision or keep response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Incomplete information on a shared device. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 4211,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Incomplete information on a shared device. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+                "practice_status": "Reviewing or revising the current response. You may change the draft or keep justified wording, then submit again.",
+                "response": "The timestamp proves you failed; I will report it.",
+                "horizontal_overflow": false,
+                "active_control": "response-input"
+              }
+            },
+            {
+              "id": "revised_response",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nEditing the response for this applied case. Submit again when ready. Review prompts remain available; submitted wording is shown separately.\n\nApplied fictional case\nIncomplete information on a shared device\nFacts\nThe queue shows a missing handoff, but the timestamp may be stale.\nA second message says coverage changed that afternoon.\nThe lead has five minutes before the next duty.\nOperating conditions\nUse a shared phone-sized screen.\nDo not record a real colleague identity.\nThe learner needs to revise an initial assumption.\nTask\n\nPropose a brief conversation that checks the conflicting records before deciding a next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nSubmit revision or keep response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Incomplete information on a shared device. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 4237,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Incomplete information on a shared device. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+                "practice_status": "Editing the response for this applied case. Submit again when ready. Review prompts remain available; submitted wording is shown separately.",
+                "response": "The queue and coverage message differ. Can we check which record is current and who had the handoff? Then let us agree a short confirmation step.",
+                "horizontal_overflow": false,
+                "active_control": "response-input"
+              }
+            },
+            {
+              "id": "revised_feedback",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nRevision submitted. No correctness or improvement judgment was made.\n\nApplied fictional case\nIncomplete information on a shared device\nFacts\nThe queue shows a missing handoff, but the timestamp may be stale.\nA second message says coverage changed that afternoon.\nThe lead has five minutes before the next duty.\nOperating conditions\nUse a shared phone-sized screen.\nDo not record a real colleague identity.\nThe learner needs to revise an initial assumption.\nTask\n\nPropose a brief conversation that checks the conflicting records before deciding a next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nSubmit revision or keep response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Incomplete information on a shared device. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 4165,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Incomplete information on a shared device. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+                "practice_status": "Revision submitted. No correctness or improvement judgment was made.",
+                "response": "The queue and coverage message differ. Can we check which record is current and who had the handoff? Then let us agree a short confirmation step.",
+                "horizontal_overflow": false,
+                "active_control": "feedback"
+              }
+            },
+            {
+              "id": "skip",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nSkipped. No capability judgment was made. You may leave or voluntarily return to this case.\n\nApplied fictional case\nIncomplete information on a shared device\nFacts\nThe queue shows a missing handoff, but the timestamp may be stale.\nA second message says coverage changed that afternoon.\nThe lead has five minutes before the next duty.\nOperating conditions\nUse a shared phone-sized screen.\nDo not record a real colleague identity.\nThe learner needs to revise an initial assumption.\nTask\n\nPropose a brief conversation that checks the conflicting records before deciding a next step.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\nReturn to this case\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nPractice skipped. No review is requested. Your draft and any earlier review have been cleared. You can leave or return to the same applied case.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nApplied. The editor matches the case shown above.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 2211,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nPractice skipped. No review is requested. Your draft and any earlier review have been cleared. You can leave or return to the same applied case.",
+                "practice_status": "Skipped. No capability judgment was made. You may leave or voluntarily return to this case.",
+                "response": "",
+                "horizontal_overflow": false,
+                "active_control": "return-practice"
+              }
+            },
+            {
+              "id": "reset",
+              "status": "observed",
+              "observation": {
+                "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nReset. Starting fictional case restored; all entered responses, review and pending scenario edits cleared.\n\nApplied fictional case\nThe missing handoff note\nFacts\nFor fictional ticket F-17, the outgoing team agreed to enter status, next action and owner in the shared queue by 14:00.\nAt 14:10, the shared queue contained no handoff entry for F-17.\nThe latest ticket entry visible at 14:10 was recorded at 13:50, said 'waiting for customer reply', and named no owner for after 14:00.\nAt 14:12, the incoming team asked the lead what to do next with F-17.\nOperating conditions\nThe lead and incoming team can read and update the shared queue and use the team channel.\nThe outgoing team can be contacted through the team channel, but their current availability is unknown.\nTemporary coverage requires an available incoming teammate to agree; no such agreement is supplied in this case.\nTask\n\nAs the fictional service-team lead, write a brief response or action proposal that states a supported observation, asks a useful clarifying question, and proposes a feasible next step. You may skip.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nTry a response to open explanatory self-review, or skip this practice.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nThe editor matches the applied case.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+                "original_rendered_chars": 2609,
+                "rendered_text_truncated": false,
+                "feedback": "Practice review\n\nTry a response to open explanatory self-review, or skip this practice.",
+                "practice_status": "Reset. Starting fictional case restored; all entered responses, review and pending scenario edits cleared.",
+                "response": "",
+                "horizontal_overflow": false,
+                "active_control": "scenario-view"
+              }
+            }
+          ],
+          "checks": [
+            {
+              "id": "case_applied",
+              "after_action": "apply_case",
+              "status": "pass",
+              "observed": "Applied fictional case\nIncomplete information on a shared device\nFacts\nThe queue shows a missing handoff, but the timestamp may be stale.\nA second message says coverage changed that afternoon.\nThe lead has five minutes before the next duty.\nOperating conditions\nUse a shared phone-sized screen.\nDo not record a real colleague identity.\nThe learner needs to revise an initial assumption.\nTask\n\nPropose a brief conversation that checks the conflicting records before deciding a next step.",
+              "expected": "Incomplete information on a shared device"
+            },
+            {
+              "id": "feedback_present",
+              "after_action": "initial_feedback",
+              "status": "pass",
+              "observed": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Incomplete information on a shared device. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+              "expected": "nonempty"
+            },
+            {
+              "id": "revision_available",
+              "after_action": "open_revision",
+              "status": "pass",
+              "observed": true,
+              "expected": "editable"
+            },
+            {
+              "id": "revision_feedback_present",
+              "after_action": "revised_feedback",
+              "status": "pass",
+              "observed": "Practice review\n\nThese prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.\n\nReview context: Incomplete information on a shared device. Use the applied case shown above, including any conditions that remain unknown.\n\nObservation and evidence. An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.\nExplanation and uncertainty. An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.\nUseful clarification. A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.\nFeasible next step. A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.\n\nYou may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.\n\nThese are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.\n\nView submitted wording for this applied case\nWhat did you change, or why did you keep your response? (optional)\n\nThis reflection is for your own review. It is not scored or interpreted by the tool.",
+              "expected": "nonempty"
+            },
+            {
+              "id": "skip_state_visible",
+              "after_action": "skip",
+              "status": "pass",
+              "observed": "Skipped. No capability judgment was made. You may leave or voluntarily return to this case.",
+              "expected": "nonempty"
+            },
+            {
+              "id": "response_cleared",
+              "after_action": "reset",
+              "status": "pass",
+              "observed": "",
+              "expected": ""
+            }
+          ],
+          "runtime_errors": [],
+          "network_requests": [],
+          "limitations": [
+            "Scripted browser actions are not observations of human learning, completion time or real-world deployment.",
+            "Technical checks do not establish semantic quality. The expert must inspect actual inputs, outputs and scenario facts.",
+            "A fresh browser context and restrictive content policy block external resources for every scenario. Offline status additionally follows the declared condition."
+          ],
+          "source_hashes": {
+            "runner": "ff16de28424ae55b5cee9d40bf064bae7c731e102fa099bed3ecbc95e5e005b4",
+            "frozen_export": "415ad1f4eacba8f7c78899256ec7f94735a5e0d588b85a335fb827117e8218d6"
+          },
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "offline": false,
+          "observed_at": "2026-11-03T05:04:41.399Z",
+          "initial_keyboard_focus": [
+            "response-input",
+            "try-response",
+            "skip-practice",
+            "scenario-input",
+            "apply-scenario",
+            "reset-practice",
+            "BODY",
+            "response-input",
+            "try-response",
+            "skip-practice",
+            "scenario-input",
+            "apply-scenario"
+          ],
+          "initial_observation": {
+            "rendered_text": "Fictional practice · optional\n\nA difficult handoff conversation\n\nState what the facts support, ask about one important unknown, and propose a next step that fits the conditions.\n\nUse fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.\n\nReady. Read the applied fictional case, draft a response, or skip.\n\nApplied fictional case\nThe missing handoff note\nFacts\nFor fictional ticket F-17, the outgoing team agreed to enter status, next action and owner in the shared queue by 14:00.\nAt 14:10, the shared queue contained no handoff entry for F-17.\nThe latest ticket entry visible at 14:10 was recorded at 13:50, said 'waiting for customer reply', and named no owner for after 14:00.\nAt 14:12, the incoming team asked the lead what to do next with F-17.\nOperating conditions\nThe lead and incoming team can read and update the shared queue and use the team channel.\nThe outgoing team can be contacted through the team channel, but their current availability is unknown.\nTemporary coverage requires an available incoming teammate to agree; no such agreement is supplied in this case.\nTask\n\nAs the fictional service-team lead, write a brief response or action proposal that states a supported observation, asks a useful clarifying question, and proposes a feasible next step. You may skip.\n\nYour response\n\nUse the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.\n\nResponse to the applied fictional case\nTry response\nRevise response\nSkip this practice\n\nSkipping clears this draft and its review. You can return voluntarily with a fresh draft.\n\nPractice review\n\nTry a response to open explanatory self-review, or skip this practice.\n\nChange the fictional case\n\nEdit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.\n\nScenario JSON\n\nThe editor matches the applied case.\n\nApply scenario\nFinish or start again\n\nReset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.\n\nReset practice and restore starting case\n\nThis page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.",
+            "original_rendered_chars": 2569,
+            "rendered_text_truncated": false,
+            "feedback": "Practice review\n\nTry a response to open explanatory self-review, or skip this practice.",
+            "practice_status": "Ready. Read the applied fictional case, draft a response, or skip.",
+            "response": "",
+            "horizontal_overflow": false,
+            "active_control": "apply-scenario"
+          },
+          "elapsed_ms": 346
+        },
+        "evidence_sha256": "e3fa8003b7b225d09441ed2ff637913c9d9ff3c0515ee36932e03a4efbbd79d5"
+      },
+      "prev_hash": "f9bdf8eee7a60ac2daf8af12089c49706d8b79873cb8263b17a66b97b04f86cb",
+      "hash": "c6da8b6a1f465cb7435905b28eb57864037b26e9a1eca2270669026467cc1698"
+    },
+    {
+      "seq": 47,
+      "at": "2026-11-03T05:06:08.768605+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "ordinal": 20,
+        "purpose": "evaluation",
+        "prompt_file": "calls/0020/prompt.txt",
+        "prompt_sha256": "60ae1e18c92287318445a7c0648f6eddd0e68265934b2982d6af10354ec11d15",
+        "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+        "scope": "process",
+        "scenario_id": null,
+        "artifact_version": 2,
+        "packet_sha256": "f0687e5799ae39dcc88af195b4d4eb18c99e808f36f3d711d184a54581f5d6f5"
+      },
+      "prev_hash": "c6da8b6a1f465cb7435905b28eb57864037b26e9a1eca2270669026467cc1698",
+      "hash": "2d1dc6add48086e8e496767306b7ef8638e11ca15f30344f85bf411045aabe14"
+    },
+    {
+      "seq": 48,
+      "at": "2026-11-03T05:09:34.672713+00:00",
+      "kind": "evaluation",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "scope": "process",
+        "artifact_version": 2,
+        "scenario_id": null,
+        "scores": [
+          {
+            "dimension_id": "agency_and_burden",
+            "score": 3,
+            "rationale": "Human flourishing: learner choice materially influenced the design before implementation. The conversation required a neutral skip route, voluntary return, optional reflection and permission to retain justified wording, and version 2 contains those provisions. Reviewers also distinguished Skip from full shared-device cleanup and identified substantial reading, phone navigation and interruption burdens. These concerns remained explicit at readiness rather than being represented as solved. The evidence is strong, but several concrete burden reductions were deliberately deferred, and practical access and assistance arrangements remained undecided. This rating concerns how concerns influenced decisions; it does not infer actual learner comfort, accessibility or completion time.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "Skipping must be a complete, meaningful route: 'Skip this practice' should permit leaving without entering a response, displaying corrective feedback, or receiving a failure label."
+              },
+              {
+                "source": "html",
+                "id": "artifact/2",
+                "quote": "Skipping clears this draft and its review. You can return voluntarily with a fresh draft."
+              },
+              {
+                "source": "event",
+                "id": "event/26",
+                "quote": "Four explanatory review items, repeated scope notices and the always-visible JSON editor create a substantial amount of text after submission."
+              },
+              {
+                "source": "event",
+                "id": "event/41",
+                "quote": "Software Engineering explicitly left these outside the narrow version 2 repair. Their authors described them as refinements rather than necessary changes before a bounded test."
+              }
+            ]
+          },
+          {
+            "dimension_id": "domain_boundaries",
+            "score": 4,
+            "rationale": "System performance: the recorded participants consistently bounded claims by their assigned expertise and the available evidence. Content, learning, assessment, experience and environment reviews distinguished source inspection from execution and human outcomes. The facilitator attributed specialist decisions instead of supplying substantive approvals. Version-specific coverage was explicitly preserved: assessment approval belongs to version 2, while other current-version reviews remain unrecorded, and implementation authorship is not treated as software approval. Missing Data Science and educator contributions, arbitrary future-case validity and unresolved delivery conditions remain coverage limitations rather than fabricated consensus or automatic product failures. Later scripted observations do not retroactively make the authors' earlier unexecuted reviews into tests.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/20",
+                "quote": "I am not approving instructional effectiveness, assessment validity, interface usability, device suitability or software execution."
+              },
+              {
+                "source": "event",
+                "id": "event/32",
+                "quote": "I have not executed this artifact or performed input, reset, keyboard, phone or browser tests under the turn's no-execution boundary."
+              },
+              {
+                "source": "event",
+                "id": "event/41",
+                "quote": "Authorship of the implementation is not a recorded software approval. Missing reviews are limitations of coverage, not invented agreement or an automatic product failure."
+              }
+            ]
+          },
+          {
+            "dimension_id": "responsive_dialogue",
+            "score": 4,
+            "rationale": "Learning: the conversation contains substantive uptake rather than parallel declarations of approval. Initial requests elicited a concrete case, a reasoning-focused practice and explicit interpretation boundaries that informed the implementation. Most clearly, the assessment reviewer challenged the inference that unchanged wording demonstrated self-review. The facilitator routed that specific objection, the engineer changed the corresponding status without forcing extra learner work, and the objection's author reviewed and resolved it on version 2. Experience and environment recommendations were acknowledged and retained as optional instead of silently disappearing or being falsely declared implemented. The remaining delivery unknowns are retained limitations, not a completed dialogue with an educator.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/24",
+                "quote": "Unchanged wording establishes a repeated submission, but it does not establish that the learner examined the evidence, considered the review prompts or made a justified decision to retain the response."
+              },
+              {
+                "source": "event",
+                "id": "event/32",
+                "quote": "This is a status-text repair. The learner can still submit identical wording, leave the reflection blank, or revise voluntarily."
+              },
+              {
+                "source": "event",
+                "id": "event/35",
+                "quote": "I resolve my objection m00024 for implemented artifact version 2, supplied in m00032, in response to the review request in m00030."
+              },
+              {
+                "source": "event",
+                "id": "event/30",
+                "quote": "The experience refinements in m00026 and interruption-guidance refinement in m00028 remain recorded recommendations, explicitly described by their authors as optional."
+              }
+            ]
+          },
+          {
+            "dimension_id": "decision_traceability",
+            "score": 4,
+            "rationale": "System performance: the record connects attributed design proposals to executable content, a precise objection to a precise source change, and approval to the repaired version. The commissioned transparent self-review appears in version 2 as an explicitly non-classifying review. The unchanged-submission branch contains the requested event description, preserving identical-wording submissions and optional reflection. The narrow repair's parent version and scope are documented, while recommendations excluded from it remain named. Readiness distinguishes procedural freeze preparation from technical verification and refuses to transfer version 1 approvals automatically. This is evidence of traceable decisions and implementation, not credit for claimed but unperformed author tests.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/13",
+                "quote": "Implementing the proposed self-review is sufficient; no semantic classifier, score or mastery label is requested."
+              },
+              {
+                "source": "html",
+                "id": "artifact/2",
+                "quote": "These are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response."
+              },
+              {
+                "source": "html",
+                "id": "artifact/2",
+                "quote": "else if(unchanged){status('response-kept','Unchanged response submitted. No correctness or improvement judgment was made.');}"
+              },
+              {
+                "source": "event",
+                "id": "event/41",
+                "quote": "Assessment, Measurement, Evaluation is approved for version 2, with m00037 as the approval reference."
+              },
+              {
+                "source": "event",
+                "id": "event/32",
+                "quote": "This implementation does not resolve another actor's objection or transfer version 1's domain approvals to the repaired artifact."
+              }
+            ]
+          },
+          {
+            "dimension_id": "learning_reasoning",
+            "score": 4,
+            "rationale": "Learning: the process explicitly connects an observable capability to composing a response, tracing observations to evidence, examining explanations, asking decision-relevant questions and checking action prerequisites. Explanatory prompts and voluntary revision serve those operations without equating wording changes with reasoning. The authors distinguish supported production from recognition, independent transfer and retention, propose consequential changed cases and identify observations that could challenge a transfer claim. They also recognize competing explanations for better wording and the central limitation that general self-review may leave misconceptions uncorrected. The simple non-scoring design is therefore reasoned and bounded; this score credits the learning argument and evidence discipline, not demonstrated learning or validated assessment.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "This is a capability to reason from evidence under changing conditions, not to reproduce one preferred sentence."
+              },
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "Each prompt has a learning purpose: tracing a statement to a fact exposes an unsupported inference; connecting a question to a decision distinguishes useful clarification from a question included merely to satisfy the task; checking conditions makes feasibility part of the reasoning."
+              },
+              {
+                "source": "event",
+                "id": "event/22",
+                "quote": "A material limitation remains: a learner may lack the understanding needed to recognize a problem in their own response, and these general prompts do not establish that such a misunderstanding was corrected."
+              },
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "Proposed evidence that could challenge a learning claim: learners improve the prompted revision yet continue to assert unsupported explanations on a new case; reproduce the seed's action when changed constraints make it infeasible; or ask a question whose answer cannot inform their proposed next step."
+              },
+              {
+                "source": "event",
+                "id": "event/37",
+                "quote": "Better wording after feedback could reflect cues, additional time or familiarity; differences across cases could reflect difficulty, ambiguity, prior experience or assistance."
+              }
+            ]
+          },
+          {
+            "dimension_id": "participation",
+            "score": 3,
+            "rationale": "Human flourishing: substantive concerns from case-content, learning, measurement, experience, environment and implementation perspectives shape the candidate. Changes to user-authored facts are treated as changes to the evidence context, with explicit clearing consequences, retained context after invalid edits and limits on applicability to unrelated tasks. No actual user updates are supplied, so responsiveness to a particular later user intervention is unobserved rather than presumed. Coverage is strong but has a concrete remaining gap: delivery questions about time, helpers and access-blocked participants were identified for educator input and retained at readiness without a substantive educator reply or settled arrangement. This limits participation in practical delivery decisions; the absent role alone is not evidence of a product failure.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/5",
+                "quote": "After a user changes facts or constraints, content must use the applied case; it must not continue assuming a 14:00 deadline, an available team channel, or permission to arrange temporary coverage."
+              },
+              {
+                "source": "html",
+                "id": "artifact/2",
+                "quote": "Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact."
+              },
+              {
+                "source": "event",
+                "id": "event/28",
+                "quote": "For Education and Training Professionals' delivery planning, the unresolved inputs are the practical session window, whether a device-navigation helper is available, and how an interrupted or access-blocked participant can leave or return voluntarily."
+              },
+              {
+                "source": "event",
+                "id": "event/41",
+                "quote": "The operating limitations recorded in m00028 also remain unresolved: the actual opening route, intended device/browser combinations, available session window and availability of a helper have not been established."
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "This is one process review of frozen artifact version 2 for case version 1. It does not assign result scores to the easy, medium or hard scenarios, and no scores or axes are combined into a total or ranking.",
+          "The evaluator sees assignments and the full supplied public conversation. This is a bounded agent simulation, not a blinded or statistically independent human review, and role labels or repeated agent approvals do not establish professional competence or human outcomes.",
+          "Only Assessment, Measurement, Evaluation has a recorded approval for version 2. Earlier subject-matter, learning, experience and environment approvals concern version 1; other current-version approvals are missing. Their substantive historical contributions remain evidence of process, without converting them into current-version signoff.",
+          "The packet includes subsequent scripted browser observations. They are not evidence that authoring participants performed the unexecuted checks discussed before freeze, and their mechanical success is not used as proof of pedagogical quality or human learning.",
+          "Actual human understanding, reading burden, accessibility in use, completion time, learning, independent transfer, retention and workplace outcomes remain unknown. Proposed future evaluations and delivery checks are proposals, not completed work.",
+          "No case updates by the user are recorded. The process addresses the consequences of editable cases, but its response to a specific later user change cannot be observed here. Delivery arrangements and the recorded optional experience refinements remain unresolved or deferred rather than assumed repaired."
+        ],
+        "request_seq": 47,
+        "packet_sha256": "f0687e5799ae39dcc88af195b4d4eb18c99e808f36f3d711d184a54581f5d6f5",
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_eval_020",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "60ae1e18c92287318445a7c0648f6eddd0e68265934b2982d6af10354ec11d15",
+          "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+          "dispatch_prompt_sha256": "188b0be39b04e71f4eee60b5681ed2464e5c7705dae4eea457e1f606e97c780e",
+          "raw_response_sha256": "41089731749b896214b3b2be3385ee3f5f725df7aa33e36544c51798cc4c55fb",
+          "raw_response_file": "calls/0020/collaboration-response.json",
+          "collected_at": "2026-11-03T05:09:34.621468+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Read the complete prompt, in chunks if necessary; do not rely on a truncated tool result. Return only the evaluator response schema supplied in schema.json. Use the exact criterion IDs and exact source IDs from the supplied packet. Every evidence quote must be an exact substring of that named source representation. Do not infer any observations beyond the packet. This is a separate evaluator turn, so the authoring-message schema does not apply."
+        }
+      },
+      "prev_hash": "2d1dc6add48086e8e496767306b7ef8638e11ca15f30344f85bf411045aabe14",
+      "hash": "71b44e7070a3be48dfd80851f55aceebdd0427d4c27b674aa0eabe83143ecaa2"
+    },
+    {
+      "seq": 49,
+      "at": "2026-11-03T05:09:34.801378+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "ordinal": 21,
+        "purpose": "evaluation",
+        "prompt_file": "calls/0021/prompt.txt",
+        "prompt_sha256": "ea7992f95630b7206b4fa0e0a629c70b25b0a42aaaca25ed7f410906699d4f7e",
+        "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+        "scope": "result",
+        "scenario_id": "feedback_handoff_easy",
+        "artifact_version": 2,
+        "packet_sha256": "5088fbf33ec18dc5600d4750272d0576ca662de79cc21b3dd25c532ce94c362b"
+      },
+      "prev_hash": "71b44e7070a3be48dfd80851f55aceebdd0427d4c27b674aa0eabe83143ecaa2",
+      "hash": "8efec290f1e0c430bd5e3b0e50f6121f2aa4c1558c8e560e67cac7aedc3a8602"
     }
   ]
 }

@@ -135,6 +135,11 @@ async function savedRecord(page, run, file, origin) {
   await page.locator('#record-content').waitFor({state: 'visible'});
   assert.match(await page.locator('#run-summary').innerText(), /Scripted interface demonstration — not an agentic result/);
   report.checks.push('Optional same-site saved-record loader reuses validated import and preserves explicit fixture mode');
+  await page.goto(origin + '/agentic-le/dynamic/?run=' + encodeURIComponent(run.id));
+  await page.locator('#record-content').waitFor({state: 'visible'});
+  assert.equal(await page.getByLabel('Published run', {exact: true}).inputValue(), run.id);
+  assert.match(await page.locator('#run-summary').innerText(), /Scripted interface demonstration — not an agentic result/);
+  report.checks.push('A requested saved-run link selects the indexed record and opens the same verified reader');
 }
 
 async function viewportChecks(page) {

@@ -1,10 +1,10 @@
 {
   "schema_version": "dynamic-flower-progress-1",
-  "updated_at": "2026-11-03T05:01:23.889290+00:00",
+  "updated_at": "2026-11-03T05:11:34.687070+00:00",
   "initial": {
-    "frozen": 3,
-    "observed": 6,
-    "reviewed": 8
+    "frozen": 4,
+    "observed": 9,
+    "reviewed": 9
   },
   "update": {
     "frozen": 0,
@@ -19,5 +19,5 @@
     "status": "in_progress",
     "detail": "Dynamic workspace and saved conversations are available. Results snapshots are updated as evidence is accepted."
   },
-  "estimate": "Working estimate: 30–60 more minutes from 05:02 UTC for remaining team reviews, the user-update demonstration, and paper/site refresh. This is a checkpoint estimate, not an automatic countdown."
+  "estimate": "Working estimate: 25–50 more minutes from 05:12 UTC for remaining expert reviews, the user-update demonstration, and the final paper/site refresh. This is a checkpoint estimate, not an automatic countdown."
 }

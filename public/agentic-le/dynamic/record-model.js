@@ -4,6 +4,7 @@ const require = (condition, message) => { if (!condition) throw new Error(messag
 const messages = events => events.filter(event => event.kind === 'message');
 const baselineSourceSet = 'b8e2f825ce34398aa6bf8d229eca7c7a202a0f8827e6d4e4761b5efebd9ef075';
 const adaptedSources = new Set(['dynamic_prompts.py', 'dynamic_runtime.py', 'dynamic_records.py', 'dynamic_journal.py', 'dynamic_contract.py']);
+const v1PeerSourceSet = '65feef814dbd90aaf4a1561a1bac2f93b3f5a6e72d222c0e28f6315858673d1f';
 
 function compareKeys(left, right) {
   const a = [...left].map(char => char.codePointAt(0)), b = [...right].map(char => char.codePointAt(0));
@@ -72,6 +73,7 @@ async function checkObservation(run, event) {
 }
 
 async function checkAmendment(run, event) {
+  if (event.payload.schema_version === 'dynamic-flower-context-amendment-2') return checkDesignAmendment(run, event);
   const value = event.payload, prefix = run.events.filter(item => item.seq < event.seq);
   require(value.schema_version === 'dynamic-flower-context-amendment-1' && event.actor === 'user' && event.phase === 'deploy_test', 'Invalid context-amendment authority or version.');
   require(prefix.some(item => item.kind === 'frozen') && !prefix.some(item => item.kind === 'runtime_amendment'), 'Context amendment requires a frozen, previously unamended record.');
@@ -88,6 +90,33 @@ async function checkAmendment(run, event) {
   require(value.scope === 'context_character_allowance_only' && value.archive === 'runtime-amendments/context-600000', 'Unexpected amendment scope or archive.');
   require(typeof value.reason === 'string' && value.reason.trim() && typeof value.amendment_id === 'string' && /^[A-Za-z0-9][A-Za-z0-9_.-]{0,100}$/.test(value.amendment_id), 'A context amendment needs its declared reason and identity.');
   require(typeof value.original_run_sha256 === 'string' && /^[a-f0-9]{64}$/.test(value.original_run_sha256), 'Missing preserved original-run fingerprint.');
+}
+
+async function checkDesignAmendment(run, event) {
+  const value = event.payload, prefix = run.events.filter(item => item.seq < event.seq), refusal = prefix.at(-1);
+  require(event.actor === 'user' && event.phase === 'design_develop' && value.continuation_phase === 'design_develop', 'V2 requires a design-phase continuation.');
+  require(prefix.some(item => item.kind === 'artifact') && !prefix.some(item => ['frozen', 'runtime_amendment'].includes(item.kind)), 'V2 requires an accepted, not-yet-frozen candidate under its original runtime.');
+  require(!prefix.some(item => item.kind === 'request' && item.payload.purpose === 'evaluation'), 'V2 must precede expert review.');
+  const ended = new Set(prefix.filter(item => ['message', 'evaluation', 'turn_failed'].includes(item.kind)).map(item => item.payload.request_seq));
+  require(prefix.filter(item => item.kind === 'request').every(item => ended.has(item.seq)), 'Cannot amend an unanswered request.');
+  require(value.old_context_limit === run.config.budgets.max_context_chars && value.old_context_limit === 180000 && value.new_context_limit === 600000, 'Unexpected V2 context-limit change.');
+  require(value.config_sha256 === run.config_sha256 && value.original_event_count === prefix.length && value.original_head === refusal.hash, 'V2 does not extend its preserved original prefix.');
+  require(canonical(value.old_runtime_sources) === canonical(run.runtime_sources) && await contentHash(value.old_runtime_sources) === baselineSourceSet, 'V2 original runtime identity mismatch.');
+  const oldNames = Object.keys(value.old_runtime_sources).sort(), newNames = Object.keys(value.new_runtime_sources).sort();
+  require(canonical(newNames) === canonical([...oldNames, 'dynamic_amendment.py'].sort()), 'Unexpected V2 runtime source set.');
+  const peers = Object.fromEntries(Object.entries(value.new_runtime_sources).filter(([name]) => name !== 'dynamic_amendment.py'));
+  require(await contentHash(peers) === v1PeerSourceSet && await contentHash(value.new_runtime_sources) === value.new_source_set_sha256, 'V2 may change only the amendment module relative to the v1 runtime.');
+  require(Object.values(value.new_runtime_sources).every(hash => typeof hash === 'string' && /^[a-f0-9]{64}$/.test(hash)), 'Invalid V2 source fingerprint.');
+  require(value.scope === 'context_character_allowance_only' && value.archive === 'runtime-amendments/context-600000-design-v2', 'Unexpected V2 scope/archive.');
+  require(typeof value.reason === 'string' && value.reason.trim() && typeof value.amendment_id === 'string' && /^[A-Za-z0-9][A-Za-z0-9_.-]{0,100}$/.test(value.amendment_id), 'Missing V2 amendment identity/reason.');
+  require(typeof value.original_run_sha256 === 'string' && /^[a-f0-9]{64}$/.test(value.original_run_sha256), 'Missing preserved V2 original-run fingerprint.');
+  const matched = /^context_limit: full prompt needs ([0-9]+) characters; no transcript was truncated$/.exec(refusal.payload?.reason ?? '');
+  require(refusal.kind === 'stopped' && refusal.payload.complete === false && matched, 'V2 needs a retained latest context refusal.');
+  const ref = value.refusal;
+  require(ref.seq === refusal.seq && ref.hash === refusal.hash && ref.reason === refusal.payload.reason && ref.prompt_characters === Number(matched[1]) && ref.prompt_characters > 180000 && ref.prompt_characters <= 600000, 'V2 refusal identity or size differs.');
+  require(typeof ref.prompt_sha256 === 'string' && /^[a-f0-9]{64}$/.test(ref.prompt_sha256) && run.config.agents.some(actor => actor.id === ref.actor) && typeof ref.scheduler_reason === 'string', 'Missing refused full-prompt identity.');
+  const marker = run.events[event.seq], expected = {reason: 'awaiting_next_turn_after_context_amendment', complete: false, amendment_seq: event.seq, amendment_hash: event.hash, retained_refusal_seq: ref.seq, note: 'Paused awaiting the next addressed turn after the context amendment. No model or test result was created.'};
+  require(marker?.seq === event.seq + 1 && marker.kind === 'stopped' && marker.actor === 'system' && marker.phase === 'design_develop' && canonical(marker.payload) === canonical(expected), 'Missing bound pause awaiting the next addressed turn.');
 }
 
 /** @param {object} run @returns {Promise<object>} Verify imported input pins, metadata, event links and artifact sources before display. */

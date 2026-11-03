@@ -25,13 +25,16 @@ function phasePanel(run, state, phase, name, jump) {
   const node = el('section', 'phase-panel'), list = el('div', 'message-list');
   node.append(el('h2', '', name), el('p', 'muted', `${state.turns[phase]} recorded call attempts · limit ${run.config.budgets[phase]}`));
   list.tabIndex = 0; list.setAttribute('role', 'region'); list.setAttribute('aria-label', `${name} conversation`);
-  const events = state.events.filter(event => event.phase === phase && ['message', 'user_update', 'turn_failed'].includes(event.kind));
+  const events = state.events.filter(event => event.phase === phase && (['message', 'user_update', 'turn_failed'].includes(event.kind)
+    || event.kind === 'stopped' && (event.payload.reason.startsWith('context_limit:') || event.payload.reason === 'awaiting_next_turn_after_context_amendment')));
   if (!events.length) list.append(el('p', 'muted', 'No conversation events are visible in this phase at this position.'));
   for (const event of events) {
     if (event.kind === 'message') list.append(messageCard(run, event, jump));
     else {
       const card = el('article', `message-card ${event.kind === 'user_update' ? 'user-change' : ''}`);
-      card.append(el('h3', '', event.kind === 'user_update' ? 'User change' : 'Turn failed'), jsonBlock(event.payload)); list.append(card);
+      const title = event.kind === 'user_update' ? 'User change' : event.kind !== 'stopped' ? 'Turn failed'
+        : event.payload.reason === 'awaiting_next_turn_after_context_amendment' ? 'Awaiting the next addressed turn after the context amendment' : 'Context limit reached; original refusal retained';
+      card.append(el('h3', '', title), jsonBlock(event.payload)); list.append(card);
     }
   }
   node.append(list); return node;
@@ -133,7 +136,8 @@ export function renderRunSummary(run) {
   const current = replayState(run, run.events.length);
   node.append(el('p', 'muted', `Effective context allowance: ${current.effective_context_chars.toLocaleString()} characters · original pinned allowance: ${run.config.budgets.max_context_chars.toLocaleString()}.`));
   for (const amendment of current.amendments) {
-    const value = amendment.payload, details = disclosure(`Context amendment · event ${amendment.seq}`);
+    const value = amendment.payload, details = disclosure(`Context amendment · event ${amendment.seq} · ${phaseLabel(amendment.phase)}`);
+    if (value.schema_version === 'dynamic-flower-context-amendment-2') details.append(el('p', '', 'This design conversation resumed after a recorded full-context refusal. The refusal and its exact prompt remain preserved. The following pause marker awaits the next addressed turn; it is not a new model response or test result.'));
     details.append(el('p', '', value.reason), el('p', 'muted', 'The original configuration and earlier event hashes are preserved. Only the context allowance changes; call limits, expertise permissions and evidence rules remain in force. The local runner additionally verifies the archived original run and both source trees.'), jsonBlock(value)); node.append(details);
   }
   const context = host('record-evidence'); context.replaceChildren();

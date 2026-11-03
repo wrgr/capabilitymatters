@@ -5064,6 +5064,905 @@
       },
       "prev_hash": "384e7b7351d87c252b18afbc09bf9420bcd121e633f88cf64a3a02fc1365c758",
       "hash": "f8223efaff49fdbf00aa936d54c75a3c5cd5c904f4fca273e779e8d8eb889af0"
+    },
+    {
+      "seq": 40,
+      "at": "2026-11-03T05:02:34.624012+00:00",
+      "kind": "runtime_amendment",
+      "phase": "design_develop",
+      "actor": "user",
+      "payload": {
+        "schema_version": "dynamic-flower-context-amendment-2",
+        "amendment_id": "design-context-600000-v2",
+        "scope": "context_character_allowance_only",
+        "old_context_limit": 180000,
+        "new_context_limit": 600000,
+        "config_sha256": "a2637f4e56bf2a13beac20bd9e8f2ebf37deb89af3abd4fa3ec303e57035ffb5",
+        "original_event_count": 39,
+        "original_head": "f8223efaff49fdbf00aa936d54c75a3c5cd5c904f4fca273e779e8d8eb889af0",
+        "original_run_sha256": "3df3d67a8a4aada7da6631939279ca850b1d87116a5c462df04767abe63c6745",
+        "old_runtime_sources": {
+          "dynamic_contract.py": "ab8d2bf9b890c6270e4dc45e03034daa08791ca490cf0fa7a81240089c11827f",
+          "dynamic_evaluator.py": "4543aab37b28afba374f91e38fe7a71cebe9b2575563d06d16bb4e5a19cf954b",
+          "dynamic_flower.py": "00d7ecf3436185f1f8dc82c144ffb168ee0947dc70239681d7a02b876054f243",
+          "dynamic_journal.py": "7eca9c263dec24c55c8b7f567dbbaa43e5ebb73b5ecc4ec85492e29ce39d9621",
+          "dynamic_messages.py": "a480e55c5b6e2abcfe9beb3f5073fb16ac10f135ca880cb08543b473fcedc9ef",
+          "dynamic_observations.py": "7de741b325c8e0e68850b94bbd47250fd382a42992839caaa783dd6f3a1fa54e",
+          "dynamic_prompts.py": "c4f46b9ba428521255acc575207f210721f7f7e8e6ccdae2ba3b2a098b77de10",
+          "dynamic_provider.py": "4792f47b2595de827f59290c583f3a563f1e0716af2fe4e5705fd46061e17c97",
+          "dynamic_records.py": "80728b442ee0d483ef304f3145d4ef28a02ef9a299d216f746a5b4908bff0690",
+          "dynamic_runtime.py": "dd72eee7678ad9fc29ce4009315254910b52d3cedc1d77da4b140881944f6a1f",
+          "dynamic_state.py": "1c26aed5fdbb98ef437322b7294c15e63dabb41e1b2ab9147823b11d6c4ef401"
+        },
+        "new_runtime_sources": {
+          "dynamic_amendment.py": "2c77414e762972b2a6faa308f0fe32060f4bf3ac2e0e1d7093385034cee72658",
+          "dynamic_contract.py": "b52755e3f4e5ceb5272a4c076f095098e934d81d222080e66de9f04d270970e8",
+          "dynamic_evaluator.py": "4543aab37b28afba374f91e38fe7a71cebe9b2575563d06d16bb4e5a19cf954b",
+          "dynamic_flower.py": "00d7ecf3436185f1f8dc82c144ffb168ee0947dc70239681d7a02b876054f243",
+          "dynamic_journal.py": "2484d07e2433ddfed89ffd65887eb230d1045f811ffd9c239da44dc99210b992",
+          "dynamic_messages.py": "a480e55c5b6e2abcfe9beb3f5073fb16ac10f135ca880cb08543b473fcedc9ef",
+          "dynamic_observations.py": "7de741b325c8e0e68850b94bbd47250fd382a42992839caaa783dd6f3a1fa54e",
+          "dynamic_prompts.py": "bd292eba38b21a626a66ca5fb709d66db64d2a5e997e07c83f967cd3104c12ed",
+          "dynamic_provider.py": "4792f47b2595de827f59290c583f3a563f1e0716af2fe4e5705fd46061e17c97",
+          "dynamic_records.py": "893f4512de0fe9ae1ff71c5e3ad41b1107b6ddfea62af662cbb66846c45aea40",
+          "dynamic_runtime.py": "53847bcf250e5e49cd117aefa8a5babe7388deb0384193935468436e475c0000",
+          "dynamic_state.py": "1c26aed5fdbb98ef437322b7294c15e63dabb41e1b2ab9147823b11d6c4ef401"
+        },
+        "new_source_set_sha256": "c3cb7c6d1f973b02acb3087396df8c5bb7ca384042d307790b376b1a95945e8c",
+        "archive": "runtime-amendments/context-600000-design-v2",
+        "reason": "The complete next design review required217067characters and was refused under the original180000-character ceiling. Continue with the complete unchanged addressed prompt and600000-character allowance; preserve the original refusal, history, configuration, call limits, routing, domain permissions and evidence rules.",
+        "continuation_phase": "design_develop",
+        "refusal": {
+          "seq": 39,
+          "hash": "f8223efaff49fdbf00aa936d54c75a3c5cd5c904f4fca273e779e8d8eb889af0",
+          "reason": "context_limit: full prompt needs 217067 characters; no transcript was truncated",
+          "actor": "subject_matter_expertise",
+          "scheduler_reason": "answer:m00035",
+          "prompt_characters": 217067,
+          "prompt_sha256": "2d460d440d0a274d836c48c7e0b21ef495e5afe8de12c81d22443cfcbdaba5ca"
+        }
+      },
+      "prev_hash": "f8223efaff49fdbf00aa936d54c75a3c5cd5c904f4fca273e779e8d8eb889af0",
+      "hash": "befe778c1cc7bfd39fc7ec36367a7083b3852a1ee4b65844631698f90215591a"
+    },
+    {
+      "seq": 41,
+      "at": "2026-11-03T05:02:34.624118+00:00",
+      "kind": "stopped",
+      "phase": "design_develop",
+      "actor": "system",
+      "payload": {
+        "reason": "awaiting_next_turn_after_context_amendment",
+        "complete": false,
+        "amendment_seq": 40,
+        "amendment_hash": "befe778c1cc7bfd39fc7ec36367a7083b3852a1ee4b65844631698f90215591a",
+        "retained_refusal_seq": 39,
+        "note": "Paused awaiting the next addressed turn after the context amendment. No model or test result was created."
+      },
+      "prev_hash": "befe778c1cc7bfd39fc7ec36367a7083b3852a1ee4b65844631698f90215591a",
+      "hash": "a406b0bbba23bb5f4cc2743676ab726ea0e1872dc14d9e76702c49a3f3c10877"
+    },
+    {
+      "seq": 42,
+      "at": "2026-11-03T05:02:35.012866+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "subject_matter_expertise",
+      "payload": {
+        "ordinal": 18,
+        "purpose": "conversation",
+        "prompt_file": "calls/0018/prompt.txt",
+        "prompt_sha256": "2d460d440d0a274d836c48c7e0b21ef495e5afe8de12c81d22443cfcbdaba5ca",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00035"
+      },
+      "prev_hash": "a406b0bbba23bb5f4cc2743676ab726ea0e1872dc14d9e76702c49a3f3c10877",
+      "hash": "d49d4c247d53f594baedc5e036e0764e245e22257d3724fb2b993d6d69519954"
+    },
+    {
+      "seq": 43,
+      "at": "2026-11-03T05:04:11.055041+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "subject_matter_expertise",
+      "payload": {
+        "message_id": "m00043",
+        "request_seq": 42,
+        "response": {
+          "kind": "approval",
+          "to": [
+            "facilitator",
+            "software_engineering"
+          ],
+          "reply_to": [
+            "m00035",
+            "m00037"
+          ],
+          "domains": [
+            "subject_matter_expertise"
+          ],
+          "content": "I approve implemented version 3 within subject_matter_expertise for case-content accuracy. This answers m00035 and reviews the actual HTML supplied in m00037, assigned version 3 in the artifact record. The correction I requested in m00029 is present, and I identify no remaining required case-content correction. My review concerns the supplied fictional facts and learner-facing wording; I have not executed the artifact or observed its displayed behavior.\n\nThe changed F4 now reads exactly: 'Bea is unavailable for the entire 14:00–14:30 session; no replacement printer assistant is available. The workshop volunteer can guide the manual card activity.' The independent statement about manual guidance is therefore retained in the changed-case data. The changed-condition notice also explicitly identifies printer assistance as the changed condition and states that the volunteer can still guide the manual card activity, with that support and all other supplied facts and constraints unchanged. The case data and notice now agree on the intended change. This restores the previously supplied support statement without introducing another helper, resource, operating permission or participant need.\n\nThe retained content supports the intended planning distinction. In the starting case, the four prepared two-minute jobs can run sequentially from 14:00 to 14:08 with Bea, within both her availability until 14:10 and the printer reservation until 14:15, using the four available labels. Printing remains optional. In the changed case, the printer's physical availability does not establish permission to use it: the requirement that Bea operate every job remains, while Bea and any replacement printer assistant are unavailable. The listed cards, markers and directly usable captions remain available, and the volunteer's manual guidance is now explicit. A manual alternative is supported by these facts, and an existing manual plan can remain appropriate if its reasons still fit the case. These are case-content interpretations, not judgments of any submitted learner response or promises about individual completion speed.\n\nThe remaining fixture boundaries are preserved. The activity still concerns four confirmed participants, with four seats and four large-print instruction copies. Ada's large-print request and Ivo's seated-activity request remain the supplied participant provisions; no additional needs or preferences are asserted. The possible fifth participant remains unconfirmed, and the instruction to clarify attendance and resource needs before extending the plan remains. The surplus blank cards alone do not establish capacity for a fifth person.\n\nThe replacement-case wording retains the limits identified in my earlier review. General prompts ask learners to connect actions, assistance, permissions, participant provisions and any fallback to the applied facts. They do not present Bea, printer use or the manual-card alternative as universal requirements or universally available options. The replacement-case prompt explicitly warns against importing earlier resources or permissions, and the copy caution says that earlier text may not fit the current facts. The repaired notice belongs to the supplied starting-case change in the document; its actual conditional display and the preservation of case records still require technical observation.\n\nThis is version-specific content approval of version 3. It does not validate arbitrary replacement scenarios, establish the feasibility of an unseen response, certify browser or accessibility behavior, or supply approval in instructional design or assessment. No runtime check or learner outcome is reported. The earlier correction was not a formal objection, so no resolve message is required. Other domain reviews and the facilitator's testing decision remain separate.",
+          "artifact_version": 3,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/ws_018",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "2d460d440d0a274d836c48c7e0b21ef495e5afe8de12c81d22443cfcbdaba5ca",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "36091a141f7a477a8dee8e73a6bd0c67b7a64fc479b90aca0136e2758728a0f9",
+          "raw_response_sha256": "00c880b19bbe540d5a70786471b99307300b91ac25b78a48f2a5fe9f112fe871",
+          "raw_response_file": "calls/0018/collaboration-response.json",
+          "collected_at": "2026-11-03T05:04:11.011487+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to. The decision field must be null unless kind is decision. A ready message signals readiness; the runtime's explicit freeze is a separate event."
+        }
+      },
+      "prev_hash": "d49d4c247d53f594baedc5e036e0764e245e22257d3724fb2b993d6d69519954",
+      "hash": "7e0b77130be1248088cdf13fecf78fd9c84967a6f06d415ee91c9ffdc44e106c"
+    },
+    {
+      "seq": 44,
+      "at": "2026-11-03T05:04:11.157129+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "learning_sciences",
+      "payload": {
+        "ordinal": 19,
+        "purpose": "conversation",
+        "prompt_file": "calls/0019/prompt.txt",
+        "prompt_sha256": "6ef6e1a4cff48ebbfb6cdf0f9761cec7c47d05e2d3007dfbfc97cb979ef61af0",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00035"
+      },
+      "prev_hash": "7e0b77130be1248088cdf13fecf78fd9c84967a6f06d415ee91c9ffdc44e106c",
+      "hash": "0b8e8238183c5e05c4c81414e7798c0ab284a08944f933642f39f4383dba2dee"
+    },
+    {
+      "seq": 45,
+      "at": "2026-11-03T05:05:19.574455+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "learning_sciences",
+      "payload": {
+        "message_id": "m00045",
+        "request_seq": 44,
+        "response": {
+          "kind": "approval",
+          "to": [
+            "facilitator",
+            "software_engineering"
+          ],
+          "reply_to": [
+            "m00035",
+            "m00037"
+          ],
+          "domains": [
+            "learning_sciences"
+          ],
+          "content": "I approve implemented version 3 within learning_sciences for its bounded supported-practice design and its stated limits on learning claims. This answers m00035 after reading the actual HTML supplied in m00037, assigned version 3 in the artifact record. The provisions supporting my version 2 approval in m00031 are present in this implementation. I identify no additional required learning-design correction. This is a source-based instructional review, not an executed check or evidence of learner improvement.\n\nThe repaired changed F4 explicitly retains the volunteer's manual-activity guidance, and the changed-condition notice identifies that support and the other supplied facts and constraints as unchanged. For the intended learning comparison, this removes the unintended uncertainty about manual guidance while directing attention to the changed printer-assistance dependency. The learner must still connect that change to their own plan, justify a fallback or explain why the existing plan remains supported, and retain the relevant participant provisions. The notice supplies a cue about what changed; it does not make the subsequent response independent. Subject-Matter Expertise's separate content review remains the authority for the fictional workshop interpretation.\n\nThe retained task and scaffold ask learners to produce a plan with reasons rather than merely identify a constraint. The general reflection prompts ask for an action-to-fact connection, the status of required assistance or permission, the basis for a fallback, and consequential uncertainty without demanding an invented need or unnecessary clarification. Revision remains optional, and a visibly different plan is expressly not required. Replacement-case prompts still direct learners to the current facts and warn against importing earlier resources or permissions. These provisions preserve the opportunity to practice constructing and reconsidering evidence-to-action explanations.\n\nThe feedback limitation remains substantive: these are self-review questions, not a diagnosis of the submitted response or an explanation correcting a verified error. Someone unable to identify the relevant dependency may repeat an unsupported plan. The implementation continues to disclose that correctness, feasibility and learning have not been checked. Response history and support descriptions, the warning about copied text, and the distinction between a submitted response and an edited draft remain in the supplied document; their behavior still requires the technical observations already requested in m00035. I have not performed those observations.\n\nThe same learning-evidence limits therefore apply to version 3. Naming a rule shows recognition at most; explaining and revising a plan here is supported production. Completion, copying or an apparently suitable final plan does not establish improvement. Independent transfer would require a meaningfully different case attempted without answer-specific assistance, and retention would require a later opportunity. Repeated unsupported dependencies or copied fallback wording without a case-based explanation would challenge the intended reasoning mechanism, while difficulty understanding or expressing the task would remain an alternative explanation to examine. No learner responses, learning gains, runtime results or other domain approvals are supplied by this approval.",
+          "artifact_version": 3,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/ws_019",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "6ef6e1a4cff48ebbfb6cdf0f9761cec7c47d05e2d3007dfbfc97cb979ef61af0",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "b4287a6fb9e66ae5bf2d5b43aab7f12f609fa55805fc0ee9746b2f8805beb2a7",
+          "raw_response_sha256": "bb669240b22e4487c25380a05679706a8993242b56d00040d1bde51e9bae8cdd",
+          "raw_response_file": "calls/0019/collaboration-response.json",
+          "collected_at": "2026-11-03T05:05:19.536524+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to. The decision field must be null unless kind is decision. A ready message signals readiness; the runtime's explicit freeze is a separate event."
+        }
+      },
+      "prev_hash": "0b8e8238183c5e05c4c81414e7798c0ab284a08944f933642f39f4383dba2dee",
+      "hash": "483b3bec6de30f1bb87b1a3f1df0a48cbd2b19d07c309479f94d9ec195b74ac3"
+    },
+    {
+      "seq": 46,
+      "at": "2026-11-03T05:05:19.664502+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "assessment_measurement_evaluation",
+      "payload": {
+        "ordinal": 20,
+        "purpose": "conversation",
+        "prompt_file": "calls/0020/prompt.txt",
+        "prompt_sha256": "5b64df14a1afc032972c704246a3e69104628823101a1fd83df82f2ee722993b",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00035"
+      },
+      "prev_hash": "483b3bec6de30f1bb87b1a3f1df0a48cbd2b19d07c309479f94d9ec195b74ac3",
+      "hash": "120c900fb843c9030bca62c85bb175fadc9c31c4aa07f106521e2604cfa3fa88"
+    },
+    {
+      "seq": 47,
+      "at": "2026-11-03T05:06:42.129546+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "assessment_measurement_evaluation",
+      "payload": {
+        "message_id": "m00047",
+        "request_seq": 46,
+        "response": {
+          "kind": "approval",
+          "to": [
+            "facilitator",
+            "software_engineering"
+          ],
+          "reply_to": [
+            "m00035",
+            "m00037"
+          ],
+          "domains": [
+            "assessment_measurement_evaluation"
+          ],
+          "content": "I approve implemented version 3 within assessment_measurement_evaluation for its bounded practice purpose, evidence descriptions and limits on interpretation. This answers m00035 after reviewing the actual HTML supplied in m00037, assigned version 3 in the artifact record. The provisions supporting my version 2 approval in m00033 remain present. I identify no additional required assessment correction. This is an assessment-design and wording review; I have not executed the artifact or observed learner performance.\n\nThe corrected changed F4 explicitly preserves the volunteer's manual-activity guidance. The accompanying notice identifies printer assistance as the changed condition while stating that manual guidance and the other supplied facts and constraints remain unchanged. For measurement purposes, this removes the unintended missing-support ambiguity from the intended comparison. The task can now examine how a learner explains the effect of that specified dependency change without also requiring them to resolve an accidental omission. The notice directs attention to the change, so the response remains cued, supported adaptation. It is not an independent measure. Any review of an earlier record must still use that record's original facts; this correction does not retroactively supply a fact that was absent from an earlier task. Workshop-content interpretation and its approval remain with Subject-Matter Expertise.\n\nThe retained prompts ask for a plan linked to current evidence, a justified fallback or consequential clarification, and an explanation of what changes or why an existing plan still holds. They do not require a preferred activity or a visibly different answer. Feedback remains explicitly guided self-review, with no claim that the response was checked for correctness, feasibility or learning. Submission, revision, skipping and reset remain descriptions of practice actions. Nonempty text or a completed interaction does not establish that the requested reasoning is present, and the application does not claim to conduct criterion-level assessment.\n\nThe supplied document retains separate descriptions of submitted responses and editable drafts, case-specific response histories, support available before submission and prompts displayed afterward. Copying remains described as optional starting text that may not fit the current facts. The draft protection, replacement-case boundaries and reset descriptions supporting the earlier approval are retained. Available support is not proof that the learner read or used it, and reset does not create an independent baseline. The previously requested observations remain necessary before relying on those histories as evidence: preservation of original facts and support through revision and replacement; distinction between edited drafts and submitted feedback; copy behavior that preserves case identity and new text; and reset and invalid-input behavior matching their descriptions. These remain unperformed technical observations, not passes supplied by this approval.\n\nThe evidence limits are unchanged. No learner responses or outcomes have been supplied. Prior knowledge, familiarity, copied wording and difficulty expressing reasoning remain alternative explanations for apparent success or difficulty. The changed condition supports same-case practice; replacing scenario data alone does not create a transfer assessment. Examining independent transfer would require a meaningfully different, appropriately checked task, a documented response before answer-specific assistance, and review against that task's facts and criteria. Retention and causal learning claims need further evidence. Simulated responses and browser observations can examine behavior and misleading claims, but cannot establish learning in people. This approval applies only to implemented version 3 within my assigned assessment scope.",
+          "artifact_version": 3,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/ws_020",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "5b64df14a1afc032972c704246a3e69104628823101a1fd83df82f2ee722993b",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "214e8368dc14346eb54fc64e6b6fd659137df506bad652daa672ce0d4ca08375",
+          "raw_response_sha256": "dcc694498a18bb1f7f4547a4e8ce5c1c7636cab3681fade84f23a7712d10c755",
+          "raw_response_file": "calls/0020/collaboration-response.json",
+          "collected_at": "2026-11-03T05:06:42.092668+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to. The decision field must be null unless kind is decision. A ready message signals readiness; the runtime's explicit freeze is a separate event."
+        }
+      },
+      "prev_hash": "120c900fb843c9030bca62c85bb175fadc9c31c4aa07f106521e2604cfa3fa88",
+      "hash": "89e3c2aaf635975791a60f7d7c632072a816ff0fd11386a7cf3b1d01b1394887"
+    },
+    {
+      "seq": 48,
+      "at": "2026-11-03T05:06:42.224823+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "learning_experience_design",
+      "payload": {
+        "ordinal": 21,
+        "purpose": "conversation",
+        "prompt_file": "calls/0021/prompt.txt",
+        "prompt_sha256": "b0c3c7366a5906f6e44c0c73bca5c55b03cb76b0c58ab33ab470fd665ed4f0bc",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00035"
+      },
+      "prev_hash": "89e3c2aaf635975791a60f7d7c632072a816ff0fd11386a7cf3b1d01b1394887",
+      "hash": "6c23c1a9260b18007649e81958ddd3ff48d42789d8fa616807b582c57e914f53"
+    },
+    {
+      "seq": 49,
+      "at": "2026-11-03T05:09:16.646208+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "learning_experience_design",
+      "payload": {
+        "message_id": "m00049",
+        "request_seq": 48,
+        "response": {
+          "kind": "approval",
+          "to": [
+            "facilitator",
+            "software_engineering"
+          ],
+          "reply_to": [
+            "m00035",
+            "m00037"
+          ],
+          "domains": [
+            "learning_experience_design"
+          ],
+          "content": "I approve implemented version 3 within learning_experience_design for activity sequence, usable practice, interaction and revision. This answers m00035 after reviewing the actual HTML supplied in m00037, assigned version 3 in the artifact record. The provisions supporting my version 2 approval in m00025 remain present. I identify no further required learning-experience correction. This is a source-based design review; I have not executed the artifact or observed learners.\n\nThe repaired F4 explicitly retains the volunteer's manual-activity guidance. Its accompanying notice identifies printer assistance as the changed condition and explains which support and other facts remain unchanged. This improves orientation during the comparison: learners can concentrate on reconsidering their plan against the stated change without having to infer whether the omitted guidance is still available. The notice still asks them to explain the affected dependency or why their plan holds; it does not replace their explanation with a prescribed response. The fictional content interpretation remains with Subject-Matter Expertise.\n\nThe draft-preservation provisions reviewed in version 2 are retained in the supplied interaction definitions. Copying is limited to a completely empty response box, the adjacent text explains an unavailable copy action, and earlier work remains available in Response history. The copy guard is also present. Copying remains optional starting text for the current case, accompanied by the warning that it may not fit the current facts. The submitted response, editable draft and original case records remain separately described. These provisions preserve the learner's opportunity to reconsider earlier reasoning without the copy action silently displacing new work; their runtime operation remains to be observed.\n\nThe short-notes option, feedback-side next-step cue, optional revision and changed-condition flow are retained. Inspecting the facts supports finding evidence; composing a response supports explaining a plan; guided self-review invites examination of a particular action and its dependencies; revision and the changed situation invite reconsideration with reasons. A visibly different plan remains unnecessary. The interface still distinguishes scenario editing from applying facts and explains Skip, Resume and Reset. Replacement-case prompts continue to direct attention to the current facts. The feedback remains explicitly reflection support, without claiming that an individual response has been checked.\n\nThe limits of m00025 still apply. The requested observations of copying, protection of new text, original-case history, draft versus submission feedback, reset and invalid-input recovery remain unperformed. Rendered layout, keyboard and assistive-technology behavior, and whether learners understand the cues have not been verified by this review. This approval supplies no technical or accessibility certification, workshop-feasibility judgment, assessment approval or evidence of learning. It applies only to version 3 within my assigned scope; the testing decision remains separate.",
+          "artifact_version": 3,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/ws_021",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "b0c3c7366a5906f6e44c0c73bca5c55b03cb76b0c58ab33ab470fd665ed4f0bc",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "e18ab99c1648a7c01a168c049f8eb30486b6e5bac165a9dc4e2b1c6878da4ed4",
+          "raw_response_sha256": "b39b75c33b1b82d549b71b72b98ac08378b61c9f8f623a15956cbea7cbf4f52e",
+          "raw_response_file": "calls/0021/collaboration-response.json",
+          "collected_at": "2026-11-03T05:09:16.589332+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to. The decision field must be null unless kind is decision. A ready message signals readiness; the runtime's explicit freeze is a separate event."
+        }
+      },
+      "prev_hash": "6c23c1a9260b18007649e81958ddd3ff48d42789d8fa616807b582c57e914f53",
+      "hash": "613a22536c7a776debad82319d527508fc45d378862977fa26ce9ab396a5c699"
+    },
+    {
+      "seq": 50,
+      "at": "2026-11-03T05:09:16.748197+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "ordinal": 22,
+        "purpose": "conversation",
+        "prompt_file": "calls/0022/prompt.txt",
+        "prompt_sha256": "54e6bf2d78d155b2c1d326d8930eb6ecc85b7c533155d1495c53dbadec040c36",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "integrate_procedurally:m00049"
+      },
+      "prev_hash": "613a22536c7a776debad82319d527508fc45d378862977fa26ce9ab396a5c699",
+      "hash": "8e77ee10cb62c982d976c9607cfc160a05b146a76b1de3810f2e906d172ddcb9"
+    },
+    {
+      "seq": 51,
+      "at": "2026-11-03T05:11:34.175583+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "message_id": "m00051",
+        "request_seq": 50,
+        "response": {
+          "kind": "ready",
+          "to": [
+            "software_engineering",
+            "subject_matter_expertise",
+            "learning_sciences",
+            "assessment_measurement_evaluation",
+            "learning_experience_design"
+          ],
+          "reply_to": [
+            "m00037",
+            "m00043",
+            "m00045",
+            "m00047",
+            "m00049"
+          ],
+          "domains": [],
+          "content": "Version 3 is ready to be frozen as the bounded candidate for controlled browser testing. This is a procedural readiness signal based on the implemented candidate and its authors' reviews; the runtime's explicit freeze is a separate event. There are no recorded open questions or formal objections. The required corrections raised in the conversation have received their authors' follow-up reviews.\n\nThe current-version approval references are m00043, m00045, m00047 and m00049. Subject-Matter Expertise's m00043 approves version 3's fictional case content and confirms that the missing manual-guidance statement and the changed-condition notice have been corrected, with no remaining required content correction. Learning Sciences' m00045 approves its bounded supported-practice design and stated learning-claim limits. Assessment, Measurement, Evaluation's m00047 approves its practice purpose, evidence descriptions and interpretation limits. Learning Experience Design's m00049 approves its activity sequence, interaction and revision provisions, including the retained protection for new drafts. Each approval applies only to its author's assigned domain and actual version 3. Earlier version 2 approvals are not being substituted for these reviews.\n\nSoftware Engineering supplied the repaired bytes in m00037 and reported source inspection rather than execution. software_engineering, data_science, learning_environment_engineering and education_training_professionals therefore remain not_reviewed, as recorded in the supplied state. Implementation authorship does not supply an approval, and I am not filling those review gaps or certifying technical, pedagogical or assessment claims.\n\nThe unresolved empirical work carries forward into testing. The reviewers' requested observations include copying earlier text into an empty draft without changing its current case or creating a submission; protecting a draft containing new text; retaining earlier submissions and preserved drafts with their original facts and support descriptions through revision and scenario replacement; distinguishing an edited draft from feedback associated with an earlier submission; and observing reset and invalid-input recovery against their stated effects. The required browser controls, replacement-case behavior, changed-condition display, and keyboard and accessibility behavior also remain unverified. These are observations to obtain, not reported passes. Any resulting observation must name the artifact version actually tested.\n\nThe accepted review scope remains the practice purpose described by those specialists: constructing a plan with reasons, receiving visibly limited guided self-review, and optionally revising or explaining why a plan still holds. Their approvals do not establish that the tool diagnoses an open response, validates arbitrary replacement facts, measures independent transfer or retention, or produces learning. No learner responses, runtime results, human approvals or learner outcomes are supplied by this readiness signal.\n\nProceeding to the separate freeze and test step is appropriate within these stated limits. Any material failure found there must remain visible and receive the relevant author's response; a repair would extend version 3 as a new artifact and require review of the affected claims. This message supplies readiness for that bounded testing step, with the outstanding observations and not_reviewed domains preserved.",
+          "artifact_version": 3,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/ws_022",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "54e6bf2d78d155b2c1d326d8930eb6ecc85b7c533155d1495c53dbadec040c36",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "2cbd0f2f7d41f7a94c8f9931b6cefca239d0ddc7027ad50fe4d1e05c13e8f2c2",
+          "raw_response_sha256": "d7c0ceb0d444022d95140f2645fa308990b1ae9e9e31f2d17235551e3492052f",
+          "raw_response_file": "calls/0022/collaboration-response.json",
+          "collected_at": "2026-11-03T05:11:34.130682+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to. The decision field must be null unless kind is decision. A ready message signals readiness; the runtime's explicit freeze is a separate event."
+        }
+      },
+      "prev_hash": "8e77ee10cb62c982d976c9607cfc160a05b146a76b1de3810f2e906d172ddcb9",
+      "hash": "e9001b3e9e1d07c36fcc489da99296c437198afec55bfc8dbd1472963a4e5fd0"
+    },
+    {
+      "seq": 52,
+      "at": "2026-11-03T05:11:34.302930+00:00",
+      "kind": "frozen",
+      "phase": "design_develop",
+      "actor": "user",
+      "payload": {
+        "schema_version": "dynamic-flower-frozen-1",
+        "run_id": "workshop-specialists-agent-01",
+        "config_sha256": "a2637f4e56bf2a13beac20bd9e8f2ebf37deb89af3abd4fa3ec303e57035ffb5",
+        "evidence_kind": "candidate_artifact",
+        "execution_mode": "manual",
+        "artifact_version": 3,
+        "artifact_sha256": "b2dafb4745a00ffad2dda50f7a548cf5d5ad73df6b8a68ea189a17bf413456c1",
+        "artifact_file": "artifacts/v003.html",
+        "case": {
+          "id": "shared_equipment",
+          "title": "Planning a shared-equipment workshop",
+          "brief": "Develop a small learning tool for a fictional workshop volunteer who must plan an activity using shared equipment while respecting availability, support and participant needs. Let the learner inspect facts, propose a plan, receive feedback and revise when conditions change. A user must be able to replace the case facts.",
+          "constraints": [
+            "Use fictional stock, people and operating rules only.",
+            "Do not infer participant needs that have not been supplied.",
+            "Prefer a feasible alternative or request for clarification when the original plan cannot work."
+          ],
+          "requirements": [
+            "Connect the proposed plan to the actual available resources and stated constraints.",
+            "Support a reasoned fallback when equipment or assistance is unavailable.",
+            "Explain uncertainty and avoid treating a preferred plan as proof of learning.",
+            "Executable browser contract: expose scenario JSON in textarea #scenario-input and apply it with button #apply-scenario. Show the applied case in #scenario-view. Provide editable learner response #response-input, button #try-response, visible feedback #feedback, button #revise-response, button #skip-practice, button #reset-practice and visible state #practice-status. Scenario JSON has title, facts (string array), constraints (string array), and task. Read these as data; do not expect particular fixture content. The interface supports automated observation and user updates; it does not prescribe which instructional feedback strategy to use. Use explicit labels, keyboard-operable buttons and visible recoverable errors. No network requests or external assets."
+          ],
+          "case_version": 1,
+          "user_updates": []
+        },
+        "scenarios": [
+          {
+            "id": "shared_equipment_easy",
+            "case_id": "shared_equipment",
+            "difficulty": "easy",
+            "title": "Enough equipment for the planned activity",
+            "brief": "Test the frozen tool under these supplied fictional conditions; judge observed behavior and capability support.",
+            "conditions": {
+              "viewport": {
+                "width": 1280,
+                "height": 800
+              },
+              "offline": false,
+              "focus": [
+                "Allocation within stock",
+                "Support route",
+                "Participant choice"
+              ],
+              "human_time_note": "The time constraint is a fictional operating condition; scripted execution does not establish human completion time."
+            },
+            "task": {
+              "title": "Enough equipment for the planned activity",
+              "facts": [
+                "Six participants work in three pairs.",
+                "Three complete kits and one facilitator are available.",
+                "The activity requires one kit per pair."
+              ],
+              "constraints": [
+                "Keep one clear support route."
+              ],
+              "task": "Propose a feasible kit allocation and explain how participants will get help."
+            },
+            "actions": [
+              {
+                "id": "apply_case",
+                "type": "scenario",
+                "selector": "#scenario-input",
+                "trigger": "#apply-scenario",
+                "value": {
+                  "title": "Enough equipment for the planned activity",
+                  "facts": [
+                    "Six participants work in three pairs.",
+                    "Three complete kits and one facilitator are available.",
+                    "The activity requires one kit per pair."
+                  ],
+                  "constraints": [
+                    "Keep one clear support route."
+                  ],
+                  "task": "Propose a feasible kit allocation and explain how participants will get help."
+                }
+              },
+              {
+                "id": "initial_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "Give every participant a kit; the stock will cover it."
+              },
+              {
+                "id": "initial_feedback",
+                "type": "click",
+                "selector": "#try-response"
+              },
+              {
+                "id": "open_revision",
+                "type": "click",
+                "selector": "#revise-response"
+              },
+              {
+                "id": "revised_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "Use three pairs with one kit per pair. Explain the task, make the facilitator support route clear, and check whether anyone needs another way to participate."
+              },
+              {
+                "id": "revised_feedback",
+                "type": "press",
+                "selector": "#try-response",
+                "key": "Enter"
+              },
+              {
+                "id": "skip",
+                "type": "click",
+                "selector": "#skip-practice"
+              },
+              {
+                "id": "reset",
+                "type": "click",
+                "selector": "#reset-practice"
+              }
+            ],
+            "checks": [
+              {
+                "id": "case_applied",
+                "type": "text_contains",
+                "selector": "#scenario-view",
+                "expected": "Enough equipment for the planned activity",
+                "after_action": "apply_case"
+              },
+              {
+                "id": "feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "initial_feedback"
+              },
+              {
+                "id": "revision_available",
+                "type": "editable",
+                "selector": "#response-input",
+                "after_action": "open_revision"
+              },
+              {
+                "id": "revision_feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "revised_feedback"
+              },
+              {
+                "id": "skip_state_visible",
+                "type": "nonempty",
+                "selector": "#practice-status",
+                "after_action": "skip"
+              },
+              {
+                "id": "response_cleared",
+                "type": "value_equals",
+                "selector": "#response-input",
+                "expected": "",
+                "after_action": "reset"
+              }
+            ],
+            "required_result_dimensions": [
+              "human_flourishing",
+              "system_performance",
+              "learning"
+            ],
+            "interpretation": "Mechanical checks describe browser behavior. The expert evaluator must inspect the actual inputs, outputs and case facts; a success label alone is not evidence of learning."
+          },
+          {
+            "id": "shared_equipment_medium",
+            "case_id": "shared_equipment",
+            "difficulty": "medium",
+            "title": "A kit becomes unavailable",
+            "brief": "Test the frozen tool under these supplied fictional conditions; judge observed behavior and capability support.",
+            "conditions": {
+              "viewport": {
+                "width": 390,
+                "height": 844
+              },
+              "offline": false,
+              "focus": [
+                "No invented resource",
+                "Meaningful alternative",
+                "Support capacity acknowledged"
+              ],
+              "human_time_note": "The time constraint is a fictional operating condition; scripted execution does not establish human completion time."
+            },
+            "task": {
+              "title": "A kit becomes unavailable",
+              "facts": [
+                "Six participants work in pairs.",
+                "Only two complete kits are currently available.",
+                "A facilitator can support one group at a time."
+              ],
+              "constraints": [
+                "Allow a meaningful alternative while a pair waits.",
+                "A changed plan must not invent a third kit."
+              ],
+              "task": "Revise the activity plan to use two kits without excluding the waiting pair."
+            },
+            "actions": [
+              {
+                "id": "apply_case",
+                "type": "scenario",
+                "selector": "#scenario-input",
+                "trigger": "#apply-scenario",
+                "value": {
+                  "title": "A kit becomes unavailable",
+                  "facts": [
+                    "Six participants work in pairs.",
+                    "Only two complete kits are currently available.",
+                    "A facilitator can support one group at a time."
+                  ],
+                  "constraints": [
+                    "Allow a meaningful alternative while a pair waits.",
+                    "A changed plan must not invent a third kit."
+                  ],
+                  "task": "Revise the activity plan to use two kits without excluding the waiting pair."
+                }
+              },
+              {
+                "id": "initial_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "Keep all three pairs on kits simultaneously; assume another kit appears."
+              },
+              {
+                "id": "initial_feedback",
+                "type": "click",
+                "selector": "#try-response"
+              },
+              {
+                "id": "open_revision",
+                "type": "click",
+                "selector": "#revise-response"
+              },
+              {
+                "id": "revised_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "Use two pairs on kits and one pair on a related planning or observation task, then rotate. State how the waiting pair participates and when facilitator help is available."
+              },
+              {
+                "id": "revised_feedback",
+                "type": "press",
+                "selector": "#try-response",
+                "key": "Enter"
+              },
+              {
+                "id": "skip",
+                "type": "click",
+                "selector": "#skip-practice"
+              },
+              {
+                "id": "reset",
+                "type": "click",
+                "selector": "#reset-practice"
+              }
+            ],
+            "checks": [
+              {
+                "id": "case_applied",
+                "type": "text_contains",
+                "selector": "#scenario-view",
+                "expected": "A kit becomes unavailable",
+                "after_action": "apply_case"
+              },
+              {
+                "id": "feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "initial_feedback"
+              },
+              {
+                "id": "revision_available",
+                "type": "editable",
+                "selector": "#response-input",
+                "after_action": "open_revision"
+              },
+              {
+                "id": "revision_feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "revised_feedback"
+              },
+              {
+                "id": "skip_state_visible",
+                "type": "nonempty",
+                "selector": "#practice-status",
+                "after_action": "skip"
+              },
+              {
+                "id": "response_cleared",
+                "type": "value_equals",
+                "selector": "#response-input",
+                "expected": "",
+                "after_action": "reset"
+              }
+            ],
+            "required_result_dimensions": [
+              "human_flourishing",
+              "system_performance",
+              "learning"
+            ],
+            "interpretation": "Mechanical checks describe browser behavior. The expert evaluator must inspect the actual inputs, outputs and case facts; a success label alone is not evidence of learning."
+          },
+          {
+            "id": "shared_equipment_hard",
+            "case_id": "shared_equipment",
+            "difficulty": "hard",
+            "title": "Equipment and support are interrupted",
+            "brief": "Test the frozen tool under these supplied fictional conditions; judge observed behavior and capability support.",
+            "conditions": {
+              "viewport": {
+                "width": 360,
+                "height": 740
+              },
+              "offline": true,
+              "focus": [
+                "Resource and supervision constraints",
+                "A bounded alternative",
+                "Completion not equated with readiness"
+              ],
+              "human_time_note": "The time constraint is a fictional operating condition; scripted execution does not establish human completion time."
+            },
+            "task": {
+              "title": "Equipment and support are interrupted",
+              "facts": [
+                "Only one complete kit remains.",
+                "The facilitator is unavailable for the next ten minutes.",
+                "Six participants still need a useful activity, and no extra kit can be obtained now."
+              ],
+              "constraints": [
+                "The page must work without connectivity.",
+                "Keyboard access, skipping and recovery are required.",
+                "Do not start an activity that the supplied facts say requires absent supervision."
+              ],
+              "task": "Decide what can proceed, what should wait, and how to communicate a feasible alternative."
+            },
+            "actions": [
+              {
+                "id": "apply_case",
+                "type": "scenario",
+                "selector": "#scenario-input",
+                "trigger": "#apply-scenario",
+                "value": {
+                  "title": "Equipment and support are interrupted",
+                  "facts": [
+                    "Only one complete kit remains.",
+                    "The facilitator is unavailable for the next ten minutes.",
+                    "Six participants still need a useful activity, and no extra kit can be obtained now."
+                  ],
+                  "constraints": [
+                    "The page must work without connectivity.",
+                    "Keyboard access, skipping and recovery are required.",
+                    "Do not start an activity that the supplied facts say requires absent supervision."
+                  ],
+                  "task": "Decide what can proceed, what should wait, and how to communicate a feasible alternative."
+                }
+              },
+              {
+                "id": "initial_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "Start all kit tasks immediately and count completion as readiness."
+              },
+              {
+                "id": "initial_feedback",
+                "type": "click",
+                "selector": "#try-response"
+              },
+              {
+                "id": "open_revision",
+                "type": "click",
+                "selector": "#revise-response"
+              },
+              {
+                "id": "revised_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "Pause any kit task that requires the missing facilitator. Offer a clearly bounded planning or observation alternative, explain the resource limit, and schedule supervised kit practice when support returns."
+              },
+              {
+                "id": "revised_feedback",
+                "type": "press",
+                "selector": "#try-response",
+                "key": "Enter"
+              },
+              {
+                "id": "skip",
+                "type": "click",
+                "selector": "#skip-practice"
+              },
+              {
+                "id": "reset",
+                "type": "click",
+                "selector": "#reset-practice"
+              }
+            ],
+            "checks": [
+              {
+                "id": "case_applied",
+                "type": "text_contains",
+                "selector": "#scenario-view",
+                "expected": "Equipment and support are interrupted",
+                "after_action": "apply_case"
+              },
+              {
+                "id": "feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "initial_feedback"
+              },
+              {
+                "id": "revision_available",
+                "type": "editable",
+                "selector": "#response-input",
+                "after_action": "open_revision"
+              },
+              {
+                "id": "revision_feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "revised_feedback"
+              },
+              {
+                "id": "skip_state_visible",
+                "type": "nonempty",
+                "selector": "#practice-status",
+                "after_action": "skip"
+              },
+              {
+                "id": "response_cleared",
+                "type": "value_equals",
+                "selector": "#response-input",
+                "expected": "",
+                "after_action": "reset"
+              }
+            ],
+            "required_result_dimensions": [
+              "human_flourishing",
+              "system_performance",
+              "learning"
+            ],
+            "interpretation": "Mechanical checks describe browser behavior. The expert evaluator must inspect the actual inputs, outputs and case facts; a success label alone is not evidence of learning."
+          }
+        ],
+        "scenario_hashes": {
+          "shared_equipment_easy": "16a001d45ee4e4a7cb2c707c26033bfab0fc7dc02eb240ebf7e03a6df74f44ad",
+          "shared_equipment_medium": "6dfe0db9b89728b8d261a6c76f8c44209ad70d8535e4857ae11a600b6c66890a",
+          "shared_equipment_hard": "c03ad758dd1098719653ce46a42e374ed7b54197c72155bdac3cf0986767c3de"
+        },
+        "review_status": {
+          "learning_sciences": "approved",
+          "learning_experience_design": "approved",
+          "data_science": "not_reviewed",
+          "assessment_measurement_evaluation": "approved",
+          "learning_environment_engineering": "not_reviewed",
+          "software_engineering": "not_reviewed",
+          "subject_matter_expertise": "approved",
+          "education_training_professionals": "not_reviewed"
+        },
+        "accepted_risks": [],
+        "risk_acceptance_reason": "",
+        "frozen_event_seq": 52,
+        "file": "frozen/v003.json",
+        "export_sha256": "76fe37ece54cc998af05a0e00468cf032ef13e37db6d7e036fac3ee043441b6f"
+      },
+      "prev_hash": "e9001b3e9e1d07c36fcc489da99296c437198afec55bfc8dbd1472963a4e5fd0",
+      "hash": "dde98b163c1a43a8e0d29d91be43b0b6a0f4e19740f29d33d977ab36c16fb75c"
     }
   ]
 }

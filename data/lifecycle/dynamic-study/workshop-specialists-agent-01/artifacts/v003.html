@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta http-equiv='Content-Security-Policy' content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; font-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Planning a shared-equipment workshop</title>
+<style>
+:root{color-scheme:light;--ink:#173139;--muted:#455d65;--paper:#fff;--wash:#f0f5f4;--line:#b8c9cb;--brand:#155d64;--tint:#e5f1ee;--error:#9b2631}*{box-sizing:border-box}body{margin:0;background:var(--wash);color:var(--ink);font:17px/1.55 system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}main{max-width:1220px;margin:auto;padding:30px 22px 60px}h1{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.16;margin:8px 0 16px;max-width:850px}h2{font-size:1.3rem;margin:0 0 15px}h3{font-size:1.12rem;margin:16px 0 10px}h4{font-size:1rem;margin:18px 0 8px}p{margin:10px 0}li{margin:9px 0}ul,ol{padding-left:24px}.eyebrow{font-size:.8rem;letter-spacing:.1em;font-weight:750;color:var(--brand)}.intro{max-width:870px;color:var(--muted)}.status{margin:24px 0;padding:15px 18px;background:var(--ink);color:white;border-radius:10px;min-height:56px}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}.panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:22px;min-width:0}.meta{color:var(--muted);font-size:.92rem}.tag{display:inline-block;background:var(--tint);padding:3px 9px;border-radius:5px;font-size:.83rem;font-weight:700}.fact-list{padding:0;list-style:none}.fact-list li{padding:10px 12px;background:#f6f9f9;border-left:3px solid #85a9a9;border-radius:3px;white-space:pre-wrap;overflow-wrap:anywhere}.case-task{padding:12px;border:1px solid var(--line);border-radius:7px;white-space:pre-wrap;overflow-wrap:anywhere}.help{color:var(--muted);font-size:.93rem}.scaffold{background:#f3f6fb;padding:12px 14px;border-radius:7px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin:15px 0}button{font:inherit;font-weight:650;padding:10px 15px;border:1px solid var(--brand);background:white;color:var(--brand);border-radius:7px;cursor:pointer;min-height:44px}button.primary{background:var(--brand);color:white}button:disabled{cursor:default;opacity:.55}button:hover:not(:disabled){filter:brightness(.94)}button:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid #965600;outline-offset:4px}label{display:block;font-weight:700;margin:15px 0 7px}textarea{display:block;width:100%;resize:vertical;border:1px solid #6c878d;border-radius:7px;padding:12px;background:#fff;color:var(--ink);font:inherit;min-height:180px}textarea[aria-invalid='true']{border:2px solid var(--error)}#scenario-input{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9rem;min-height:230px}.error{color:var(--error);border-left:4px solid var(--error);background:#fff2f3;padding:11px 13px}.feedback{margin-top:22px;padding:18px;border:1px solid #91aaa9;border-radius:9px;background:#f1f8f5}.feedback h3{margin-top:0}.feedback ul{padding-left:20px}.change{margin-top:23px;border-top:1px solid var(--line);padding-top:18px}.notice{padding:12px 14px;background:#fff7e7;border-left:3px solid #986300;border-radius:3px}.history-item{border:1px solid var(--line);border-radius:8px;margin-top:12px;padding:12px 15px}.history-item>summary{font-weight:700}.history-case{border-top:1px solid var(--line);margin-top:15px;padding-top:12px}summary{cursor:pointer;padding:4px 0}pre{font:inherit;white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;background:#fff;border:1px solid var(--line);border-radius:6px;max-height:420px;overflow:auto}.footer{color:var(--muted);font-size:.9rem}[hidden]{display:none!important}@media(max-width:880px){.layout{grid-template-columns:1fr}.panel{padding:20px}main{padding:22px 15px 40px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class='eyebrow'>FICTIONAL WORKSHOP · SUPPORTED PRACTICE</div>
+<h1>Build a plan from the facts.</h1>
+<p class='intro'>Inspect the shared resources and stated constraints. Explain your plan, identify a fallback or clarification, then reconsider it when conditions change. This tool offers reflection prompts; it does not verify feasibility or measure learning.</p>
+</header>
+<p id='practice-status' class='status' role='status' aria-live='polite' aria-atomic='true'>Loading the starting case.</p>
+<div class='layout'>
+<section class='panel' aria-labelledby='inspect-heading'>
+<h2 id='inspect-heading'>1. Inspect the applied case</h2>
+<p id='case-label' class='meta'></p>
+<div id='scenario-view' tabindex='-1' aria-label='Applied scenario'></div>
+<p id='change-applied-note' class='notice' hidden></p>
+<div id='change-section' class='change'>
+<h3>Try a changed condition</h3>
+<p>The starting case includes a change in assistance. First submit a plan; then apply the change and explain what you revise or why your plan still holds.</p>
+<button type='button' id='change-condition'>Apply change: assistant unavailable</button>
+<p id='change-help' class='help'></p>
+</div>
+</section>
+<section class='panel' aria-labelledby='plan-heading'>
+<h2 id='plan-heading'>2. Explain your plan</h2>
+<p id='response-case' class='tag'></p>
+<p id='response-help'>Connect your proposed activity, resources, timing, assistance and supplied participant provisions to the relevant facts and constraints. Explain a fallback and its trigger, or the clarification you need. If the supplied facts resolve the relevant uncertainty, you can say why.</p>
+<p class='scaffold'>A possible structure: I propose … because the case says …; if … changes, I would … because …; I still need to know … .</p>
+<p id='response-format-help' class='help'>Short notes or bullet points are welcome.</p>
+<div id='prior-draft-section' class='notice' hidden>
+<p id='prior-draft-label'></p>
+<button type='button' id='copy-prior-response' aria-describedby='copy-prior-help copy-prior-caution'>Copy previous response into this draft</button>
+<p id='copy-prior-help' class='help' aria-live='polite' aria-atomic='true'></p>
+<p id='copy-prior-caution' class='help'>Copying does not establish that the old response fits these facts. Check each connection before submitting.</p>
+</div>
+<label for='response-input'>Your response to the applied case</label>
+<textarea id='response-input' rows='11' aria-describedby='response-help response-format-help response-case response-error copied-note' spellcheck='true'></textarea>
+<p id='response-error' class='error' role='alert' hidden></p>
+<p id='copied-note' class='help' hidden></p>
+<div class='actions'>
+<button type='button' id='try-response' class='primary'>Try response</button>
+<button type='button' id='revise-response'>Revise response</button>
+<button type='button' id='skip-practice'>Skip practice</button>
+</div>
+<div id='feedback' class='feedback' tabindex='-1' role='region' aria-label='Practice feedback' aria-live='polite'></div>
+<p id='feedback-next-step' class='help' hidden>You can revise this explanation, or try the changed condition in the applied-case panel. Both are optional.</p>
+<div class='actions'><button type='button' id='reset-practice'>Reset practice</button></div>
+<p class='help'>Skip keeps your draft and records; Resume practice continues. Reset clears all response drafts and history on this page, keeping the applied case and any unapplied scenario edits. Neither action is a judgment about your learning.</p>
+</section>
+</div>
+<section class='panel' aria-labelledby='editor-heading'>
+<h2 id='editor-heading'>Edit or replace the fictional case</h2>
+<p id='editor-help'>Use JSON with title and task as strings, and facts and constraints as arrays of strings. Empty arrays are permitted. Only these four fields are used. Keep people, stock and operating rules fictional. Editing this box does not change the applied case until you select Apply scenario.</p>
+<label for='scenario-input'>Scenario JSON</label>
+<textarea id='scenario-input' rows='12' spellcheck='false' aria-describedby='editor-help scenario-editor-status scenario-error'></textarea>
+<p id='scenario-editor-status' class='help' role='status' aria-live='polite'></p>
+<p id='scenario-error' class='error' role='alert' hidden></p>
+<div class='actions'>
+<button type='button' id='apply-scenario' class='primary'>Apply scenario</button>
+<button type='button' id='restore-scenario-editor'>Restore editor to applied case</button>
+</div>
+<p class='help'>A different applied case starts a separate response. Existing submissions and any unsubmitted draft are retained below with their original case. Invalid input leaves the current practice unchanged.</p>
+</section>
+<section class='panel' aria-labelledby='history-heading'>
+<h2 id='history-heading'>Response history</h2>
+<p class='help'>These are practice records. Each keeps the case it concerns and the support available when it was recorded. A saved response or revision is not a verified assessment.</p>
+<div id='history-list'></div>
+</section>
+<p class='footer'>Information stays in this page session. Reloading clears responses and restores the starting fictional case. This practice does not provide an independent transfer or retention assessment.</p>
+<noscript><p class='error'>JavaScript is needed for this local practice. Enable it to apply scenario data and use the response controls.</p></noscript>
+</main>
+<script>
+(function () {
+'use strict';
+const byId = function (id) { return document.getElementById(id); };
+const clone = function (value) { return JSON.parse(JSON.stringify(value)); };
+const initialScenario = {
+  title: 'Welcome cards in Harbor Room',
+  facts: [
+    'The activity runs from 14:00 to 14:30 for four confirmed participants. Each participant is to leave with one welcome card.',
+    'The room has one shared table with four seats, eight blank cards, four sets of markers, four ready-to-use printed welcome captions and four copies of the activity instructions in large print. These resources are available for the whole session. The printed captions can be used directly without cutting or adhesive.',
+    'One shared label printer is available from 14:00 until 14:15. It has supplies for four labels. Four welcome-caption jobs are already prepared; each job takes two minutes, including setup, and jobs run one at a time.',
+    'Bea, the designated printer assistant, is available from 14:00 until 14:10. The workshop volunteer can guide the manual card activity.',
+    'Ada has requested large-print instructions. Ivo has requested a seated activity. No other participant needs or preferences have been supplied.',
+    'The organizer has mentioned a possible fifth participant but has not confirmed their attendance or supplied their requirements.'
+  ],
+  constraints: [
+    'In this fictional workshop, Bea must operate the printer throughout every print job; the volunteer and participants may not operate it alone.',
+    'Return shared equipment by the end of its availability. Do not assume additional supplies, seats, assistance or time.',
+    'A card may use a printed label, a ready-to-use caption, or marker decoration. Printer use is optional.',
+    'Provide the requested large-print instructions and a seated way to take part. Do not infer additional participant needs.',
+    'Plan for the four confirmed participants. Clarify attendance and resource needs before extending the plan to a fifth person.'
+  ],
+  task: 'Propose an activity plan for the four confirmed participants. Explain which supplied facts support your choices of resources, timing, assistance and participant support. Give a fallback if the printer or its required assistance becomes unavailable, and identify anything you need clarified.'
+};
+const changedScenario = clone(initialScenario);
+changedScenario.facts[3] = 'Bea is unavailable for the entire 14:00–14:30 session; no replacement printer assistant is available. The workshop volunteer can guide the manual card activity.';
+let caseSequence = 1;
+let recordSequence = 0;
+let current = { id: 1, scenario: clone(initialScenario), origin: 'Starting fictional case', kind: 'initial', previous: null };
+let editorBaseline = JSON.stringify(current.scenario, null, 2);
+let records = [];
+let lastAttempt = null;
+let mode = 'draft';
+let copiedFrom = null;
+let sessionGuidanceShown = false;
+
+function element(tag, text, className) {
+  const node = document.createElement(tag);
+  if (text !== undefined) { node.textContent = text; }
+  if (className) { node.className = className; }
+  return node;
+}
+function titleOf(scenario) { return scenario.title.trim() ? scenario.title : '(Untitled case)'; }
+function sameScenario(a, b) { return JSON.stringify(a) === JSON.stringify(b); }
+function editorIsDirty() { return byId('scenario-input').value !== editorBaseline; }
+function clearError(errorId, inputId) {
+  byId(errorId).textContent = '';
+  byId(errorId).hidden = true;
+  byId(inputId).removeAttribute('aria-invalid');
+}
+function showError(errorId, inputId, message) {
+  byId(errorId).textContent = message;
+  byId(errorId).hidden = false;
+  byId(inputId).setAttribute('aria-invalid', 'true');
+  byId(inputId).focus();
+}
+function appendScenario(container, scenario) {
+  container.append(element('h3', titleOf(scenario)));
+  container.append(element('h4', 'Facts'));
+  if (scenario.facts.length === 0) { container.append(element('p', 'No facts supplied.', 'help')); }
+  else {
+    const facts = element('ul', undefined, 'fact-list');
+    scenario.facts.forEach(function (text, index) {
+      facts.append(element('li', 'F' + (index + 1) + ' — ' + (text.trim() ? text : '(Blank fact)')));
+    });
+    container.append(facts);
+  }
+  container.append(element('h4', 'Constraints'));
+  if (scenario.constraints.length === 0) { container.append(element('p', 'No constraints supplied.', 'help')); }
+  else {
+    const constraints = element('ul', undefined, 'fact-list');
+    scenario.constraints.forEach(function (text, index) {
+      constraints.append(element('li', 'C' + (index + 1) + ' — ' + (text.trim() ? text : '(Blank constraint)')));
+    });
+    container.append(constraints);
+  }
+  container.append(element('h4', 'Task'));
+  container.append(element('p', scenario.task.trim() ? scenario.task : 'No task supplied.', 'case-task'));
+}
+function supportSnapshot() {
+  const support = ['Applied case facts, constraints, task and the general reasoning scaffold were available.'];
+  if (sessionGuidanceShown) { support.push('Guided self-review prompts had already been displayed earlier in this page session.'); }
+  if (current.kind === 'change') { support.push('The supplied change in the starting case was available for comparison with earlier records.'); }
+  if (current.previous && current.previous.text) { support.push('Text from the previous case was available as an optional draft source.'); }
+  if (copiedFrom !== null) { support.push('This draft was copied from case ' + copiedFrom + '; it may have been edited since copying.'); }
+  return support;
+}
+function reflectionPrompts() {
+  const prompts = [
+    'Start with one important action in your plan. Which supplied fact or constraint supports its resources, quantities and timing? Explain that connection using the current F and C references where available.',
+    'Does that action require assistance, permission or capacity? Identify the required condition and check whether the supplied facts establish it, leave it unknown, or conflict with it.',
+    'Which participant provisions are explicitly stated, and where does your plan retain them? Do not treat an unstated need or preference as a supplied fact.',
+    'What would trigger your fallback, and which current facts make that alternative available? If an alternative is not established, identify the clarification needed and the decision that depends on it.',
+    'Is a consequential fact missing or contradictory? If the supplied facts suffice for your bounded plan, explain why; you do not need to invent an uncertainty.'
+  ];
+  if (current.kind === 'change') {
+    prompts.push('For the changed condition, identify the affected dependency. Explain what you revise or why your existing plan still holds, including the participant provisions that remain relevant. A visibly different plan is not required.');
+  } else if (current.kind === 'replacement') {
+    prompts.push('Use this applied case on its own terms. If these facts change an earlier plan, explain the affected connection or why it still holds; do not import resources or permissions from an earlier case.');
+  }
+  return prompts;
+}
+function appendPrompts(container, prompts) {
+  const list = element('ul');
+  prompts.forEach(function (prompt) { list.append(element('li', prompt)); });
+  container.append(list);
+}
+function saveUnsubmittedDraft() {
+  const value = byId('response-input').value;
+  if (!value.trim() || (lastAttempt && value === lastAttempt.text)) { return; }
+  records.push({
+    id: ++recordSequence,
+    kind: 'draft',
+    caseId: current.id,
+    scenario: clone(current.scenario),
+    origin: current.origin,
+    text: value,
+    supportBefore: supportSnapshot(),
+    feedback: [],
+    responseNumber: null,
+    skipped: mode === 'skipped'
+  });
+}
+function renderHistory() {
+  const history = byId('history-list');
+  history.replaceChildren();
+  if (records.length === 0) {
+    history.append(element('p', 'No response records in this page session.', 'help'));
+    return;
+  }
+  records.slice().reverse().forEach(function (record) {
+    const details = element('details', undefined, 'history-item');
+    const type = record.kind === 'submitted' ? 'Response ' + record.responseNumber : 'Unsubmitted draft preserved on case change';
+    details.append(element('summary', 'Case ' + record.caseId + ' · ' + titleOf(record.scenario) + ' · ' + type));
+    details.append(element('p', 'Original applied case: ' + record.origin + '.', 'meta'));
+    if (record.kind === 'draft') {
+      details.append(element('p', 'This draft was not submitted or evaluated.' + (record.skipped ? ' Practice was skipped when it was preserved.' : ''), 'help'));
+    }
+    details.append(element('pre', record.text));
+    details.append(element('h4', record.kind === 'submitted' ? 'Support available before this submission' : 'Support available when this draft was preserved'));
+    const support = element('ul');
+    record.supportBefore.forEach(function (text) { support.append(element('li', text)); });
+    details.append(support);
+    if (record.kind === 'submitted') {
+      const feedbackDetails = element('details');
+      feedbackDetails.append(element('summary', 'Guided self-review displayed after this submission'));
+      feedbackDetails.append(element('p', 'Reflection prompts only. This response was not checked for correctness, feasibility or learning.', 'help'));
+      appendPrompts(feedbackDetails, record.feedback);
+      details.append(feedbackDetails);
+    }
+    const snapshot = element('details', undefined, 'history-case');
+    snapshot.append(element('summary', 'Applied facts and task for this record'));
+    appendScenario(snapshot, record.scenario);
+    details.append(snapshot);
+    history.append(details);
+  });
+}
+function renderFeedback() {
+  const feedback = byId('feedback');
+  feedback.replaceChildren();
+  if (mode === 'skipped') {
+    feedback.append(element('h3', 'Practice skipped · case ' + current.id));
+    feedback.append(element('p', 'Your draft and earlier records remain. You can inspect the facts or select Resume practice. Skipping does not indicate failure or completion of a learning objective.'));
+    return;
+  }
+  if (!lastAttempt) {
+    feedback.append(element('h3', 'Guided self-review'));
+    feedback.append(element('p', 'No response has been submitted for this applied case in the current practice records. Try a response to see reflection prompts. Earlier case records, if any, remain in history.'));
+    feedback.append(element('p', 'The tool does not make an automatic correctness or feasibility judgment.', 'help'));
+    return;
+  }
+  feedback.append(element('h3', 'Guided self-review · case ' + lastAttempt.caseId + ' · response ' + lastAttempt.responseNumber));
+  feedback.append(element('p', 'These are reflection prompts. Your response has not been checked for correctness, feasibility or learning. Start with one important plan-to-fact connection.'));
+  const submitted = element('details');
+  submitted.append(element('summary', 'Submitted response associated with these prompts'));
+  submitted.append(element('pre', lastAttempt.text));
+  feedback.append(submitted);
+  appendPrompts(feedback, lastAttempt.feedback);
+  feedback.append(element('p', 'Editing the draft does not change the recorded response above. Revise the explanation, then select Try response to record another submission.', 'help'));
+}
+function renderCase() {
+  byId('case-label').textContent = 'Applied case ' + current.id + ' · ' + current.origin;
+  byId('scenario-view').replaceChildren();
+  appendScenario(byId('scenario-view'), current.scenario);
+  byId('response-case').textContent = 'Response for case ' + current.id + ': ' + titleOf(current.scenario);
+  const changeNote = byId('change-applied-note');
+  changeNote.hidden = current.kind !== 'change';
+  changeNote.textContent = current.kind === 'change' ? 'Changed condition: printer assistance in fact F4 has changed. Bea is unavailable throughout the session and no replacement printer assistant is available. The workshop volunteer can still guide the manual card activity; that support and all other supplied facts and constraints remain unchanged. Explain the affected dependency, or why your plan still holds.' : '';
+  const prior = current.previous;
+  byId('prior-draft-section').hidden = !(prior && prior.text);
+  byId('prior-draft-label').textContent = prior && prior.text ? 'Optional starting text is available from case ' + prior.id + '. It has not been submitted for case ' + current.id + '.' : '';
+}
+function updateControls() {
+  const dirty = editorIsDirty();
+  const skipped = mode === 'skipped';
+  byId('try-response').disabled = skipped;
+  byId('skip-practice').disabled = skipped;
+  byId('revise-response').textContent = skipped ? 'Resume practice' : 'Revise response';
+  const priorAvailable = !!(current.previous && current.previous.text);
+  const draftIsEmpty = byId('response-input').value.length === 0;
+  byId('copy-prior-response').disabled = skipped || !priorAvailable || !draftIsEmpty;
+  if (!priorAvailable) {
+    byId('copy-prior-help').textContent = 'No previous response is available to copy.';
+  } else if (skipped) {
+    byId('copy-prior-help').textContent = 'Copy is unavailable while practice is skipped. Resume practice to continue. Copying is allowed only into a completely empty response box; earlier text remains readable in Response history.';
+  } else if (!draftIsEmpty) {
+    byId('copy-prior-help').textContent = 'Copy is unavailable because this draft already contains text. Copying is allowed only into a completely empty response box. Your draft is kept; earlier text remains readable in Response history without replacing this draft.';
+  } else {
+    byId('copy-prior-help').textContent = 'You can optionally copy earlier text into this completely empty response box. It remains an unsubmitted draft for the current case. You can also read the earlier text in Response history.';
+  }
+  byId('scenario-editor-status').textContent = dirty ? 'Unapplied editor changes. Your response still addresses applied case ' + current.id + '.' : 'The editor matches applied case ' + current.id + '.';
+  const isStartingCase = sameScenario(current.scenario, initialScenario);
+  const changeAvailable = isStartingCase && !dirty && !!lastAttempt && !skipped;
+  byId('change-section').hidden = !isStartingCase;
+  byId('change-condition').disabled = !changeAvailable;
+  byId('feedback-next-step').hidden = !changeAvailable;
+  if (skipped) { byId('change-help').textContent = 'Resume practice before applying the supplied change.'; }
+  else if (dirty) { byId('change-help').textContent = 'Apply or restore the scenario editor before using the supplied change.'; }
+  else if (!lastAttempt) { byId('change-help').textContent = 'Available after your first submission for this starting case.'; }
+  else { byId('change-help').textContent = 'Applies one supplied condition change and keeps this response under its original case in history.'; }
+  byId('copied-note').hidden = copiedFrom === null;
+  byId('copied-note').textContent = copiedFrom === null ? '' : 'Text from case ' + copiedFrom + ' was copied into this unsubmitted draft for case ' + current.id + '. Check its connections to the current facts.';
+  let status;
+  if (skipped) { status = 'Skipped · Case ' + current.id + '. Draft and records retained. Select Resume practice to continue.'; }
+  else if (mode === 'review') { status = 'Self-review shown · Case ' + current.id + ' · Response ' + lastAttempt.responseNumber + ' recorded. This is supported practice, not a verified result.'; }
+  else if (mode === 'revising' && lastAttempt) { status = 'Revising · Case ' + current.id + '. The editable draft is not a new submission. Feedback remains associated with response ' + lastAttempt.responseNumber + '.'; }
+  else if (mode === 'reset') { status = 'Practice reset · Case ' + current.id + ' remains applied. Response drafts and history cleared.'; }
+  else { status = 'Drafting · Case ' + current.id + '. No response submitted for these applied facts in the current practice records.'; }
+  if (dirty) { status += ' Scenario editor changes are not yet applied.'; }
+  byId('practice-status').textContent = status;
+}
+function parseScenario(source) {
+  let data;
+  try { data = JSON.parse(source); }
+  catch (error) { throw new Error('Use valid JSON. Check double quotes, commas and brackets.'); }
+  if (data === null || typeof data !== 'object' || Array.isArray(data)) { throw new Error('The scenario must be a JSON object.'); }
+  if (typeof data.title !== 'string') { throw new Error('The title field must be a string.'); }
+  if (!Array.isArray(data.facts) || !data.facts.every(function (item) { return typeof item === 'string'; })) { throw new Error('The facts field must be an array containing only strings.'); }
+  if (!Array.isArray(data.constraints) || !data.constraints.every(function (item) { return typeof item === 'string'; })) { throw new Error('The constraints field must be an array containing only strings.'); }
+  if (typeof data.task !== 'string') { throw new Error('The task field must be a string.'); }
+  return { title: data.title, facts: data.facts.slice(), constraints: data.constraints.slice(), task: data.task };
+}
+function activateScenario(scenario, origin, kind) {
+  const inputText = byId('response-input').value;
+  const previous = { id: current.id, text: inputText.trim() ? inputText : (lastAttempt ? lastAttempt.text : '') };
+  saveUnsubmittedDraft();
+  current = { id: ++caseSequence, scenario: clone(scenario), origin: origin, kind: kind, previous: previous };
+  lastAttempt = null;
+  mode = 'draft';
+  copiedFrom = null;
+  byId('response-input').value = '';
+  editorBaseline = JSON.stringify(current.scenario, null, 2);
+  byId('scenario-input').value = editorBaseline;
+  clearError('scenario-error', 'scenario-input');
+  clearError('response-error', 'response-input');
+  renderCase();
+  renderFeedback();
+  renderHistory();
+  updateControls();
+  byId('scenario-view').focus();
+}
+byId('scenario-input').addEventListener('input', function () {
+  clearError('scenario-error', 'scenario-input');
+  updateControls();
+});
+byId('apply-scenario').addEventListener('click', function () {
+  let next;
+  try { next = parseScenario(byId('scenario-input').value); }
+  catch (error) {
+    showError('scenario-error', 'scenario-input', 'Scenario not applied. ' + error.message + ' Applied case ' + current.id + ' and your response are unchanged.');
+    updateControls();
+    return;
+  }
+  if (sameScenario(next, current.scenario)) {
+    editorBaseline = JSON.stringify(current.scenario, null, 2);
+    byId('scenario-input').value = editorBaseline;
+    clearError('scenario-error', 'scenario-input');
+    updateControls();
+    byId('scenario-editor-status').textContent = 'The same documented case remains applied as case ' + current.id + '. Practice state has been kept.';
+    return;
+  }
+  activateScenario(next, 'User-supplied fictional case', 'replacement');
+});
+byId('restore-scenario-editor').addEventListener('click', function () {
+  byId('scenario-input').value = editorBaseline;
+  clearError('scenario-error', 'scenario-input');
+  updateControls();
+  byId('scenario-input').focus();
+});
+byId('response-input').addEventListener('input', function () {
+  clearError('response-error', 'response-input');
+  if (mode !== 'skipped') { mode = lastAttempt ? 'revising' : 'draft'; }
+  updateControls();
+});
+byId('try-response').addEventListener('click', function () {
+  if (mode === 'skipped') { return; }
+  const value = byId('response-input').value;
+  if (!value.trim()) {
+    showError('response-error', 'response-input', 'Write a plan and its reasons, or a specific clarification request, before trying a response. You can also skip practice.');
+    updateControls();
+    return;
+  }
+  clearError('response-error', 'response-input');
+  const number = records.filter(function (record) { return record.kind === 'submitted' && record.caseId === current.id; }).length + 1;
+  const record = {
+    id: ++recordSequence,
+    kind: 'submitted',
+    caseId: current.id,
+    scenario: clone(current.scenario),
+    origin: current.origin,
+    text: value,
+    supportBefore: supportSnapshot(),
+    feedback: reflectionPrompts(),
+    responseNumber: number,
+    skipped: false
+  };
+  records.push(record);
+  lastAttempt = record;
+  sessionGuidanceShown = true;
+  mode = 'review';
+  renderFeedback();
+  renderHistory();
+  updateControls();
+  byId('feedback').focus();
+});
+byId('revise-response').addEventListener('click', function () {
+  mode = lastAttempt ? 'revising' : 'draft';
+  clearError('response-error', 'response-input');
+  renderFeedback();
+  updateControls();
+  const input = byId('response-input');
+  input.focus();
+  input.setSelectionRange(input.value.length, input.value.length);
+});
+byId('skip-practice').addEventListener('click', function () {
+  mode = 'skipped';
+  clearError('response-error', 'response-input');
+  renderFeedback();
+  updateControls();
+  byId('revise-response').focus();
+});
+byId('reset-practice').addEventListener('click', function () {
+  records = [];
+  lastAttempt = null;
+  copiedFrom = null;
+  current.previous = null;
+  byId('response-input').value = '';
+  mode = 'reset';
+  clearError('response-error', 'response-input');
+  renderCase();
+  renderFeedback();
+  renderHistory();
+  updateControls();
+  byId('response-input').focus();
+});
+byId('change-condition').addEventListener('click', function () {
+  if (!sameScenario(current.scenario, initialScenario) || !lastAttempt || editorIsDirty() || mode === 'skipped') { return; }
+  activateScenario(changedScenario, 'Starting-case condition change', 'change');
+});
+byId('copy-prior-response').addEventListener('click', function () {
+  if (mode === 'skipped' || !current.previous || !current.previous.text || byId('response-input').value.length !== 0) {
+    updateControls();
+    return;
+  }
+  byId('response-input').value = current.previous.text;
+  copiedFrom = current.previous.id;
+  mode = lastAttempt ? 'revising' : 'draft';
+  clearError('response-error', 'response-input');
+  updateControls();
+  byId('response-input').focus();
+});
+byId('scenario-input').value = editorBaseline;
+renderCase();
+renderFeedback();
+renderHistory();
+updateControls();
+}());
+</script>
+</body>
+</html>

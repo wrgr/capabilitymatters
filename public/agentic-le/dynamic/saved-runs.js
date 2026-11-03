@@ -40,11 +40,14 @@ export async function loadSavedRuns(openRecord) {
     if (!response.ok) throw new Error(`Index request returned HTTP ${response.status}.`);
     const entries = savedEntries(await response.json(), location.origin);
     if (!entries.length) return;
-    let entry = entries[0]; const note = el('p', 'muted', `Published status: ${entry.status}`), row = el('div', 'inline-controls');
+    const requested = new URLSearchParams(location.search).get('run');
+    let entry = entries.find(item => item.id === requested) ?? entries[0];
+    const note = el('p', 'muted', `Published status: ${entry.status}`), row = el('div', 'inline-controls');
     note.setAttribute('role', 'status');
     const trigger = button('Open saved conversation', () => openSaved(entry, openRecord, note, trigger));
     row.append(select('Published run', entry.id, entries.map(item => [item.id, item.label]), id => { entry = entries.find(item => item.id === id); note.textContent = `Published status: ${entry.status}`; }), trigger);
     node.replaceChildren(el('h2', '', 'Saved conversations'), el('p', '', 'Open a retained run to inspect its conversation, frozen versions, test observations and expert reviews. Execution mode and missing evidence are shown in the record.'), row, note); node.hidden = false;
+    if (entry.id === requested) await openSaved(entry, openRecord, note, trigger);
   } catch (error) {
     node.replaceChildren(el('h2', '', 'Saved conversations'), el('p', 'error-note', `Published records are unavailable: ${error.message} Local file import remains available.`)); node.hidden = false;
   }

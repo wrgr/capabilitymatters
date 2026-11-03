@@ -3,6 +3,7 @@
 import Base from '../../layouts/Base.astro';
 import AgenticNav from '../../components/AgenticNav.astro';
 import ResourceAbout from '../../components/ResourceAbout.astro';
+import DynamicPilotEvidence from '../../components/DynamicPilotEvidence.astro';
 import catalog from '../../data/lifecycle/dynamic-flower.json';
 const embeddedCatalog = JSON.stringify(catalog).replace(/</g, '\\u003c');
 ---
@@ -22,6 +23,7 @@ const embeddedCatalog = JSON.stringify(catalog).replace(/</g, '\\u003c');
       <p id="study-progress-status" class="muted" role="status" aria-live="polite">Loading the latest published progress snapshot…</p>
       <div id="study-progress-content"></div>
     </section>
+    <DynamicPilotEvidence />
     <aside class="local-notice"><strong>This is a local editing workspace.</strong> Edits and imports stay in this browser. Export a configuration to run with the repository’s local runner, then import its record. This hosted page does not call models.</aside>
     <section id="published-runs" class="workspace-card" aria-label="Saved published conversations" hidden></section>
     <p id="workspace-status" class="workspace-status" role="status" aria-live="polite">Loading the configuration editor…</p>
