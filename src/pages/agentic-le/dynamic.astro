@@ -1,0 +1,57 @@
+---
+/** Host the editable dynamic conversation workspace with explicit local execution and imported evidence. */
+import Base from '../../layouts/Base.astro';
+import AgenticNav from '../../components/AgenticNav.astro';
+import ResourceAbout from '../../components/ResourceAbout.astro';
+import catalog from '../../data/lifecycle/dynamic-flower.json';
+const embeddedCatalog = JSON.stringify(catalog).replace(/</g, '\\u003c');
+---
+<Base title="Dynamic flower experiments · Capability Matters" description="Edit bounded expertise, case constraints and test scenarios, then inspect addressed conversations and expert process and result evidence from the local runner.">
+  <link slot="head" rel="stylesheet" href="/agentic-le/dynamic/style.css" />
+  <AgenticNav active="dynamic" />
+  <div class="dynamic-lab">
+    <header class="dynamic-intro">
+      <p class="eyebrow">Learning engineering flower · Dynamic conversations</p>
+      <h1>Dynamic flower experiments</h1>
+      <ResourceAbout resource="agentic-dynamic-flower" />
+      <p>Give the team a problem, bounded expertise and room to respond to one another. Develop a solution, freeze a version, and test it under easy, medium and hard conditions. An expert evaluator examines the conversation and the result separately.</p>
+      <div class="phase-map" aria-label="Two phases"><div><span>01</span><strong>Design / Develop</strong><p>Questions, objections, decisions and implementation.</p></div><div><span>02</span><strong>Deploy / Test</strong><p>Frozen versions, scenario evidence and expert review.</p></div></div>
+    </header>
+    <aside class="local-notice"><strong>This is a local editing workspace.</strong> Edits and imports stay in this browser. Export a configuration to run with the repository’s local runner, then import its record. This hosted page does not call models.</aside>
+    <section id="published-runs" class="workspace-card" aria-label="Saved published conversations" hidden></section>
+    <p id="workspace-status" class="workspace-status" role="status" aria-live="polite">Loading the configuration editor…</p>
+    <div class="workspace-tabs" role="tablist" aria-label="Dynamic experiment workspace">
+      <button id="configuration-tab" role="tab" aria-selected="true" aria-controls="configuration-panel" data-panel="configuration-panel">Configuration</button>
+      <button id="record-tab" role="tab" aria-selected="false" aria-controls="record-panel" tabindex="-1" data-panel="record-panel">Run record</button>
+    </div>
+    <section id="configuration-panel" role="tabpanel" aria-labelledby="configuration-tab">
+      <div class="workspace-toolbar"><button id="export-config" class="primary" disabled>Export runnable configuration</button><button id="save-draft" disabled>Save local draft</button><button id="next-version" disabled>Create next version</button><label class="file-action">Import configuration<input id="config-import" type="file" accept="application/json,.json" /></label></div>
+      <p id="draft-status" class="muted">The configuration content hash identifies exact run inputs; its ID is your editable version label.</p>
+      <p id="config-error" class="error-note" role="alert" hidden></p>
+      <div class="config-grid">
+        <section class="workspace-card wide"><h2>Start with a small case</h2><div id="preset-controls"></div><div id="version-controls"></div><div id="case-editor"></div></section>
+        <section class="workspace-card"><h2>Bounded knowledge</h2><p class="muted">Specialists receive their assigned domains and brief. The generalist keeps a separate broad, introductory brief. These are prompt boundaries, not measured professional competence.</p><div id="knowledge-editor"></div></section>
+        <section class="workspace-card"><h2>Deployment scenarios</h2><p class="muted">Copied scenarios travel with the configuration. Their test facts are withheld from Design / Develop.</p><div id="scenario-editor"></div></section>
+        <section class="workspace-card"><h2>Introduce a user change</h2><p class="muted">Queue a new constraint or request after a specified turn. Export the changed configuration for the local runner.</p><div id="change-editor"></div></section>
+        <section class="workspace-card"><h2>Bounds and handoff</h2><div id="budget-editor"></div><details class="disclosure"><summary>Run this exported version locally</summary><p>From a checkout of the repository, save the exported JSON and create a new run. The manual commands below prepare a prompt and accept a response file. Provider execution is an explicit local-runner choice.</p><pre id="runner-commands" tabindex="0" role="region" aria-label="Local runner commands"></pre><button id="copy-commands">Copy commands</button><p>After Design / Develop, use <code>freeze</code> to pin an artifact version. Record browser evidence with <code>observe</code>, then run separate process and scenario evaluations with <code>evaluate</code>. Consult the runner’s <code>--help</code> for arguments.</p></details></section>
+      </div>
+      <details class="disclosure source-editor"><summary>Exact configuration JSON</summary><p>Form edits update this runnable JSON. Apply JSON edits before saving or exporting.</p><label class="field"><span>Configuration JSON</span><textarea id="config-source" rows="16" spellcheck="false"></textarea></label><button id="apply-config-json">Apply JSON to draft</button> <button id="reload-config-json">Reload JSON from form</button></details>
+    </section>
+    <section id="record-panel" role="tabpanel" aria-labelledby="record-tab" hidden>
+      <div class="workspace-toolbar"><label class="file-action">Import run record<input id="run-import" type="file" accept="application/json,.json" /></label><button id="export-run" disabled>Export original record</button><button id="copy-run-config" disabled>Copy configuration to a new draft</button></div>
+      <div id="run-summary" class="empty-state"><h2>No run imported</h2><p>Import the runner’s <code>run.json</code> to inspect messages, exact artifact versions, unresolved issues, and expert evidence. No demonstration scores or research results are generated by this page.</p></div>
+      <div id="record-content" hidden>
+        <div class="replay-controls"><button id="previous-event">Previous event</button><label for="event-range">Record position<input id="event-range" type="range" min="0" max="0" value="0" /></label><button id="next-event">Next event</button><button id="latest-event">Show full record</button><output id="event-position" for="event-range"></output></div>
+        <div id="conversation-phases" class="conversation-phases"></div>
+        <section class="workspace-card"><h2>Questions, objections and decisions</h2><div id="record-state"></div></section>
+        <section class="workspace-card"><h2>Artifact versions</h2><div id="record-artifacts"></div></section>
+        <section class="workspace-card"><h2>Deployment observations</h2><p>These are retained browser-runner observations for an exact frozen version and scenario. A declared check is a narrow test of the interface; it does not establish learning.</p><div id="record-observations"></div></section>
+        <section class="workspace-card expert-evidence"><h2>Expert evaluation</h2><p>Process and result remain separate. Criterion scores describe recorded expert judgments; they do not establish human learning. Unknown evidence stays unknown.</p><div id="record-evaluation"></div></section>
+        <details class="disclosure"><summary>Full scenario, configuration and record evidence</summary><div id="record-evidence"></div></details>
+      </div>
+    </section>
+    <noscript><p class="error-note">Enable JavaScript to edit or import a configuration. The <a href="/agentic-le/roles/">flower guide</a> remains readable without JavaScript.</p></noscript>
+  </div>
+  <script id="dynamic-catalog" type="application/json" is:inline set:html={embeddedCatalog}></script>
+  <script type="module" is:inline src="/agentic-le/dynamic/workspace.js"></script>
+</Base>

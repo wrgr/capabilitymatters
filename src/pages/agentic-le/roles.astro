@@ -8,11 +8,11 @@ import catalog from "../../data/lifecycle/flower-catalog.json";
 import historical from "../../data/lifecycle/resolved-roles.json";
 const flower = catalog.flower;
 const conditions = [
-  ["Full team", "Retain the configured assignments and available members.", "Reference contribution schedule."],
-  ["Domain omitted everywhere", "Withdraw the selected domain’s explicit instructions from every member.", "Retain members and contribution slots."],
-  ["Domain withdrawn from one member", "Withdraw that domain from one selected member; other assignments remain.", "Retain this member’s contribution slots; overlap may compensate."],
-  ["Member removed", "Remove the selected member’s contributions and all of their assigned domains.", "Report reduced work capacity separately."],
-  ["One agent with matched slots", "One identity covers the reference team’s contribution and coordination slots.", "Match opportunities and the duties exposed at each slot."],
+  ["Full team", "Retain the configured specialist assignments and available members.", "Route questions and objections dynamically within the common conversation budget."],
+  ["Domain omitted everywhere", "Withdraw the selected domain’s explicit instructions and approval authority from every member.", "Retain identities and make the expertise gap visible."],
+  ["Domain withdrawn from one member", "Withdraw that domain from one selected member; other assignments remain.", "Keep this member available to ask questions; assigned overlap may compensate."],
+  ["Member removed", "Remove the selected member and their available contributions.", "Retain any declared overlap held by other members; report actual participation."],
+  ["Broad but shallow generalist", "One generalist uses an introductory cross-domain brief and can make routine proposals and implementations.", "No specialist playbooks are injected into later turns; no specialist signoff is implied."],
 ];
 ---
 <Base title="Learning engineering flower · Capability Matters" description="Eight starting expertise domains, shared understanding, responsibilities to learners and stakeholders, and controlled team comparisons.">
@@ -48,14 +48,14 @@ const conditions = [
       <h2 id="comparisons-heading">Five comparisons ask different questions</h2>
       <p>Distinguish a missing responsibility from losing a member’s time and contribution opportunities. Fix the case facts, challenge schedule, execution settings, and coordination policy, then inspect what each contrast actually changes.</p>
       <div class="table-scroll" tabindex="0" role="region" aria-label="Five flower comparison conditions"><table><thead><tr><th scope="col">Condition</th><th scope="col">Change</th><th scope="col">Capacity and interpretation</th></tr></thead><tbody>{conditions.map(row => <tr>{row.map((cell, index) => index === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>)}</tr>)}</tbody></table></div>
-      <p>The default full team schedules forty calls across Understand, Map, Design, Build, Instrument, Experiment, Evaluate, and Refine: four contributions from each domain and eight coordinator decisions. Removing one default domain member leaves thirty-six calls; the other default conditions retain forty. Custom schedules must be resolved before comparison.</p>
+      <p>The revised tool uses dynamic Design / Develop conversations followed by Deploy / Test scenarios. Questions, replies, objections, user updates and unresolved issues determine the next contribution. A bounded conversation preserves its full accepted transcript. The earlier fixed-workflow study used forty scheduled calls, or thirty-six after member removal; those counts do not describe the revised protocol.</p>
       <p>Overlap may allow another member to identify a concern. Omission does not erase a model’s latent knowledge, and no condition is programmed to fail. Matching calls also does not match token volume, independent perspectives, or human effort.</p>
-      <p><a class="primary-link" href="/agentic-le/experiments/">Configure and compare flower teams</a></p>
+      <p><a class="primary-link" href="/agentic-le/dynamic/">Configure dynamic flower conversations</a></p>
     </section>
     <section aria-labelledby="evidence-heading">
       <h2 id="evidence-heading">Inspect the design and its evidence</h2>
       <p>The current protocol carries the shared case and integrated stage records into review. Keep the executable Build separate from later proposals: a recommendation to repair an artifact is not evidence that the repair was implemented. Freeze evidence-based ratings before revealing assignments.</p>
-      <p>The completed flower study reports actual generated solutions, fixed browser observations, and frozen model reviews for the five comparisons. Read the three axes separately, retain unknown values, and inspect each candidate’s source and evidence. These records do not establish human learning or causal effects in human teams.</p>
+      <p>The revised expert evaluation reads the complete design conversation, scenario conditions and observed browser evidence. It scores the process once per artifact version and the result separately for easy, medium and hard conditions. The preserved earlier study used a different fixed workflow and cannot validate the revised design. Neither agent judgments nor scripted browser observations establish human learning.</p>
       <p><a href="/agentic-le/flower-study/">Inspect the completed study and prototypes</a> · <a href="/agentic-le/paper/">Read Exploring the learning engineering flower with agentic simulation</a> · <a href="https://github.com/wrgr/capabilitymatters/tree/main/docs/lifecycle">Read the execution and evaluation documentation</a></p>
     </section>
     <details id="historical" class="historical">

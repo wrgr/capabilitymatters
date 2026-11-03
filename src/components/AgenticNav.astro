@@ -1,13 +1,14 @@
 ---
-interface Props { active?: "cases" | "replay" | "paper" | "roles" | "experiments" | "study" }
+interface Props { active?: "cases" | "replay" | "paper" | "roles" | "experiments" | "study" | "dynamic" }
 const { active } = Astro.props;
 const paperTitle = "Exploring the learning engineering flower with agentic simulation";
 const links = [
-  { id: "study", href: "/agentic-le/flower-study/", label: "Study results", title: paperTitle },
-  { id: "experiments", href: "/agentic-le/experiments/", label: "Experiment studio" },
+  { id: "dynamic", href: "/agentic-le/dynamic/", label: "Dynamic conversations" },
+  { id: "study", href: "/agentic-le/flower-study/", label: "Earlier study", title: paperTitle },
+  { id: "experiments", href: "/agentic-le/experiments/", label: "Fixed workflow studio" },
   { id: "cases", href: "/agentic-le/#cases", label: "All cases" },
-  { id: "replay", href: "/agentic-le/replay/?v=quality-6", label: "Replay" },
-  { id: "paper", href: "/agentic-le/paper/", label: "Working paper", title: paperTitle },
+  { id: "replay", href: "/agentic-le/replay/?v=quality-6", label: "Earlier replays" },
+  { id: "paper", href: "/agentic-le/paper/", label: "Earlier pilot paper", title: paperTitle },
   { id: "roles", href: "/agentic-le/roles/", label: "Team flower" },
 ];
 ---

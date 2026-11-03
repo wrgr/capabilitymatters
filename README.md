@@ -159,9 +159,91 @@ python3 tests/test_slick_sheet.py
 node --test tests/test_prototypes.mjs
 ```
 
-## Flower framework experiments
+## Dynamic Flower conversations
 
-The studio at `/agentic-le/experiments/` starts with the learning engineering
+The workspace at `/agentic-le/dynamic/` configures and replays the redesigned
+two-phase study. **Design/Develop** uses addressed questions, replies, objections,
+and domain reviews to choose the next speaker. **Deploy/Test** exercises a frozen
+HTML version under copied easy, medium, and hard scenarios. A separate evaluation
+agent reads the complete public conversation and actual test evidence, with
+process judgments and scenario-specific result judgments kept separate on all
+three axes. See the [dynamic study protocol](docs/lifecycle/dynamic-flower-study.md).
+
+The website edits configurations and imports saved runs; model calls use the local
+CLI. Export a configuration, edit its case, role knowledge briefs, budgets, or
+phase-timed user updates, then create a new run directory to pin those inputs:
+
+```sh
+python3 tools/lifecycle/dynamic_flower.py config \
+  --case feedback_handoff --condition generalist \
+  --output data/lifecycle/dynamic-example-config.json
+python3 tools/lifecycle/dynamic_flower.py create \
+  --config data/lifecycle/dynamic-example-config.json \
+  --output data/lifecycle/dynamic-example --mode live
+```
+
+Use an authenticated Codex CLI. Replace `YOUR_MODEL_ID` and the executable path
+with explicit available values. Creating a run makes no model calls; this command
+dispatches up to 24 conversational requests and retains every attempt:
+
+```sh
+python3 tools/lifecycle/dynamic_flower.py run \
+  --run data/lifecycle/dynamic-example --provider codex \
+  --model YOUR_MODEL_ID --executable /absolute/path/to/codex \
+  --effort low --max-calls 24
+python3 tools/lifecycle/dynamic_flower.py inspect --run data/lifecycle/dynamic-example
+```
+
+The defaults cap Design/Develop at 24 requests and Deploy/Test at 12, including
+failed responses and evaluator calls. The complete accepted public conversation
+is retained; exceeding the context cap stops the run instead of truncating it.
+A stopped or unfinished conversation is not a completed artifact. Inspect the
+retained state and resolve open issues before an explicit freeze:
+
+```sh
+python3 tools/lifecycle/dynamic_flower.py freeze --run data/lifecycle/dynamic-example
+node scripts/test-dynamic-flower.mjs \
+  --frozen data/lifecycle/dynamic-example/frozen/v001.json \
+  --output data/lifecycle/dynamic-example/observations/v001
+for evidence in data/lifecycle/dynamic-example/observations/v001/*.json; do
+  python3 tools/lifecycle/dynamic_flower.py observe \
+    --run data/lifecycle/dynamic-example --evidence "$evidence"
+done
+```
+
+Use the actual version emitted by `freeze`; `v001` is an example. The observer
+requires Playwright Chromium (`npx playwright install --with-deps chromium`) or
+an installed browser passed with `--executable`. It records real browser actions,
+failed checks, and unavailable evidence. Mechanical checks do not establish
+semantic correctness or human learning. Repairs create a new artifact version
+that must be frozen and tested separately.
+
+After importing all three scenario records, request one process evaluation
+without `--scenario`, and one result evaluation for each scenario:
+
+```sh
+python3 tools/lifecycle/dynamic_flower.py evaluate \
+  --run data/lifecycle/dynamic-example --provider codex \
+  --model YOUR_MODEL_ID --executable /absolute/path/to/codex --effort low
+for scenario in feedback_handoff_easy feedback_handoff_medium feedback_handoff_hard; do
+  python3 tools/lifecycle/dynamic_flower.py evaluate \
+    --run data/lifecycle/dynamic-example --scenario "$scenario" --provider codex \
+    --model YOUR_MODEL_ID --executable /absolute/path/to/codex --effort low
+done
+```
+
+Each evaluation is a separate model invocation, with exact evidence references
+and explicit unknowns. The evaluator is operationally separate from the authors;
+its judgments do not establish human expertise or independent statistical evidence.
+CI can execute frozen artifacts listed in `data/lifecycle/dynamic-study/manifest.json`
+and retain the `dynamic-flower-observations` artifact without any model credentials
+or calls. Offline tests and scripted interface fixtures verify software behavior;
+they are not live study results.
+
+## Earlier fixed-workflow experiments
+
+The retained studio at `/agentic-le/experiments/` uses the earlier fixed workflow,
+starting with the learning engineering
 flower's eight expertise domains, a coordinator, and shared responsibility for
 understanding learners and stakeholders. The default schedules forty calls over
 eight stages. Domain instructions, member identity, behavior, authority, and work

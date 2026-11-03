@@ -115,7 +115,7 @@
   "agentic-le": {
     "what": "A flower-based experiment studio and a collection of preserved agent runs on fictional problems. Configure team contributions, examine the original journals and candidate tools, and identify the observations still needed with real learners and practitioners.",
     "how": [
-      "Open the experiment studio to inspect the eight flower domains and configure a team or a five-condition comparison.",
+      "Open Dynamic conversations to configure Design / Develop roles and an editable case, then inspect easy/medium/hard Deploy / Test conditions.",
       "Choose an earlier case and replay its original discussion. Compare a challenge, decision, and artifact; those records retain their original team assignments.",
       "Inspect the requirements and manifest. Name an affected-person review or field observation that could challenge the candidate before use."
     ],
@@ -126,8 +126,8 @@
         "href": "/agentic-le/roles/"
       },
       {
-        "label": "Current methods working paper",
-        "href": "/agentic-le/paper/"
+        "label": "Dynamic conversations and deployment tests",
+        "href": "/agentic-le/dynamic/"
       }
     ]
   },
@@ -168,14 +168,14 @@
     "what": "A guide to the learning engineering flower and its eight starting expertise domains, shared learner and stakeholder responsibilities, and controlled team comparisons. Earlier role contracts remain available for interpreting historical runs.",
     "how": [
       "Inspect the flower and choose a domain to examine its requested contribution. Consider which expertise the particular challenge needs.",
-      "Open the experiment studio, assign a domain to one or several members, and compare global omission, member-specific withdrawal, member removal, and one agent using matched slots.",
+      "Open Dynamic conversations, inspect each actor’s expertise and knowledge brief, and compare expertise omission, withdrawal, member removal and a broad but shallow generalist.",
       "Use the historical roster section when interpreting an earlier replay; retain the assignments and evidence from that run."
     ],
     "connection": "Shared understanding connects domain contributions into a coherent design. Team composition may change with the challenge and stage. Flower domains organize expertise; they are not validated individual competency scores or a replacement for involving learners and stakeholders. LENS foundations remain Human flourishing, Learning sciences, and Systems engineering.",
     "links": [
       {
-        "label": "Configure flower experiments",
-        "href": "/agentic-le/experiments/"
+        "label": "Configure dynamic flower conversations",
+        "href": "/agentic-le/dynamic/"
       },
       {
         "label": "Learning engineering is a team sport",
@@ -428,7 +428,7 @@
     "connection": "The paper develops the conceptual LENS frame used across these resources. Use it to question whether a polished artifact, an immediate performance and durable learning are being confused; the proposed frame remains open to community discussion."
   },
   "agentic-paper": {
-    "what": "Exploring the learning engineering flower with agentic simulation reports the new five-condition study, its actual retained solutions, fixed browser observations, and frozen model reviews. It distinguishes design evidence and generated proposals from human outcomes.",
+    "what": "The preserved earlier fixed-workflow pilot paper. Its original results concern scheduled learning-resource generation and artifact review; they do not evaluate the revised dynamic-conversation protocol.",
     "how": [
       "Read the controlled comparisons and review method before interpreting the results. The study varies explicit expertise instructions and contribution opportunities in one fictional scenario.",
       "Follow the completed-study link to inspect condition means, individual reviewer pairs, unknown values, browser coverage, and the exact generated prototypes.",
@@ -436,6 +436,10 @@
     ],
     "connection": "The paper connects multidisciplinary integration to the LENS capability cycle. Its simulation represents explicit responsibilities around shared understanding while assessing human flourishing support, system performance, and learning as separate dimensions of the available evidence.",
     "links": [
+      {
+        "label": "Revised dynamic-conversation tool",
+        "href": "/agentic-le/dynamic/"
+      },
       {
         "label": "Completed study results and prototypes",
         "href": "/agentic-le/flower-study/"
@@ -505,7 +509,7 @@
     ]
   },
   "agentic-experiments": {
-    "what": "A configurable simulation organized around the learning engineering flower: eight starting expertise domains, shared understanding, and responsibilities to learners and other stakeholders. Configure and export experiments here; a local runner executes new model calls. Saved historical journals keep their original assignments.",
+    "what": "The earlier fixed-workflow experiment studio, preserved for its configurations and original records. New work on dynamic conversations and two-phase deployment tests uses the separate revised tool.",
     "how": [
       "Choose a fictional scenario and the full flower team. Inspect domain assignments, overlapping responsibilities, behavioral settings, conditions, and fixed challenges.",
       "In Review & run, choose Flower: five conditions and the domain and member to compare. Inspect call counts: domain omissions preserve contribution opportunities, while member removal changes capacity. Export configuration or run through the local runner.",
@@ -515,6 +519,10 @@
     ],
     "connection": "The flower organizes complementary contributions around shared understanding. Learner and stakeholder responsibilities remain shared; represented expertise does not establish proficiency. LENS retains Human flourishing, Learning sciences, and Systems engineering as its foundations. The evidence scorecard separately examines human flourishing support, system performance, and learning; simulated outputs do not establish outcomes with people.",
     "links": [
+      {
+        "label": "Revised dynamic-conversation tool",
+        "href": "/agentic-le/dynamic/"
+      },
       {
         "label": "Existing agentic case replay",
         "href": "/agentic-le/replay/"
@@ -535,7 +543,7 @@
     "connection": "Learning engineering connects designed contributions to evidence about what learners and systems can do. LENS also asks whether people have agency, access, and viable conditions for action. Withholding assignment labels helps test the artifact rather than reward the intended expertise, while modeled uncertainty makes incomplete evidence and contextual assumptions visible. These task-level indices do not establish observed learning gains or human flourishing."
   },
   "agentic-flower-study": {
-    "what": "The completed five-condition learning engineering flower study. It presents separate rubric indices from frozen model reviews, observed browser coverage, missing evidence, and the exact retained Build prototypes. No human outcomes were measured.",
+    "what": "The preserved earlier fixed-workflow pilot: separate rubric indices, browser coverage, missing evidence and retained Build prototypes. These results do not evaluate the revised dynamic-conversation protocol. No human outcomes were measured.",
     "how": [
       "Compare each of the three axes separately. Read the known/planned counts, standard deviations, and unknown values before interpreting a condition mean.",
       "Open a repetition. Included candidates show two reviewer indices, browser-check states, an exact source fingerprint, and an isolated preview. Excluded candidates retain the reason and have no evaluated preview.",
@@ -543,6 +551,10 @@
     ],
     "connection": "The study makes expertise assignments, shared understanding, and work allocation inspectable across the LENS capability cycle. The flower organizes contributing domains; human flourishing support, system performance, and learning remain distinct evidence questions.",
     "links": [
+      {
+        "label": "Revised dynamic-conversation tool",
+        "href": "/agentic-le/dynamic/"
+      },
       {
         "label": "Study paper and methods",
         "href": "/agentic-le/paper/"
@@ -554,6 +566,29 @@
       {
         "label": "Experiment studio",
         "href": "/agentic-le/experiments/"
+      }
+    ]
+  },
+  "agentic-dynamic-flower": {
+    "what": "A configurable two-phase tool: dynamic Design / Develop conversations, then Deploy / Test on a frozen learning resource under easy, medium and hard conditions. The public editor changes and exports configurations and reads retained records; model execution uses the local runner.",
+    "how": [
+      "Choose a modest case and team condition. Edit the case brief, specialist or generalist knowledge, scenario conditions, and any user change; export the configuration.",
+      "Run the exported configuration with the local runner, freeze an artifact version and record the three deployment tests. Import the run to inspect questions, replies, objections and decisions.",
+      "Read expert process and result assessments separately. An update produces a new version and another test set; preserve missing evidence and earlier results."
+    ],
+    "connection": "The flower organizes complementary expertise around shared understanding. The tool makes that understanding inspectable through actual exchanges and changes to a solution. Human flourishing, Learning sciences, and Systems engineering remain the LENS foundations. Role permissions do not erase model knowledge, and agentic judgments do not establish human learning outcomes.",
+    "links": [
+      {
+        "label": "Revised study protocol",
+        "href": "https://github.com/wrgr/capabilitymatters/blob/main/docs/lifecycle/dynamic-flower-study.md"
+      },
+      {
+        "label": "Flower domains and responsibilities",
+        "href": "/agentic-le/roles/"
+      },
+      {
+        "label": "Earlier fixed-workflow evidence",
+        "href": "/agentic-le/flower-study/"
       }
     ]
   }

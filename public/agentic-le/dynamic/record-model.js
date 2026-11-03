@@ -1,0 +1,125 @@
+/** Verify imported record fingerprints and derive replay state from explicit addressed events. */
+import {validateConfig, PHASES} from './config-model.js';
+const require = (condition, message) => { if (!condition) throw new Error(message); };
+const messages = events => events.filter(event => event.kind === 'message');
+
+function compareKeys(left, right) {
+  const a = [...left].map(char => char.codePointAt(0)), b = [...right].map(char => char.codePointAt(0));
+  for (let index = 0; index < Math.min(a.length, b.length); index++) if (a[index] !== b[index]) return a[index] - b[index];
+  return a.length - b.length;
+}
+
+/** @param {unknown} value @returns {string} Serialize the integer-only wire format using Python-compatible sorted keys. */
+export function canonical(value) {
+  if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
+  if (value && typeof value === 'object') return `{${Object.keys(value).sort(compareKeys).map(key => `${canonical(key)}:${canonical(value[key])}`).join(',')}}`;
+  if (typeof value === 'number') require(Number.isSafeInteger(value), 'Dynamic records require safe integer numeric values.');
+  if (typeof value === 'string') require(![...value].some(char => char.codePointAt(0) >= 0xd800 && char.codePointAt(0) <= 0xdfff), 'Unpaired Unicode surrogate in record.');
+  require(value === null || ['string', 'number', 'boolean'].includes(typeof value), 'Record contains a non-JSON value.');
+  return JSON.stringify(value);
+}
+
+/** @param {string} value @returns {Promise<string>} Fingerprint exact UTF-8 source bytes in the browser. */
+export async function textHash(value) {
+  const bytes = new TextEncoder().encode(value), digest = await crypto.subtle.digest('SHA-256', bytes);
+  return [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, '0')).join('');
+}
+
+/** @param {unknown} value @returns {Promise<string>} Fingerprint canonical run or configuration content. */
+export const contentHash = value => textHash(canonical(value));
+
+function checkMessage(event, actors, prior) {
+  const value = event.payload?.response, actor = actors.get(event.actor);
+  require(actor && actor.kind !== 'evaluator' && value && typeof value.content === 'string', `Invalid message at event ${event.seq}.`);
+  require(event.payload.message_id === `m${String(event.seq).padStart(5, '0')}`, 'Message ID differs from its event.');
+  for (const key of ['to', 'reply_to', 'domains']) require(Array.isArray(value[key]) && value[key].every(item => typeof item === 'string'), `Invalid message ${key}.`);
+  require(value.to.length > 0 && value.to.every(id => actors.has(id) && id !== event.actor && actors.get(id).kind !== 'evaluator'), 'Message has an invalid addressee.');
+  require(value.domains.every(id => actor.domains.includes(id)), 'Message claims expertise outside the actor’s assignments.');
+  require(value.reply_to.every(id => prior.has(id)), 'Message references an unavailable earlier message.');
+  if (value.kind === 'approval') require(actor.kind === 'specialist' && value.domains.length, 'Only an assigned specialist can approve its domains.');
+  if (value.kind === 'resolve') require(prior.get(value.issue_id)?.actor === event.actor && prior.get(value.issue_id)?.payload.response.kind === 'objection' && value.reply_to.includes(value.issue_id), 'An objection can only be withdrawn by its author.');
+}
+
+async function checkArtifact(event, prior, previousVersion) {
+  const value = event.payload, source = prior.get(value.message_id), artifact = source?.payload.response.artifact;
+  require(value.version === previousVersion + 1 && source?.actor === event.actor && typeof artifact?.html === 'string', 'Artifact lacks a sequential implementing source.');
+  require(await textHash(artifact.html) === value.sha256 && artifact.parent_version === value.parent_version, 'Artifact source or parent differs from the retained binding.');
+}
+
+function checkEvaluation(event) {
+  const value = event.payload;
+  require(['process', 'result'].includes(value.scope) && Array.isArray(value.scores), 'Invalid expert evaluation.');
+  for (const row of value.scores) {
+    require(typeof row.dimension_id === 'string' && (row.score === null || Number.isInteger(row.score) && row.score >= 0 && row.score <= 4), 'An expert criterion must be an integer 0–4 or unknown.');
+    require(typeof row.rationale === 'string' && Array.isArray(row.evidence_refs), 'An expert criterion needs its rationale and evidence references.');
+    for (const ref of row.evidence_refs) require(['event', 'html', 'rendered'].includes(ref.source) && typeof ref.id === 'string' && typeof ref.quote === 'string', 'Invalid evaluator evidence reference.');
+  }
+}
+
+async function checkObservation(run, event) {
+  const value = event.payload.evidence, frozen = run.events.find(item => item.seq < event.seq && item.kind === 'frozen' && item.payload.artifact_version === value?.artifact_version);
+  const scenario = run.config.scenarios.find(item => item.id === value?.scenario_id);
+  require(value?.schema_version === 'dynamic-flower-observation-1' && value.run_id === run.id, 'Observation belongs to another record or contract.');
+  require(frozen && frozen.payload.artifact_sha256 === value.artifact_sha256, 'Observation is not bound to a prior frozen artifact.');
+  require(scenario && await contentHash(scenario) === value.scenario_sha256 && await contentHash(value) === event.payload.evidence_sha256, 'Observation evidence or scenario fingerprint differs.');
+  require(['browser_observation', 'fixture'].includes(value.evidence_kind) && (run.mode === 'fixture' || value.evidence_kind !== 'fixture'), 'Observation origin conflicts with the execution mode.');
+  require(['observed', 'failed', 'unavailable'].includes(value.status), 'Invalid observation status.');
+  for (const field of ['actions', 'checks', 'runtime_errors', 'network_requests', 'limitations']) require(Array.isArray(value[field]), `Observation is missing ${field}.`);
+  for (const action of value.actions) require(typeof action.id === 'string' && ['observed', 'failed', 'unavailable'].includes(action.status), 'Invalid observed action.');
+  for (const check of value.checks) require(typeof check.id === 'string' && ['pass', 'fail', 'unavailable'].includes(check.status), 'Invalid declared check observation.');
+}
+
+/** @param {object} run @returns {Promise<object>} Verify imported input pins, metadata, event links and artifact sources before display. */
+export async function verifyRecord(run) {
+  require(run?.schema_version === 'dynamic-flower-run-1' && ['manual', 'live', 'fixture'].includes(run.mode), 'Choose a dynamic-flower-run-1 record with an explicit execution mode.');
+  validateConfig(run.config, run.catalog);
+  require(await contentHash(run.config) === run.config_sha256 && await contentHash(run.catalog) === run.catalog_sha256, 'The record’s configuration or catalog fingerprint does not match.');
+  require(Array.isArray(run.events) && run.events.length > 0 && run.events[0].kind === 'created', 'The record is missing its creation event.');
+  const metadata = Object.fromEntries(Object.entries(run).filter(([key]) => key !== 'events'));
+  require(canonical(run.events[0].payload) === canonical(metadata), 'Record metadata differs from its creation event.');
+  const actors = new Map(run.config.agents.map(agent => [agent.id, agent])), prior = new Map();
+  let previous = '0'.repeat(64), version = 0;
+  for (const [index, event] of run.events.entries()) {
+    const base = Object.fromEntries(Object.entries(event).filter(([key]) => key !== 'hash'));
+    require(event.seq === index + 1 && event.prev_hash === previous && await contentHash(base) === event.hash, `Event integrity failed at ${index + 1}.`);
+    if (event.kind === 'message') { checkMessage(event, actors, prior); prior.set(event.payload.message_id, event); }
+    if (event.kind === 'artifact') { await checkArtifact(event, prior, version); version = event.payload.version; }
+    if (event.kind === 'observation') await checkObservation(run, event);
+    if (event.kind === 'evaluation') checkEvaluation(event);
+    previous = event.hash;
+  }
+  return run;
+}
+
+function outstanding(events) {
+  const publicMessages = messages(events), questions = [], objections = [];
+  for (const event of publicMessages) {
+    const value = event.payload.response, id = event.payload.message_id;
+    const replies = publicMessages.filter(item => item.payload.response.reply_to.includes(id));
+    if (value.kind === 'question') {
+      const answered = new Set(replies.filter(item => ['answer', 'implementation', 'approval', 'objection'].includes(item.payload.response.kind)).map(item => item.actor));
+      const pending = value.to.filter(actor => !answered.has(actor));
+      if (pending.length) questions.push({id, actor: event.actor, pending, content: value.content});
+    }
+    if (value.kind === 'objection' && !replies.some(item => item.actor === event.actor && item.payload.response.kind === 'resolve' && item.payload.response.issue_id === id)) {
+      objections.push({id, actor: event.actor, to: value.to, content: value.content, replies: replies.map(item => item.actor)});
+    }
+  }
+  return {questions, objections};
+}
+
+/** @param {object} run @param {number} cursor @returns {object} Derive issues and decisions only from events visible at the replay cursor. */
+export function replayState(run, cursor) {
+  const events = run.events.filter(event => event.seq <= cursor), publicMessages = messages(events), {questions, objections} = outstanding(events);
+  const artifacts = events.filter(event => event.kind === 'artifact'), frozen = events.filter(event => event.kind === 'frozen');
+  const current = artifacts.at(-1)?.payload ?? null, latestUpdate = Math.max(0, ...events.filter(event => event.kind === 'user_update').map(event => event.seq));
+  const reviews = current ? Object.fromEntries(run.catalog.domains.map(domain => [domain.id, 'not_reviewed'])) : {};
+  for (const event of publicMessages) if (event.seq > latestUpdate && event.payload.response.kind === 'approval' && event.payload.response.artifact_version === current?.version) {
+    for (const id of event.payload.response.domains) reviews[id] = 'approved';
+  }
+  return {events, messages: publicMessages, questions, objections, artifacts, frozen,
+    phase: frozen.length ? 'deploy_test' : 'design_develop', current_artifact: current, review_status: reviews,
+    turns: Object.fromEntries(PHASES.map(([id]) => [id, events.filter(event => event.kind === 'request' && event.phase === id).length])),
+    decisions: publicMessages.filter(event => event.payload.response.kind === 'decision'),
+    observations: events.filter(event => event.kind === 'observation'), evaluations: events.filter(event => event.kind === 'evaluation')};
+}

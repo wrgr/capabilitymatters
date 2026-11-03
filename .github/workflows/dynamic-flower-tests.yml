@@ -1,0 +1,247 @@
+# Validate the dynamic study and retain real browser observations without model calls.
+name: Dynamic Flower browser evidence
+
+on:
+  push:
+    paths:
+      - '.github/workflows/dynamic-flower-tests.yml'
+      - 'tools/lifecycle/dynamic_*.py'
+      - 'tools/lifecycle/tests/test_dynamic*.py'
+      - 'src/data/lifecycle/dynamic-flower.json'
+      - 'src/pages/agentic-le/dynamic.astro'
+      - 'public/agentic-le/dynamic/**'
+      - 'scripts/test-dynamic-flower.mjs'
+      - 'tests/test_dynamic_flower*.mjs'
+      - 'data/lifecycle/dynamic-study/**'
+      - 'package.json'
+      - 'package-lock.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      ASTRO_TELEMETRY_DISABLED: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Check out the exact revision
+        id: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Create the evidence destination
+        if: always()
+        run: mkdir -p dynamic-flower-observations
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        id: dependencies
+        run: npm ci
+
+      - name: Install the browser
+        id: chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Validate runtime, observer, and interface contracts without model calls
+        id: contracts
+        if: ${{ always() && steps.dependencies.outcome == 'success' }}
+        run: |
+          python3 -m unittest discover -s tools/lifecycle/tests -p 'test_dynamic*.py'
+          node --test tests/test_dynamic_flower_observer.mjs
+          node tests/test_dynamic_flower_ui.mjs
+
+      - name: Build the site
+        id: build
+        if: ${{ always() && steps.dependencies.outcome == 'success' }}
+        run: npm run build
+
+      - name: Check resource guides in the browser
+        id: resource_browser
+        if: ${{ always() && steps.dependencies.outcome == 'success' && steps.build.outcome == 'success' }}
+        run: npm run test:resource-about:browser
+        env:
+          RESOURCE_ABOUT_OUTPUT: dynamic-flower-observations/resource-guides
+
+      - name: Check the dynamic interface in the browser
+        id: dynamic_browser
+        if: ${{ always() && steps.dependencies.outcome == 'success' && steps.build.outcome == 'success' }}
+        run: node tests/test_dynamic_flower_browser.mjs dynamic-flower-observations/dynamic-interface
+
+      # This still runs after an installation or UI failure. The observer retains
+      # unavailable scenarios if Chromium cannot launch; a failure is never a score.
+      - name: Observe every declared frozen artifact
+        id: frozen_observer
+        if: always()
+        run: |
+          python3 - <<'PY'
+          """Run the existing observer on pinned manifest paths and retain every attempt."""
+          import hashlib
+          import json
+          import os
+          import subprocess
+          import sys
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          ROOT = Path.cwd().resolve()
+          STUDY = ROOT / "data/lifecycle/dynamic-study"
+          OUTPUT = ROOT / "dynamic-flower-observations"
+          MANIFEST = STUDY / "manifest.json"
+          OBSERVER = ROOT / "scripts/test-dynamic-flower.mjs"
+
+          def descriptor(path: Path) -> dict:
+              """Describe exact retained input or output bytes relative to the checkout."""
+              data = path.read_bytes()
+              return {"path": str(path.relative_to(ROOT)), "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
+
+          def write_json(path: Path, value: dict) -> None:
+              """Write a CI index without altering any study input or observation."""
+              path.parent.mkdir(parents=True, exist_ok=True)
+              path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
+
+          def frozen_path(value: str) -> Path:
+              """Reject absolute paths, traversal, and links outside the study tree."""
+              if not isinstance(value, str) or "\\" in value or Path(value).is_absolute():
+                  raise ValueError("Each frozen_path must be a repository-relative path")
+              lexical = Path(value)
+              if ".." in lexical.parts or not lexical.is_relative_to(Path("data/lifecycle/dynamic-study")):
+                  raise ValueError("Frozen inputs must remain under data/lifecycle/dynamic-study/")
+              resolved = (ROOT / lexical).resolve(strict=True)
+              if not resolved.is_relative_to(STUDY) or not resolved.is_file():
+                  raise ValueError("Frozen input escapes the study tree or is not a file")
+              return resolved
+
+          def evidence_files(directory: Path) -> list[dict]:
+              """Index source-bound observations, including explicit failures and unknowns."""
+              records = []
+              for path in sorted(directory.glob("*.json")):
+                  record = descriptor(path)
+                  try:
+                      value = json.loads(path.read_text(encoding="utf-8"))
+                      if not isinstance(value, dict):
+                          raise ValueError("Observation must be a JSON object")
+                      record.update({key: value.get(key) for key in (
+                          "run_id", "artifact_version", "artifact_sha256", "scenario_id", "scenario_sha256", "status", "evidence_kind")})
+                      record["failed_checks"] = sum(item.get("status") == "fail" for item in value.get("checks", []))
+                      record["unavailable_checks"] = sum(item.get("status") == "unavailable" for item in value.get("checks", []))
+                  except (ValueError, TypeError) as error:
+                      record["index_error"] = str(error)
+                  records.append(record)
+              return records
+
+          def observe(index: int, value: str) -> dict:
+              """Attempt one version once, retaining stdout, stderr, and partial observations."""
+              folder = OUTPUT / "frozen-artifacts" / f"{index:04d}"
+              folder.mkdir(parents=True, exist_ok=False)
+              result = {"declared_frozen_path": value, "status": "observer_failed", "started_at_utc": datetime.now(timezone.utc).isoformat()}
+              try:
+                  selected = frozen_path(value)
+                  frozen = json.loads(selected.read_text(encoding="utf-8"))
+                  run_root = selected.parent.parent
+                  html = (run_root / frozen["artifact_file"]).resolve(strict=True)
+                  if not html.is_relative_to(run_root) or html.suffix != ".html":
+                      raise ValueError("Artifact bytes must stay inside their frozen run")
+                  result.update({"frozen_input": descriptor(selected), "artifact_input": descriptor(html)})
+                  command = ["node", str(OBSERVER), "--frozen", str(selected), "--output", str(folder / "observations")]
+                  with (folder / "stdout.txt").open("w") as stdout, (folder / "stderr.txt").open("w") as stderr:
+                      completed = subprocess.run(command, cwd=ROOT, stdout=stdout, stderr=stderr, timeout=600, check=False)
+                  result["exit_code"] = completed.returncode
+                  result["status"] = "observer_completed" if completed.returncode == 0 else "observer_failed"
+                  records = evidence_files(folder / "observations")
+                  expected = {scenario["id"] for scenario in frozen["scenarios"]}
+                  bound = {record.get("scenario_id") for record in records} == expected and len(records) == len(expected)
+                  for record in records:
+                      bound = bound and all(record.get(key) == frozen[key] for key in ("run_id", "artifact_version", "artifact_sha256"))
+                      bound = bound and record.get("scenario_sha256") == frozen["scenario_hashes"].get(record.get("scenario_id"))
+                  result["coverage_and_binding_verified"] = bound
+                  if not bound:
+                      result.update({"status": "observer_failed", "error": "Observation coverage or frozen-version binding mismatch"})
+              except (OSError, ValueError, KeyError, TypeError, subprocess.TimeoutExpired) as error:
+                  result["error"] = str(error)
+              result["observations"] = evidence_files(folder / "observations")
+              result["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
+              write_json(folder / "invocation.json", result)
+              return result
+
+          def main() -> int:
+              """Preserve absent-manifest status and continue after an individual observer failure."""
+              OUTPUT.mkdir(parents=True, exist_ok=True)
+              index = {"schema_version": "dynamic-flower-ci-evidence-1", "commit": os.environ.get("GITHUB_SHA"),
+                       "workflow_run_id": os.environ.get("GITHUB_RUN_ID"), "workflow_attempt": os.environ.get("GITHUB_RUN_ATTEMPT"),
+                       "status": "not_started", "model_calls": 0, "invocations": []}
+              failed = False
+              try:
+                  index["observer_source"] = descriptor(OBSERVER)
+                  index["workflow_source"] = descriptor(ROOT / ".github/workflows/dynamic-flower-tests.yml")
+                  if not MANIFEST.exists():
+                      index["status"] = "no_frozen_study_manifest"
+                  else:
+                      index["manifest"] = descriptor(MANIFEST)
+                      manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+                      paths = manifest.get("frozen_paths")
+                      if not isinstance(paths, list) or not all(isinstance(value, str) for value in paths) or len(set(paths)) != len(paths):
+                          raise ValueError("Manifest frozen_paths must be a list of unique strings")
+                      for ordinal, value in enumerate(paths, 1):
+                          index["invocations"].append(observe(ordinal, value))
+                      failed = any(item["status"] != "observer_completed" for item in index["invocations"])
+                      index["status"] = "observer_failures_retained" if failed else "all_declared_versions_observed" if paths else "no_frozen_versions_declared"
+              except (OSError, ValueError, TypeError, AttributeError) as error:
+                  index.update({"status": "manifest_or_runner_error", "error": str(error)})
+                  failed = True
+              finally:
+                  write_json(OUTPUT / "frozen-artifact-index.json", index)
+                  print(json.dumps({"status": index["status"], "versions": len(index["invocations"]), "model_calls": 0}))
+              return int(failed)
+
+          sys.exit(main())
+          PY
+
+      - name: Retain CI stage outcomes
+        if: always()
+        env:
+          CHECKOUT_OUTCOME: ${{ steps.checkout.outcome }}
+          DEPENDENCIES_OUTCOME: ${{ steps.dependencies.outcome }}
+          CHROMIUM_OUTCOME: ${{ steps.chromium.outcome }}
+          CONTRACTS_OUTCOME: ${{ steps.contracts.outcome }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+          RESOURCE_BROWSER_OUTCOME: ${{ steps.resource_browser.outcome }}
+          DYNAMIC_BROWSER_OUTCOME: ${{ steps.dynamic_browser.outcome }}
+          FROZEN_OBSERVER_OUTCOME: ${{ steps.frozen_observer.outcome }}
+        run: |
+          python3 - <<'PY'
+          """Retain pipeline failures separately from observed artifact behavior."""
+          import json
+          import os
+          from pathlib import Path
+          output = Path("dynamic-flower-observations")
+          output.mkdir(parents=True, exist_ok=True)
+          result = {"commit": os.environ.get("GITHUB_SHA"), "workflow_run_id": os.environ.get("GITHUB_RUN_ID"),
+                    "workflow_attempt": os.environ.get("GITHUB_RUN_ATTEMPT"), "model_calls": 0,
+                    "stages": {key.removesuffix("_OUTCOME").lower(): value for key, value in os.environ.items() if key.endswith("_OUTCOME")}}
+          (output / "ci-status.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+          PY
+
+      - name: Upload observations and failed attempts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dynamic-flower-observations
+          path: dynamic-flower-observations/
+          if-no-files-found: warn
+          retention-days: 90

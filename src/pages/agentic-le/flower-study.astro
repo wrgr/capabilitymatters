@@ -1,5 +1,5 @@
 ---
-/** Present frozen study indices, observed browser coverage, and exact isolated prototypes. */
+/** Preserve the earlier fixed-workflow results while directing new work to the dynamic protocol. */
 import Base from "../../layouts/Base.astro";
 import AgenticNav from "../../components/AgenticNav.astro";
 import ResourceAbout from "../../components/ResourceAbout.astro";
@@ -17,10 +17,10 @@ const checkState = (candidate, key) => candidate.browser?.checks?.find(check => 
   <AgenticNav active="study" />
   <div class="study-shell">
     <header>
-      <p class="eyebrow">Learning engineering flower · Actual study records</p>
+      <p class="eyebrow">Earlier fixed workflow · Preserved study records</p>
       <h1>{STUDY_TITLE}</h1>
       <ResourceAbout resource="agentic-flower-study" />
-      <div class="study-banner"><strong>Generation records and model reviews frozen</strong><p>Publication data prepared <time datetime={index.prepared_at_utc}>{published}</time>. This view replaces the meeting snapshot with the complete planned candidate set, including missing evidence.</p></div>
+      <div class="study-banner"><strong>Earlier fixed-workflow pilot</strong><p>These frozen results describe the earlier scheduled authoring workflow. They do not evaluate the revised dynamic conversations, expertise boundaries, or easy/medium/hard deployment tests. <a href="/agentic-le/dynamic/">Open the revised two-phase tool</a>. Original publication data prepared <time datetime={index.prepared_at_utc}>{published}</time>.</p></div>
       <p>Five configurations addressed the same fictional challenge: helping new team leads practise a difficult feedback conversation. Three repetitions were planned per configuration. The results describe generated learning solutions and repeated model judgments; no human outcomes were measured.</p>
       <nav class="page-actions" aria-label="Study sections"><a class="primary" href="#results">Compare the three axes</a><a href="#prototypes">Inspect the prototypes</a><a href="/agentic-le/paper/">Read the paper</a><button id="copy-link">Copy study link</button><span id="copy-status" role="status" aria-live="polite"></span></nav>
       <div class="metrics"><div><strong>{view.buildCount}/{index.planned_candidates}</strong><span>evaluated Build previews</span></div><div><strong>{results.accepted_review_count}/{results.review_count}</strong><span>accepted model-review attempts</span></div><div><strong>{qa.bound_candidates}/{index.planned_candidates}</strong><span>candidates with verified browser records</span></div><div><strong>3 axes</strong><span>reported separately</span></div></div>
