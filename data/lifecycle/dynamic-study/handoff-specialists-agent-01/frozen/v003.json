@@ -1,0 +1,473 @@
+{
+  "schema_version": "dynamic-flower-frozen-1",
+  "run_id": "handoff-specialists-agent-01",
+  "config_sha256": "a4838b31af0c84fa305327805f798ca5dcc1f8957a7ad9fba9dbb39c5d4f2517",
+  "evidence_kind": "candidate_artifact",
+  "execution_mode": "manual",
+  "artifact_version": 3,
+  "artifact_sha256": "aef27b010ef248eff1e18e80d6516705f042c9500ff622db327b14bdea3b17f5",
+  "artifact_file": "artifacts/v003.html",
+  "case": {
+    "id": "feedback_handoff",
+    "title": "A difficult handoff conversation",
+    "brief": "Develop a small learning tool for a fictional service-team lead who needs to distinguish observation from assumption, ask a useful clarifying question, and propose a feasible next step after a missed handoff. Support a response, feedback and revision. The learner may skip. Facts and operating conditions can be changed by a user.",
+    "constraints": [
+      "Fictional records only; no employee rankings or personal disclosures.",
+      "Shared laptops and occasional phone use.",
+      "The first session should be modest; its actual human completion time is unknown."
+    ],
+    "requirements": [
+      "Help distinguish a supported observation from an unsupported motive.",
+      "Support clarification and a feasible next step rather than one universal script.",
+      "Explain the limits of any rule-based response interpretation.",
+      "Executable browser contract: expose scenario JSON in textarea #scenario-input and apply it with button #apply-scenario. Show the applied case in #scenario-view. Provide editable learner response #response-input, button #try-response, visible feedback #feedback, button #revise-response, button #skip-practice, button #reset-practice and visible state #practice-status. Scenario JSON has title, facts (string array), constraints (string array), and task. Read these as data; do not expect particular fixture content. The interface supports automated observation and user updates; it does not prescribe which instructional feedback strategy to use. Use explicit labels, keyboard-operable buttons and visible recoverable errors. No network requests or external assets."
+    ],
+    "case_version": 2,
+    "user_updates": [
+      {
+        "id": "user-summary-request",
+        "phase": "deploy_test",
+        "after_turn": 4,
+        "message": "After each practice attempt, include a concise copyable plain-text practice summary within the feedback. Include the current scenario, the learner's own response, the feedback, and one next action. Mark the summary as practice, not a verified workplace outcome. Preserve skip, reset, keyboard access and offline operation; collect no identity or personal data.",
+        "case_version": 2,
+        "prior_case_sha256": "5994736124f421fce36604c674b5c462fa52fb5351897383ae803e7fcaf82b2b"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "feedback_handoff_easy",
+      "case_id": "feedback_handoff",
+      "difficulty": "easy",
+      "title": "A clear missed handoff",
+      "brief": "Test the frozen tool under these supplied fictional conditions; judge observed behavior and capability support.",
+      "conditions": {
+        "viewport": {
+          "width": 1280,
+          "height": 800
+        },
+        "offline": false,
+        "focus": [
+          "Evidence versus motive",
+          "Open clarification",
+          "Feasible agreement"
+        ],
+        "human_time_note": "The time constraint is a fictional operating condition; scripted execution does not establish human completion time."
+      },
+      "task": {
+        "title": "A clear missed handoff",
+        "facts": [
+          "The shared queue shows one task was not handed over at 16:00.",
+          "The colleague is available to discuss the record.",
+          "Ten minutes and a quiet space are available."
+        ],
+        "constraints": [
+          "Use the record, then seek context before assigning a cause."
+        ],
+        "task": "Write an observation, a clarifying question and an agreed next step."
+      },
+      "actions": [
+        {
+          "id": "apply_case",
+          "type": "scenario",
+          "selector": "#scenario-input",
+          "trigger": "#apply-scenario",
+          "value": {
+            "title": "A clear missed handoff",
+            "facts": [
+              "The shared queue shows one task was not handed over at 16:00.",
+              "The colleague is available to discuss the record.",
+              "Ten minutes and a quiet space are available."
+            ],
+            "constraints": [
+              "Use the record, then seek context before assigning a cause."
+            ],
+            "task": "Write an observation, a clarifying question and an agreed next step."
+          }
+        },
+        {
+          "id": "initial_response",
+          "type": "fill",
+          "selector": "#response-input",
+          "value": "You ignored the handoff because you do not care. Just do better."
+        },
+        {
+          "id": "initial_feedback",
+          "type": "click",
+          "selector": "#try-response"
+        },
+        {
+          "id": "open_revision",
+          "type": "click",
+          "selector": "#revise-response"
+        },
+        {
+          "id": "revised_response",
+          "type": "fill",
+          "selector": "#response-input",
+          "value": "The queue shows the 16:00 task was not handed over. What happened around that time? Can we agree who will confirm the next handoff?"
+        },
+        {
+          "id": "revised_feedback",
+          "type": "press",
+          "selector": "#try-response",
+          "key": "Enter"
+        },
+        {
+          "id": "skip",
+          "type": "click",
+          "selector": "#skip-practice"
+        },
+        {
+          "id": "reset",
+          "type": "click",
+          "selector": "#reset-practice"
+        }
+      ],
+      "checks": [
+        {
+          "id": "case_applied",
+          "type": "text_contains",
+          "selector": "#scenario-view",
+          "expected": "A clear missed handoff",
+          "after_action": "apply_case"
+        },
+        {
+          "id": "feedback_present",
+          "type": "nonempty",
+          "selector": "#feedback",
+          "after_action": "initial_feedback"
+        },
+        {
+          "id": "revision_available",
+          "type": "editable",
+          "selector": "#response-input",
+          "after_action": "open_revision"
+        },
+        {
+          "id": "revision_feedback_present",
+          "type": "nonempty",
+          "selector": "#feedback",
+          "after_action": "revised_feedback"
+        },
+        {
+          "id": "skip_state_visible",
+          "type": "nonempty",
+          "selector": "#practice-status",
+          "after_action": "skip"
+        },
+        {
+          "id": "response_cleared",
+          "type": "value_equals",
+          "selector": "#response-input",
+          "expected": "",
+          "after_action": "reset"
+        }
+      ],
+      "required_result_dimensions": [
+        "human_flourishing",
+        "system_performance",
+        "learning"
+      ],
+      "interpretation": "Mechanical checks describe browser behavior. The expert evaluator must inspect the actual inputs, outputs and case facts; a success label alone is not evidence of learning."
+    },
+    {
+      "id": "feedback_handoff_medium",
+      "case_id": "feedback_handoff",
+      "difficulty": "medium",
+      "title": "Incomplete information on a shared device",
+      "brief": "Test the frozen tool under these supplied fictional conditions; judge observed behavior and capability support.",
+      "conditions": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "offline": false,
+        "focus": [
+          "Conflicting evidence acknowledged",
+          "Checks before blame",
+          "A feasible brief next step"
+        ],
+        "human_time_note": "The time constraint is a fictional operating condition; scripted execution does not establish human completion time."
+      },
+      "task": {
+        "title": "Incomplete information on a shared device",
+        "facts": [
+          "The queue shows a missing handoff, but the timestamp may be stale.",
+          "A second message says coverage changed that afternoon.",
+          "The lead has five minutes before the next duty."
+        ],
+        "constraints": [
+          "Use a shared phone-sized screen.",
+          "Do not record a real colleague identity.",
+          "The learner needs to revise an initial assumption."
+        ],
+        "task": "Propose a brief conversation that checks the conflicting records before deciding a next step."
+      },
+      "actions": [
+        {
+          "id": "apply_case",
+          "type": "scenario",
+          "selector": "#scenario-input",
+          "trigger": "#apply-scenario",
+          "value": {
+            "title": "Incomplete information on a shared device",
+            "facts": [
+              "The queue shows a missing handoff, but the timestamp may be stale.",
+              "A second message says coverage changed that afternoon.",
+              "The lead has five minutes before the next duty."
+            ],
+            "constraints": [
+              "Use a shared phone-sized screen.",
+              "Do not record a real colleague identity.",
+              "The learner needs to revise an initial assumption."
+            ],
+            "task": "Propose a brief conversation that checks the conflicting records before deciding a next step."
+          }
+        },
+        {
+          "id": "initial_response",
+          "type": "fill",
+          "selector": "#response-input",
+          "value": "The timestamp proves you failed; I will report it."
+        },
+        {
+          "id": "initial_feedback",
+          "type": "click",
+          "selector": "#try-response"
+        },
+        {
+          "id": "open_revision",
+          "type": "click",
+          "selector": "#revise-response"
+        },
+        {
+          "id": "revised_response",
+          "type": "fill",
+          "selector": "#response-input",
+          "value": "The queue and coverage message differ. Can we check which record is current and who had the handoff? Then let us agree a short confirmation step."
+        },
+        {
+          "id": "revised_feedback",
+          "type": "press",
+          "selector": "#try-response",
+          "key": "Enter"
+        },
+        {
+          "id": "skip",
+          "type": "click",
+          "selector": "#skip-practice"
+        },
+        {
+          "id": "reset",
+          "type": "click",
+          "selector": "#reset-practice"
+        }
+      ],
+      "checks": [
+        {
+          "id": "case_applied",
+          "type": "text_contains",
+          "selector": "#scenario-view",
+          "expected": "Incomplete information on a shared device",
+          "after_action": "apply_case"
+        },
+        {
+          "id": "feedback_present",
+          "type": "nonempty",
+          "selector": "#feedback",
+          "after_action": "initial_feedback"
+        },
+        {
+          "id": "revision_available",
+          "type": "editable",
+          "selector": "#response-input",
+          "after_action": "open_revision"
+        },
+        {
+          "id": "revision_feedback_present",
+          "type": "nonempty",
+          "selector": "#feedback",
+          "after_action": "revised_feedback"
+        },
+        {
+          "id": "skip_state_visible",
+          "type": "nonempty",
+          "selector": "#practice-status",
+          "after_action": "skip"
+        },
+        {
+          "id": "response_cleared",
+          "type": "value_equals",
+          "selector": "#response-input",
+          "expected": "",
+          "after_action": "reset"
+        }
+      ],
+      "required_result_dimensions": [
+        "human_flourishing",
+        "system_performance",
+        "learning"
+      ],
+      "interpretation": "Mechanical checks describe browser behavior. The expert evaluator must inspect the actual inputs, outputs and case facts; a success label alone is not evidence of learning."
+    },
+    {
+      "id": "feedback_handoff_hard",
+      "case_id": "feedback_handoff",
+      "difficulty": "hard",
+      "title": "Pressure, uncertainty and a blocked next step",
+      "brief": "Test the frozen tool under these supplied fictional conditions; judge observed behavior and capability support.",
+      "conditions": {
+        "viewport": {
+          "width": 360,
+          "height": 740
+        },
+        "offline": true,
+        "focus": [
+          "Uncertainty retained",
+          "Unsupported blame avoided",
+          "Conditional feasible follow-up"
+        ],
+        "human_time_note": "The time constraint is a fictional operating condition; scripted execution does not establish human completion time."
+      },
+      "task": {
+        "title": "Pressure, uncertainty and a blocked next step",
+        "facts": [
+          "The queue snapshot is stale and the colleague is not currently available.",
+          "The proposed next handoff cannot occur until coverage is confirmed.",
+          "Only two minutes are available now; a follow-up can be arranged."
+        ],
+        "constraints": [
+          "No connectivity is available during the session.",
+          "Keyboard access and a recoverable response are required.",
+          "A universal immediate-resolution script is inappropriate."
+        ],
+        "task": "Choose what can responsibly be said now, what must remain uncertain, and a feasible follow-up."
+      },
+      "actions": [
+        {
+          "id": "apply_case",
+          "type": "scenario",
+          "selector": "#scenario-input",
+          "trigger": "#apply-scenario",
+          "value": {
+            "title": "Pressure, uncertainty and a blocked next step",
+            "facts": [
+              "The queue snapshot is stale and the colleague is not currently available.",
+              "The proposed next handoff cannot occur until coverage is confirmed.",
+              "Only two minutes are available now; a follow-up can be arranged."
+            ],
+            "constraints": [
+              "No connectivity is available during the session.",
+              "Keyboard access and a recoverable response are required.",
+              "A universal immediate-resolution script is inappropriate."
+            ],
+            "task": "Choose what can responsibly be said now, what must remain uncertain, and a feasible follow-up."
+          }
+        },
+        {
+          "id": "initial_response",
+          "type": "fill",
+          "selector": "#response-input",
+          "value": "The stale record is enough to prove carelessness. Fix it immediately even without coverage."
+        },
+        {
+          "id": "initial_feedback",
+          "type": "click",
+          "selector": "#try-response"
+        },
+        {
+          "id": "open_revision",
+          "type": "click",
+          "selector": "#revise-response"
+        },
+        {
+          "id": "revised_response",
+          "type": "fill",
+          "selector": "#response-input",
+          "value": "The current record is uncertain, so I will not assign a motive. I can request confirmation of coverage and arrange a short conversation when the colleague is available; the handoff step remains conditional."
+        },
+        {
+          "id": "revised_feedback",
+          "type": "press",
+          "selector": "#try-response",
+          "key": "Enter"
+        },
+        {
+          "id": "skip",
+          "type": "click",
+          "selector": "#skip-practice"
+        },
+        {
+          "id": "reset",
+          "type": "click",
+          "selector": "#reset-practice"
+        }
+      ],
+      "checks": [
+        {
+          "id": "case_applied",
+          "type": "text_contains",
+          "selector": "#scenario-view",
+          "expected": "Pressure, uncertainty and a blocked next step",
+          "after_action": "apply_case"
+        },
+        {
+          "id": "feedback_present",
+          "type": "nonempty",
+          "selector": "#feedback",
+          "after_action": "initial_feedback"
+        },
+        {
+          "id": "revision_available",
+          "type": "editable",
+          "selector": "#response-input",
+          "after_action": "open_revision"
+        },
+        {
+          "id": "revision_feedback_present",
+          "type": "nonempty",
+          "selector": "#feedback",
+          "after_action": "revised_feedback"
+        },
+        {
+          "id": "skip_state_visible",
+          "type": "nonempty",
+          "selector": "#practice-status",
+          "after_action": "skip"
+        },
+        {
+          "id": "response_cleared",
+          "type": "value_equals",
+          "selector": "#response-input",
+          "expected": "",
+          "after_action": "reset"
+        }
+      ],
+      "required_result_dimensions": [
+        "human_flourishing",
+        "system_performance",
+        "learning"
+      ],
+      "interpretation": "Mechanical checks describe browser behavior. The expert evaluator must inspect the actual inputs, outputs and case facts; a success label alone is not evidence of learning."
+    }
+  ],
+  "scenario_hashes": {
+    "feedback_handoff_easy": "c44fc3d257e37b3106503aafdcf648415d915e2c3bfc9568edd03499df7d14bf",
+    "feedback_handoff_medium": "55867ef2b48fbd6400ea2e745a3149380c8a8f842edf433110e4c68cf53f1c96",
+    "feedback_handoff_hard": "6578192e50aa138b3b8d7123ce27f5c5d2022dd67730f5350251c172d4453237"
+  },
+  "review_status": {
+    "learning_sciences": "not_reviewed",
+    "learning_experience_design": "approved",
+    "data_science": "not_reviewed",
+    "assessment_measurement_evaluation": "approved",
+    "learning_environment_engineering": "not_reviewed",
+    "software_engineering": "not_reviewed",
+    "subject_matter_expertise": "not_reviewed",
+    "education_training_professionals": "not_reviewed"
+  },
+  "accepted_risks": [],
+  "risk_acceptance_reason": "",
+  "frozen_event_seq": 75
+}

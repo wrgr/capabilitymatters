@@ -1,6 +1,6 @@
 {
   "schema_version": "dynamic-flower-overview-1",
-  "updated_at": "2026-11-03T18:59:14.754939+00:00",
+  "updated_at": "2026-11-03T20:09:55.066765+00:00",
   "methods": {
     "design": "Four independent case-by-condition conversations; two cases, two conditions, one conversation per cell.",
     "response_origin": "Actual fresh collaboration-agent output submitted through manual transport.",
@@ -302,7 +302,7 @@
       "design_call_count": 19,
       "failed_attempts": 2,
       "state": "awaiting_tests_or_review",
-      "journal_head": "a4dc8cf587c3c28b0b5367a163e3ec5ba7f58d25644676490366b6cd514c9720",
+      "journal_head": "c0d0ae4a0496b5b07dd3417a3c6e14deb18c741ab7e3ac791d363880178009fd",
       "scenarios": [
         {
           "id": "feedback_handoff_easy",
@@ -483,6 +483,16 @@
               ]
             }
           ]
+        },
+        {
+          "artifact_version": 3,
+          "artifact_sha256": "aef27b010ef248eff1e18e80d6516705f042c9500ff622db327b14bdea3b17f5",
+          "case_version": 2,
+          "user_update_ids": [
+            "user-summary-request"
+          ],
+          "reviews": [],
+          "observations": []
         }
       ]
     },

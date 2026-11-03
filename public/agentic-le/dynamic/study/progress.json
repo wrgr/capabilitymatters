@@ -1,13 +1,13 @@
 {
   "schema_version": "dynamic-flower-progress-1",
-  "updated_at": "2026-11-03T18:59:14.754939+00:00",
+  "updated_at": "2026-11-03T20:09:55.066765+00:00",
   "initial": {
     "frozen": 4,
     "observed": 12,
     "reviewed": 16
   },
   "update": {
-    "frozen": 0,
+    "frozen": 1,
     "observed": 0,
     "reviewed": 0
   },
@@ -19,5 +19,5 @@
     "status": "in_progress",
     "detail": "Dynamic workspace and saved conversations are available. Results snapshots are updated as evidence is accepted."
   },
-  "estimate": "Initial comparison complete. The user-requested revision is implemented and awaiting design review, then three regression scenarios and four expert reviews. The earlier timing estimate expired after an interrupted publication step; a new estimate will follow the next frozen checkpoint."
+  "estimate": "The initial comparison is complete. The user-requested revision is frozen and entering browser verification, followed by four expert reviews. Working estimate as of 3:10 p.m. EST: 20–35 minutes for remaining verification and final paper/site publication, subject to retained failures or further repairs."
 }

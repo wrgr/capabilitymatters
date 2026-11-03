@@ -10,7 +10,7 @@
       "id": "handoff-specialists-agent-01",
       "label": "A difficult handoff conversation · Specialist team",
       "url": "/agentic-le/dynamic/study/handoff-specialists-agent-01.json",
-      "status": "22 accepted agent messages; 2 failed attempts retained. 1 frozen versions; 3/3 baseline test records; 4/4 baseline expert reviews."
+      "status": "26 accepted agent messages; 2 failed attempts retained. 2 frozen versions; 3/3 baseline test records; 4/4 baseline expert reviews."
     },
     {
       "id": "workshop-generalist-agent-01",

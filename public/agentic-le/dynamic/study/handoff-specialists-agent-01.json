@@ -7622,6 +7622,751 @@
       },
       "prev_hash": "bd497acc58bc17a9e7c699d146d671ead9f12bd1297a42224f0d1a767d0b84b3",
       "hash": "a4dc8cf587c3c28b0b5367a163e3ec5ba7f58d25644676490366b6cd514c9720"
+    },
+    {
+      "seq": 68,
+      "at": "2026-11-03T20:00:01.831910+00:00",
+      "kind": "message",
+      "phase": "deploy_test",
+      "actor": "facilitator",
+      "payload": {
+        "message_id": "m00068",
+        "request_seq": 67,
+        "response": {
+          "kind": "question",
+          "to": [
+            "assessment_measurement_evaluation",
+            "learning_experience_design"
+          ],
+          "reply_to": [
+            "m00059",
+            "m00061"
+          ],
+          "domains": [],
+          "content": "Version 3 is now the accepted implementation from Software Engineering's m00065, extending version 2. Please provide the focused reviews of its actual implemented summary that were requested in m00063, using your proposals in m00059 and m00061 as the attributed review criteria. Acceptance of the artifact into the record is not a domain approval.\n\nAssessment, Measurement, Evaluation: review the standalone plain-text summary and its relationship to the visible feedback. Does the implemented content preserve the complete applied scenario and its qualifications, the learner's submitted wording, the guidance actually offered with its interpretation and task-scope limits, and one next practice action with the meaning you proposed? Review the practice label and initial, changed, unchanged and blank-submission language for the event distinctions you established. In particular, assess whether the copy could be mistaken for an independent rating, an endorsed workplace action, evidence that self-review occurred, or demonstrated improvement. Software Engineering directly answered your same-submission association concern in m00065 by describing a saved submission record; please state whether that response and the supplied implementation address your content-association requirement, while leaving execution verification to the appropriate testing.\n\nLearning Experience Design: review the implemented journey around the summary inside feedback, including its optional disclosure, submission label, distinction from the editable draft, availability of the full text, and return-to-draft action. Software Engineering chose a labeled read-only textarea with native copying and a Select summary text convenience control; its explanation distinguishes selecting text from completing a copy. Review whether the actual labels and instructions make that route and its optional nature understandable. Also review the learner-facing consequences of another submission, pending or invalid scenario edits, successful application, skip, voluntary return and reset, including the limit on clearing copies made elsewhere. Identify any necessary correction separately from optional refinements; keyboard, selection and narrow-screen behavior still need execution evidence.\n\nPlease each respond within your assigned domain, naming version 3 if you can approve its implemented content within a stated scope. If a concern prevents approval, identify the specific implemented wording or behavior and address the colleague whose response or repair is needed. An implementation question or unresolved concern should remain explicit. These requests do not require repeating every earlier specialist review.\n\nThe current review statuses remain not_reviewed until actual version 3 reviews are recorded. Earlier approvals and browser observations retain their original version and scope; version 2 observations do not verify this addition. Software Engineering reports source reasoning and outstanding checks, not executed results. After these targeted reviews, readiness for an explicit runtime freeze and focused testing can be considered. The record contains no currently open objection; m00024 remains resolved by its author in m00035. This question records no new approval, test result, human outcome or readiness decision.",
+          "artifact_version": 3,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_update_029",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "0a194d9f8ab851ac60941baf4f0a4547984c9ab55e8a8111826b0d1411720253",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "fb29ff88ae4fabeb18c71940527fa2b176a13f3722e16566636214d06bb605d0",
+          "raw_response_sha256": "956cdf213b3a5243b762fe4bd0a0227af7b2e8da3cae4eeb355e50ed8fd365c5",
+          "raw_response_file": "calls/0029/collaboration-response.json",
+          "collected_at": "2026-11-03T20:00:01.690314+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to. The decision field must be null unless kind is decision. A ready message signals readiness; the runtime's explicit freeze is a separate event."
+        }
+      },
+      "prev_hash": "a4dc8cf587c3c28b0b5367a163e3ec5ba7f58d25644676490366b6cd514c9720",
+      "hash": "0f6413cb0887180582f5d51277f9cfa5e2fd9fe9d68c09f09ca6512cc148e07c"
+    },
+    {
+      "seq": 69,
+      "at": "2026-11-03T20:00:02.134326+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "assessment_measurement_evaluation",
+      "payload": {
+        "ordinal": 30,
+        "purpose": "conversation",
+        "prompt_file": "calls/0030/prompt.txt",
+        "prompt_sha256": "2bd39c32868e9bd144775550c4aacf64febea037045d0e104a114713eda6b0b7",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00068"
+      },
+      "prev_hash": "0f6413cb0887180582f5d51277f9cfa5e2fd9fe9d68c09f09ca6512cc148e07c",
+      "hash": "651db2d6c55c2eaa42ded08814ea7fe61edc023a8c512bfc08c84ac470adf02e"
+    },
+    {
+      "seq": 70,
+      "at": "2026-11-03T20:03:39.065504+00:00",
+      "kind": "message",
+      "phase": "deploy_test",
+      "actor": "assessment_measurement_evaluation",
+      "payload": {
+        "message_id": "m00070",
+        "request_seq": 69,
+        "response": {
+          "kind": "approval",
+          "to": [
+            "facilitator",
+            "software_engineering",
+            "learning_experience_design"
+          ],
+          "reply_to": [
+            "m00068",
+            "m00059",
+            "m00065"
+          ],
+          "domains": [
+            "assessment_measurement_evaluation"
+          ],
+          "content": "I approve implemented artifact version 3 within assessment and evaluation design, specifically the practice-summary content, its association with the submitted response and offered guidance, and the event descriptions and inference limits requested in m00068. This is a review of the supplied implementation, using my proposal in m00059. It is not execution verification or evidence of a human outcome. I find no necessary assessment correction in this addition.\n\nStandalone content and meaning\n\nThe implemented summary begins with 'PRACTICE SUMMARY — fictional exercise; not a verified workplace outcome.' It includes the applied scenario title, every supplied fact, every operating condition and the task. Its construction does not shorten these fields to a title or remove qualifications. The learner's submitted field value appears under its own verbatim-response heading, without correction, paraphrase or a favorable interpretation. These distinctions preserve the evidence needed to reconsider what the response claims, including when changed conditions make a previously plausible action inappropriate. Compact headings provide organization; long supplied content can still produce a long summary without being truncated.\n\nThe feedback heading explicitly identifies general self-review guidance rather than an assessment of this response. The visible review and copied feedback use the same guidance strings. Both retain the four relevant questions: trace an observation to its supporting fact and material limits; distinguish established evidence from an explanation requiring confirmation; identify what clarification could reveal and how it could change the next decision; and examine the prerequisites for a proposed action. The guidance permits an explanation supported by changed facts instead of treating every explanation as automatically unsupported. It also preserves the warning that these prompts may not fit an edited task with another purpose.\n\nThe copied guidance states that the tool has not determined whether the observation is supported, the question useful or the action feasible. It identifies the prompts as general guidance, says that punctuation, phrases and keywords do not judge the response, and disclaims improvement, learning, transfer and workplace competence from submission or revision. The summary therefore does not present an independent rating or endorse the learner's proposed workplace action. A claim made inside the learner's response remains the learner's submitted wording, not a tool finding. The record shows guidance offered; it does not show that the learner read, understood or applied it.\n\nThe implemented next practice action is the invitation proposed in m00059: 'Check one part of your submitted response against the applied facts and operating conditions, revising or keeping the wording as warranted.' It asks for examination of the practice response, permits keeping justified wording and neither assumes an error nor directs execution of the proposed workplace action. It is an invitation, not a statement that review has occurred.\n\nSubmission events\n\nThe initial event reads 'Initial response submitted.' Changed wording receives 'Changed response submitted; improvement not assessed.' Identical wording receives 'Unchanged response submitted. No correctness or improvement judgment was made.' These descriptions distinguish observable submission events without inferring a reasoning process. In particular, version 3 preserves the correction that resolved m00024: repeated wording is not described as occurring after self-review. A considered decision to retain wording and repeated activation without reviewing remain alternative explanations compatible with that event. Submission numbering identifies sequence within the applied case; it supplies neither a capability score nor a learner identity.\n\nThe blank-response wording says that no new response was submitted and, when a prior record exists, explicitly identifies the retained review and summary as belonging to the last submitted attempt. It does not represent a blank draft as a completed or failed assessment. The skipped-state wording similarly makes no capability judgment and describes the practice record as cleared. Voluntary return is represented as fresh practice, without a summary suggesting that the skip produced performance evidence.\n\nSame-submission association\n\nSoftware Engineering's direct answer in m00065 addresses the concern I raised in m00059. The supplied implementation represents the applied scenario, exact submitted response, event and guidance together in one saved submission record. The summary is constructed from that record, and the visible review uses that record's guidance. The summary display uses the saved summary rather than the current response draft or unapplied scenario-editor text. This addresses the assessment-content requirement that the evidence context, response and offered feedback belong to the same submission.\n\nThe accompanying labels identify the last submitted attempt and explain that later edits are excluded until another submission. The supplied transitions represent a subsequent nonempty submission as replacing the record, a blank submission as retaining the prior record without incrementing it, an invalid scenario application as preserving the existing applied context, and successful application as starting a fresh practice. Skip, reset and voluntary return are represented as clearing the prior summary. The clearing descriptions appropriately distinguish this page from copies made elsewhere. These findings accept the supplied design and content association; they do not certify that those transitions or copying work in a browser.\n\nEvidence boundary\n\nThe addition remains a record of supported practice. A response that changes after guidance could reflect the cues, additional time or familiarity with the case. An independent assessment would require a separately collected first response to a reviewed changed task, with relevant case evidence available and without a worked response or component-by-component guidance before that attempt. The summary itself supplies no such evidence, no retention measure and no causal estimate of learning. No additional mandatory learner task is needed for this summary request.\n\nVersion 3's focused execution checks remain outstanding, including whether the copied record stays associated correctly during draft edits, pending or invalid scenario edits, repeated and blank submissions, and clearing transitions. Version 2 observations cannot establish those results for the addition. Learning Experience Design's review of the journey, and the appropriate colleagues' verification of keyboard, selection, copying, narrow-screen and offline behavior, remain separate. This message records assessment-domain approval of version 3's implemented content and interpretation boundaries only; it does not record readiness, a freeze, test success or demonstrated learning.",
+          "artifact_version": 3,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_update_030",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "2bd39c32868e9bd144775550c4aacf64febea037045d0e104a114713eda6b0b7",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "2bfde5efc5f47e68ba806dca634f8a727ac8a52fd2e2c477af09b27146a3bc0a",
+          "raw_response_sha256": "67eefe7c8ece4d3c8c33b2d44a8412b4b346281fafddc52fa00ab760a66eddea",
+          "raw_response_file": "calls/0030/collaboration-response.json",
+          "collected_at": "2026-11-03T20:03:38.957258+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to. The decision field must be null unless kind is decision. A ready message signals readiness; the runtime's explicit freeze is a separate event."
+        }
+      },
+      "prev_hash": "651db2d6c55c2eaa42ded08814ea7fe61edc023a8c512bfc08c84ac470adf02e",
+      "hash": "e756ed656d7eb72e2c54cee71b9c2229a8735b57ff89539a7c577c3c3750805f"
+    },
+    {
+      "seq": 71,
+      "at": "2026-11-03T20:03:39.338824+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "learning_experience_design",
+      "payload": {
+        "ordinal": 31,
+        "purpose": "conversation",
+        "prompt_file": "calls/0031/prompt.txt",
+        "prompt_sha256": "46622079346e319a7f51410860b582b194c073236ae5ea792c5c97f9b4ae1a88",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00068"
+      },
+      "prev_hash": "e756ed656d7eb72e2c54cee71b9c2229a8735b57ff89539a7c577c3c3750805f",
+      "hash": "020afcdb3d9f262bb742472d58fbca156adf767450765bb12e3a6666e9930526"
+    },
+    {
+      "seq": 72,
+      "at": "2026-11-03T20:07:19.185116+00:00",
+      "kind": "message",
+      "phase": "deploy_test",
+      "actor": "learning_experience_design",
+      "payload": {
+        "message_id": "m00072",
+        "request_seq": 71,
+        "response": {
+          "kind": "approval",
+          "to": [
+            "facilitator",
+            "software_engineering",
+            "assessment_measurement_evaluation"
+          ],
+          "reply_to": [
+            "m00068",
+            "m00065",
+            "m00061"
+          ],
+          "domains": [
+            "learning_experience_design"
+          ],
+          "content": "I approve implemented version 3 within learning-experience design for the practice-summary addition: its placement in the existing journey, distinction between submitted wording and an editable draft, optional access and copying route, return navigation, and explained practice-state consequences. This is a review of the supplied implementation against my criteria in m00061, responding to m00068 and Software Engineering's account in m00065. I find no necessary learning-experience correction before focused testing. This approval does not establish that selection, copying, keyboard navigation or narrow-screen operation works in a browser.\n\nPlacement and purpose\n\nThe learner still makes a meaningful attempt by composing a response to the applied fictional case, then receives explanatory self-review with optional revision. Version 3 places a clearly headed Practice summary section inside Practice review, after the explanatory guidance. A nonempty submission supplies the record automatically; copying and completing the optional reflection are not prerequisites for returning to the response or leaving. The addition therefore provides a record of the existing practice without creating another required task.\n\nAfter submission, the summary heading, last-submission label, explanatory note and Open plain-text practice summary control remain outside the collapsed text area. This makes the record's existence and purpose discoverable without requiring another immediate reading of the complete case and feedback. The full text is available through that disclosure under the label Complete plain-text summary for the last submitted attempt. Its headings distinguish the applied scenario, facts, operating conditions, task, learner's submitted response, offered guidance and next practice action. The supplied construction retains the complete fields and response rather than shortening them to a title or excerpt. The read-only presentation distinguishes this record from the response field where changes belong. These are appropriate content-organization choices; whether learners find and read the complete text comfortably remains unobserved.\n\nThe record's next action asks the learner to check one part of the submitted response against the applied facts and conditions, revising or keeping wording as warranted. Within the activity, that offers a manageable way back into review while preserving the choice to retain a supported response. It does not require copying, a cosmetic edit or an additional reflection. The explanatory review continues to offer concrete operations with the learner's own wording: consult supporting evidence, retain uncertainty, identify what clarification could change, and examine a proposed step's conditions. Assessment, Measurement, Evaluation's separate version 3 approval in m00070 addresses the interpretation boundaries of this content; I am approving its role and organization in the learning journey.\n\nSubmitted record and current draft\n\nThe visible label identifies the last submitted response, its submission number within the applied case and whether the wording is initial, changed or unchanged. The adjacent note explicitly says that edits are excluded until the response is tried again and that pending scenario edits do not change the record. The review itself also identifies its connection to the last submitted response. This repeated distinction is useful at the two locations where a learner could otherwise mistake retained feedback or copied text for a review of current edits.\n\nSoftware Engineering's supplied implementation and direct explanation in m00065 address the experience requirement that copying during revision refers to the submitted attempt. The represented summary uses the saved submission record, while Return to draft and Revise response return attention to the existing editable response without replacing it. The status text explains that another submission updates the review and summary. I accept that represented association and navigation design; execution must still establish that the retained draft and copied text behave accordingly.\n\nThe return-to-draft action at the end of feedback implements the refinement proposed in m00026 and m00061. It gives a clear route back after the explanatory review, optional summary and reflection. The response help now refers to the applied case shown on this page, which also removes the earlier layout-dependent wording. These changes improve the represented route between case, attempt and review without adding a mandatory stage.\n\nOptional selection and copying\n\nThe copying instructions describe both keyboard commands and a device's own selection and Copy commands. Select summary text accurately names the convenience control: its accompanying help and selection-status wording distinguish selecting text from actually copying it. The fallback asks the learner to select manually and use the device's Copy command. No displayed message claims that a copy has succeeded merely because selection was established. A separate direct-copy button was optional in m00061; this labeled native route meets the proposed interaction design without it.\n\nThe summary remains available as complete plain text, and copying is expressly optional. Selecting the record is represented as separate from submitting, changing the draft, clearing practice or sharing. A read-only, scrollable text area with wrapping is a reasonable implementation of the requested access route, subject to the outstanding checks. I cannot certify its actual selection behavior, assistive-technology experience, clipping or reachability on a phone from the supplied source.\n\nUnderstandable state changes\n\nAnother nonempty submission replaces the current record, with neutral initial, changed or unchanged event wording. A blank draft creates no new record, and its error and status text explicitly identify any retained review and summary as belonging to the last submitted attempt. The learner is therefore told why older content remains available after a blank activation instead of being given a misleading completion message.\n\nPending scenario edits are labeled unapplied. Invalid application gives a recoverable error and says that the applied case, current practice and last submitted summary remain unchanged. Successful application is described beforehand as starting fresh and clearing the preceding response, reflection, review and summary. The represented distinction allows users to correct editor mistakes while keeping the current practice understandable, and makes a successfully changed situation a fresh attempt on its new evidence.\n\nSkip explains its clearing consequences before activation and leaves a voluntary Return to this case route with a fresh draft. That return after skipping is distinct from Return to draft during revision: the former starts fresh, while the latter preserves the current work and last submitted record. Reset explains that it also discards pending scenario edits and restores the starting fictional case. The revised help consistently limits clearing to this page and acknowledges that copies made elsewhere remain. These explanations match the intended choices without promising recovery of cleared work or deletion of an external copy.\n\nRemaining evidence and scope\n\nSoftware Engineering should verify these represented requirements in the focused version 3 tests: access and selection of the complete summary; copying while the draft differs from the last submission; draft-preserving return; changed, unchanged and blank resubmissions; pending and invalid scenario edits; valid application; skip, voluntary return and reset. Keyboard and narrow-screen checks should establish that the summary can be found, its entire text reached and the editable draft revisited. Selection feedback must be inspected separately from the actual copied content. These are outstanding verification requirements, not observed results.\n\nThe optional disclosure addresses the identified risk of repeated reading through organization, but actual reading burden, completion time and learner understanding remain unknown. No human observation establishes that someone distinguishes the record from the draft or uses the next action productively. Version 2 observations cannot verify the version 3 addition, and this message does not extend another specialist's approval. My approval is confined to the implemented learning-experience decisions described above; it is not a readiness message, runtime freeze, technical certification or claim of learning.",
+          "artifact_version": 3,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_update_031",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "46622079346e319a7f51410860b582b194c073236ae5ea792c5c97f9b4ae1a88",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "ed6c795108e52a2146d8c7fd71bbffb75e0db00f09f27f0e19d19812b0bfb811",
+          "raw_response_sha256": "0fcd26cd2670186f4b698e041908529847131606bff7bef66b89d29d8901145a",
+          "raw_response_file": "calls/0031/collaboration-response.json",
+          "collected_at": "2026-11-03T20:07:19.057272+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to. The decision field must be null unless kind is decision. A ready message signals readiness; the runtime's explicit freeze is a separate event."
+        }
+      },
+      "prev_hash": "020afcdb3d9f262bb742472d58fbca156adf767450765bb12e3a6666e9930526",
+      "hash": "d9ee1e5792a0e5b80ea86e0f4c147dfbc820a11c76803a93eaef3f8d01d71507"
+    },
+    {
+      "seq": 73,
+      "at": "2026-11-03T20:07:19.638813+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "facilitator",
+      "payload": {
+        "ordinal": 32,
+        "purpose": "conversation",
+        "prompt_file": "calls/0032/prompt.txt",
+        "prompt_sha256": "40820b922a6858624d1476bfa669f279f502c17783689f4b3f167a9417c36e33",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "integrate_procedurally:m00072"
+      },
+      "prev_hash": "d9ee1e5792a0e5b80ea86e0f4c147dfbc820a11c76803a93eaef3f8d01d71507",
+      "hash": "3607a6c0a5c18d58ca1dc51b79d23d20a201ba830faa597746a1175c26a4f4ea"
+    },
+    {
+      "seq": 74,
+      "at": "2026-11-03T20:09:44.421769+00:00",
+      "kind": "message",
+      "phase": "deploy_test",
+      "actor": "facilitator",
+      "payload": {
+        "message_id": "m00074",
+        "request_seq": 73,
+        "response": {
+          "kind": "ready",
+          "to": [
+            "software_engineering",
+            "assessment_measurement_evaluation",
+            "learning_experience_design"
+          ],
+          "reply_to": [
+            "m00065",
+            "m00070",
+            "m00072"
+          ],
+          "domains": [],
+          "content": "Version 3 is ready as a bounded candidate for an explicit runtime freeze and focused testing of the recorded user-summary-request. This message signals readiness; it does not itself freeze the artifact, report successful execution or authorize broader workplace use. The accepted implementation is Software Engineering's m00065, extending version 2.\n\nThe basis for this procedural decision is the two completed, version-specific reviews. Assessment, Measurement, Evaluation approves version 3 in m00070 for the standalone practice-summary content, its association with the submitted response and offered guidance, and the event descriptions and inference limits. That author reports no necessary assessment correction. Learning Experience Design approves version 3 in m00072 for placement in the practice journey, the distinction between a submitted record and the editable draft, optional access and copying, return navigation and explained state consequences. That author reports no necessary experience correction before focused testing. These are their approvals of the supplied implementation within their assigned domains, not a claim of team consensus or browser verification. Software Engineering's m00065 supplies the implementation and directly addresses the same-submission association concern; its source explanation does not constitute an executed test or a separate approval.\n\nThe current version 3 review record therefore has assessment_measurement_evaluation and learning_experience_design approved. data_science, education_training_professionals, learning_environment_engineering, learning_sciences, software_engineering and subject_matter_expertise remain not_reviewed for this version. Earlier approvals retain their original versions and scopes. The record contains no open objection or question. The earlier objection m00024 remains resolved by its author in m00035; I am neither resolving another actor's concern nor reopening that resolved issue.\n\nAfter the runtime records a freeze, the focused observations should address the outstanding checks already identified in m00065, m00070 and m00072. Inspect the complete summary and its practice label, applied scenario, exact submitted wording, offered guidance and next practice action. Check the record's association while the learner edits the draft or leaves scenario edits unapplied, and distinguish those states from another nonempty submission. Include initial, changed, unchanged and blank submissions; invalid and successful scenario application; draft-preserving return; skip, voluntary return and reset. Selection feedback and actual copying require separate observations: a message that text was selected does not establish that the clipboard received it. The reviewers' keyboard, complete-text access, narrow-screen and offline checks also remain outstanding. Preserve the original practice-contract checks alongside the focused addition checks; existing version 2 observations do not verify the new summary or its transitions.\n\nAny observed failure should be recorded against the frozen version and routed to Software Engineering with the affected content or experience reviewer. A necessary repair must extend the latest accepted artifact and receive appropriately scoped review; prior results must retain their original version. No such failure or repair is asserted here.\n\nThis readiness is limited to obtaining evidence about the implemented practice candidate. Neither the approvals nor a future mechanical pass would establish that a learner read the guidance, completed self-review, improved a response, learned, retained or transferred a capability, or achieved a verified workplace outcome. Human completion time, reading burden and understanding of the summary remain unknown. The next evidence needed is the explicit freeze and actual focused observations, not another round of nominal approvals from every roster member.",
+          "artifact_version": 3,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_update_032",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "40820b922a6858624d1476bfa669f279f502c17783689f4b3f167a9417c36e33",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "538d87dd8dd792995166693d7f8565ef822fb6b2433d52259b3fabb4c0bb7609",
+          "raw_response_sha256": "ff29bca8d02159b938d5249ce4594371c9931eb41d1ac38a2a5dc196f07ebccd",
+          "raw_response_file": "calls/0032/collaboration-response.json",
+          "collected_at": "2026-11-03T20:09:44.143876+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to. The decision field must be null unless kind is decision. A ready message signals readiness; the runtime's explicit freeze is a separate event."
+        }
+      },
+      "prev_hash": "3607a6c0a5c18d58ca1dc51b79d23d20a201ba830faa597746a1175c26a4f4ea",
+      "hash": "b75052eec6dfe12a5de30cc4fdd6448f1f9508ff988ebe25d2eb4b7f87c4ef17"
+    },
+    {
+      "seq": 75,
+      "at": "2026-11-03T20:09:54.362657+00:00",
+      "kind": "frozen",
+      "phase": "deploy_test",
+      "actor": "user",
+      "payload": {
+        "schema_version": "dynamic-flower-frozen-1",
+        "run_id": "handoff-specialists-agent-01",
+        "config_sha256": "a4838b31af0c84fa305327805f798ca5dcc1f8957a7ad9fba9dbb39c5d4f2517",
+        "evidence_kind": "candidate_artifact",
+        "execution_mode": "manual",
+        "artifact_version": 3,
+        "artifact_sha256": "aef27b010ef248eff1e18e80d6516705f042c9500ff622db327b14bdea3b17f5",
+        "artifact_file": "artifacts/v003.html",
+        "case": {
+          "id": "feedback_handoff",
+          "title": "A difficult handoff conversation",
+          "brief": "Develop a small learning tool for a fictional service-team lead who needs to distinguish observation from assumption, ask a useful clarifying question, and propose a feasible next step after a missed handoff. Support a response, feedback and revision. The learner may skip. Facts and operating conditions can be changed by a user.",
+          "constraints": [
+            "Fictional records only; no employee rankings or personal disclosures.",
+            "Shared laptops and occasional phone use.",
+            "The first session should be modest; its actual human completion time is unknown."
+          ],
+          "requirements": [
+            "Help distinguish a supported observation from an unsupported motive.",
+            "Support clarification and a feasible next step rather than one universal script.",
+            "Explain the limits of any rule-based response interpretation.",
+            "Executable browser contract: expose scenario JSON in textarea #scenario-input and apply it with button #apply-scenario. Show the applied case in #scenario-view. Provide editable learner response #response-input, button #try-response, visible feedback #feedback, button #revise-response, button #skip-practice, button #reset-practice and visible state #practice-status. Scenario JSON has title, facts (string array), constraints (string array), and task. Read these as data; do not expect particular fixture content. The interface supports automated observation and user updates; it does not prescribe which instructional feedback strategy to use. Use explicit labels, keyboard-operable buttons and visible recoverable errors. No network requests or external assets."
+          ],
+          "case_version": 2,
+          "user_updates": [
+            {
+              "id": "user-summary-request",
+              "phase": "deploy_test",
+              "after_turn": 4,
+              "message": "After each practice attempt, include a concise copyable plain-text practice summary within the feedback. Include the current scenario, the learner's own response, the feedback, and one next action. Mark the summary as practice, not a verified workplace outcome. Preserve skip, reset, keyboard access and offline operation; collect no identity or personal data.",
+              "case_version": 2,
+              "prior_case_sha256": "5994736124f421fce36604c674b5c462fa52fb5351897383ae803e7fcaf82b2b"
+            }
+          ]
+        },
+        "scenarios": [
+          {
+            "id": "feedback_handoff_easy",
+            "case_id": "feedback_handoff",
+            "difficulty": "easy",
+            "title": "A clear missed handoff",
+            "brief": "Test the frozen tool under these supplied fictional conditions; judge observed behavior and capability support.",
+            "conditions": {
+              "viewport": {
+                "width": 1280,
+                "height": 800
+              },
+              "offline": false,
+              "focus": [
+                "Evidence versus motive",
+                "Open clarification",
+                "Feasible agreement"
+              ],
+              "human_time_note": "The time constraint is a fictional operating condition; scripted execution does not establish human completion time."
+            },
+            "task": {
+              "title": "A clear missed handoff",
+              "facts": [
+                "The shared queue shows one task was not handed over at 16:00.",
+                "The colleague is available to discuss the record.",
+                "Ten minutes and a quiet space are available."
+              ],
+              "constraints": [
+                "Use the record, then seek context before assigning a cause."
+              ],
+              "task": "Write an observation, a clarifying question and an agreed next step."
+            },
+            "actions": [
+              {
+                "id": "apply_case",
+                "type": "scenario",
+                "selector": "#scenario-input",
+                "trigger": "#apply-scenario",
+                "value": {
+                  "title": "A clear missed handoff",
+                  "facts": [
+                    "The shared queue shows one task was not handed over at 16:00.",
+                    "The colleague is available to discuss the record.",
+                    "Ten minutes and a quiet space are available."
+                  ],
+                  "constraints": [
+                    "Use the record, then seek context before assigning a cause."
+                  ],
+                  "task": "Write an observation, a clarifying question and an agreed next step."
+                }
+              },
+              {
+                "id": "initial_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "You ignored the handoff because you do not care. Just do better."
+              },
+              {
+                "id": "initial_feedback",
+                "type": "click",
+                "selector": "#try-response"
+              },
+              {
+                "id": "open_revision",
+                "type": "click",
+                "selector": "#revise-response"
+              },
+              {
+                "id": "revised_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "The queue shows the 16:00 task was not handed over. What happened around that time? Can we agree who will confirm the next handoff?"
+              },
+              {
+                "id": "revised_feedback",
+                "type": "press",
+                "selector": "#try-response",
+                "key": "Enter"
+              },
+              {
+                "id": "skip",
+                "type": "click",
+                "selector": "#skip-practice"
+              },
+              {
+                "id": "reset",
+                "type": "click",
+                "selector": "#reset-practice"
+              }
+            ],
+            "checks": [
+              {
+                "id": "case_applied",
+                "type": "text_contains",
+                "selector": "#scenario-view",
+                "expected": "A clear missed handoff",
+                "after_action": "apply_case"
+              },
+              {
+                "id": "feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "initial_feedback"
+              },
+              {
+                "id": "revision_available",
+                "type": "editable",
+                "selector": "#response-input",
+                "after_action": "open_revision"
+              },
+              {
+                "id": "revision_feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "revised_feedback"
+              },
+              {
+                "id": "skip_state_visible",
+                "type": "nonempty",
+                "selector": "#practice-status",
+                "after_action": "skip"
+              },
+              {
+                "id": "response_cleared",
+                "type": "value_equals",
+                "selector": "#response-input",
+                "expected": "",
+                "after_action": "reset"
+              }
+            ],
+            "required_result_dimensions": [
+              "human_flourishing",
+              "system_performance",
+              "learning"
+            ],
+            "interpretation": "Mechanical checks describe browser behavior. The expert evaluator must inspect the actual inputs, outputs and case facts; a success label alone is not evidence of learning."
+          },
+          {
+            "id": "feedback_handoff_medium",
+            "case_id": "feedback_handoff",
+            "difficulty": "medium",
+            "title": "Incomplete information on a shared device",
+            "brief": "Test the frozen tool under these supplied fictional conditions; judge observed behavior and capability support.",
+            "conditions": {
+              "viewport": {
+                "width": 390,
+                "height": 844
+              },
+              "offline": false,
+              "focus": [
+                "Conflicting evidence acknowledged",
+                "Checks before blame",
+                "A feasible brief next step"
+              ],
+              "human_time_note": "The time constraint is a fictional operating condition; scripted execution does not establish human completion time."
+            },
+            "task": {
+              "title": "Incomplete information on a shared device",
+              "facts": [
+                "The queue shows a missing handoff, but the timestamp may be stale.",
+                "A second message says coverage changed that afternoon.",
+                "The lead has five minutes before the next duty."
+              ],
+              "constraints": [
+                "Use a shared phone-sized screen.",
+                "Do not record a real colleague identity.",
+                "The learner needs to revise an initial assumption."
+              ],
+              "task": "Propose a brief conversation that checks the conflicting records before deciding a next step."
+            },
+            "actions": [
+              {
+                "id": "apply_case",
+                "type": "scenario",
+                "selector": "#scenario-input",
+                "trigger": "#apply-scenario",
+                "value": {
+                  "title": "Incomplete information on a shared device",
+                  "facts": [
+                    "The queue shows a missing handoff, but the timestamp may be stale.",
+                    "A second message says coverage changed that afternoon.",
+                    "The lead has five minutes before the next duty."
+                  ],
+                  "constraints": [
+                    "Use a shared phone-sized screen.",
+                    "Do not record a real colleague identity.",
+                    "The learner needs to revise an initial assumption."
+                  ],
+                  "task": "Propose a brief conversation that checks the conflicting records before deciding a next step."
+                }
+              },
+              {
+                "id": "initial_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "The timestamp proves you failed; I will report it."
+              },
+              {
+                "id": "initial_feedback",
+                "type": "click",
+                "selector": "#try-response"
+              },
+              {
+                "id": "open_revision",
+                "type": "click",
+                "selector": "#revise-response"
+              },
+              {
+                "id": "revised_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "The queue and coverage message differ. Can we check which record is current and who had the handoff? Then let us agree a short confirmation step."
+              },
+              {
+                "id": "revised_feedback",
+                "type": "press",
+                "selector": "#try-response",
+                "key": "Enter"
+              },
+              {
+                "id": "skip",
+                "type": "click",
+                "selector": "#skip-practice"
+              },
+              {
+                "id": "reset",
+                "type": "click",
+                "selector": "#reset-practice"
+              }
+            ],
+            "checks": [
+              {
+                "id": "case_applied",
+                "type": "text_contains",
+                "selector": "#scenario-view",
+                "expected": "Incomplete information on a shared device",
+                "after_action": "apply_case"
+              },
+              {
+                "id": "feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "initial_feedback"
+              },
+              {
+                "id": "revision_available",
+                "type": "editable",
+                "selector": "#response-input",
+                "after_action": "open_revision"
+              },
+              {
+                "id": "revision_feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "revised_feedback"
+              },
+              {
+                "id": "skip_state_visible",
+                "type": "nonempty",
+                "selector": "#practice-status",
+                "after_action": "skip"
+              },
+              {
+                "id": "response_cleared",
+                "type": "value_equals",
+                "selector": "#response-input",
+                "expected": "",
+                "after_action": "reset"
+              }
+            ],
+            "required_result_dimensions": [
+              "human_flourishing",
+              "system_performance",
+              "learning"
+            ],
+            "interpretation": "Mechanical checks describe browser behavior. The expert evaluator must inspect the actual inputs, outputs and case facts; a success label alone is not evidence of learning."
+          },
+          {
+            "id": "feedback_handoff_hard",
+            "case_id": "feedback_handoff",
+            "difficulty": "hard",
+            "title": "Pressure, uncertainty and a blocked next step",
+            "brief": "Test the frozen tool under these supplied fictional conditions; judge observed behavior and capability support.",
+            "conditions": {
+              "viewport": {
+                "width": 360,
+                "height": 740
+              },
+              "offline": true,
+              "focus": [
+                "Uncertainty retained",
+                "Unsupported blame avoided",
+                "Conditional feasible follow-up"
+              ],
+              "human_time_note": "The time constraint is a fictional operating condition; scripted execution does not establish human completion time."
+            },
+            "task": {
+              "title": "Pressure, uncertainty and a blocked next step",
+              "facts": [
+                "The queue snapshot is stale and the colleague is not currently available.",
+                "The proposed next handoff cannot occur until coverage is confirmed.",
+                "Only two minutes are available now; a follow-up can be arranged."
+              ],
+              "constraints": [
+                "No connectivity is available during the session.",
+                "Keyboard access and a recoverable response are required.",
+                "A universal immediate-resolution script is inappropriate."
+              ],
+              "task": "Choose what can responsibly be said now, what must remain uncertain, and a feasible follow-up."
+            },
+            "actions": [
+              {
+                "id": "apply_case",
+                "type": "scenario",
+                "selector": "#scenario-input",
+                "trigger": "#apply-scenario",
+                "value": {
+                  "title": "Pressure, uncertainty and a blocked next step",
+                  "facts": [
+                    "The queue snapshot is stale and the colleague is not currently available.",
+                    "The proposed next handoff cannot occur until coverage is confirmed.",
+                    "Only two minutes are available now; a follow-up can be arranged."
+                  ],
+                  "constraints": [
+                    "No connectivity is available during the session.",
+                    "Keyboard access and a recoverable response are required.",
+                    "A universal immediate-resolution script is inappropriate."
+                  ],
+                  "task": "Choose what can responsibly be said now, what must remain uncertain, and a feasible follow-up."
+                }
+              },
+              {
+                "id": "initial_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "The stale record is enough to prove carelessness. Fix it immediately even without coverage."
+              },
+              {
+                "id": "initial_feedback",
+                "type": "click",
+                "selector": "#try-response"
+              },
+              {
+                "id": "open_revision",
+                "type": "click",
+                "selector": "#revise-response"
+              },
+              {
+                "id": "revised_response",
+                "type": "fill",
+                "selector": "#response-input",
+                "value": "The current record is uncertain, so I will not assign a motive. I can request confirmation of coverage and arrange a short conversation when the colleague is available; the handoff step remains conditional."
+              },
+              {
+                "id": "revised_feedback",
+                "type": "press",
+                "selector": "#try-response",
+                "key": "Enter"
+              },
+              {
+                "id": "skip",
+                "type": "click",
+                "selector": "#skip-practice"
+              },
+              {
+                "id": "reset",
+                "type": "click",
+                "selector": "#reset-practice"
+              }
+            ],
+            "checks": [
+              {
+                "id": "case_applied",
+                "type": "text_contains",
+                "selector": "#scenario-view",
+                "expected": "Pressure, uncertainty and a blocked next step",
+                "after_action": "apply_case"
+              },
+              {
+                "id": "feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "initial_feedback"
+              },
+              {
+                "id": "revision_available",
+                "type": "editable",
+                "selector": "#response-input",
+                "after_action": "open_revision"
+              },
+              {
+                "id": "revision_feedback_present",
+                "type": "nonempty",
+                "selector": "#feedback",
+                "after_action": "revised_feedback"
+              },
+              {
+                "id": "skip_state_visible",
+                "type": "nonempty",
+                "selector": "#practice-status",
+                "after_action": "skip"
+              },
+              {
+                "id": "response_cleared",
+                "type": "value_equals",
+                "selector": "#response-input",
+                "expected": "",
+                "after_action": "reset"
+              }
+            ],
+            "required_result_dimensions": [
+              "human_flourishing",
+              "system_performance",
+              "learning"
+            ],
+            "interpretation": "Mechanical checks describe browser behavior. The expert evaluator must inspect the actual inputs, outputs and case facts; a success label alone is not evidence of learning."
+          }
+        ],
+        "scenario_hashes": {
+          "feedback_handoff_easy": "c44fc3d257e37b3106503aafdcf648415d915e2c3bfc9568edd03499df7d14bf",
+          "feedback_handoff_medium": "55867ef2b48fbd6400ea2e745a3149380c8a8f842edf433110e4c68cf53f1c96",
+          "feedback_handoff_hard": "6578192e50aa138b3b8d7123ce27f5c5d2022dd67730f5350251c172d4453237"
+        },
+        "review_status": {
+          "learning_sciences": "not_reviewed",
+          "learning_experience_design": "approved",
+          "data_science": "not_reviewed",
+          "assessment_measurement_evaluation": "approved",
+          "learning_environment_engineering": "not_reviewed",
+          "software_engineering": "not_reviewed",
+          "subject_matter_expertise": "not_reviewed",
+          "education_training_professionals": "not_reviewed"
+        },
+        "accepted_risks": [],
+        "risk_acceptance_reason": "",
+        "frozen_event_seq": 75,
+        "file": "frozen/v003.json",
+        "export_sha256": "54ee9a2f9b6d336076c8feef09edb9c51b506c99d2b841a563fab8b6cba30c4a"
+      },
+      "prev_hash": "b75052eec6dfe12a5de30cc4fdd6448f1f9508ff988ebe25d2eb4b7f87c4ef17",
+      "hash": "c0d0ae4a0496b5b07dd3417a3c6e14deb18c741ab7e3ac791d363880178009fd"
     }
   ]
 }
