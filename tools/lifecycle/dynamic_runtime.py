@@ -4,6 +4,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from dynamic_contract import canonical, digest, require, text, text_hash
+from dynamic_amendment import effective_sources
 from dynamic_journal import append, atomic_json, load, locked
 from dynamic_messages import MESSAGE_SCHEMA, validate_message
 from dynamic_observations import validate_observation
@@ -17,7 +18,7 @@ def _save(directory: Path, run: dict) -> None:
 
 def _source_guard(run: dict) -> None:
     current = {p.name: text_hash(p.read_text(encoding="utf-8")) for p in sorted(Path(__file__).parent.glob("dynamic_*.py"))}
-    require(current == run["runtime_sources"], "Runtime code changed since creation; preserve this run and create a new one")
+    require(current == effective_sources(run), "Runtime code changed without an explicit validated amendment; preserve this run")
 
 
 def _inject_updates(run: dict) -> None:

@@ -2,27 +2,27 @@
   "entries": [
     {
       "id": "handoff-generalist-agent-01",
-      "label": "A difficult handoff conversation \u00b7 Generalist",
+      "label": "A difficult handoff conversation · Generalist",
       "url": "/agentic-le/dynamic/study/handoff-generalist-agent-01.json",
-      "status": "1 accepted agent messages. Design in progress; deployment tests and expert scores pending."
+      "status": "3 accepted agent messages; 1 failed attempts retained. 1 frozen versions; 3/3 baseline test records; 0/4 baseline expert reviews."
     },
     {
       "id": "handoff-specialists-agent-01",
-      "label": "A difficult handoff conversation \u00b7 Specialist team",
+      "label": "A difficult handoff conversation · Specialist team",
       "url": "/agentic-le/dynamic/study/handoff-specialists-agent-01.json",
-      "status": "3 accepted agent messages. Design in progress; deployment tests and expert scores pending."
+      "status": "9 accepted agent messages; 1 failed attempts retained. 0 frozen versions; 0/3 baseline test records; 0/4 baseline expert reviews."
     },
     {
       "id": "workshop-generalist-agent-01",
-      "label": "Planning a shared-equipment workshop \u00b7 Generalist",
+      "label": "Planning a shared-equipment workshop · Generalist",
       "url": "/agentic-le/dynamic/study/workshop-generalist-agent-01.json",
-      "status": "3 accepted agent messages. Version 1 frozen; deployment tests and expert scores pending."
+      "status": "3 accepted agent messages; 0 failed attempts retained. 1 frozen versions; 3/3 baseline test records; 0/4 baseline expert reviews."
     },
     {
       "id": "workshop-specialists-agent-01",
-      "label": "Planning a shared-equipment workshop \u00b7 Specialist team",
+      "label": "Planning a shared-equipment workshop · Specialist team",
       "url": "/agentic-le/dynamic/study/workshop-specialists-agent-01.json",
-      "status": "3 accepted agent messages. Design in progress; deployment tests and expert scores pending."
+      "status": "8 accepted agent messages; 1 failed attempts retained. 0 frozen versions; 0/3 baseline test records; 0/4 baseline expert reviews."
     }
   ]
 }

@@ -4082,6 +4082,397 @@
       },
       "prev_hash": "a29f3a9e52a7cdd3db306edabc2b47a971f2b84f1cad1df49b4ec105005287c5",
       "hash": "827aad41c98ab343a6d97c6d9c38e06a7098b50771560828843f7ecc04a0e25d"
+    },
+    {
+      "seq": 9,
+      "at": "2026-11-03T04:12:37.204567+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "assessment_measurement_evaluation",
+      "payload": {
+        "message_id": "m00009",
+        "request_seq": 8,
+        "response": {
+          "kind": "answer",
+          "to": [
+            "facilitator",
+            "software_engineering",
+            "learning_sciences",
+            "subject_matter_expertise"
+          ],
+          "reply_to": [
+            "m00003"
+          ],
+          "domains": [
+            "assessment_measurement_evaluation"
+          ],
+          "content": "Assessment-design proposal answering m00003, informed by the case proposal in m00005 and learning-design proposal in m00007. These are review criteria and inference limits, not an approval: no implemented version, observed learner response or evaluation result has been supplied.\n\nClaim and task. The bounded capability to examine is whether a learner can construct and explain a plan whose material choices follow from the supplied facts and constraints, identify consequential uncertainty, and justify an available fallback or a clarification request when a dependency changes. A favored activity, fluent prose or completion of the interface does not establish this capability. The proposed task should ask for the plan and its reasons together, with the applied case available throughout. For arbitrary replacement cases, the target remains evidence-to-action reasoning; printer use, named people and the starting fixture's permissions are not universal criteria.\n\nObservable criteria for review. Review the response against its actual applied case, using the following dimensions where relevant:\n1. Resource fit: the proposed resources, quantities and capacity are supported by supplied facts, and the response explains any consequential limitation rather than assuming extra stock or places.\n2. Time and assistance dependencies: the response connects a proposed action to the conditions required for it, including availability and operating permissions when the case supplies them. The reviewer should distinguish an action the case supports from one whose required condition is unknown or contradicted. Subject-Matter Expertise remains responsible for the workshop interpretation underlying any feasibility finding.\n3. Stated participant provisions: the response connects the plan to the needs actually supplied, without presenting inferred needs or preferences as facts.\n4. Contingency reasoning: a fallback has a stated trigger and is justified using resources and permissions available in that case; when no alternative is established, a focused clarification request can be appropriate. Naming an alternative without showing why it is available supplies incomplete evidence.\n5. Response to change: the learner identifies the affected dependency and explains the resulting plan. Keeping an already feasible plan can demonstrate this reasoning if the learner explains why the changed condition does not affect it. A visibly different answer is not required.\n6. Uncertainty: the learner identifies a material missing or conflicting fact and explains what decision depends on it, or explains why the supplied facts suffice for the bounded decision. Do not require an unnecessary uncertainty merely to fill a field.\n\nUse criterion-level descriptions, not an invented numerical score or mastery threshold. A reviewer can record 'supported by the supplied evidence', 'explicit conflict with a supplied constraint', or 'insufficient evidence to judge', with the relevant response passage and case fact. Mark genuinely irrelevant dimensions as not applicable. Missing explanation can make reasoning unobservable even when the proposed action happens to be feasible; it is not by itself proof of an infeasible plan or inability. Conversely, polished reasoning cannot repair an explicitly contradicted operating condition. Do not average away such a conflict with credit for other dimensions. No inter-reviewer agreement or validated scoring interpretation exists yet.\n\nPractical feedback for the first implementation. An open response to user-replaceable facts should not receive automatic correctness, feasibility or learning claims unless the implementation has a warranted way to establish the particular judgment. Presence of keywords, response length, mentioning every category or checking boxes cannot establish that the plan respects the case. A bounded tool can provide honest reflection support after submission: ask the learner to identify the fact supporting a resource or permission, check the dependency connecting an action to required assistance, and explain whether the fallback is available. Label this as guided self-review rather than a verified result. If a reviewer has actually established a contradiction, feedback should identify the response passage, the supplied constraint and the consequence to reconsider. For example, m00005 provides the case-specific basis for questioning printer use when its mandatory assistant is unavailable; that feedback must not be carried into an unrelated replacement scenario. Self-reported checklist completion is evidence of self-review activity, not independent confirmation of correctness.\n\nSeparate practice from assessment. Preserve the distinction between an initial response, feedback or examples shown, and a revision. The initial response in a scaffolded activity is still supported performance. A revision after a hint is evidence about performance with that support, not an independent assessment. Applying changed facts should make clear which case the next response addresses; old responses and feedback must not appear to evaluate the new case. Software Engineering should determine an appropriate technical method for associating each retained attempt with its applied scenario and the support available to it. This is an evidence requirement, not a prescribed implementation. Skip, reset, submission and self-review states should report actions taken, without claiming failure, mastery or learning.\n\nChanged task and transfer. The proposed loss of Bea's assistance is a useful same-case adaptation opportunity. For a learner initially proposing printing, an informative revision explains the dependency failure and justifies an available alternative; for a learner initially proposing a manual activity, an informative response can explain why that activity remains supported. Neither response alone establishes transfer. To examine transfer support, use a separate fictional case with a meaningfully changed resource or support relationship, prepared or checked by Subject-Matter Expertise, and ask for a fresh plan and explanation before providing answer-specific hints or corrective feedback. Keep that case's facts visible. Apply the same reasoning criteria to the new facts, allowing different valid plans. Record whether support was requested or supplied, and describe any such result as supported performance. A small first implementation may remain explicitly a practice tool; it should not advertise an independent transfer measure unless that separate opportunity and review procedure actually exist.\n\nInference limits and alternative explanations. A successful first attempt may reflect prior knowledge. Improvement on the same task may reflect copying a hint, familiarity with the wording or remembering a model answer. A weak explanation may reflect difficulty understanding the prompt or expressing reasoning rather than inability to plan. Success on one closely similar changed case may depend on surface cues. These possibilities limit what the observations support. Human responses on a distinct task without answer-specific support would provide evidence about performance on that task; they would not by themselves establish durable retention, general workshop competence or a causal learning effect from the tool. A later independent opportunity would be needed to examine retention, and stronger evidence would be needed to attribute change to the tool. Synthetic responses and automated browser observations can examine interaction behavior and whether feedback is misleading; they cannot supply evidence of learning in people.\n\nDependencies and correction requests. Subject-Matter Expertise should check any case-specific feasibility interpretation and any distinct assessment fixture. Software Engineering should expose uncertainty honestly and prevent scenario replacement from inheriting old correctness judgments. If the proposed implementation uses a score, automatic feasibility label or transfer claim without the evidence described above, request correction before assessment approval. These are prospective review conditions, not allegations about an implementation that does not yet exist. My domain remains not reviewed until actual implemented bytes are available, and no learner outcome is asserted.",
+          "artifact_version": null,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/ws_004",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "137f3a25359396dbe98eb7102fd8a2113b35c2a1ee0a2d8850dc3ebf51002bb2",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "2d671531fe72a396d2893b77c21a8756d603b0ceaada0f5568ee4735f9eedaa7",
+          "raw_response_sha256": "357369888a296524b25571f0a296bd14ed2c6a096dc63eb97e41f044970609b4",
+          "raw_response_file": "calls/0004/collaboration-response.json",
+          "collected_at": "2026-11-03T04:12:37.197119+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version."
+        }
+      },
+      "prev_hash": "827aad41c98ab343a6d97c6d9c38e06a7098b50771560828843f7ecc04a0e25d",
+      "hash": "8e793284a3236ccf673d9f8379bfb706c0ac03d4da9c0a1fe8ece13440813027"
+    },
+    {
+      "seq": 10,
+      "at": "2026-11-03T04:12:37.527444+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "ordinal": 5,
+        "purpose": "conversation",
+        "prompt_file": "calls/0005/prompt.txt",
+        "prompt_sha256": "d3452d3b8c76bf9d7f07c9760220018766299e41cabfad5cb1f63edcb4b3491a",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "integrate_procedurally:m00009"
+      },
+      "prev_hash": "8e793284a3236ccf673d9f8379bfb706c0ac03d4da9c0a1fe8ece13440813027",
+      "hash": "6f85fb82429a6c6a285da5cf5c548afeab0a8f458c85d3c8c4d6e43eb77aeaa1"
+    },
+    {
+      "seq": 11,
+      "at": "2026-11-03T04:13:48.774202+00:00",
+      "kind": "turn_failed",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "request_seq": 10,
+        "reason": "A reply must address the original author"
+      },
+      "prev_hash": "6f85fb82429a6c6a285da5cf5c548afeab0a8f458c85d3c8c4d6e43eb77aeaa1",
+      "hash": "dfa6d70f87619caacfec36a3b0686b47c9d13f98a6c1cce3e9943dbace3610dc"
+    },
+    {
+      "seq": 12,
+      "at": "2026-11-03T04:13:49.110452+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "ordinal": 6,
+        "purpose": "conversation",
+        "prompt_file": "calls/0006/prompt.txt",
+        "prompt_sha256": "d1fa010594f2c8405bbe13e4e5b461fff3aefcbf59c1bd99235f151b280e6dbb",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "integrate_procedurally:m00009"
+      },
+      "prev_hash": "dfa6d70f87619caacfec36a3b0686b47c9d13f98a6c1cce3e9943dbace3610dc",
+      "hash": "7518159fb288fa4f6a1fc6ed79a070bd4715ae4e09423146f410662e3ab404d4"
+    },
+    {
+      "seq": 13,
+      "at": "2026-11-03T04:16:04.067836+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "message_id": "m00013",
+        "request_seq": 12,
+        "response": {
+          "kind": "question",
+          "to": [
+            "software_engineering",
+            "learning_experience_design"
+          ],
+          "reply_to": [],
+          "domains": [],
+          "content": "Please turn the existing proposals into a bounded first candidate and give focused interaction-design input. No implementation exists yet; the proposals are attributable to their authors and are not approvals. There are no recorded explicit objections to resolve at this point.\n\nSoftware Engineering: please supply a complete self-contained HTML implementation using Subject-Matter Expertise's m00005 fictional scenario as the starting data and its proposed loss of Bea's assistance as the starting case's change opportunity. Use Learning Sciences' m00007 inspect–plan–feedback–revise proposal and Assessment, Measurement, Evaluation's m00009 guided self-review proposal as provisional design inputs. Their stated boundary is a practice tool: an arbitrary open response should not acquire an unsupported correctness, feasibility, mastery or transfer label. Keep the required executable browser contract and editable scenario format from the brief, including all specified controls, visible states, labels and recoverable errors, with no external assets or network requests.\n\nPlease address the dependency both specialists raised: make it clear which applied facts each response and its feedback concern, including after a user replaces the scenario or applies a changed condition. Do not carry the starting fixture's people, permissions or fallback into unrelated replacement facts. The case-change opportunity should let a learner revise an affected plan or explain why an existing plan still holds, as m00007 and m00009 request. Determine the technical implementation within your remit; if any substantive interpretation needs another specialist, identify the specific question. Explain the candidate's actual behavior and remaining limitations without claiming unperformed execution or testing.\n\nLearning Experience Design: please respond with focused advice on whether this proposed first-attempt, self-review and change/revision flow is understandable and manageable. In particular, consider how learners can distinguish editing the scenario from applying it, identify the case their response addresses, and understand skip and reset. Keep feedback wording consistent with the two specialists' distinction between reflection support and verified judgments. If the implementation is available when you respond, review that concrete version and identify specific changes if needed; otherwise label your contribution as a proposal. Please raise any material disagreement directly so the relevant author can respond.\n\nThese requests can proceed without waiting for a round of every roster member. The resulting implemented bytes will provide the basis for targeted domain review; all domain approvals remain absent, and no learner outcome or deployment is established.",
+          "artifact_version": null,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/ws_006",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "d1fa010594f2c8405bbe13e4e5b461fff3aefcbf59c1bd99235f151b280e6dbb",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "9491a2425efd6f81445cd51e799c6b7ef29081ba88f2cf06ca0710daab161af6",
+          "raw_response_sha256": "af8b4a7b9ca269ad705864da3fcf7dcd76fa2efd56f588fea6d049a1cf74f2b6",
+          "raw_response_file": "calls/0006/collaboration-response.json",
+          "collected_at": "2026-11-03T04:16:04.055876+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to."
+        }
+      },
+      "prev_hash": "7518159fb288fa4f6a1fc6ed79a070bd4715ae4e09423146f410662e3ab404d4",
+      "hash": "7952d69bebd40b01f995b39d714120ba1f72b03b9a0218b61464600e8ae9d0f0"
+    },
+    {
+      "seq": 14,
+      "at": "2026-11-03T04:16:04.405115+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "software_engineering",
+      "payload": {
+        "ordinal": 7,
+        "purpose": "conversation",
+        "prompt_file": "calls/0007/prompt.txt",
+        "prompt_sha256": "afb20c5105dd1527b7214601f04daee66bf2656dceff3e68a8c2757ba02f92e1",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00013"
+      },
+      "prev_hash": "7952d69bebd40b01f995b39d714120ba1f72b03b9a0218b61464600e8ae9d0f0",
+      "hash": "4f5049f73c2f23eaa6eb6516950ba9eb4944edc0d17b6a8b0121188712be7862"
+    },
+    {
+      "seq": 15,
+      "at": "2026-11-03T04:21:27.517676+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "software_engineering",
+      "payload": {
+        "message_id": "m00015",
+        "request_seq": 14,
+        "response": {
+          "kind": "implementation",
+          "to": [
+            "facilitator",
+            "learning_experience_design",
+            "learning_sciences",
+            "assessment_measurement_evaluation",
+            "subject_matter_expertise"
+          ],
+          "reply_to": [
+            "m00013"
+          ],
+          "domains": [
+            "software_engineering"
+          ],
+          "content": "First implementation responding to m00013. The attached self-contained HTML uses the fictional scenario supplied in m00005 and translates the provisional practice and self-review proposals in m00007 and m00009 into an executable candidate. This is an implementation submission, not a domain approval or evidence of a learner outcome.\n\nThe candidate exposes every required browser-contract ID. The scenario editor is separate from the applied case: typing changes only the editor, applying valid replacement data creates a numbered applied case, and invalid JSON or incorrect field types leaves the current case and response intact. Empty fact and constraint arrays are allowed and shown explicitly. Only the four documented fields are used. Scenario strings and response strings are rendered through textContent or textarea values, with no interpretation as HTML, scripts or URLs. The document contains no external assets or request code and includes a restrictive network policy.\n\nEach submission records the response, its applied-case number, a copy of that case, the support available before submission and the guided prompts displayed afterward. Changed facts clear the active response and feedback; earlier submissions remain explicitly historical. An unsubmitted draft is preserved in history before a different case is applied. Copying a previous response into a new case is a separate, explicitly labeled action, and its source is recorded. Unapplied editor changes never silently retarget a response or its feedback. Reapplying identical documented data keeps the existing practice state.\n\nThe starting-case change is enabled after a submission to the exact starting fixture, provided there are no unapplied editor changes and practice is not skipped. It replaces the supplied Bea-availability fact with the proposed absence fact and leaves the other supplied facts and constraints intact. Its control disappears for other applied cases. The new case asks the learner to explain an affected dependency, revise the plan or explain why it still holds. No worked solution or fixture-specific fallback is injected into replacement-case feedback.\n\nFeedback is labeled guided self-review and explicitly does not claim to verify the open response. It asks for a plan-to-fact connection, required assistance or permission, supplied participant provisions, an evidenced fallback or clarification, and consequential uncertainty. The implementation does not score keywords, response length or checklist completion. Revision keeps the previous submitted response separate from the editable draft. Skip preserves the draft and records and provides Resume practice. Reset clears response drafts and history while retaining the applied facts and unapplied editor edits. Previously displayed guidance remains recorded as prior exposure in subsequent submission support descriptions; reset is not represented as making performance independent. All retained information is limited to the current page session.\n\nNative labeled textareas and buttons, visible focus styles, live status and error messages, and deliberate focus movement are implemented. I have not executed this HTML or performed browser, keyboard, hostile-input, reset or state-transition tests in this turn; those checks remain unperformed. The source provides recoverable error paths, but their runtime behavior is not yet empirically verified. Semantic correctness of arbitrary case text, workshop feasibility, instructional suitability and assessment interpretation remain outside an automatic check and outside my technical signoff here. The candidate is available for the focused reviews already routed by the facilitator; no approval is being asserted.",
+          "artifact_version": null,
+          "issue_id": "",
+          "artifact": {
+            "parent_version": null,
+            "change_summary": "Initial self-contained planning practice: editable and safely rendered scenarios; case-bound response and feedback records; guided self-review; an isolated starting-fixture condition change; revision, skip/resume and reset; visible recoverable input errors and native keyboard controls. No execution results or domain approvals are claimed.",
+            "html": "<!doctype html>\n<html lang='en'>\n<head>\n<meta charset='utf-8'>\n<meta name='viewport' content='width=device-width, initial-scale=1'>\n<meta http-equiv='Content-Security-Policy' content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; font-src 'none'; base-uri 'none'; form-action 'none'\">\n<title>Planning a shared-equipment workshop</title>\n<style>\n:root{color-scheme:light;--ink:#173139;--muted:#455d65;--paper:#fff;--wash:#f0f5f4;--line:#b8c9cb;--brand:#155d64;--tint:#e5f1ee;--error:#9b2631}*{box-sizing:border-box}body{margin:0;background:var(--wash);color:var(--ink);font:17px/1.55 system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}main{max-width:1220px;margin:auto;padding:30px 22px 60px}h1{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.16;margin:8px 0 16px;max-width:850px}h2{font-size:1.3rem;margin:0 0 15px}h3{font-size:1.12rem;margin:16px 0 10px}h4{font-size:1rem;margin:18px 0 8px}p{margin:10px 0}li{margin:9px 0}ul,ol{padding-left:24px}.eyebrow{font-size:.8rem;letter-spacing:.1em;font-weight:750;color:var(--brand)}.intro{max-width:870px;color:var(--muted)}.status{margin:24px 0;padding:15px 18px;background:var(--ink);color:white;border-radius:10px;min-height:56px}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}.panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:22px;min-width:0}.meta{color:var(--muted);font-size:.92rem}.tag{display:inline-block;background:var(--tint);padding:3px 9px;border-radius:5px;font-size:.83rem;font-weight:700}.fact-list{padding:0;list-style:none}.fact-list li{padding:10px 12px;background:#f6f9f9;border-left:3px solid #85a9a9;border-radius:3px;white-space:pre-wrap;overflow-wrap:anywhere}.case-task{padding:12px;border:1px solid var(--line);border-radius:7px;white-space:pre-wrap;overflow-wrap:anywhere}.help{color:var(--muted);font-size:.93rem}.scaffold{background:#f3f6fb;padding:12px 14px;border-radius:7px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin:15px 0}button{font:inherit;font-weight:650;padding:10px 15px;border:1px solid var(--brand);background:white;color:var(--brand);border-radius:7px;cursor:pointer;min-height:44px}button.primary{background:var(--brand);color:white}button:disabled{cursor:default;opacity:.55}button:hover:not(:disabled){filter:brightness(.94)}button:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid #965600;outline-offset:4px}label{display:block;font-weight:700;margin:15px 0 7px}textarea{display:block;width:100%;resize:vertical;border:1px solid #6c878d;border-radius:7px;padding:12px;background:#fff;color:var(--ink);font:inherit;min-height:180px}textarea[aria-invalid='true']{border:2px solid var(--error)}#scenario-input{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9rem;min-height:230px}.error{color:var(--error);border-left:4px solid var(--error);background:#fff2f3;padding:11px 13px}.feedback{margin-top:22px;padding:18px;border:1px solid #91aaa9;border-radius:9px;background:#f1f8f5}.feedback h3{margin-top:0}.feedback ul{padding-left:20px}.change{margin-top:23px;border-top:1px solid var(--line);padding-top:18px}.notice{padding:12px 14px;background:#fff7e7;border-left:3px solid #986300;border-radius:3px}.history-item{border:1px solid var(--line);border-radius:8px;margin-top:12px;padding:12px 15px}.history-item>summary{font-weight:700}.history-case{border-top:1px solid var(--line);margin-top:15px;padding-top:12px}summary{cursor:pointer;padding:4px 0}pre{font:inherit;white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;background:#fff;border:1px solid var(--line);border-radius:6px;max-height:420px;overflow:auto}.footer{color:var(--muted);font-size:.9rem}[hidden]{display:none!important}@media(max-width:880px){.layout{grid-template-columns:1fr}.panel{padding:20px}main{padding:22px 15px 40px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}\n</style>\n</head>\n<body>\n<main>\n<header>\n<div class='eyebrow'>FICTIONAL WORKSHOP · SUPPORTED PRACTICE</div>\n<h1>Build a plan from the facts.</h1>\n<p class='intro'>Inspect the shared resources and stated constraints. Explain your plan, identify a fallback or clarification, then reconsider it when conditions change. This tool offers reflection prompts; it does not verify feasibility or measure learning.</p>\n</header>\n<p id='practice-status' class='status' role='status' aria-live='polite' aria-atomic='true'>Loading the starting case.</p>\n<div class='layout'>\n<section class='panel' aria-labelledby='inspect-heading'>\n<h2 id='inspect-heading'>1. Inspect the applied case</h2>\n<p id='case-label' class='meta'></p>\n<div id='scenario-view' tabindex='-1' aria-label='Applied scenario'></div>\n<p id='change-applied-note' class='notice' hidden></p>\n<div id='change-section' class='change'>\n<h3>Try a changed condition</h3>\n<p>The starting case includes a change in assistance. First submit a plan; then apply the change and explain what you revise or why your plan still holds.</p>\n<button type='button' id='change-condition'>Apply change: assistant unavailable</button>\n<p id='change-help' class='help'></p>\n</div>\n</section>\n<section class='panel' aria-labelledby='plan-heading'>\n<h2 id='plan-heading'>2. Explain your plan</h2>\n<p id='response-case' class='tag'></p>\n<p id='response-help'>Connect your proposed activity, resources, timing, assistance and supplied participant provisions to the relevant facts and constraints. Explain a fallback and its trigger, or the clarification you need. If the supplied facts resolve the relevant uncertainty, you can say why.</p>\n<p class='scaffold'>A possible structure: I propose … because the case says …; if … changes, I would … because …; I still need to know … .</p>\n<div id='prior-draft-section' class='notice' hidden>\n<p id='prior-draft-label'></p>\n<button type='button' id='copy-prior-response'>Copy previous response into this draft</button>\n<p class='help'>Copying does not establish that the old response fits these facts. Check each connection before submitting.</p>\n</div>\n<label for='response-input'>Your response to the applied case</label>\n<textarea id='response-input' rows='11' aria-describedby='response-help response-case response-error copied-note' spellcheck='true'></textarea>\n<p id='response-error' class='error' role='alert' hidden></p>\n<p id='copied-note' class='help' hidden></p>\n<div class='actions'>\n<button type='button' id='try-response' class='primary'>Try response</button>\n<button type='button' id='revise-response'>Revise response</button>\n<button type='button' id='skip-practice'>Skip practice</button>\n</div>\n<div id='feedback' class='feedback' tabindex='-1' role='region' aria-label='Practice feedback' aria-live='polite'></div>\n<div class='actions'><button type='button' id='reset-practice'>Reset practice</button></div>\n<p class='help'>Skip keeps your draft and records; Resume practice continues. Reset clears all response drafts and history on this page, keeping the applied case and any unapplied scenario edits. Neither action is a judgment about your learning.</p>\n</section>\n</div>\n<section class='panel' aria-labelledby='editor-heading'>\n<h2 id='editor-heading'>Edit or replace the fictional case</h2>\n<p id='editor-help'>Use JSON with title and task as strings, and facts and constraints as arrays of strings. Empty arrays are permitted. Only these four fields are used. Keep people, stock and operating rules fictional. Editing this box does not change the applied case until you select Apply scenario.</p>\n<label for='scenario-input'>Scenario JSON</label>\n<textarea id='scenario-input' rows='12' spellcheck='false' aria-describedby='editor-help scenario-editor-status scenario-error'></textarea>\n<p id='scenario-editor-status' class='help' role='status' aria-live='polite'></p>\n<p id='scenario-error' class='error' role='alert' hidden></p>\n<div class='actions'>\n<button type='button' id='apply-scenario' class='primary'>Apply scenario</button>\n<button type='button' id='restore-scenario-editor'>Restore editor to applied case</button>\n</div>\n<p class='help'>A different applied case starts a separate response. Existing submissions and any unsubmitted draft are retained below with their original case. Invalid input leaves the current practice unchanged.</p>\n</section>\n<section class='panel' aria-labelledby='history-heading'>\n<h2 id='history-heading'>Response history</h2>\n<p class='help'>These are practice records. Each keeps the case it concerns and the support available when it was recorded. A saved response or revision is not a verified assessment.</p>\n<div id='history-list'></div>\n</section>\n<p class='footer'>Information stays in this page session. Reloading clears responses and restores the starting fictional case. This practice does not provide an independent transfer or retention assessment.</p>\n<noscript><p class='error'>JavaScript is needed for this local practice. Enable it to apply scenario data and use the response controls.</p></noscript>\n</main>\n<script>\n(function () {\n'use strict';\nconst byId = function (id) { return document.getElementById(id); };\nconst clone = function (value) { return JSON.parse(JSON.stringify(value)); };\nconst initialScenario = {\n  title: 'Welcome cards in Harbor Room',\n  facts: [\n    'The activity runs from 14:00 to 14:30 for four confirmed participants. Each participant is to leave with one welcome card.',\n    'The room has one shared table with four seats, eight blank cards, four sets of markers, four ready-to-use printed welcome captions and four copies of the activity instructions in large print. These resources are available for the whole session. The printed captions can be used directly without cutting or adhesive.',\n    'One shared label printer is available from 14:00 until 14:15. It has supplies for four labels. Four welcome-caption jobs are already prepared; each job takes two minutes, including setup, and jobs run one at a time.',\n    'Bea, the designated printer assistant, is available from 14:00 until 14:10. The workshop volunteer can guide the manual card activity.',\n    'Ada has requested large-print instructions. Ivo has requested a seated activity. No other participant needs or preferences have been supplied.',\n    'The organizer has mentioned a possible fifth participant but has not confirmed their attendance or supplied their requirements.'\n  ],\n  constraints: [\n    'In this fictional workshop, Bea must operate the printer throughout every print job; the volunteer and participants may not operate it alone.',\n    'Return shared equipment by the end of its availability. Do not assume additional supplies, seats, assistance or time.',\n    'A card may use a printed label, a ready-to-use caption, or marker decoration. Printer use is optional.',\n    'Provide the requested large-print instructions and a seated way to take part. Do not infer additional participant needs.',\n    'Plan for the four confirmed participants. Clarify attendance and resource needs before extending the plan to a fifth person.'\n  ],\n  task: 'Propose an activity plan for the four confirmed participants. Explain which supplied facts support your choices of resources, timing, assistance and participant support. Give a fallback if the printer or its required assistance becomes unavailable, and identify anything you need clarified.'\n};\nconst changedScenario = clone(initialScenario);\nchangedScenario.facts[3] = 'Bea is unavailable for the entire 14:00–14:30 session; no replacement printer assistant is available.';\nlet caseSequence = 1;\nlet recordSequence = 0;\nlet current = { id: 1, scenario: clone(initialScenario), origin: 'Starting fictional case', kind: 'initial', previous: null };\nlet editorBaseline = JSON.stringify(current.scenario, null, 2);\nlet records = [];\nlet lastAttempt = null;\nlet mode = 'draft';\nlet copiedFrom = null;\nlet sessionGuidanceShown = false;\n\nfunction element(tag, text, className) {\n  const node = document.createElement(tag);\n  if (text !== undefined) { node.textContent = text; }\n  if (className) { node.className = className; }\n  return node;\n}\nfunction titleOf(scenario) { return scenario.title.trim() ? scenario.title : '(Untitled case)'; }\nfunction sameScenario(a, b) { return JSON.stringify(a) === JSON.stringify(b); }\nfunction editorIsDirty() { return byId('scenario-input').value !== editorBaseline; }\nfunction clearError(errorId, inputId) {\n  byId(errorId).textContent = '';\n  byId(errorId).hidden = true;\n  byId(inputId).removeAttribute('aria-invalid');\n}\nfunction showError(errorId, inputId, message) {\n  byId(errorId).textContent = message;\n  byId(errorId).hidden = false;\n  byId(inputId).setAttribute('aria-invalid', 'true');\n  byId(inputId).focus();\n}\nfunction appendScenario(container, scenario) {\n  container.append(element('h3', titleOf(scenario)));\n  container.append(element('h4', 'Facts'));\n  if (scenario.facts.length === 0) { container.append(element('p', 'No facts supplied.', 'help')); }\n  else {\n    const facts = element('ul', undefined, 'fact-list');\n    scenario.facts.forEach(function (text, index) {\n      facts.append(element('li', 'F' + (index + 1) + ' — ' + (text.trim() ? text : '(Blank fact)')));\n    });\n    container.append(facts);\n  }\n  container.append(element('h4', 'Constraints'));\n  if (scenario.constraints.length === 0) { container.append(element('p', 'No constraints supplied.', 'help')); }\n  else {\n    const constraints = element('ul', undefined, 'fact-list');\n    scenario.constraints.forEach(function (text, index) {\n      constraints.append(element('li', 'C' + (index + 1) + ' — ' + (text.trim() ? text : '(Blank constraint)')));\n    });\n    container.append(constraints);\n  }\n  container.append(element('h4', 'Task'));\n  container.append(element('p', scenario.task.trim() ? scenario.task : 'No task supplied.', 'case-task'));\n}\nfunction supportSnapshot() {\n  const support = ['Applied case facts, constraints, task and the general reasoning scaffold were available.'];\n  if (sessionGuidanceShown) { support.push('Guided self-review prompts had already been displayed earlier in this page session.'); }\n  if (current.kind === 'change') { support.push('The supplied change in the starting case was available for comparison with earlier records.'); }\n  if (current.previous && current.previous.text) { support.push('Text from the previous case was available as an optional draft source.'); }\n  if (copiedFrom !== null) { support.push('This draft was copied from case ' + copiedFrom + '; it may have been edited since copying.'); }\n  return support;\n}\nfunction reflectionPrompts() {\n  const prompts = [\n    'Start with one important action in your plan. Which supplied fact or constraint supports its resources, quantities and timing? Explain that connection using the current F and C references where available.',\n    'Does that action require assistance, permission or capacity? Identify the required condition and check whether the supplied facts establish it, leave it unknown, or conflict with it.',\n    'Which participant provisions are explicitly stated, and where does your plan retain them? Do not treat an unstated need or preference as a supplied fact.',\n    'What would trigger your fallback, and which current facts make that alternative available? If an alternative is not established, identify the clarification needed and the decision that depends on it.',\n    'Is a consequential fact missing or contradictory? If the supplied facts suffice for your bounded plan, explain why; you do not need to invent an uncertainty.'\n  ];\n  if (current.kind === 'change') {\n    prompts.push('For the changed condition, identify the affected dependency. Explain what you revise or why your existing plan still holds, including the participant provisions that remain relevant. A visibly different plan is not required.');\n  } else if (current.kind === 'replacement') {\n    prompts.push('Use this applied case on its own terms. If these facts change an earlier plan, explain the affected connection or why it still holds; do not import resources or permissions from an earlier case.');\n  }\n  return prompts;\n}\nfunction appendPrompts(container, prompts) {\n  const list = element('ul');\n  prompts.forEach(function (prompt) { list.append(element('li', prompt)); });\n  container.append(list);\n}\nfunction saveUnsubmittedDraft() {\n  const value = byId('response-input').value;\n  if (!value.trim() || (lastAttempt && value === lastAttempt.text)) { return; }\n  records.push({\n    id: ++recordSequence,\n    kind: 'draft',\n    caseId: current.id,\n    scenario: clone(current.scenario),\n    origin: current.origin,\n    text: value,\n    supportBefore: supportSnapshot(),\n    feedback: [],\n    responseNumber: null,\n    skipped: mode === 'skipped'\n  });\n}\nfunction renderHistory() {\n  const history = byId('history-list');\n  history.replaceChildren();\n  if (records.length === 0) {\n    history.append(element('p', 'No response records in this page session.', 'help'));\n    return;\n  }\n  records.slice().reverse().forEach(function (record) {\n    const details = element('details', undefined, 'history-item');\n    const type = record.kind === 'submitted' ? 'Response ' + record.responseNumber : 'Unsubmitted draft preserved on case change';\n    details.append(element('summary', 'Case ' + record.caseId + ' · ' + titleOf(record.scenario) + ' · ' + type));\n    details.append(element('p', 'Original applied case: ' + record.origin + '.', 'meta'));\n    if (record.kind === 'draft') {\n      details.append(element('p', 'This draft was not submitted or evaluated.' + (record.skipped ? ' Practice was skipped when it was preserved.' : ''), 'help'));\n    }\n    details.append(element('pre', record.text));\n    details.append(element('h4', record.kind === 'submitted' ? 'Support available before this submission' : 'Support available when this draft was preserved'));\n    const support = element('ul');\n    record.supportBefore.forEach(function (text) { support.append(element('li', text)); });\n    details.append(support);\n    if (record.kind === 'submitted') {\n      const feedbackDetails = element('details');\n      feedbackDetails.append(element('summary', 'Guided self-review displayed after this submission'));\n      feedbackDetails.append(element('p', 'Reflection prompts only. This response was not checked for correctness, feasibility or learning.', 'help'));\n      appendPrompts(feedbackDetails, record.feedback);\n      details.append(feedbackDetails);\n    }\n    const snapshot = element('details', undefined, 'history-case');\n    snapshot.append(element('summary', 'Applied facts and task for this record'));\n    appendScenario(snapshot, record.scenario);\n    details.append(snapshot);\n    history.append(details);\n  });\n}\nfunction renderFeedback() {\n  const feedback = byId('feedback');\n  feedback.replaceChildren();\n  if (mode === 'skipped') {\n    feedback.append(element('h3', 'Practice skipped · case ' + current.id));\n    feedback.append(element('p', 'Your draft and earlier records remain. You can inspect the facts or select Resume practice. Skipping does not indicate failure or completion of a learning objective.'));\n    return;\n  }\n  if (!lastAttempt) {\n    feedback.append(element('h3', 'Guided self-review'));\n    feedback.append(element('p', 'No response has been submitted for this applied case in the current practice records. Try a response to see reflection prompts. Earlier case records, if any, remain in history.'));\n    feedback.append(element('p', 'The tool does not make an automatic correctness or feasibility judgment.', 'help'));\n    return;\n  }\n  feedback.append(element('h3', 'Guided self-review · case ' + lastAttempt.caseId + ' · response ' + lastAttempt.responseNumber));\n  feedback.append(element('p', 'These are reflection prompts. Your response has not been checked for correctness, feasibility or learning. Start with one important plan-to-fact connection.'));\n  const submitted = element('details');\n  submitted.append(element('summary', 'Submitted response associated with these prompts'));\n  submitted.append(element('pre', lastAttempt.text));\n  feedback.append(submitted);\n  appendPrompts(feedback, lastAttempt.feedback);\n  feedback.append(element('p', 'Editing the draft does not change the recorded response above. Revise the explanation, then select Try response to record another submission.', 'help'));\n}\nfunction renderCase() {\n  byId('case-label').textContent = 'Applied case ' + current.id + ' · ' + current.origin;\n  byId('scenario-view').replaceChildren();\n  appendScenario(byId('scenario-view'), current.scenario);\n  byId('response-case').textContent = 'Response for case ' + current.id + ': ' + titleOf(current.scenario);\n  const changeNote = byId('change-applied-note');\n  changeNote.hidden = current.kind !== 'change';\n  changeNote.textContent = current.kind === 'change' ? 'Changed condition: fact F4 now states that Bea is unavailable throughout the session and no replacement assistant is available. The other supplied facts and constraints are unchanged. Explain the affected dependency, or why your plan still holds.' : '';\n  const prior = current.previous;\n  byId('prior-draft-section').hidden = !(prior && prior.text);\n  byId('prior-draft-label').textContent = prior && prior.text ? 'Optional starting text is available from case ' + prior.id + '. It has not been submitted for case ' + current.id + '.' : '';\n}\nfunction updateControls() {\n  const dirty = editorIsDirty();\n  const skipped = mode === 'skipped';\n  byId('try-response').disabled = skipped;\n  byId('skip-practice').disabled = skipped;\n  byId('revise-response').textContent = skipped ? 'Resume practice' : 'Revise response';\n  byId('copy-prior-response').disabled = skipped;\n  byId('scenario-editor-status').textContent = dirty ? 'Unapplied editor changes. Your response still addresses applied case ' + current.id + '.' : 'The editor matches applied case ' + current.id + '.';\n  const isStartingCase = sameScenario(current.scenario, initialScenario);\n  byId('change-section').hidden = !isStartingCase;\n  byId('change-condition').disabled = !isStartingCase || dirty || !lastAttempt || skipped;\n  if (skipped) { byId('change-help').textContent = 'Resume practice before applying the supplied change.'; }\n  else if (dirty) { byId('change-help').textContent = 'Apply or restore the scenario editor before using the supplied change.'; }\n  else if (!lastAttempt) { byId('change-help').textContent = 'Available after your first submission for this starting case.'; }\n  else { byId('change-help').textContent = 'Applies one supplied condition change and keeps this response under its original case in history.'; }\n  byId('copied-note').hidden = copiedFrom === null;\n  byId('copied-note').textContent = copiedFrom === null ? '' : 'Text from case ' + copiedFrom + ' was copied into this unsubmitted draft for case ' + current.id + '. Check its connections to the current facts.';\n  let status;\n  if (skipped) { status = 'Skipped · Case ' + current.id + '. Draft and records retained. Select Resume practice to continue.'; }\n  else if (mode === 'review') { status = 'Self-review shown · Case ' + current.id + ' · Response ' + lastAttempt.responseNumber + ' recorded. This is supported practice, not a verified result.'; }\n  else if (mode === 'revising' && lastAttempt) { status = 'Revising · Case ' + current.id + '. The editable draft is not a new submission. Feedback remains associated with response ' + lastAttempt.responseNumber + '.'; }\n  else if (mode === 'reset') { status = 'Practice reset · Case ' + current.id + ' remains applied. Response drafts and history cleared.'; }\n  else { status = 'Drafting · Case ' + current.id + '. No response submitted for these applied facts in the current practice records.'; }\n  if (dirty) { status += ' Scenario editor changes are not yet applied.'; }\n  byId('practice-status').textContent = status;\n}\nfunction parseScenario(source) {\n  let data;\n  try { data = JSON.parse(source); }\n  catch (error) { throw new Error('Use valid JSON. Check double quotes, commas and brackets.'); }\n  if (data === null || typeof data !== 'object' || Array.isArray(data)) { throw new Error('The scenario must be a JSON object.'); }\n  if (typeof data.title !== 'string') { throw new Error('The title field must be a string.'); }\n  if (!Array.isArray(data.facts) || !data.facts.every(function (item) { return typeof item === 'string'; })) { throw new Error('The facts field must be an array containing only strings.'); }\n  if (!Array.isArray(data.constraints) || !data.constraints.every(function (item) { return typeof item === 'string'; })) { throw new Error('The constraints field must be an array containing only strings.'); }\n  if (typeof data.task !== 'string') { throw new Error('The task field must be a string.'); }\n  return { title: data.title, facts: data.facts.slice(), constraints: data.constraints.slice(), task: data.task };\n}\nfunction activateScenario(scenario, origin, kind) {\n  const inputText = byId('response-input').value;\n  const previous = { id: current.id, text: inputText.trim() ? inputText : (lastAttempt ? lastAttempt.text : '') };\n  saveUnsubmittedDraft();\n  current = { id: ++caseSequence, scenario: clone(scenario), origin: origin, kind: kind, previous: previous };\n  lastAttempt = null;\n  mode = 'draft';\n  copiedFrom = null;\n  byId('response-input').value = '';\n  editorBaseline = JSON.stringify(current.scenario, null, 2);\n  byId('scenario-input').value = editorBaseline;\n  clearError('scenario-error', 'scenario-input');\n  clearError('response-error', 'response-input');\n  renderCase();\n  renderFeedback();\n  renderHistory();\n  updateControls();\n  byId('scenario-view').focus();\n}\nbyId('scenario-input').addEventListener('input', function () {\n  clearError('scenario-error', 'scenario-input');\n  updateControls();\n});\nbyId('apply-scenario').addEventListener('click', function () {\n  let next;\n  try { next = parseScenario(byId('scenario-input').value); }\n  catch (error) {\n    showError('scenario-error', 'scenario-input', 'Scenario not applied. ' + error.message + ' Applied case ' + current.id + ' and your response are unchanged.');\n    updateControls();\n    return;\n  }\n  if (sameScenario(next, current.scenario)) {\n    editorBaseline = JSON.stringify(current.scenario, null, 2);\n    byId('scenario-input').value = editorBaseline;\n    clearError('scenario-error', 'scenario-input');\n    updateControls();\n    byId('scenario-editor-status').textContent = 'The same documented case remains applied as case ' + current.id + '. Practice state has been kept.';\n    return;\n  }\n  activateScenario(next, 'User-supplied fictional case', 'replacement');\n});\nbyId('restore-scenario-editor').addEventListener('click', function () {\n  byId('scenario-input').value = editorBaseline;\n  clearError('scenario-error', 'scenario-input');\n  updateControls();\n  byId('scenario-input').focus();\n});\nbyId('response-input').addEventListener('input', function () {\n  clearError('response-error', 'response-input');\n  if (mode !== 'skipped') { mode = lastAttempt ? 'revising' : 'draft'; }\n  updateControls();\n});\nbyId('try-response').addEventListener('click', function () {\n  if (mode === 'skipped') { return; }\n  const value = byId('response-input').value;\n  if (!value.trim()) {\n    showError('response-error', 'response-input', 'Write a plan and its reasons, or a specific clarification request, before trying a response. You can also skip practice.');\n    updateControls();\n    return;\n  }\n  clearError('response-error', 'response-input');\n  const number = records.filter(function (record) { return record.kind === 'submitted' && record.caseId === current.id; }).length + 1;\n  const record = {\n    id: ++recordSequence,\n    kind: 'submitted',\n    caseId: current.id,\n    scenario: clone(current.scenario),\n    origin: current.origin,\n    text: value,\n    supportBefore: supportSnapshot(),\n    feedback: reflectionPrompts(),\n    responseNumber: number,\n    skipped: false\n  };\n  records.push(record);\n  lastAttempt = record;\n  sessionGuidanceShown = true;\n  mode = 'review';\n  renderFeedback();\n  renderHistory();\n  updateControls();\n  byId('feedback').focus();\n});\nbyId('revise-response').addEventListener('click', function () {\n  mode = lastAttempt ? 'revising' : 'draft';\n  clearError('response-error', 'response-input');\n  renderFeedback();\n  updateControls();\n  const input = byId('response-input');\n  input.focus();\n  input.setSelectionRange(input.value.length, input.value.length);\n});\nbyId('skip-practice').addEventListener('click', function () {\n  mode = 'skipped';\n  clearError('response-error', 'response-input');\n  renderFeedback();\n  updateControls();\n  byId('revise-response').focus();\n});\nbyId('reset-practice').addEventListener('click', function () {\n  records = [];\n  lastAttempt = null;\n  copiedFrom = null;\n  current.previous = null;\n  byId('response-input').value = '';\n  mode = 'reset';\n  clearError('response-error', 'response-input');\n  renderCase();\n  renderFeedback();\n  renderHistory();\n  updateControls();\n  byId('response-input').focus();\n});\nbyId('change-condition').addEventListener('click', function () {\n  if (!sameScenario(current.scenario, initialScenario) || !lastAttempt || editorIsDirty() || mode === 'skipped') { return; }\n  activateScenario(changedScenario, 'Starting-case condition change', 'change');\n});\nbyId('copy-prior-response').addEventListener('click', function () {\n  if (mode === 'skipped' || !current.previous || !current.previous.text) { return; }\n  byId('response-input').value = current.previous.text;\n  copiedFrom = current.previous.id;\n  mode = lastAttempt ? 'revising' : 'draft';\n  clearError('response-error', 'response-input');\n  updateControls();\n  byId('response-input').focus();\n});\nbyId('scenario-input').value = editorBaseline;\nrenderCase();\nrenderFeedback();\nrenderHistory();\nupdateControls();\n}());\n</script>\n</body>\n</html>"
+          },
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/ws_007",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "afb20c5105dd1527b7214601f04daee66bf2656dceff3e68a8c2757ba02f92e1",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "8c0f27471f0c4345bb9da7e0ec7b21d093b7eca2b3c4eb5387965de5ce773f7b",
+          "raw_response_sha256": "fb84a533f20f20a1e06637f4437505b68adf9336dc0f5813c43bad610f66a5f6",
+          "raw_response_file": "calls/0007/collaboration-response.json",
+          "collected_at": "2026-11-03T04:21:27.506054+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to."
+        }
+      },
+      "prev_hash": "4f5049f73c2f23eaa6eb6516950ba9eb4944edc0d17b6a8b0121188712be7862",
+      "hash": "a1393d603d36428daef18bb7a03f5baca3e8d818dc95bef8815d94b0064bdb9c"
+    },
+    {
+      "seq": 16,
+      "at": "2026-11-03T04:21:27.518243+00:00",
+      "kind": "artifact",
+      "phase": "design_develop",
+      "actor": "software_engineering",
+      "payload": {
+        "version": 1,
+        "parent_version": null,
+        "sha256": "bb61aac691da7969dd1200533e90fdd76e399da78fa517324c47cd45f005a0be",
+        "file": "artifacts/v001.html",
+        "change_summary": "Initial self-contained planning practice: editable and safely rendered scenarios; case-bound response and feedback records; guided self-review; an isolated starting-fixture condition change; revision, skip/resume and reset; visible recoverable input errors and native keyboard controls. No execution results or domain approvals are claimed.",
+        "message_id": "m00015"
+      },
+      "prev_hash": "a1393d603d36428daef18bb7a03f5baca3e8d818dc95bef8815d94b0064bdb9c",
+      "hash": "b661ea39f106c944775267cf06ca10d5a0bb0e0d185cfb71277ac8e708cc04b3"
+    },
+    {
+      "seq": 17,
+      "at": "2026-11-03T04:21:27.858643+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "learning_experience_design",
+      "payload": {
+        "ordinal": 8,
+        "purpose": "conversation",
+        "prompt_file": "calls/0008/prompt.txt",
+        "prompt_sha256": "95f98378002f31a6b62b8a5eb98ab97652c4e452080a4b31e8c6cd32797e504a",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00013"
+      },
+      "prev_hash": "b661ea39f106c944775267cf06ca10d5a0bb0e0d185cfb71277ac8e708cc04b3",
+      "hash": "d8a7b2b0f69e104a611ab6ee3e2ff390ab2f5c20a40e11dc1e914eb9ac2ce456"
+    },
+    {
+      "seq": 18,
+      "at": "2026-11-03T04:24:01.099695+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "learning_experience_design",
+      "payload": {
+        "message_id": "m00018",
+        "request_seq": 17,
+        "response": {
+          "kind": "answer",
+          "to": [
+            "facilitator",
+            "software_engineering"
+          ],
+          "reply_to": [
+            "m00013"
+          ],
+          "domains": [
+            "learning_experience_design"
+          ],
+          "content": "Interaction-design review answering m00013, based on the actual version 1 HTML supplied in m00015. The activity sequence is coherent for a small supported-practice candidate. The source describes a meaningful first attempt, honest reflection support, optional revision and a changed situation. I recommend one focused draft-preservation repair before learning-experience approval. This is a review of the supplied interface text and interaction definitions; I have not executed the artifact, observed learners or verified keyboard or assistive-technology behavior.\n\nWhat each interaction offers the learner:\n\nInspect and plan. The applied facts, constraints and task are grouped together, with F and C references that a learner can use to explain a decision. The response area identifies its applied case. One editable response and an optional sentence scaffold let the learner construct a plan and its reasons without navigating a required form for every category. The wording permits a specific clarification request and explains that the learner need not invent uncertainty. Keeping a worked solution out of the initial view preserves an opportunity to construct an explanation. These are useful design provisions; their presence does not establish that a learner understands the case.\n\nSelf-review. After submission, the interface explicitly calls the material guided self-review and says the response has not been checked. Starting with one important action gives the learner a manageable point of entry: connect that action to a supplied fact, inspect a required condition, then consider the fallback and participant provisions where relevant. The additional prompts can support a broader review. Their wording is consistent with the boundaries proposed in m00007 and m00009. The tool supplies questions for the learner to use; it does not identify which part of the response is actually wrong. That limitation remains visible and should remain visible.\n\nRevision and change. The previous submission is distinguished from the editable draft, and the text explains that another Try response action records a new submission. The supplied change creates a separately identified case and asks the learner to explain the affected dependency. It explicitly permits retaining a plan with reasons. That makes the interaction about reconsidering a decision rather than producing a visibly different answer. The previous response is available as optional starting text, while earlier responses and their case facts remain in history. The learner can therefore compare the original explanation with the changed situation without being required to rewrite everything. These provisions support the intended practice; no learning or transfer result follows from them.\n\nEditing versus applying the scenario is explained clearly in the supplied interface. The editor has a separate heading, an explicit Apply scenario action and a message identifying unapplied changes. The applied case and response keep their case number. The invalid-input message says that the applied case and response remain unchanged, and Restore editor to applied case provides a recovery route. Applying different facts starts a separate response and labels older records with their original case. Those are the right interaction requirements for preventing an editor draft from being mistaken for the facts being answered. Actual state transitions remain for Software Engineering to verify.\n\nSkip and reset also have distinct stated purposes. Skip preserves the draft and records, permits continued inspection, and changes Revise response to Resume practice. Reset is described as clearing every response draft and the history while retaining the applied case and unapplied scenario edits. Neither action assigns a learning judgment. The labels and help text provide a usable explanation of these choices. Explicit text labels, ordinary text entry, native buttons and visible focus styling provide an appropriate implementation basis for keyboard access; I cannot certify accessibility from this source review.\n\nFocused repair for Software Engineering: protect a current draft when the learner reuses earlier text. In version 1, the Copy previous response into this draft control remains enabled whenever practice is not skipped, including after the learner has written a new draft. Its supplied handler directly replaces the response textarea with the previous case's text. There is no accompanying step that preserves the current unsubmitted draft for that click. This interaction can discard the learner's new reasoning while they are trying to consult earlier work, which undermines the optional revision experience.\n\nThe required interaction outcome is that reusing an earlier response does not silently discard a nonempty current draft. My preferred small repair is to enable copying only while the current draft is blank, explain the disabled state beside the control, and leave the earlier response readable in history. The learner can then decide what to reuse without losing the current attempt. A different implementation that preserves the displaced draft and offers clear recovery could also meet the requirement. Software Engineering should implement the chosen protection and verify the relevant interactions: copying into a blank draft preserves the current case label and remains unsubmitted; writing in that draft prevents a later copy from silently replacing it; and the original submission remains associated with its original facts. These are requested checks, not results I have observed.\n\nTwo smaller refinements would improve the flow without adding required steps. Beside the feedback, show a short optional next-step cue when the supplied change is available, because the change control currently sits in the facts panel while feedback appears in the response panel. For example: 'You can revise this explanation, or try the changed condition in the applied-case panel.' Also add 'Short notes or bullet points are welcome' beside the response scaffold so the interaction does not imply that polished prose is required. Keep revision, copying and the changed-condition opportunity optional.\n\nThis completes my requested advice on version 1. I have identified a concrete repair and the interaction outcomes to verify, while retaining the existing sequence and self-review boundary. I am not issuing learning-experience approval in this response. Workshop feasibility, the interpretation of learner evidence, technical correctness and other domains remain with their assigned specialists; no learner outcomes or completed runtime tests are asserted.",
+          "artifact_version": 1,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/ws_008",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "95f98378002f31a6b62b8a5eb98ab97652c4e452080a4b31e8c6cd32797e504a",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "fdf3bb0adfa5c87a68cb5520749b2f2e0497733e0df1a63d7f4c9fe44072c6a7",
+          "raw_response_sha256": "11074d1d80ce46d174ebf693dd6a52a5b3b99843eda42a5fe54e907a6761f844",
+          "raw_response_file": "calls/0008/collaboration-response.json",
+          "collected_at": "2026-11-03T04:24:01.086387+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to."
+        }
+      },
+      "prev_hash": "d8a7b2b0f69e104a611ab6ee3e2ff390ab2f5c20a40e11dc1e914eb9ac2ce456",
+      "hash": "7a717ed2fc571829d71f7091709d42147e4efa76dd3ee5305af80563f87d0ed8"
+    },
+    {
+      "seq": 19,
+      "at": "2026-11-03T04:24:01.445681+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "ordinal": 9,
+        "purpose": "conversation",
+        "prompt_file": "calls/0009/prompt.txt",
+        "prompt_sha256": "4da591fe53ceaed9f508fa5d71cf2f81777fd52adc52bd92cbde666051ac2111",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "integrate_procedurally:m00018"
+      },
+      "prev_hash": "7a717ed2fc571829d71f7091709d42147e4efa76dd3ee5305af80563f87d0ed8",
+      "hash": "249d965de7b701deb37efe6b1890dbc98299711e037f12afda603d5bac39c9e5"
+    },
+    {
+      "seq": 20,
+      "at": "2026-11-03T04:27:31.546028+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "message_id": "m00020",
+        "request_seq": 19,
+        "response": {
+          "kind": "question",
+          "to": [
+            "software_engineering",
+            "learning_experience_design"
+          ],
+          "reply_to": [
+            "m00018",
+            "m00015"
+          ],
+          "domains": [],
+          "content": "Please address Learning Experience Design's concrete repair request in m00018 before we consider freezing the candidate. Version 1 is the current implemented artifact. The review identifies an outstanding draft-preservation concern and explicitly withholds learning-experience approval; it does not report executed tests. There is no recorded formal objection to resolve, and no domain approval has been issued.\n\nSoftware Engineering: please supply a complete repaired HTML document extending version 1, with artifact.parent_version set to 1. Address the interaction outcome identified by Learning Experience Design: copying an earlier response must not silently discard a nonempty current draft. Its preferred small repair is to allow copying only into a blank draft, explain the unavailable state beside the control, and keep the earlier response readable in history. Please use that proposed outcome as the requirement and determine the implementation within your remit. If you choose another mechanism, explain how the displaced draft remains recoverable and how that recovery is made clear to the learner.\n\nPlease also incorporate the two wording refinements proposed in m00018 if they can be made consistently with that repair: a short optional cue beside feedback when the supplied changed-condition opportunity is available, and a statement beside the response scaffold that short notes or bullet points are welcome. Keep these optional opportunities and retain the visible distinction between guided self-review and verified judgments. Preserve the existing required browser controls, replaceable-case contract and case-specific response records.\n\nIn your response, explain the implemented behavior for copying into an empty draft, trying to reuse earlier text after the learner has written a new draft, and retaining the original submission with its original case. These are the focused interactions Learning Experience Design asked to verify. Separate what can be established by inspecting the supplied implementation from runtime checks that remain unperformed; do not claim execution, accessibility validation or learner results that are unavailable in this bounded turn. Identify any remaining question for the reviewer rather than treating implementation as approval.\n\nLearning Experience Design: once the repaired artifact is supplied, please review that actual version and respond directly on whether your draft-preservation concern is addressed and whether the added cues preserve an understandable, optional revision flow. If the implemented version meets your domain's requirements, you may approve that version within your assigned scope, stating the review basis and remaining empirical limits. Otherwise identify the specific outstanding correction or objection so Software Engineering can respond. A planned repair is not a basis for approval.\n\nThe other specialists' earlier case, learning and assessment proposals remain attributable design inputs, not approvals of version 1 or its successor. Their domain statuses remain not_reviewed. This request routes the immediate repair and its author's follow-up review; it does not certify the artifact or announce readiness for testing.",
+          "artifact_version": 1,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/ws_009",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "4da591fe53ceaed9f508fa5d71cf2f81777fd52adc52bd92cbde666051ac2111",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "a4519bafdc48b90ad3040b2a8dfc7cb7ef03ef9827e2681a96be02439f1bff86",
+          "raw_response_sha256": "d67d7dde701a9728ee94f9260301c8a0adf4a7874550bfb88d5d8403c631a5e9",
+          "raw_response_file": "calls/0009/collaboration-response.json",
+          "collected_at": "2026-11-03T04:27:31.534720+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to."
+        }
+      },
+      "prev_hash": "249d965de7b701deb37efe6b1890dbc98299711e037f12afda603d5bac39c9e5",
+      "hash": "395d6f6989fe6e37073fc13834d52d9043d9a3d0b40ed926ea38d9b823c7bdad"
+    },
+    {
+      "seq": 21,
+      "at": "2026-11-03T04:30:07.343504+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "software_engineering",
+      "payload": {
+        "ordinal": 10,
+        "purpose": "conversation",
+        "prompt_file": "calls/0010/prompt.txt",
+        "prompt_sha256": "a2edf17b77d68e5b137e5adf7c97f18cead19ac4c752d21b87281d6680706d9b",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00020"
+      },
+      "prev_hash": "395d6f6989fe6e37073fc13834d52d9043d9a3d0b40ed926ea38d9b823c7bdad",
+      "hash": "c4f337e7a8a265a995baf1861848e4faef18d7bfe91a0533445e58d2844d279f"
     }
   ]
 }

@@ -46,6 +46,7 @@ function issueList(title, values, render) {
 
 function stateView(run, state) {
   const node = host('record-state'), columns = el('div', 'state-columns'); node.replaceChildren();
+  node.append(el('p', 'muted', `Context allowance at this event: ${state.effective_context_chars.toLocaleString()} characters. Full accepted messages are retained.`));
   columns.append(issueList('Unanswered questions', state.questions, item => `${item.id} · awaiting ${item.pending.map(id => label(run, id)).join(', ')}\n${item.content}`),
     issueList('Open objections', state.objections, item => `${item.id} · raised by ${label(run, item.actor)}\n${item.content}`)); node.append(columns);
   node.append(el('p', 'muted', 'An addressed answer closes a question for that actor. Only the original objector can withdraw an objection. Prose alone does not close either.'));
@@ -129,6 +130,12 @@ export function renderRunSummary(run) {
     el('p', 'muted', `Pinned configuration: ${run.config.id} · ${run.config_sha256}`),
     el('p', 'muted', 'Imported file: input fingerprints, event links and retained HTML bindings checked locally. Use the local runner for its full semantic verification.'));
   if (collaboration) node.append(el('p', '', 'Recorded origin: fresh collaboration-agent responses. Manual describes the submission method. Exact prompts, responses and agent identifiers are retained; CLI sandbox isolation and token accounting are unavailable.'));
+  const current = replayState(run, run.events.length);
+  node.append(el('p', 'muted', `Effective context allowance: ${current.effective_context_chars.toLocaleString()} characters · original pinned allowance: ${run.config.budgets.max_context_chars.toLocaleString()}.`));
+  for (const amendment of current.amendments) {
+    const value = amendment.payload, details = disclosure(`Context amendment · event ${amendment.seq}`);
+    details.append(el('p', '', value.reason), el('p', 'muted', 'The original configuration and earlier event hashes are preserved. Only the context allowance changes; call limits, expertise permissions and evidence rules remain in force. The local runner additionally verifies the archived original run and both source trees.'), jsonBlock(value)); node.append(details);
+  }
   const context = host('record-evidence'); context.replaceChildren();
   for (const [title, value] of [['Pinned configuration and full scenarios', run.config], ['Evaluator expertise and rubric', {agent: run.config.agents.find(item => item.id === run.config.evaluator_id), rubric: run.catalog.rubric}], ['Complete original run record', run]]) {
     const details = disclosure(title); details.append(jsonBlock(value)); context.append(details);

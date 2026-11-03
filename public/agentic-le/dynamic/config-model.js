@@ -43,7 +43,7 @@ export function makeConfig(catalog, caseId, conditionId) {
   const config = {schema_version: VERSION, id: `${caseId}-${conditionId}-v1`, case_id: caseId, condition_id: conditionId,
     case: structuredClone(selectedCase), agents, facilitator_id: condition.facilitator_id, evaluator_id: condition.evaluator_id,
     scenario_ids: scenarios.map(item => item.id), scenarios,
-    budgets: {design_develop: 24, deploy_test: 12, max_context_chars: 180000}, updates: []};
+    budgets: {design_develop: 24, deploy_test: 12, max_context_chars: 600000}, updates: []};
   return validateConfig(config, catalog);
 }
 

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from dynamic_contract import canonical, indexed, require
+from dynamic_amendment import context_limit
 from dynamic_state import phase, snapshot
 
 BOUNDARIES = """This is a bounded simulation, not a human team or demonstrated professional competence.
@@ -72,6 +73,6 @@ def conversation_prompt(run: dict, actor_id: str, reason: str) -> str:
 
 def bounded_prompt(run: dict, prompt: str) -> str:
     """Stop rather than silently truncate conversation history when context is too large."""
-    require(len(prompt) <= run["config"]["budgets"]["max_context_chars"],
+    require(len(prompt) <= context_limit(run),
             f"context_limit: full prompt needs {len(prompt)} characters; no transcript was truncated")
     return prompt

@@ -2,7 +2,7 @@
 import {downloadJSON, readJSON} from '../experiments/dom.js';
 import {makeConfig, nextVersionId, runnerCommands, validateConfig} from './config-model.js';
 import {renderEditor} from './config-editor.js';
-import {contentHash, verifyRecord} from './record-model.js';
+import {contentHash, continuedConfiguration, verifyRecord} from './record-model.js';
 import {renderRunSummary, renderReplay} from './record-view.js';
 import {loadSavedRuns} from './saved-runs.js';
 const host = id => document.getElementById(id);
@@ -115,8 +115,8 @@ function wireImportsAndSource() {
   });
   host('reload-config-json').addEventListener('click', () => { state.sourceDirty = false; refreshDraft(); announce('Unapplied JSON edits discarded; the form configuration is restored.'); });
   host('copy-run-config').addEventListener('click', () => {
-    if (!state.run) return; const config = structuredClone(state.run.config); config.id = nextVersionId(config.id);
-    if (replaceDraft(config, 'Copied the pinned configuration into a new draft version. The imported record stays unchanged.')) activate('configuration-panel');
+    if (!state.run) return; const config = continuedConfiguration(state.run); config.id = nextVersionId(config.id);
+    if (replaceDraft(config, 'Copied the configuration with its effective context allowance into a new draft version. The imported record stays unchanged.')) activate('configuration-panel');
   });
 }
 

@@ -115,6 +115,8 @@ def load(directory: Path) -> dict:
     """Load and verify a run before any replay, provider call, or mutation."""
     run = json.loads((directory / "run.json").read_text(encoding="utf-8"))
     verify(run)
+    from dynamic_amendment import verify_archives
+    verify_archives(directory, run)
     for event in run["events"]:
         if event["kind"] == "artifact":
             value = event["payload"]

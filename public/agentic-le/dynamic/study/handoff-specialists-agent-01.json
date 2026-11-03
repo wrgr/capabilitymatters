@@ -4099,6 +4099,467 @@
       },
       "prev_hash": "a9a7636310c3b81dd6224e3e6d894477bec0251a211f42cbb96d862902d853c8",
       "hash": "f6b0ceee0ec3855408097cea26f2ac307b432f5f75b374c296f49cecab67e992"
+    },
+    {
+      "seq": 9,
+      "at": "2026-11-03T04:12:25.521799+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "assessment_measurement_evaluation",
+      "payload": {
+        "message_id": "m00009",
+        "request_seq": 8,
+        "response": {
+          "kind": "answer",
+          "to": [
+            "facilitator",
+            "software_engineering",
+            "learning_sciences",
+            "subject_matter_expertise"
+          ],
+          "reply_to": [
+            "m00003"
+          ],
+          "domains": [
+            "assessment_measurement_evaluation"
+          ],
+          "content": "Proposed assessment boundary: the first encounter can support evidence-based self-review of a response to the applied fictional case. Submitting, revising, checking a box or completing the practice does not establish correctness, learning, transfer or workplace competence. I support the transparent self-review proposed in m00007 as the initial design. No automatic score or mastery label is needed. This is a measurement-design proposal; no artifact exists for approval.\n\nClaim, task and observable criteria\n\nThe target claim is that a learner can distinguish what case evidence supports from an unsupported explanation, seek information relevant to a decision, and propose an action consistent with stated conditions. The task is to compose a response to the supplied case. For self-review now, and for a possible independent human review later, use four criteria:\n\n1. Evidence basis: identify the particular supplied fact supporting the observation. The response must not turn a limited record into a broader claim about everything that occurred. Preserve material qualifications such as the time or location of the check when removing them would change the claim. Exact quotation, a particular ticket identifier and the seed's wording are not required.\n\n2. Treatment of uncertainty: distinguish a supplied observation from an explanation requiring additional evidence. An unsupported motive presented as fact needs reconsideration; an explicitly tentative possibility is not automatically an error, though it must not be treated as established. If revised fictional facts establish an explanation, assess against those facts rather than a blanket prohibition on motive language.\n\n3. Clarification value: identify what missing information the proposed question could supply and how an answer could affect the response. Merely containing a question mark, a polite phrase or a prescribed question does not satisfy this criterion. A useful question need not follow one sentence pattern.\n\n4. Feasibility: connect the proposed action to the supplied permissions, resources, availability or other operating conditions. A reasonable conditional step can meet this criterion when it explicitly acknowledges an unknown prerequisite. The seed's particular action is not an answer key. If the case lacks a condition needed to judge feasibility, record that limitation rather than assume the condition or declare the learner wrong. Subject-Matter Expertise's case boundaries in m00005 supply the content basis; I am not independently certifying workplace procedures.\n\nFor an eventual reviewer, record a short response excerpt and its supporting case evidence for each criterion. Use descriptions such as demonstrated in this response, needs reconsideration, or cannot judge from the available evidence, with a reason. Do not collapse these into a numerical total without a separately justified interpretation. A learner's own self-check is a reflection, not an independent rating.\n\nFeedback during practice\n\nAfter a nonempty response is submitted, show the applied case alongside the explanatory review prompts from m00007. Suggested framing: 'Practice review: these prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.' Then ask the learner to trace the observation to evidence, locate an important unknown, connect clarification to the next decision, and check the action's prerequisites. Feedback can invite keeping a justified response as well as revising it. A status such as response submitted or revision submitted reports an event only.\n\nIf the implementation adds text rules, every hint must disclose the narrow feature actually detected and the uncertainty of its interpretation. Wording, punctuation, copied facts and conditional terms cannot establish the four criteria; absence of a keyword cannot establish their absence. A negated or quoted motive phrase might trigger a superficial rule despite rejecting that motive. A grammatically polished response might still conflict with the facts. Without validated interpretation, rules should not announce correct, incorrect, passed, improved or mastered, and the learner must be able to disregard a hint in favor of the evidence. The simpler proposed self-review avoids making these semantic classifications.\n\nA blank response supplies no assessable performance. A skipped practice likewise supplies no evidence for or against capability; record skipped, provide a voluntary return, and do not deliver corrective feedback as though the learner attempted the task.\n\nChanges to the scenario\n\nFeedback and any interpretation must refer to the successfully applied facts, constraints and task. Applying a changed case starts a new assessment context: remove or clearly retire prior feedback, and do not silently count an old response as an attempt on the new case. If an earlier draft is retained for comparison, identify its original case. An invalid edit that has not been applied must not become the evidence basis for feedback. These are interpretation requirements; Software Engineering determines the technical implementation.\n\nGeneric review prompts may remain because they direct attention to the current evidence, but seed-specific examples and conclusions cannot remain authoritative after their supporting conditions change. Changed facts can make a formerly unsupported explanation supported; changed permissions can make a formerly feasible action infeasible. If the edited task changes the target capability, the original four criteria cannot automatically be treated as a valid assessment of that new task. State their scope and leave unsupported judgments unmade.\n\nIndependent assessment and changed-task evidence\n\nThe initial draft is prompted production, and its revision uses feedback. Their comparison can describe what changed in that supported encounter, but it cannot by itself establish independent transfer or an effect caused by the tool. A useful later evaluation would collect a first response to a different fictional handoff, with the relevant facts available but without a worked answer, review prompts or correctness feedback before that response. Preserve that first response before offering practice feedback. Keep this optional and outside the modest initial encounter.\n\nThe changed task should alter a condition that matters to the action, not merely rename the ticket: for example, remove an access or coverage condition on which a seed-case proposal depended, while leaving the learner enough information to propose a conditional next step or seek a missing condition. A separate variation could supply an explanation explicitly to check whether learners reconsider its evidentiary status. Subject-Matter Expertise should review any concrete changed case before it is used as a content benchmark. Judge the new response using the same evidence-based criteria, not by matching the seed's answer. Repeating an action despite an incompatible constraint, or treating an established explanation as automatically unsupported, would challenge a claim of transfer. This specifies an evaluation opportunity; no such responses have been observed.\n\nAlternative explanations and limits\n\nAn improved revision could reflect copying prompts, extra time, repeated exposure or greater familiarity with that one case. A difference on a new case could reflect case difficulty, ambiguity or prior experience rather than learning. Reading and writing demands may also affect what the response reveals. A future human evaluation should retain initial and revised responses, record the assistance available, use reviewed cases, and compare evidence-based judgments from more than one reviewer on a shared sample before claiming consistent measurement. Case comparability and any comparison condition would need to be designed before making a causal learning claim; a later task would be needed to examine retention.\n\nAutomated interaction checks and simulated learner responses can reveal stale-case feedback, inappropriate labels or other design problems. They cannot establish how people understand the task, actual completion time, scoring validity, learning gains or transfer. Those remain unmeasured. The existing content and learning proposals are sufficient to build the bounded self-review candidate; implementation review and any future empirical evaluation remain separate steps.",
+          "artifact_version": null,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_004",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "52685ce9254592b265634e222dfb09fa732d563469199dc157432c23146bbb44",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "7a08f93a0219653a0104e059fb2b7c12ab2ac1da2574be59643e7846d37da64c",
+          "raw_response_sha256": "365bc58ae1dc2c7675d8a07ec35d3663f51977b28779a8a19a19d50b0027a8bc",
+          "raw_response_file": "calls/0004/collaboration-response.json",
+          "collected_at": "2026-11-03T04:12:25.514312+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version."
+        }
+      },
+      "prev_hash": "f6b0ceee0ec3855408097cea26f2ac307b432f5f75b374c296f49cecab67e992",
+      "hash": "2e2ffe1013059094979320ed7c4bca6a69884320aebf8bfa2c2bd97004d2ed24"
+    },
+    {
+      "seq": 10,
+      "at": "2026-11-03T04:12:25.854246+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "ordinal": 5,
+        "purpose": "conversation",
+        "prompt_file": "calls/0005/prompt.txt",
+        "prompt_sha256": "687c75231dd9bdd1e4b4ba8ae9af3719504427907a9f33b9a2805c85d616f6a6",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "integrate_procedurally:m00009"
+      },
+      "prev_hash": "2e2ffe1013059094979320ed7c4bca6a69884320aebf8bfa2c2bd97004d2ed24",
+      "hash": "101223830aa91523141ae1671601d78228cd86d862a2fb595ed49eea85be91f7"
+    },
+    {
+      "seq": 11,
+      "at": "2026-11-03T04:13:48.099535+00:00",
+      "kind": "turn_failed",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "request_seq": 10,
+        "reason": "A reply must address the original author"
+      },
+      "prev_hash": "101223830aa91523141ae1671601d78228cd86d862a2fb595ed49eea85be91f7",
+      "hash": "875f123f49e5ef1422c6a28c251dad37b075684fa6ead69f6c3fe5d1357d0a4a"
+    },
+    {
+      "seq": 12,
+      "at": "2026-11-03T04:13:48.431767+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "ordinal": 6,
+        "purpose": "conversation",
+        "prompt_file": "calls/0006/prompt.txt",
+        "prompt_sha256": "00763fb2ba80a64e9835fe22b8e63341c0244dbe0fedc8739cc6b7d6165a3a7a",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "integrate_procedurally:m00009"
+      },
+      "prev_hash": "875f123f49e5ef1422c6a28c251dad37b075684fa6ead69f6c3fe5d1357d0a4a",
+      "hash": "c5108465e71b93943a81337e402edf53cc60abda46432fd76eeca77ffb6ffbce"
+    },
+    {
+      "seq": 13,
+      "at": "2026-11-03T04:16:03.404830+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "message_id": "m00013",
+        "request_seq": 12,
+        "response": {
+          "kind": "question",
+          "to": [
+            "software_engineering"
+          ],
+          "reply_to": [],
+          "domains": [],
+          "content": "Please provide the first complete, self-contained HTML implementation for a bounded review candidate. There is enough proposed content to make the next discussion concrete: Subject-Matter Expertise supplied the fictional starting case and its evidence boundaries in m00005; Learning Sciences proposed one response, explanatory self-review and optional revision in m00007; Assessment, Measurement, Evaluation supported that transparent self-review without automatic scoring in m00009. These are attributed design proposals, not implemented-version approvals or evidence of effectiveness.\n\nUse the scenario seed from m00005 and the instructional and interpretation boundaries from m00007 and m00009. Keep the first encounter modest: show the applied case, support a learner draft, display explanatory self-review after an attempt, and allow revision or a justified decision to retain the response. The proposed feedback should explain observation, explanation, useful clarification and feasibility while clearly stating that the tool has not determined whether the learner's response satisfies them. Implementing the proposed self-review is sufficient; no semantic classifier, score or mastery label is requested.\n\nFollow every element of the supplied browser contract, including its exact element IDs, editable scenario JSON and learner response, visible applied case, feedback and practice state, keyboard-operable controls, explicit labels and recoverable errors. Treat the scenario's title, facts, constraints and task as supplied data, including changed cases with unfamiliar content. Please determine the technical behavior needed to honor the colleagues' requirements: successfully applying a changed case must retire its predecessor's feedback and must not silently count a previous response as a new attempt; invalid unapplied edits must not replace the applied evidence; blank and skipped practice must not be interpreted as performance; skipping must work without a response and permit a voluntary return. Make reset behavior understandable to the learner.\n\nThe supplied shared-laptop and occasional-phone context, fictional-records restriction and prohibition on network requests or external assets remain requirements. Within your assigned expertise, explain how the implemented candidate handles those conditions and identify any limitations needing another specialist's review. Distinguish behavior evident in the supplied implementation from anything that would require execution or human observation; do not claim tests or completion-time results that have not occurred.\n\nPlease return implemented bytes and a concise account of your technical choices, with any specific question or objection requiring a colleague's reply. The content, learning, assessment, experience and environment reviews of those bytes remain pending. No implementation exists yet, no specialist approval has been recorded, and no explicit objection is currently open. This request is to build a reviewable candidate, not to certify readiness.",
+          "artifact_version": null,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_006",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "00763fb2ba80a64e9835fe22b8e63341c0244dbe0fedc8739cc6b7d6165a3a7a",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "e168dc01a7e8eba9919eac3e7ef523e86a277824f3ec80ff046f49324f704b79",
+          "raw_response_sha256": "1a00a9b8fe6f43a07baa961967b1c45a6f4fd818f592a8dbc9fac77b706771bf",
+          "raw_response_file": "calls/0006/collaboration-response.json",
+          "collected_at": "2026-11-03T04:16:03.396527+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to."
+        }
+      },
+      "prev_hash": "c5108465e71b93943a81337e402edf53cc60abda46432fd76eeca77ffb6ffbce",
+      "hash": "ee9ef29eb14f104d7d3bfc5556cc6cc78e3ed7c019ac5c813e5a7cc9919b974f"
+    },
+    {
+      "seq": 14,
+      "at": "2026-11-03T04:16:03.734045+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "software_engineering",
+      "payload": {
+        "ordinal": 7,
+        "purpose": "conversation",
+        "prompt_file": "calls/0007/prompt.txt",
+        "prompt_sha256": "c3020f1ed6083744383a81790f2b8a6ccbc5d287c41534ef1f4936610ef6a960",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00013"
+      },
+      "prev_hash": "ee9ef29eb14f104d7d3bfc5556cc6cc78e3ed7c019ac5c813e5a7cc9919b974f",
+      "hash": "4b030fad7b52220817e2738b463ebd64cab58f850882b0afb25db95f49ccb8aa"
+    },
+    {
+      "seq": 15,
+      "at": "2026-11-03T04:20:46.174736+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "software_engineering",
+      "payload": {
+        "message_id": "m00015",
+        "request_seq": 14,
+        "response": {
+          "kind": "implementation",
+          "to": [
+            "facilitator",
+            "subject_matter_expertise",
+            "learning_sciences",
+            "assessment_measurement_evaluation",
+            "learning_experience_design",
+            "learning_environment_engineering"
+          ],
+          "reply_to": [
+            "m00013"
+          ],
+          "domains": [
+            "software_engineering"
+          ],
+          "content": "The enclosed bytes provide the first complete implementation requested in m00013. The starting case is the supplied m00005 seed. The response, explanatory self-review and optional revision implement the proposals in m00007 and m00009; their inclusion is not an independent instructional or assessment approval.\n\nThe implementation includes every required browser-contract ID. It parses the scenario as JSON, validates the four required field types, copies only those fields, and renders supplied text with textContent. It accepts unfamiliar text and empty arrays without assuming seed-specific identifiers, times, permissions or motives. Invalid JSON or field types produce an accessible visible error while retaining the applied case, response and review. A successful application starts a fresh practice, clears the preceding response and feedback, and displays the new facts, conditions and task. The editor explicitly warns that applying a valid case clears the current practice. Extra JSON keys are ignored, as disclosed beside the editor.\n\nOnly a nonblank response opens the explanatory review. No response classifier, keyword check, score or mastery judgment is implemented. The first and latest submitted wording can be inspected within the current case. Revision retains the current draft and review; submitting unchanged wording is permitted and produces an event label stating that the response was kept. An optional reflection allows the learner to explain a change or a decision to retain the response. Feedback states its scope and does not claim to validate an unrelated edited task.\n\nSkipping clears the current response and review, displays a neutral skipped state, and offers a voluntary return to the same applied case. Reset clears responses, reflections, review and pending JSON edits and restores the supplied starting case; that behavior is stated beside the reset button. Data are held only in page memory, with no storage API, analytics, external asset or network operation. A content security policy also disallows network connections. The page reminds users to enter fictional details only and to reset before handing over a shared device; it does not claim to detect personal disclosures or control browser session restoration.\n\nThe supplied code uses native labeled textareas and buttons, visible focus styles, live status and error regions, focus movement after relevant actions, and a layout that adapts to narrow screens. These are inspectable implementation choices, not observed usability results. I have not executed the artifact or run input, reset, keyboard, phone or assistive-technology tests under this turn's no-execution boundary, so technical execution verification remains outstanding. Content, learning, assessment, experience and environment reviews of these bytes also remain pending. No specialist approval, human completion-time result, learning gain or readiness certification is asserted.",
+          "artifact_version": null,
+          "issue_id": "",
+          "artifact": {
+            "html": "<!doctype html>\n<html lang='en'>\n<head>\n<meta charset='utf-8'>\n<meta name='viewport' content='width=device-width, initial-scale=1'>\n<meta http-equiv='Content-Security-Policy' content=\"default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n<title>A difficult handoff conversation</title>\n<style>\n:root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#172e36;background:#f1f5f5;font-size:16px;line-height:1.55}*{box-sizing:border-box}body{margin:0}main{max-width:72rem;margin:auto;padding:1rem 1rem 3rem}header{max-width:55rem;margin:1rem 0 1.4rem}h1,h2,h3,h4{line-height:1.25}h1{font-size:clamp(1.8rem,4vw,2.6rem);margin:.3rem 0 .7rem}h2{font-size:1.3rem;margin:0 0 .85rem}h3{font-size:1.15rem;margin:.75rem 0}h4{font-size:1rem;margin:1.1rem 0 .4rem}p{margin:.65rem 0}li{margin:.45rem 0}ul,ol{padding-left:1.5rem}.eyebrow{font-weight:700;color:#285b63;letter-spacing:.04em}.panel{background:#fff;border:1px solid #bccdce;border-radius:.85rem;padding:1.25rem;margin-top:1rem;min-width:0}.layout{display:grid;grid-template-columns:1fr;gap:1rem}.layout .panel{margin-top:0}.notice{padding:.85rem 1rem;background:#e3eeee;border-left:4px solid #28656d;border-radius:.25rem}.status{background:#173e48;color:#fff;padding:.9rem 1rem;border-radius:.55rem;margin:1rem 0;font-weight:600;overflow-wrap:anywhere}.muted,.help{color:#455c63;font-size:.95rem}label{display:block;font-weight:700;margin:.8rem 0 .35rem}textarea{display:block;width:100%;min-width:0;max-width:100%;font:inherit;line-height:1.5;border:1px solid #758e95;border-radius:.4rem;padding:.75rem;background:#fff;color:#172e36;resize:vertical}textarea:disabled{background:#edf1f1;color:#455c63}#scenario-input{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9rem}.actions{display:flex;flex-wrap:wrap;gap:.65rem;margin:1rem 0 .25rem}button{font:inherit;font-weight:650;min-height:44px;padding:.6rem .95rem;border:1px solid #205764;border-radius:.45rem;background:#fff;color:#164b59;cursor:pointer}button.primary{background:#165d6c;color:#fff}button:disabled{cursor:default;background:#edf1f1;color:#52676d;border-color:#a6b7bb}button:hover:enabled{box-shadow:0 0 0 2px #c9e1e3}:focus-visible{outline:3px solid #a34b00;outline-offset:3px}.error{color:#821e1e;background:#fff0ee;border:1px solid #ba6760;border-radius:.4rem;padding:.75rem}.review-list{padding-left:1.35rem}.review-list li{margin:.85rem 0}details{margin-top:1rem;border-top:1px solid #d0dddd;padding-top:.8rem}summary{cursor:pointer;font-weight:650;min-height:44px;padding:.3rem 0}pre{font:inherit;white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5f5;padding:.85rem;border-radius:.35rem}#scenario-view,#feedback{overflow-wrap:anywhere}#scenario-view li,#scenario-view p{white-space:pre-wrap}[hidden]{display:none!important}footer{margin-top:1.3rem}@media(min-width:56rem){.layout{grid-template-columns:1.05fr 1fr}}@media(max-width:34rem){main{padding:.7rem .7rem 2rem}.panel{padding:1rem}.actions button{flex:1 1 13rem}}\n</style>\n</head>\n<body>\n<main>\n<header>\n<p class='eyebrow'>Fictional practice · optional</p>\n<h1>A difficult handoff conversation</h1>\n<p>State what the facts support, ask about one important unknown, and propose a next step that fits the conditions.</p>\n<p class='notice'>Use fictional details only. Do not enter employee names, rankings or personal disclosures. You may skip this practice.</p>\n</header>\n<noscript><p class='error'>JavaScript is required for the scenario controls, response and review in this practice. Enable scripts to use them.</p></noscript>\n<p id='practice-status' class='status' role='status' aria-live='polite' aria-atomic='true' data-state='starting'>Starting practice.</p>\n<div class='layout'>\n<section id='scenario-view' class='panel' tabindex='-1' aria-label='Applied fictional case'></section>\n<section class='panel' aria-labelledby='response-heading'>\n<h2 id='response-heading'>Your response</h2>\n<p id='response-help' class='help'>Use the applied case beside this draft. There is no required wording. After trying a response, you can review, revise or keep it.</p>\n<label for='response-input'>Response to the applied fictional case</label>\n<textarea id='response-input' rows='8' autocomplete='off' aria-describedby='response-help response-error'></textarea>\n<p id='response-error' class='error' role='alert' hidden></p>\n<div class='actions'>\n<button id='try-response' class='primary' type='button'>Try response</button>\n<button id='revise-response' type='button' disabled>Revise response</button>\n<button id='skip-practice' type='button' aria-describedby='skip-help'>Skip this practice</button>\n<button id='return-practice' type='button' hidden>Return to this case</button>\n</div>\n<p id='skip-help' class='help'>Skipping clears this draft and its review. You can return voluntarily with a fresh draft.</p>\n</section>\n</div>\n<section id='feedback' class='panel' tabindex='-1' aria-labelledby='feedback-heading'>\n<h2 id='feedback-heading'>Practice review</h2>\n<div id='review-body'><p>Try a response to open explanatory self-review, or skip this practice.</p></div>\n<div id='reflection-panel' hidden>\n<label for='reflection-input'>What did you change, or why did you keep your response? (optional)</label>\n<textarea id='reflection-input' rows='3' autocomplete='off' aria-describedby='reflection-help'></textarea>\n<p id='reflection-help' class='help'>This reflection is for your own review. It is not scored or interpreted by the tool.</p>\n</div>\n</section>\n<section class='panel' aria-labelledby='scenario-editor-heading'>\n<h2 id='scenario-editor-heading'>Change the fictional case</h2>\n<p id='scenario-help' class='help'>Edit the JSON below. Title and task must be strings; facts and constraints must be arrays of strings. Only these four fields are applied; other keys are ignored. Applying valid JSON starts a fresh practice and clears the current response, reflection and review. Invalid edits leave the applied case and practice intact.</p>\n<label for='scenario-input'>Scenario JSON</label>\n<textarea id='scenario-input' rows='11' spellcheck='false' autocomplete='off' aria-describedby='scenario-help scenario-edit-status scenario-error'></textarea>\n<p id='scenario-edit-status' class='help' role='status' aria-live='polite'>The editor matches the applied case.</p>\n<p id='scenario-error' class='error' role='alert' hidden></p>\n<div class='actions'><button id='apply-scenario' type='button'>Apply scenario</button></div>\n</section>\n<footer class='panel' aria-labelledby='reset-heading'>\n<h2 id='reset-heading'>Finish or start again</h2>\n<p id='reset-help'>Reset clears all response text, reflections, review and pending scenario edits, and restores the starting fictional case.</p>\n<button id='reset-practice' type='button' aria-describedby='reset-help privacy-help'>Reset practice and restore starting case</button>\n<p id='privacy-help' class='help'>This page does not send responses or use browser storage. Entries remain visible in this tab until cleared. On a shared device, reset before leaving. Browser session recovery is outside this page's control.</p>\n</footer>\n</main>\n<script>\n(function(){\n'use strict';\nconst seed={\n title:'The missing handoff note',\n facts:[\n  'For fictional ticket F-17, the outgoing team agreed to enter status, next action and owner in the shared queue by 14:00.',\n  'At 14:10, the shared queue contained no handoff entry for F-17.',\n  \"The latest ticket entry visible at 14:10 was recorded at 13:50, said 'waiting for customer reply', and named no owner for after 14:00.\",\n  'At 14:12, the incoming team asked the lead what to do next with F-17.'\n ],\n constraints:[\n  'The lead and incoming team can read and update the shared queue and use the team channel.',\n  'The outgoing team can be contacted through the team channel, but their current availability is unknown.',\n  'Temporary coverage requires an available incoming teammate to agree; no such agreement is supplied in this case.'\n ],\n task:'As the fictional service-team lead, write a brief response or action proposal that states a supported observation, asks a useful clarifying question, and proposes a feasible next step. You may skip.'\n};\nconst byId=function(id){return document.getElementById(id);};\nconst scenarioInput=byId('scenario-input');\nconst scenarioView=byId('scenario-view');\nconst scenarioError=byId('scenario-error');\nconst editorStatus=byId('scenario-edit-status');\nconst responseInput=byId('response-input');\nconst responseError=byId('response-error');\nconst feedback=byId('feedback');\nconst reviewBody=byId('review-body');\nconst reflectionPanel=byId('reflection-panel');\nconst reflectionInput=byId('reflection-input');\nconst practiceStatus=byId('practice-status');\nconst tryButton=byId('try-response');\nconst reviseButton=byId('revise-response');\nconst skipButton=byId('skip-practice');\nconst returnButton=byId('return-practice');\nlet applied;\nlet submittedCount=0;\nlet firstResponse='';\nlet latestResponse='';\nlet skipped=false;\nfunction node(tag,text,className){\n const element=document.createElement(tag);\n if(text!==undefined){element.textContent=text;}\n if(className){element.className=className;}\n return element;\n}\nfunction copyScenario(value){\n return {title:value.title,facts:value.facts.slice(),constraints:value.constraints.slice(),task:value.task};\n}\nfunction scenarioProblem(value){\n if(value===null||typeof value!=='object'||Array.isArray(value)){return 'Scenario JSON must be an object containing title, facts, constraints and task.';}\n if(typeof value.title!=='string'){return 'The title field must be a string.';}\n if(typeof value.task!=='string'){return 'The task field must be a string.';}\n if(!Array.isArray(value.facts)||!value.facts.every(function(item){return typeof item==='string';})){return 'The facts field must be an array containing only strings.';}\n if(!Array.isArray(value.constraints)||!value.constraints.every(function(item){return typeof item==='string';})){return 'The constraints field must be an array containing only strings.';}\n return '';\n}\nfunction status(state,message){\n practiceStatus.dataset.state=state;\n practiceStatus.textContent=message;\n}\nfunction clearError(input,output){\n input.removeAttribute('aria-invalid');\n output.textContent='';\n output.hidden=true;\n}\nfunction showError(input,output,message){\n output.textContent=message;\n output.hidden=false;\n input.setAttribute('aria-invalid','true');\n input.focus();\n}\nfunction appendEntries(parent,entries,tag,emptyText){\n if(entries.length===0){parent.append(node('p',emptyText,'help'));return;}\n const list=node(tag);\n entries.forEach(function(entry){list.append(node('li',entry.trim()?entry:'(Blank entry supplied.)'));});\n parent.append(list);\n}\nfunction renderCase(){\n scenarioView.replaceChildren();\n scenarioView.append(node('h2','Applied fictional case'));\n scenarioView.append(node('h3',applied.title.trim()?applied.title:'Untitled fictional case'));\n scenarioView.append(node('h4','Facts'));\n appendEntries(scenarioView,applied.facts,'ol','No facts supplied. Missing information remains unknown.');\n scenarioView.append(node('h4','Operating conditions'));\n appendEntries(scenarioView,applied.constraints,'ul','No operating conditions supplied. Do not assume that a needed permission or resource is available.');\n scenarioView.append(node('h4','Task'));\n scenarioView.append(node('p',applied.task.trim()?applied.task:'No task text supplied. You can update the fictional case or skip.'));\n}\nfunction beginPractice(message){\n submittedCount=0;\n firstResponse='';\n latestResponse='';\n skipped=false;\n responseInput.value='';\n reflectionInput.value='';\n responseInput.disabled=false;\n tryButton.disabled=false;\n tryButton.textContent='Try response';\n reviseButton.disabled=true;\n skipButton.disabled=false;\n returnButton.hidden=true;\n reflectionPanel.hidden=true;\n clearError(responseInput,responseError);\n reviewBody.replaceChildren(node('p','Try a response to open explanatory self-review, or skip this practice.'));\n status('ready',message);\n}\nfunction renderReview(){\n reviewBody.replaceChildren();\n reviewBody.append(node('p','These prompts help you examine your response. The tool has not determined whether your observation is supported, your question is useful, or your next step is feasible. Compare your draft with the applied facts and conditions.'));\n reviewBody.append(node('p','Review context: '+(applied.title.trim()?applied.title:'Untitled fictional case')+'. Use the applied case shown above, including any conditions that remain unknown.','help'));\n const list=node('ol',undefined,'review-list');\n const prompts=[\n  ['Observation and evidence. ','An observation reports what the available evidence supports. Find the fact supporting your observation. Does your wording claim more than that fact establishes? Preserve relevant limits such as when or where something was observed.'],\n  ['Explanation and uncertainty. ','An explanation adds an account of why something happened; it needs its own evidence. Separate what is known from explanations or motives still needing confirmation. If this fictional case supplies evidence for an explanation, consider that evidence.'],\n  ['Useful clarification. ','A useful question reduces an uncertainty that matters to the response. Identify the missing information your question could reveal and how an answer could change your next step.'],\n  ['Feasible next step. ','A feasible step fits the known conditions and acknowledges conditions still to be confirmed. Identify the stated permission, resource or agreement your action needs. If a needed condition is unknown, make the step conditional or ask about it.']\n ];\n prompts.forEach(function(parts){\n  const item=node('li');\n  item.append(node('strong',parts[0]),document.createTextNode(parts[1]));\n  list.append(item);\n });\n reviewBody.append(list);\n reviewBody.append(node('p','You may revise your response or keep it if your reasoning supports it. No wording change is required. Use Revise response to return to your draft, then submit again when ready.'));\n reviewBody.append(node('p','These are general self-review prompts, not a rule-based interpretation of your words. No punctuation, phrase or keyword is used to judge your response. The prompts address observation, uncertainty, clarification and feasible action; they may not fit an edited task with a different purpose. Submission and revision do not establish learning, transfer or workplace competence.','help'));\n const history=node('details');\n history.append(node('summary','View submitted wording for this applied case'));\n history.append(node('h3','First submitted response'),node('pre',firstResponse));\n if(submittedCount>1){history.append(node('h3','Most recently submitted response'),node('pre',latestResponse));}\n history.append(node('p','Edits in the response box are not submitted until you press the submit button. This wording is cleared when you apply a case, skip or reset.','help'));\n reviewBody.append(history);\n reflectionPanel.hidden=false;\n}\nfunction resetAll(moveFocus){\n applied=copyScenario(seed);\n scenarioInput.value=JSON.stringify(applied,null,2);\n clearError(scenarioInput,scenarioError);\n editorStatus.textContent='The editor matches the applied case.';\n renderCase();\n beginPractice(moveFocus?'Reset. Starting fictional case restored; all entered responses, review and pending scenario edits cleared.':'Ready. Read the applied fictional case, draft a response, or skip.');\n if(moveFocus){scenarioView.focus();}\n}\nbyId('apply-scenario').addEventListener('click',function(){\n let parsed;\n try{parsed=JSON.parse(scenarioInput.value);}catch(error){\n  showError(scenarioInput,scenarioError,'Scenario JSON could not be read. Check quotation marks, commas and brackets, then apply again. The applied case and current practice have not changed.');\n  editorStatus.textContent='Edit not applied. The case shown above remains the evidence for this practice.';\n  return;\n }\n const problem=scenarioProblem(parsed);\n if(problem){\n  showError(scenarioInput,scenarioError,problem+' Fix this field and apply again. The applied case and current practice have not changed.');\n  editorStatus.textContent='Edit not applied. The case shown above remains the evidence for this practice.';\n  return;\n }\n applied=copyScenario(parsed);\n scenarioInput.value=JSON.stringify(applied,null,2);\n clearError(scenarioInput,scenarioError);\n editorStatus.textContent='Applied. The editor matches the case shown above.';\n renderCase();\n beginPractice('New case applied. Ready for a fresh response; the preceding draft, reflection and review were cleared.');\n scenarioView.focus();\n});\nscenarioInput.addEventListener('input',function(){\n clearError(scenarioInput,scenarioError);\n editorStatus.textContent='Unapplied edit. The case shown above and its current practice have not changed.';\n});\ntryButton.addEventListener('click',function(){\n if(skipped){return;}\n const response=responseInput.value;\n if(!response.trim()){\n  showError(responseInput,responseError,'Enter a response before opening review, or choose Skip this practice. A blank draft is not submitted.');\n  status('response-required','No new response submitted. Enter a response or skip; a blank draft is not evidence of capability.');\n  return;\n }\n clearError(responseInput,responseError);\n const initial=submittedCount===0;\n const unchanged=!initial&&response===latestResponse;\n if(initial){firstResponse=response;}\n latestResponse=response;\n submittedCount+=1;\n renderReview();\n reviseButton.disabled=false;\n tryButton.textContent='Submit revision or keep response';\n if(initial){status('response-submitted','Response submitted. Review it against the applied case; no correctness judgment was made.');}\n else if(unchanged){status('response-kept','Response kept after self-review. No correctness judgment was made.');}\n else{status('revision-submitted','Revision submitted. No correctness or improvement judgment was made.');}\n feedback.focus();\n});\nreviseButton.addEventListener('click',function(){\n if(skipped||submittedCount===0){return;}\n status('revising','Reviewing or revising the current response. You may change the draft or keep justified wording, then submit again.');\n responseInput.focus();\n});\nresponseInput.addEventListener('input',function(){\n clearError(responseInput,responseError);\n if(skipped){return;}\n if(submittedCount>0){status('editing','Editing the response for this applied case. Submit again when ready. Review prompts remain available; submitted wording is shown separately.');}\n else{status('drafting','Draft in progress for the applied case. Try your response when ready, or skip.');}\n});\nskipButton.addEventListener('click',function(){\n beginPractice('Skipped. No capability judgment was made. You may leave or voluntarily return to this case.');\n skipped=true;\n responseInput.disabled=true;\n tryButton.disabled=true;\n reviseButton.disabled=true;\n skipButton.disabled=true;\n returnButton.hidden=false;\n reviewBody.replaceChildren(node('p','Practice skipped. No review is requested. Your draft and any earlier review have been cleared. You can leave or return to the same applied case.'));\n status('skipped','Skipped. No capability judgment was made. You may leave or voluntarily return to this case.');\n returnButton.focus();\n});\nreturnButton.addEventListener('click',function(){\n beginPractice('Returned to the applied case. Ready for a fresh response; returning is optional.');\n responseInput.focus();\n});\nbyId('reset-practice').addEventListener('click',function(){resetAll(true);});\nresetAll(false);\n})();\n</script>\n</body>\n</html>",
+            "change_summary": "First self-contained HTML candidate: supplied fictional seed; exact scenario and response interface; safe JSON validation and text rendering; explicit applied-case state; non-scoring explanatory self-review; retained draft and optional revision/reflection; meaningful skip and return; explicit full reset; no network or persistent storage; responsive native controls and visible recoverable errors. Execution and domain reviews remain unperformed.",
+            "parent_version": null
+          },
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_007",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "c3020f1ed6083744383a81790f2b8a6ccbc5d287c41534ef1f4936610ef6a960",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "a70544eeb077eac97a2e3a9794870f768c4dfb2f25abaabc58496c3da37d276d",
+          "raw_response_sha256": "47909fa11b6a389f515f3ced5e871554d45e176fc40b77c891c9f0a2e054ba3c",
+          "raw_response_file": "calls/0007/collaboration-response.json",
+          "collected_at": "2026-11-03T04:20:46.164821+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to."
+        }
+      },
+      "prev_hash": "4b030fad7b52220817e2738b463ebd64cab58f850882b0afb25db95f49ccb8aa",
+      "hash": "0434afdbf7ab761e9c9e7a42840c0d0295a3b8af749a1000c350a3b37c0a6d39"
+    },
+    {
+      "seq": 16,
+      "at": "2026-11-03T04:20:46.175104+00:00",
+      "kind": "artifact",
+      "phase": "design_develop",
+      "actor": "software_engineering",
+      "payload": {
+        "version": 1,
+        "parent_version": null,
+        "sha256": "06c4da6534e9e94d1dcee730740e25d9ae475e47cf3bc2de80afa3789b519cff",
+        "file": "artifacts/v001.html",
+        "change_summary": "First self-contained HTML candidate: supplied fictional seed; exact scenario and response interface; safe JSON validation and text rendering; explicit applied-case state; non-scoring explanatory self-review; retained draft and optional revision/reflection; meaningful skip and return; explicit full reset; no network or persistent storage; responsive native controls and visible recoverable errors. Execution and domain reviews remain unperformed.",
+        "message_id": "m00015"
+      },
+      "prev_hash": "0434afdbf7ab761e9c9e7a42840c0d0295a3b8af749a1000c350a3b37c0a6d39",
+      "hash": "5211296d8b5e47be57e7a7db90f1f25d8e3ea05adc742e89058a1977923fa0ab"
+    },
+    {
+      "seq": 17,
+      "at": "2026-11-03T04:20:46.494983+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "ordinal": 8,
+        "purpose": "conversation",
+        "prompt_file": "calls/0008/prompt.txt",
+        "prompt_sha256": "1944692bcfed28fc04e3c84b6be5b4c72c5ce7a1bc029734692f8781e13f4601",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "integrate_procedurally:m00015"
+      },
+      "prev_hash": "5211296d8b5e47be57e7a7db90f1f25d8e3ea05adc742e89058a1977923fa0ab",
+      "hash": "8af02bc9b9517f84829ff0cfffbda65cdd8dc33b2e77df281da2669d840ed015"
+    },
+    {
+      "seq": 18,
+      "at": "2026-11-03T04:22:34.666122+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "message_id": "m00018",
+        "request_seq": 17,
+        "response": {
+          "kind": "question",
+          "to": [
+            "subject_matter_expertise",
+            "learning_sciences",
+            "assessment_measurement_evaluation",
+            "learning_experience_design",
+            "learning_environment_engineering"
+          ],
+          "reply_to": [],
+          "domains": [],
+          "content": "Version 1, supplied by Software Engineering in m00015, is now available for review. The author reports implementing the fictional seed, explanatory self-review, optional revision or retention of wording, skip and return, scenario replacement and reset. Those reports and the supplied bytes make the discussion concrete; they are not domain approvals or execution results. All domain review statuses remain not_reviewed, and no explicit objection is currently open.\n\nPlease review these implemented bytes within your assigned expertise, concentrating on the following unresolved questions.\n\nSubject-Matter Expertise: does version 1 preserve the evidence boundaries of your m00005 case, including what remains unknown about the missing handoff and available coverage? Does its visible guidance remain appropriate when applied fictional facts or operating conditions change, without silently carrying over the seed's assumptions? Identify any specific content that would need correction before a bounded test.\n\nLearning Sciences: does the implemented response, explanatory review and revision sequence adequately represent the supported-production practice proposed in m00007? Please assess the actual prompts, the option to retain justified wording, and the skip route. Identify whether any necessary instructional support is missing, distinguishing that concern from the still-unmeasured questions of learning, transfer and retention.\n\nAssessment, Measurement, Evaluation: please review version 1 against the interpretation boundaries you proposed in m00009. Consider the actual feedback and status wording, blank and skipped attempts, unchanged submissions, and the separation of an applied case from pending edits or a preceding case. Does anything imply an interpretation or evidence claim that the implementation cannot support?\n\nLearning Experience Design: m00007 specifically left the understandability and reading burden of this first encounter for your review. Please consider the implemented instructions, review text, action labels, voluntary skip and return, and the distinctions among revising, applying a case and resetting. Given occasional phone use, identify any concrete concern visible in the supplied design and any question that requires observing people or a rendered interface. Actual completion time remains unknown.\n\nLearning Environment Engineering: please assess the candidate's fit with shared laptops and occasional phone use, including the author's stated page-memory approach, clearing behavior, fictional-input guidance and browser-session limitation. Identify the conditions still needed for a bounded test and any material environment concern requiring a response from Software Engineering. Do not treat source inspection as evidence that a particular device, browser or assistive technology has been tested.\n\nEach reviewer should distinguish a necessary change from an optional improvement and identify the implemented text or behavior behind the concern. If you can approve version 1 within your own domain for this bounded candidate, name version 1 and state the scope and remaining evidence limits; otherwise provide the specific objection or missing input. Address a colleague directly if their answer is needed to settle your concern. These reviews will inform whether to request a targeted repair or freeze the candidate for testing; they do not establish effectiveness, human usability results or consensus.",
+          "artifact_version": 1,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_008",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "1944692bcfed28fc04e3c84b6be5b4c72c5ce7a1bc029734692f8781e13f4601",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "5a08af167edf254b56648a5f2ce61e4c623d9cf9170471a9943d39c11f35498e",
+          "raw_response_sha256": "05d6603fa95181e47f2e2ff0ad226487162f4ba282489f8eac33b6fe8ce1866a",
+          "raw_response_file": "calls/0008/collaboration-response.json",
+          "collected_at": "2026-11-03T04:22:34.655019+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to."
+        }
+      },
+      "prev_hash": "8af02bc9b9517f84829ff0cfffbda65cdd8dc33b2e77df281da2669d840ed015",
+      "hash": "2ad109844fd699a97b765c53b618584f804bc1d734df7a3c66e1a4d2512bcdb6"
+    },
+    {
+      "seq": 19,
+      "at": "2026-11-03T04:22:34.996801+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "subject_matter_expertise",
+      "payload": {
+        "ordinal": 9,
+        "purpose": "conversation",
+        "prompt_file": "calls/0009/prompt.txt",
+        "prompt_sha256": "a7092e75339093f449b0880d5257dfd8e3447dfaf4044c8f2530cda27d425e4e",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00018"
+      },
+      "prev_hash": "2ad109844fd699a97b765c53b618584f804bc1d734df7a3c66e1a4d2512bcdb6",
+      "hash": "bbeb4cb785e57ba0f033c814e9cb251824d0731a64e940e534fd91b08fb2debb"
+    },
+    {
+      "seq": 20,
+      "at": "2026-11-03T04:24:00.404853+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "subject_matter_expertise",
+      "payload": {
+        "message_id": "m00020",
+        "request_seq": 19,
+        "response": {
+          "kind": "approval",
+          "to": [
+            "facilitator",
+            "software_engineering"
+          ],
+          "reply_to": [
+            "m00018"
+          ],
+          "domains": [
+            "subject_matter_expertise"
+          ],
+          "content": "I approve version 1 for case-content accuracy within the bounded fictional handoff practice. This approval follows review of the implemented case and guidance supplied in m00015, not execution or observation of learners. I found no necessary case-content correction before a bounded test.\n\nThe embedded starting case preserves all four facts and all three operating conditions proposed in m00005. The absence of a handoff entry is tied to the shared queue and the 14:10 check; it does not establish that no handoff was attempted elsewhere or that no work occurred. The latest visible entry was recorded at 13:50 and reported waiting for a customer reply; that remains a statement about the available record, not proof of the customer's later response state. The incoming team's request for direction at 14:12 does not itself establish a customer impact or anyone's motive. No implemented guidance supplies an unsupported explanation for the missing entry.\n\nThe available actions retain their conditions. Queue access and use of the team channel are supplied permissions in this seed. The outgoing team's present availability remains unknown. Temporary coverage requires an available incoming teammate's agreement, and the case supplies no such agreement. Therefore, checking the current record, seeking an update through the channel, or asking about available temporary coverage are plausible choices; announcing that coverage is already arranged is not supported. A customer resolution deadline or a particular escalation route would also require information absent from this case. The implementation does not prescribe either one.\n\nThe actual review wording preserves these distinctions. The observation prompt asks the learner to find a supporting fact and preserve relevant limits such as when or where something was observed. The explanation prompt says an explanation needs its own evidence and explicitly allows the learner to consider evidence for an explanation when the fictional case supplies it. That avoids treating motives as universally unknowable. The clarification prompt connects missing information to a decision, leaving room for different useful questions. The feasibility prompt asks for the permission, resource or agreement an action needs and permits a conditional step or a question when a prerequisite is unknown. Those are appropriate content boundaries for the seed, including its unresolved coverage condition; they do not impose one universal response script.\n\nFor changed fictional handoff cases, the reusable guidance refers to the applied facts and operating conditions without carrying over F-17, the seed's times, channel access or permission to arrange coverage. The empty-case wording also preserves uncertainty: absent facts remain unknown, and absent operating conditions do not establish an available permission or resource. The explanation prompt can accommodate a changed case that establishes an explanation, while the feasibility prompt can accommodate a changed case that removes a previously available action. The visible editor guidance distinguishes unapplied edits from the applied case and states that applying a valid case starts fresh. That is the correct content relationship; whether every transition performs as stated remains a technical verification question.\n\nThis approval covers the supplied seed and the general content boundaries in version 1. It does not approve the substantive accuracy or consistency of arbitrary future user-authored cases, or determine whether a particular learner response is justified. A revised case used as a benchmark would need review against its own facts and conditions, especially if those facts conflict or omit a prerequisite for the proposed action. The implemented notice that these review prompts may not fit a task with a different purpose is appropriate. No additional worked answer is required for case-content accuracy; whether one would improve instructional support belongs to Learning Sciences.\n\nI am not approving instructional effectiveness, assessment validity, interface usability, device suitability or software execution. Those remain with the assigned colleagues and any later testing. No learning gain, actual completion time, human approval or test result is asserted.",
+          "artifact_version": 1,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_009",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "a7092e75339093f449b0880d5257dfd8e3447dfaf4044c8f2530cda27d425e4e",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "d568b5d6047e673511aea95bd3d90b34d6836f3fc16b2fd7e9375e01b21f217e",
+          "raw_response_sha256": "cd1208abb3a0d9afd333f059837a830de20f938505a5824a0c4db535c601f7e9",
+          "raw_response_file": "calls/0009/collaboration-response.json",
+          "collected_at": "2026-11-03T04:24:00.392040+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to."
+        }
+      },
+      "prev_hash": "bbeb4cb785e57ba0f033c814e9cb251824d0731a64e940e534fd91b08fb2debb",
+      "hash": "2a274b115a3f8f961a2b94f7d8d944b07609b9abc5aba25f131ddc36fe70dfa0"
+    },
+    {
+      "seq": 21,
+      "at": "2026-11-03T04:24:00.745104+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "learning_sciences",
+      "payload": {
+        "ordinal": 10,
+        "purpose": "conversation",
+        "prompt_file": "calls/0010/prompt.txt",
+        "prompt_sha256": "1a87bd272705926a19d56c060edd96b506dc6390ce508fadd24ead7c5dacc5c5",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00018"
+      },
+      "prev_hash": "2a274b115a3f8f961a2b94f7d8d944b07609b9abc5aba25f131ddc36fe70dfa0",
+      "hash": "25add92f7d2afc7e9522550804bcbfd01f7b26c52cd9a2e4b51801b40251078d"
+    },
+    {
+      "seq": 22,
+      "at": "2026-11-03T04:27:31.212302+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "learning_sciences",
+      "payload": {
+        "message_id": "m00022",
+        "request_seq": 21,
+        "response": {
+          "kind": "approval",
+          "to": [
+            "facilitator",
+            "software_engineering",
+            "assessment_measurement_evaluation",
+            "learning_experience_design"
+          ],
+          "reply_to": [
+            "m00018"
+          ],
+          "domains": [
+            "learning_sciences"
+          ],
+          "content": "I approve version 1 for alignment of the learning target, practice and explanatory self-review within this bounded fictional handoff candidate. This approval is based on the implemented bytes supplied in m00015. It is not a finding that the practice improves learning, and I have not executed the interface or observed a learner. I found no necessary instructional correction before a bounded test.\n\nThe observable target remains producing a response that traces an observation to supplied evidence, preserves uncertainty where an explanation is not established, asks for information that could affect the next decision, and connects the proposed action to its operating conditions. Version 1 represents that target without requiring a particular sentence or the seed's particular action. Its opening cue asks the learner to state what the facts support, ask about an important unknown and propose a step that fits the conditions. The learner composes an initial response before receiving the explanatory review. Because these component cues and the case are available, the initial response is supported production; revision with the review available is supported production as well. Recognizing a supplied observation would be a different, narrower performance. Neither this initial draft nor its revision is an independent-transfer task.\n\nThe four implemented review prompts provide the proposed reasoning support. The observation prompt asks for the supporting fact and whether the wording exceeds what that fact establishes, including relevant time and location limits. This directs attention to the difference between evidence and an inference. The explanation prompt says that an explanation needs its own evidence and explicitly allows consideration of evidence for an explanation in an edited case. It therefore supports reconsidering evidentiary status, rather than memorizing a rule that motives are always unknowable. The clarification prompt asks what missing information the question could reveal and how an answer could change the next step. This connects asking a question to its decision purpose. The feasibility prompt asks for the permission, resource or agreement an action needs and permits a conditional step or a question when a prerequisite is unknown. This makes the reason an action is feasible part of the practice. These are opportunities for reasoning, not evidence that learners actually perform that reasoning.\n\nThe revision support is appropriate. The supplied review explicitly permits keeping a response when its reasoning is justified and states that no wording change is required. The optional reflection asks what changed or why the response was kept, and the submitted-wording view offers an opportunity to compare the initial and latest responses within the same case. These features can support examining a decision rather than making a cosmetic edit to satisfy a completion rule. An unchanged submission does not demonstrate justification, and a changed submission does not demonstrate improvement. The implemented text avoids a mastery claim and tells learners that the tool has not determined whether their observation, question or next step satisfies the target.\n\nSkipping is also represented as a complete instructional route: it requires no attempted response, replaces the review with a neutral skipped message, and offers a voluntary return to a fresh draft on the same applied case. It supplies no evidence for or against capability. The stated clearing of prior practice on application of a new case preserves the instructional distinction between responses to different evidence. The reusable review refers to the applied facts and conditions rather than the seed's times, identifiers or permissions. It also discloses that an edited task with a different purpose may fall outside these prompts. Whether each transition actually works remains for technical verification; I am approving the represented instructional relationship. Editing a case and using the same cues and review would still be supported practice, not an independent-transfer demonstration.\n\nNo worked answer or automatic diagnosis is necessary for the modest self-review candidate proposed in m00007. A material limitation remains: a learner may lack the understanding needed to recognize a problem in their own response, and these general prompts do not establish that such a misunderstanding was corrected. That is a reason to observe how learners use the review, not to claim effectiveness or add an unrequested compulsory exercise. If later observations show that learners cannot connect a prompt to their wording, an optional case-specific worked explanation could be considered and reviewed. The understandability and reading burden of the present text remain with Learning Experience Design's pending review and subsequent human observation; actual completion time is unknown.\n\nFor any later learning claim, evidence must extend beyond completion, positive reaction or an improved prompted revision. As already proposed in m00007 and m00009, a new fictional handoff with a materially changed operating condition, relevant facts available, and no component-by-component review before the first response could examine independent transfer. Persisting with an action made infeasible by the changed condition, asserting an explanation without evidence, disregarding an explanation that the changed facts do establish, or asking a question disconnected from the next decision would challenge a claim of transferable reasoning. Retention would require a later opportunity. Consistent judgment, case comparability and causal interpretation remain for Assessment, Measurement, Evaluation to specify; no such evidence has been collected. My approval covers version 1's learning-design alignment and its bounded learning-evidence claims only, not measurement validity, workplace procedures, usability, deployment suitability or software execution.",
+          "artifact_version": 1,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_010",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "1a87bd272705926a19d56c060edd96b506dc6390ce508fadd24ead7c5dacc5c5",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "127e767274a3d90dff7746dba793698419b3a48c74a21c5ef988b8b3d994738b",
+          "raw_response_sha256": "39101893209867687271b77d6b466c9cd2a1eb052276636bbdd1131ec93134d4",
+          "raw_response_file": "calls/0010/collaboration-response.json",
+          "collected_at": "2026-11-03T04:27:31.200367+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to."
+        }
+      },
+      "prev_hash": "25add92f7d2afc7e9522550804bcbfd01f7b26c52cd9a2e4b51801b40251078d",
+      "hash": "6158a5122db75e39b43a7b38596e832bc2f55d843d13ecc9c70c40ca34c013c8"
+    },
+    {
+      "seq": 23,
+      "at": "2026-11-03T04:30:07.015705+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "assessment_measurement_evaluation",
+      "payload": {
+        "ordinal": 11,
+        "purpose": "conversation",
+        "prompt_file": "calls/0011/prompt.txt",
+        "prompt_sha256": "4cb711402013a4babe805e84e7a31e037ae63b2e9965dcb43fea7c54bba6fbd4",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00018"
+      },
+      "prev_hash": "6158a5122db75e39b43a7b38596e832bc2f55d843d13ecc9c70c40ca34c013c8",
+      "hash": "ca1255da2e676b7978a171e9d96fb81811aa9b6528b0f909d6dc90f0c4476e6f"
     }
   ]
 }

@@ -224,7 +224,7 @@ def make_config(catalog: dict, case_id: str, condition_id: str) -> dict:
               "condition_id": condition_id, "case": copy.deepcopy(case), "agents": roster,
               "facilitator_id": condition["facilitator_id"], "evaluator_id": condition["evaluator_id"],
               "scenario_ids": [s["id"] for s in scenarios], "scenarios": scenarios,
-              "budgets": {"design_develop": 24, "deploy_test": 12, "max_context_chars": 180000}, "updates": []}
+              "budgets": {"design_develop": 24, "deploy_test": 12, "max_context_chars": 600000}, "updates": []}
     return validate_config(config, catalog)
 
 

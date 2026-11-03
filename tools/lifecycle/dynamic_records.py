@@ -4,7 +4,7 @@ from __future__ import annotations
 from dynamic_contract import digest, require, text_hash
 from dynamic_state import current_artifact, frozen_artifacts, pending_request, phase, select_speaker, turns
 
-EVENT_KINDS = {"created", "request", "message", "turn_failed", "user_update", "artifact", "frozen", "observation", "evaluation", "stopped"}
+EVENT_KINDS = {"created", "request", "message", "turn_failed", "user_update", "artifact", "frozen", "observation", "evaluation", "stopped", "runtime_amendment"}
 
 
 def validate_event(prefix: dict, event: dict) -> None:
@@ -12,7 +12,10 @@ def validate_event(prefix: dict, event: dict) -> None:
     require(event["kind"] in EVENT_KINDS, "Unknown dynamic event kind")
     require(event["phase"] == phase(prefix), "Event belongs to an inactive phase")
     kind, value = event["kind"], event["payload"]
-    if kind == "request":
+    if kind == "runtime_amendment":
+        from dynamic_amendment import validate_amendment
+        validate_amendment(prefix, event)
+    elif kind == "request":
         _request(prefix, event)
     elif kind == "frozen":
         _frozen(prefix, event)

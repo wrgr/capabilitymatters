@@ -2,6 +2,8 @@
 import {validateConfig, PHASES} from './config-model.js';
 const require = (condition, message) => { if (!condition) throw new Error(message); };
 const messages = events => events.filter(event => event.kind === 'message');
+const baselineSourceSet = 'b8e2f825ce34398aa6bf8d229eca7c7a202a0f8827e6d4e4761b5efebd9ef075';
+const adaptedSources = new Set(['dynamic_prompts.py', 'dynamic_runtime.py', 'dynamic_records.py', 'dynamic_journal.py', 'dynamic_contract.py']);
 
 function compareKeys(left, right) {
   const a = [...left].map(char => char.codePointAt(0)), b = [...right].map(char => char.codePointAt(0));
@@ -69,6 +71,25 @@ async function checkObservation(run, event) {
   for (const check of value.checks) require(typeof check.id === 'string' && ['pass', 'fail', 'unavailable'].includes(check.status), 'Invalid declared check observation.');
 }
 
+async function checkAmendment(run, event) {
+  const value = event.payload, prefix = run.events.filter(item => item.seq < event.seq);
+  require(value.schema_version === 'dynamic-flower-context-amendment-1' && event.actor === 'user' && event.phase === 'deploy_test', 'Invalid context-amendment authority or version.');
+  require(prefix.some(item => item.kind === 'frozen') && !prefix.some(item => item.kind === 'runtime_amendment'), 'Context amendment requires a frozen, previously unamended record.');
+  require(!prefix.some(item => item.kind === 'request' && item.payload.purpose === 'evaluation'), 'The common method amendment must precede expert review.');
+  const ended = new Set(prefix.filter(item => ['message', 'evaluation', 'turn_failed'].includes(item.kind)).map(item => item.payload.request_seq));
+  require(prefix.filter(item => item.kind === 'request').every(item => ended.has(item.seq)), 'Cannot amend an unanswered request.');
+  require(value.old_context_limit === run.config.budgets.max_context_chars && value.old_context_limit === 180000 && value.new_context_limit === 600000, 'Unexpected context-limit change.');
+  require(value.config_sha256 === run.config_sha256 && value.original_event_count === prefix.length && value.original_head === prefix.at(-1).hash, 'The amendment does not extend the original pinned prefix.');
+  require(canonical(value.old_runtime_sources) === canonical(run.runtime_sources) && await contentHash(value.old_runtime_sources) === baselineSourceSet, 'Original runtime identity differs from the declared baseline.');
+  const oldNames = Object.keys(value.old_runtime_sources).sort(), newNames = Object.keys(value.new_runtime_sources).sort();
+  require(canonical(newNames) === canonical([...oldNames, 'dynamic_amendment.py'].sort()), 'Unexpected runtime source added or removed.');
+  require(oldNames.every(name => adaptedSources.has(name) || value.new_runtime_sources[name] === value.old_runtime_sources[name]), 'Amendment changes a protected runtime contract.');
+  require(Object.values(value.new_runtime_sources).every(hash => typeof hash === 'string' && /^[a-f0-9]{64}$/.test(hash)) && await contentHash(value.new_runtime_sources) === value.new_source_set_sha256, 'Amended runtime fingerprint mismatch.');
+  require(value.scope === 'context_character_allowance_only' && value.archive === 'runtime-amendments/context-600000', 'Unexpected amendment scope or archive.');
+  require(typeof value.reason === 'string' && value.reason.trim() && typeof value.amendment_id === 'string' && /^[A-Za-z0-9][A-Za-z0-9_.-]{0,100}$/.test(value.amendment_id), 'A context amendment needs its declared reason and identity.');
+  require(typeof value.original_run_sha256 === 'string' && /^[a-f0-9]{64}$/.test(value.original_run_sha256), 'Missing preserved original-run fingerprint.');
+}
+
 /** @param {object} run @returns {Promise<object>} Verify imported input pins, metadata, event links and artifact sources before display. */
 export async function verifyRecord(run) {
   require(run?.schema_version === 'dynamic-flower-run-1' && ['manual', 'live', 'fixture'].includes(run.mode), 'Choose a dynamic-flower-run-1 record with an explicit execution mode.');
@@ -86,6 +107,7 @@ export async function verifyRecord(run) {
     if (event.kind === 'artifact') { await checkArtifact(event, prior, version); version = event.payload.version; }
     if (event.kind === 'observation') await checkObservation(run, event);
     if (event.kind === 'evaluation') checkEvaluation(event);
+    if (event.kind === 'runtime_amendment') await checkAmendment(run, event);
     previous = event.hash;
   }
   return run;
@@ -112,14 +134,23 @@ function outstanding(events) {
 export function replayState(run, cursor) {
   const events = run.events.filter(event => event.seq <= cursor), publicMessages = messages(events), {questions, objections} = outstanding(events);
   const artifacts = events.filter(event => event.kind === 'artifact'), frozen = events.filter(event => event.kind === 'frozen');
+  const amendments = events.filter(event => event.kind === 'runtime_amendment');
   const current = artifacts.at(-1)?.payload ?? null, latestUpdate = Math.max(0, ...events.filter(event => event.kind === 'user_update').map(event => event.seq));
   const reviews = current ? Object.fromEntries(run.catalog.domains.map(domain => [domain.id, 'not_reviewed'])) : {};
   for (const event of publicMessages) if (event.seq > latestUpdate && event.payload.response.kind === 'approval' && event.payload.response.artifact_version === current?.version) {
     for (const id of event.payload.response.domains) reviews[id] = 'approved';
   }
-  return {events, messages: publicMessages, questions, objections, artifacts, frozen,
+  return {events, messages: publicMessages, questions, objections, artifacts, frozen, amendments,
+    effective_context_chars: amendments.at(-1)?.payload.new_context_limit ?? run.config.budgets.max_context_chars,
     phase: frozen.length ? 'deploy_test' : 'design_develop', current_artifact: current, review_status: reviews,
     turns: Object.fromEntries(PHASES.map(([id]) => [id, events.filter(event => event.kind === 'request' && event.phase === id).length])),
     decisions: publicMessages.filter(event => event.payload.response.kind === 'decision'),
     observations: events.filter(event => event.kind === 'observation'), evaluations: events.filter(event => event.kind === 'evaluation')};
+}
+
+/** @param {object} run @returns {object} Copy input settings with the explicitly amended context allowance for a new run. */
+export function continuedConfiguration(run) {
+  const config = structuredClone(run.config);
+  config.budgets.max_context_chars = replayState(run, run.events.length).effective_context_chars;
+  return config;
 }

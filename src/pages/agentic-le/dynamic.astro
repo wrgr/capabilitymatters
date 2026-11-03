@@ -17,6 +17,11 @@ const embeddedCatalog = JSON.stringify(catalog).replace(/</g, '\\u003c');
       <p>Give the team a problem, bounded expertise and room to respond to one another. Develop a solution, freeze a version, and test it under easy, medium and hard conditions. An expert evaluator examines the conversation and the result separately.</p>
       <div class="phase-map" aria-label="Two phases"><div><span>01</span><strong>Design / Develop</strong><p>Questions, objections, decisions and implementation.</p></div><div><span>02</span><strong>Deploy / Test</strong><p>Frozen versions, scenario evidence and expert review.</p></div></div>
     </header>
+    <section id="study-progress" class="workspace-card study-progress" aria-labelledby="study-progress-title">
+      <div class="progress-heading"><h2 id="study-progress-title">Study progress</h2><button id="refresh-study-progress" type="button">Refresh saved status</button></div>
+      <p id="study-progress-status" class="muted" role="status" aria-live="polite">Loading the latest published progress snapshot…</p>
+      <div id="study-progress-content"></div>
+    </section>
     <aside class="local-notice"><strong>This is a local editing workspace.</strong> Edits and imports stay in this browser. Export a configuration to run with the repository’s local runner, then import its record. This hosted page does not call models.</aside>
     <section id="published-runs" class="workspace-card" aria-label="Saved published conversations" hidden></section>
     <p id="workspace-status" class="workspace-status" role="status" aria-live="polite">Loading the configuration editor…</p>
@@ -54,4 +59,5 @@ const embeddedCatalog = JSON.stringify(catalog).replace(/</g, '\\u003c');
   </div>
   <script id="dynamic-catalog" type="application/json" is:inline set:html={embeddedCatalog}></script>
   <script type="module" is:inline src="/agentic-le/dynamic/workspace.js"></script>
+  <script type="module" is:inline src="/agentic-le/dynamic/progress-view.js"></script>
 </Base>

@@ -1,0 +1,23 @@
+{
+  "schema_version": "dynamic-flower-progress-1",
+  "updated_at": "2026-11-03T04:30:22.611117+00:00",
+  "initial": {
+    "frozen": 2,
+    "observed": 6,
+    "reviewed": 0
+  },
+  "update": {
+    "frozen": 0,
+    "observed": 0,
+    "reviewed": 0
+  },
+  "paper": {
+    "status": "pending",
+    "detail": "The revised paper will report only this dynamic-conversation study; earlier results remain separate."
+  },
+  "site": {
+    "status": "in_progress",
+    "detail": "Dynamic workspace and saved conversations are available. Results snapshots are updated as evidence is accepted."
+  },
+  "estimate": "Working estimate: 45–90 minutes from 04:28 UTC for remaining runs, user-update demonstration, and paper/site refresh. Provisional until the first expert-review batch completes."
+}
