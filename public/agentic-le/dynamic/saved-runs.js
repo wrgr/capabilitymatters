@@ -20,14 +20,15 @@ export function savedEntries(index, origin) {
 async function openSaved(entry, openRecord, note, trigger) {
   trigger.disabled = true; note.textContent = 'Loading the saved record and checking its retained identity…';
   try {
-    const response = await fetch(entry.url, {credentials: 'omit'});
+    const response = await fetch(entry.url, {credentials: 'omit', cache: 'no-store'});
     if (!response.ok) throw new Error(`Record request returned HTTP ${response.status}.`);
     if (Number(response.headers.get('content-length')) > MAX_BYTES) throw new Error('Saved record exceeds 30 MB.');
     const bytes = await response.arrayBuffer();
     if (bytes.byteLength > MAX_BYTES) throw new Error('Saved record exceeds 30 MB.');
     if (!await openRecord(new File([bytes], `${entry.id}.json`, {type: 'application/json'}), entry.id)) throw new Error('Record validation failed; see the workspace status for details.');
     note.textContent = `Selected published record: ${entry.label}. See the record’s execution mode and retained evidence below.`;
-  } catch (error) { note.textContent = `Saved record could not be loaded: ${error.message}`; }
+    return true;
+  } catch (error) { note.textContent = `Saved record could not be loaded: ${error.message}`; return false; }
   finally { trigger.disabled = false; }
 }
 
@@ -47,7 +48,7 @@ export async function loadSavedRuns(openRecord) {
     const trigger = button('Open saved conversation', () => openSaved(entry, openRecord, note, trigger));
     row.append(select('Published run', entry.id, entries.map(item => [item.id, item.label]), id => { entry = entries.find(item => item.id === id); note.textContent = `Published status: ${entry.status}`; }), trigger);
     node.replaceChildren(el('h2', '', 'Saved conversations'), el('p', '', 'Open a retained run to inspect its conversation, frozen versions, test observations and expert reviews. Execution mode and missing evidence are shown in the record.'), row, note); node.hidden = false;
-    if (entry.id === requested) await openSaved(entry, openRecord, note, trigger);
+    if (entry.id === requested && await openSaved(entry, openRecord, note, trigger)) document.getElementById('record-panel').scrollIntoView({block: 'start'});
   } catch (error) {
     node.replaceChildren(el('h2', '', 'Saved conversations'), el('p', 'error-note', `Published records are unavailable: ${error.message} Local file import remains available.`)); node.hidden = false;
   }

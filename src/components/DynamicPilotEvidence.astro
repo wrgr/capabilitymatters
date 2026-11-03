@@ -6,10 +6,10 @@ const shortCase = (run) => run.run_id.startsWith('handoff') ? 'Handoff' : 'Works
 const processReview = (version) => version?.reviews.find(review => review.scope === 'process');
 const score = (review, criterion) => !review ? 'Pending' : review.scores.find(item => item.dimension_id === criterion)?.score ?? 'Unknown';
 const rows = study.runs.flatMap(run => run.versions.flatMap((version, index) => run.scenarios.map(scenario => ({
-  run, version, scenario, stage: index === 0 ? 'Initial' : 'User update',
+  run, version, scenario, stage: index === 0 ? 'Initial' : version.user_update_ids?.length ? 'User update' : 'Revised design',
   review: version.reviews.find(review => review.scope === 'result' && review.scenario_id === scenario.id)
 }))));
-const updates = study.runs.flatMap(run => run.versions.slice(1).map(version => ({run, version})));
+const updates = study.runs.flatMap(run => run.versions.filter(version => version.user_update_ids?.includes('user-summary-request')).map(version => ({run, version})));
 const resultLabels = ['Agency and access', 'Task behavior', 'Recovery', 'Capability support', 'Feedback and revision', 'Credible use'];
 const timestamp = new Date(study.updated_at).toLocaleString('en-GB', {timeZone: 'UTC', dateStyle: 'medium', timeStyle: 'short'}) + ' UTC';
 ---
@@ -23,7 +23,7 @@ const timestamp = new Date(study.updated_at).toLocaleString('en-GB', {timeZone: 
   </div>
   <p class="muted">Message and actor counts describe the accepted conversation through its first freeze, including the facilitator. For an unfrozen candidate they show progress so far. Failed attempts remain in the record. Longer conversations and more approvals are not measures of solution quality.</p>
   <details class="disclosure"><summary>Inspect the expert process ratings</summary>
-    <p>One separate model expert reviews each frozen version. Scores range from 0 to 4; unknown evidence remains unknown. The evaluator sees the assigned roles and conversation. These are descriptive judgments, with no combined score or condition ranking.</p>
+    <p>Each frozen version is scheduled for one process review and three scenario-result reviews, each from a fresh model evaluator context. Scores range from 0 to 4; unknown evidence remains unknown. The evaluator sees the assigned roles and conversation. These are descriptive judgments, with no combined score or condition ranking.</p>
     <div class="evidence-scroll" tabindex="0" role="region" aria-label="Initial process criterion ratings"><table><caption>Process ratings for the initial frozen designs</caption><thead><tr><th scope="col">Criterion</th>{study.runs.map(run => <th scope="col">{shortCase(run)}<br />{run.condition}</th>)}</tr></thead><tbody>{study.rubric.process.map(criterion => <tr><th scope="row">{criterion.label}<small>{axes[criterion.axis]}</small></th>{study.runs.map(run => <td>{score(processReview(run.versions[0]), criterion.id)}</td>)}</tr>)}</tbody></table></div>
     {updates.map(({run, version}) => <div><h3>{shortCase(run)} · User update · v{version.artifact_version}</h3><dl class="update-scores">{study.rubric.process.map(criterion => <div><dt>{criterion.label}</dt><dd>{score(processReview(version), criterion.id)}</dd></div>)}</dl></div>)}
   </details>
@@ -32,7 +32,7 @@ const timestamp = new Date(study.updated_at).toLocaleString('en-GB', {timeZone: 
     <div class="evidence-scroll" tabindex="0" role="region" aria-label="Result ratings by frozen version and scenario"><table><caption>Result criterion ratings, with each scenario kept separate</caption><thead><tr><th scope="col">Case, condition and version</th><th scope="col">Scenario</th>{study.rubric.result.map((criterion, index) => <th scope="col" title={criterion.description}>{resultLabels[index]}<small>{axes[criterion.axis]}</small></th>)}</tr></thead><tbody>{rows.map(row => <tr><th scope="row">{shortCase(row.run)} · {row.run.condition}<small>{row.stage} · v{row.version.artifact_version}</small></th><td>{row.scenario.difficulty}</td>{study.rubric.result.map(criterion => <td>{score(row.review, criterion.id)}</td>)}</tr>)}</tbody></table></div>
     <details class="disclosure"><summary>Rating anchors</summary><dl>{Object.entries(study.rubric.anchors).map(([value, description]) => <div><dt><strong>{value === 'unknown' ? 'Unknown' : value}</strong></dt><dd>{description}</dd></div>)}</dl></details>
   </details>
-  <p><strong>User-requested update:</strong> {updates.length ? 'A new frozen version is retained separately above. Its new feature, repeated scenario tests and expert reviews can be traced in the handoff specialist conversation.' : 'Pending. The handoff team will respond to a request for a copyable practice summary, preserve its earlier version, and repeat the scenario tests and expert reviews.'}</p>
+  <p><strong>User-requested update:</strong> {updates.length ? updates.map(({version}) => `Version ${version.artifact_version} is frozen; ${version.observations.length}/3 regression test records and ${version.reviews.length}/4 expert reviews are retained. Open the handoff specialist conversation for the accepted evidence.`).join(' ') : 'Pending. The handoff team will respond to a request for a copyable practice summary, preserve its earlier version, and repeat the scenario tests and expert reviews.'}</p>
   <p class="muted">The run records identify the manual response transport and retained model output. Expertise boundaries are role instructions; they do not erase a model’s prior knowledge. This small pilot illustrates a workflow and exposes questions to test with people.</p>
   <p><a href="/agentic-le/dynamic/study/overview.json">Download this evidence summary</a> · <a href="https://github.com/wrgr/capabilitymatters/blob/main/docs/lifecycle/dynamic-flower-study.md">Read the protocol and recorded method amendments</a></p>
 </section>
