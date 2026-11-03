@@ -70,7 +70,7 @@ function artifactView(run, state) {
     const value = event.payload, source = state.messages.find(item => item.payload.message_id === value.message_id);
     const frozen = state.frozen.find(item => item.payload.artifact_version === value.version);
     const card = disclosure(`Version ${value.version} · ${frozen ? 'frozen for testing' : 'not frozen'}`, event === state.artifacts.at(-1));
-    card.append(el('p', '', value.change_summary), el('p', 'muted', `Exact HTML SHA-256: ${value.sha256}`), createCandidatePreview(source.payload.response.artifact.html));
+    card.append(el('p', 'muted', 'Implementation summary recorded at creation. Later test observations and expert reviews appear below.'), el('p', '', value.change_summary), el('p', 'muted', `Exact HTML SHA-256: ${value.sha256}`), createCandidatePreview(source.payload.response.artifact.html));
     if (frozen) { const boundary = disclosure('Freeze record and retained risks'); boundary.append(jsonBlock(frozen.payload)); card.append(boundary); }
     node.append(card);
   }

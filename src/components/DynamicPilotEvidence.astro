@@ -1,6 +1,7 @@
 ---
 /** Present the pilot's accepted evidence without combining process, result, or independent conversations. */
 import study from '../../public/agentic-le/dynamic/study/overview.json';
+import featureCheck from '../../public/agentic-le/dynamic/study/user-update-feature-check.json';
 const axes = {human_flourishing: 'Human flourishing support', system_performance: 'System performance', learning: 'Learning'};
 const shortCase = (run) => run.run_id.startsWith('handoff') ? 'Handoff' : 'Workshop';
 const processReview = (version) => version?.reviews.find(review => review.scope === 'process');
@@ -33,6 +34,7 @@ const timestamp = new Date(study.updated_at).toLocaleString('en-GB', {timeZone: 
     <details class="disclosure"><summary>Rating anchors</summary><dl>{Object.entries(study.rubric.anchors).map(([value, description]) => <div><dt><strong>{value === 'unknown' ? 'Unknown' : value}</strong></dt><dd>{description}</dd></div>)}</dl></details>
   </details>
   <p><strong>User-requested update:</strong> {updates.length ? updates.map(({version}) => `Version ${version.artifact_version} is frozen; ${version.observations.length}/3 regression test records and ${version.reviews.length}/4 expert reviews are retained. Open the handoff specialist conversation for the accepted evidence.`).join(' ') : 'Pending. The handoff team will respond to a request for a copyable practice summary, preserve its earlier version, and repeat the scenario tests and expert reviews.'}</p>
+  {updates.some(({version}) => version.artifact_sha256 === featureCheck.artifact_sha256) && <p><strong>Separate direct feature check:</strong> The browser inspection observed complete keyboard copying, preservation of the last submitted record during draft edits, replacement after resubmission, and clearing on valid scenario changes, skip and reset. The two example summaries contained {featureCheck.results.first_summary_characters.toLocaleString('en-US')} and {featureCheck.results.changed_case_summary_characters.toLocaleString('en-US')} characters. Human judgments of concision and ease of use remain unmeasured. This additional check is separate from the scenario fixtures and model ratings. <a href="/agentic-le/dynamic/study/user-update-feature-check.json">Inspect the retained feature-check observations</a>.</p>}
   <p class="muted">The run records identify the manual response transport and retained model output. Expertise boundaries are role instructions; they do not erase a model’s prior knowledge. This small pilot illustrates a workflow and exposes questions to test with people.</p>
   <p><a href="/agentic-le/dynamic/study/overview.json">Download this evidence summary</a> · <a href="https://github.com/wrgr/capabilitymatters/blob/main/docs/lifecycle/dynamic-flower-study.md">Read the protocol and recorded method amendments</a></p>
 </section>

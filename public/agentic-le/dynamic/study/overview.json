@@ -1,6 +1,6 @@
 {
   "schema_version": "dynamic-flower-overview-1",
-  "updated_at": "2026-11-03T20:09:55.066765+00:00",
+  "updated_at": "2026-11-03T20:20:31.023689+00:00",
   "methods": {
     "design": "Four independent case-by-condition conversations; two cases, two conditions, one conversation per cell.",
     "response_origin": "Actual fresh collaboration-agent output submitted through manual transport.",
@@ -302,7 +302,7 @@
       "design_call_count": 19,
       "failed_attempts": 2,
       "state": "awaiting_tests_or_review",
-      "journal_head": "c0d0ae4a0496b5b07dd3417a3c6e14deb18c741ab7e3ac791d363880178009fd",
+      "journal_head": "3927cddedf493a40ac58dbc6e837ed63916bc0e2170b8b18dae5cf1e72e620e9",
       "scenarios": [
         {
           "id": "feedback_handoff_easy",
@@ -492,7 +492,44 @@
             "user-summary-request"
           ],
           "reviews": [],
-          "observations": []
+          "observations": [
+            {
+              "scenario_id": "feedback_handoff_easy",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            },
+            {
+              "scenario_id": "feedback_handoff_hard",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            },
+            {
+              "scenario_id": "feedback_handoff_medium",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            }
+          ]
         }
       ]
     },
