@@ -1,7 +1,8 @@
 {
   "schema_version": "dynamic-flower-study-manifest-1",
   "frozen_paths": [
-    "data/lifecycle/dynamic-study/workshop-generalist-agent-01/frozen/v001.json"
+    "data/lifecycle/dynamic-study/workshop-generalist-agent-01/frozen/v001.json",
+    "data/lifecycle/dynamic-study/handoff-generalist-agent-01/frozen/v001.json"
   ],
   "evidence_origin": "Actual model-generated candidate from fresh collaboration-agent turns, submitted through manual transport."
 }
