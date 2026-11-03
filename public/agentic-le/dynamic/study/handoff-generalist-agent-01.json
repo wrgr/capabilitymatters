@@ -5084,6 +5084,265 @@
       },
       "prev_hash": "aa24946f7c8df22c14349a0de8154106804027cb5682dbf5a1ba2b6687caf94f",
       "hash": "7daebe23548912ead912e55f2c15c7cb6cb3f02667fff23cd7836ce1cfc983ab"
+    },
+    {
+      "seq": 16,
+      "at": "2026-11-03T04:31:09.892725+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "ordinal": 5,
+        "purpose": "evaluation",
+        "prompt_file": "calls/0005/prompt.txt",
+        "prompt_sha256": "6323623c88b79f86a8eaaf4279622b4a58770cb1beafe8cd0b9e7d66c8355538",
+        "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+        "scope": "process",
+        "scenario_id": null,
+        "artifact_version": 1,
+        "packet_sha256": "80d84b90578d11a6ee893e02eca4e354b0eb7f88327fd79583d1266c147c0e9e"
+      },
+      "prev_hash": "7daebe23548912ead912e55f2c15c7cb6cb3f02667fff23cd7836ce1cfc983ab",
+      "hash": "605618b9c9fc8a258c37a5a5bbe6e83623809363fab536ff347d697a43371a8c"
+    },
+    {
+      "seq": 17,
+      "at": "2026-11-03T04:41:13.843895+00:00",
+      "kind": "evaluation",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "scope": "process",
+        "artifact_version": 1,
+        "scenario_id": null,
+        "scores": [
+          {
+            "dimension_id": "agency_and_burden",
+            "score": 3,
+            "rationale": "Learner agency and burden concerns visibly influence the initial request, implementation, and freeze decision. The facilitator requests a modest session without a completion-time claim; the artifact permits skipping, accepts a short response without a required script, and explains clearing on a shared device. Fictional-only use and the absence of response storage are concrete design choices addressing privacy. The author and facilitator retain uncertainty about actual usability and time. This is strong evidence that these concerns shaped the bounded candidate, while representative access needs and the actual burden of reading the feedback were not elicited or assessed in the recorded authoring process.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/3",
+                "quote": "Keep the first session modest without claiming a completion time."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "A few sentences are enough to start. Include a supported observation, one useful clarification, and a possible next step. There is no score or required script."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "Use fictional records only. Do not enter personal details or real employee information. On a shared device, reset before leaving."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "Skip clears your draft and feedback. Reset also clears scenario edits and restores the fictional sample."
+              },
+              {
+                "source": "event",
+                "id": "event/10",
+                "quote": "Actual completion time, usability, and learning effects remain unknown."
+              }
+            ]
+          },
+          {
+            "dimension_id": "domain_boundaries",
+            "score": 4,
+            "rationale": "The recorded contributors consistently stay within their assigned authority. The generalist supplies an inspectable introductory implementation and distinguishes source-level choices from executed evidence, identifies the semantic limits of the feedback, and explicitly withholds specialist signoff. The facilitator requests disclosure of assumptions and limits and describes freezing as a procedural decision rather than certification. Neither substitutes a role label or candidate readiness for expert approval or demonstrated learning. The absent specialists remain an acknowledged review gap; their absence is not evidence of a product failure. The later browser observations do not contradict the author's accurately time-bounded statement that it had not executed the artifact when submitting it.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/3",
+                "quote": "Please identify your implementation choices, assumptions, and any unresolved concerns in your response; do not claim execution or test results."
+              },
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "These are implementation choices visible in the supplied bytes, not observed test results. I have not executed or tested the artifact."
+              },
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "I cannot provide specialist signoff; all specialist domains remain not_reviewed."
+              },
+              {
+                "source": "event",
+                "id": "event/10",
+                "quote": "My readiness decision is procedural and does not certify those behaviors or the instructional approach."
+              }
+            ]
+          },
+          {
+            "dimension_id": "responsive_dialogue",
+            "score": 2,
+            "rationale": "There is a substantive but limited request-response sequence. The generalist answers the facilitator's implementation request with the requested candidate and explains its instructional and technical limits. The facilitator then attributes the implementation and retains those limits when declaring readiness. Thus the earlier question receives an answer and uncertainty survives the handoff. The complete recorded conversation contains no substantive follow-up question to the author, objection, negotiated alternative, or revision of an assumption before freezing. There is consequently only limited evidence of an iterative dialogue; how contributors would answer disagreement or revise the design after observed problems remains unknown, rather than an observed failure to address an objection.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/3",
+                "quote": "Generalist, can you supply a complete self-contained HTML implementation as version 1 for this introductory handoff practice?"
+              },
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "It starts with a clearly fictional case, accepts user-supplied scenario data, and supports drafting, guided feedback, revision, skipping, and resetting."
+              },
+              {
+                "source": "event",
+                "id": "event/10",
+                "quote": "There are no recorded open questions or objections and no specialist approvals; all eight specialist review domains remain not_reviewed."
+              },
+              {
+                "source": "event",
+                "id": "event/10",
+                "quote": "The author’s stated limits on interpreting wording, factual support, and feasibility must remain visible when those behaviors are examined."
+              }
+            ]
+          },
+          {
+            "dimension_id": "decision_traceability",
+            "score": 3,
+            "rationale": "The initial requirements can be traced to the generalist's stated choices and corresponding source in the sole frozen implementation. The source includes data-driven case rendering, learner review against current facts and constraints, revision controls, and an error path that retains the current case and draft. The author explains the tradeoff of tentative hints and learner judgment rather than asserting semantic verification; the facilitator identifies the author and candidate version and preserves the distinction between readiness and approval. This is strong traceability for an initial candidate. There is no recorded design comparison, subsequent artifact revision, or author response to the supplied browser observations, so an evidence-driven change cycle is not established. The proposed invalid-input test is not treated as completed work.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/3",
+                "quote": "Use a clearly fictional starting case and the supplied executable browser contract, including editable scenario JSON, an applied-case view, learner response, visible feedback, revision, skip, reset, and visible state."
+              },
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "Applying a valid case clears the previous draft and feedback; invalid JSON or field types leave the applied case and draft intact."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "showError('scenario-error', 'Could not apply the scenario: ' + error.message + ' The current case, draft, and feedback were kept. Edit the JSON and try again.');"
+              },
+              {
+                "source": "event",
+                "id": "event/10",
+                "quote": "Generalist supplied the implementation in m00007 and described its choices: an editable fictional case, a response and revision cycle, tentative text hints, learner checks against the applied facts and constraints, and skip and reset controls."
+              }
+            ]
+          },
+          {
+            "dimension_id": "learning_reasoning",
+            "score": 3,
+            "rationale": "The process connects the requested capability to a plausible modest practice mechanism: compose an observation, clarification, and next step; compare the draft with the applied facts and conditions; then choose a revision. The author makes the central instructional tradeoff explicit: semantic and feasibility judgments remain with the learner, while phrase and punctuation checks provide tentative cues. The source operationalizes this account through claim tracing and conditional-action prompts, without making a correct-response or learning-gain claim. The proposed evidence mainly concerns interface behavior and visibility of limits. There is no plan detailed enough to establish whether learners make valid judgments independently or transfer the capability. Strong alignment and honest limits therefore support this rating, while actual learning and the adequacy of self-review for particular learners remain unknown.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "Feedback asks the learner to compare the response with the current facts and constraints; a small English phrase check and a question-mark check supply explicitly tentative hints without scores or claims that a response is correct."
+              },
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "The main instructional limitation is that the tool cannot establish whether a paraphrase is supported or a proposed action is feasible, so those checks remain explicit learner judgments against the editable case."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "Trace each factual claim in your response to the supplied facts below. If you added a motive, explanation, or character judgment, check whether the case explicitly supports it. Otherwise, remove it or make the uncertainty clear."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "Compare your proposed action with every operating condition below. Is the action clear, is someone able to take it, and does its timing fit? If ownership or resources are uncertain, make the next step conditional or ask for that information."
+              },
+              {
+                "source": "event",
+                "id": "event/10",
+                "quote": "Testing should observe the requested browser controls, changes to the applied case, recovery from invalid scenario input, and the response, revision, skip, and reset paths."
+              }
+            ]
+          },
+          {
+            "dimension_id": "participation",
+            "score": 2,
+            "rationale": "Several relevant perspectives enter through the supplied brief and facilitator's request: learner choice, fictional-only records, variable working conditions, and the ability to change the case. The generalist gives those concerns concrete consequences, including showing the applied facts and explaining that applying a new case clears previous practice. This provides adequate evidence for the consideration of supplied concerns. It does not demonstrate direct learner or workplace-stakeholder participation, and no user updates occur in the pinned case's public conversation. The scripted scenario substitutions show use of the data interface, but do not establish that a participant's feedback changed an authoring decision. Responsiveness to actual user updates and the representativeness of the included perspectives remain unknown.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/3",
+                "quote": "Address the requested distinction between supported observations and unsupported motives, clarification, and a feasible next step while allowing different reasonable responses and user changes to facts and constraints."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "Different questions and next steps can be reasonable. Use the applied case to decide."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "Empty arrays are allowed, but missing information limits what can be supported. Applying a valid case clears the previous draft and feedback."
+              },
+              {
+                "source": "event",
+                "id": "event/7",
+                "quote": "Applying a valid case clears the previous draft and feedback; invalid JSON or field types leave the applied case and draft intact."
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "This is one process review of frozen artifact version 1 and pinned case version 1. It does not assign scenario-result scores, combine the three axes, or authorize deployment.",
+          "The evaluator sees the assigned roles and full supplied conversation. This is a bounded agent simulation, not a blinded or statistically independent human review or a demonstration of professional competence.",
+          "All eight specialist domains remain not_reviewed in the frozen record. That limits available signoff but is not itself an observed product defect.",
+          "The authoring conversation contains an initial request, one implementation response, and a readiness message. It contains no actual stakeholder update, substantive objection, or post-observation author response; iterative negotiation and evidence-driven repair are therefore unestablished.",
+          "The recorded browser interactions use supplied initial and revised responses. They are not evidence that a human learned from feedback, experienced manageable burden, completed the session within the fictional time constraints, or transferred the capability to work.",
+          "Invalid-scenario recovery is implemented in the source and proposed for testing, but no invalid-input action appears in the supplied browser sequences. Its execution remains unobserved in this packet.",
+          "The later browser observations cannot retroactively establish that the authors inspected or acted on those observations before freezing version 1. Source-level mechanisms, author claims, observed execution, and unknown human outcomes remain distinct."
+        ],
+        "request_seq": 16,
+        "packet_sha256": "80d84b90578d11a6ee893e02eca4e354b0eb7f88327fd79583d1266c147c0e9e",
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hg_eval_005",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "6323623c88b79f86a8eaaf4279622b4a58770cb1beafe8cd0b9e7d66c8355538",
+          "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+          "dispatch_prompt_sha256": "747f654bbf18ea1547a08113658877481caaddbf64d99c3719d6599634ff2bfb",
+          "raw_response_sha256": "548f4e4088bf784c9a18375fe5f3d96510e6e769dfabca52777c32e5f779269d",
+          "raw_response_file": "calls/0005/collaboration-response.json",
+          "collected_at": "2026-11-03T04:41:13.822810+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Read the complete prompt, in chunks if necessary; do not rely on a truncated tool result. Return only the evaluator response schema supplied in schema.json. Use the exact criterion IDs and exact source IDs from the supplied packet. Every evidence quote must be an exact substring of that named source representation. Do not infer any observations beyond the packet. This is a separate evaluator turn, so the authoring-message schema does not apply."
+        }
+      },
+      "prev_hash": "605618b9c9fc8a258c37a5a5bbe6e83623809363fab536ff347d697a43371a8c",
+      "hash": "b86d86827bfd6463c06e731d98b9032468071a7f3b53eff560665214fdbdc004"
+    },
+    {
+      "seq": 18,
+      "at": "2026-11-03T04:43:25.594436+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "ordinal": 6,
+        "purpose": "evaluation",
+        "prompt_file": "calls/0006/prompt.txt",
+        "prompt_sha256": "ddac0380f31c44d462fd1a3174bd78373210527553bbe2822ef31e7a1ee62b71",
+        "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+        "scope": "result",
+        "scenario_id": "feedback_handoff_easy",
+        "artifact_version": 1,
+        "packet_sha256": "ea891b93c4971ad9369d1c94fd4a85336b099afe346c522d8ef6441d1411bfc3"
+      },
+      "prev_hash": "b86d86827bfd6463c06e731d98b9032468071a7f3b53eff560665214fdbdc004",
+      "hash": "878dd94a9add76b4a1d64e5a1d4095fba7a0029a2ed58adef0144df63e71f3c1"
     }
   ]
 }

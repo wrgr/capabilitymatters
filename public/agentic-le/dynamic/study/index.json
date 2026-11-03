@@ -4,25 +4,25 @@
       "id": "handoff-generalist-agent-01",
       "label": "A difficult handoff conversation · Generalist",
       "url": "/agentic-le/dynamic/study/handoff-generalist-agent-01.json",
-      "status": "3 accepted agent messages; 1 failed attempts retained. 1 frozen versions; 3/3 baseline test records; 0/4 baseline expert reviews."
+      "status": "3 accepted agent messages; 1 failed attempts retained. 1 frozen versions; 3/3 baseline test records; 1/4 baseline expert reviews."
     },
     {
       "id": "handoff-specialists-agent-01",
       "label": "A difficult handoff conversation · Specialist team",
       "url": "/agentic-le/dynamic/study/handoff-specialists-agent-01.json",
-      "status": "9 accepted agent messages; 1 failed attempts retained. 0 frozen versions; 0/3 baseline test records; 0/4 baseline expert reviews."
+      "status": "12 accepted agent messages; 1 failed attempts retained. 0 frozen versions; 0/3 baseline test records; 0/4 baseline expert reviews."
     },
     {
       "id": "workshop-generalist-agent-01",
       "label": "Planning a shared-equipment workshop · Generalist",
       "url": "/agentic-le/dynamic/study/workshop-generalist-agent-01.json",
-      "status": "3 accepted agent messages; 0 failed attempts retained. 1 frozen versions; 3/3 baseline test records; 0/4 baseline expert reviews."
+      "status": "3 accepted agent messages; 0 failed attempts retained. 1 frozen versions; 3/3 baseline test records; 1/4 baseline expert reviews."
     },
     {
       "id": "workshop-specialists-agent-01",
       "label": "Planning a shared-equipment workshop · Specialist team",
       "url": "/agentic-le/dynamic/study/workshop-specialists-agent-01.json",
-      "status": "8 accepted agent messages; 1 failed attempts retained. 0 frozen versions; 0/3 baseline test records; 0/4 baseline expert reviews."
+      "status": "12 accepted agent messages; 1 failed attempts retained. 0 frozen versions; 0/3 baseline test records; 0/4 baseline expert reviews."
     }
   ]
 }

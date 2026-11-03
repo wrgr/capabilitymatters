@@ -4560,6 +4560,215 @@
       },
       "prev_hash": "6158a5122db75e39b43a7b38596e832bc2f55d843d13ecc9c70c40ca34c013c8",
       "hash": "ca1255da2e676b7978a171e9d96fb81811aa9b6528b0f909d6dc90f0c4476e6f"
+    },
+    {
+      "seq": 24,
+      "at": "2026-11-03T04:38:54.414128+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "assessment_measurement_evaluation",
+      "payload": {
+        "message_id": "m00024",
+        "request_seq": 23,
+        "response": {
+          "kind": "objection",
+          "to": [
+            "facilitator",
+            "software_engineering",
+            "learning_sciences"
+          ],
+          "reply_to": [
+            "m00018"
+          ],
+          "domains": [
+            "assessment_measurement_evaluation"
+          ],
+          "content": "I have one narrow assessment objection to version 1: the unchanged-submission status attributes self-review that the available event does not establish. I am withholding assessment-domain approval pending that wording correction. This review concerns the implemented bytes supplied in m00015; I have not executed the interface, observed learners or collected assessment evidence.\n\nNecessary correction\n\nThe implemented status is 'Response kept after self-review. No correctness judgment was made.' The supplied implementation selects that status when a subsequent response has the same wording as the latest submitted response. Unchanged wording establishes a repeated submission, but it does not establish that the learner examined the evidence, considered the review prompts or made a justified decision to retain the response. Repeated activation without reading is also compatible with that observation. The disclaimer about correctness does not remove the separate unsupported assertion that self-review occurred. This is the same inference boundary identified in m00009: an interaction event must not stand in for an unobserved reasoning process.\n\nSoftware Engineering: replace that status with an event description such as 'Unchanged response submitted. No correctness or improvement judgment was made.' Preserve the learner's ability to keep the same wording; neither a compulsory edit nor a required reflection would establish the reasoning and neither is needed to address this objection. The existing invitation to keep a response if its reasoning is justified is appropriate as an invitation. The concern is only that the resulting status currently describes self-review as having happened. A repair should extend version 1; I can resolve this objection after reviewing the corrected implemented version.\n\nFindings on the remaining interpretation boundaries\n\nThe general feedback otherwise respects the proposed assessment scope. It explicitly says that the tool has not determined whether the observation is supported, the question useful or the step feasible. It identifies its prompts as general self-review rather than a rule-based interpretation and states that no punctuation, phrase or keyword judges the response. It also states that submission and revision do not establish learning, transfer or workplace competence. The changed-response status reports a revision without asserting improvement. These are appropriate limits for this candidate.\n\nThe four review criteria have an observable basis for a possible later human judgment: the observation can be traced to supplied evidence and retains material qualifications; the treatment of an explanation matches what that evidence establishes; the clarification seeks information that could change a decision; and the proposed action fits stated conditions or acknowledges an unknown prerequisite. Wording similarity, a question mark, politeness or a conditional word is insufficient for those judgments. The prompts allow more than one acceptable response and reconsideration when changed facts establish an explanation. They do not require a score or claim that the tool has applied these criteria to the learner. Case-specific workplace judgments remain grounded in Subject-Matter Expertise's content review.\n\nThe blank-response wording says that no new response was submitted and that a blank draft is not evidence of capability. If a learner blanks an already submitted response, the separate submitted-wording view and its explanation distinguish the earlier submission from current edits. This is a defensible distinction, subject to execution verification. The skipped state likewise supplies no capability judgment and replaces the review with a neutral skipped message. Neither blank nor skipped practice should become a zero, failure or mastery observation in a later evaluation.\n\nThe supplied case and editor wording distinguish the applied evidence from pending edits. Successful application is represented as a fresh practice with preceding responses, reflection and review cleared; invalid application is represented as retaining the existing assessment context. These are the right interpretation boundaries. Generic prompts can remain applicable to changed handoff facts without retaining the seed's particular action as an answer key. The notice that they may not fit an edited task with another purpose appropriately limits that scope. I have not verified the transitions in a running browser.\n\nEvidence limits for a later evaluation\n\nThe first response and any revision here are supported production. A changed case inside the same cued practice is still supported practice. An optional independent transfer examination would need a first response to a reviewed new fictional handoff whose changed facts or operating conditions require reconsideration, with the relevant evidence available but without component-by-component review or a worked response before that attempt. Preserve that first response before feedback. An unavailable permission replacing an available one, or newly supplied evidence establishing an explanation, can distinguish adaptation from repetition; Subject-Matter Expertise should review any concrete benchmark. No additional assessment screen is necessary for this bounded candidate.\n\nFor such later evidence, a reviewer should identify the response excerpt and case evidence for each criterion, including when the evidence is insufficient to judge. Comparison of reviewers' evidence-based judgments would be needed before claiming consistent measurement. Better prompted wording could reflect cues, extra time or familiarity; performance differences on another case could reflect difficulty, ambiguity, prior experience or reading and writing demands. Neither comparison alone establishes an effect caused by the tool, and retention needs a later opportunity. Simulated responses and automated interactions can expose misleading labels or stale-case behavior; they cannot establish human understanding, actual completion time, scoring validity, learning or transfer. None of those outcomes has been observed in the supplied record. My objection is limited to the unsupported process attribution in the unchanged-submission status, not a claim that the broader learning design has failed.",
+          "artifact_version": 1,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_011",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "4cb711402013a4babe805e84e7a31e037ae63b2e9965dcb43fea7c54bba6fbd4",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "28c37ef09eaa6b2b4f9b7557eaa50e9a9ca809b2e0cf431e3ba6d0e954cbeba5",
+          "raw_response_sha256": "ab3853920d3009c9e92bdc876eadd0f7e6e4604fff61740296876530264650e0",
+          "raw_response_file": "calls/0011/collaboration-response.json",
+          "collected_at": "2026-11-03T04:38:54.400500+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to."
+        }
+      },
+      "prev_hash": "ca1255da2e676b7978a171e9d96fb81811aa9b6528b0f909d6dc90f0c4476e6f",
+      "hash": "aeaa585e275de259e21ff6fc2905fa02ba605a815554a857ca05491689dc06e3"
+    },
+    {
+      "seq": 25,
+      "at": "2026-11-03T04:38:55.085422+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "learning_experience_design",
+      "payload": {
+        "ordinal": 12,
+        "purpose": "conversation",
+        "prompt_file": "calls/0012/prompt.txt",
+        "prompt_sha256": "ecf6031315c17103852b93cd252e614e9bdf047022e7b7bfb373f3af72acf389",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00018"
+      },
+      "prev_hash": "aeaa585e275de259e21ff6fc2905fa02ba605a815554a857ca05491689dc06e3",
+      "hash": "6b9e4814d7a1131a6081be4c8af2f1c92aca1870cea8ded4216e0e9dcf8b6d00"
+    },
+    {
+      "seq": 26,
+      "at": "2026-11-03T04:41:43.178762+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "learning_experience_design",
+      "payload": {
+        "message_id": "m00026",
+        "request_seq": 25,
+        "response": {
+          "kind": "approval",
+          "to": [
+            "facilitator",
+            "software_engineering",
+            "learning_sciences",
+            "learning_environment_engineering"
+          ],
+          "reply_to": [
+            "m00018"
+          ],
+          "domains": [
+            "learning_experience_design"
+          ],
+          "content": "I approve version 1's learning-experience sequence, organization of action choices and voluntary routes for this bounded review candidate. This is a review of the implemented content and interaction design supplied in m00015. I have not rendered or operated the interface, observed learners, or measured completion time. I identify no additional necessary learning-experience change before a bounded test. This domain approval does not close Assessment, Measurement, Evaluation's objection m00024 or approve an unseen repair. Its author must resolve that objection after reviewing the corrected implementation. Preserving the option to submit unchanged wording while correcting its status is consistent with the experience design approved here.\n\nA coherent, bounded journey\n\nThe opening cue gives the learner three connected things to do: state what the facts support, ask about an important unknown, and propose a step that fits the conditions. The applied case separates Facts, Operating conditions and Task. This gives the learner an identifiable source to consult while producing a response, without requiring a supplied script. The task permits a brief response or action proposal, and the response help explicitly says there is no required wording. The meaningful attempt is composing a decision-oriented response to the fictional situation; entering a particular phrase or completing a checklist is not substituted for that attempt.\n\nTry response opens a clearly named Practice review. The four numbered prompts connect explanations to actions the learner can take with their own wording: find a supporting fact and check the observation's limits; separate an established explanation from one needing confirmation; identify what a question could reveal and how that answer matters; and locate the condition that permits a proposed action. Those are useful review operations, not simply a request to try harder. Keeping the criteria in one review allows the learner to consider how the question and next step relate, while the initial draft remains available. The visible statement that the tool has not determined whether the response meets the criteria makes the nature of this feedback explicit. It offers guidance rather than an individualized diagnosis. Whether a learner can apply that guidance remains unobserved, as Learning Sciences notes in m00022.\n\nRevision retains the draft and review instead of requiring the learner to reconstruct the response. Keeping justified wording is explicitly allowed; a cosmetic edit and a reflection are not compulsory. The submitted-wording disclosure can support comparing the first and latest submissions without placing two long response copies in the main reading path. Its explanation distinguishes submitted wording from subsequent edits. The optional reflection offers a place to articulate a change or a decision to retain wording. None of these controls establishes that reflection actually occurred.\n\nThe case editor supplies an optional changed-situation route after the initial attempt and review. Applying a new case is described as a fresh practice with the previous response and review cleared. That makes reconsideration of the newly applied evidence possible without silently treating an old response as an attempt on it. A useful later variation would change an operating condition relevant to a proposed action, so the learner has a reason to reconsider the question or step rather than merely rename the case. Subject-Matter Expertise should judge the substantive content of any such variation used as a benchmark. The current editor is sufficient for the requirement that a user can change facts and conditions; a mandatory second case is not needed for the modest first encounter. Reusing the current cues and review with an edited case remains supported practice, consistent with the colleagues' stated boundaries.\n\nAgency and understandable consequences\n\nThe opening text announces that practice is optional. Skip this practice is available without a submitted response, and its adjacent help warns that it clears the draft and review. The skipped message permits leaving and offers Return to this case with a fresh draft. That route does not force a corrective exercise or require a reason for declining. The distinction between voluntary return and recovery of an old draft is stated rather than left implicit. Skipping is an agency option, not evidence of equivalent practice through another modality.\n\nThe three potentially confusable actions have different stated purposes. Revise response returns to the existing draft for the applied case. Apply scenario starts fresh using the editor's valid data. Reset practice and restore starting case clears entered practice and pending edits and restores the seed. The explanatory text beside Apply and Reset describes the clearing consequences before activation. Invalid edits are described as leaving the applied case intact, and blank-response guidance offers either entering a response or skipping. These are appropriate recoverable paths in the represented design.\n\nReading burden and optional improvements\n\nThe first encounter has one case, one response and one review with optional revision. That is a bounded activity structure, not a completion-time estimate. Four explanatory review items, repeated scope notices and the always-visible JSON editor create a substantial amount of text after submission. The headings, numbered prompts, optional reflection label and collapsed submitted-wording section provide some organization. Only observation can establish whether this amount of reading is manageable for the intended learners.\n\nTwo concrete refinements would improve the intended phone and revision experience without changing the learning design. First, replace the response-help phrase 'the applied case beside this draft' with 'the applied case shown on this page': the supplied layout represents the case above the response on a narrow screen. Second, put a clear action or navigation link at the end of the review that returns to the existing draft. The current review tells the learner to use Revise response, but that button appears earlier in the document, above the review; after focus moves into the review, returning requires backward navigation or scrolling. This is a discoverability concern visible in the design, not an observed failure or a demonstrated keyboard barrier. These are recommended refinements rather than additional approval gates. Software Engineering should implement them in its next appropriate pass while preserving the required interface identifiers and retained-draft behavior.\n\nThe JSON editor also introduces a syntax task distinct from handoff reasoning. Its location after practice keeps it out of the initial attempt, but explicitly labeling case changes as optional would make that separation clearer. A later plain-language editing alternative could reduce that burden if user observation warrants it; it need not enlarge this candidate. Short action proposals, unrestricted wording and optional reflection already avoid requiring a lengthy conversation script. They do not establish that the interface meets every learner's access needs.\n\nVerification still needed\n\nSoftware Engineering should verify the represented interaction requirements when execution is authorized: a learner can reach the review, return to the same editable draft and resubmit with a keyboard; skip and voluntary return remain reachable; an invalid scenario can be corrected without losing the applied practice; and applying a valid case or resetting produces the clearing behavior explained beside the controls. On a narrow display, the learner must be able to consult the case, read feedback and return to the response without clipped text or unreachable actions. Labels, focus indications and focus movement are present in the supplied design, but their behavior with actual browsers, zoom, a phone keyboard or assistive technology has not been demonstrated here. Technical and environment signoff remain with the assigned colleagues.\n\nA bounded human observation should examine whether someone can connect one review prompt to their own response, find the route back to the draft, distinguish Apply from Reset, and recognize which case is authoritative after an unapplied edit. Those observations would inform experience revisions; they have not occurred. Actual reading burden, completion time, accessibility in use and instructional effectiveness remain unknown. My approval covers version 1's learning-experience decisions only.",
+          "artifact_version": 1,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_012",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "ecf6031315c17103852b93cd252e614e9bdf047022e7b7bfb373f3af72acf389",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "3545b4c73f0b8a6157cfed6bba3e02b33410ba619f8b7f81a51ce95d405b3acf",
+          "raw_response_sha256": "673ed96951523e60a7f979452a334bf050b3180caaebb3df9dd4bcfbdb4c79b3",
+          "raw_response_file": "calls/0012/collaboration-response.json",
+          "collected_at": "2026-11-03T04:41:43.143522+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to."
+        }
+      },
+      "prev_hash": "6b9e4814d7a1131a6081be4c8af2f1c92aca1870cea8ded4216e0e9dcf8b6d00",
+      "hash": "e6cf8443f570969aae2358968c5090e77397bfb9676f82829f0d71bc72ecbaf6"
+    },
+    {
+      "seq": 27,
+      "at": "2026-11-03T04:41:43.518044+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "learning_environment_engineering",
+      "payload": {
+        "ordinal": 13,
+        "purpose": "conversation",
+        "prompt_file": "calls/0013/prompt.txt",
+        "prompt_sha256": "9661b222d95f8c95921e6a9a77392c2b5d223cd2f4a876ba2f4f9237a9991e48",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "answer:m00018"
+      },
+      "prev_hash": "e6cf8443f570969aae2358968c5090e77397bfb9676f82829f0d71bc72ecbaf6",
+      "hash": "f79fc702e11320657a739f9c6136ddd53345cb7330143406f2857065ce4d0dcd"
+    },
+    {
+      "seq": 28,
+      "at": "2026-11-03T04:45:02.404688+00:00",
+      "kind": "message",
+      "phase": "design_develop",
+      "actor": "learning_environment_engineering",
+      "payload": {
+        "message_id": "m00028",
+        "request_seq": 27,
+        "response": {
+          "kind": "approval",
+          "to": [
+            "facilitator",
+            "software_engineering",
+            "learning_experience_design",
+            "education_training_professionals"
+          ],
+          "reply_to": [
+            "m00018"
+          ],
+          "domains": [
+            "learning_environment_engineering"
+          ],
+          "content": "I approve version 1's deployment and operating-condition decisions for a bounded test of this fictional, single-session practice. This approval concerns the implemented bytes supplied in m00015 and the operating scope described below. I have not opened the artifact in a browser, tested a device, observed a learner or measured completion time. I identify no additional necessary environment repair before such a test. Actual delivery access, browser behavior and suitability on the intended devices remain to be checked. Assessment, Measurement, Evaluation's objection m00024 remains open with its author; this approval neither resolves it nor approves an unseen repair.\n\nAccess and connectivity\n\nThe supplied implementation is a self-contained page with embedded styles and script. The author describes no external assets, network operations or storage API, and the supplied bytes represent that design. This is an appropriate operating choice for the stated shared-laptop and occasional-phone context: the practice does not require access to a real ticket queue or team channel. Those resources belong to the fictional case, not to the learner's technical setup. Technical verification of the no-network requirement remains with Software Engineering.\n\nThere is an important boundary between opening the page and continuing to use it. The record does not identify how the HTML will reach either device type, which browsers will be used, or whether a phone can open the chosen delivery format. Self-contained bytes do not establish that the initial access route is available without connectivity. A bounded test needs a specified way to open this exact version, an identified laptop/browser and an identified phone/browser, and JavaScript permitted in that environment. The implemented noscript message names that dependency, but it does not provide an alternative functioning practice. Where scripts or access are unavailable, the operational outcome is inability to use this candidate in that setting, not a learner failure. A checked shared laptop can be a fallback only if one is actually available.\n\nShared use and the meaning of clearing\n\nThe opening fictional-details notice and explicit reset control address the supplied shared-use constraint without requiring accounts or collecting employee information. The notice is guidance, not detection of a personal disclosure. A test or delivery demonstration should use invented inputs throughout, including edited cases and optional reflection. There is no operational need to enter an actual missed handoff, a person's name or an employee ranking.\n\nThe reset design is suitable for handing the current page to another user: it restores the starting case and clears response text, reflection, review, submitted-response copies and pending scenario edits. The relevant distinction is that Skip is not full shared-device cleanup. In the supplied implementation, Skip clears the practice response and review but retains the applied case and scenario editor. Applying another valid case likewise keeps that newly supplied case visible. If someone has edited a fictional scenario, a shared-device handover should use Reset practice and restore starting case, then verify that the starting case and empty response are displayed. Merely skipping or closing the submitted-wording disclosure is not the same operation.\n\nThe footer appropriately says entries remain visible in the tab until cleared and warns that browser session recovery is outside the page's control. My approval covers clearing the page's represented state, not secure erasure from a browser, device or recovery system. No such broader guarantee is supported by this record. The absence of application storage also means that persistent progress and movement between a phone and laptop are not features of this candidate.\n\nInterruptions and recovery\n\nRevision is represented as returning to the existing editable draft while retaining the applied case and review. Invalid scenario application is represented as leaving that current practice intact, with an error and a route to correct the edit. These choices reduce unnecessary reconstruction during an ordinary session. Successful application and Reset deliberately start fresh, and the interface explains their clearing consequences before activation. Return after Skip also starts a fresh draft rather than recovering the discarded response.\n\nThere is no implemented save-and-resume route. A fresh initialization restores the seed, and browser recovery is expressly outside the tool's control. Therefore, deployment should not promise that a draft will survive reloading, closing, device switching or an interruption that causes the page to restart. If the same tab remains active, retained state is the intended behavior; its survival through an actual phone interruption is a test question. If a returned page has an uncertain mixture of edited fields and displayed case, the safe operational recovery is to establish a fresh practice with the intended fictional case, or to skip, rather than assume the restored wording belongs to the current case. This describes handling an unverified recovery condition, not an observed defect.\n\nAn optional wording refinement would make this limit easier to find before someone invests effort: add near the response that the page has no save or resume feature and that reloading or reopening may lose work. Keep the existing reset and browser-recovery notices. This is an improvement in interruption guidance, not an additional approval gate for the bounded test. Persistent storage is not necessary for this first scope and would require reconsidering the shared-use clearing decisions.\n\nPhone use, assistance and time\n\nThe supplied design contains a narrow-screen layout, wrapping button groups, native labeled controls and visible focus treatment. These are reasons to include a phone in the test, not evidence that phone use is already satisfactory. The practical task is to consult the case, enter a response with the phone keyboard, reach the review and return to the same draft. Learning Experience Design's proposed wording change from the case being beside the draft and its proposed return action at the end of the review are sensible refinements for this route. I do not convert those recommendations into demonstrated access failures.\n\nThe first encounter is bounded by activity scope: one case, a response, review and optional revision. Its actual duration is unknown. No timed completion expectation should be inferred from this structure. A delivery arrangement needs enough flexibility for a person to stop or skip, and should not require completion before handing over a needed shared laptop. The record does not establish an available session window, a helper, or the learners' familiarity with JSON. The initial practice can use the seed without editing JSON; assistance with optional case editing should not become an unannounced prerequisite for the first attempt.\n\nFor Education and Training Professionals' delivery planning, the unresolved inputs are the practical session window, whether a device-navigation helper is available, and how an interrupted or access-blocked participant can leave or return voluntarily. A helper's operating instructions can cover opening the supplied version, identifying the applied case, recovering an invalid edit and resetting before handover. Whether additional instructional assistance is appropriate, and how it should be delivered, remain with that colleague and the learning specialists. I am not recording an educator review or assuming assistance exists. These missing delivery details limit claims about a real rollout; they do not require an additional feature or establish a product failure.\n\nObservable deployment checks for a later authorized test\n\n1. Access and connectivity: record the artifact version, actual device/browser and opening route. Open the page through that route, then exercise response, review, revision and scenario application with connectivity unavailable. Distinguish a failure to obtain the page from a failure after it is open. Software Engineering owns the technical verification of network behavior.\n\n2. Laptop and phone operation: on the identified laptop, complete the route using keyboard navigation, including recovery from a blank response and an invalid scenario. On the identified phone, enter a response with the on-screen keyboard and move between case, feedback and draft. Check whether text or controls become unreachable when scrolling or enlarging text. Record any assistance needed; do not infer accessibility across untested devices or assistive technologies.\n\n3. Case continuity: using distinctive invented text, submit a response and reflection, edit the scenario without applying it, and attempt invalid application. The displayed applied case and preceding practice should remain intact. After correcting and applying valid data, the new case should be displayed and the old response, reflection and review should be absent. This makes the recovery boundary observable without judging the learner's answer.\n\n4. Shared-device handover: enter distinguishable fictional text into the case editor, response and reflection and open the submitted-wording view. Observe that Skip retains the case, then use full Reset and check all those visible locations for the previous text. The starting case should be restored. This checks the page's cleanup behavior, not erasure from browser recovery facilities.\n\n5. Interruption: leave and return to the same open page on each intended device, then separately examine reload or reopen behavior with fictional inputs. Record whether draft, applied case, editor and review remain mutually consistent, or whether a fresh start is required. Do not describe an untested recovery route as supported. If a person participates, record elapsed time and interruptions descriptively, without treating one observation as a general completion-time estimate.\n\nThese are proposed checks and operating boundaries, not completed tests or empirical results. My approval is limited to version 1's delivery, access, shared-use and recovery design for this bounded candidate. Instructional effectiveness, assessment interpretation, workplace content, human usability and software execution are outside this approval.",
+          "artifact_version": 1,
+          "issue_id": "",
+          "artifact": null,
+          "decision": null
+        },
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/hs_013",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "9661b222d95f8c95921e6a9a77392c2b5d223cd2f4a876ba2f4f9237a9991e48",
+          "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+          "dispatch_prompt_sha256": "2cc655835d1a8db0cecd0e6156291fc0f393cabc843a0db211d6019d02cda0b0",
+          "raw_response_sha256": "fa36b8b9c49b2ca5276ae5f93526d15f18fab34daf410efd470d87ca2eec2b03",
+          "raw_response_file": "calls/0013/collaboration-response.json",
+          "collected_at": "2026-11-03T04:45:02.382897+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Transport/schema clarification, with no change to the substantive task: top-level artifact_version refers only to an already accepted artifact version. For a first implementation, use artifact_version: null and artifact.parent_version: null; the runtime assigns the new version. For a repair, artifact.parent_version must name the latest accepted version. Each message in reply_to must be authored by you or by an actor included in to. reply_to is an addressed reply, not a general citation list; you may discuss earlier messages as context without listing them in reply_to."
+        }
+      },
+      "prev_hash": "f79fc702e11320657a739f9c6136ddd53345cb7330143406f2857065ce4d0dcd",
+      "hash": "cf1e74b96c82365c77ee3c23da70e1d0e7345a3ee2c5aee5eaaffc30ece7c900"
+    },
+    {
+      "seq": 29,
+      "at": "2026-11-03T04:45:02.772691+00:00",
+      "kind": "request",
+      "phase": "design_develop",
+      "actor": "facilitator",
+      "payload": {
+        "ordinal": 14,
+        "purpose": "conversation",
+        "prompt_file": "calls/0014/prompt.txt",
+        "prompt_sha256": "928df57acd9986a0d297d2761a21965cdb8e9a99f00b35cdaca967f4f522f6e8",
+        "schema_sha256": "dabe4a4f81d4dfc73cb205b1ff00ac574af1ee07fc988d6025b419fe1869d0bb",
+        "reason": "resolve:m00024"
+      },
+      "prev_hash": "cf1e74b96c82365c77ee3c23da70e1d0e7345a3ee2c5aee5eaaffc30ece7c900",
+      "hash": "5838fe18ff0d85c2dcbce8a39a56fabd40c1fc2a5edf795b59e56436f0b4dfb2"
     }
   ]
 }

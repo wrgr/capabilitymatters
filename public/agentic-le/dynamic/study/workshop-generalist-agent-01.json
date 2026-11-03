@@ -4999,6 +4999,315 @@
       },
       "prev_hash": "2cadb7fdb59c548f70c6b5b2a45f53cead698d44e8f3b4d49d6d55315b863b65",
       "hash": "6100e3d0980e2c9fc679cde2a9313334116565846f461685050e9a4e2b05774b"
+    },
+    {
+      "seq": 13,
+      "at": "2026-11-03T04:31:18.530476+00:00",
+      "kind": "runtime_amendment",
+      "phase": "deploy_test",
+      "actor": "user",
+      "payload": {
+        "schema_version": "dynamic-flower-context-amendment-1",
+        "amendment_id": "full-context-review-600000-v1",
+        "scope": "context_character_allowance_only",
+        "old_context_limit": 180000,
+        "new_context_limit": 600000,
+        "config_sha256": "d93e54a31f08894f9b00b6c4b831a250d404e7389f692698361650db60431e10",
+        "original_event_count": 12,
+        "original_head": "6100e3d0980e2c9fc679cde2a9313334116565846f461685050e9a4e2b05774b",
+        "original_run_sha256": "067e0b08f108d35b91894a6e1ce10057824754c0eba1c7e977659b87ae324447",
+        "old_runtime_sources": {
+          "dynamic_contract.py": "ab8d2bf9b890c6270e4dc45e03034daa08791ca490cf0fa7a81240089c11827f",
+          "dynamic_evaluator.py": "4543aab37b28afba374f91e38fe7a71cebe9b2575563d06d16bb4e5a19cf954b",
+          "dynamic_flower.py": "00d7ecf3436185f1f8dc82c144ffb168ee0947dc70239681d7a02b876054f243",
+          "dynamic_journal.py": "7eca9c263dec24c55c8b7f567dbbaa43e5ebb73b5ecc4ec85492e29ce39d9621",
+          "dynamic_messages.py": "a480e55c5b6e2abcfe9beb3f5073fb16ac10f135ca880cb08543b473fcedc9ef",
+          "dynamic_observations.py": "7de741b325c8e0e68850b94bbd47250fd382a42992839caaa783dd6f3a1fa54e",
+          "dynamic_prompts.py": "c4f46b9ba428521255acc575207f210721f7f7e8e6ccdae2ba3b2a098b77de10",
+          "dynamic_provider.py": "4792f47b2595de827f59290c583f3a563f1e0716af2fe4e5705fd46061e17c97",
+          "dynamic_records.py": "80728b442ee0d483ef304f3145d4ef28a02ef9a299d216f746a5b4908bff0690",
+          "dynamic_runtime.py": "dd72eee7678ad9fc29ce4009315254910b52d3cedc1d77da4b140881944f6a1f",
+          "dynamic_state.py": "1c26aed5fdbb98ef437322b7294c15e63dabb41e1b2ab9147823b11d6c4ef401"
+        },
+        "new_runtime_sources": {
+          "dynamic_amendment.py": "00eacc7c802a5245234c792336b9694d456ea8b01cd6cc50162e7a61b834e5ec",
+          "dynamic_contract.py": "b52755e3f4e5ceb5272a4c076f095098e934d81d222080e66de9f04d270970e8",
+          "dynamic_evaluator.py": "4543aab37b28afba374f91e38fe7a71cebe9b2575563d06d16bb4e5a19cf954b",
+          "dynamic_flower.py": "00d7ecf3436185f1f8dc82c144ffb168ee0947dc70239681d7a02b876054f243",
+          "dynamic_journal.py": "2484d07e2433ddfed89ffd65887eb230d1045f811ffd9c239da44dc99210b992",
+          "dynamic_messages.py": "a480e55c5b6e2abcfe9beb3f5073fb16ac10f135ca880cb08543b473fcedc9ef",
+          "dynamic_observations.py": "7de741b325c8e0e68850b94bbd47250fd382a42992839caaa783dd6f3a1fa54e",
+          "dynamic_prompts.py": "bd292eba38b21a626a66ca5fb709d66db64d2a5e997e07c83f967cd3104c12ed",
+          "dynamic_provider.py": "4792f47b2595de827f59290c583f3a563f1e0716af2fe4e5705fd46061e17c97",
+          "dynamic_records.py": "893f4512de0fe9ae1ff71c5e3ad41b1107b6ddfea62af662cbb66846c45aea40",
+          "dynamic_runtime.py": "53847bcf250e5e49cd117aefa8a5babe7388deb0384193935468436e475c0000",
+          "dynamic_state.py": "1c26aed5fdbb98ef437322b7294c15e63dabb41e1b2ab9147823b11d6c4ef401"
+        },
+        "new_source_set_sha256": "4992c2005b496021256dd5118d1fe62cfd46aa84807157992ce4fa37a6a56068",
+        "archive": "runtime-amendments/context-600000",
+        "reason": "The complete process-review input exceeded the original 180000-character cap. Apply the same 600000-character allowance to all four pilot runs before any expert review, preserving all messages, source evidence, original configurations, call limits, expertise permissions and validation rules."
+      },
+      "prev_hash": "6100e3d0980e2c9fc679cde2a9313334116565846f461685050e9a4e2b05774b",
+      "hash": "525d3fab181a8384277db6483ca4bcea28d2ff1dbca00937d24106e551c2fc68"
+    },
+    {
+      "seq": 14,
+      "at": "2026-11-03T04:40:49.869690+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "ordinal": 4,
+        "purpose": "evaluation",
+        "prompt_file": "calls/0004/prompt.txt",
+        "prompt_sha256": "40b6df8142725f27f446361b79aab2f5d3c2f4670cfed57ad957b68693acfd8e",
+        "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+        "scope": "process",
+        "scenario_id": null,
+        "artifact_version": 1,
+        "packet_sha256": "7c1eb323ce9a0da4ee42372ec4d03a99e02ed3eb9e644d85e5da351fb32d2633"
+      },
+      "prev_hash": "525d3fab181a8384277db6483ca4bcea28d2ff1dbca00937d24106e551c2fc68",
+      "hash": "8ba97549a5543b1d9ef15fe9f3ce4271086fd0df75fc3e74b22ed3fa2f36e7a6"
+    },
+    {
+      "seq": 15,
+      "at": "2026-11-03T04:44:15.230170+00:00",
+      "kind": "evaluation",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "scope": "process",
+        "artifact_version": 1,
+        "scenario_id": null,
+        "scores": [
+          {
+            "dimension_id": "agency_and_burden",
+            "score": 3,
+            "rationale": "Learner agency and recoverability influence the requested design and the actual candidate: revision and skipping retain the draft, reset has an explicit scope, and a clarification question is accepted as a legitimate response. The generalist raises whether the guidance and controls are understandable, and the facilitator retains those concerns at freezing. This is strong evidence that human concerns shape decisions. The process does not establish how intended learners experience the lengthy review prompts or JSON editing, so manageable burden and accessibility in lived use remain unknown.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/3",
+                "quote": "Include the required apply, try, revise, skip, and reset controls, editable inputs, visible state, labels, and recoverable errors."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "Revise and Skip keep your draft. Reset clears your draft and attempt count while keeping the applied case and the case editor."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "A question about a missing fact is a valid next step."
+              },
+              {
+                "source": "event",
+                "id": "event/8",
+                "quote": "Carry both of generalist's remaining review concerns into testing: whether the source-linked self-review gives the intended learner enough guidance, and whether the controls and feedback are understandable in use."
+              }
+            ]
+          },
+          {
+            "dimension_id": "domain_boundaries",
+            "score": 4,
+            "rationale": "The recorded contributions consistently respect the actual assignments. The facilitator requests implementation without granting technical or pedagogical authority. The introductory generalist supplies a bounded self-review tool, identifies what its automatic observations cannot establish, and explicitly reports the absence of execution and specialist approval. The facilitator preserves those limits when declaring readiness for a candidate freeze. These are substantive limits on claims and decisions, not merely role labels. Missing specialist reviews are accurately retained as unknown and are not treated here as observed product failures.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/3",
+                "quote": "There are no assigned specialists in this roster, so specialist reviews will remain not_reviewed; this request supplies no technical or pedagogical approval."
+              },
+              {
+                "source": "event",
+                "id": "event/5",
+                "quote": "It does not certify feasibility, interpret arbitrary prose as correct, or infer learning from a preferred plan."
+              },
+              {
+                "source": "event",
+                "id": "event/5",
+                "quote": "I have not executed or tested these bytes and cannot provide specialist approval; specialist reviews remain not_reviewed."
+              },
+              {
+                "source": "event",
+                "id": "event/8",
+                "quote": "This is a procedural transition, not approval of its technical behavior, instructional quality, or effectiveness."
+              }
+            ]
+          },
+          {
+            "dimension_id": "responsive_dialogue",
+            "score": 3,
+            "rationale": "The conversation contains a substantive request, an implementation that answers it, and a facilitator response that attributes the contribution and retains its unresolved concerns. The generalist answers the request to identify feedback limits and remaining questions; the facilitator explicitly carries both questions forward rather than declaring them resolved. This supports strong responsiveness within the exchanges actually recorded. No competing proposal, substantive objection, or post-observation author response is present, so the record does not establish responsiveness under disagreement or demonstrated assumption revision.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/3",
+                "quote": "In your implementation message, identify the feedback's limits and any remaining questions that need review."
+              },
+              {
+                "source": "event",
+                "id": "event/5",
+                "quote": "The feedback makes only modest writing observations: which explicit source IDs appear and which optional labeled sections contain text."
+              },
+              {
+                "source": "event",
+                "id": "event/5",
+                "quote": "Remaining review questions are whether this source-linked self-review gives enough help to the intended learner and whether the controls and feedback are understandable in use."
+              },
+              {
+                "source": "event",
+                "id": "event/8",
+                "quote": "Carry both of generalist's remaining review concerns into testing: whether the source-linked self-review gives the intended learner enough guidance, and whether the controls and feedback are understandable in use."
+              }
+            ]
+          },
+          {
+            "dimension_id": "decision_traceability",
+            "score": 3,
+            "rationale": "The facilitator's requirements can be traced through the generalist's explanation to the supplied version 1 source. For example, replaceable facts are implemented through a copied applied case, case text is rendered as text data, and applying a case replaces prior feedback with directions to reconsider the retained draft and source IDs. The facilitator attributes the candidate to the generalist and distinguishes freezing from approval. The correspondence supports traceability of the initial implementation. The recorded process contains limited comparison of design alternatives and no completed corrective iteration; statements about implementation are not being counted as proof that every recovery path was executed.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/3",
+                "quote": "Keep the work introductory: let the learner inspect the applied facts, propose a plan, receive feedback, and revise when the user replaces the case facts."
+              },
+              {
+                "source": "event",
+                "id": "event/5",
+                "quote": "Applying changed facts retains the draft and clears the previous feedback."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "if (text !== undefined) element.textContent = text;"
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "applied = { title: parsed.title, facts: parsed.facts.slice(), constraints: parsed.constraints.slice(), task: parsed.task };"
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "feedbackMessage('New case applied. Inspect the new facts and constraints before trying your draft again. Old source IDs may now refer to different text. Explain any needed change in resources, support, timing or fallback.');"
+              },
+              {
+                "source": "event",
+                "id": "event/8",
+                "quote": "Generalist's implementation message m00005 supplies the candidate and describes replaceable case facts, an editable proposal, source-linked reflection feedback, changed-case revision, and the required controls."
+              }
+            ]
+          },
+          {
+            "dimension_id": "learning_reasoning",
+            "score": 2,
+            "rationale": "The design has a plausible, limited instructional mechanism: learners explain a plan, compare it with the applied facts and constraints, consider support and fallback conditions, and revise. The prompts substantively connect resource quantities, availability, constraints, and uncertainty to the target capability. The team also correctly separates writing observations and mechanical behavior from feasibility and learning. However, the process leaves unresolved whether an introductory learner can use this self-review to detect a mistaken allocation or unsupported assumption. It does not develop a substantive evidence strategy for distinguishing improved planning capability from a changed response or additional labels. The score credits the simple reflection mechanism while retaining that instructional and evidentiary gap.",
+            "evidence_refs": [
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "For every required resource, connect its quantity and available time to an applied fact. If availability is not supplied, ask instead of assuming."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "Name the condition that makes the main plan unusable. Propose an alternative using available resources and support, explain why it meets the same constraints and stated needs, or ask for clarification if no feasible alternative is supported."
+              },
+              {
+                "source": "event",
+                "id": "event/5",
+                "quote": "Remaining review questions are whether this source-linked self-review gives enough help to the intended learner and whether the controls and feedback are understandable in use."
+              },
+              {
+                "source": "event",
+                "id": "event/8",
+                "quote": "Observations of the required controls, changed-case handling, and error recovery can inform the next response without establishing learning or substantive plan correctness."
+              }
+            ]
+          },
+          {
+            "dimension_id": "participation",
+            "score": 2,
+            "rationale": "The supplied volunteer and participant concerns shape the candidate: it asks for plans that include participants, restricts reasoning to stated needs, permits clarification, and supports replacement of case facts with an explanation of the consequences for existing references and feedback. These are concrete accommodations of represented perspectives. The conversation itself contains only facilitator and generalist contributions to the design, with no actual learner or workshop stakeholder consultation and no recorded user case updates. Consequently, participation is supported for a limited portion of the criterion; negotiated priorities and responsiveness to a real user change remain unknown, not observed failures.",
+            "evidence_refs": [
+              {
+                "source": "event",
+                "id": "event/3",
+                "quote": "Use fictional resources and operating rules, and do not infer participant needs that were not supplied."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "State the activity, who it includes, and the sequence or timing. If a decision is blocked, explain what information would let you decide."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "Connect any required help to the stated availability. Address the supplied participant needs and avoid adding needs that were not given."
+              },
+              {
+                "source": "html",
+                "id": "artifact/1",
+                "quote": "To introduce a change, edit an availability or support fact and apply it. Your draft stays in place; previous feedback is cleared. Source IDs are assigned from the newly applied lists, so an ID may refer to different text after a change. Unapplied edits do not change the active case."
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "This review rates process once for frozen artifact version 1 and case version 1. It supplies no per-scenario result scores, axis totals, composite, or ranking.",
+          "This is a bounded agent simulation. The evaluator sees assignments and the complete public conversation; the review is neither blinded nor an independent human assessment of professional competence.",
+          "The design record contains three public authoring messages, one implementation, and a candidate freeze. There is no recorded substantive disagreement, post-test author response, repair, or human approval. Planned responses to future concerns are not completed work.",
+          "All specialist domains remain not_reviewed. That absence limits assurance but does not, by itself, establish an implementation or instructional failure.",
+          "The supplied browser observations document scripted behavior. They do not establish human learning, transfer, completion time, comprehension, or lived accessibility, and they do not retroactively create a design dialogue before freezing.",
+          "The sufficiency and understandability of the self-review remain explicit open concerns at the freeze. The process supports a bounded reflection candidate without demonstrating that learners can independently identify and correct substantive planning errors.",
+          "No user case updates or direct learner and workshop stakeholder consultation are recorded. Their preferences, experienced burden, and influence on subsequent decisions remain unknown."
+        ],
+        "request_seq": 14,
+        "packet_sha256": "7c1eb323ce9a0da4ee42372ec4d03a99e02ed3eb9e644d85e5da351fb32d2633",
+        "provenance": {
+          "provider": "collaboration",
+          "evidence_kind": "manual",
+          "response_origin": "actual_llm_collaboration_agent",
+          "agent_task_name": "/root/wg_eval_004",
+          "fork_turns": "none",
+          "model": "session-inherited; not independently reported",
+          "prompt_delivery": "retained prompt and schema read through restricted file transport",
+          "runtime_prompt_sha256": "40b6df8142725f27f446361b79aab2f5d3c2f4670cfed57ad957b68693acfd8e",
+          "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+          "dispatch_prompt_sha256": "ee358025690624561a1f0272897674b95c22dc76a3c87826633739796dca3860",
+          "raw_response_sha256": "2965b26ca778ede9e897524cfe0598333ccc55bab8579a987e71fbef6ba62796",
+          "raw_response_file": "calls/0004/collaboration-response.json",
+          "collected_at": "2026-11-03T04:44:15.205810+00:00",
+          "tool_policy": "input-file reads and response-file write only; no other tools requested",
+          "tool_activity_verification": "not independently available",
+          "cli_receipt": null,
+          "token_usage": null,
+          "transport_schema_guidance": "Read the complete prompt, in chunks if necessary; do not rely on a truncated tool result. Return only the evaluator response schema supplied in schema.json. Use the exact criterion IDs and exact source IDs from the supplied packet. Every evidence quote must be an exact substring of that named source representation. Do not infer any observations beyond the packet. This is a separate evaluator turn, so the authoring-message schema does not apply."
+        }
+      },
+      "prev_hash": "8ba97549a5543b1d9ef15fe9f3ce4271086fd0df75fc3e74b22ed3fa2f36e7a6",
+      "hash": "06166f92d06226b440caa286ac7ea7cc901ea1b609d4ce865ccc7ac06a62c51b"
+    },
+    {
+      "seq": 16,
+      "at": "2026-11-03T04:45:03.145976+00:00",
+      "kind": "request",
+      "phase": "deploy_test",
+      "actor": "expert_evaluator",
+      "payload": {
+        "ordinal": 5,
+        "purpose": "evaluation",
+        "prompt_file": "calls/0005/prompt.txt",
+        "prompt_sha256": "07607abad404065576d432d6ec17ae9b8144037453f882e5111ad48d9aea49d1",
+        "schema_sha256": "909898d59390daed2dbbb5c37baad983a12ed5b5c279b1f7b97e425e884d6c94",
+        "scope": "result",
+        "scenario_id": "shared_equipment_easy",
+        "artifact_version": 1,
+        "packet_sha256": "a1621fa996e2e9b04f1930e35ad1e8ec5ce3d0e34a7f8e23b085215aca1cb283"
+      },
+      "prev_hash": "06166f92d06226b440caa286ac7ea7cc901ea1b609d4ce865ccc7ac06a62c51b",
+      "hash": "3f6e2ea53f43bc3421f9770d0f3bbd22fd6ec0e967d31807530c6d014b2c48f5"
     }
   ]
 }
