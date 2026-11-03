@@ -122,10 +122,13 @@ function evaluationView(run, state) {
 /** @param {object} run @returns {void} Explain the imported execution mode and pinned inputs without claiming file authenticity. */
 export function renderRunSummary(run) {
   const node = host('run-summary'); node.replaceChildren(); node.className = `record-banner ${run.mode === 'fixture' ? 'fixture' : ''}`;
-  const title = {fixture: 'Scripted interface demonstration — not an agentic result', manual: 'Manually advanced run record', live: 'Live-provider run record'}[run.mode];
+  const contributions = run.events.filter(event => ['message', 'evaluation'].includes(event.kind));
+  const collaboration = run.mode === 'manual' && contributions.length > 0 && contributions.every(event => event.payload.provenance?.response_origin === 'actual_llm_collaboration_agent');
+  const title = collaboration ? 'Agent conversation · externally submitted' : {fixture: 'Scripted interface demonstration — not an agentic result', manual: 'Manually advanced run record', live: 'Live-provider run record'}[run.mode];
   node.append(el('h2', '', title), el('p', '', `${run.config.case.title} · ${run.id}`),
     el('p', 'muted', `Pinned configuration: ${run.config.id} · ${run.config_sha256}`),
     el('p', 'muted', 'Imported file: input fingerprints, event links and retained HTML bindings checked locally. Use the local runner for its full semantic verification.'));
+  if (collaboration) node.append(el('p', '', 'Recorded origin: fresh collaboration-agent responses. Manual describes the submission method. Exact prompts, responses and agent identifiers are retained; CLI sandbox isolation and token accounting are unavailable.'));
   const context = host('record-evidence'); context.replaceChildren();
   for (const [title, value] of [['Pinned configuration and full scenarios', run.config], ['Evaluator expertise and rubric', {agent: run.config.agents.find(item => item.id === run.config.evaluator_id), rubric: run.catalog.rubric}], ['Complete original run record', run]]) {
     const details = disclosure(title); details.append(jsonBlock(value)); context.append(details);

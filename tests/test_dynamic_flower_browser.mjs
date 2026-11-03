@@ -155,7 +155,8 @@ async function main() {
     if (!browser) { process.exitCode = 2; return; }
     service = await staticServer(); fixture = await buildUiFixture();
     const file = resolve(fixture.directory, 'run.json'); await writeFile(file, JSON.stringify(fixture.data.run, null, 2) + '\n');
-    const page = await browser.newPage({viewport: {width: 1280, height: 900}, reducedMotion: 'reduce'});
+    const context = await browser.newContext({viewport: {width: 1280, height: 900}, reducedMotion: 'reduce'});
+    const page = await context.newPage();
     page.on('pageerror', error => report.page_errors.push(error.message));
     await page.route('**/*', route => new URL(route.request().url()).origin === service.origin ? route.continue() : route.abort());
     await page.route('**/agentic-le/dynamic/study/index.json', route => route.fulfill({status: 404, body: 'No published records in this fixture test.'}));

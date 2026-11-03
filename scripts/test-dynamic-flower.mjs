@@ -93,13 +93,16 @@ export function emptyEvidence(loaded, scenario, fixture = false) {
 /** Return a bounded rendered observation with its truncation explicitly recorded. @param {import('playwright').Page} page @returns {Promise<object>} */
 async function snapshot(page) {
   const rendered = await page.locator("body").innerText({ timeout: 3000 });
-  const value = await page.evaluate(() => ({
-    feedback: document.querySelector("#feedback")?.textContent ?? "",
-    practice_status: document.querySelector("#practice-status")?.textContent ?? "",
-    response: document.querySelector("#response-input")?.value ?? null,
-    horizontal_overflow: document.documentElement.scrollWidth > window.innerWidth + 1,
-    active_control: document.activeElement?.id || document.activeElement?.tagName || ""
-  }));
+  const value = await page.evaluate(() => {
+    const visibleText = selector => {
+      const element = document.querySelector(selector);
+      return element?.checkVisibility({checkOpacity: true, checkVisibilityCSS: true}) ? element.innerText : "";
+    };
+    return { feedback: visibleText("#feedback"), practice_status: visibleText("#practice-status"),
+      response: document.querySelector("#response-input")?.value ?? null,
+      horizontal_overflow: document.documentElement.scrollWidth > window.innerWidth + 1,
+      active_control: document.activeElement?.id || document.activeElement?.tagName || "" };
+  });
   return { rendered_text: rendered.slice(0, MAX_TEXT), original_rendered_chars: rendered.length, rendered_text_truncated: rendered.length > MAX_TEXT, ...value };
 }
 
