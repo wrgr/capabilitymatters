@@ -22,18 +22,18 @@ export function runSuite(version="mvp") {
     budget:7
   };
   const catalog=[
-    {id:"workflow_mapping",actor:"ops",cost:1,prob:.85,priority:1.5,cap:1,agency:4,throughput:7,recovery:5,tags:["workflow"],line:"Map exception and shift-change handoffs before buying another training package."},
-    {id:"supervisor_escalation",actor:"ops",cost:1,prob:.64,priority:1.0,cap:3,agency:2,throughput:3,recovery:8,tags:["workflow","fallback"],line:"Give each shift an explicit escalation owner and a handoff rule."},
-    {id:"fallback_protocol",actor:"ops",cost:1,prob:.62,priority:.9,cap:5,agency:3,throughput:-1,recovery:15,tags:["fallback"],line:"Specify what staff do when the assistant is unavailable."},
-    {id:"instrumentation",actor:"data",cost:1,prob:.83,priority:1.4,cap:1,agency:1,throughput:4,recovery:5,tags:["measure"],line:"Separate routine and exception events; retain first attempts and denominators."},
-    {id:"predictive_alerts",actor:"data",cost:2,prob:.75,priority:1.12,cap:0,agency:-3,throughput:11,recovery:-7,tags:["automation"],line:"Add targeted alerts for unusual cases, with a measured false-alarm rate."},
-    {id:"comparison_audit",actor:"data",cost:1,prob:.55,priority:.88,cap:1,agency:1,throughput:1,recovery:4,tags:["measure"],line:"Compare handoff errors by shift and case complexity before attributing causation."},
-    {id:"guided_walkthrough",actor:"trainer",cost:1,prob:.78,priority:1.23,cap:6,agency:1,throughput:3,recovery:2,tags:["practice"],line:"Offer short worked examples of routine and exception cases."},
-    {id:"practice_rehearsal",actor:"trainer",cost:2,prob:.78,priority:1.19,cap:12,agency:2,throughput:-1,recovery:8,tags:["practice"],line:"Use brief supported rehearsal with corrective feedback during shifts."},
-    {id:"job_aid",actor:"trainer",cost:1,prob:.75,priority:1.04,cap:5,agency:7,throughput:5,recovery:5,tags:["interface"],line:"Provide a job aid for exceptions, with an accessible alternative."},
-    {id:"transfer_probe",actor:"trainer",cost:2,prob:.27,priority:.94,cap:14,agency:2,throughput:-3,recovery:10,tags:["transfer","practice"],line:"Try a changed case without the assistant to see whether the method transfers."},
-    {id:"varied_transfer_practice",actor:"ls",cost:2,prob:.94,priority:1.36,cap:18,agency:3,throughput:-3,recovery:13,tags:["transfer","practice"],line:"Practice novel failure cases and scaffold independent judgment, not just interface use."},
-    {id:"delayed_unassisted_check",actor:"ls",cost:1,prob:.86,priority:1.10,cap:5,agency:0,throughput:-1,recovery:4,tags:["transfer","measure"],line:"Check delayed, unassisted performance; do not use completion as proof of readiness."}
+    {id:"workflow_mapping",actor:"ops",cost:1,prob:.85,priority:1.5,capability:1,agency:4,throughput:7,recovery:5,tags:["workflow"],line:"Map exception and shift-change handoffs before buying another training package."},
+    {id:"supervisor_escalation",actor:"ops",cost:1,prob:.64,priority:1.0,capability:3,agency:2,throughput:3,recovery:8,tags:["workflow","fallback"],line:"Give each shift an explicit escalation owner and a handoff rule."},
+    {id:"fallback_protocol",actor:"ops",cost:1,prob:.62,priority:.9,capability:5,agency:3,throughput:-1,recovery:15,tags:["fallback"],line:"Specify what staff do when the assistant is unavailable."},
+    {id:"instrumentation",actor:"data",cost:1,prob:.83,priority:1.4,capability:1,agency:1,throughput:4,recovery:5,tags:["measure"],line:"Separate routine and exception events; retain first attempts and denominators."},
+    {id:"predictive_alerts",actor:"data",cost:2,prob:.75,priority:1.12,capability:0,agency:-3,throughput:11,recovery:-7,tags:["automation"],line:"Add targeted alerts for unusual cases, with a measured false-alarm rate."},
+    {id:"comparison_audit",actor:"data",cost:1,prob:.55,priority:.88,capability:1,agency:1,throughput:1,recovery:4,tags:["measure"],line:"Compare handoff errors by shift and case complexity before attributing causation."},
+    {id:"guided_walkthrough",actor:"trainer",cost:1,prob:.78,priority:1.23,capability:6,agency:1,throughput:3,recovery:2,tags:["practice"],line:"Offer short worked examples of routine and exception cases."},
+    {id:"practice_rehearsal",actor:"trainer",cost:2,prob:.78,priority:1.19,capability:12,agency:2,throughput:-1,recovery:8,tags:["practice"],line:"Use brief supported rehearsal with corrective feedback during shifts."},
+    {id:"job_aid",actor:"trainer",cost:1,prob:.75,priority:1.04,capability:5,agency:7,throughput:5,recovery:5,tags:["interface"],line:"Provide a job aid for exceptions, with an accessible alternative."},
+    {id:"transfer_probe",actor:"trainer",cost:2,prob:.27,priority:.94,capability:14,agency:2,throughput:-3,recovery:10,tags:["transfer","practice"],line:"Try a changed case without the assistant to see whether the method transfers."},
+    {id:"varied_transfer_practice",actor:"ls",cost:2,prob:.94,priority:1.36,capability:18,agency:3,throughput:-3,recovery:13,tags:["transfer","practice"],line:"Practice novel failure cases and scaffold independent judgment, not just interface use."},
+    {id:"delayed_unassisted_check",actor:"ls",cost:1,prob:.86,priority:1.10,capability:5,agency:0,throughput:-1,recovery:4,tags:["transfer","measure"],line:"Check delayed, unassisted performance; do not use completion as proof of readiness."}
   ];
   const allowed={ops:["workflow_mapping","supervisor_escalation","fallback_protocol"],data:["instrumentation","predictive_alerts","comparison_audit"],trainer:["guided_walkthrough","practice_rehearsal","job_aid","transfer_probe"],ls:["varied_transfer_practice","delayed_unassisted_check"]};
   function rng(seed){let x=seed>>>0;return ()=>{x=(x+0x6D2B79F5)>>>0;let t=x;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296}}
