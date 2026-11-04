@@ -50,17 +50,17 @@ The first execution used **3 paired seeds × 3 conditions = 9** intervention des
 
 The expanded suite uses **40 paired seeds × 2 organizational variants × 3 conditions = 240** frozen intervention records, with **720** deployment observations. Independent policy randomness is seeded per case/variant, while matched deployment events share event-severity seeds across conditions. Recorded transcripts show proposal authors, consultation requests, commitments and freeze boundaries. Teaching overlays are attached to specific utterance identifiers and are not sent to simulated team members.
 
-The evaluation harness audits authorized proposal origin, absent-consultation utterances, negative budgets, frozen intervention mutation, matched event seeds and replay equality. A dedicated Node test suite checks record counts, all four numeric outcome dimensions, consultation realism, replay identity and mechanistic evidence labeling. A GitHub Actions workflow executes both suites, performs those tests, and uploads complete results and traces as a reproducible artifact. **At manuscript freeze, successful completion of GitHub Actions has not been independently verified; the runner implementation and tests are committed, but CI status must be checked before claiming passed CI.**
+The evaluation harness audits authorized proposal origin, absent-consultation utterances, negative budgets, frozen intervention mutation, matched event seeds and replay equality. A dedicated Node test suite checks record counts, all four numeric outcome dimensions, consultation realism, replay identity and mechanistic evidence labeling. A GitHub Actions workflow executes both suites, performs those tests, and uploads complete results and traces as a reproducible artifact. **Verification:** GitHub Actions run [41776418061](https://github.com/wrgr/capabilitymatters/actions/runs/41776418061) completed successfully. Its Node regression step, both mechanistic executions, and evidence upload each passed; the run retained the complete MVP and expanded JSON records. The checks establish software consistency, not real-world construct validity.
 
 ### Mechanistic observations
 
-| Configuration | Consultations / eligible design | Hard-condition recovery | Hard-condition throughput | Meaning |
-| --- | ---: | ---: | ---: | --- |
-| Embedded team | 0% | 48.29 | 98.42 | No specialist consultation available |
-| Consultation possible | 43.8% | 56.06 | 95.36 | Some designs invoke expertise; uptake is not guaranteed |
-| Structured integration | 90.0% | 70.60 | 91.67 | Integration increases consultation in the authored policy and shifts budget toward resilience |
+| Configuration | Consultations / eligible design | Hard-condition capability | Hard-condition recovery | Hard-condition throughput | Meaning |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Embedded team | 0% | 61.13 | 48.29 | 98.42 | No specialist consultation available |
+| Consultation possible | 43.8% | 70.38 | 56.06 | 95.36 | Some designs invoke expertise; uptake is not guaranteed |
+| Structured integration | 90.0% | 82.49 | 70.60 | 91.67 | Integration increases consultation in the authored policy and shifts budget toward resilience |
 
-These values are **synthetic index units**, not percent success rates, calibrated worker outcomes, or evidence that these professions actually behave this way. Values were obtained from the expanded mechanistic execution before the source field repair; **recovery, throughput and consultation fields are unaffected by the capability-field bug**, but the version-pinned CI output should be considered the canonical corrected evidence. Formal inferential tests are deliberately withheld because treatment behavior and outcome effects are programmatically constructed.
+These values are **synthetic index units**, not percent success rates, calibrated worker outcomes, or evidence that these professions actually behave this way. All four outcome fields in this table were verified from the corrected expanded execution in successful GitHub Actions run 41776418061. The version-pinned CI output is the canonical evidence. Formal inferential tests are deliberately withheld because treatment behavior and outcome effects are programmatically constructed.
 
 The numerical tradeoff illustrates a pedagogically useful phenomenon: investing in resilience can carry opportunity cost for routine throughput. But it is not a finding that integration causally improves resilience in actual organizations. In this fixture that mechanism was authored into the decision policy and event response functions.
 
@@ -100,7 +100,7 @@ Competency coverage, utilization, and integration are distinct, testable mediato
 
 - [Experiment generator](https://github.com/wrgr/capabilitymatters/blob/main/tools/lifecycle/competency_pilot.mjs)
 - [Automated integrity checks](https://github.com/wrgr/capabilitymatters/blob/main/tools/lifecycle/tests/competency_pilot.test.mjs)
-- [GitHub Actions evidence workflow](https://github.com/wrgr/capabilitymatters/blob/main/.github/workflows/competency-mediation-pilot.yml)
+- [GitHub Actions evidence workflow](https://github.com/wrgr/capabilitymatters/blob/main/.github/workflows/competency-mediation-pilot.yml) and [verified reproducibility run with downloadable evidence](https://github.com/wrgr/capabilitymatters/actions/runs/41776418061/artifacts/13296534386)
 - [Version 1 methodological manuscript](competency-mediation-paper-v1.md)
 - [Historical dynamic-agent study](../../src/papers/flower-team-study.md), which is not part of the new three-condition treatment matrix.
 
