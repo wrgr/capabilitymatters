@@ -1,0 +1,43 @@
+name: Competency-mediation mechanistic pilot
+on:
+  push:
+    paths:
+      - 'tools/lifecycle/competency_pilot.mjs'
+      - 'tools/lifecycle/tests/competency_pilot.test.mjs'
+      - '.github/workflows/competency-mediation-pilot.yml'
+      - 'docs/lifecycle/competency-mediation-*.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify paired designs, outcome schema, and reproducibility
+        run: node --test tools/lifecycle/tests/competency_pilot.test.mjs
+      - name: Execute minimal and expanded suites
+        run: |
+          mkdir -p competency-evidence
+          node tools/lifecycle/competency_pilot.mjs mvp > competency-evidence/mvp.json
+          node tools/lifecycle/competency_pilot.mjs v2 > competency-evidence/v2.json
+          node --input-type=module <<'JS'
+          import {readFileSync,writeFileSync} from 'node:fs';
+          const results=['mvp','v2'].map(version=>{
+            const d=JSON.parse(readFileSync('competency-evidence/'+version+'.json'));
+            return {version, n_designs:d.n_designs,n_deployments:d.n_deployments,summary:d.summary,validity_audits:d.validity_audits,
+              evidence_type:d.evidence_type,model_status:d.model_status};
+          });
+          writeFileSync('competency-evidence/summary.json',JSON.stringify(results,null,2)+'\n');
+          console.log(JSON.stringify(results,null,2));
+          JS
+      - name: Preserve complete evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: competency-mediation-evidence
+          path: competency-evidence/
+          retention-days: 90
