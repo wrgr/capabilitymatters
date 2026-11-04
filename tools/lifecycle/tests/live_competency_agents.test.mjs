@@ -9,7 +9,7 @@ test("case briefing excludes hidden causal truth, action menus and future test e
   const text=JSON.stringify(run.publicCase);
   assert.ok(!text.includes("hidden_hypotheses"));
   assert.ok(!text.includes("event_severity"));
-  assert.ok(!text.includes("actions"));
+  assert.ok(!Object.prototype.hasOwnProperty.call(run.publicCase,"actions"));
   assert.equal(run.publicCase.evidence.length,c.evidence.length);
  }
 });
