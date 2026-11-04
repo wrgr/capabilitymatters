@@ -1,0 +1,23 @@
+{
+  "schema_version": "dynamic-flower-progress-1",
+  "updated_at": "2026-11-03T20:38:05.659564+00:00",
+  "initial": {
+    "frozen": 4,
+    "observed": 12,
+    "reviewed": 16
+  },
+  "update": {
+    "frozen": 1,
+    "observed": 3,
+    "reviewed": 2
+  },
+  "paper": {
+    "status": "complete",
+    "detail": "The revised paper reports the completed dynamic-conversation study. Earlier results are preserved in a separate offline appendix."
+  },
+  "site": {
+    "status": "in_progress",
+    "detail": "The revised paper is published. The final complete conversation journal is prepared but awaiting explicit publication confirmation; the public record below retains 18 of 20 accepted expert reviews."
+  },
+  "estimate": "All experiments and 20 expert reviews are complete. These bars show evidence currently published: the final two review records await publication confirmation. No experiments are still running."
+}

@@ -1,0 +1,2302 @@
+{
+  "schema_version": 1,
+  "status": "reviewed_and_revealed",
+  "protocol_hash": "9f2e30e0442e62190f9d04765c60be6b8bc7f6be150f2dd8e4fdd06d503d91b6",
+  "freeze_hash": "6ee9d57e50b636d0c3a63795a4f214ec6880bf949a5d78e4fab9657126a7c5b9",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "low",
+  "planned_candidates": 15,
+  "review_count": 28,
+  "accepted_review_count": 26,
+  "failed_review_count": 2,
+  "candidates": [
+    {
+      "packet_id": "candidate-e374c6635f254639",
+      "packet_hash": "57a33555be842cfa40b7c0ca2a99fd5caa562fd86211522602e0dddb3d8c28ef",
+      "run_id": "20261102T161513Z-experimental-codex-ee7bb7a0",
+      "run_head_hash": "353375ee56fb9739e38314c5dfbd344916fab3763398426832f1e1b0571df6d2",
+      "artifact_hash": "6ba7dd4f38bfa230c625176e1fd65f64db3f040f5d2f6c68e5e88313b149067b",
+      "source_sha256": "813aa90fbebc24769f0028a3ad7072da819c8f9494bad1a91d7502c9b234c7b0",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "7a0ea78119f4ba493a1a9770732dffe7d5e830cd1217e80671f51a73144c1392",
+      "condition": "domain-withdrawn-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 1,
+      "item_id": "domain-withdrawn-explicit-r01",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "3a6efcf29da2367e88242a71cf3bbaf8302b465192fbd2483e8f78fa50a1b736",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            3,
+            2
+          ],
+          "mean_rating": 2.5,
+          "unknown_reviews": 0
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "alignment": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            66.666667,
+            66.666667
+          ],
+          "mean_index": 66.666667,
+          "absolute_reviewer_difference": 0.0
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            58.333333,
+            50.0
+          ],
+          "mean_index": 54.166667,
+          "absolute_reviewer_difference": 8.333333
+        },
+        "learning": {
+          "reviewer_indices": [
+            58.333333,
+            58.333333
+          ],
+          "mean_index": 58.333333,
+          "absolute_reviewer_difference": 0.0
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": 0,
+        "access_inclusion": 0,
+        "burden_wellbeing": 0,
+        "functional_correctness": 0,
+        "reliability_recovery": 1,
+        "feasibility": 0,
+        "alignment": 0,
+        "practice_feedback": 0,
+        "transfer_evidence": 0
+      },
+      "review_statuses": [
+        "complete",
+        "complete"
+      ],
+      "exact_quote_count": 44
+    },
+    {
+      "packet_id": "candidate-04b8980327bb4c3a",
+      "packet_hash": "5cd8d86cf4553dd6d86d4c7a54a9b5e2ddbd6ed9b2811435e008b47689675822",
+      "run_id": "20261102T161513Z-experimental-codex-034a00f2",
+      "run_head_hash": "3a06c3b7d1dcafb99b5620bee21034ebf96650cd5a76dbd94040f69c4bdd7951",
+      "artifact_hash": "7feaf92295b109185484086a73d358c0ea7ecf8c654ad13bd1285c3811c55372",
+      "source_sha256": "9c93f6aeb6601fc726bb6175b288614b2dc1cfcbb0b27ae8e5da782b111b3e34",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "eff66260e709d5336892c5f5e7d83bbe90b84051ecd5cf2ba6d18ac3f28c3f67",
+      "condition": "member-removed-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 1,
+      "item_id": "member-removed-explicit-r01",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "70af0b9088b8264324153f961ca96e506f42d25c83c7d98cd7035265356d0cc9",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            3,
+            4
+          ],
+          "mean_rating": 3.5,
+          "unknown_reviews": 0
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            3,
+            2
+          ],
+          "mean_rating": 2.5,
+          "unknown_reviews": 0
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "alignment": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            58.333333,
+            66.666667
+          ],
+          "mean_index": 62.5,
+          "absolute_reviewer_difference": 8.333334
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            58.333333,
+            50.0
+          ],
+          "mean_index": 54.166667,
+          "absolute_reviewer_difference": 8.333333
+        },
+        "learning": {
+          "reviewer_indices": [
+            58.333333,
+            58.333333
+          ],
+          "mean_index": 58.333333,
+          "absolute_reviewer_difference": 0.0
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": 1,
+        "access_inclusion": 0,
+        "burden_wellbeing": 0,
+        "functional_correctness": 0,
+        "reliability_recovery": 1,
+        "feasibility": 0,
+        "alignment": 0,
+        "practice_feedback": 0,
+        "transfer_evidence": 0
+      },
+      "review_statuses": [
+        "complete",
+        "complete"
+      ],
+      "exact_quote_count": 53
+    },
+    {
+      "packet_id": "candidate-da650838dd7d4c75",
+      "packet_hash": "6be3547b6cb6c1046bd5948d8781eba152bbf5b526caf2dac316c5ff691f7b8d",
+      "run_id": "20261102T161513Z-experimental-codex-c955c6d0",
+      "run_head_hash": "f5cef94ed77b3a481c22a3480a520ff498bb77d900c33ca7f8995e5f98a89974",
+      "artifact_hash": "0631c580d8483530ad09b1dfc27bce780e7b71ad594c0601f0be161442d7e980",
+      "source_sha256": "457cc0411c96af07f27d609e82d696e9bc5a9b6821b952c5e624aeb6bac6c3b7",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "a5ec5b9d16fb5d18b49e8dcb4c03b8b07457d4ccd7c73268d501e1679788da67",
+      "condition": "domain-omitted-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 1,
+      "item_id": "domain-omitted-explicit-r01",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "859f689d9f91170981b42f1373a3cb3a39589cf6403f5cfdfbc8f4da6cdf6c78",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            4,
+            4
+          ],
+          "mean_rating": 4.0,
+          "unknown_reviews": 0
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "alignment": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            4,
+            4
+          ],
+          "mean_rating": 4.0,
+          "unknown_reviews": 0
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            75.0,
+            75.0
+          ],
+          "mean_index": 75.0,
+          "absolute_reviewer_difference": 0.0
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            66.666667,
+            66.666667
+          ],
+          "mean_index": 66.666667,
+          "absolute_reviewer_difference": 0.0
+        },
+        "learning": {
+          "reviewer_indices": [
+            83.333333,
+            83.333333
+          ],
+          "mean_index": 83.333333,
+          "absolute_reviewer_difference": 0.0
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": 0,
+        "access_inclusion": 0,
+        "burden_wellbeing": 0,
+        "functional_correctness": 0,
+        "reliability_recovery": 0,
+        "feasibility": 0,
+        "alignment": 0,
+        "practice_feedback": 0,
+        "transfer_evidence": 0
+      },
+      "review_statuses": [
+        "complete",
+        "complete"
+      ],
+      "exact_quote_count": 48
+    },
+    {
+      "packet_id": "candidate-c31ebb8d5ed742cf",
+      "packet_hash": "fac01e246bdefe499e29b384b61bf9fb76d7544d64bab82916afd19c5eefb4cd",
+      "run_id": "20261102T161513Z-experimental-codex-1bfc019d",
+      "run_head_hash": "c573488c3771e0e159919b4cee044c0edfd63e676ff55e50ef213c9b1042d53c",
+      "artifact_hash": "e549f4403aa96735f9c385b49860f6e9b057e50c55e8b69e2c75aab7627fd2a5",
+      "source_sha256": "81e2e913d75f8d190a0beb87f13454d6f2623645777fbea0bb13383ad62da6a6",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "619fe3220b5616a9c5ce1126035fa2aa806d18ef374915e5f6c20877199986f5",
+      "condition": "full-team-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 1,
+      "item_id": "full-team-explicit-r01",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "8e61530cbd826d25c47842035bfe0f1fb2840c2661e736b47d38b5e4b8ff26b2",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            3,
+            2
+          ],
+          "mean_rating": 2.5,
+          "unknown_reviews": 0
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "alignment": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            4,
+            4
+          ],
+          "mean_rating": 4.0,
+          "unknown_reviews": 0
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            58.333333,
+            58.333333
+          ],
+          "mean_index": 58.333333,
+          "absolute_reviewer_difference": 0.0
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            66.666667,
+            58.333333
+          ],
+          "mean_index": 62.5,
+          "absolute_reviewer_difference": 8.333334
+        },
+        "learning": {
+          "reviewer_indices": [
+            83.333333,
+            83.333333
+          ],
+          "mean_index": 83.333333,
+          "absolute_reviewer_difference": 0.0
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": 0,
+        "access_inclusion": 0,
+        "burden_wellbeing": 0,
+        "functional_correctness": 0,
+        "reliability_recovery": 1,
+        "feasibility": 0,
+        "alignment": 0,
+        "practice_feedback": 0,
+        "transfer_evidence": 0
+      },
+      "review_statuses": [
+        "complete",
+        "complete"
+      ],
+      "exact_quote_count": 53
+    },
+    {
+      "packet_id": "candidate-beb7fe412616426f",
+      "packet_hash": "1a9f6ff6d557f841e912ed144f9fd7cb694cf2e825ff9fa9691a2a4d85203510",
+      "run_id": "20261102T161513Z-experimental-codex-4b122658",
+      "run_head_hash": "13b06fce889676fe33b1112b8f6f6e9fe9a33bd878ddb32170e207e9384887f8",
+      "artifact_hash": "4bef6dcf7973c97597a60d414d315d2c4c626cda85139db2fe5437afc4595cd1",
+      "source_sha256": "b54f28970ab1434f99e23f87883d41e85e8bdb6f7b0af2d7301b2ccc374baac4",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "9ea12482ffab06cd6a8e86752b18f703b8143471db7248ba5e21daf4bb2b7528",
+      "condition": "individual-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 1,
+      "item_id": "individual-explicit-r01",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "442aa67f58fe4b381d0020d488a31762b0f14ba67452e5286d6dd032c4a60774",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            3,
+            4
+          ],
+          "mean_rating": 3.5,
+          "unknown_reviews": 0
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "alignment": {
+          "reviewer_scores": [
+            3,
+            4
+          ],
+          "mean_rating": 3.5,
+          "unknown_reviews": 0
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            4,
+            4
+          ],
+          "mean_rating": 4.0,
+          "unknown_reviews": 0
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            66.666667,
+            75.0
+          ],
+          "mean_index": 70.833334,
+          "absolute_reviewer_difference": 8.333333
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            58.333333,
+            58.333333
+          ],
+          "mean_index": 58.333333,
+          "absolute_reviewer_difference": 0.0
+        },
+        "learning": {
+          "reviewer_indices": [
+            83.333333,
+            91.666667
+          ],
+          "mean_index": 87.5,
+          "absolute_reviewer_difference": 8.333334
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": 1,
+        "access_inclusion": 0,
+        "burden_wellbeing": 0,
+        "functional_correctness": 0,
+        "reliability_recovery": 0,
+        "feasibility": 0,
+        "alignment": 1,
+        "practice_feedback": 0,
+        "transfer_evidence": 0
+      },
+      "review_statuses": [
+        "complete",
+        "complete"
+      ],
+      "exact_quote_count": 53
+    },
+    {
+      "packet_id": "candidate-b55543e11eb5469f",
+      "packet_hash": "77ae10a0ae37878cfe882d35177ad7b2c05a2f53f7c6d21549b793c14b275b87",
+      "run_id": "20261102T165421Z-experimental-codex-682fb5ae",
+      "run_head_hash": "413c3db398b6f3977c386be9882f59095c70c8f8e0b81e4c2ff99be114c5a8ec",
+      "artifact_hash": "4e97b5b080f6d7c6cd6a8709fdcbe0efcb3005eb37382f54e7188ddf586dd8de",
+      "source_sha256": "1d62e6b5cff70db4fb856e2b24fd49abac12b2688a7b914f84d58a359583dde7",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "a5ec5b9d16fb5d18b49e8dcb4c03b8b07457d4ccd7c73268d501e1679788da67",
+      "condition": "domain-omitted-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 2,
+      "item_id": "domain-omitted-explicit-r02",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "f7af2c50abbcad16f07380e5e6af3bbf1e06b59754b9fd73619cce90344e2344",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            3,
+            null
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            2,
+            null
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            2,
+            null
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            3,
+            null
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            2,
+            null
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            2,
+            null
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "alignment": {
+          "reviewer_scores": [
+            3,
+            null
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            3,
+            null
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            2,
+            null
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            58.333333,
+            null
+          ],
+          "mean_index": null,
+          "absolute_reviewer_difference": null
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            58.333333,
+            null
+          ],
+          "mean_index": null,
+          "absolute_reviewer_difference": null
+        },
+        "learning": {
+          "reviewer_indices": [
+            66.666667,
+            null
+          ],
+          "mean_index": null,
+          "absolute_reviewer_difference": null
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": null,
+        "access_inclusion": null,
+        "burden_wellbeing": null,
+        "functional_correctness": null,
+        "reliability_recovery": null,
+        "feasibility": null,
+        "alignment": null,
+        "practice_feedback": null,
+        "transfer_evidence": null
+      },
+      "review_statuses": [
+        "complete",
+        "failed_attempt_unknown"
+      ],
+      "exact_quote_count": 23
+    },
+    {
+      "packet_id": "candidate-5d97f09c7f414e14",
+      "packet_hash": "93ba918303ac23c1bd01a9e532702e11c86341231572bde8eefeb16b7278bade",
+      "run_id": "20261102T165421Z-experimental-codex-9503dc46",
+      "run_head_hash": "f0ca54717d97e70673da63927c8e141e332fd3e5dea00fd6253282df1e45a2c0",
+      "artifact_hash": "42576b50e7eedde81c30beebfda8a60d1a3ab82755c9470c6030e103fe8fbe83",
+      "source_sha256": "b84d8571a5b1df96ef720c9b522823979302528e56af4b4d67e0fb167bbb408e",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "7a0ea78119f4ba493a1a9770732dffe7d5e830cd1217e80671f51a73144c1392",
+      "condition": "domain-withdrawn-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 2,
+      "item_id": "domain-withdrawn-explicit-r02",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "f0cef149b7e5edb2bb74ab55e5d713e91a6df53df2d2fc624c75eb6fa5f24cfe",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            4,
+            4
+          ],
+          "mean_rating": 4.0,
+          "unknown_reviews": 0
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "alignment": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            75.0,
+            75.0
+          ],
+          "mean_index": 75.0,
+          "absolute_reviewer_difference": 0.0
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            58.333333,
+            58.333333
+          ],
+          "mean_index": 58.333333,
+          "absolute_reviewer_difference": 0.0
+        },
+        "learning": {
+          "reviewer_indices": [
+            66.666667,
+            66.666667
+          ],
+          "mean_index": 66.666667,
+          "absolute_reviewer_difference": 0.0
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": 0,
+        "access_inclusion": 0,
+        "burden_wellbeing": 0,
+        "functional_correctness": 0,
+        "reliability_recovery": 0,
+        "feasibility": 0,
+        "alignment": 0,
+        "practice_feedback": 0,
+        "transfer_evidence": 0
+      },
+      "review_statuses": [
+        "complete",
+        "complete"
+      ],
+      "exact_quote_count": 52
+    },
+    {
+      "packet_id": "candidate-0be175d4cb9b4799",
+      "packet_hash": "f0c858acf132e9aa2312578c904f87a92a4ce2fe90faf30423be95b3cfea5c65",
+      "run_id": "20261102T165421Z-experimental-codex-5a11965f",
+      "run_head_hash": "9fc60a24c07e07c72504dc2eca7f1f671c03cd781137abe40bffc0cf0fca7ed4",
+      "artifact_hash": "e897b9d2af950f437dc28f5f37f4ccb12e82520def5047755c1496fe95d09428",
+      "source_sha256": "84db24df85eb9ea94e75991de23cfb3735eb4b796bdadd39d189c5d4742c4598",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "9ea12482ffab06cd6a8e86752b18f703b8143471db7248ba5e21daf4bb2b7528",
+      "condition": "individual-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 2,
+      "item_id": "individual-explicit-r02",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "feb16215d5e98aede0c580ef1a64efc9670ee28496cd780267c1af2f364b2945",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            4,
+            4
+          ],
+          "mean_rating": 4.0,
+          "unknown_reviews": 0
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "alignment": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            75.0,
+            75.0
+          ],
+          "mean_index": 75.0,
+          "absolute_reviewer_difference": 0.0
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            58.333333,
+            58.333333
+          ],
+          "mean_index": 58.333333,
+          "absolute_reviewer_difference": 0.0
+        },
+        "learning": {
+          "reviewer_indices": [
+            66.666667,
+            66.666667
+          ],
+          "mean_index": 66.666667,
+          "absolute_reviewer_difference": 0.0
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": 0,
+        "access_inclusion": 0,
+        "burden_wellbeing": 0,
+        "functional_correctness": 0,
+        "reliability_recovery": 0,
+        "feasibility": 0,
+        "alignment": 0,
+        "practice_feedback": 0,
+        "transfer_evidence": 0
+      },
+      "review_statuses": [
+        "complete",
+        "complete"
+      ],
+      "exact_quote_count": 53
+    },
+    {
+      "packet_id": "candidate-c1e5dae1561041d1",
+      "packet_hash": "76599dbb5739d4b5f4b599d60eb34fc88fbe0cf8611e6958f6f4d9b63d0da561",
+      "run_id": "20261102T165421Z-experimental-codex-a3a0b3b6",
+      "run_head_hash": "f742ee96753315c97ed5f13c20dc21f5c7861169245a0bbb138cba34ac4bc09e",
+      "artifact_hash": "386b6b38d2977b771be95ce0dadb58fd9abc8239b649fe13b4ca8b6c7cada8e1",
+      "source_sha256": "6a47a14e4ce3bc5e55e7b22a6a71b45c84c0a886212d91c136947743a276e2af",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "eff66260e709d5336892c5f5e7d83bbe90b84051ecd5cf2ba6d18ac3f28c3f67",
+      "condition": "member-removed-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 2,
+      "item_id": "member-removed-explicit-r02",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "d4800339d57e9a5978c1e18f590f47c613fa011686ec876bf998fc9d338460dc",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            4,
+            3
+          ],
+          "mean_rating": 3.5,
+          "unknown_reviews": 0
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            3,
+            2
+          ],
+          "mean_rating": 2.5,
+          "unknown_reviews": 0
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "alignment": {
+          "reviewer_scores": [
+            3,
+            2
+          ],
+          "mean_rating": 2.5,
+          "unknown_reviews": 0
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            75.0,
+            66.666667
+          ],
+          "mean_index": 70.833334,
+          "absolute_reviewer_difference": 8.333333
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            66.666667,
+            58.333333
+          ],
+          "mean_index": 62.5,
+          "absolute_reviewer_difference": 8.333334
+        },
+        "learning": {
+          "reviewer_indices": [
+            75.0,
+            66.666667
+          ],
+          "mean_index": 70.833334,
+          "absolute_reviewer_difference": 8.333333
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": 1,
+        "access_inclusion": 0,
+        "burden_wellbeing": 0,
+        "functional_correctness": 0,
+        "reliability_recovery": 1,
+        "feasibility": 0,
+        "alignment": 1,
+        "practice_feedback": 0,
+        "transfer_evidence": 0
+      },
+      "review_statuses": [
+        "complete",
+        "complete"
+      ],
+      "exact_quote_count": 49
+    },
+    {
+      "packet_id": "candidate-57536272350f462e",
+      "packet_hash": "0a35edfb6a0e6408fbb7dae182db9bc9fd5f53009280760327ccf1b1967fb189",
+      "run_id": "20261102T165421Z-experimental-codex-925627e6",
+      "run_head_hash": "edeb9bdb3aac95232dc461c15b90ae8600c4a0b44c0634031d2adf4497cb922a",
+      "artifact_hash": "3d6409b456b9b4b5cf1c6049ca4d4342366e16fd366057cdacb6c8ddbea3ad53",
+      "source_sha256": "964100a9d6b32d6dc334f9902b11961ea1f0ca536fb2c9fa9837dfed1b1f6b81",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "619fe3220b5616a9c5ce1126035fa2aa806d18ef374915e5f6c20877199986f5",
+      "condition": "full-team-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 2,
+      "item_id": "full-team-explicit-r02",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "89b25275c1c7c71d567c20d32a5106009b56c4e63546d9d58106720e7166c70a",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            null,
+            3
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            null,
+            2
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            null,
+            2
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            null,
+            2
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            null,
+            2
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            null,
+            2
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "alignment": {
+          "reviewer_scores": [
+            null,
+            3
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            null,
+            2
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            null,
+            2
+          ],
+          "mean_rating": null,
+          "unknown_reviews": 1
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            null,
+            58.333333
+          ],
+          "mean_index": null,
+          "absolute_reviewer_difference": null
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            null,
+            50.0
+          ],
+          "mean_index": null,
+          "absolute_reviewer_difference": null
+        },
+        "learning": {
+          "reviewer_indices": [
+            null,
+            58.333333
+          ],
+          "mean_index": null,
+          "absolute_reviewer_difference": null
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": null,
+        "access_inclusion": null,
+        "burden_wellbeing": null,
+        "functional_correctness": null,
+        "reliability_recovery": null,
+        "feasibility": null,
+        "alignment": null,
+        "practice_feedback": null,
+        "transfer_evidence": null
+      },
+      "review_statuses": [
+        "failed_attempt_unknown",
+        "complete"
+      ],
+      "exact_quote_count": 27
+    },
+    {
+      "packet_id": "candidate-5a182a5ac9b94153",
+      "packet_hash": "ab2df8f71bb9724b7760a1250bb6222c5ff192524808b3f10992989fe55669fd",
+      "run_id": "20261102T172436Z-experimental-codex-8acf4085",
+      "run_head_hash": "aeb1fd362fa9daf53953e7b65474416b6a4b517227695fc072487c70c14d100e",
+      "artifact_hash": "f298e5a95aebdb95e4446b62aff9457576db246c5edfcae54a0a05385cf35b80",
+      "source_sha256": "805950764ca674aec82c9ec39662fb1f067aa98f00c40fb51890cc793b8244c5",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "a5ec5b9d16fb5d18b49e8dcb4c03b8b07457d4ccd7c73268d501e1679788da67",
+      "condition": "domain-omitted-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 3,
+      "item_id": "domain-omitted-explicit-r03",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "5218d2f9e802736d2a49ef4918950cae61f8bd79d0e966fcd5fd853507bfacb3",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            4,
+            4
+          ],
+          "mean_rating": 4.0,
+          "unknown_reviews": 0
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            3,
+            2
+          ],
+          "mean_rating": 2.5,
+          "unknown_reviews": 0
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "alignment": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            4,
+            3
+          ],
+          "mean_rating": 3.5,
+          "unknown_reviews": 0
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            66.666667,
+            66.666667
+          ],
+          "mean_index": 66.666667,
+          "absolute_reviewer_difference": 0.0
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            66.666667,
+            58.333333
+          ],
+          "mean_index": 62.5,
+          "absolute_reviewer_difference": 8.333334
+        },
+        "learning": {
+          "reviewer_indices": [
+            75.0,
+            66.666667
+          ],
+          "mean_index": 70.833334,
+          "absolute_reviewer_difference": 8.333333
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": 0,
+        "access_inclusion": 0,
+        "burden_wellbeing": 0,
+        "functional_correctness": 0,
+        "reliability_recovery": 1,
+        "feasibility": 0,
+        "alignment": 0,
+        "practice_feedback": 1,
+        "transfer_evidence": 0
+      },
+      "review_statuses": [
+        "complete",
+        "complete"
+      ],
+      "exact_quote_count": 49
+    },
+    {
+      "packet_id": "candidate-abd756d8319d482f",
+      "packet_hash": "9496c5e9a69fc70473f919bdf3162f466147ea5c5c335bedb32537215bb219be",
+      "run_id": "20261102T172436Z-experimental-codex-313801d1",
+      "run_head_hash": "6bbe32c384345f3c4bc54d21aa1d63444a92721a62fb966057c27913ef46d151",
+      "artifact_hash": "fa0a240e16dcf93744ce576d370a93e171973d9d834ae6cd7643a9814d0e04d8",
+      "source_sha256": "00b4f310b4b5312be7b62405a56df11d9a94b5ca89c1f15171c8985f125c222a",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "619fe3220b5616a9c5ce1126035fa2aa806d18ef374915e5f6c20877199986f5",
+      "condition": "full-team-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 3,
+      "item_id": "full-team-explicit-r03",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "9e5c549ac0c23e16594718bc125c1fbbbbba64f0f245c1a21e3b423d9de31cd7",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            3,
+            2
+          ],
+          "mean_rating": 2.5,
+          "unknown_reviews": 0
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "alignment": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            3,
+            2
+          ],
+          "mean_rating": 2.5,
+          "unknown_reviews": 0
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            66.666667,
+            66.666667
+          ],
+          "mean_index": 66.666667,
+          "absolute_reviewer_difference": 0.0
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            58.333333,
+            50.0
+          ],
+          "mean_index": 54.166667,
+          "absolute_reviewer_difference": 8.333333
+        },
+        "learning": {
+          "reviewer_indices": [
+            66.666667,
+            58.333333
+          ],
+          "mean_index": 62.5,
+          "absolute_reviewer_difference": 8.333334
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": 0,
+        "access_inclusion": 0,
+        "burden_wellbeing": 0,
+        "functional_correctness": 0,
+        "reliability_recovery": 1,
+        "feasibility": 0,
+        "alignment": 0,
+        "practice_feedback": 0,
+        "transfer_evidence": 1
+      },
+      "review_statuses": [
+        "complete",
+        "complete"
+      ],
+      "exact_quote_count": 48
+    },
+    {
+      "packet_id": "candidate-d83fe4228d3045b4",
+      "packet_hash": "e5aa758feb443a0ac7a0d32a131e916ad07a9cd7438ebaf3d0d61008a3d735e5",
+      "run_id": "20261102T172436Z-experimental-codex-aa32b2d6",
+      "run_head_hash": "26b5a21410203647ed1e0b8abb1154c2737f22740513fe74b647a52325dbf6aa",
+      "artifact_hash": "dadd23aaa08faef02dda0045eb420dedb33de20a80227075a78f803544729519",
+      "source_sha256": "5638eb684eb07cfab133e289fb97e5c1c85aeb090b389d3af740d9fccd98a545",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "9ea12482ffab06cd6a8e86752b18f703b8143471db7248ba5e21daf4bb2b7528",
+      "condition": "individual-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 3,
+      "item_id": "individual-explicit-r03",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "f8dd3d2f6ad1123c6f6f47bd5bd55efecff73fd623d9d5fced3eefe203b6c7e0",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            4,
+            4
+          ],
+          "mean_rating": 4.0,
+          "unknown_reviews": 0
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            3,
+            2
+          ],
+          "mean_rating": 2.5,
+          "unknown_reviews": 0
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "alignment": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            4,
+            4
+          ],
+          "mean_rating": 4.0,
+          "unknown_reviews": 0
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            3,
+            2
+          ],
+          "mean_rating": 2.5,
+          "unknown_reviews": 0
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            75.0,
+            75.0
+          ],
+          "mean_index": 75.0,
+          "absolute_reviewer_difference": 0.0
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            66.666667,
+            58.333333
+          ],
+          "mean_index": 62.5,
+          "absolute_reviewer_difference": 8.333334
+        },
+        "learning": {
+          "reviewer_indices": [
+            83.333333,
+            75.0
+          ],
+          "mean_index": 79.166666,
+          "absolute_reviewer_difference": 8.333333
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": 0,
+        "access_inclusion": 0,
+        "burden_wellbeing": 0,
+        "functional_correctness": 0,
+        "reliability_recovery": 1,
+        "feasibility": 0,
+        "alignment": 0,
+        "practice_feedback": 0,
+        "transfer_evidence": 1
+      },
+      "review_statuses": [
+        "complete",
+        "complete"
+      ],
+      "exact_quote_count": 52
+    },
+    {
+      "packet_id": "candidate-8c0eee6c46474dbe",
+      "packet_hash": "338b7e28283a46eec258fdee423ded200cde34ff919a349ff84b327e33c612a5",
+      "run_id": "20261102T172436Z-experimental-codex-0d3f1789",
+      "run_head_hash": "f2844a7ebaa726cabb6f3098df8112654ae6ff6a88ce8cf614d6269017090625",
+      "artifact_hash": "f7e3fe4b3b01195b78422f5d2c14a085a2a9a93e8384757b543cd9057324eac4",
+      "source_sha256": "54fe55995ac854a9240a4b529170d48956ca16d246618676feba7196f432ff8e",
+      "scenario_id": "feedback-conversation",
+      "config_hash": "eff66260e709d5336892c5f5e7d83bbe90b84051ecd5cf2ba6d18ac3f28c3f67",
+      "condition": "member-removed-explicit",
+      "iteration": "unlinked",
+      "evaluation_scope": "full_solution",
+      "replicate": 3,
+      "item_id": "member-removed-explicit-r03",
+      "run_status": "completed",
+      "run_mode": "experimental-codex",
+      "observation_report_sha256": "9f030fd37500ded3d5cf3eeaf4afd870d5f15f959ac6ee943a587becda541c20",
+      "stratum": {
+        "scenario_id": "feedback-conversation",
+        "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+        "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+        "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+        "evaluation_scope": "full_solution"
+      },
+      "ratings": {
+        "agency_dignity": {
+          "reviewer_scores": [
+            4,
+            4
+          ],
+          "mean_rating": 4.0,
+          "unknown_reviews": 0
+        },
+        "access_inclusion": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "burden_wellbeing": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "functional_correctness": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "reliability_recovery": {
+          "reviewer_scores": [
+            2,
+            3
+          ],
+          "mean_rating": 2.5,
+          "unknown_reviews": 0
+        },
+        "feasibility": {
+          "reviewer_scores": [
+            2,
+            2
+          ],
+          "mean_rating": 2.0,
+          "unknown_reviews": 0
+        },
+        "alignment": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        },
+        "practice_feedback": {
+          "reviewer_scores": [
+            4,
+            3
+          ],
+          "mean_rating": 3.5,
+          "unknown_reviews": 0
+        },
+        "transfer_evidence": {
+          "reviewer_scores": [
+            3,
+            3
+          ],
+          "mean_rating": 3.0,
+          "unknown_reviews": 0
+        }
+      },
+      "axes": {
+        "human_flourishing": {
+          "reviewer_indices": [
+            66.666667,
+            66.666667
+          ],
+          "mean_index": 66.666667,
+          "absolute_reviewer_difference": 0.0
+        },
+        "system_performance": {
+          "reviewer_indices": [
+            58.333333,
+            66.666667
+          ],
+          "mean_index": 62.5,
+          "absolute_reviewer_difference": 8.333334
+        },
+        "learning": {
+          "reviewer_indices": [
+            83.333333,
+            75.0
+          ],
+          "mean_index": 79.166666,
+          "absolute_reviewer_difference": 8.333333
+        }
+      },
+      "absolute_criterion_disagreement": {
+        "agency_dignity": 0,
+        "access_inclusion": 0,
+        "burden_wellbeing": 0,
+        "functional_correctness": 0,
+        "reliability_recovery": 1,
+        "feasibility": 0,
+        "alignment": 0,
+        "practice_feedback": 1,
+        "transfer_evidence": 0
+      },
+      "review_statuses": [
+        "complete",
+        "complete"
+      ],
+      "exact_quote_count": 45
+    }
+  ],
+  "excluded_candidates": [
+    {
+      "item_id": "domain-withdrawn-explicit-r03",
+      "condition": "domain-withdrawn-explicit",
+      "replicate": 3,
+      "run_id": "20261102T172436Z-experimental-codex-329e9a09",
+      "run_status": "completed",
+      "evaluation_status": "excluded_unverifiable_terminal_record",
+      "reason": "Raw JSONL extension is not completed at the exact batch head",
+      "origin": "Verified terminal-record eligibility rule before any review"
+    }
+  ],
+  "condition_groups": [
+    {
+      "scenario_id": "feedback-conversation",
+      "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+      "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+      "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+      "evaluation_scope": "full_solution",
+      "condition": "domain-withdrawn-explicit",
+      "candidate_count": 2,
+      "axes": {
+        "human_flourishing": {
+          "expected_count": 2,
+          "observed_count": 2,
+          "unknown_count": 0,
+          "mean": 70.833334,
+          "sd": 5.892556,
+          "minimum": 66.666667,
+          "maximum": 75.0
+        },
+        "system_performance": {
+          "expected_count": 2,
+          "observed_count": 2,
+          "unknown_count": 0,
+          "mean": 56.25,
+          "sd": 2.946278,
+          "minimum": 54.166667,
+          "maximum": 58.333333
+        },
+        "learning": {
+          "expected_count": 2,
+          "observed_count": 2,
+          "unknown_count": 0,
+          "mean": 62.5,
+          "sd": 5.892557,
+          "minimum": 58.333333,
+          "maximum": 66.666667
+        }
+      }
+    },
+    {
+      "scenario_id": "feedback-conversation",
+      "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+      "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+      "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+      "evaluation_scope": "full_solution",
+      "condition": "member-removed-explicit",
+      "candidate_count": 3,
+      "axes": {
+        "human_flourishing": {
+          "expected_count": 3,
+          "observed_count": 3,
+          "unknown_count": 0,
+          "mean": 66.666667,
+          "sd": 4.166667,
+          "minimum": 62.5,
+          "maximum": 70.833334
+        },
+        "system_performance": {
+          "expected_count": 3,
+          "observed_count": 3,
+          "unknown_count": 0,
+          "mean": 59.722222,
+          "sd": 4.811252,
+          "minimum": 54.166667,
+          "maximum": 62.5
+        },
+        "learning": {
+          "expected_count": 3,
+          "observed_count": 3,
+          "unknown_count": 0,
+          "mean": 69.444444,
+          "sd": 10.485881,
+          "minimum": 58.333333,
+          "maximum": 79.166666
+        }
+      }
+    },
+    {
+      "scenario_id": "feedback-conversation",
+      "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+      "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+      "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+      "evaluation_scope": "full_solution",
+      "condition": "domain-omitted-explicit",
+      "candidate_count": 3,
+      "axes": {
+        "human_flourishing": {
+          "expected_count": 3,
+          "observed_count": 2,
+          "unknown_count": 1,
+          "mean": 70.833334,
+          "sd": 5.892556,
+          "minimum": 66.666667,
+          "maximum": 75.0
+        },
+        "system_performance": {
+          "expected_count": 3,
+          "observed_count": 2,
+          "unknown_count": 1,
+          "mean": 64.583334,
+          "sd": 2.946278,
+          "minimum": 62.5,
+          "maximum": 66.666667
+        },
+        "learning": {
+          "expected_count": 3,
+          "observed_count": 2,
+          "unknown_count": 1,
+          "mean": 77.083333,
+          "sd": 8.838834,
+          "minimum": 70.833334,
+          "maximum": 83.333333
+        }
+      }
+    },
+    {
+      "scenario_id": "feedback-conversation",
+      "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+      "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+      "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+      "evaluation_scope": "full_solution",
+      "condition": "full-team-explicit",
+      "candidate_count": 3,
+      "axes": {
+        "human_flourishing": {
+          "expected_count": 3,
+          "observed_count": 2,
+          "unknown_count": 1,
+          "mean": 62.5,
+          "sd": 5.892557,
+          "minimum": 58.333333,
+          "maximum": 66.666667
+        },
+        "system_performance": {
+          "expected_count": 3,
+          "observed_count": 2,
+          "unknown_count": 1,
+          "mean": 58.333333,
+          "sd": 5.892556,
+          "minimum": 54.166667,
+          "maximum": 62.5
+        },
+        "learning": {
+          "expected_count": 3,
+          "observed_count": 2,
+          "unknown_count": 1,
+          "mean": 72.916666,
+          "sd": 14.731391,
+          "minimum": 62.5,
+          "maximum": 83.333333
+        }
+      }
+    },
+    {
+      "scenario_id": "feedback-conversation",
+      "scenario_hash": "af309dec4edef49bb5d8c85cadf584673015aeb453e06eaa7f19528389db45fc",
+      "task_hash": "ce8d891e925d9118841462cc49568fa164c94ebd87cecd48aebdf7e18bd91fcb",
+      "rubric_hash": "b9d1b060b3086f3761ad113b5f1329593fb93d5b2aef6dbc63f76fc23b1fa548",
+      "evaluation_scope": "full_solution",
+      "condition": "individual-explicit",
+      "candidate_count": 3,
+      "axes": {
+        "human_flourishing": {
+          "expected_count": 3,
+          "observed_count": 3,
+          "unknown_count": 0,
+          "mean": 73.611111,
+          "sd": 2.405626,
+          "minimum": 70.833334,
+          "maximum": 75.0
+        },
+        "system_performance": {
+          "expected_count": 3,
+          "observed_count": 3,
+          "unknown_count": 0,
+          "mean": 59.722222,
+          "sd": 2.405626,
+          "minimum": 58.333333,
+          "maximum": 62.5
+        },
+        "learning": {
+          "expected_count": 3,
+          "observed_count": 3,
+          "unknown_count": 0,
+          "mean": 77.777778,
+          "sd": 10.485881,
+          "minimum": 66.666667,
+          "maximum": 87.5
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "baseline": "full-team-explicit",
+      "target": "domain-withdrawn-explicit",
+      "axes": {
+        "human_flourishing": {
+          "baseline_observed_candidates": 2,
+          "target_observed_candidates": 2,
+          "mean_difference_target_minus_baseline": 8.333334
+        },
+        "system_performance": {
+          "baseline_observed_candidates": 2,
+          "target_observed_candidates": 2,
+          "mean_difference_target_minus_baseline": -2.083333
+        },
+        "learning": {
+          "baseline_observed_candidates": 2,
+          "target_observed_candidates": 2,
+          "mean_difference_target_minus_baseline": -10.416666
+        }
+      },
+      "interpretation": "Descriptive difference of raw rubric indices; no probability, causal human effect, or population inference."
+    },
+    {
+      "baseline": "full-team-explicit",
+      "target": "member-removed-explicit",
+      "axes": {
+        "human_flourishing": {
+          "baseline_observed_candidates": 2,
+          "target_observed_candidates": 3,
+          "mean_difference_target_minus_baseline": 4.166667
+        },
+        "system_performance": {
+          "baseline_observed_candidates": 2,
+          "target_observed_candidates": 3,
+          "mean_difference_target_minus_baseline": 1.388889
+        },
+        "learning": {
+          "baseline_observed_candidates": 2,
+          "target_observed_candidates": 3,
+          "mean_difference_target_minus_baseline": -3.472222
+        }
+      },
+      "interpretation": "Descriptive difference of raw rubric indices; no probability, causal human effect, or population inference."
+    },
+    {
+      "baseline": "full-team-explicit",
+      "target": "domain-omitted-explicit",
+      "axes": {
+        "human_flourishing": {
+          "baseline_observed_candidates": 2,
+          "target_observed_candidates": 2,
+          "mean_difference_target_minus_baseline": 8.333334
+        },
+        "system_performance": {
+          "baseline_observed_candidates": 2,
+          "target_observed_candidates": 2,
+          "mean_difference_target_minus_baseline": 6.250001
+        },
+        "learning": {
+          "baseline_observed_candidates": 2,
+          "target_observed_candidates": 2,
+          "mean_difference_target_minus_baseline": 4.166667
+        }
+      },
+      "interpretation": "Descriptive difference of raw rubric indices; no probability, causal human effect, or population inference."
+    },
+    {
+      "baseline": "full-team-explicit",
+      "target": "individual-explicit",
+      "axes": {
+        "human_flourishing": {
+          "baseline_observed_candidates": 2,
+          "target_observed_candidates": 3,
+          "mean_difference_target_minus_baseline": 11.111111
+        },
+        "system_performance": {
+          "baseline_observed_candidates": 2,
+          "target_observed_candidates": 3,
+          "mean_difference_target_minus_baseline": 1.388889
+        },
+        "learning": {
+          "baseline_observed_candidates": 2,
+          "target_observed_candidates": 3,
+          "mean_difference_target_minus_baseline": 4.861112
+        }
+      },
+      "interpretation": "Descriptive difference of raw rubric indices; no probability, causal human effect, or population inference."
+    }
+  ],
+  "absolute_criterion_disagreement": {
+    "expected_count": 126,
+    "observed_count": 108,
+    "unknown_count": 18,
+    "mean": 0.157407,
+    "sd": 0.365882,
+    "minimum": 0,
+    "maximum": 1
+  },
+  "simulated_probabilities": false,
+  "human_outcomes_observed": false,
+  "limits": [
+    "Two independent calls to the same model are repeated model judgments, not independent human raters.",
+    "An axis remains unknown if either reviewer lacks any of its three criterion ratings.",
+    "Invalid review attempts remain retained and unknown; they are not silently retried or treated as zero scores.",
+    "An exact citation establishes traceability, not correctness of a judgment.",
+    "Executable observations concern the retained Build; generated plans and proposed repairs are not implemented behavior.",
+    "Replicate spread is descriptive; model calls, rubric criteria and repeated reviews are not additional generated candidates."
+  ],
+  "summary_hash": "b968b0227c75cbe8bcde0b686ffb0295731b33f4aa49270f7f7c06888fb94c24"
+}

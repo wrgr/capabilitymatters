@@ -1,0 +1,984 @@
+{
+  "schema_version": "dynamic-flower-overview-1",
+  "updated_at": "2026-11-03T20:38:05.659564+00:00",
+  "methods": {
+    "design": "Four independent case-by-condition conversations; two cases, two conditions, one conversation per cell.",
+    "response_origin": "Actual fresh collaboration-agent output submitted through manual transport.",
+    "model": "Session-inherited; not independently reported.",
+    "boundaries": "Role instructions and validated declared permissions do not erase latent knowledge or independently verify tool/context isolation.",
+    "continuations": "Three post-freeze v1 context amendments and one selective workshop design-stage v2 amendment; effective runner allowance 180000 to 600000 characters, with original histories and source pins retained.",
+    "evaluation": "One process review and three scenario-result reviews per frozen version, each requested from a fresh evaluator context. No aggregate score or ranking.",
+    "limits": "Illustrative pilot; no statistical condition effect, measured human learning, or human usability claim. Repeated scenarios and updated versions are not independent teams."
+  },
+  "rubric": {
+    "process": [
+      {
+        "id": "agency_and_burden",
+        "label": "Human concerns influence decisions",
+        "axis": "human_flourishing",
+        "description": "Check whether learner agency, access and burden concerns are raised, addressed and retained in decisions."
+      },
+      {
+        "id": "domain_boundaries",
+        "label": "Expertise boundaries and uncertainty",
+        "axis": "system_performance",
+        "description": "Check authorized domain claims, appropriate requests, uncertainty and honest gaps; missing expertise alone is not an automatic failure."
+      },
+      {
+        "id": "responsive_dialogue",
+        "label": "Questions and objections receive substantive responses",
+        "axis": "learning",
+        "description": "Trace whether later contributions answer earlier questions, revise assumptions and resolve or retain disagreement."
+      },
+      {
+        "id": "decision_traceability",
+        "label": "Decisions and implementation are traceable",
+        "axis": "system_performance",
+        "description": "Link requirements, tradeoffs and approvals to actual artifact changes; do not reward a summary that claims unperformed work."
+      },
+      {
+        "id": "learning_reasoning",
+        "label": "Learning mechanisms and evidence are reasoned about",
+        "axis": "learning",
+        "description": "Check the connection among target capability, practice, feedback and proposed evidence, including limits of inference."
+      },
+      {
+        "id": "participation",
+        "label": "Relevant perspectives and user updates are considered",
+        "axis": "human_flourishing",
+        "description": "Check whose concerns shape the solution and whether user changes are acknowledged with consequences and limitations."
+      }
+    ],
+    "result": [
+      {
+        "id": "agency_access",
+        "label": "Agency, access and manageable burden",
+        "axis": "human_flourishing",
+        "description": "Use observed skip, correction, keyboard, viewport and directions evidence; distinguish observed behavior from untested user experience."
+      },
+      {
+        "id": "task_behavior",
+        "label": "Behavior under the supplied scenario",
+        "axis": "system_performance",
+        "description": "Inspect actual inputs, outputs and errors against the scenario facts and constraints; credit a valid simple solution."
+      },
+      {
+        "id": "recovery",
+        "label": "Recovery and update behavior",
+        "axis": "system_performance",
+        "description": "Check whether changed facts, revision, clearing, interruptions and resource constraints produce usable recoverable behavior."
+      },
+      {
+        "id": "capability_support",
+        "label": "Support for the intended capability",
+        "axis": "learning",
+        "description": "Judge alignment of the actual task, activity and output to the capability; do not claim human attainment."
+      },
+      {
+        "id": "feedback_and_revision",
+        "label": "Feedback and revision quality",
+        "axis": "learning",
+        "description": "Inspect initial and revised responses and resulting feedback for useful explanation and honest limits, not just textual change."
+      },
+      {
+        "id": "credible_use",
+        "label": "Feasible and respectful use in context",
+        "axis": "human_flourishing",
+        "description": "Assess whether the solution can responsibly be used in the supplied situation, with appropriate limits and alternatives."
+      }
+    ],
+    "score_min": 0,
+    "score_max": 4,
+    "anchors": {
+      "0": "Observed evidence contradicts the criterion or the relevant mechanism is absent.",
+      "1": "A partial or fragile response with material observed gaps.",
+      "2": "Adequate evidence for a limited portion of the criterion, with clear limitations.",
+      "3": "Strong, coherent evidence across the relevant recorded conditions.",
+      "4": "Consistent, well-supported evidence with appropriate handling of exceptions and uncertainty.",
+      "unknown": "Evidence is missing, unexecuted, invalid or insufficient to support a rating."
+    },
+    "aggregation": "Report process once per artifact version and result separately per difficulty. Show criterion scores and evidence; do not combine process, result or axes into a ranking."
+  },
+  "runs": [
+    {
+      "run_id": "handoff-generalist-agent-01",
+      "case": "A difficult handoff conversation",
+      "condition": "Generalist",
+      "initial_messages": 3,
+      "initial_actors": 2,
+      "design_call_count": 4,
+      "failed_attempts": 1,
+      "state": "reviewed",
+      "journal_head": "f15ffe4fa9756d4859a90118cceccab70279386796efb0c871f616111bacd564",
+      "scenarios": [
+        {
+          "id": "feedback_handoff_easy",
+          "difficulty": "easy"
+        },
+        {
+          "id": "feedback_handoff_medium",
+          "difficulty": "medium"
+        },
+        {
+          "id": "feedback_handoff_hard",
+          "difficulty": "hard"
+        }
+      ],
+      "versions": [
+        {
+          "artifact_version": 1,
+          "artifact_sha256": "ceaaf9daa779ca330f9f132d8243c7d72e3170add09512194f3aabe856586732",
+          "case_version": 1,
+          "user_update_ids": [],
+          "reviews": [
+            {
+              "scope": "process",
+              "scenario_id": null,
+              "scores": [
+                {
+                  "dimension_id": "agency_and_burden",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "domain_boundaries",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "responsive_dialogue",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "decision_traceability",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "learning_reasoning",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "participation",
+                  "score": 2
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "feedback_handoff_easy",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 3
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "feedback_handoff_medium",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 3
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "feedback_handoff_hard",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 3
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "scenario_id": "feedback_handoff_easy",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            },
+            {
+              "scenario_id": "feedback_handoff_hard",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            },
+            {
+              "scenario_id": "feedback_handoff_medium",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "handoff-specialists-agent-01",
+      "case": "A difficult handoff conversation",
+      "condition": "Specialist team",
+      "initial_messages": 17,
+      "initial_actors": 7,
+      "design_call_count": 19,
+      "failed_attempts": 2,
+      "state": "awaiting_tests_or_review",
+      "journal_head": "0e48cb842509728b6e790671e6aa4631943ecdf1c799f06a44a3c34667424d14",
+      "scenarios": [
+        {
+          "id": "feedback_handoff_easy",
+          "difficulty": "easy"
+        },
+        {
+          "id": "feedback_handoff_medium",
+          "difficulty": "medium"
+        },
+        {
+          "id": "feedback_handoff_hard",
+          "difficulty": "hard"
+        }
+      ],
+      "versions": [
+        {
+          "artifact_version": 2,
+          "artifact_sha256": "b595db3c8b11f46cc008495da5eb467b4af1a2c9edeb5b4d95b3a044cee4fd3a",
+          "case_version": 1,
+          "user_update_ids": [],
+          "reviews": [
+            {
+              "scope": "process",
+              "scenario_id": null,
+              "scores": [
+                {
+                  "dimension_id": "agency_and_burden",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "domain_boundaries",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "responsive_dialogue",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "decision_traceability",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "learning_reasoning",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "participation",
+                  "score": 3
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "feedback_handoff_easy",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 3
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "feedback_handoff_medium",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 3
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "feedback_handoff_hard",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 3
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "scenario_id": "feedback_handoff_easy",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            },
+            {
+              "scenario_id": "feedback_handoff_hard",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            },
+            {
+              "scenario_id": "feedback_handoff_medium",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            }
+          ]
+        },
+        {
+          "artifact_version": 3,
+          "artifact_sha256": "aef27b010ef248eff1e18e80d6516705f042c9500ff622db327b14bdea3b17f5",
+          "case_version": 2,
+          "user_update_ids": [
+            "user-summary-request"
+          ],
+          "reviews": [
+            {
+              "scope": "process",
+              "scenario_id": null,
+              "scores": [
+                {
+                  "dimension_id": "agency_and_burden",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "domain_boundaries",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "responsive_dialogue",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "decision_traceability",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "learning_reasoning",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "participation",
+                  "score": 3
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "feedback_handoff_easy",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 2
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "scenario_id": "feedback_handoff_easy",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            },
+            {
+              "scenario_id": "feedback_handoff_hard",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            },
+            {
+              "scenario_id": "feedback_handoff_medium",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "workshop-generalist-agent-01",
+      "case": "Planning a shared-equipment workshop",
+      "condition": "Generalist",
+      "initial_messages": 3,
+      "initial_actors": 2,
+      "design_call_count": 3,
+      "failed_attempts": 0,
+      "state": "reviewed",
+      "journal_head": "e803efdfdce24bb828b19c842454cd1e298d5ef9b2e54d9c5a3fa4d95966d305",
+      "scenarios": [
+        {
+          "id": "shared_equipment_easy",
+          "difficulty": "easy"
+        },
+        {
+          "id": "shared_equipment_medium",
+          "difficulty": "medium"
+        },
+        {
+          "id": "shared_equipment_hard",
+          "difficulty": "hard"
+        }
+      ],
+      "versions": [
+        {
+          "artifact_version": 1,
+          "artifact_sha256": "627079b0de488b556d49060b0c4dbc5e958fc14509daf4b201603a6aa3afd34c",
+          "case_version": 1,
+          "user_update_ids": [],
+          "reviews": [
+            {
+              "scope": "process",
+              "scenario_id": null,
+              "scores": [
+                {
+                  "dimension_id": "agency_and_burden",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "domain_boundaries",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "responsive_dialogue",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "decision_traceability",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "learning_reasoning",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "participation",
+                  "score": 2
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "shared_equipment_easy",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 3
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "shared_equipment_medium",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 3
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "shared_equipment_hard",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 3
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "scenario_id": "shared_equipment_easy",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            },
+            {
+              "scenario_id": "shared_equipment_hard",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            },
+            {
+              "scenario_id": "shared_equipment_medium",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "workshop-specialists-agent-01",
+      "case": "Planning a shared-equipment workshop",
+      "condition": "Specialist team",
+      "initial_messages": 21,
+      "initial_actors": 6,
+      "design_call_count": 22,
+      "failed_attempts": 1,
+      "state": "reviewed",
+      "journal_head": "f45e97337f0e0804258e91fc6c8ee605a3094f3369ec3b9ab22617cff0e6c753",
+      "scenarios": [
+        {
+          "id": "shared_equipment_easy",
+          "difficulty": "easy"
+        },
+        {
+          "id": "shared_equipment_medium",
+          "difficulty": "medium"
+        },
+        {
+          "id": "shared_equipment_hard",
+          "difficulty": "hard"
+        }
+      ],
+      "versions": [
+        {
+          "artifact_version": 3,
+          "artifact_sha256": "b2dafb4745a00ffad2dda50f7a548cf5d5ad73df6b8a68ea189a17bf413456c1",
+          "case_version": 1,
+          "user_update_ids": [],
+          "reviews": [
+            {
+              "scope": "process",
+              "scenario_id": null,
+              "scores": [
+                {
+                  "dimension_id": "agency_and_burden",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "domain_boundaries",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "responsive_dialogue",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "decision_traceability",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "learning_reasoning",
+                  "score": 4
+                },
+                {
+                  "dimension_id": "participation",
+                  "score": 3
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "shared_equipment_easy",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 3
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "shared_equipment_medium",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 3
+                }
+              ]
+            },
+            {
+              "scope": "result",
+              "scenario_id": "shared_equipment_hard",
+              "scores": [
+                {
+                  "dimension_id": "agency_access",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "task_behavior",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "recovery",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "capability_support",
+                  "score": 3
+                },
+                {
+                  "dimension_id": "feedback_and_revision",
+                  "score": 2
+                },
+                {
+                  "dimension_id": "credible_use",
+                  "score": 3
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "scenario_id": "shared_equipment_easy",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            },
+            {
+              "scenario_id": "shared_equipment_hard",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            },
+            {
+              "scenario_id": "shared_equipment_medium",
+              "status": "observed",
+              "checks": [
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass",
+                "pass"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

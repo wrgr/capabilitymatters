@@ -1,0 +1,20 @@
+/* Keep the foundational and worked-case cycle diagrams visually consistent. */
+  @media (max-width: 600px) { .diagram-svg { min-width: 580px; } }
+  .diagram-svg { width: 100%; height: auto; display: block; max-width: 720px; margin: 0 auto; }
+  .cycle-backdrop { fill: color-mix(in srgb, var(--accent) 5%, var(--surface)); }
+  .cycle-guide { fill: none; stroke: var(--border); stroke-width: 1; }
+  .step-node { --node-color: #285cca; }
+  .step-node[data-pair="create"] { --node-color: #7950b7; }
+  .step-node[data-pair="operate"] { --node-color: #137f78; }
+  .step-node[data-pair="learn"] { --node-color: #b65e19; }
+  .step-node circle { fill: var(--node-color); stroke: var(--surface); stroke-width: 4; }
+  .step-node .num { font-family: var(--font-body); font-size:1.1875rem; fill: #fff; font-weight: 700; }
+  .step-node .lbl { font-family: var(--font-body); font-size:1.0rem; fill: var(--ink); font-weight: 650; }
+  .challenge-arrow { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 1 7; stroke-linecap: round; }
+  .output-arrow { fill: none; stroke: var(--accent); stroke-width: 2.5; }
+  .context-node rect, .refine-node circle { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+  .context-node text, .refine-label { font-family: var(--font-body); font-size: 1.125rem; font-weight: 650; fill: var(--ink); }
+  .refine-label { font-size: 1.5rem; }
+  .refinement-link { stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 3 6; opacity: .5; }
+  .center-label { font-family: var(--font-body); font-size: .9375rem; fill: var(--ink-muted); }
+  .flow-arrow { stroke: var(--ink-muted); stroke-width: 1.6; opacity: 0.7; }

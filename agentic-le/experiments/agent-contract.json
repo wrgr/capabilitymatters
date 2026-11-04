@@ -1,0 +1,451 @@
+{
+  "id": "agent-turn",
+  "version": "1.0.0",
+  "config_version": 2,
+  "signature": {
+    "inputs": [
+      "actor_name",
+      "stage",
+      "turn_kind",
+      "assigned_instructions",
+      "case_brief",
+      "environment",
+      "working_conditions",
+      "arrived_challenges",
+      "visible_artifacts",
+      "prior_contributions",
+      "prior_assessments",
+      "simulation_conditions",
+      "limits",
+      "context_policy"
+    ],
+    "outputs": [
+      "message",
+      "advantages",
+      "drawbacks",
+      "tradeoffs",
+      "risks",
+      "human_capabilities",
+      "system_capabilities",
+      "flourishing",
+      "objections",
+      "artifact_title",
+      "artifact_body",
+      "prototype_html",
+      "decision",
+      "revisit_stage",
+      "challenged_assumption",
+      "evidence_refs",
+      "design"
+    ],
+    "notation": "case_brief, stage, effective_instructions, visible_context -> contribution_or_decision, evidence_refs, artifact, declared_design"
+  },
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "actor_name": {
+        "type": "string"
+      },
+      "stage": {
+        "type": "string",
+        "enum": [
+          "understand",
+          "model",
+          "design",
+          "build",
+          "instrument",
+          "deploy",
+          "evaluate",
+          "refine"
+        ]
+      },
+      "turn_kind": {
+        "type": "string",
+        "enum": [
+          "contribution",
+          "decision"
+        ]
+      },
+      "assigned_instructions": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "functional_role": {
+            "type": "string"
+          },
+          "competency": {
+            "type": "string"
+          },
+          "duties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "behavior_instructions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "authority_instruction": {
+            "type": "string"
+          },
+          "integration_instruction": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "case_brief": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "idea": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "people": {
+            "type": "string"
+          },
+          "constraints": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "idea",
+          "domain",
+          "people",
+          "constraints"
+        ],
+        "additionalProperties": false
+      },
+      "environment": {
+        "type": "object",
+        "properties": {
+          "time_pressure": {
+            "type": "string"
+          },
+          "resources": {
+            "type": "string"
+          },
+          "constraints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "time_pressure",
+          "resources",
+          "constraints"
+        ],
+        "additionalProperties": false
+      },
+      "working_conditions": {
+        "type": "string"
+      },
+      "arrived_challenges": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "visible_artifacts": {
+        "type": "object"
+      },
+      "prior_contributions": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "prior_assessments": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "simulation_conditions": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "limits": {
+        "type": "object",
+        "properties": {
+          "max_output_chars": {
+            "type": "integer",
+            "minimum": 1000
+          },
+          "prior_event_sequences": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        },
+        "required": [
+          "max_output_chars",
+          "prior_event_sequences"
+        ],
+        "additionalProperties": false
+      },
+      "context_policy": {
+        "type": "object"
+      }
+    },
+    "required": [
+      "actor_name",
+      "stage",
+      "turn_kind",
+      "assigned_instructions",
+      "case_brief",
+      "environment",
+      "working_conditions",
+      "arrived_challenges",
+      "visible_artifacts",
+      "prior_contributions",
+      "prior_assessments",
+      "simulation_conditions",
+      "limits",
+      "context_policy"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "message": {
+        "type": "string"
+      },
+      "advantages": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "drawbacks": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "tradeoffs": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "risks": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "human_capabilities": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "system_capabilities": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "flourishing": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "objections": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "artifact_title": {
+        "type": "string"
+      },
+      "artifact_body": {
+        "type": "string"
+      },
+      "prototype_html": {
+        "type": "string"
+      },
+      "decision": {
+        "type": "string"
+      },
+      "revisit_stage": {
+        "type": "string",
+        "enum": [
+          "",
+          "understand",
+          "model",
+          "design",
+          "build",
+          "instrument",
+          "deploy",
+          "evaluate",
+          "refine"
+        ]
+      },
+      "challenged_assumption": {
+        "type": "string"
+      },
+      "evidence_refs": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      },
+      "design": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "practice_minutes": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 120
+              },
+              "feedback": {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "generic",
+                  "specific"
+                ]
+              },
+              "revision_opportunity": {
+                "type": "boolean"
+              },
+              "support_minutes_per_learner": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 120,
+                "multipleOf": 0.0001
+              },
+              "offline_fallback": {
+                "type": "boolean"
+              },
+              "choice_preserved": {
+                "type": "boolean"
+              },
+              "personal_data": {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "anonymous",
+                  "identified"
+                ]
+              },
+              "model_applicability": {
+                "type": "string",
+                "enum": [
+                  "within_scope",
+                  "outside_scope"
+                ]
+              },
+              "scope_rationale": {
+                "type": "string",
+                "maxLength": 2000,
+                "description": "Explain why this design is outside the practice-and-feedback model when outside_scope is selected; this remains an agent claim for human review."
+              }
+            },
+            "required": [
+              "choice_preserved",
+              "feedback",
+              "model_applicability",
+              "offline_fallback",
+              "personal_data",
+              "practice_minutes",
+              "revision_opportunity",
+              "scope_rationale",
+              "support_minutes_per_learner"
+            ]
+          }
+        ]
+      }
+    },
+    "required": [
+      "message",
+      "advantages",
+      "drawbacks",
+      "tradeoffs",
+      "risks",
+      "human_capabilities",
+      "system_capabilities",
+      "flourishing",
+      "objections",
+      "artifact_title",
+      "artifact_body",
+      "prototype_html",
+      "decision",
+      "revisit_stage",
+      "challenged_assumption",
+      "evidence_refs",
+      "design"
+    ]
+  },
+  "context_policy": {
+    "recent_turns": 10,
+    "turn_body_chars": 1800,
+    "artifact_body_chars": 9000,
+    "prototype_chars": 12000,
+    "future_challenges": "withheld"
+  },
+  "tool_policy": {
+    "requested_tools": [],
+    "file_writes": "not permitted by the CLI read-only sandbox",
+    "enforcement": "Instructions request no tool use. The provider's read-only sandbox is not an attestation that no tools were invoked."
+  },
+  "evidence_policy": "Cite earlier event sequences; distinguish proposals, authored fixtures, simulated consequences, and observed evidence.",
+  "stopping_conditions": [
+    "The configured stage schedule is exhausted.",
+    "The call bound is reached.",
+    "A response fails validation or the provider fails.",
+    "Cancellation is observed between calls."
+  ],
+  "sources": [
+    {
+      "title": "DSPy: typed signatures",
+      "url": "https://dspy.ai/3.1.3/learn/programming/signatures/"
+    },
+    {
+      "title": "JSON Schema: object contracts",
+      "url": "https://json-schema.org/understanding-json-schema/reference/object"
+    },
+    {
+      "title": "A2A: agent identity and capability metadata",
+      "url": "https://a2a-protocol.org/latest/specification/"
+    },
+    {
+      "title": "Anthropic: outcome evaluation",
+      "url": "https://www.anthropic.com/research/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "scope": "An application-level execution contract informed by typed signatures and Agent Card metadata. Not A2A protocol compliance, a cryptographic signature, or verified human proficiency."
+}

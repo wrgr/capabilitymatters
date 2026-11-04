@@ -1,0 +1,905 @@
+{
+  "schema_version": 1,
+  "status": "final_audit_notes",
+  "study_id": "flower-feedback-overlap-live-v1",
+  "generation": {
+    "planned_runs": 15,
+    "planned_calls": 588,
+    "manifest_status_counts": {
+      "completed": 15
+    },
+    "configuration_integrity": {
+      "checks": [
+        {
+          "check": "planned_run_count",
+          "passed": true
+        },
+        {
+          "check": "planned_call_total",
+          "passed": true
+        },
+        {
+          "check": "comparison_target_pinned",
+          "passed": true
+        },
+        {
+          "check": "source_configuration_pinned",
+          "passed": true
+        },
+        {
+          "check": "execution_order_pinned",
+          "passed": true
+        },
+        {
+          "check": "actual_dispatch_follows_frozen_order",
+          "passed": true
+        },
+        {
+          "check": "dispatch_seed_and_worker_limit_pinned",
+          "passed": true
+        },
+        {
+          "check": "unique_run_references",
+          "passed": true
+        },
+        {
+          "check": "source_pin:src/data/lifecycle/flower-catalog.json",
+          "passed": true
+        },
+        {
+          "check": "source_pin:src/data/lifecycle/experiment-catalog.json",
+          "passed": true
+        },
+        {
+          "check": "source_pin:tools/lifecycle/experiment_flower.py",
+          "passed": true
+        },
+        {
+          "check": "source_pin:tools/lifecycle/experiment_batch.py",
+          "passed": true
+        },
+        {
+          "check": "source_pin:tools/lifecycle/experiment_runtime.py",
+          "passed": true
+        },
+        {
+          "check": "source_pin:tools/lifecycle/engine.py",
+          "passed": true
+        },
+        {
+          "check": "frozen_driver_hash",
+          "passed": true
+        }
+      ],
+      "status": "verified"
+    },
+    "primary_journals_verified": 15,
+    "executed_runs": 15,
+    "counts": {
+      "requests": 588,
+      "accepted": 588,
+      "rejected": 0,
+      "unresolved": 0,
+      "terminal_calls": 588,
+      "accepted_schema_violations": 0,
+      "prompt_assignment_violations": 0,
+      "provenance_error_calls": 0,
+      "accepted_calls_with_complete_receipts": 560,
+      "terminal_calls_with_complete_receipts": 560,
+      "terminal_calls_with_receipt_gaps": 28,
+      "terminal_calls_with_usage": 560,
+      "terminal_calls_missing_usage": 28,
+      "tool_items_observed": 0,
+      "provider_error_calls": 0,
+      "provider_errors_observed": 0
+    },
+    "raw_journal_file_consistency_status": "violations",
+    "raw_journal_file_discrepancies": [
+      {
+        "item_id": "domain-omitted-explicit-r01",
+        "missing_jsonl_sequences": [
+          104
+        ],
+        "changed_jsonl_sequences": [],
+        "failed_checks": [
+          {
+            "check": "event_log_contains_snapshot_prefix",
+            "passed": false
+          },
+          {
+            "check": "stopped_event_log_equals_snapshot",
+            "passed": false
+          }
+        ]
+      },
+      {
+        "item_id": "domain-omitted-explicit-r02",
+        "missing_jsonl_sequences": [],
+        "changed_jsonl_sequences": [],
+        "failed_checks": [
+          {
+            "check": "batch_stopped_head_matches_snapshot",
+            "passed": false
+          }
+        ]
+      },
+      {
+        "item_id": "individual-explicit-r02",
+        "missing_jsonl_sequences": [
+          118,
+          119
+        ],
+        "changed_jsonl_sequences": [],
+        "failed_checks": [
+          {
+            "check": "event_log_contains_snapshot_prefix",
+            "passed": false
+          },
+          {
+            "check": "stopped_event_log_equals_snapshot",
+            "passed": false
+          }
+        ]
+      },
+      {
+        "item_id": "member-removed-explicit-r02",
+        "missing_jsonl_sequences": [
+          98,
+          99,
+          100,
+          101
+        ],
+        "changed_jsonl_sequences": [],
+        "failed_checks": [
+          {
+            "check": "event_log_contains_snapshot_prefix",
+            "passed": false
+          },
+          {
+            "check": "stopped_event_log_equals_snapshot",
+            "passed": false
+          }
+        ]
+      },
+      {
+        "item_id": "domain-withdrawn-explicit-r03",
+        "missing_jsonl_sequences": [],
+        "changed_jsonl_sequences": [],
+        "failed_checks": [
+          {
+            "check": "batch_stopped_head_matches_snapshot",
+            "passed": false
+          }
+        ]
+      }
+    ],
+    "provider_receipt_gaps": [
+      {
+        "item_id": "domain-withdrawn-explicit-r01",
+        "ordinal": 21,
+        "stage": "instrument",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "member-removed-explicit-r01",
+        "ordinal": 24,
+        "stage": "deploy",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "member-removed-explicit-r01",
+        "ordinal": 28,
+        "stage": "deploy",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "member-removed-explicit-r01",
+        "ordinal": 30,
+        "stage": "evaluate",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "domain-omitted-explicit-r01",
+        "ordinal": 8,
+        "stage": "model",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "domain-omitted-explicit-r01",
+        "ordinal": 29,
+        "stage": "deploy",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "domain-omitted-explicit-r01",
+        "ordinal": 31,
+        "stage": "evaluate",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "full-team-explicit-r01",
+        "ordinal": 10,
+        "stage": "model",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "individual-explicit-r01",
+        "ordinal": 26,
+        "stage": "deploy",
+        "status": "accepted",
+        "receipt_file_state": "present",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "individual-explicit-r01",
+        "ordinal": 30,
+        "stage": "deploy",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "domain-omitted-explicit-r02",
+        "ordinal": 39,
+        "stage": "refine",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "individual-explicit-r02",
+        "ordinal": 19,
+        "stage": "build",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "full-team-explicit-r02",
+        "ordinal": 13,
+        "stage": "design",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "domain-omitted-explicit-r03",
+        "ordinal": 2,
+        "stage": "understand",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "domain-omitted-explicit-r03",
+        "ordinal": 19,
+        "stage": "build",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "domain-withdrawn-explicit-r03",
+        "ordinal": 10,
+        "stage": "model",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "domain-withdrawn-explicit-r03",
+        "ordinal": 20,
+        "stage": "build",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "domain-withdrawn-explicit-r03",
+        "ordinal": 24,
+        "stage": "instrument",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "domain-withdrawn-explicit-r03",
+        "ordinal": 34,
+        "stage": "evaluate",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "full-team-explicit-r03",
+        "ordinal": 7,
+        "stage": "model",
+        "status": "accepted",
+        "receipt_file_state": "present",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "full-team-explicit-r03",
+        "ordinal": 10,
+        "stage": "model",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "full-team-explicit-r03",
+        "ordinal": 28,
+        "stage": "deploy",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "individual-explicit-r03",
+        "ordinal": 8,
+        "stage": "model",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "individual-explicit-r03",
+        "ordinal": 10,
+        "stage": "model",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "individual-explicit-r03",
+        "ordinal": 22,
+        "stage": "instrument",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "member-removed-explicit-r03",
+        "ordinal": 7,
+        "stage": "model",
+        "status": "accepted",
+        "receipt_file_state": "present",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "member-removed-explicit-r03",
+        "ordinal": 26,
+        "stage": "deploy",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      },
+      {
+        "item_id": "member-removed-explicit-r03",
+        "ordinal": 30,
+        "stage": "evaluate",
+        "status": "accepted",
+        "receipt_file_state": "empty",
+        "completed_turns": 0
+      }
+    ],
+    "available_token_usage": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 6431232,
+      "completed_turn_usage_objects": 560,
+      "field_observation_counts": {
+        "cache_write_input_tokens": 560,
+        "cached_input_tokens": 560,
+        "input_tokens": 560,
+        "output_tokens": 560,
+        "reasoning_output_tokens": 560
+      },
+      "input_plus_output_tokens": 15260841,
+      "input_tokens": 14558748,
+      "issues": [],
+      "output_tokens": 702093,
+      "reasoning_output_tokens": 3519,
+      "uncached_input_tokens": 8127516
+    },
+    "token_accounting": "Available completion receipts only. Cached input is a subset of input and is never added to input+output totals. Missing usage remains unknown. Reasoning-output and cache-write fields are reported separately and are not added to totals.",
+    "audit_hash": "17bfb736cf148ec521c62f8a0b2a0a2b65336e83b4345e72c9377cd2c98981dd"
+  },
+  "evaluation_records": {
+    "rule_version": "retained-evidence-evaluation-view-v1",
+    "selection_rule_version": "verified-terminal-evaluation-selection-v1",
+    "manifest_hash": "9787faf44df95e95ded7b8a27a55fc7bf9388768918fc5f64d23751ee6f28f16",
+    "manifest_sha256": "d416c51834f87feaa1ac961aabbcc686b46f9669b1b16760a2aea76f5a5801f9",
+    "verified_run_count": 14,
+    "excluded_run_count": 1,
+    "source_selection_counts": {
+      "primary_snapshot_exact_bytes": 13,
+      "complete_jsonl_extension": 1
+    },
+    "runs": [
+      {
+        "run_id": "20261102T161513Z-experimental-codex-034a00f2",
+        "source_selection": "primary_snapshot_exact_bytes",
+        "run_head_hash": "3a06c3b7d1dcafb99b5620bee21034ebf96650cd5a76dbd94040f69c4bdd7951",
+        "config_hash": "eff66260e709d5336892c5f5e7d83bbe90b84051ecd5cf2ba6d18ac3f28c3f67",
+        "derived_sha256": "311dc7ef3e7c1c783ced9ee01290be6ce7a97fa980d4b2e8a5482b21d68daf84",
+        "provenance_sha256": "38c4e79cdee6cb1037070c43a64fbf00b9ad33e6ef117ada6111db0a3e50e3f9",
+        "run_file": "evaluation-records/20261102T161513Z-experimental-codex-034a00f2/run.json",
+        "provenance_file": "evaluation-records/20261102T161513Z-experimental-codex-034a00f2/provenance.json",
+        "reason": "The verified completed primary snapshot matches the batch head; copied byte-for-byte. Any missing raw-log records remain documented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T161513Z-experimental-codex-034a00f2/run.json",
+            "sha256": "311dc7ef3e7c1c783ced9ee01290be6ce7a97fa980d4b2e8a5482b21d68daf84",
+            "bytes": 4870910
+          },
+          "events_jsonl": {
+            "path": "records/20261102T161513Z-experimental-codex-034a00f2/events.jsonl",
+            "sha256": "2d6aa414510e95a3c4a4962f709a7373e1471d804c7a75828bef6540c6f9e9b0",
+            "bytes": 4491332
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": true,
+          "primary_is_jsonl_prefix": true,
+          "jsonl_missing_primary_sequences": [],
+          "jsonl_extension_sequences": []
+        }
+      },
+      {
+        "run_id": "20261102T161513Z-experimental-codex-1bfc019d",
+        "source_selection": "primary_snapshot_exact_bytes",
+        "run_head_hash": "c573488c3771e0e159919b4cee044c0edfd63e676ff55e50ef213c9b1042d53c",
+        "config_hash": "619fe3220b5616a9c5ce1126035fa2aa806d18ef374915e5f6c20877199986f5",
+        "derived_sha256": "1f188e644832dc706bffa66279627cefd3545cecae43c67c7e6cd92513185916",
+        "provenance_sha256": "d4f51788f50a6b472cf9a737225133d57cc47e12688d6dfeceda0e8acfeb6f2a",
+        "run_file": "evaluation-records/20261102T161513Z-experimental-codex-1bfc019d/run.json",
+        "provenance_file": "evaluation-records/20261102T161513Z-experimental-codex-1bfc019d/provenance.json",
+        "reason": "The verified completed primary snapshot matches the batch head; copied byte-for-byte. Any missing raw-log records remain documented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T161513Z-experimental-codex-1bfc019d/run.json",
+            "sha256": "1f188e644832dc706bffa66279627cefd3545cecae43c67c7e6cd92513185916",
+            "bytes": 5768862
+          },
+          "events_jsonl": {
+            "path": "records/20261102T161513Z-experimental-codex-1bfc019d/events.jsonl",
+            "sha256": "c24b354cb02085873e6c370ef782cb380f913e452bd22d41dee5c63e804c14e2",
+            "bytes": 5348810
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": true,
+          "primary_is_jsonl_prefix": true,
+          "jsonl_missing_primary_sequences": [],
+          "jsonl_extension_sequences": []
+        }
+      },
+      {
+        "run_id": "20261102T161513Z-experimental-codex-4b122658",
+        "source_selection": "primary_snapshot_exact_bytes",
+        "run_head_hash": "13b06fce889676fe33b1112b8f6f6e9fe9a33bd878ddb32170e207e9384887f8",
+        "config_hash": "9ea12482ffab06cd6a8e86752b18f703b8143471db7248ba5e21daf4bb2b7528",
+        "derived_sha256": "8e44f3a49722c44726a47b0c6426a8a2f92d5ed6a1161105c627763afbdd11d8",
+        "provenance_sha256": "e13f5bca32f2a2818717289fa45c725c907ce25bc36b5c722a7b65282692dd45",
+        "run_file": "evaluation-records/20261102T161513Z-experimental-codex-4b122658/run.json",
+        "provenance_file": "evaluation-records/20261102T161513Z-experimental-codex-4b122658/provenance.json",
+        "reason": "The verified completed primary snapshot matches the batch head; copied byte-for-byte. Any missing raw-log records remain documented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T161513Z-experimental-codex-4b122658/run.json",
+            "sha256": "8e44f3a49722c44726a47b0c6426a8a2f92d5ed6a1161105c627763afbdd11d8",
+            "bytes": 5957202
+          },
+          "events_jsonl": {
+            "path": "records/20261102T161513Z-experimental-codex-4b122658/events.jsonl",
+            "sha256": "dafcc88bc69903b96ee2c8676bc6e873315ce28895db3f6f48443d4ee68628c4",
+            "bytes": 5283867
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": true,
+          "primary_is_jsonl_prefix": true,
+          "jsonl_missing_primary_sequences": [],
+          "jsonl_extension_sequences": []
+        }
+      },
+      {
+        "run_id": "20261102T161513Z-experimental-codex-c955c6d0",
+        "source_selection": "primary_snapshot_exact_bytes",
+        "run_head_hash": "f5cef94ed77b3a481c22a3480a520ff498bb77d900c33ca7f8995e5f98a89974",
+        "config_hash": "a5ec5b9d16fb5d18b49e8dcb4c03b8b07457d4ccd7c73268d501e1679788da67",
+        "derived_sha256": "d05ef21bb630a37508c7102dc5cce2087ebdeeccbb971c3e054bf607f727d9d2",
+        "provenance_sha256": "abcbc9445a5fcac6326e7fc02ee705ed9b7cdd607b7f032cf45228a82677b328",
+        "run_file": "evaluation-records/20261102T161513Z-experimental-codex-c955c6d0/run.json",
+        "provenance_file": "evaluation-records/20261102T161513Z-experimental-codex-c955c6d0/provenance.json",
+        "reason": "The verified completed primary snapshot matches the batch head; copied byte-for-byte. Any missing raw-log records remain documented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T161513Z-experimental-codex-c955c6d0/run.json",
+            "sha256": "d05ef21bb630a37508c7102dc5cce2087ebdeeccbb971c3e054bf607f727d9d2",
+            "bytes": 5571449
+          },
+          "events_jsonl": {
+            "path": "records/20261102T161513Z-experimental-codex-c955c6d0/events.jsonl",
+            "sha256": "f545151e831609933910c0f0f726a5cdd68b07649039e11a93c27a23db9dc74a",
+            "bytes": 4994094
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": true,
+          "primary_is_jsonl_prefix": false,
+          "jsonl_missing_primary_sequences": [
+            104
+          ],
+          "jsonl_extension_sequences": []
+        }
+      },
+      {
+        "run_id": "20261102T161513Z-experimental-codex-ee7bb7a0",
+        "source_selection": "primary_snapshot_exact_bytes",
+        "run_head_hash": "353375ee56fb9739e38314c5dfbd344916fab3763398426832f1e1b0571df6d2",
+        "config_hash": "7a0ea78119f4ba493a1a9770732dffe7d5e830cd1217e80671f51a73144c1392",
+        "derived_sha256": "8a51a06047d45d3600ceb0f3595405897d837d52f4022a3414813f6d26c00c35",
+        "provenance_sha256": "60b57eaeb0f5f40075c0ed188207756a93de23595c16987bfbb31a8a34df86ea",
+        "run_file": "evaluation-records/20261102T161513Z-experimental-codex-ee7bb7a0/run.json",
+        "provenance_file": "evaluation-records/20261102T161513Z-experimental-codex-ee7bb7a0/provenance.json",
+        "reason": "The verified completed primary snapshot matches the batch head; copied byte-for-byte. Any missing raw-log records remain documented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T161513Z-experimental-codex-ee7bb7a0/run.json",
+            "sha256": "8a51a06047d45d3600ceb0f3595405897d837d52f4022a3414813f6d26c00c35",
+            "bytes": 5183848
+          },
+          "events_jsonl": {
+            "path": "records/20261102T161513Z-experimental-codex-ee7bb7a0/events.jsonl",
+            "sha256": "0296cc0d66ff04eae779c56ea6b41c7dcdeeff056fa2fa1c665d8798c0c62234",
+            "bytes": 4765617
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": true,
+          "primary_is_jsonl_prefix": true,
+          "jsonl_missing_primary_sequences": [],
+          "jsonl_extension_sequences": []
+        }
+      },
+      {
+        "run_id": "20261102T165421Z-experimental-codex-5a11965f",
+        "source_selection": "primary_snapshot_exact_bytes",
+        "run_head_hash": "9fc60a24c07e07c72504dc2eca7f1f671c03cd781137abe40bffc0cf0fca7ed4",
+        "config_hash": "9ea12482ffab06cd6a8e86752b18f703b8143471db7248ba5e21daf4bb2b7528",
+        "derived_sha256": "b0c27aac3c56669574d582f4dd3e5df2ce524d22a2f01daaca2a6ff4dc33f3f3",
+        "provenance_sha256": "705d681e0d4fc4641da7cad6cd4b95e50e11f796a0f0be2f2734c33eee08cf63",
+        "run_file": "evaluation-records/20261102T165421Z-experimental-codex-5a11965f/run.json",
+        "provenance_file": "evaluation-records/20261102T165421Z-experimental-codex-5a11965f/provenance.json",
+        "reason": "The verified completed primary snapshot matches the batch head; copied byte-for-byte. Any missing raw-log records remain documented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T165421Z-experimental-codex-5a11965f/run.json",
+            "sha256": "b0c27aac3c56669574d582f4dd3e5df2ce524d22a2f01daaca2a6ff4dc33f3f3",
+            "bytes": 5752151
+          },
+          "events_jsonl": {
+            "path": "records/20261102T165421Z-experimental-codex-5a11965f/events.jsonl",
+            "sha256": "5442143acd0b026af6e0ec1a0ab102e95d527be3e1c1109336001bcc71990880",
+            "bytes": 4893655
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": true,
+          "primary_is_jsonl_prefix": false,
+          "jsonl_missing_primary_sequences": [
+            118,
+            119
+          ],
+          "jsonl_extension_sequences": []
+        }
+      },
+      {
+        "run_id": "20261102T165421Z-experimental-codex-682fb5ae",
+        "source_selection": "complete_jsonl_extension",
+        "run_head_hash": "413c3db398b6f3977c386be9882f59095c70c8f8e0b81e4c2ff99be114c5a8ec",
+        "config_hash": "a5ec5b9d16fb5d18b49e8dcb4c03b8b07457d4ccd7c73268d501e1679788da67",
+        "derived_sha256": "61b8b5bb95479016e72c1ce4001d4f6112589d3e7ad495637e977c6c925d074a",
+        "provenance_sha256": "0b00e3a4b3f4d4e1de6de2cdf06c09631f7f824add65453f46609f7f7adbbe6d",
+        "run_file": "evaluation-records/20261102T165421Z-experimental-codex-682fb5ae/run.json",
+        "provenance_file": "evaluation-records/20261102T165421Z-experimental-codex-682fb5ae/provenance.json",
+        "reason": "The primary snapshot is an exact prefix of the complete, independently verified raw JSONL chain. Unchanged primary metadata plus that complete recorded chain form this separately labeled evaluation serialization; no event or response was invented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T165421Z-experimental-codex-682fb5ae/run.json",
+            "sha256": "3a263044c0615b84daf2f2e6e7b67f5f258d1870112724279db768581865572e",
+            "bytes": 5469488
+          },
+          "events_jsonl": {
+            "path": "records/20261102T165421Z-experimental-codex-682fb5ae/events.jsonl",
+            "sha256": "cb51c4ec20997369049edfb4d430e5b8f18e8586634d5d624537a4733d17f986",
+            "bytes": 5055188
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": false,
+          "primary_is_jsonl_prefix": true,
+          "jsonl_missing_primary_sequences": [],
+          "jsonl_extension_sequences": [
+            126
+          ]
+        }
+      },
+      {
+        "run_id": "20261102T165421Z-experimental-codex-925627e6",
+        "source_selection": "primary_snapshot_exact_bytes",
+        "run_head_hash": "edeb9bdb3aac95232dc461c15b90ae8600c4a0b44c0634031d2adf4497cb922a",
+        "config_hash": "619fe3220b5616a9c5ce1126035fa2aa806d18ef374915e5f6c20877199986f5",
+        "derived_sha256": "f375495845cdedb6fc302fdb750f065dc226756ce5d0b621d21a41dee39bbcc7",
+        "provenance_sha256": "32a9eb22139bc5dc2fb4b59a1e185ff68394df78c9b54f7644883e409361a602",
+        "run_file": "evaluation-records/20261102T165421Z-experimental-codex-925627e6/run.json",
+        "provenance_file": "evaluation-records/20261102T165421Z-experimental-codex-925627e6/provenance.json",
+        "reason": "The verified completed primary snapshot matches the batch head; copied byte-for-byte. Any missing raw-log records remain documented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T165421Z-experimental-codex-925627e6/run.json",
+            "sha256": "f375495845cdedb6fc302fdb750f065dc226756ce5d0b621d21a41dee39bbcc7",
+            "bytes": 5778159
+          },
+          "events_jsonl": {
+            "path": "records/20261102T165421Z-experimental-codex-925627e6/events.jsonl",
+            "sha256": "6f3490a71ec4ceb9dfc2831b69cf415903eb4363497df42335a1b7b911099c1b",
+            "bytes": 5359035
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": true,
+          "primary_is_jsonl_prefix": true,
+          "jsonl_missing_primary_sequences": [],
+          "jsonl_extension_sequences": []
+        }
+      },
+      {
+        "run_id": "20261102T165421Z-experimental-codex-9503dc46",
+        "source_selection": "primary_snapshot_exact_bytes",
+        "run_head_hash": "f0ca54717d97e70673da63927c8e141e332fd3e5dea00fd6253282df1e45a2c0",
+        "config_hash": "7a0ea78119f4ba493a1a9770732dffe7d5e830cd1217e80671f51a73144c1392",
+        "derived_sha256": "61d7fe90e049c3fadd86711ca78e9d3c88eba9d3c53862d8668f5a5ec8a6c41c",
+        "provenance_sha256": "8fd624741135b60245c2b335d70c24bd34f60e66437e8b8e80d50678f952992a",
+        "run_file": "evaluation-records/20261102T165421Z-experimental-codex-9503dc46/run.json",
+        "provenance_file": "evaluation-records/20261102T165421Z-experimental-codex-9503dc46/provenance.json",
+        "reason": "The verified completed primary snapshot matches the batch head; copied byte-for-byte. Any missing raw-log records remain documented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T165421Z-experimental-codex-9503dc46/run.json",
+            "sha256": "61d7fe90e049c3fadd86711ca78e9d3c88eba9d3c53862d8668f5a5ec8a6c41c",
+            "bytes": 5228989
+          },
+          "events_jsonl": {
+            "path": "records/20261102T165421Z-experimental-codex-9503dc46/events.jsonl",
+            "sha256": "ffabaf10cf653e63055ee5cfbb0f8fc144e4c051fd1a6357aa8069a941d822c6",
+            "bytes": 4812914
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": true,
+          "primary_is_jsonl_prefix": true,
+          "jsonl_missing_primary_sequences": [],
+          "jsonl_extension_sequences": []
+        }
+      },
+      {
+        "run_id": "20261102T165421Z-experimental-codex-a3a0b3b6",
+        "source_selection": "primary_snapshot_exact_bytes",
+        "run_head_hash": "f742ee96753315c97ed5f13c20dc21f5c7861169245a0bbb138cba34ac4bc09e",
+        "config_hash": "eff66260e709d5336892c5f5e7d83bbe90b84051ecd5cf2ba6d18ac3f28c3f67",
+        "derived_sha256": "7ee48f07b9c4aa9f8ce75787538e8fec200d110c2dc91a95eba0ec9789c7a361",
+        "provenance_sha256": "a0a2e3e40b514820a1537aa8ef46c1dea3502aa1d2b910e08f371a60228dbfc2",
+        "run_file": "evaluation-records/20261102T165421Z-experimental-codex-a3a0b3b6/run.json",
+        "provenance_file": "evaluation-records/20261102T165421Z-experimental-codex-a3a0b3b6/provenance.json",
+        "reason": "The verified completed primary snapshot matches the batch head; copied byte-for-byte. Any missing raw-log records remain documented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T165421Z-experimental-codex-a3a0b3b6/run.json",
+            "sha256": "7ee48f07b9c4aa9f8ce75787538e8fec200d110c2dc91a95eba0ec9789c7a361",
+            "bytes": 4989400
+          },
+          "events_jsonl": {
+            "path": "records/20261102T165421Z-experimental-codex-a3a0b3b6/events.jsonl",
+            "sha256": "1608ee3b814236b8248d598742a245f51c9289681e8c10500ee33da7f8dee645",
+            "bytes": 4429720
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": true,
+          "primary_is_jsonl_prefix": false,
+          "jsonl_missing_primary_sequences": [
+            98,
+            99,
+            100,
+            101
+          ],
+          "jsonl_extension_sequences": []
+        }
+      },
+      {
+        "run_id": "20261102T172436Z-experimental-codex-0d3f1789",
+        "source_selection": "primary_snapshot_exact_bytes",
+        "run_head_hash": "f2844a7ebaa726cabb6f3098df8112654ae6ff6a88ce8cf614d6269017090625",
+        "config_hash": "eff66260e709d5336892c5f5e7d83bbe90b84051ecd5cf2ba6d18ac3f28c3f67",
+        "derived_sha256": "d7930b04088426fb91a1ef9b760c78f3349f5b0ffd3d26e2425097f5dc1baa72",
+        "provenance_sha256": "03e8c24e1381ae2db9ab207bd8e84e53c2e1d54ad936b3e1f7b36f1ab7be4a07",
+        "run_file": "evaluation-records/20261102T172436Z-experimental-codex-0d3f1789/run.json",
+        "provenance_file": "evaluation-records/20261102T172436Z-experimental-codex-0d3f1789/provenance.json",
+        "reason": "The verified completed primary snapshot matches the batch head; copied byte-for-byte. Any missing raw-log records remain documented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T172436Z-experimental-codex-0d3f1789/run.json",
+            "sha256": "d7930b04088426fb91a1ef9b760c78f3349f5b0ffd3d26e2425097f5dc1baa72",
+            "bytes": 5011471
+          },
+          "events_jsonl": {
+            "path": "records/20261102T172436Z-experimental-codex-0d3f1789/events.jsonl",
+            "sha256": "02309941d18062c771e1ad1c2d60699e19551ecebe1a26d7d22a8768c28ec684",
+            "bytes": 4631364
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": true,
+          "primary_is_jsonl_prefix": true,
+          "jsonl_missing_primary_sequences": [],
+          "jsonl_extension_sequences": []
+        }
+      },
+      {
+        "run_id": "20261102T172436Z-experimental-codex-313801d1",
+        "source_selection": "primary_snapshot_exact_bytes",
+        "run_head_hash": "6bbe32c384345f3c4bc54d21aa1d63444a92721a62fb966057c27913ef46d151",
+        "config_hash": "619fe3220b5616a9c5ce1126035fa2aa806d18ef374915e5f6c20877199986f5",
+        "derived_sha256": "9b6b4840630788f146838d803daf4855e197e307b65963a0663e834a3735d8f0",
+        "provenance_sha256": "2340c515613e9925afd1831c13fe88f7a0ef94d74d9cee929e5b8f6fb108ac39",
+        "run_file": "evaluation-records/20261102T172436Z-experimental-codex-313801d1/run.json",
+        "provenance_file": "evaluation-records/20261102T172436Z-experimental-codex-313801d1/provenance.json",
+        "reason": "The verified completed primary snapshot matches the batch head; copied byte-for-byte. Any missing raw-log records remain documented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T172436Z-experimental-codex-313801d1/run.json",
+            "sha256": "9b6b4840630788f146838d803daf4855e197e307b65963a0663e834a3735d8f0",
+            "bytes": 5822945
+          },
+          "events_jsonl": {
+            "path": "records/20261102T172436Z-experimental-codex-313801d1/events.jsonl",
+            "sha256": "90b428c52ba7953987cfedb845ea62756a7e34bda0ce47218349998c1e225b69",
+            "bytes": 5403628
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": true,
+          "primary_is_jsonl_prefix": true,
+          "jsonl_missing_primary_sequences": [],
+          "jsonl_extension_sequences": []
+        }
+      },
+      {
+        "run_id": "20261102T172436Z-experimental-codex-8acf4085",
+        "source_selection": "primary_snapshot_exact_bytes",
+        "run_head_hash": "aeb1fd362fa9daf53953e7b65474416b6a4b517227695fc072487c70c14d100e",
+        "config_hash": "a5ec5b9d16fb5d18b49e8dcb4c03b8b07457d4ccd7c73268d501e1679788da67",
+        "derived_sha256": "42d81cef0e1896f1f065a2455f35463ac88fa4b7bdade51dc0734b7aef8785f2",
+        "provenance_sha256": "3761b5c10b0cfd0042ca98483ff4d5f06c744f8ca39391943424dc17e73f786e",
+        "run_file": "evaluation-records/20261102T172436Z-experimental-codex-8acf4085/run.json",
+        "provenance_file": "evaluation-records/20261102T172436Z-experimental-codex-8acf4085/provenance.json",
+        "reason": "The verified completed primary snapshot matches the batch head; copied byte-for-byte. Any missing raw-log records remain documented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T172436Z-experimental-codex-8acf4085/run.json",
+            "sha256": "42d81cef0e1896f1f065a2455f35463ac88fa4b7bdade51dc0734b7aef8785f2",
+            "bytes": 5752022
+          },
+          "events_jsonl": {
+            "path": "records/20261102T172436Z-experimental-codex-8acf4085/events.jsonl",
+            "sha256": "22800f916c1f7c5d2dbd2906fc59009de4192a2172924b9c1d1d054dad4577fb",
+            "bytes": 5335286
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": true,
+          "primary_is_jsonl_prefix": true,
+          "jsonl_missing_primary_sequences": [],
+          "jsonl_extension_sequences": []
+        }
+      },
+      {
+        "run_id": "20261102T172436Z-experimental-codex-aa32b2d6",
+        "source_selection": "primary_snapshot_exact_bytes",
+        "run_head_hash": "26b5a21410203647ed1e0b8abb1154c2737f22740513fe74b647a52325dbf6aa",
+        "config_hash": "9ea12482ffab06cd6a8e86752b18f703b8143471db7248ba5e21daf4bb2b7528",
+        "derived_sha256": "e1ff692e1c0a979d3f4379062ee53fbdfe4bf9bc1a6fc90367f092bbb365af0f",
+        "provenance_sha256": "815a90c167b1f2ffefa69c33ad7e8a5996143aa0989031153aab08a5a5443978",
+        "run_file": "evaluation-records/20261102T172436Z-experimental-codex-aa32b2d6/run.json",
+        "provenance_file": "evaluation-records/20261102T172436Z-experimental-codex-aa32b2d6/provenance.json",
+        "reason": "The verified completed primary snapshot matches the batch head; copied byte-for-byte. Any missing raw-log records remain documented.",
+        "original_files": {
+          "run_json": {
+            "path": "records/20261102T172436Z-experimental-codex-aa32b2d6/run.json",
+            "sha256": "e1ff692e1c0a979d3f4379062ee53fbdfe4bf9bc1a6fc90367f092bbb365af0f",
+            "bytes": 5992266
+          },
+          "events_jsonl": {
+            "path": "records/20261102T172436Z-experimental-codex-aa32b2d6/events.jsonl",
+            "sha256": "bce232d9504cb86678382318b922e5c1d776ca9b2b861c3614aee9b0b2269758",
+            "bytes": 5320868
+          }
+        },
+        "discrepancies": {
+          "primary_matches_batch_head": true,
+          "primary_is_jsonl_prefix": true,
+          "jsonl_missing_primary_sequences": [],
+          "jsonl_extension_sequences": []
+        }
+      }
+    ],
+    "exclusions": [
+      {
+        "run_id": "20261102T172436Z-experimental-codex-329e9a09",
+        "item_id": "domain-withdrawn-explicit-r03",
+        "condition": "domain-withdrawn-explicit",
+        "replicate": 3,
+        "generation_status": "completed",
+        "evaluation_status": "excluded_unverifiable_terminal_record",
+        "reason": "Raw JSONL extension is not completed at the exact batch head",
+        "run_head_hash": "8bda6e238dc250b1ca4a2f70036e2b0024bd20165e69cb7aa02bfb5d76367588",
+        "exclusion_hash": "bae32c14598722eca56ca05c20b50eba9f68019dc1ede2c0fc8fc5b47452e01f",
+        "exclusion_file": "evaluation-records/exclusions/20261102T172436Z-experimental-codex-329e9a09/exclusion.json",
+        "exclusion_sha256": "a5015eedb45dc7d45c8987b3bfd78bac32dcfa4ee15d508f5a8190b836141071"
+      }
+    ],
+    "interpretation": "Evaluation records are separately labeled views selected by a deterministic evidence rule. Exact primary bytes are used when their completed head matches the batch. A complete verified raw chain may extend an exact primary prefix; no event is invented. Unverifiable terminal records are explicitly excluded before reviews, without reruns or replacement ratings. Original generation status, snapshot states, raw-log gaps and receipt gaps remain in the generation audit."
+  },
+  "reviews": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "low",
+    "attempts": 28,
+    "accepted": 26,
+    "failed": 2,
+    "failure_categories": {
+      "invalid_review_content_or_execution_error": 1,
+      "incomplete_or_disallowed_provider_receipt": 1
+    },
+    "candidate_count": 14,
+    "unknown_candidate_axis_indices": {
+      "human_flourishing": 2,
+      "system_performance": 2,
+      "learning": 2
+    },
+    "freeze_hash": "6ee9d57e50b636d0c3a63795a4f214ec6880bf949a5d78e4fab9657126a7c5b9",
+    "summary_hash": "b968b0227c75cbe8bcde0b686ffb0295731b33f4aa49270f7f7c06888fb94c24",
+    "interpretation": "Repeated judgments from the same model, not independent human ratings. Invalid attempts remain unknown; no retry or replacement rating is selected."
+  },
+  "source_files_sha256": {
+    "analysis/generation-audit.json": "b476955ad4c5300cd5bee415e215600a798577bbd13cd6783b53b17cd714b4e5",
+    "evaluation-records/manifest.json": "d416c51834f87feaa1ac961aabbcc686b46f9669b1b16760a2aea76f5a5801f9",
+    "scoring/protocol.json": "2b279e493adea876af6eed456613edb4b5342876901ac3bc28853068ad947a24",
+    "scoring/summary.json": "4dcf441617402e23fe9f87fec7dc267c2bde525d32e982700652f21098c18dbc",
+    "scoring/freeze.json": "e008160c1ce1429be4f0db9fdb3969a2995f7d53409aca7535bb130001153182"
+  },
+  "limits": [
+    "Primary journal-chain verification is distinct from consistency of its separately retained raw event log.",
+    "Original raw logs and responses are preserved without repair; any discrepancies remain explicit.",
+    "Available receipt totals do not establish token usage or absence of tool use for calls with incomplete receipts.",
+    "No human learning outcomes, population effects, or simulated probabilities are estimated."
+  ],
+  "audit_notes_hash": "6709653c92ecf4cdca09e2cf5803e8761c2890cd5b519aac478e183747e606c3"
+}
