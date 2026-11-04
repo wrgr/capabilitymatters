@@ -1,0 +1,37 @@
+name: Live competency agents — bounded pilot
+on:
+  push:
+    paths:
+      - "tools/lifecycle/live_competency_agents.mjs"
+      - "tools/lifecycle/tests/live_competency_agents.test.mjs"
+      - ".github/workflows/live-competency-agents.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  live-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate syntax and access rules without model calls
+        run: |
+          node --check tools/lifecycle/live_competency_agents.mjs
+          node --test tools/lifecycle/tests/live_competency_agents.test.mjs
+      - name: Run real participant turns; fail explicitly if OpenAI is not configured
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+        run: |
+          node tools/lifecycle/live_competency_agents.mjs --case ai_dispatch_logistics --condition integrated --turns 12 --out live-competency-evidence
+      - name: Retain receipts, dialogue, freezes, and negative results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-competency-evidence
+          path: live-competency-evidence/
+          if-no-files-found: warn
+          retention-days: 90
