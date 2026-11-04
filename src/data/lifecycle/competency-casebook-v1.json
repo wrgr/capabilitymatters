@@ -1,0 +1,1096 @@
+{
+  "schema_version": "competency-multicase-1",
+  "evidence_notice": "All fictional case facts, action effects and policy roles are authored assumptions. An illustrative run is not a live multi-agent execution.",
+  "axes": [
+    "capability",
+    "human_conditions",
+    "organizational_performance",
+    "resilience"
+  ],
+  "cases": [
+    {
+      "id": "ai_dispatch_logistics",
+      "title": "AI dispatch: faster routine work, fragile exception handling",
+      "public_brief": "A fictional 220-person logistics operation spanning three facilities has deployed an AI dispatch assistant. Routine work is faster but exception handoffs are failing. Management needs reliable throughput and worker judgment, not necessarily another course.",
+      "evidence": [
+        "Recorded exceptions rose from 11% to 17% after introduction, but the case mix and logging definitions changed.",
+        "Workers report uncertainty about overriding the assistant; managers disagree about shift ownership.",
+        "Only brief on-shift practice is feasible. No identifiable worker records may be disclosed."
+      ],
+      "stakeholder_voices": [
+        {
+          "speaker": "shift lead",
+          "quote": "The assistant tells us what to do until the case is strange. Then nobody agrees who owns the call."
+        },
+        {
+          "speaker": "operations director",
+          "quote": "We cannot buy a long training program when the queues are already growing."
+        }
+      ],
+      "budget": 7,
+      "base": [
+        55,
+        60,
+        100,
+        48
+      ],
+      "actors": [
+        {
+          "id": "ops",
+          "profession": "operations manager",
+          "project_role": "accountable sponsor and operational lead",
+          "competencies": {
+            "subject_matter_expertise": 0.95,
+            "learning_environment_engineering": 0.7
+          },
+          "status": "embedded"
+        },
+        {
+          "id": "analyst",
+          "profession": "data scientist",
+          "project_role": "measurement and diagnostics",
+          "competencies": {
+            "data_science": 0.95,
+            "assessment_measurement_evaluation": 0.5
+          },
+          "status": "embedded"
+        },
+        {
+          "id": "trainer",
+          "profession": "workplace training designer",
+          "project_role": "learning experience and staff adoption",
+          "competencies": {
+            "learning_experience_design": 0.9,
+            "education_training_professionals": 0.8,
+            "learning_sciences": 0.4
+          },
+          "status": "embedded"
+        },
+        {
+          "id": "scientist",
+          "profession": "learning scientist",
+          "project_role": "transfer and assessment consultant",
+          "competencies": {
+            "learning_sciences": 0.95,
+            "assessment_measurement_evaluation": 0.8
+          },
+          "status": "consultable"
+        }
+      ],
+      "conditions": [
+        {
+          "id": "embedded_only",
+          "label": "Core embedded team",
+          "lead": "ops",
+          "consultable": [],
+          "consult_rate": 0,
+          "integration": false
+        },
+        {
+          "id": "consultation",
+          "label": "Learning scientist consultable",
+          "lead": "ops",
+          "consultable": [
+            "scientist"
+          ],
+          "consult_rate": 0.56,
+          "integration": false
+        },
+        {
+          "id": "integrated",
+          "label": "Consultation with explicit integration practice",
+          "lead": "ops",
+          "consultable": [
+            "scientist"
+          ],
+          "consult_rate": 0.81,
+          "integration": true
+        }
+      ],
+      "actions": [
+        {
+          "id": "map_handoffs",
+          "owner": "ops",
+          "cost": 1,
+          "prob": 0.86,
+          "priority": 1.3,
+          "delta": [
+            1,
+            3,
+            7,
+            6
+          ],
+          "tags": [
+            "workflow"
+          ],
+          "rationale": "Map exceptions and shift ownership before asserting the problem is a training deficit."
+        },
+        {
+          "id": "override_protocol",
+          "owner": "ops",
+          "cost": 1,
+          "prob": 0.72,
+          "priority": 1.04,
+          "delta": [
+            4,
+            3,
+            -1,
+            13
+          ],
+          "tags": [
+            "fallback",
+            "workflow"
+          ],
+          "rationale": "Define who is authorized to override and how to escalate disagreement."
+        },
+        {
+          "id": "outage_drill",
+          "owner": "ops",
+          "cost": 2,
+          "prob": 0.53,
+          "priority": 0.85,
+          "delta": [
+            9,
+            1,
+            -3,
+            14
+          ],
+          "tags": [
+            "fallback",
+            "transfer"
+          ],
+          "rationale": "Rehearse a controlled assistant-outage fallback with supervisors."
+        },
+        {
+          "id": "segment_metrics",
+          "owner": "analyst",
+          "cost": 1,
+          "prob": 0.88,
+          "priority": 1.32,
+          "delta": [
+            1,
+            0,
+            4,
+            3
+          ],
+          "tags": [
+            "measurement"
+          ],
+          "rationale": "Separate routine and exception outcomes, retaining first attempts and denominators."
+        },
+        {
+          "id": "predictive_alerts",
+          "owner": "analyst",
+          "cost": 2,
+          "prob": 0.73,
+          "priority": 1.08,
+          "delta": [
+            0,
+            -3,
+            12,
+            -7
+          ],
+          "tags": [
+            "automation"
+          ],
+          "rationale": "Add a targeted alert layer with false-alarm monitoring."
+        },
+        {
+          "id": "brief_practice",
+          "owner": "trainer",
+          "cost": 1,
+          "prob": 0.83,
+          "priority": 1.17,
+          "delta": [
+            6,
+            1,
+            3,
+            3
+          ],
+          "tags": [
+            "practice"
+          ],
+          "rationale": "Use short supported exception walkthroughs with corrective feedback."
+        },
+        {
+          "id": "job_aid",
+          "owner": "trainer",
+          "cost": 1,
+          "prob": 0.75,
+          "priority": 1.07,
+          "delta": [
+            5,
+            6,
+            4,
+            4
+          ],
+          "tags": [
+            "workflow",
+            "access"
+          ],
+          "rationale": "Provide a concise, usable exception decision aid."
+        },
+        {
+          "id": "varied_transfer",
+          "owner": "scientist",
+          "cost": 2,
+          "prob": 0.91,
+          "priority": 1.19,
+          "delta": [
+            17,
+            2,
+            -4,
+            11
+          ],
+          "tags": [
+            "transfer",
+            "practice"
+          ],
+          "rationale": "Test staff judgment on a changed case without automated guidance."
+        },
+        {
+          "id": "delayed_check",
+          "owner": "scientist",
+          "cost": 1,
+          "prob": 0.85,
+          "priority": 1,
+          "delta": [
+            5,
+            0,
+            -1,
+            4
+          ],
+          "tags": [
+            "measurement",
+            "transfer"
+          ],
+          "rationale": "Measure unassisted decisions after the initial practice period."
+        }
+      ],
+      "event_severity": {
+        "easy": {
+          "label": "Routine case mix",
+          "shock": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "mitigations": {}
+        },
+        "medium": {
+          "label": "Shift turnover and exception surge",
+          "shock": [
+            -7,
+            -3,
+            -11,
+            -15
+          ],
+          "mitigations": {
+            "workflow": [
+              0,
+              1,
+              4,
+              4
+            ],
+            "practice": [
+              3,
+              0,
+              0,
+              2
+            ],
+            "fallback": [
+              1,
+              0,
+              2,
+              6
+            ]
+          }
+        },
+        "hard": {
+          "label": "Assistant outage during surge",
+          "shock": [
+            -19,
+            -10,
+            -30,
+            -38
+          ],
+          "mitigations": {
+            "fallback": [
+              3,
+              1,
+              7,
+              18
+            ],
+            "transfer": [
+              13,
+              2,
+              0,
+              11
+            ],
+            "workflow": [
+              0,
+              2,
+              4,
+              4
+            ],
+            "automation": [
+              0,
+              -2,
+              -5,
+              -5
+            ]
+          }
+        }
+      },
+      "hidden_hypotheses": [
+        "ambiguous override authority",
+        "tool dependence in novel cases",
+        "changed case mix confounds headline error rates"
+      ]
+    },
+    {
+      "id": "benefits_service",
+      "title": "Benefits service: access and trust under a processing mandate",
+      "public_brief": "A fictional public-benefits service center is under pressure to shorten claim-processing time. A new self-service tool reduces simple calls but complex cases are returned repeatedly and language-access complaints have increased.",
+      "evidence": [
+        "The median simple-case turnaround improved, but repeat contacts among complex cases increased.",
+        "The reporting dashboard excludes people who leave the application halfway through.",
+        "A statutory policy specialist must approve policy interpretation; the pilot cannot change eligibility rules."
+      ],
+      "stakeholder_voices": [
+        {
+          "speaker": "caseworker",
+          "quote": "People keep calling back because the answer looks final even when their case needs a person."
+        },
+        {
+          "speaker": "service director",
+          "quote": "Our performance metric counts closures, not whether someone understood the next step."
+        }
+      ],
+      "budget": 8,
+      "base": [
+        48,
+        54,
+        95,
+        51
+      ],
+      "actors": [
+        {
+          "id": "director",
+          "profession": "service operations director",
+          "project_role": "organizational sponsor",
+          "competencies": {
+            "learning_environment_engineering": 0.75,
+            "education_training_professionals": 0.4
+          },
+          "status": "embedded"
+        },
+        {
+          "id": "policy",
+          "profession": "benefits policy specialist",
+          "project_role": "mandatory policy authority",
+          "competencies": {
+            "subject_matter_expertise": 0.95
+          },
+          "status": "embedded"
+        },
+        {
+          "id": "hcc",
+          "profession": "human-centered computing specialist",
+          "project_role": "service journeys and participation",
+          "competencies": {
+            "learning_experience_design": 0.75,
+            "education_training_professionals": 0.55,
+            "learning_sciences": 0.25
+          },
+          "status": "embedded"
+        },
+        {
+          "id": "analyst",
+          "profession": "service data analyst",
+          "project_role": "service measurement and operational evidence",
+          "competencies": {
+            "data_science": 0.9,
+            "assessment_measurement_evaluation": 0.5
+          },
+          "status": "embedded"
+        },
+        {
+          "id": "access",
+          "profession": "language and accessibility specialist",
+          "project_role": "consultant on equitable routes",
+          "competencies": {
+            "learning_experience_design": 0.75,
+            "education_training_professionals": 0.8
+          },
+          "status": "consultable"
+        }
+      ],
+      "conditions": [
+        {
+          "id": "operations_lead",
+          "label": "Service-operations framing",
+          "lead": "director",
+          "consultable": [],
+          "consult_rate": 0,
+          "integration": false
+        },
+        {
+          "id": "hcc_lead",
+          "label": "Human-centered computing framing",
+          "lead": "hcc",
+          "consultable": [],
+          "consult_rate": 0,
+          "integration": false
+        },
+        {
+          "id": "access_consult",
+          "label": "Cross-functional consultation on access",
+          "lead": "director",
+          "consultable": [
+            "access"
+          ],
+          "consult_rate": 0.78,
+          "integration": true
+        }
+      ],
+      "actions": [
+        {
+          "id": "complex_case_route",
+          "owner": "director",
+          "cost": 1,
+          "prob": 0.9,
+          "priority": 1.26,
+          "delta": [
+            3,
+            5,
+            5,
+            10
+          ],
+          "tags": [
+            "workflow",
+            "fallback"
+          ],
+          "rationale": "Route complex or uncertain cases to a person with traceable ownership."
+        },
+        {
+          "id": "closure_targets",
+          "owner": "director",
+          "cost": 2,
+          "prob": 0.65,
+          "priority": 1.08,
+          "delta": [
+            -1,
+            -7,
+            14,
+            -9
+          ],
+          "tags": [
+            "efficiency"
+          ],
+          "rationale": "Increase closure targets with mandatory monitoring for unintended returns."
+        },
+        {
+          "id": "policy_explanations",
+          "owner": "policy",
+          "cost": 1,
+          "prob": 0.83,
+          "priority": 1.21,
+          "delta": [
+            9,
+            4,
+            3,
+            6
+          ],
+          "tags": [
+            "learning",
+            "access"
+          ],
+          "rationale": "Explain policy decisions using approved plain-language boundaries without changing policy."
+        },
+        {
+          "id": "escalation_guardrail",
+          "owner": "policy",
+          "cost": 1,
+          "prob": 0.72,
+          "priority": 1.14,
+          "delta": [
+            2,
+            8,
+            -2,
+            11
+          ],
+          "tags": [
+            "fallback"
+          ],
+          "rationale": "Flag unresolved eligibility uncertainty for authorized review."
+        },
+        {
+          "id": "co_design",
+          "owner": "hcc",
+          "cost": 2,
+          "prob": 0.84,
+          "priority": 1.19,
+          "delta": [
+            4,
+            14,
+            -3,
+            6
+          ],
+          "tags": [
+            "access",
+            "human"
+          ],
+          "rationale": "Have affected applicants and staff evaluate the journey before adoption."
+        },
+        {
+          "id": "progressive_disclosure",
+          "owner": "hcc",
+          "cost": 1,
+          "prob": 0.79,
+          "priority": 1.12,
+          "delta": [
+            5,
+            9,
+            2,
+            2
+          ],
+          "tags": [
+            "access",
+            "learning"
+          ],
+          "rationale": "Show limits, next steps, and escalation clearly rather than implying finality."
+        },
+        {
+          "id": "contact_denominators",
+          "owner": "analyst",
+          "cost": 1,
+          "prob": 0.85,
+          "priority": 1.27,
+          "delta": [
+            1,
+            2,
+            7,
+            4
+          ],
+          "tags": [
+            "measurement"
+          ],
+          "rationale": "Track abandoned cases, repeat contacts, and time to a resolved case."
+        },
+        {
+          "id": "triage_classifier",
+          "owner": "analyst",
+          "cost": 2,
+          "prob": 0.69,
+          "priority": 1.06,
+          "delta": [
+            0,
+            -5,
+            13,
+            -7
+          ],
+          "tags": [
+            "automation"
+          ],
+          "rationale": "Explore automated routing while explicitly evaluating false denials and appeals."
+        },
+        {
+          "id": "language_access_test",
+          "owner": "access",
+          "cost": 2,
+          "prob": 0.91,
+          "priority": 1.28,
+          "delta": [
+            6,
+            16,
+            -3,
+            9
+          ],
+          "tags": [
+            "access",
+            "transfer"
+          ],
+          "rationale": "Test the pathway with language-support alternatives and assisted handoffs."
+        },
+        {
+          "id": "alternative_channel",
+          "owner": "access",
+          "cost": 1,
+          "prob": 0.82,
+          "priority": 1.04,
+          "delta": [
+            2,
+            12,
+            -3,
+            7
+          ],
+          "tags": [
+            "access",
+            "fallback"
+          ],
+          "rationale": "Provide a non-digital path when the self-service journey is unusable."
+        }
+      ],
+      "event_severity": {
+        "easy": {
+          "label": "Standard intake",
+          "shock": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "mitigations": {}
+        },
+        "medium": {
+          "label": "New policy clarification and multilingual demand",
+          "shock": [
+            -7,
+            -9,
+            -11,
+            -14
+          ],
+          "mitigations": {
+            "access": [
+              3,
+              8,
+              1,
+              3
+            ],
+            "workflow": [
+              0,
+              1,
+              3,
+              4
+            ],
+            "measurement": [
+              0,
+              1,
+              2,
+              2
+            ]
+          }
+        },
+        "hard": {
+          "label": "Automation incorrectly closes ambiguous cases",
+          "shock": [
+            -14,
+            -22,
+            -27,
+            -35
+          ],
+          "mitigations": {
+            "fallback": [
+              2,
+              5,
+              3,
+              14
+            ],
+            "access": [
+              5,
+              10,
+              0,
+              8
+            ],
+            "measurement": [
+              0,
+              0,
+              3,
+              3
+            ],
+            "automation": [
+              0,
+              -5,
+              -3,
+              -5
+            ]
+          }
+        }
+      },
+      "hidden_hypotheses": [
+        "case-mix and abandoned cases distort performance",
+        "false finality causes repeat demand",
+        "access pathways fail for language needs"
+      ]
+    },
+    {
+      "id": "controlroom_readiness",
+      "title": "Control-room readiness: knowing when not to trust an alert",
+      "public_brief": "A fictional regional utility is introducing an AI alert prioritizer into a control-room simulation. An experienced operator and safety engineer remain mandatory. Management wants faster triage without degrading independent diagnosis, safe escalation, or continuity when the system fails.",
+      "evidence": [
+        "The prioritizer ranks routine alarms well, but one validation set contains stale sensor inputs.",
+        "New operators train mostly with the prioritizer present.",
+        "The simulation includes a communications dropout; no real grid actions are performed."
+      ],
+      "stakeholder_voices": [
+        {
+          "speaker": "senior operator",
+          "quote": "A confident alert is still wrong if the sensor is stale. What can the trainee check independently?"
+        },
+        {
+          "speaker": "training lead",
+          "quote": "Our current training measures acknowledgement speed, not the quality of the diagnosis."
+        }
+      ],
+      "budget": 9,
+      "base": [
+        52,
+        57,
+        97,
+        55
+      ],
+      "actors": [
+        {
+          "id": "safety",
+          "profession": "safety engineer",
+          "project_role": "mandatory safety constraint and release authority",
+          "competencies": {
+            "learning_environment_engineering": 0.9,
+            "subject_matter_expertise": 0.7
+          },
+          "status": "embedded"
+        },
+        {
+          "id": "operator",
+          "profession": "experienced control-room operator",
+          "project_role": "domain expert and operational decision lead",
+          "competencies": {
+            "subject_matter_expertise": 0.97,
+            "education_training_professionals": 0.4
+          },
+          "status": "embedded"
+        },
+        {
+          "id": "systems",
+          "profession": "systems engineer",
+          "project_role": "system boundaries, interfaces and failure management",
+          "competencies": {
+            "software_engineering": 0.7,
+            "learning_environment_engineering": 0.9
+          },
+          "status": "embedded"
+        },
+        {
+          "id": "trainer",
+          "profession": "simulation training specialist",
+          "project_role": "practice sequence and facilitation",
+          "competencies": {
+            "learning_experience_design": 0.87,
+            "learning_sciences": 0.4
+          },
+          "status": "embedded"
+        },
+        {
+          "id": "scientist",
+          "profession": "learning scientist",
+          "project_role": "consultant on transfer and retention",
+          "competencies": {
+            "learning_sciences": 0.95,
+            "assessment_measurement_evaluation": 0.75
+          },
+          "status": "consultable"
+        }
+      ],
+      "conditions": [
+        {
+          "id": "operational_core",
+          "label": "Safety and operations core",
+          "lead": "operator",
+          "consultable": [],
+          "consult_rate": 0,
+          "integration": false
+        },
+        {
+          "id": "training_consult",
+          "label": "Transfer review on request",
+          "lead": "trainer",
+          "consultable": [
+            "scientist"
+          ],
+          "consult_rate": 0.59,
+          "integration": false
+        },
+        {
+          "id": "safety_integration",
+          "label": "Full integration with mandatory safety check",
+          "lead": "safety",
+          "consultable": [
+            "scientist"
+          ],
+          "consult_rate": 0.84,
+          "integration": true
+        }
+      ],
+      "actions": [
+        {
+          "id": "stale_data_gate",
+          "owner": "safety",
+          "cost": 2,
+          "prob": 0.93,
+          "priority": 1.5,
+          "delta": [
+            5,
+            3,
+            -4,
+            17
+          ],
+          "tags": [
+            "fallback",
+            "safety"
+          ],
+          "rationale": "Prevent release when stale or contradictory inputs cannot be independently checked."
+        },
+        {
+          "id": "risk_authority",
+          "owner": "safety",
+          "cost": 1,
+          "prob": 0.88,
+          "priority": 1.32,
+          "delta": [
+            3,
+            2,
+            0,
+            12
+          ],
+          "tags": [
+            "safety",
+            "workflow"
+          ],
+          "rationale": "Retain an explicit escalation and stop authority."
+        },
+        {
+          "id": "unassisted_alarm_sort",
+          "owner": "operator",
+          "cost": 2,
+          "prob": 0.74,
+          "priority": 1.18,
+          "delta": [
+            14,
+            1,
+            -2,
+            11
+          ],
+          "tags": [
+            "transfer",
+            "practice"
+          ],
+          "rationale": "Have operators diagnose a changed alarm set without prioritizer cues."
+        },
+        {
+          "id": "incident_debrief",
+          "owner": "operator",
+          "cost": 1,
+          "prob": 0.76,
+          "priority": 1.09,
+          "delta": [
+            5,
+            2,
+            -1,
+            4
+          ],
+          "tags": [
+            "learning"
+          ],
+          "rationale": "Debrief why a hypothesis was rejected and what evidence changed the decision."
+        },
+        {
+          "id": "fault_injection",
+          "owner": "systems",
+          "cost": 2,
+          "prob": 0.88,
+          "priority": 1.35,
+          "delta": [
+            6,
+            1,
+            -4,
+            15
+          ],
+          "tags": [
+            "fallback",
+            "system"
+          ],
+          "rationale": "Test sensor staleness and communication loss within a safe simulated environment."
+        },
+        {
+          "id": "interface_overview",
+          "owner": "systems",
+          "cost": 1,
+          "prob": 0.76,
+          "priority": 1.03,
+          "delta": [
+            2,
+            3,
+            7,
+            2
+          ],
+          "tags": [
+            "efficiency"
+          ],
+          "rationale": "Provide clear alert context and uncertainty displays."
+        },
+        {
+          "id": "guided_alarm_lab",
+          "owner": "trainer",
+          "cost": 1,
+          "prob": 0.88,
+          "priority": 1.16,
+          "delta": [
+            7,
+            2,
+            3,
+            2
+          ],
+          "tags": [
+            "practice"
+          ],
+          "rationale": "Use worked examples, explanation and corrective feedback."
+        },
+        {
+          "id": "fast_acknowledgment",
+          "owner": "trainer",
+          "cost": 1,
+          "prob": 0.6,
+          "priority": 0.95,
+          "delta": [
+            0,
+            -1,
+            11,
+            -6
+          ],
+          "tags": [
+            "efficiency"
+          ],
+          "rationale": "Practice quick acknowledgment, while recording that it is not independent diagnosis."
+        },
+        {
+          "id": "delayed_no_ai_trial",
+          "owner": "scientist",
+          "cost": 2,
+          "prob": 0.9,
+          "priority": 1.23,
+          "delta": [
+            18,
+            2,
+            -5,
+            12
+          ],
+          "tags": [
+            "transfer"
+          ],
+          "rationale": "Evaluate independent diagnosis after delay and varied practice."
+        },
+        {
+          "id": "transfer_rubric",
+          "owner": "scientist",
+          "cost": 1,
+          "prob": 0.83,
+          "priority": 1.06,
+          "delta": [
+            5,
+            0,
+            -2,
+            5
+          ],
+          "tags": [
+            "measurement",
+            "transfer"
+          ],
+          "rationale": "Separate correct reasoning from rapid acknowledgement on changed cases."
+        }
+      ],
+      "event_severity": {
+        "easy": {
+          "label": "Routine simulator operations",
+          "shock": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "mitigations": {}
+        },
+        "medium": {
+          "label": "Staff handoff with partial sensor staleness",
+          "shock": [
+            -8,
+            -4,
+            -12,
+            -16
+          ],
+          "mitigations": {
+            "safety": [
+              0,
+              1,
+              2,
+              6
+            ],
+            "fallback": [
+              2,
+              0,
+              2,
+              6
+            ],
+            "practice": [
+              3,
+              1,
+              0,
+              2
+            ]
+          }
+        },
+        "hard": {
+          "label": "Simulated cascading alerts and communications dropout",
+          "shock": [
+            -21,
+            -10,
+            -33,
+            -43
+          ],
+          "mitigations": {
+            "safety": [
+              3,
+              2,
+              3,
+              14
+            ],
+            "fallback": [
+              4,
+              0,
+              4,
+              15
+            ],
+            "transfer": [
+              14,
+              2,
+              0,
+              10
+            ],
+            "efficiency": [
+              0,
+              -1,
+              -4,
+              -4
+            ]
+          }
+        }
+      },
+      "hidden_hypotheses": [
+        "stale sensor data produces plausible but wrong alerts",
+        "training with AI present prevents independent diagnosis",
+        "communications loss exposes system coupling"
+      ]
+    }
+  ],
+  "prospective_factorial_register": {
+    "status": "planned_only_not_executed",
+    "axes": [
+      "specialist availability absent/consultable/embedded",
+      "integration process absent/present",
+      "expert authority advisory/decision",
+      "role competency overlap low/high"
+    ],
+    "design_notes": "Future resource-matched factorial or fractional-factorial work should separately randomize team composition, consultation rights and coordination rules. No factorial effect estimates are reported in this paper."
+  }
+}
