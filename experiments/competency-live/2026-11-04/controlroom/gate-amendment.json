@@ -1,0 +1,10 @@
+{
+  "description": "Exposed validator defect and correction before freeze; no participant speech, artifact or event changed.",
+  "recorded_at": "2026-11-04T21:07:12.443164+00:00",
+  "failure": "The gate rejected competency=hypothesis with standing=attributed_advice even when a delivered message was cited.",
+  "correction": "Permit that cautious scope when standing is attributed_advice and a delivered message basis is present. Still reject supplied_fact or role_judgment under hypothesis; attribution-only scope now also requires attribution standing.",
+  "tests": "Added live-regression example and negative missing-attribution checks; all ten scoped tests pass in normal and optimized Python.",
+  "draft_sha256_unchanged": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+  "independent_review_required": "Reviewer must judge whether the amendment is legitimate metadata validation or unjustified permission relaxation.",
+  "incidental_transport_failure": "A reveal command attempted after rejected freeze failed on missing receipt; no deployment-release file existed and no team saw events."
+}

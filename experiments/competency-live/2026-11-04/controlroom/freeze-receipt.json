@@ -1,0 +1,24 @@
+{
+  "description": "Exact team artifact freeze; transport does not repair its content.",
+  "frozen_at": "2026-11-04T21:07:12.525448+00:00",
+  "sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+  "source": "experiments/competency-live/2026-11-04/controlroom/draft-intervention.json",
+  "endorsement_files": [
+    "operator-03.json",
+    "safety-03.json"
+  ],
+  "knowledge_gate": {
+    "version": 2,
+    "accepted_messages": [
+      "controlroom-operator-01",
+      "controlroom-safety-01",
+      "controlroom-scientist-01",
+      "controlroom-operator-02",
+      "controlroom-safety-02",
+      "controlroom-operator-03",
+      "controlroom-safety-03"
+    ],
+    "meaning": "Declared scope and evidence permissions passed; semantic expertise and actual tool access still require independent audit."
+  },
+  "events_sha256": "42340b03925e082bb1f622ac5e9bb201456326bfa403e92dbabe145fac0210e5"
+}

@@ -1,0 +1,96 @@
+{
+  "case_id": "logistics",
+  "diagnosis": "Reported exception rates of 11% and 17% use different denominators (L-D1); exception definitions and numerator comparability are unverified. Night-shift overrides have 38% missing annotations that cannot be recovered from the export (L-D2, L-D3). Overnight override ownership is unagreed (L-O1). These findings support descriptive auditing and a bounded ownership intervention, without establishing an AI effect or training deficit. Familiar six-item examples do not establish independent competence (L-S1); no validated certification instrument is available (L-S2).",
+  "actions": [
+    {
+      "id": "workflow",
+      "owner": "ops",
+      "cost": 2,
+      "action": "Prepare an overnight override handoff procedure and restrict any pilot to one explicitly rostered clinic window. Require a named accepting supervisor owner and named accepting backup for every participating shift, including unresolved handoff coverage. Record case, shift, owner, status, next action and unknown reasons. Ops must verify that the senior dispatcher's available clinic can cover the proposed window; do not assume the clinic is overnight. No operational release is authorized by this draft while that coverage remains unverified.",
+      "source_messages": [
+        "logistics-ops-01",
+        "logistics-ops-02",
+        "logistics-analyst-02",
+        "logistics-ops-03"
+      ],
+      "evidence_refs": [
+        "L-O1",
+        "L-O3",
+        "L-D2",
+        "L-D3"
+      ],
+      "acceptance_test": "A written handoff aid and coverage record identify the actual pilot window, named accepting owner and backup, and route for unresolved cases. A missing acceptance or mismatch between overnight coverage and clinic coverage is recorded as a failed gate; no participating shift is released under this draft."
+    },
+    {
+      "id": "audit",
+      "owner": "analyst",
+      "cost": 2,
+      "action": "Audit shift-level denominators, exception definitions and numerator recording rules. Calculate a pre/post comparison only if the export supports a common definition and denominator; otherwise report separate descriptive counts. Preserve unknown annotations and report missingness. Depot and exception-type segmentation are conditional on export fields. Specify and summarize participation, shift, cases attempted, errors, prompts, aid use, accepted ownership and missing records, with explicit denominators; do not infer training effects.",
+      "source_messages": [
+        "logistics-analyst-01",
+        "logistics-analyst-02",
+        "logistics-ops-03"
+      ],
+      "evidence_refs": [
+        "L-D1",
+        "L-D2",
+        "L-D3"
+      ],
+      "acceptance_test": "Audit output states the supported denominator and definition for every reported rate, labels unavailable comparisons, preserves unknown records, and distinguishes historical data from any prospective observations. Analyst endorsement of this exact action remains required."
+    },
+    {
+      "id": "consultation",
+      "owner": "scientist",
+      "cost": 1,
+      "action": "Account for the single completed learning-scientist consultation. Use its advice to limit familiar-item results to immediate feedback and to avoid certification, transfer or retention claims. No further specialist work or assessor allocation is included in this fee.",
+      "source_messages": [
+        "logistics-scientist-01",
+        "logistics-ops-03"
+      ],
+      "evidence_refs": [
+        "L-S1",
+        "L-S2"
+      ],
+      "acceptance_test": "Consultation is retained as logistics-scientist-01; reporting explicitly states that certification, delayed retention and independent performance were not established."
+    },
+    {
+      "id": "brief_practice",
+      "owner": "ops",
+      "cost": 2,
+      "action": "Prepare a clinic for exactly two workers total from one confirmed clinic window, selected for available coverage rather than representativeness. Schedule only after supervisor coverage and worker release time are explicitly confirmed. Allocate the senior dispatcher's single two-hour clinic as 30 minutes preparation, two consecutive 15-minute worker slots, 30 minutes documentation/debrief and 30 minutes contingency. Each worker slot contains 2 minutes handoff orientation, 8 minutes familiar-example practice with feedback and 5 minutes familiar-item diagnostic feedback. Use the six provided interface examples; do not invent a severity ranking or represent this as assessor-reviewed changed-case evidence. Record errors, prompts, aid use and escalation explanations without a pass threshold. All other workers and shifts are outside this practice scope. This draft authorizes preparation only, with practice release withheld.",
+      "source_messages": [
+        "logistics-ops-01",
+        "logistics-scientist-01",
+        "logistics-analyst-02",
+        "logistics-ops-03"
+      ],
+      "evidence_refs": [
+        "L-O2",
+        "L-O3",
+        "L-S1",
+        "L-S2"
+      ],
+      "acceptance_test": "A roster and schedule identify two available workers, the senior dispatcher, the actual clinic window, 15 minutes maximum per worker and 120 minutes maximum senior-dispatcher time. Without these confirmations the clinic does not run. Any subsequent familiar-item observations are reported only for actual participants, with assistance recorded and no certification."
+    }
+  ],
+  "budget_spent": 7,
+  "rejected_alternatives": [
+    "The analyst's preferred nine-unit package is not adopted: two changed-case exercises are not funded because assessor capacity of two exercises has not become a confirmed allocation. No other role is silently substituted as assessor.",
+    "Universal clinic coverage is infeasible with one two-hour senior-dispatcher clinic and no full-shift shutdown; practice scope is two workers total.",
+    "Independent competence certification from the six familiar examples is rejected on the scientist's stated limitations.",
+    "A paper fallback drill is not funded even though three units remain: no feasible staffing and worker-time allocation for that drill has been established."
+  ],
+  "unresolved": [
+    "No actual clinic shift, two-worker release roster or named overnight owner and backup acceptance is yet verified. Operational release remains withheld.",
+    "Analyst has not yet endorsed the exact draft or its audit commitment.",
+    "Exception numerator and definition comparability may prevent a common historical comparison; night-shift reasons remain partly unknown.",
+    "No changed-case assessor allocation, delayed unassisted assessment, validated certification instrument or population-wide competence evidence exists.",
+    "The three unallocated units are not an authorization to add activities or redesign this frozen plan."
+  ],
+  "release_decision": "no release: preparation and descriptive audit may proceed, but operational handoff rollout and worker clinic are withheld because actual shift coverage and participant release are unverified. This frozen proposal does not certify any worker or authorize model changes.",
+  "signoffs": [
+    "Ops endorses these exact proposed draft bytes, its seven-unit scoped allocation and its decision to withhold operational release. Ops does not certify assessment validity.",
+    "Analyst endorsement is pending; no analyst signoff is claimed.",
+    "Scientist provided advice in logistics-scientist-01 only; no scheduling authorization, assessor allocation or competence certification is claimed."
+  ]
+}

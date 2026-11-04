@@ -1,0 +1,12 @@
+{
+  "description": "Prospective deployment instruction for independent applications of an immutable plan.",
+  "created_at": "2026-11-04T20:54:03.275404+00:00",
+  "actor": "ops",
+  "stage": "deployment",
+  "permitted_reads": [
+    "frozen-intervention.json",
+    "freeze-receipt.json",
+    "deployment-release.json"
+  ],
+  "instruction": "Read the three permitted files in this case directory plus your own previous permitted context. Apply the SAME frozen intervention separately to each released event. Do not redesign, allocate new resources, add experts or assume conditional preparation was released. Write deployment.json exclusively, containing description, actor, freeze_sha256, evidence_kind=model_reasoned_synthetic_deployment, and events: difficulty, supported_actions citing exact frozen action IDs, unmet_demands, plausible_sequence, failures, unobserved_outcomes. These are hypothetical consequences, not measured outcomes. Return a brief account."
+}

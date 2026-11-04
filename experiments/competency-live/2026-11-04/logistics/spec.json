@@ -1,0 +1,125 @@
+{
+  "description": "Case design retained for independent audit; not delivered wholesale to participants.",
+  "case_id": "logistics",
+  "brief": "AI-assisted logistics at three fictional depots: 220 dispatch workers; reported exception rate changed from 11% to 17% after AI rollout; faster routine routing. Sponsor asks whether a six-item practice check can certify independent competence. Improve exception handling within one week without assuming training is the cause.",
+  "budget": 10,
+  "core": [
+    "ops",
+    "analyst"
+  ],
+  "roster": {
+    "ops": {
+      "profession": "Dispatch operations and workplace-training implementation lead",
+      "competencies": [
+        "shift workflow",
+        "staffing",
+        "job-aid implementation",
+        "basic descriptive measurement"
+      ],
+      "excluded_specialist_scope": [
+        "causal inference",
+        "learning-science assessment validity",
+        "model engineering"
+      ],
+      "authority": "May change handoff ownership and schedule practice; cannot alter AI model or certify assessment validity.",
+      "availability": "core"
+    },
+    "analyst": {
+      "profession": "Operational data analyst",
+      "competencies": [
+        "denominator auditing",
+        "descriptive segmentation",
+        "missing-data analysis",
+        "workflow measurement"
+      ],
+      "excluded_specialist_scope": [
+        "learning-science validity",
+        "operational release authority"
+      ],
+      "authority": "May specify monitoring and analysis; cannot order staff or declare independent competence.",
+      "availability": "core"
+    },
+    "scientist": {
+      "profession": "Consultable workplace learning scientist",
+      "competencies": [
+        "practice and transfer design",
+        "assessment limitations"
+      ],
+      "excluded_specialist_scope": [
+        "dispatch operations",
+        "AI calibration"
+      ],
+      "authority": "Advice only; cannot schedule staff or certify competence from this evidence.",
+      "availability": "optional; fee 1 unit"
+    }
+  },
+  "cost_reference": {
+    "workflow": 2,
+    "segmented_audit": 2,
+    "brief_practice": 2,
+    "changed_case_check": 2,
+    "paper_fallback_drill": 3,
+    "expert_fee": 1
+  },
+  "cost_rule": "Costs cover scoped project work. Combine or narrow activities only with explicit accounting and realistic capacity. Expert fee counts. No cost-free invented personnel or specialist signoff.",
+  "roles": {
+    "ops": {
+      "profession": "Dispatch operations and workplace-training implementation lead",
+      "competencies": [
+        "shift workflow",
+        "staffing",
+        "job-aid implementation",
+        "basic descriptive measurement"
+      ],
+      "excluded_specialist_scope": [
+        "causal inference",
+        "learning-science assessment validity",
+        "model engineering"
+      ],
+      "authority": "May change handoff ownership and schedule practice; cannot alter AI model or certify assessment validity.",
+      "availability": "core",
+      "private_evidence": [
+        "L-O1: supervisors have no agreed overnight override owner.",
+        "L-O2: only 15 minutes per worker are available this week; no full-shift shutdown.",
+        "L-O3: a senior dispatcher can staff one two-hour exception clinic, but cannot cover every shift."
+      ]
+    },
+    "analyst": {
+      "profession": "Operational data analyst",
+      "competencies": [
+        "denominator auditing",
+        "descriptive segmentation",
+        "missing-data analysis",
+        "workflow measurement"
+      ],
+      "excluded_specialist_scope": [
+        "learning-science validity",
+        "operational release authority"
+      ],
+      "authority": "May specify monitoring and analysis; cannot order staff or declare independent competence.",
+      "availability": "core",
+      "private_evidence": [
+        "L-D1: rollout changed the exception denominator from completed jobs to all attempted jobs.",
+        "L-D2: 38% of night-shift overrides lack annotations; no delayed unassisted assessment exists.",
+        "L-D3: available export allows shift-level audit, but cannot recover the missing annotations."
+      ]
+    },
+    "scientist": {
+      "profession": "Consultable workplace learning scientist",
+      "competencies": [
+        "practice and transfer design",
+        "assessment limitations"
+      ],
+      "excluded_specialist_scope": [
+        "dispatch operations",
+        "AI calibration"
+      ],
+      "authority": "Advice only; cannot schedule staff or certify competence from this evidence.",
+      "availability": "optional; fee 1 unit",
+      "private_evidence": [
+        "L-S1: the six practice items repeat interface examples; they are not a delayed or changed-case test.",
+        "L-S2: an assessor can review two changed-case exercises within this project; no validated certification instrument is available."
+      ]
+    }
+  }
+}

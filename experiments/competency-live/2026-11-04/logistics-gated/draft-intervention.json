@@ -1,0 +1,118 @@
+{
+  "description": "Team draft for the fictional logistics feasibility pilot. Costs are scoped project commitments, not an execution report. Ops endorses this exact draft; analyst exact-byte endorsement is separately required. Current operational decision is no release because prerequisites are unconfirmed.",
+  "case_id": "logistics",
+  "diagnosis": "The reported exception rates use changed denominators, so 11% versus 17% is not an established comparable baseline. The analyst disclosed 38% missing night-override annotations and an export unable to recover them; no shift-specific increase is established. Ops disclosed no agreed overnight override owner, 15 minutes per worker and one senior dispatcher's two-hour clinic without all-shift coverage. Training causation is unestablished. Following the actually consulted scientist, the repeated six items are practice checkpoints; two changed cases do not establish independent competence, delayed retention or workforce-wide transfer.",
+  "actions": [
+    {
+      "id": "workflow",
+      "owner": "ops",
+      "cost": 2,
+      "action": "Prepare a short exception job aid asking workers to identify the exception, explain intended disposition, identify the responsible supervisor and state the escalation route. Assign overnight override ownership to the on-duty supervisor and prepare a named handoff acknowledgement. Prepare exactly two clinic rows using the analyst specification; do not assume a supervisor has acknowledged or introduce across-shift collection staff.",
+      "source_messages": [
+        "logistics-ops-01",
+        "logistics-ops-02",
+        "logistics-analyst-02"
+      ],
+      "evidence_refs": [
+        "L-O1",
+        "L-O2",
+        "L-O3",
+        "L-D3"
+      ],
+      "acceptance_test": "Job aid, acknowledgement form and exactly two record templates exist; named acknowledgement status is recorded as confirmed or unconfirmed. Missing acknowledgement remains a release blocker. Operational criteria are expressly proposed and do not constitute assessment validation.",
+      "authority_scope": "shift workflow"
+    },
+    {
+      "id": "audit",
+      "owner": "analyst",
+      "cost": 2,
+      "action": "Audit the existing export, document completed-job versus attempted-job denominators, tabulate supported shift-level counts and annotation presence, mark unsupported comparisons unavailable, and specify prospective recording fields. No reconstruction of historical annotations and no staffing of a new collection process.",
+      "source_messages": [
+        "logistics-analyst-01",
+        "logistics-analyst-02"
+      ],
+      "evidence_refs": [
+        "L-D1",
+        "L-D2",
+        "L-D3"
+      ],
+      "acceptance_test": "Audit states both denominator definitions, available shift-level counts, missing annotation coverage, unavailable comparisons and a recording specification. It does not use 11% versus 17% as an established improvement baseline or claim a shift-specific increase without evidence.",
+      "authority_scope": "denominator auditing"
+    },
+    {
+      "id": "brief_practice",
+      "owner": "ops",
+      "cost": 2,
+      "action": "Prepare, but do not release under the current decision, the scientist-advised clinic sequence for exactly two workers: five minutes guided practice, five minutes uncoached changed case and five minutes feedback per worker. Select attendees only with confirmed availability. Assign the supplied senior dispatcher to the two sequential slots and to completing two clinic rows; reserve 30 minutes for worker sequences and up to 20 additional minutes for record completion within the supplied two-hour clinic. No broader worker or shift coverage is promised.",
+      "source_messages": [
+        "logistics-ops-01",
+        "logistics-ops-02",
+        "logistics-scientist-01",
+        "logistics-analyst-02"
+      ],
+      "evidence_refs": [
+        "L-O2",
+        "L-O3",
+        "L-S1",
+        "L-S2"
+      ],
+      "acceptance_test": "Preparation identifies the two slots, recorder and recording allowance; each worker sequence totals 15 minutes and total assigned clinic time is 50 minutes within 120. Attendees remain unconfirmed until evidenced. Two rows specify shift, acknowledged owner, annotation presence, assistance, explanation and unresolved difficulties, allowing explicit unavailable values. No exercises execute under the current no-release decision.",
+      "authority_scope": "staffing"
+    },
+    {
+      "id": "changed_case_check",
+      "owner": "ops",
+      "cost": 2,
+      "action": "Prepare the exactly two changed-case attempts advised by the scientist within the same worker slots, and seek confirmation of the supplied assessor's review of exactly two attempts. Assessor capacity is disclosed advice; scheduling and completion are unconfirmed. Retain assessor feedback, assistance and unresolved difficulties for subsequent practice only; claim no specialist signoff or workforce readiness.",
+      "source_messages": [
+        "logistics-scientist-01",
+        "logistics-ops-02",
+        "logistics-analyst-02"
+      ],
+      "evidence_refs": [
+        "L-S1",
+        "L-S2",
+        "L-O2",
+        "L-O3"
+      ],
+      "acceptance_test": "Preparation specifies exactly two attempts, operational criteria and the requested review arrangement. Review status is explicit, with no invented booking or result. No additional worker time is allocated. No assessment executes under the current no-release decision; any later evidence could inform a separately authorized future decision only.",
+      "authority_scope": "job-aid implementation"
+    },
+    {
+      "id": "consultation",
+      "owner": "ops",
+      "cost": 1,
+      "action": "Use the single actually received scientist consultation to bound practice and assessment claims; retain its proposed 5/5/5-minute sequence, exactly two assessor reviews and stated limitations. Do not duplicate the consultation fee or imply certification or operational authorization by the scientist.",
+      "source_messages": [
+        "logistics-scientist-01"
+      ],
+      "evidence_refs": [
+        "L-S1",
+        "L-S2"
+      ],
+      "acceptance_test": "Project record cites the actual consultation, counts its fee once, and states that no validated certification instrument is supplied and independent competence, delayed retention and workforce-wide transfer remain unknown.",
+      "authority_scope": "job-aid implementation"
+    }
+  ],
+  "budget_spent": 9,
+  "rejected_alternatives": [
+    "Independent-competence certification from the six repeated-example items or two changed cases is unsupported by the actual scientist advice.",
+    "The 3-unit paper fallback drill would bring the retained 9-unit package to 12, above the 10-unit budget.",
+    "All-worker or all-shift practice coverage is not established by a single two-hour clinic or the 15-minute per-worker allowance.",
+    "Using the reported 11% and 17% as a comparable baseline or reconstructing missing historical annotations is unsupported.",
+    "Immediate clinic or operational release is withheld because attendee availability, named supervisor acknowledgement and assessor scheduling have not been confirmed."
+  ],
+  "unresolved": [
+    "Two clinic attendees are not yet confirmed.",
+    "The on-duty overnight supervisor's availability and named acknowledgement are not yet confirmed.",
+    "The assessor's capacity for two reviews is disclosed, but actual scheduling is not confirmed.",
+    "Prospective field availability requires checking; historical missing annotations remain irrecoverable.",
+    "The recording allocation is a bounded operational assignment, not demonstrated execution feasibility.",
+    "Independent competence, delayed retention, workforce-wide transfer, causal attribution and actual exception-handling improvement remain unknown.",
+    "Analyst exact-byte endorsement is pending at authorship. One budget unit remains unspent."
+  ],
+  "release_decision": "no release",
+  "signoffs": [
+    "ops: endorses this exact draft in operational authority, authorizing audit and preparation only and withholding clinic and operational release. No independent-competence or specialist validation signoff is given."
+  ]
+}

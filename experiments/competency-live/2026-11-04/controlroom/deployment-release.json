@@ -1,0 +1,21 @@
+{
+  "description": "All stress conditions are independent applications of the same frozen plan.",
+  "released_at": "2026-11-04T21:07:23.174262+00:00",
+  "freeze_sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+  "events": [
+    {
+      "difficulty": "easy",
+      "event": "Simulator prioritizer works; one timestamp contradiction appears in a routine alarm set."
+    },
+    {
+      "difficulty": "medium",
+      "event": "A stale sensor drives a confident ranking while a novice leads; the senior operator is present but handling another console."
+    },
+    {
+      "difficulty": "hard",
+      "event": "Cascading alerts coincide with partial radio dropout and AI loss. The paper alarm sheet contains stale values; the radio failure was not rehearsable in the installed simulator. No rescue expert or extra time appears."
+    }
+  ],
+  "no_repair": true,
+  "evidence_kind": "model_reasoned_synthetic_deployment"
+}

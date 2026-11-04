@@ -1,0 +1,48 @@
+{
+  "message_id": "logistics-analyst-01",
+  "speech": "Ops, I would first separate the reported increase in exceptions from a demonstrated deterioration in dispatch work. My export documentation shows that rollout changed the denominator from completed jobs to all attempted jobs (L-D1). The 11% and 17% figures therefore are not directly comparable; they do not establish either an AI effect or a training deficit. I propose a scoped, two-unit shift-level audit to establish what comparable counts the export actually supports, report denominators explicitly, and distinguish observed exceptions from gaps in documentation.\n\nThere is a substantial measurement limit: 38% of night-shift overrides lack annotations, and the available export cannot recover them (L-D2, L-D3). I can describe that missingness by shift, but cannot infer why those overrides happened or treat missing annotations as successful handling. We should preserve an explicit unknown category.\n\nWe also have no delayed unassisted assessment (L-D2). Whether six practice items support a claim about independent competence is outside my assessment-validity scope. I request the learning scientist's one-unit consultation: what, if anything, could an immediate six-item check establish, and what bounded practice and changed-case observation would be defensible within this week without claiming certification?\n\nBefore selecting the workflow intervention, what exception types create the greatest operational consequences, and who currently owns an unresolved exception across shift handoff? Your answer could change which cases we monitor and whether the immediate remedy is ownership, information access, or practice. I can specify monitoring; you retain operational release authority.",
+  "evidence_disclosed": [
+    "L-D1",
+    "L-D2",
+    "L-D3"
+  ],
+  "claims": [
+    {
+      "claim": "The reported pre/post exception percentages are not directly comparable because rollout changed their denominator.",
+      "basis": [
+        "L-D1"
+      ],
+      "competency": "denominator auditing"
+    },
+    {
+      "claim": "Night-shift override interpretation is limited by 38% missing annotations that the export cannot recover.",
+      "basis": [
+        "L-D2",
+        "L-D3"
+      ],
+      "competency": "missing-data analysis"
+    },
+    {
+      "claim": "A shift-level audit can describe supported counts and missingness but cannot recover reasons for unannotated overrides.",
+      "basis": [
+        "L-D3"
+      ],
+      "competency": "descriptive segmentation and workflow measurement"
+    },
+    {
+      "claim": "No delayed unassisted assessment exists; the meaning of the six-item check requires assessment-specialist advice.",
+      "basis": [
+        "L-D2",
+        "public.roster.analyst",
+        "public.roster.scientist"
+      ],
+      "competency": "qualified boundary statement; assessment validity outside assigned scope"
+    }
+  ],
+  "consult_request": {
+    "role": "scientist",
+    "question": "What, if anything, could an immediate six-item practice check establish, and what bounded practice and changed-case observation would be defensible within one week without claiming certification?",
+    "cost": 1
+  },
+  "decision": "proposal"
+}

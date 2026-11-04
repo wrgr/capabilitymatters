@@ -1,0 +1,14 @@
+{
+  "description": "Runtime identity receipt for an actual Codex collaboration subagent.",
+  "actor": "evaluator",
+  "agent_id": "/root/benefits_evaluator",
+  "registered_at": "2026-11-04T21:13:31.257694+00:00",
+  "backend": "Codex authenticated collaboration tools",
+  "fork_turns": "none",
+  "model_selection": "inherited parent runtime; no override",
+  "resolved_model_id": null,
+  "model_resolution_limitation": "Launch tool does not expose model; later rollout transcript records runtime model and effort. Provider checkpoint and temperature remain undisclosed.",
+  "api_key_used": false,
+  "github_actions_execution": false,
+  "isolation": "Separate conversation; shared filesystem; packet access is instruction-bounded."
+}

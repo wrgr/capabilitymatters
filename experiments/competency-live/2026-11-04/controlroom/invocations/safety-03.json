@@ -1,0 +1,16 @@
+{
+  "description": "Readable instruction retained before dispatch; the agent must visibly read it.",
+  "created_at": "2026-11-04T20:51:45.756226+00:00",
+  "actor": "safety",
+  "stage": "endorsement",
+  "response_file": "safety-03.json",
+  "public_inputs": [
+    "operator-03.json"
+  ],
+  "permitted_reads": [
+    "experiments/competency-live/2026-11-04/controlroom/packet-safety.json",
+    "experiments/competency-live/2026-11-04/controlroom/responses/operator-03.json",
+    "experiments/competency-live/2026-11-04/controlroom/draft-intervention.json"
+  ],
+  "instruction": "Read the delivered decision and exact draft-intervention.json. Respond to actual choices and endorse or withhold endorsement of the exact bytes, exercising your own authority. Add actor=safety, endorsed=true or false, and artifact_sha256 to response_contract. Do not rewrite the draft or invent facts. Retain disagreement and remaining limits. Read only this invocation, its permitted_reads, your own prior invocation/response files and earlier permitted context. Follow the packet knowledge gate exactly. Write experiments/competency-live/2026-11-04/controlroom/responses/safety-03.json exclusively with message_id controlroom-safety-03. Return the same natural professional speech. Never inspect sealed events or other private packets."
+}

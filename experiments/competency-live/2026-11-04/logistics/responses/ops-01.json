@@ -1,0 +1,46 @@
+{
+  "message_id": "logistics-ops-01",
+  "speech": "My initial operational interpretation is that we have a handoff risk to address alongside an uncertain change in reported exceptions. The movement from 11% to 17% does not, by itself, tell me whether workers need more training or whether AI made handling worse. Analyst, what exactly counts as an exception in each period, and are the denominators and recording rules comparable? I would like the audit to distinguish depots and overnight versus other shifts before we target practice.\n\nMy own evidence is that supervisors have no agreed overnight override owner (L-O1). Only 15 minutes per worker are available this week, with no full-shift shutdown (L-O2). A senior dispatcher can staff one two-hour exception clinic, but cannot cover every shift (L-O3). That makes universal clinic attendance unrealistic. I propose we first define an override handoff with an explicitly accepted owner and backup on each affected shift; coverage still needs checking before I commit to its implementation. Any practice and checking must share the 15-minute limit.\n\nI suggest provisionally reserving 2 units for workflow, 2 for your segmented audit, and 1 for learning-scientist advice, leaving 5 units pending that advice. I cannot certify assessment validity. I would ask the scientist what a six-item check could reasonably support, and how to fit practice plus a changed-case check within our time limit. Would your audit reveal which exception types and shifts should receive that scarce practice time, or is recording quality itself the first constraint?",
+  "evidence_disclosed": [
+    "L-O1",
+    "L-O2",
+    "L-O3"
+  ],
+  "claims": [
+    {
+      "claim": "Overnight override ownership is currently unagreed.",
+      "basis": [
+        "L-O1"
+      ],
+      "competency": "shift workflow"
+    },
+    {
+      "claim": "Practice and checking together must fit 15 minutes per worker; one two-hour clinic cannot provide coverage across every shift.",
+      "basis": [
+        "L-O2",
+        "L-O3"
+      ],
+      "competency": "staffing and workplace-training implementation"
+    },
+    {
+      "claim": "The reported exception-rate change alone is insufficient for an operational decision to attribute the problem to training.",
+      "basis": [
+        "public.brief"
+      ],
+      "competency": "basic descriptive measurement; causal attribution explicitly unresolved"
+    },
+    {
+      "claim": "The provisional workflow, audit, and consultation reservation totals 5 of 10 units.",
+      "basis": [
+        "public.budget",
+        "public.cost_reference"
+      ],
+      "competency": "workplace implementation resource planning"
+    }
+  ],
+  "consult_request": {
+    "role": "scientist",
+    "question": "What conclusions could a six-item practice check reasonably support about independent competence, and what feasible practice plus changed-case check would you advise within a total of 15 minutes per worker? Advice costs 1 unit; operational coverage remains my responsibility."
+  },
+  "decision": "proposal"
+}

@@ -1,0 +1,18 @@
+{
+  "description": "Prospectively authored stress events, withheld until intervention freeze.",
+  "created_at": "2026-11-04T20:45:16.718181+00:00",
+  "events": [
+    {
+      "difficulty": "easy",
+      "event": "Simulator prioritizer works; one timestamp contradiction appears in a routine alarm set."
+    },
+    {
+      "difficulty": "medium",
+      "event": "A stale sensor drives a confident ranking while a novice leads; the senior operator is present but handling another console."
+    },
+    {
+      "difficulty": "hard",
+      "event": "Cascading alerts coincide with partial radio dropout and AI loss. The paper alarm sheet contains stale values; the radio failure was not rehearsable in the installed simulator. No rescue expert or extra time appears."
+    }
+  ]
+}

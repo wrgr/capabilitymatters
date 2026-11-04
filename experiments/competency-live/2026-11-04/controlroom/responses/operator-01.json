@@ -1,0 +1,78 @@
+{
+  "message_id": "controlroom-operator-01",
+  "speech": "I read the improved acknowledgement times as a workflow result, with independent diagnosis still an open question. My operational concern is C-O1: novices normally follow the AI ranking and rarely diagnose unranked alarms. C-O2 gives us a concrete practice target: experienced operators use a timestamp contradiction cue that is missing from the job aid. C-O3 limits what we can deliver: each operator has only a funded 20-minute simulator slot, so a full-day exercise is unavailable.\n\nI propose a provisional five-unit package: add the timestamp cue to the job aid for one unit, establish a stop-and-handoff procedure for two, and deliver unranked practice for two. Within the 20-minute slot, I would allocate three minutes to the cue, ten to unranked diagnosis practice, five to rehearsing the handoff, and two to recording what the operator actually did. These timings are my delivery proposal, not observed performance or proof of assessment validity. The remaining three units should stay uncommitted until we hear your constraints.\n\nI cannot approve safety release alone, and this proposal does not establish independent readiness. Safety, what supplied scenario constraints and fallback requirements must this practice satisfy, and would they require the remaining three units for fault rehearsal? I want to preserve actual diagnosis practice while making the release decision jointly on the evidence we have.",
+  "evidence_disclosed": [
+    "C-O1",
+    "C-O2",
+    "C-O3"
+  ],
+  "claims": [
+    {
+      "claim": "Novices normally follow AI ranking and rarely diagnose unranked alarms.",
+      "basis": [
+        "C-O1"
+      ],
+      "competency": "alarm workflow",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "Experienced operators use a timestamp contradiction cue missing from the job aid.",
+      "basis": [
+        "C-O2"
+      ],
+      "competency": "operational cues",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "Only a 20-minute simulator slot per operator is funded; a full-day exercise is unavailable.",
+      "basis": [
+        "C-O3"
+      ],
+      "competency": "simulator practice delivery",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "A provisional timestamp job aid, stop-and-handoff procedure, and unranked practice package costs five units, leaving three of the eight-unit budget uncommitted.",
+      "basis": [
+        "public.cost_reference",
+        "public.brief",
+        "C-O1",
+        "C-O2",
+        "C-O3"
+      ],
+      "competency": "simulator practice delivery",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The proposed slot allocation is three minutes for the cue, ten for unranked practice, five for handoff rehearsal, and two for recording observed actions; delivery feasibility remains to be checked against safety constraints.",
+      "basis": [
+        "C-O1",
+        "C-O2",
+        "C-O3"
+      ],
+      "competency": "simulator practice delivery",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "A stop-and-handoff procedure is a proposed operational component requiring the safety colleague’s constraints before its release.",
+      "basis": [
+        "C-O1",
+        "public.brief",
+        "public.cost_reference"
+      ],
+      "competency": "operator handoff",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Improved acknowledgement times leave independent diagnosis readiness unresolved in this opening proposal.",
+      "basis": [
+        "public.brief",
+        "C-O1"
+      ],
+      "competency": "hypothesis",
+      "standing": "hypothesis"
+    }
+  ],
+  "consult_request": null,
+  "decision": "proposal"
+}

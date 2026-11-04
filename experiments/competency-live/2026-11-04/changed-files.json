@@ -1,0 +1,865 @@
+{
+  "description": "Every changed file and why it is included; self hash omitted to avoid recursion.",
+  "files": [
+    {
+      "path": "README.md",
+      "why": "Document the authenticated native-collaboration route, evidence limitations and verification command.",
+      "sha256": "7c1c86fdfdef698cf8ec619d055674840298ba29720fd48ed3b87aa3d5391494"
+    },
+    {
+      "path": "docs/lifecycle/competency-mediation-paper-v3.md",
+      "why": "Revise the scholarly account around actual case evidence, independent results and limits, excluding execution diary material.",
+      "sha256": "b73e738e6faf92233b49a56e597b22fd52118b2f90138ba3d91f3d1aa135c6f9"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/README.md",
+      "why": "Explain how to read and verify the actual examples and distinguish them from authored fixtures.",
+      "sha256": "6b85322134b5a981033cc3520960c93bf066c782023561944b559ed171c92c02"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/deployment-release.json",
+      "why": "All stress conditions are independent applications of the same frozen plan.",
+      "sha256": "0dafe7dd8a63f6e84ede1f523ac963d30756fdc3c2dd6f85e0f3ee8e37c58950"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/deployment.json",
+      "why": "Independent model-reasoned applications of the same frozen no-release plan to each supplied event. These are conditional responses and limitations, not observed service actions, deployments or outcomes. No event receives learning, extra resources or redesign from another event. The transport's event release is not authorization to deploy the intervention.",
+      "sha256": "f751b71dd65b87ccc2d175e857e04d9773cb9ea52635a9e94e48fd3618eb44df"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/draft-intervention.json",
+      "why": "Core-authored bounded fortnight plan with a nine-unit scoped allocation and no deployment release. Acceptance tests describe evidence required, not observed successes. The consultation has occurred; the other scoped work, staffing, recruitment and operational readiness are not asserted complete.",
+      "sha256": "978418fb049e4e19cb6f7d985781048b052a251eebc6a06782faeccee4bca146"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/evaluation.json",
+      "why": "Independent post-freeze process and synthetic-result review of the benefits case. Only this case directory and ../protocol-v2.json were audited. Existing evidence and the intervention were not edited. Ratings assess the frozen plan against supplied fictional events, not observed service outcomes.",
+      "sha256": "b85d121e594ec482577c4d118484ee6b32bebb6fa23ef768c98091d32b712bde"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/failures.json",
+      "why": "Independent failure record. Existing intervention/evidence unchanged; process violations, artifact/result limitations, technical incidents and expected unknowns are distinguished.",
+      "sha256": "cca94880ddeae93c51f74a4a8fc262b77de5d5dcdac65daaba47923f2b28d612"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/freeze-receipt.json",
+      "why": "Exact team artifact freeze; transport does not repair its content.",
+      "sha256": "80fd1aa3e7f0bce2a5d32f3eae9e02c8a83e120d907770fe613f7573c747cf5e"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/frozen-intervention.json",
+      "why": "Core-authored bounded fortnight plan with a nine-unit scoped allocation and no deployment release. Acceptance tests describe evidence required, not observed successes. The consultation has occurred; the other scoped work, staffing, recruitment and operational readiness are not asserted complete.",
+      "sha256": "978418fb049e4e19cb6f7d985781048b052a251eebc6a06782faeccee4bca146"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/invocations/access-01.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "6d5d26e79a2b7a8c012fa8dfb739c4967a63a51978ec2e6c8c81b315c47d1f55"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/invocations/deployment.json",
+      "why": "Prospective deployment task applying an exact frozen artifact without repair.",
+      "sha256": "c12a79dcf7dd1f225ea76b95e6960a338a1a829756193a19e56b61d7582a62b2"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/invocations/designer-01.json",
+      "why": "Readable pre-dispatch instruction; observed file read can be audited despite encrypted inter-agent transport.",
+      "sha256": "f37ebdc37486d08600b321816e5d34b1ca76386440594fa6a3fb58b3f6c40bf4"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/invocations/designer-02.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "fad6c5ba664c8a57fcb9e25366dca5b5e85965f0f085ae5a648cf5c865269f75"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/invocations/designer-03.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "2c544eb2c87733ca4fdb002b20c916b3c2a57b6ae5cc21e96ee539fefbf3cd5e"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/invocations/director-01.json",
+      "why": "Readable pre-dispatch instruction; observed file read can be audited despite encrypted inter-agent transport.",
+      "sha256": "3ff0d93d754c68e2de58e11133f16404cdbd8780469e648946f025a6dbfcbcca"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/invocations/director-02.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "d31e33b8e0cbc47b2fd7ce91b55729b0d4dc2b7f8cc2b6fa628ae2643987beff"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/invocations/director-03.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "70a578ed58d1ef3b740571269cffe279ec3a370cd2afc2d282b62cfe722e92da"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/invocations/evaluator.json",
+      "why": "Prospective independent process and result audit, with no authority to repair the intervention.",
+      "sha256": "abd30a966a338cb18a44acf14ed34323ba0feb0976797a380aa0ff9d2a190429"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/launch-receipts-final.json",
+      "why": "Native runtime launch, interaction, completion receipts for this team and its reviewer.",
+      "sha256": "3f48c3281bc165205bc943781b7e03eef3d32cbd43d5b0de7e6d4a499cea888f"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/packet-access.json",
+      "why": "Only this actor receives these private facts.",
+      "sha256": "0ec7a1760992b55e9a26ed3d085db1b0abc15af5ae9d44ce99d1cccae74b7964"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/packet-designer.json",
+      "why": "Only this actor receives these private facts.",
+      "sha256": "f1610946aeb9fa2a921dbc7dac8fc0529598dc3b33ebdcec08bda7582fff4d57"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/packet-director.json",
+      "why": "Only this actor receives these private facts.",
+      "sha256": "5a2f2c39aadcdcd3048e2635bdd886ff999a16ca4d470c0b12e6726997ef4241"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/provenance/access.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "d080bbb85cdb92be91cd1a55a24c115a6501f46c528179397003c43885a814fa"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/provenance/designer.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "1ef807ca83d616996c276c7ce31c768b0baedb4cedef5b7016bb42a42d4893e4"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/provenance/director.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "368013f6e63a9535125aaaa480ec3357e172328144486eb66292ff0001eb9ada"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/provenance/evaluator.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "7a552a495f0deb0a4285ad86dfb214f4ab8c02beaf375311179216e64a6c5727"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/responses/access-01.json",
+      "why": "Retain actual public utterance benefits-access-01",
+      "sha256": "5cd619320355b5532ae1a8f4edc58ac6276161b01427e6780177d8d78e6cbfdf"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/responses/designer-01.json",
+      "why": "Retain actual public utterance benefits-designer-01",
+      "sha256": "0eb6d19b4b177e5cf521a7d069e5207d9a8e4e05f566c95b3c56b9fd08ffc829"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/responses/designer-02.json",
+      "why": "Retain actual public utterance benefits-designer-02",
+      "sha256": "489d8d5e3fdd0e958b74fe46b044378e2c7b6d2711ba86fd9a2df5da2bc231c2"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/responses/designer-03.json",
+      "why": "Retain actual public utterance benefits-designer-03",
+      "sha256": "11bc10854e4c3ccff742568623c7860551ca736a20b3a96407b683553a2c366e"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/responses/director-01.json",
+      "why": "Retain actual public utterance benefits-director-01",
+      "sha256": "2aadf46b885cb06311be6ec76bf0a336c1b1c2eba7970e050860f2a71faf5ecd"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/responses/director-02.json",
+      "why": "Retain actual public utterance benefits-director-02",
+      "sha256": "d429ab3e7c343c1932ccb110aa47a095b8dd65ab36cb6c396cf5017b6186c4b4"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/responses/director-03.json",
+      "why": "Retain actual public utterance benefits-director-03",
+      "sha256": "053b36564d1b563b9005f8048d45138ab689f3e92350cd8876e58c8e99c3f577"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/runtime-transcripts/access-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "f8cd2d2c68ace9aeab2fcf0d00fbc1efe0a9819b68bb1c886cb2f534d9617e83"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/runtime-transcripts/designer-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "56319c348480eb4343b91bc1c262eeb3059959b18939619211f2d00829f8cd04"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/runtime-transcripts/director-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "ad5e2deca2d3aab847192fe5cf2bacbb617bb88b72fc311af797a125ff23b2a9"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/runtime-transcripts/evaluator-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "5d9e611db469e251eef58b96e36352f7fccd68e9db847e9668c2b627227c291a"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/sealed-events.json",
+      "why": "Prospectively authored stress events, withheld until intervention freeze.",
+      "sha256": "1319aa62c2c49592156413b251f2b9e4f76f915efc161f09dd3a898aaabad6c3"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/spec.json",
+      "why": "Case design retained for independent audit; not delivered wholesale to participants.",
+      "sha256": "38af9e22411d6cc755ec9cb7aba61928cc5296a2715aee6da5a6b736b2ae17fe"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/benefits/verification.json",
+      "why": "Integrity checks, not a certificate of expertise or ecological validity.",
+      "sha256": "9cf7971dc0ce5d63089dccdd0220e1156a8f524d9d6faadf52de98e9910abaa9"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/changed-files.json",
+      "why": "List every changed file and its review purpose.",
+      "sha256": null
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/deployment-release.json",
+      "why": "All stress conditions are independent applications of the same frozen plan.",
+      "sha256": "47902de1b93c627420b75330b24ab4237b9e6d5c4a2d2747ed55b87c6128df27"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/deployment.json",
+      "why": "Independent model-reasoned applications of the same exact frozen seven-unit plan to three released hypothetical conditions. The freeze receipt records both endorsement files; its earlier pending-endorsement wording is preserved in the artifact. No job-aid check, authored-reference check, rehearsal, learner response, handoff or timing result is established by that receipt. Supported actions below are conditional instructions, not observations. No redesign, cross-event learning, additional spending, personnel or consultation is assumed.",
+      "sha256": "a121907bc136a692f8388d7ac70fc205014d471d4053c171680b73169fc3e4b8"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/draft-intervention.json",
+      "why": "Joint simulator-only intervention proposed through actual operator, safety and scientist dialogue; exact safety endorsement is pending. Acceptance criteria below are prospective and no rehearsal outcome is claimed.",
+      "sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/evaluation.json",
+      "why": "Independent audit of retained controlroom case evidence. Process feasibility is judged separately from model-reasoned synthetic intervention coverage; no participant evidence or frozen artifact was changed.",
+      "sha256": "fe8e8bd41d30099dcdfc5e775964049fc995b533d6387cfccc8c3e2500aee153"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/failures.json",
+      "why": "Independent failure ledger preserving observed defects, artifact coverage limits, conditional synthetic vulnerabilities and expected unknowns separately. No retained evidence or intervention was repaired.",
+      "sha256": "9634d86e1bbfbbae42ac3ccbef6cdbb45d949462d7f07b24cd70640148f6aae7"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/freeze-receipt.json",
+      "why": "Exact team artifact freeze; transport does not repair its content.",
+      "sha256": "a2b0b0311cef16b0ef5217a148f61d8043825252e31e187b6abd7f29ba9b4230"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json",
+      "why": "Joint simulator-only intervention proposed through actual operator, safety and scientist dialogue; exact safety endorsement is pending. Acceptance criteria below are prospective and no rehearsal outcome is claimed.",
+      "sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/gate-amendment.json",
+      "why": "Exposed validator defect and correction before freeze; no participant speech, artifact or event changed.",
+      "sha256": "6f2957319c36dfd4c6b8b64cee845ac19395d2077c28598d7dc640b2967d039d"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/invocations/deployment.json",
+      "why": "Prospective deployment task applying an exact frozen artifact without repair.",
+      "sha256": "79153f76252173867e38d014ec735682e5ab84e621456e3de0d6f439fbc5bec6"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/invocations/evaluator.json",
+      "why": "Prospective independent process and result audit, with no authority to repair the intervention.",
+      "sha256": "d52ecabe1a6545978a46438186450872492b03e868993b96acee0d44d254403f"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/invocations/operator-01.json",
+      "why": "Readable pre-dispatch instruction; observed file read can be audited despite encrypted inter-agent transport.",
+      "sha256": "6b8593f6775e0ed8d816c10ac91a2fee990a47333f5a0415d3f42e4b9530f3d2"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/invocations/operator-02.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "a26d2bdf24dd3105658227fd4e38a77d084bcafad429817331122b7ae73c4ce6"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/invocations/operator-03.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "efa61804724e6f7fbad73ba289a27ce90f2a3770142e5802ebb1194595b2defb"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/invocations/safety-01.json",
+      "why": "Readable pre-dispatch instruction; observed file read can be audited despite encrypted inter-agent transport.",
+      "sha256": "a124d24bef77d3776700c0b8f83ff245e720c42ee2767b0abbbb0023aa357989"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/invocations/safety-02.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "0d9199c12611b443d71c99ca53c1107250cf83c02ff01a939358632fa6f9be31"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/invocations/safety-03.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "158d01f754752fbe1bd4c9f87105e3c8bd22a3289152f19fdddc89633bade50a"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/invocations/scientist-01.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "7abfcc93aa2d0913e3144bc87a0861f8328a5940d46981d48c20ead56242f19d"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/launch-receipts-final.json",
+      "why": "Native runtime launch, interaction, completion receipts for this team and its reviewer.",
+      "sha256": "9e55784d7609e76a4449a7100244c5f90dcb486f121bcead5fbd437a7289cb54"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/packet-operator.json",
+      "why": "Only this actor receives these private facts.",
+      "sha256": "54bfe6ba8ed172fa2dff440fcddf0d7980f1fdaba2765797e9e0ab06b4cd59ff"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/packet-safety.json",
+      "why": "Only this actor receives these private facts.",
+      "sha256": "eed4da628d466820e48a0d0cfaea4f24bc61b9fc874cddecc622082cdc8cf556"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/packet-scientist.json",
+      "why": "Only this actor receives these private facts.",
+      "sha256": "7d13b26cf0b5d292a4af56e68ef440f380d32dbaf20780518ec0853e91457b0d"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/provenance/evaluator.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "e89e26ee9fbd878acba06e9d227e791004d8474f21a41463ef35ab2afa77da63"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/provenance/operator.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "a70a85097add92c2e6060d8d01832cfdf64fc0c867e457ec03543ddd8d0648f0"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/provenance/safety.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "428839ee887f735dd558e37d67810212a6d9ca3667405217a1fc4e0f198e8a6f"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/provenance/scientist.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "b2108586d698c7fa907fd578c893006b65532775a5983f4d63f6ede6b6e50383"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/responses/operator-01.json",
+      "why": "Retain actual public utterance controlroom-operator-01",
+      "sha256": "b870435fa30e0563fba87484813bae1569c16917c72ec3fbb305510225742570"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/responses/operator-02.json",
+      "why": "Retain actual public utterance controlroom-operator-02",
+      "sha256": "134963fb690f4e4a66a906f9832039dedfc157e842dbd6d75b1e96cf5eb94391"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/responses/operator-03.json",
+      "why": "Retain actual public utterance controlroom-operator-03",
+      "sha256": "ba0b1d162a5028c3a4720290ca6de857ac20c1566128d56a416052c30476842c"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/responses/safety-01.json",
+      "why": "Retain actual public utterance controlroom-safety-01",
+      "sha256": "30ea778277acd2b0126df9edc185d62f3c33a9329c262c17271abcbc482d2e58"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/responses/safety-02.json",
+      "why": "Retain actual public utterance controlroom-safety-02",
+      "sha256": "eae745bf04aef9665072c376282149e073487641bc97e7c362144e56325edae0"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/responses/safety-03.json",
+      "why": "Retain actual public utterance controlroom-safety-03",
+      "sha256": "c56eca416508c57209ed6784663005d24b40d4efc22508d6a7e977f9b5610920"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/responses/scientist-01.json",
+      "why": "Retain actual public utterance controlroom-scientist-01",
+      "sha256": "9ae676edacef8fbdcec4ae8315178c659b669120d3cf00243a236965b01007ee"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/runtime-transcripts/evaluator-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "9b8bbd2b6d3b111953b25cbc952a79daa70f92a6916a2ece9a01798a5a18476d"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/runtime-transcripts/operator-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "3dc64c913206f7fded37b3751880a20342cf0ffdf9a38e30c06da4aede5a6fdf"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/runtime-transcripts/safety-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "f371956f49aa35f88bcd67fa27060c3c7d7ac7025b325854552bf8b4afe373bd"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/runtime-transcripts/scientist-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "7fc19f0b8d77fe8180cdff58d6a6958a01d549b425e20b62ba6d5b06b741296d"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/sealed-events.json",
+      "why": "Prospectively authored stress events, withheld until intervention freeze.",
+      "sha256": "42340b03925e082bb1f622ac5e9bb201456326bfa403e92dbabe145fac0210e5"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/spec.json",
+      "why": "Case design retained for independent audit; not delivered wholesale to participants.",
+      "sha256": "a83bf755fd1fef86e2aff490959c6d40e3298d68d0d9f40e3a9f305061f17224"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/technical-failures/2026-11-04T21:06:06.493534+00:00.json",
+      "why": "Failed evidence operation retained without repair.",
+      "sha256": "880d295655873aa2cb91d1d716259b3536413895078bddaaf4d5270f04cc9419"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/technical-failures/2026-11-04T21:06:06.570585+00:00.json",
+      "why": "Failed evidence operation retained without repair.",
+      "sha256": "7a9278b37db24e55c68cca3ae80973ae3ada1c924390d6816410cd2036d69cd4"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom/verification.json",
+      "why": "Integrity checks, not a certificate of expertise or ecological validity.",
+      "sha256": "349a6a1c8d4bdfbad638c66af7dc36059828f3b2232b5b0d5d1dfd48876ed7e1"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/deployment-release.json",
+      "why": "All stress conditions are independent applications of the same frozen plan.",
+      "sha256": "84c0a5ebf991f8998d748f99506d8a7d067fd9129139effcd6240b25b00c98e9"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/deployment.json",
+      "why": "Independent hypothetical applications of the same immutable frozen intervention. The frozen decision is no release: only audit and preparation are authorized. The events do not convert preparations into permission to execute clinic exercises or operational rollout. Failures below describe plan limitations and unmet demands, not measured incidents. No resources, experts, fallback procedures or learning from another event are added.",
+      "sha256": "770266ebf9606b65ef0e11da3ebaad9206f8c96420577df86ceafff0546dae35"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/draft-intervention.json",
+      "why": "Team draft for the fictional logistics feasibility pilot. Costs are scoped project commitments, not an execution report. Ops endorses this exact draft; analyst exact-byte endorsement is separately required. Current operational decision is no release because prerequisites are unconfirmed.",
+      "sha256": "67507be5cfccaaecfec8270517710243e83338bf4435a20bce2ba96c47459cf8"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/evaluation.json",
+      "why": "Independent audit of the retained logistics-gated bounded example. Process feasibility is evaluated separately from intervention sufficiency and unobserved real outcomes. No intervention or existing evidence was changed.",
+      "sha256": "b13af98d09dee5e380ad9fdca55c3615fc7fcf8595027d1462ebecd906a34c8a"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/failures.json",
+      "why": "Independent failure record. Existing evidence and intervention remain unchanged. Plan/process limitations and technical errors are separated from expected unknown outcomes.",
+      "sha256": "5604d2b5d534d6f7ff24b23c0fbc4091fe2086f30d3d32993b3a46e230d05677"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/freeze-receipt.json",
+      "why": "Exact team artifact freeze; transport does not repair its content.",
+      "sha256": "98c6bc7b98062e25385c41aabec9464afb9eee5dd85238deb28b975bf796f0b0"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/frozen-intervention.json",
+      "why": "Team draft for the fictional logistics feasibility pilot. Costs are scoped project commitments, not an execution report. Ops endorses this exact draft; analyst exact-byte endorsement is separately required. Current operational decision is no release because prerequisites are unconfirmed.",
+      "sha256": "67507be5cfccaaecfec8270517710243e83338bf4435a20bce2ba96c47459cf8"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/invocations/analyst-01.json",
+      "why": "Readable pre-dispatch instruction; observed file read can be audited despite encrypted inter-agent transport.",
+      "sha256": "4c93aaafce8c6c9b811d6740195a439b9006bc03b59065f8fae1c1187af19940"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/invocations/analyst-02.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "e3bd0bd7abb54af8ae4d184697656594ff547ed594ea6dcf57a4306b4d52cfd2"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/invocations/analyst-03.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "51335c33c41105e2188f5086c41d016afcc84aa0d4df916e17dc972657c8ddd4"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/invocations/deployment.json",
+      "why": "Prospective deployment instruction for independent applications of an immutable plan.",
+      "sha256": "c6cccb61a10e3c25fa253929de90c21ca5ca9b3a452e82a60b8e129a630c52af"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/invocations/evaluator.json",
+      "why": "Prospective independent review instruction; no intervention repair is permitted.",
+      "sha256": "9dcfdc72b958332f1c617a77dfd89767e9a2278b549f0321a7697e49daea08c2"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/invocations/ops-01.json",
+      "why": "Readable pre-dispatch instruction; observed file read can be audited despite encrypted inter-agent transport.",
+      "sha256": "a19b5ff5d749a1b065d3d2a3b6dba0be09821829bdc9956038810df40e2bdbfd"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/invocations/ops-02.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "a0502547f31bb4dff8cebd54984ef1edecc72c55a87ca6a5e5b4d8a64ab2566d"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/invocations/ops-03.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "7ddd2f0d3aab589ce187fd721b5335cfb0aa280df2ae738cefc74363d560c2a1"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/invocations/scientist-01.json",
+      "why": "Readable instruction retained before dispatch; the agent must visibly read it.",
+      "sha256": "11a9113702809b85d049e73c62e9a28627e6a0d9ec5728b1f0f875a093b3c46d"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/launch-receipts-final.json",
+      "why": "Native runtime launch, interaction, completion receipts for this team and its reviewer.",
+      "sha256": "a7ab645e11602d77db39b7d7684d4a74a229de3a4ed143d9773d83955df1b977"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/launch-receipts.json",
+      "why": "Native root runtime launch and interaction receipts; encrypted task bodies are not claimed readable.",
+      "sha256": "ba6802b595719bf603e2f9d47858b95f75553288bda72b3f483399e4888cf90a"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/packet-analyst.json",
+      "why": "Only this actor receives these private facts.",
+      "sha256": "cbc8464b145b957e2f56133bf94c415ee8a80fcb5a5dcecfff87bbc54d6c4591"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/packet-ops.json",
+      "why": "Only this actor receives these private facts.",
+      "sha256": "5f02dcf4068afc969be8cf1897c1f9ff39642c19e9b4f9d956997ab913a69050"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/packet-scientist.json",
+      "why": "Only this actor receives these private facts.",
+      "sha256": "96f7cf74962d15d7a5f5bfb4451632bc385cc5e02f27c859cce9f1603eebf169"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/provenance/analyst.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "e7de86fbd96b8ee770c63f9d6288610b044980890d813cbebcc71e056d54cdd1"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/provenance/evaluator.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "91548b760a7bf73aafd1c3e33f5c12589269b1d56b14448e9354ab98aad71810"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/provenance/ops.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "0d8d8e5c727782022b5a9fcd07b321f509ec0fce8516672401a503e431c89a6d"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/provenance/scientist.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "ed21408ed0cc71068368aed7b84c65ce86751c882fedc83f53fa27780fa2108f"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/responses/analyst-01.json",
+      "why": "Retain actual public utterance logistics-analyst-01",
+      "sha256": "75f1f2429a114ea6185df972ca100dcefa2aa62180303d925377f00711c1b3f0"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/responses/analyst-02.json",
+      "why": "Retain actual public utterance logistics-analyst-02",
+      "sha256": "d37e56790955fa9ecba0ebf0fb6db45f3bfcaf3b04ce479fd3cb40a9ff4617c9"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/responses/analyst-03.json",
+      "why": "Retain actual public utterance logistics-analyst-03",
+      "sha256": "88140fde6e3964cd19cf71b393a29b97ee663b69bf77fe3930858f796abb50e9"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/responses/ops-01.json",
+      "why": "Retain actual public utterance logistics-ops-01",
+      "sha256": "4b84068464633b7dd4ed857f11f75bb247925b1eeeef80952d77450d523bef63"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/responses/ops-02.json",
+      "why": "Retain actual public utterance logistics-ops-02",
+      "sha256": "d9f14d2ed2dc07740c96f18df8732831f67591d5f5b491f2a446279c43158f27"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/responses/ops-03.json",
+      "why": "Retain actual public utterance logistics-ops-03",
+      "sha256": "c29974633d8e78e091adb6ba46e74a5d7a5697372e4e008851fa9dad1a4603de"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/responses/scientist-01.json",
+      "why": "Retain actual public utterance logistics-scientist-01",
+      "sha256": "b4c258c633ab08e0cc7ee5b13030f32afa97fa47b5227a526ab80a3931265b02"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/runtime-transcripts/analyst-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "323c86942533fe4799691d8f17bf11974acfb97b026a5ef5739ad7c245bda457"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/runtime-transcripts/evaluator-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "05f832077e64e89907d69520610965cf3d703bb3321e433cb60c04e38e653922"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/runtime-transcripts/ops-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "d8b08961e7c9e28c17f5f3dd2b30587f40ac824d79e0627eb76f084e973b9a0b"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/runtime-transcripts/scientist-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "722d9014342a0484e5e7f47b70675adbc0a3bd91932d243e74fc2200f7061075"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/sealed-events.json",
+      "why": "Prospectively authored stress events, withheld until intervention freeze.",
+      "sha256": "939844149eed6f1451398145061072f33acafa1b8cfefadcc5950af5fb8dd72e"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/spec.json",
+      "why": "Case design retained for independent audit; not delivered wholesale to participants.",
+      "sha256": "4db8795c0f739f074548be0bb230779c8d7e7e11105fe0edb6cde7d89319e499"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/verification-final.json",
+      "why": "Integrity checks, not a certificate of expertise or ecological validity.",
+      "sha256": "9cb8aabc6bff0ed6694e34d2544ad166f667c9951dd5af07d2d03b7cfca9a132"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics-gated/verification.json",
+      "why": "Integrity checks, not a certificate of expertise or ecological validity.",
+      "sha256": "e7e1b99b031bdabbbedfea6efb985c06ef33d1a0a9042afd401f5eaae38e3dc6"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/deployment-release.json",
+      "why": "All stress conditions are independent applications of the same frozen plan.",
+      "sha256": "e7db9820f2c43fe3277763eafe813e3a74078ea67fb2102f8785a7e5e511dc1c"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/deployment.json",
+      "why": "Independent hypothetical applications of the identical frozen logistics plan. These are model-reasoned projections, not observed deployments. The event release discloses stress conditions; it does not override the frozen no-release decision. Freeze receipt records core endorsements, while the artifact's earlier pending-signoff text remains unchanged. No scenario supplies the missing operational coverage acceptances, worker roster or a new authorization. No preparation is treated as an executed clinic or operational rollout.",
+      "sha256": "e233878e13779c9ed322e707b7b612997a7dc3854839ea2bc5e494e61f3f6db9"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/draft-intervention.json",
+      "why": "Retain an actual experiment evidence object.",
+      "sha256": "a47c8a7ca86492966a104bef7053ff6f5d35b907e2263358b2a0b51c25d81870"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/evaluation.json",
+      "why": "Independent evaluation of the completed fictional logistics pilot using only the protocol and logistics evidence. Ratings concern the authorized frozen plan under independent synthetic conditions, not observed worker outcomes.",
+      "sha256": "59e2436bf28a9a7e29ab55b430c609f96f5a6fc39845bea2e9bebd058d6fb350"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/failures.json",
+      "why": "Observed logistics pilot failures, plan shortfalls and unknowns retained without repair. Experiment/instrument defects are separated from expected absence of real deployment outcomes.",
+      "sha256": "5d82954f3e17ee93ff3b9f04e4419973da33052a4e96a30aaa37fb67ebf17009"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/freeze-receipt.json",
+      "why": "Exact team artifact freeze; transport does not repair its content.",
+      "sha256": "6c50c0ced151bb909d49bb53a4fd58ef37f39f9d7ba3c6fe9111070e4839bb14"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/frozen-intervention.json",
+      "why": "Retain an actual experiment evidence object.",
+      "sha256": "a47c8a7ca86492966a104bef7053ff6f5d35b907e2263358b2a0b51c25d81870"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/launch-receipts.json",
+      "why": "Native root runtime launch and interaction receipts; encrypted task bodies are not claimed readable.",
+      "sha256": "34971a2d4e630155b68fe14ec31dbbf1a137f1aa23b3e7060a4f6ac8729e97db"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/packet-analyst.json",
+      "why": "Only this actor receives these private facts.",
+      "sha256": "bfcfd3b6c32a92a6afdedc5056cb0ad67dfe658a33db46e9ecc3f1840f98c64b"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/packet-ops.json",
+      "why": "Only this actor receives these private facts.",
+      "sha256": "87fce3fc38617233f38a96f76d30a472196c1626e735cfaa546ae2cb13d654ef"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/packet-scientist.json",
+      "why": "Only this actor receives these private facts.",
+      "sha256": "da2cd1f438b94600b6d9b7bd6fbbcd1044cc3f4742c79b936a3565373bf308d5"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/provenance/analyst.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "0cbed578eb58a8f08e78a5c1a652f01b560982fc469a416130e02565d994f491"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/provenance/evaluator.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "c9a298ba48b9ccd52ec125c3525dab1810732c93c1476160e4b2ac3c4be5b2fd"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/provenance/ops.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "39f0c57043f6b2045590bdc45df49a1672756e640563c640bef1924b9ee86280"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/provenance/scientist.json",
+      "why": "Runtime identity receipt for an actual Codex collaboration subagent.",
+      "sha256": "ed5ea618ec23be908cee033f19fee6a6cb609a116247ca7736bc8ed5cd2922d7"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/responses/analyst-01.json",
+      "why": "Retain actual public utterance logistics-analyst-01",
+      "sha256": "5063e2a7f12daa8735ca971cb2b51cb0c122a6fc50e6cf69e358f7e77d66d41d"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/responses/analyst-02.json",
+      "why": "Retain actual public utterance logistics-analyst-02",
+      "sha256": "7608d218a436d8c6b8b53fea8e09e1232a96915c5bd130e0ad8c1271a76d5a0c"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/responses/analyst-03.json",
+      "why": "Retain actual public utterance logistics-analyst-03",
+      "sha256": "123fd2a2094952e75abf1ed940decdc00695929a5383d55e8a80ae5a5d496a9e"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/responses/ops-01.json",
+      "why": "Retain actual public utterance logistics-ops-01",
+      "sha256": "d70b765772123b1f598e99a8167334ab687d202d8509db6e68e40d92a5512ac1"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/responses/ops-02.json",
+      "why": "Retain actual public utterance logistics-ops-02",
+      "sha256": "4e7dc5146d3e4f6e7c72993f850e04b93815fab5c2c91be94af95222f962a4b3"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/responses/ops-03.json",
+      "why": "Retain actual public utterance logistics-ops-03",
+      "sha256": "6b8ec6177a78bac7f300ba1772dbc4baae42074a789e1de9488300b7166e847a"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/responses/scientist-01.json",
+      "why": "Retain actual public utterance logistics-scientist-01",
+      "sha256": "78e48b85673be37eafbd863b772f8e932da869ac43b93f6b7264c1bf30fe9b10"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/runtime-transcripts/analyst-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "ba62dc07cb09b9e30318fbd6af510ed9d087f23a02d1d199d652b357c267720a"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/runtime-transcripts/evaluator-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "1bbe6ce7f8b4ee8c4cba7030bbe85ec0facf5b33c8ca956ef006860b367f858b"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/runtime-transcripts/ops-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "8864025175c50d938a5082cdb3513fb2f396bf3be3c62f7eb583a51c0a4cb1f9"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/runtime-transcripts/scientist-rollout.json",
+      "why": "Exact public input/output and tool records; private reasoning, runtime developer instructions and account passthrough identifiers excluded.",
+      "sha256": "3e1f8b2ca60fde4397abcdbc6715b9c1942eaee70453060ad334ed809a2d5179"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/sealed-events.json",
+      "why": "Prospectively authored stress events, withheld until intervention freeze.",
+      "sha256": "afd7b290e7541625ab92421643d91a350c592d314d4ac34d5e00200a1c81dd09"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/spec.json",
+      "why": "Case design retained for independent audit; not delivered wholesale to participants.",
+      "sha256": "ad663f94fec941190cb3780c950fda345fee0a05264443aa306ce89a596a40d8"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/verification-final.json",
+      "why": "Integrity checks, not a certificate of expertise or ecological validity.",
+      "sha256": "f0da30a29e61f1a7141987f09a615e6ef03d944785eba71dda9ae7bc267f3b41"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/logistics/verification.json",
+      "why": "Integrity checks, not a certificate of expertise or ecological validity.",
+      "sha256": "7e9d5e09a8f9eec02b9d921fee931e56b87af463cc10af14d1aca35aca2a08fb"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/pilot-validation.json",
+      "why": "Pilot process validation checkpoint retained before any benefits or control-room subagent launch.",
+      "sha256": "b15b1390e2da8591f8cbff9af3d500df462662ba95121b1e8f60fd7b899b4898"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/protocol-v2.json",
+      "why": "Version 2: prospective explicit evidence, claim and authority gates for authenticated subagents.",
+      "sha256": "719972a99c920b408d52fe1525d20b294b3b8daa10edb658c8b184568941819e"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/protocol.json",
+      "why": "Protocol for genuine authenticated model subagents, not authored participant speech.",
+      "sha256": "e1c426bf90746ed528f7644ddc5ebb91d2246251b0974a3d00b984c52da1479f"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/summary.json",
+      "why": "Actual authenticated subagent executions, primary paper examples and prior authored-policy fixtures reported separately.",
+      "sha256": "9db7f7e52f72d1d7d98386dcba3343528ab45681c6b8049b4b1593fc938eee43"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/transcripts/benefits.md",
+      "why": "Present the complete actual generated public dialogue in readable form, with source links.",
+      "sha256": "45e6a8c29d0129acb10653ba9f31b55bbf6a1c8e3512af4c494a93ce7596889a"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/transcripts/controlroom.md",
+      "why": "Present the complete actual generated public dialogue in readable form, with source links.",
+      "sha256": "ceb28fe646fed39dad40121a9ba77269aea6a1fba5022544644f7c8fa4ef6257"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/transcripts/logistics-gated.md",
+      "why": "Present the complete actual generated public dialogue in readable form, with source links.",
+      "sha256": "da53b01bdff24fd84facc8bec015f1336f618186303f2f9954800b9f798f99df"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/transcripts/logistics.md",
+      "why": "Present the complete actual generated public dialogue in readable form, with source links.",
+      "sha256": "456a36fee44cfd41b8d548f1c9f879c5624241cee6f8b9614215ec758c3c13a2"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/validation/node-tests.txt",
+      "why": "Retain complete software regression output, separate from research agent executions.",
+      "sha256": "3e52002c83edef86919188255d76ebe863a592c978ef0e0a2085de3990a95f26"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/validation/python-tests-final.txt",
+      "why": "Retain complete software regression output, separate from research agent executions.",
+      "sha256": "8772615a147b0f375aa2f659930aa36eed4852b4dceef91962616d0164c4f3c3"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/validation/python-tests.txt",
+      "why": "Retain complete software regression output, separate from research agent executions.",
+      "sha256": "a45436904895b1278aad840415b8f0b4da4e5d938ab6df7f985b09e5d77d6583"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/validation/software-validation-final.json",
+      "why": "Final software verification after the exposed attributed-advice validator correction.",
+      "sha256": "cba90408ed821a498477b1bc66e7e78a474776cc4ebbb5c72c1c685d10b81bb8"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/validation/software-validation.json",
+      "why": "Software test results separated from genuine model-agent study execution.",
+      "sha256": "0da1892a42c9535ee71fb8aaaf0b3d44937e964b17c9d35ffddf2ec741d91ae2"
+    },
+    {
+      "path": "tools/lifecycle/authenticated_mediation.py",
+      "why": "Retain and verify authenticated subagent experiments without generating participant speech.",
+      "sha256": "2f52a9ad005fa1b12999921ba954047b2c6f4bb63698bdac5f43a955160913e2"
+    },
+    {
+      "path": "tools/lifecycle/export_mediation_transcript.py",
+      "why": "Export public agent exchanges and provenance from a local Codex rollout without private reasoning.",
+      "sha256": "5ad055ce104f7236354af2cd8e4c42a083c6cf4f3c2d2e44a147c2f16eab9714"
+    },
+    {
+      "path": "tools/lifecycle/mediation_knowledge_gate.py",
+      "why": "Reject unsupported claim permissions at artifact acceptance without generating or repairing agent decisions.",
+      "sha256": "9c6f69e29a5071096c2fb4f90d10ae94157a49020403f2c1329c07f5b6f77f18"
+    },
+    {
+      "path": "tools/lifecycle/tests/test_authenticated_mediation.py",
+      "why": "Test freeze and release invariants that protect live-agent evidence integrity.",
+      "sha256": "1c6fe8f7c376c8cea01a1de3ba524a333864e43b543c505900ee2077bb3ef985"
+    },
+    {
+      "path": "tools/lifecycle/tests/test_mediation_knowledge_gate.py",
+      "why": "Test rejection of undeclared expertise and evidence rather than simulate professional speech.",
+      "sha256": "97d7571649835b9137a0c7310a98bd5f793f895d77c55e42480996be9c85733b"
+    },
+    {
+      "path": "tools/lifecycle/tests/test_mediation_transcript.py",
+      "why": "Verify public transcript export preserves dialogue while excluding private runtime content.",
+      "sha256": "61dc3ec9c0bb8a5ab6fcf8689b6a2582075bf43f2aeac76fc01f4e9a75e61ebf"
+    }
+  ]
+}

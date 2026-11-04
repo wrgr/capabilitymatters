@@ -1,0 +1,183 @@
+{
+  "description": "Actual authenticated subagent executions, primary paper examples and prior authored-policy fixtures reported separately.",
+  "summarized_at": "2026-11-04T21:14:05.382356+00:00",
+  "actual_execution": {
+    "backend": "Native authenticated Codex collaboration; no API keys or GitHub Actions model execution.",
+    "organizational_scenarios": 3,
+    "team_episodes": 4,
+    "distinct_agent_conversations": 16,
+    "design_participant_conversations": 12,
+    "independent_reviewer_conversations": 4,
+    "completed_task_turns": 36,
+    "design_messages": 28,
+    "deployment_projection_tasks": 4,
+    "event_applications": 12,
+    "primary_accepted_examples": 3,
+    "primary_event_applications": 9,
+    "failed_initial_pilots_retained": 1,
+    "runtime_models": [
+      "gpt-6.1-sol"
+    ],
+    "runtime_reasoning_efforts": [
+      "high"
+    ],
+    "provider_api_call_count": null,
+    "api_count_limitation": "Task turns are not backend sampling or API-call counts. Provider checkpoint and sampling temperature are not exposed.",
+    "expansion_after_pilot_checkpoint": true
+  },
+  "episodes": [
+    {
+      "episode": "logistics",
+      "case_id": "logistics",
+      "knowledge_gate_version": 1,
+      "core_roles": [
+        "ops",
+        "analyst"
+      ],
+      "design_messages": 7,
+      "agent_conversations": 4,
+      "completed_task_turns": 9,
+      "frozen_sha256": "a47c8a7ca86492966a104bef7053ff6f5d35b907e2263358b2a0b51c25d81870",
+      "budget_committed": 7,
+      "budget_available": 10,
+      "release_decision": "no release: preparation and descriptive audit may proceed, but operational handoff rollout and worker clinic are withheld because actual shift coverage and participant release are unverified. This frozen proposal does not certify any worker or authorize model changes.",
+      "stress_projections": 3,
+      "independent_process_gate": {
+        "decision": "fail",
+        "scope": "End-to-end instrument feasibility with auditable dispatched prompts and protocol-conforming retained artifact; separate from intervention success.",
+        "reasons": [
+          "Observed authenticated role dialogue, consultation, exact-byte endorsements, consistent freeze/release hashes and three independent synthetic applications demonstrate substantial execution feasibility.",
+          "Encrypted task bodies prevent required exact dispatched-prompt audit and verification of facilitator neutrality or explicit file-read authorization.",
+          "Frozen artifact omits required description and retains superseded pending-signoff text; external endorsement verifies acceptance but does not repair the artifact."
+        ],
+        "intervention_success": "not established; no operational rollout or clinic is authorized, all worker/organizational outcomes remain unobserved, and each stress event exposes unmet demands. No release remains controlling."
+      },
+      "primary_example": false,
+      "evaluation": "logistics/evaluation.json",
+      "failure_record": "logistics/failures.json"
+    },
+    {
+      "episode": "logistics-gated",
+      "case_id": "logistics",
+      "knowledge_gate_version": 2,
+      "core_roles": [
+        "ops",
+        "analyst"
+      ],
+      "design_messages": 7,
+      "agent_conversations": 4,
+      "completed_task_turns": 9,
+      "frozen_sha256": "67507be5cfccaaecfec8270517710243e83338bf4435a20bce2ba96c47459cf8",
+      "budget_committed": 9,
+      "budget_available": 10,
+      "release_decision": "no release",
+      "stress_projections": 3,
+      "independent_process_gate": {
+        "decision": "pass",
+        "reasons": [
+          "Prospective readable instructions, role packets and public responses are retained, with visible participant invocation reads.",
+          "Responsive dialogue exposes private evidence before reuse and produces consequential budget, coverage and no-release choices.",
+          "Both core roles endorse matching exact bytes; recomputed frozen and sealed-event hashes match receipts and freeze precedes release.",
+          "Three separately reasoned projections apply the same immutable plan and respect no release without redesign.",
+          "This fresh independent audit records semantic, artifact, process and outcome limits without intervention repair."
+        ],
+        "intervention_success": "Not demonstrated. The retained plan permits audit and preparation only and does not meet immediate live demands in any event. Gate pass concerns the bounded example, not operational efficacy or general protocol validation."
+      },
+      "primary_example": true,
+      "evaluation": "logistics-gated/evaluation.json",
+      "failure_record": "logistics-gated/failures.json"
+    },
+    {
+      "episode": "benefits",
+      "case_id": "benefits",
+      "knowledge_gate_version": 2,
+      "core_roles": [
+        "director",
+        "designer"
+      ],
+      "design_messages": 7,
+      "agent_conversations": 4,
+      "completed_task_turns": 9,
+      "frozen_sha256": "978418fb049e4e19cb6f7d985781048b052a251eebc6a06782faeccee4bca146",
+      "budget_committed": 9,
+      "budget_available": 9,
+      "release_decision": "no release",
+      "stress_projections": 3,
+      "independent_process_gate": {
+        "decision": "pass",
+        "scope": "Bounded process feasibility only: authenticated differentiated roles, disclosed evidence, actual consultation, consequential allocation dialogue, owned no-release outcome, exact endorsements, freeze-before-events, unchanged independent event applications and auditable visible boundaries.",
+        "reasons": [
+          "No material visible evidence-access, semantic expertise, authority, cost or release violation found.",
+          "Actual consultation had traceable influence without inventing validation or resources.",
+          "Process supports an honest consequential no-release result rather than requiring manufactured readiness.",
+          "Encrypted transport and shared-runtime limitations constrain the assurance level; the pass is not proof of hard isolation or independent model families."
+        ],
+        "service_readiness_gate": {
+          "decision": "fail",
+          "reason": "Reviewer availability/capacity/handoff, confirmed schedule and recruitment/access evidence are unresolved; the team itself fixed no release."
+        },
+        "intervention_success": {
+          "status": "not_established",
+          "reason": "No released intervention or observed improvement exists. Medium and hard events expose structural service gaps, and easy-event status communication is not established. This is separate from the process feasibility pass."
+        }
+      },
+      "primary_example": true,
+      "evaluation": "benefits/evaluation.json",
+      "failure_record": "benefits/failures.json"
+    },
+    {
+      "episode": "controlroom",
+      "case_id": "controlroom",
+      "knowledge_gate_version": 2,
+      "core_roles": [
+        "operator",
+        "safety"
+      ],
+      "design_messages": 7,
+      "agent_conversations": 4,
+      "completed_task_turns": 9,
+      "frozen_sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+      "budget_committed": 7,
+      "budget_available": 8,
+      "release_decision": "bounded synthetic release",
+      "stress_projections": 3,
+      "independent_process_gate": {
+        "decision": "pass",
+        "scope": "Bounded process feasibility only, with retained implementation defect and provenance limits; not intervention success or readiness certification.",
+        "reasons": [
+          "Actual separate participant conversations visibly read their retained tasks and role-limited evidence.",
+          "Disclosures precede reuse; core disagreements influence choices; delivered consultation has visible bounded influence and real accounting.",
+          "No material semantic expertise or authority violation is observed in permitted evidence.",
+          "Actual core endorsements bind identical frozen bytes before stress-event release.",
+          "Post-rejection amendment legitimately handles existing attributed advice; it preserves rejected operations and unchanged intervention rather than repairs team choices.",
+          "Projection keeps the same plan, unpassed execution gates, no-start/stop boundaries and hard coverage failure without invented resources or outcomes."
+        ],
+        "intervention_success": {
+          "status": "unestablished",
+          "reason": "No execution is observed, independent diagnosis/retention/transfer are unestablished, medium cue dependence remains, and hard combined-failure coverage is absent."
+        },
+        "conditions_on_interpretation": [
+          "Pass does not assert the original validator worked without correction.",
+          "Pass applies only to visible behavioral compliance, not hard isolation or complete bootstrap/root-transcript visibility.",
+          "Easy/medium remain conditional with no presumed preparation/check success; hard cannot start as the proposed exercise under this release."
+        ]
+      },
+      "primary_example": true,
+      "evaluation": "controlroom/evaluation.json",
+      "failure_record": "controlroom/failures.json"
+    }
+  ],
+  "prior_authored_policy_fixture": {
+    "path": "data/lifecycle/competency-casebook/observations-v1.json",
+    "designs": 36,
+    "surrogate_observations": 108,
+    "live_model_calls": 0,
+    "included_in_actual_execution_counts": false
+  },
+  "limitations": [
+    "Separate contexts and observed file access are not hard filesystem isolation or erased pretrained knowledge.",
+    "All deployment outcomes and reviews are model-reasoned synthetic interpretations, not human or operational observations.",
+    "Initial native dispatch bodies are encrypted; readable prospective invocation files and observed reads support accepted examples, while encrypted bootstrap envelopes remain a limitation.",
+    "Independent reviewers share the participant model family and are not human domain experts."
+  ]
+}

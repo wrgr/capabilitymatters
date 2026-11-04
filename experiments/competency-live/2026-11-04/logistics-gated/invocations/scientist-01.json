@@ -1,0 +1,17 @@
+{
+  "description": "Readable instruction retained before dispatch; the agent must visibly read it.",
+  "created_at": "2026-11-04T20:47:32.493367+00:00",
+  "actor": "scientist",
+  "stage": "consultation",
+  "response_file": "scientist-01.json",
+  "public_inputs": [
+    "ops-01.json",
+    "analyst-01.json"
+  ],
+  "permitted_reads": [
+    "experiments/competency-live/2026-11-04/logistics-gated/packet-scientist.json",
+    "experiments/competency-live/2026-11-04/logistics-gated/responses/ops-01.json",
+    "experiments/competency-live/2026-11-04/logistics-gated/responses/analyst-01.json"
+  ],
+  "instruction": "You are the requested optional scientist. Read your own packet and the actual public requests. Answer the concrete questions within your specialist scope, disclose relevant own facts, and state the limits and resource tradeoffs. Do not authorize operations or invent a validated assessment. Your consultation costs one unit only once. Read only this invocation, its permitted_reads, your own prior invocation/response files and earlier permitted context. Follow the packet knowledge gate exactly. Write experiments/competency-live/2026-11-04/logistics-gated/responses/scientist-01.json exclusively with message_id logistics-scientist-01. Return the same natural professional speech. Never inspect sealed events or other private packets."
+}

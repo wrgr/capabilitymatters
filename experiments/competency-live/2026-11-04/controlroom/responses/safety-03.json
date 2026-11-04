@@ -1,0 +1,79 @@
+{
+  "message_id": "controlroom-safety-03",
+  "actor": "safety",
+  "speech": "I endorse the exact draft bytes identified by the SHA-256 in this response. Your commitment incorporates the reference, paper-sheet and stop conditions I proposed, and the draft accurately records my ownership of the sensor-staleness rehearsal, local logging and handoff receipt.\n\nI approve only the conditional simulator release described there. Before practice starts, I must prepare and check the authored event record, and the job aid must pass its stated check. A missing or indeterminate reference prevents start. During the exercise, contradiction, an older state, a missing reference or an indeterminate match requires stop and handoff. Paper values remain last-known and freshness uncertain; they cannot clear a stop. I retain my authority to stop, as do you, and accept the 20-minute limit.\n\nThe seven-unit accounting includes the actual scientist consultation and leaves one unit unused. My endorsement does not assert that reference checks, handoff performance or completion have already occurred. The local scripted reference establishes no independently verified clock, and partial radio dropout coverage remains excluded.\n\nI retain the scientist's stated limits: independent diagnosis, delayed retention and transfer remain unestablished. I also retain your concern about novices following AI ranking without dedicated unranked practice. No real-utility certification follows from this decision. The draft's statement that my endorsement was pending records its authoring stage; this separate response supplies my actual exact-byte endorsement without changing that draft.",
+  "evidence_disclosed": [],
+  "claims": [
+    {
+      "claim": "I endorse the exact draft bytes and commit to the recorded sensor-staleness rehearsal, local logging and handoff receipt.",
+      "basis": [
+        "controlroom-safety-02",
+        "controlroom-operator-03"
+      ],
+      "competency": "scenario safety constraints",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "I approve only the conditional simulator release, requiring the prepared and checked event reference and the stated job-aid check before start, the four freshness stop triggers, uncertain paper status, either participant’s stop authority and the 20-minute limit.",
+      "basis": [
+        "C-S1",
+        "C-S2",
+        "C-S3",
+        "controlroom-safety-02",
+        "controlroom-operator-03"
+      ],
+      "competency": "scenario safety constraints",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The seven-unit accounting includes the actual consultation and leaves one unit unused.",
+      "basis": [
+        "public.cost_reference",
+        "controlroom-operator-03",
+        "controlroom-scientist-01"
+      ],
+      "competency": "scenario safety constraints",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Reference checks, handoff performance and completion are not yet established; the local scripted reference establishes no independently verified clock, and partial radio dropout coverage remains excluded.",
+      "basis": [
+        "C-S1",
+        "controlroom-safety-02",
+        "controlroom-operator-03"
+      ],
+      "competency": "fault injection",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The scientist advises that independent diagnosis, delayed retention and transfer remain unestablished.",
+      "basis": [
+        "controlroom-scientist-01"
+      ],
+      "competency": "hypothesis",
+      "standing": "attributed_advice"
+    },
+    {
+      "claim": "The operator retains concern about novice reliance on AI ranking without dedicated unranked practice.",
+      "basis": [
+        "controlroom-operator-03"
+      ],
+      "competency": "hypothesis",
+      "standing": "attributed_advice"
+    },
+    {
+      "claim": "This endorsement grants no real-utility certification.",
+      "basis": [
+        "public.brief",
+        "C-S2",
+        "controlroom-safety-01"
+      ],
+      "competency": "scenario safety constraints",
+      "standing": "role_judgment"
+    }
+  ],
+  "consult_request": null,
+  "decision": "commitment",
+  "endorsed": true,
+  "artifact_sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96"
+}

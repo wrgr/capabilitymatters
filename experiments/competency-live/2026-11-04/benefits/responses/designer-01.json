@@ -1,0 +1,42 @@
+{
+  "message_id": "benefits-designer-01",
+  "speech": "I read this as a resolution problem with a misleading completion signal. My evidence B-H1 is five interviews with people who completed pages: they reported confusion about whether their claim was resolved. We did not interview abandoned users, so those interviews do not establish their experience or the extent of the problem.\n\nI need to challenge the sponsor's proposed equivalence between page completion and eligibility approval. B-P1, our supplied fictional local rule, requires authorized human review of ambiguous claims; page completion has no eligibility meaning. B-P2 lets me approve routing and wording against that rule, but gives me no basis to invent eligibility criteria. I can sign off that distinction; I cannot certify language or disability access.\n\nMy proposal is a bounded fortnight intervention: human-review routing for ambiguous claims, clearer completion wording, resolution tracking, and a participatory check informed by an actual access consultation. The listed costs are 2 + 1 + 2 + 2 + 1 = 8 units, leaving one unit uncommitted. That excludes the separately priced assisted slot; its absence is a real unresolved limitation. I am not claiming these activities establish readiness or improve outcomes before we observe them.\n\nDirector, what authorized review capacity and escalation ownership can you commit within that scope, and what would your operational evidence require us to change? I request access advice on the proposed route and check before we decide whether any release is justified.",
+  "evidence_disclosed": ["B-H1", "B-P1", "B-P2"],
+  "claims": [
+    {
+      "claim": "Five completed-page interviews report confusion about resolution; abandoned users were not interviewed, so that evidence does not establish their experience or problem prevalence.",
+      "basis": ["B-H1"],
+      "competency": "interface research",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "The supplied fictional rule requires authorized human review of ambiguous claims and gives page completion no eligibility meaning; treating completion as approval conflicts with that rule.",
+      "basis": ["B-P1", "public.brief"],
+      "competency": "specified fictional policy application",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "My delegated signoff covers routing and wording against the supplied rule and does not authorize invented eligibility criteria or certification of language or disability access.",
+      "basis": ["B-P2", "B-P1"],
+      "competency": "specified fictional policy application",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Propose a bounded intervention combining human-review routing, clearer completion wording, resolution tracking, a participatory check and access consultation; readiness and outcome improvement remain unestablished.",
+      "basis": ["B-H1", "B-P1", "public.brief", "public.cost_reference"],
+      "competency": "plain-language workflow design",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The listed proposed activities cost eight units; the separately priced assisted slot is excluded and its absence remains an unresolved limitation.",
+      "basis": ["public.cost_reference"],
+      "competency": "plain-language workflow design",
+      "standing": "role_judgment"
+    }
+  ],
+  "consult_request": {
+    "expert": "access",
+    "question": "Within a two-unit participatory check and your one-unit consultation fee, what can we credibly examine about language and disability access to the proposed human-review route and completion wording, what evidence would that require, and what readiness or coverage questions must remain unresolved without the separately funded assisted slot?"
+  },
+  "decision": "proposal"
+}

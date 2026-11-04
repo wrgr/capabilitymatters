@@ -1,0 +1,46 @@
+{
+  "description": "Software test results separated from genuine model-agent study execution.",
+  "recorded_at": "2026-11-04T21:04:16.150807+00:00",
+  "python_suite": {
+    "command": "python3 -m unittest discover -s tools/lifecycle/tests -p 'test_*.py'",
+    "tests": 213,
+    "result": "pass",
+    "localhost_permission": "escalated execution used for HTTP tests"
+  },
+  "node_suite": {
+    "tests": 12,
+    "result": "pass",
+    "files": [
+      "competency_casebook.test.mjs",
+      "competency_pilot.test.mjs",
+      "live_competency_agents.test.mjs"
+    ]
+  },
+  "gate_checks_after_latest_verification_change": {
+    "tests": 9,
+    "result": "pass"
+  },
+  "optimized_python_gate_checks": {
+    "tests": 9,
+    "result": "pass"
+  },
+  "retained_investigator_issues": [
+    {
+      "issue": "Initial sandboxed full suite had eight localhost socket permission errors.",
+      "resolution": "Rerun with localhost permission passed all tests."
+    },
+    {
+      "issue": "First localhost-test permission review timed out.",
+      "resolution": "One allowed retry succeeded; no approval remains blocked."
+    },
+    {
+      "issue": "App transcript export request used an unsupported output limit.",
+      "resolution": "Corrected to 20000; raw local rollout export then retained full public records."
+    },
+    {
+      "issue": "Redundant app-derived transcript files were removed while original reviewer was auditing.",
+      "resolution": "Retained as initial-pilot failure; new pilot artifacts left stable during review."
+    }
+  ],
+  "study_model_executions_generated_by_these_tests": 0
+}

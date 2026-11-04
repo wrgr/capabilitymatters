@@ -1,0 +1,54 @@
+{
+  "message_id": "benefits-director-01",
+  "speech": "The faster simple-case closures do not yet tell me whether people have actually resolved their cases. B-O1 is that our incentives reward closures and repeat contacts are not linked to original cases. I propose treating resolution tracking as part of the operational change, while leaving any causal effect unknown.\n\nMy staffing constraint is firm: B-O2 permits only one 90-minute assisted-service slot per day, covered by existing staff. I would restrict the fortnight's assisted route to that capacity and record unmet demand; I cannot promise universal assisted coverage. B-O3 allows me to pause automated closures, but not to change eligibility criteria. I therefore propose pausing automated closure for the bounded pilot workflow while a human-review route is specified with your policy signoff. I cannot authorize the sponsor's proposed equivalence between completed pages and eligibility approval.\n\nMy provisional allocation is two units for the human-review route, two for the assisted slot, two for linked resolution tracking, one for consulting access, and two reserved for a scoped participatory check: nine total. This leaves no separate page-wording allocation. Before committing, we need a review workload existing staff can cover alongside that daily slot, and a check scope we can actually deliver.\n\nDesigner, what do the supplied fictional rules require before a case can be approved or closed, and what narrow routing decision can you sign off? I also request access's advice on evaluating the proposed assisted route and identifying coverage gaps within our fixed capacity; that advice would not itself establish validated access.",
+  "evidence_disclosed": ["B-O1", "B-O2", "B-O3"],
+  "claims": [
+    {
+      "claim": "Closure incentives and unlinked repeat contacts prevent the current closure signal from establishing actual resolution; linked resolution tracking is proposed without a causal-effect claim.",
+      "basis": ["B-O1", "public.brief"],
+      "competency": "basic service measurement",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Only one 90-minute assisted-service slot per day is possible and existing staff must cover it.",
+      "basis": ["B-O2"],
+      "competency": "staff allocation",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "The proposed assisted route must stay within that slot and record unmet demand; universal assisted coverage is not established.",
+      "basis": ["B-O2"],
+      "competency": "staff allocation",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The director may pause automated closures but may not change eligibility criteria.",
+      "basis": ["B-O3"],
+      "competency": "service workflow",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "Pause automated closure for a bounded pilot workflow while seeking the designer's policy signoff on the human-review route; the director does not authorize page completion as eligibility approval.",
+      "basis": ["B-O3", "public.brief"],
+      "competency": "service workflow",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The provisional allocation totals nine units: human review two, assisted slot two, resolution tracking two, expert fee one, and participatory check two, leaving no separate page-wording allocation.",
+      "basis": ["public.cost_reference"],
+      "competency": "service workflow",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The review workload and participatory-check scope remain to be bounded against existing staff capacity before commitment.",
+      "basis": ["B-O2", "public.cost_reference"],
+      "competency": "staff allocation",
+      "standing": "role_judgment"
+    }
+  ],
+  "consult_request": {
+    "role": "access",
+    "question": "Within one existing-staff 90-minute assisted-service slot per day, what scoped language-access and accessibility evaluation and participatory check would you advise for the proposed human-review route, and what coverage or validation limits must remain explicit? The proposed budget reserves your one-unit fee and two units for the check; feasibility and access validity are not yet established."
+  },
+  "decision": "proposal"
+}

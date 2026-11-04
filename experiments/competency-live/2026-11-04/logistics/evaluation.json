@@ -1,0 +1,325 @@
+{
+  "description": "Independent evaluation of the completed fictional logistics pilot using only the protocol and logistics evidence. Ratings concern the authorized frozen plan under independent synthetic conditions, not observed worker outcomes.",
+  "evaluator_agent": "/root/logistics_evaluator",
+  "case_id": "logistics",
+  "process_findings": [
+    {
+      "finding": "The visible sequence contains genuine distinct runtime actor records and natural responsive dialogue, one scientist consultation, a team-written draft, two exact-hash core endorsements, a freeze receipt, event release and a synthetic application. Root task payload bodies are encrypted, so exact dispatch instructions and absence of substantive facilitator influence cannot be independently established.",
+      "status": "partial_verification",
+      "message_ids": [
+        "logistics-ops-01",
+        "logistics-analyst-01",
+        "logistics-scientist-01",
+        "logistics-ops-03",
+        "logistics-analyst-03",
+        "amsg_01a1a840-89c5-7a63-b04c-cf485454c951",
+        "amsg_01a1a849-9633-7911-b60e-cbe060ee6e4e"
+      ]
+    },
+    {
+      "finding": "All observed cross-role private facts were disclosed in dialogue before reuse: Ops revealed L-O1/O2/O3 in its opening; Analyst revealed L-D1/D2/D3 before Ops reused denominator and missingness facts; Scientist revealed L-S1/S2 before the core roles used assessment limits. No undisclosed cross-role private fact reuse is observed.",
+      "status": "observed",
+      "message_ids": [
+        "logistics-ops-01",
+        "logistics-analyst-01",
+        "logistics-ops-02",
+        "logistics-scientist-01",
+        "logistics-analyst-02",
+        "logistics-ops-03"
+      ]
+    },
+    {
+      "finding": "Visible prefreeze tools read own packets and retained colleague responses; no repository search, web, other private packet or sealed-event read is observed. Shared filesystem, omitted developer instructions and encrypted dispatch payloads prevent proof of isolation or verification that every colleague-file read was explicitly authorized.",
+      "status": "limited_assurance",
+      "message_ids": [
+        "ctc_01518776aa2ec7ac016aeb95a5a07087d18c9b7f7f68d93bce",
+        "ctc_01518776aa2ec7ac016aeb97372b9487d188895edf878490d2",
+        "ctc_0bb07ca87a697129016aeb9741c51887d19dbc9ae211f67825",
+        "ctc_02627cc8bc75e670016aeb97198ccc87d190a968891c5857f9"
+      ]
+    },
+    {
+      "finding": "Consultation changed consequential choices: scientist limits prevented certification, shaped 2/8/5-minute practice and assistance recording, and introduced the two-exercise assessor limit. Analyst preferred nine units including changed-case checks; Ops rejected unconfirmed assessor allocation and selected seven units with no release; Analyst explicitly withdrew the actionable nine-unit preference and endorsed the narrower plan.",
+      "status": "observed",
+      "message_ids": [
+        "logistics-scientist-01",
+        "logistics-analyst-02",
+        "logistics-ops-03",
+        "logistics-analyst-03"
+      ]
+    },
+    {
+      "finding": "Resource arithmetic is consistent: 2 workflow + 2 audit + 1 consultation + 2 practice = 7 of 10 units; two 15-minute worker slots plus 30 preparation, 30 debrief and 30 contingency = 120 senior-dispatcher minutes. These are allocations, not evidence of actual coverage, a confirmed roster or item materials. Three remaining units do not authorize a fallback drill.",
+      "status": "observed_with_unmet_conditions",
+      "message_ids": [
+        "logistics-ops-01",
+        "logistics-scientist-01",
+        "logistics-ops-03",
+        "logistics-analyst-03"
+      ]
+    },
+    {
+      "finding": "Draft and frozen bytes both hash to a47c8a7ca86492966a104bef7053ff6f5d35b907e2263358b2a0b51c25d81870, matching both endorsements and receipt. Receipt freeze time 20:39:56.951121 UTC precedes release 20:39:57.018185 UTC; sealed-event hash also matches receipt. Ops first visibly reads released events at 20:40:09.327 UTC. This supports freeze-before-event exposure in retained actor tools, not a tamper-proof parent execution attestation.",
+      "status": "observed_record_consistency",
+      "message_ids": [
+        "logistics-ops-03",
+        "logistics-analyst-03",
+        "ctc_01518776aa2ec7ac016aeb98278efc87d19a4ad4e65e2ebff1"
+      ],
+      "files": [
+        "freeze-receipt.json",
+        "deployment-release.json",
+        "sealed-events.json"
+      ]
+    },
+    {
+      "finding": "Frozen artifact omits the protocol artifact_contract description field. It also retains pending analyst endorsement in unresolved/signoffs and audit acceptance text even though the external exact-byte endorsement is complete. No analyst acceptance is invented; the frozen artifact alone is an incomplete account of signoff state.",
+      "status": "artifact_failure",
+      "message_ids": [
+        "logistics-ops-03",
+        "logistics-analyst-03"
+      ],
+      "files": [
+        "frozen-intervention.json"
+      ]
+    },
+    {
+      "finding": "All three synthetic events apply separately to the same hash and preserve the no-release choice. Neither clinic nor operational handoff is treated as executed; deployment release is interpreted as scenario disclosure, not operational permission. No repairs, new staff, fallback drill or model changes are introduced in the visible deployment.",
+      "status": "observed",
+      "message_ids": [
+        "logistics-analyst-03",
+        "msg_01518776aa2ec7ac016aeb985db08c87d19f4d43b2df8b6aa4"
+      ],
+      "files": [
+        "deployment.json"
+      ]
+    }
+  ],
+  "competency_contributions": [
+    {
+      "role": "ops",
+      "consequential_artifact_choices": [
+        "Conditional owner-and-backup handoff with actual coverage gate",
+        "Two-worker 120-minute clinic preparation allocation",
+        "Rejected unconfirmed assessor assignment and fallback staffing; seven-unit allocation",
+        "Controlling no-release decision"
+      ],
+      "message_ids": [
+        "logistics-ops-01",
+        "logistics-ops-02",
+        "logistics-ops-03"
+      ]
+    },
+    {
+      "role": "analyst",
+      "consequential_artifact_choices": [
+        "Rejected direct 11%-17% comparison after denominator change",
+        "Shift-level descriptive audit with conditional numerator/definition comparability",
+        "Preserved missing annotation unknowns and explicit observation denominators",
+        "Obtained explicit scope and release conditions; accepted narrower draft without claiming outcomes"
+      ],
+      "message_ids": [
+        "logistics-analyst-01",
+        "logistics-analyst-02",
+        "logistics-analyst-03"
+      ]
+    },
+    {
+      "role": "scientist",
+      "consequential_artifact_choices": [
+        "Familiar-item feedback without certification or transfer/retention claims",
+        "Proposed 2/8/5-minute structure and recording prompts/aid use",
+        "Two changed-case exercises total distinguished from workforce-wide competence",
+        "Advice-only role and actual assessor allocation condition"
+      ],
+      "message_ids": [
+        "logistics-scientist-01"
+      ]
+    }
+  ],
+  "expertise_audit": [
+    {
+      "finding": "Private evidence disclosure before cross-role reuse",
+      "status": "no_observed_leakage",
+      "evidence": [
+        "logistics-ops-01 discloses L-O1/O2/O3 before logistics-analyst-02 uses clinic capacity and ownership",
+        "logistics-analyst-01 discloses L-D1/D2/D3 before logistics-ops-02 uses them",
+        "logistics-scientist-01 discloses L-S1/S2 before logistics-analyst-02 and logistics-ops-03 use them"
+      ],
+      "severity": "none_observed"
+    },
+    {
+      "finding": "Isolation and exact prompt influence",
+      "status": "not_proven",
+      "evidence": [
+        "All eight agent_message records across exact rollouts contain encrypted_content for task bodies",
+        "Visible tools show no forbidden private-packet, repository, web or prefreeze sealed-event access",
+        "Separate conversations share filesystem and runtime developer instructions are omitted"
+      ],
+      "severity": "high_provenance_limit"
+    },
+    {
+      "finding": "Unsupported specialist claims",
+      "status": "none_observed_in_visible_dialogue",
+      "evidence": [
+        "logistics-analyst-01 explicitly defers assessment validity",
+        "logistics-ops-01 does not certify validity or infer causality",
+        "logistics-scientist-01 confines assessment statements to own evidence and advisory scope; no dispatch priorities or calibration claim",
+        "logistics-ops-03 and logistics-analyst-03 attribute assessment limits to consultation"
+      ],
+      "severity": "none_observed"
+    },
+    {
+      "finding": "Authority boundaries",
+      "status": "respected_in_visible_artifacts",
+      "evidence": [
+        "Ops makes operational release decision in logistics-ops-03",
+        "Analyst commits analysis rather than staffing in logistics-analyst-03",
+        "Scientist labels logistics-scientist-01 advice and grants no staffing, assessor or competence signoff",
+        "No model change or invented operational acceptance in deployment.json"
+      ],
+      "severity": "none_observed"
+    },
+    {
+      "finding": "Resource and material availability",
+      "status": "conditional_unverified",
+      "evidence": [
+        "logistics-ops-03 does not confirm roster, clinic shift or owner/backup acceptance",
+        "L-S2 states assessor capacity but no actual allocation",
+        "brief_practice says six provided interface examples; packets provide item metadata, not actual item content",
+        "No clinic or handoff implementation record is supplied"
+      ],
+      "severity": "medium_unresolved"
+    },
+    {
+      "finding": "No invented measurement or success claim",
+      "status": "respected_in_visible_artifacts",
+      "evidence": [
+        "logistics-analyst-03 distinguishes not observed from zero errors",
+        "deployment.json explicitly labels model-reasoned hypothetical projections",
+        "No actual audit output, worker performance or destination verification is supplied"
+      ],
+      "severity": "none_observed"
+    }
+  ],
+  "results": [
+    {
+      "difficulty": "easy",
+      "basis": "Independent application of frozen no-release plan, model-reasoned only",
+      "capability": {
+        "rating": "unknown",
+        "reason": "No practice, changed-case check, unassisted assessment or worker decision is observed; familiar-item preparation cannot establish competence."
+      },
+      "human_conditions": {
+        "rating": "mixed",
+        "reason": "Fifteen-minute worker and 120-minute dispatcher limits are protected by no release, but owner acceptance, actual worker release and support for this day-shift override are absent."
+      },
+      "organizational_performance": {
+        "rating": "fragile",
+        "reason": "The plan has no authorized deployed mechanism resolving even the easy live ownership demand; actual performance remains unobserved."
+      },
+      "resilience": {
+        "rating": "fragile",
+        "reason": "Normal assistant availability does not close missing operational coverage; there is no executed continuity or ownership response."
+      },
+      "unobserved_outcomes": [
+        "Who, if anyone, actually accepted the override or resolved its ambiguity.",
+        "Dispatch decisions, timeliness, routing correctness and consequences.",
+        "Whether a common historical denominator and exception definition can be established.",
+        "Any clinic participation, changed-case performance, independent competence or retention."
+      ],
+      "controlling_release_decision": "no release; preparation and descriptive audit only"
+    },
+    {
+      "difficulty": "medium",
+      "basis": "Independent application of frozen no-release plan, model-reasoned only",
+      "capability": {
+        "rating": "unknown",
+        "reason": "The two new dispatchers are not confirmed clinic participants; their readiness, independent performance and practice benefit are unobserved."
+      },
+      "human_conditions": {
+        "rating": "fragile",
+        "reason": "The sole clinic dispatcher is absent, worker release and night coverage are unconfirmed, and no authorized substitute is available."
+      },
+      "organizational_performance": {
+        "rating": "fragile",
+        "reason": "No released ownership procedure exists; 24-hour export delay and unrecoverable missing annotations constrain immediate monitoring and targeting. Actual handling is unknown."
+      },
+      "resilience": {
+        "rating": "fragile",
+        "reason": "The specified clinic depends on the absent senior dispatcher and supplies no authorized alternative; no repair or cross-event learning is permitted."
+      },
+      "unobserved_outcomes": [
+        "The new workers' actual decisions, assistance needs and errors.",
+        "Actual owner acceptance and handling of any night-shift exceptions.",
+        "The delayed export's eventual contents and whether comparable counts become possible.",
+        "Any eventual staffing confirmation or clinic delivery; none is supplied in the event."
+      ],
+      "controlling_release_decision": "no release; preparation and descriptive audit only"
+    },
+    {
+      "difficulty": "hard",
+      "basis": "Independent application of frozen no-release plan, model-reasoned only",
+      "capability": {
+        "rating": "unknown",
+        "reason": "No outage, changed-case or unassisted performance is observed; neither true urgency nor correct destination is known."
+      },
+      "human_conditions": {
+        "rating": "fragile",
+        "reason": "Outage and 40% surge add demands with no extra staff or time; the authorized plan does not establish coverage or staff support."
+      },
+      "organizational_performance": {
+        "rating": "fragile",
+        "reason": "No deployed continuity action, verified destination, urgency determination or authorized live resolution is supplied; actual queues, routing and consequences remain unknown."
+      },
+      "resilience": {
+        "rating": "fragile",
+        "reason": "Paper fallback drill was rejected; unallocated money does not authorize it. The frozen no-release preparation plan offers no operational response to 90-minute outage and stale data."
+      },
+      "unobserved_outcomes": [
+        "Whether the job was truly urgent, its correct destination and any actual verification.",
+        "Actual routing, overrides, queue development, delivery consequences and worker responses during the outage.",
+        "Whether any existing operational fallback outside this plan exists or was used; none is supplied.",
+        "Worker competence, transfer, retention and any causal effect of the proposed intervention."
+      ],
+      "controlling_release_decision": "no release; preparation and descriptive audit only"
+    }
+  ],
+  "observer_disagreements": [
+    {
+      "topic": "Nine-unit versus seven-unit package",
+      "positions": "Analyst proposed nine units conditional on assessor allocation (logistics-analyst-02); Ops rejected absent allocation and selected seven-unit preparation only (logistics-ops-03). Analyst withdrew its actionable preference and endorsed exact bytes (logistics-analyst-03).",
+      "evaluator_judgment": "A documented substantive difference resolved through explicit resource limits; no enduring dissent is asserted."
+    },
+    {
+      "topic": "Process completion versus fully auditable instrument feasibility",
+      "positions": "Retained chain reaches scenario application, but exact runtime dispatch bodies are encrypted and the artifact lacks description.",
+      "evaluator_judgment": "Completion of files and dialogue does not establish the stronger end-to-end auditability gate."
+    },
+    {
+      "topic": "Deployment artifact failure language versus actual operational outcomes",
+      "positions": "deployment.json calls several demands failures, while explicitly declaring all dispatch outcomes unobserved.",
+      "evaluator_judgment": "Agree as plan-capability shortfalls only. The records do not show actual worker errors, delay, injury, successful handling or operational harm."
+    }
+  ],
+  "provenance_limits": [
+    "Read only protocol.json and logistics subtree; no outside domain authority, repository guidance, hidden repair or causal inference used.",
+    "Exact actor rollouts expose gpt-6.1-sol/high labels for Ops four task turns, Analyst three and Scientist one; eight turns are not eight independently counted provider API calls. No checkpoint attestation, response IDs, temperature or model-family independence.",
+    "Actor provenance receipts report inherited selection and resolved_model_id null; runtime context label supplies additional local provenance without resolving the provider checkpoint.",
+    "Exact dispatch bodies are encrypted in eight agent_message records; only envelopes, actor outputs, tool inputs/outputs and local turn contexts can be audited. Root substantive neutrality cannot be proven.",
+    "Parent freeze/release execution trace is absent from case files; hashes and receipt timestamps are internally consistent, not independently immutable.",
+    "Initial directory inventory contained runtime-transcripts/analyst.json and scientist.json, but they disappeared during audit before read; an analyst.json read raised FileNotFoundError. Evaluator did not delete or edit them. Audit conclusions use the three retained exact *-rollout.json exports.",
+    "Shared filesystem and instruction-bounded access mean no observed leakage is not proof of isolation. Private reasoning and runtime developer instructions are excluded from exports.",
+    "Synthetic application is authored by Ops, a participant, then independently evaluated here. It is not an independently observed simulation or real deployment. No worker, operational or causal outcomes are measured."
+  ],
+  "pilot_gate": {
+    "decision": "fail",
+    "scope": "End-to-end instrument feasibility with auditable dispatched prompts and protocol-conforming retained artifact; separate from intervention success.",
+    "reasons": [
+      "Observed authenticated role dialogue, consultation, exact-byte endorsements, consistent freeze/release hashes and three independent synthetic applications demonstrate substantial execution feasibility.",
+      "Encrypted task bodies prevent required exact dispatched-prompt audit and verification of facilitator neutrality or explicit file-read authorization.",
+      "Frozen artifact omits required description and retains superseded pending-signoff text; external endorsement verifies acceptance but does not repair the artifact."
+    ],
+    "intervention_success": "not established; no operational rollout or clinic is authorized, all worker/organizational outcomes remain unobserved, and each stress event exposes unmet demands. No release remains controlling."
+  }
+}

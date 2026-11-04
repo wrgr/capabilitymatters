@@ -281,6 +281,31 @@ candidate, with a maximum of 30 review invocations. It retains actual browser
 observations, original responses, failed attempts, raw rubric indices, and reviewer
 disagreement. It does not run the probability sampler or alter historical scores.
 
+## Authenticated competency-mediation examples
+
+The [live example archive](experiments/competency-live/2026-11-04/README.md)
+retains native authenticated Codex subagent conversations for AI-assisted
+logistics, public-benefits service, and control-room readiness. Role-specific
+packets distinguish competencies, private evidence, decision rights and resources.
+Readable phase instructions, claim permissions, exact endorsements, frozen plans,
+three stress projections, independent reviews and failures remain inspectable.
+The [paper](docs/lifecycle/competency-mediation-paper-v3.md) explains the instrument
+and qualitative findings separately from execution receipts.
+
+The initial failed pilot is retained. A fresh pilot validates the bounded process
+before case expansion. These are actual model-generated conversations and choices,
+with hypothetical deployment consequences; the older 36-design casebook remains an
+authored-policy fixture with zero live model calls. Knowledge gates control
+acceptable evidence and authority; they do not erase pretrained knowledge or
+provide hard per-agent filesystem isolation. This route uses no API key or GitHub
+Actions model execution and adds no dependency or environment variable.
+
+Run the evidence and knowledge-gate tests with
+`python3 -m unittest discover -s tools/lifecycle/tests -p 'test_*mediation*.py'`.
+The archive describes freeze/release verification and transcript export; model
+conversations require an authenticated native collaboration session and cannot
+be deterministically replayed by the evidence utilities.
+
 ## Problems to Prototypes
 
 `/problems-to-prototypes/` holds 38 evidence-linked briefs across AILE, LXD,

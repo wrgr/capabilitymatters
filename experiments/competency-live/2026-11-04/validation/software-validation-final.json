@@ -1,0 +1,15 @@
+{
+  "description": "Final software verification after the exposed attributed-advice validator correction.",
+  "recorded_at": "2026-11-04T21:13:05.748250+00:00",
+  "python_lifecycle_tests": 214,
+  "python_result": "pass",
+  "node_casebook_and_agent_boundary_tests": 12,
+  "node_result": "pass",
+  "scoped_gate_and_export_tests": 10,
+  "scoped_result": "pass",
+  "python_optimized_mode_gate_tests": 10,
+  "optimized_result": "pass",
+  "prior_failures": "software-validation.json and case technical-failures remain retained; no failure was overwritten.",
+  "research_model_calls_from_tests": 0,
+  "site_build": "Not run; no website routes, components, assets or dependencies changed."
+}
