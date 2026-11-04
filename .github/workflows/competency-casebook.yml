@@ -1,0 +1,36 @@
+name: Multi-case competency teaching and mechanism demo
+on:
+  push:
+    paths:
+      - 'src/data/lifecycle/competency-casebook-v1.json'
+      - 'tools/lifecycle/competency_casebook_runner.mjs'
+      - 'tools/lifecycle/tests/competency_casebook.test.mjs'
+      - 'data/lifecycle/competency-casebook/**'
+      - '.github/workflows/competency-casebook.yml'
+      - 'docs/lifecycle/competency-mediation-paper-v3.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run casebook verification
+        run: node --test tools/lifecycle/tests/competency_casebook.test.mjs
+      - name: Generate full records and compare exact output
+        run: |
+          node tools/lifecycle/competency_casebook_runner.mjs src/data/lifecycle/competency-casebook-v1.json > /tmp/multicase-replayed.json
+          cmp data/lifecycle/competency-casebook/observations-v1.json /tmp/multicase-replayed.json
+      - name: Retain reproducibility evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: competency-multicase-records
+          path: |
+            src/data/lifecycle/competency-casebook-v1.json
+            data/lifecycle/competency-casebook/observations-v1.json
+          retention-days: 90
