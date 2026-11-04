@@ -428,29 +428,25 @@
     "connection": "The paper develops the conceptual LENS frame used across these resources. Use it to question whether a polished artifact, an immediate performance and durable learning are being confused; the proposed frame remains open to community discussion."
   },
   "agentic-paper": {
-    "what": "The preserved earlier fixed-workflow pilot paper. Its original results concern scheduled learning-resource generation and artifact review; they do not evaluate the revised dynamic-conversation protocol.",
+    "what": "The new dynamic-conversation pilot paper. It examines two modest fictional cases under generalist and specialist-team conditions, followed by easy, medium and hard deployment tests and a planned user-change demonstration.",
     "how": [
-      "Read the controlled comparisons and review method before interpreting the results. The study varies explicit expertise instructions and contribution opportunities in one fictional scenario.",
-      "Follow the completed-study link to inspect condition means, individual reviewer pairs, unknown values, browser coverage, and the exact generated prototypes.",
-      "Use the limitations and audit notes to judge what the evidence supports. Model judgments, repeated checks, and generated plans do not establish human learning or causal effects in human teams."
+      "Start with the two-phase protocol and flower-domain responsibilities. There is one independent conversation per case and condition, so the results are illustrative.",
+      "Read the separate process and scenario-result ratings alongside the saved conversation and source-bound browser observations. A passed mechanical check is not evidence of human learning.",
+      "Use the method amendments and limitations to assess the evidence. Role instructions do not erase model knowledge, and agent judgments are sensitive to coverage and interpretation."
     ],
-    "connection": "The paper connects multidisciplinary integration to the LENS capability cycle. Its simulation represents explicit responsibilities around shared understanding while assessing human flourishing support, system performance, and learning as separate dimensions of the available evidence.",
+    "connection": "The flower organizes domain responsibilities around shared understanding. The study connects that design process to the LENS capability cycle while keeping human flourishing support, system performance and learning distinct in its interpretation.",
     "links": [
       {
-        "label": "Revised dynamic-conversation tool",
+        "label": "Dynamic conversations, tests and prototypes",
         "href": "/agentic-le/dynamic/"
-      },
-      {
-        "label": "Completed study results and prototypes",
-        "href": "/agentic-le/flower-study/"
       },
       {
         "label": "Flower framework and comparison methods",
         "href": "/agentic-le/roles/"
       },
       {
-        "label": "Experiment studio",
-        "href": "/agentic-le/experiments/"
+        "label": "Earlier fixed-workflow evidence",
+        "href": "/agentic-le/flower-study/"
       }
     ]
   },

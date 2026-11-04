@@ -1,5 +1,5 @@
 ---
-/** Preserve the earlier fixed-workflow paper with an explicit notice about the revised protocol. */
+/** Present the dynamic-conversation study with its current manuscript and downloads. */
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import Base from "../../layouts/Base.astro";
@@ -17,11 +17,11 @@ const sections = getHeadings().filter((heading) => heading.depth === 2);
 ---
 
 <Base title="Exploring the learning engineering flower with agentic simulation · Capability Matters"
-  description="The preserved earlier fixed-workflow pilot paper, with its original results and an explicit link to the revised dynamic-conversation protocol.">
+  description="A modest agentic simulation of the learning engineering flower: dynamic design conversations, scenario tests, separate process and result reviews, and a planned user-change demonstration.">
   <meta slot="head" name="robots" content="noindex, nofollow" />
  <AgenticNav active="paper" />
   <div class="paper-shell">
-    <p class="study-link"><strong>Earlier fixed-workflow pilot.</strong> This manuscript and its downloads retain the original experiment and results. The revised study uses dynamic design conversations followed by deployment tests and an expert review of process and result. <a href="/agentic-le/dynamic/">Open the revised two-phase tool</a> or <a href="/agentic-le/flower-study/">inspect the earlier evidence</a>. No results from the revised protocol are reported in this paper.</p>
+    <p class="study-link"><strong>Dynamic-conversation pilot.</strong> This paper reports the new two-phase study: bounded design conversations, easy/medium/hard deployment tests, separate expert reviews of process and result, and a planned user-change demonstration. <a href="/agentic-le/dynamic/">Inspect the saved conversations, artifacts and evidence</a>. Earlier exploratory results are preserved in a separate offline appendix.</p>
     <nav class="paper-actions" aria-label="Paper downloads">
       <a class="download" href={`/agentic-le/paper/flower-team-study.pdf?v=${pdfVersion}`} download aria-label="Download PDF: Exploring the learning engineering flower with agentic simulation">Download study PDF</a>
       <a href={`/agentic-le/paper/flower-team-study.md?v=${pdfVersion}`} download aria-label="Download manuscript: Exploring the learning engineering flower with agentic simulation">Download study manuscript</a>
