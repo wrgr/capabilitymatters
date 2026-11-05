@@ -8,6 +8,12 @@
       "overflow": []
     },
     {
+      "figure": "competency-scenario-setup",
+      "width": 1200,
+      "height": 1120,
+      "overflow": []
+    },
+    {
       "figure": "controlroom-dialogue-table",
       "width": 1200,
       "height": 1142,
@@ -18,24 +24,35 @@
       "width": 1200,
       "height": 1000,
       "overflow": []
+    },
+    {
+      "figure": "competency-value-add",
+      "width": 1200,
+      "height": 860,
+      "overflow": []
     }
   ],
-  "visual_qa": "Updated architecture and executable-result figures inspected individually at full rendered resolution; no clipping or overlapping content observed. Unchanged dialogue figure retains its prior visual check. All three final browser bounds checks report no overflow.",
-  "source_fidelity_tests": 6,
+  "visual_qa": "New setup and value tables visually inspected; final value heading re-inspected after wrapping correction. Existing dialogue/results retain their prior inspection; changed architecture labels and dialogue numbering pass browser bounds checks. All five final browser checks report no exterior text overflow.",
+  "source_fidelity_tests": 7,
   "source_fidelity_result": "pass",
-  "full_python_suite": 244,
+  "full_python_suite": 245,
   "python_result": "pass",
   "node_fixture_boundary_tests": 12,
   "node_result": "pass",
   "deployment_tests_included_in_python_total": 24,
   "optimized_python_deployment_tests": 24,
-  "evidence_integrity": "All 149 original run JSON files and all four exact frozen artifacts retain their original hashes. Eight accepted deployment episodes are software executions; no new professional design-agent context was run. One independent software-auditor context completed three validation turns.",
+  "evidence_integrity": "No new design-agent or software-deployment episode in this publication revision. Original run JSON, frozen artifacts, executable traces and audited implementation unchanged.",
   "asset_sha256": {
-    "competency-architecture.png": "2aa98d4bd2b942abc8c940c2802b1275082fa48d0d117fd11a7ebff9502ab4f5",
-    "competency-architecture.svg": "520931daf5493e8868e453df1a7415805dfa145b04af39027a3ca7488a29c75c",
-    "controlroom-dialogue-table.png": "20a563d8b970e519a7accca2a51abb8dbca0cb43f6c4bf74cb798a8ce3bf60c6",
-    "controlroom-dialogue-table.svg": "d5e04e88051820345a42ecf7cff013a129ab4f402403345e531d03812dd3b076",
+    "competency-architecture.png": "98d9ae243931e3add30f43b1ce56c3f6a60e4b8ad939f70c2ed5cf768077fa7b",
+    "competency-architecture.svg": "af5a1cda78d5ae3038e140a9d92b65c880f4f86f88befc3dbc5928526efc352b",
+    "competency-scenario-setup.png": "3e2efa75abcf85ad133cc1bcd6b8f221b2fdf6d57db5f3409b87600cc36cb61c",
+    "competency-scenario-setup.svg": "b8c72df6b2f0d2e30c16180251ca5c22e15e91e4a33f272c44c095dd960733f0",
+    "competency-value-add.png": "8ef67372619fa1e0af01d1fa86058f3b62831813517fe5ead7f405c916e18364",
+    "competency-value-add.svg": "7180e339054733ace32eebca799a9fbc99d4c3c4d0fc0cabce890c799c945045",
+    "controlroom-dialogue-table.png": "d58fe27183ff1f83512079eb6fa6b336f3de62e186d1367bdd92c0eda1af9d77",
+    "controlroom-dialogue-table.svg": "e619194f89dc930401dce860da21910b3cb1119ddc7ceb6578bb2fc17291816b",
     "controlroom-stress-test.png": "cbc02e5a8b004484e411fe5488a20c24fe331d5617309fd0608f81579e082cb8",
     "controlroom-stress-test.svg": "96ae7bcf860cdfefe5cf40f76a8bcd2d563fa3bad71208f36c62aed024fd6cde"
-  }
+  },
+  "test_scope": "Full 245-test Python suite passed; seven figure source tests passed again after final wording changes. Node (12) and optimized deployment (24) results are inherited from the prior verified execution revision; those sources are unchanged."
 }

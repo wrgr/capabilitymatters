@@ -122,7 +122,16 @@
     "experiments/competency-live/2026-11-04/controlroom-executable-v3/fresh_sensor_control.json": "aaa6922d8d0c8134c01339453770f09b95aaabfb69c1662d168bbc937bf379a6",
     "experiments/competency-live/2026-11-04/controlroom-executable-v3/medium_cue_first.json": "e47616898b2fe5f79e3d4a157faf0282d87d0b6dda6e853c8c0bb557309b9fd8",
     "experiments/competency-live/2026-11-04/controlroom-executable-v3/missing_reference.json": "419e1969bee09c56865f4eabcba69b9c27c1ffe5023ad0b54e3e1724da15edcf",
-    "experiments/competency-live/2026-11-04/controlroom-executable-v3/independent-audit.json": "52c4639411979d568f5e75ee29f05b9936105f7bd18c08a131fa69387002fce0"
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/independent-audit.json": "52c4639411979d568f5e75ee29f05b9936105f7bd18c08a131fa69387002fce0",
+    "experiments/competency-live/2026-11-04/logistics-gated/packet-ops.json": "5f02dcf4068afc969be8cf1897c1f9ff39642c19e9b4f9d956997ab913a69050",
+    "experiments/competency-live/2026-11-04/logistics-gated/packet-analyst.json": "cbc8464b145b957e2f56133bf94c415ee8a80fcb5a5dcecfff87bbc54d6c4591",
+    "experiments/competency-live/2026-11-04/logistics-gated/packet-scientist.json": "96f7cf74962d15d7a5f5bfb4451632bc385cc5e02f27c859cce9f1603eebf169",
+    "experiments/competency-live/2026-11-04/benefits/packet-director.json": "5a2f2c39aadcdcd3048e2635bdd886ff999a16ca4d470c0b12e6726997ef4241",
+    "experiments/competency-live/2026-11-04/benefits/packet-designer.json": "f1610946aeb9fa2a921dbc7dac8fc0529598dc3b33ebdcec08bda7582fff4d57",
+    "experiments/competency-live/2026-11-04/benefits/packet-access.json": "0ec7a1760992b55e9a26ed3d085db1b0abc15af5ae9d44ce99d1cccae74b7964",
+    "experiments/competency-live/2026-11-04/controlroom/packet-operator.json": "54bfe6ba8ed172fa2dff440fcddf0d7980f1fdaba2765797e9e0ab06b4cd59ff",
+    "experiments/competency-live/2026-11-04/controlroom/packet-safety.json": "eed4da628d466820e48a0d0cfaea4f24bc61b9fc874cddecc622082cdc8cf556",
+    "experiments/competency-live/2026-11-04/controlroom/packet-scientist.json": "7d13b26cf0b5d292a4af56e68ef440f380d32dbaf20780518ec0853e91457b0d"
   },
   "execution": {
     "summary_path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/summary.json",
@@ -391,5 +400,137 @@
     "easy": "Procedure completed in this model: no stale acceptance, complete receipt and all required local records. Diagnosis remains unassessed.",
     "medium": "Later receipt cannot erase the stale acceptance. A supplied aid did not ensure timely cue use under the authored actor policy.",
     "hard": "Release boundary held; deployment demand unmet. No hard-fault rehearsal or diagnosis performance was exercised."
-  }
+  },
+  "setup_rows": [
+    {
+      "case": "logistics-gated",
+      "label": "AI-assisted logistics",
+      "core_ids": [
+        "ops",
+        "analyst"
+      ],
+      "consultant_id": "scientist",
+      "team": "Core: operations/training lead (workflow, staffing, job aids); data analyst (denominators, missing data, monitoring). Consultant: workplace learning scientist (practice, transfer, assessment limits).",
+      "private_summary": "Operations: no agreed overnight owner. Analyst: pre/post denominators differ; 38% of night overrides lack annotations. Scientist: six practice items repeat examples; no validated certification instrument.",
+      "boundary": "Operations schedules practice. Analyst cannot direct staff or certify competence. Consultant advises only.",
+      "resources": "10 units; 15 minutes per worker this week. Two-hour clinic cannot cover all shifts.",
+      "refs": "L-O1–3; L-D1–3; L-S1–2",
+      "packets": [
+        {
+          "path": "experiments/competency-live/2026-11-04/logistics-gated/packet-ops.json",
+          "identity": "ops",
+          "private_evidence": [
+            "L-O1: supervisors have no agreed overnight override owner.",
+            "L-O2: only 15 minutes per worker are available this week; no full-shift shutdown.",
+            "L-O3: a senior dispatcher can staff one two-hour exception clinic, but cannot cover every shift."
+          ]
+        },
+        {
+          "path": "experiments/competency-live/2026-11-04/logistics-gated/packet-analyst.json",
+          "identity": "analyst",
+          "private_evidence": [
+            "L-D1: rollout changed the exception denominator from completed jobs to all attempted jobs.",
+            "L-D2: 38% of night-shift overrides lack annotations; no delayed unassisted assessment exists.",
+            "L-D3: available export allows shift-level audit, but cannot recover the missing annotations."
+          ]
+        },
+        {
+          "path": "experiments/competency-live/2026-11-04/logistics-gated/packet-scientist.json",
+          "identity": "scientist",
+          "private_evidence": [
+            "L-S1: the six practice items repeat interface examples; they are not a delayed or changed-case test.",
+            "L-S2: an assessor can review two changed-case exercises within this project; no validated certification instrument is available."
+          ]
+        }
+      ],
+      "budget": 10
+    },
+    {
+      "case": "benefits",
+      "label": "Public-benefits service",
+      "core_ids": [
+        "director",
+        "designer"
+      ],
+      "consultant_id": "access",
+      "team": "Core: service director (staffing, workflow, escalation); service designer/policy steward (interface research, supplied policy). Consultant: access practitioner (language access, participatory testing).",
+      "private_summary": "Director: closure incentives; repeat contacts unlinked. Steward: ambiguous claims require human review; completion is not eligibility. Access practitioner: restricted interpreting hours; machine translation untested with users.",
+      "boundary": "Director cannot change eligibility. Steward approves supplied-rule routing, not access. Consultant cannot add interpreting hours.",
+      "resources": "10 units; one 90-minute assisted slot daily, covered by existing staff.",
+      "refs": "B-O1–3; B-H1; B-P1–2; B-A1–2",
+      "packets": [
+        {
+          "path": "experiments/competency-live/2026-11-04/benefits/packet-director.json",
+          "identity": "director",
+          "private_evidence": [
+            "B-O1: incentives reward closures; repeat contacts are not linked to original cases.",
+            "B-O2: only one 90-minute assisted-service slot per day is possible, and existing staff must cover it.",
+            "B-O3: director may pause automated closures but may not change eligibility criteria."
+          ]
+        },
+        {
+          "path": "experiments/competency-live/2026-11-04/benefits/packet-designer.json",
+          "identity": "designer",
+          "private_evidence": [
+            "B-H1: five completed-page interviews report confusion about whether a claim was resolved; abandoned users were not interviewed.",
+            "B-P1: fictional local rule requires authorized human review of ambiguous claims; page completion has no eligibility meaning.",
+            "B-P2: this steward may approve routing and wording against that supplied rule, but cannot invent eligibility rules."
+          ]
+        },
+        {
+          "path": "experiments/competency-live/2026-11-04/benefits/packet-access.json",
+          "identity": "access",
+          "private_evidence": [
+            "B-A1: phone interpretation is available only 10:00–14:00; two requested languages lack approved translated forms.",
+            "B-A2: assisted applicants may need oral explanation; machine translation alone has not been checked with affected users."
+          ]
+        }
+      ],
+      "budget": 9
+    },
+    {
+      "case": "controlroom",
+      "label": "Control-room readiness",
+      "core_ids": [
+        "operator",
+        "safety"
+      ],
+      "consultant_id": "scientist",
+      "team": "Core: senior operator/training lead (alarm cues, practice, handoff); safety/simulator engineer (faults, fallback, logging). Consultant: learning scientist (diagnosis assessment, transfer limits).",
+      "private_summary": "Operator: novices follow ranking; timestamp cue absent from aid. Engineer: no radio-dropout injection; paper freshness unmarked. Scientist: assessment discloses alarm order; delayed probe follows release.",
+      "boundary": "Operator and engineer jointly approve simulator release; either may stop. Consultant cannot certify readiness or safety.",
+      "resources": "8 units; 20-minute slot per operator. No real utility operation.",
+      "refs": "C-O1–3; C-S1–3; C-L1–2",
+      "packets": [
+        {
+          "path": "experiments/competency-live/2026-11-04/controlroom/packet-operator.json",
+          "identity": "operator",
+          "private_evidence": [
+            "C-O1: novices normally follow AI ranking and rarely diagnose unranked alarms.",
+            "C-O2: experienced operators use a timestamp contradiction cue that is missing from the job aid.",
+            "C-O3: only a 20-minute simulator slot per operator is funded; no full-day exercise."
+          ]
+        },
+        {
+          "path": "experiments/competency-live/2026-11-04/controlroom/packet-safety.json",
+          "identity": "safety",
+          "private_evidence": [
+            "C-S1: sensor staleness and a local console log can be simulated safely; the radio-link module cannot inject partial dropouts this week.",
+            "C-S2: fictional release rule requires operator AND safety approval; either can stop a scenario.",
+            "C-S3: offline paper alarm sheet has last-known values without automatic freshness marking."
+          ]
+        },
+        {
+          "path": "experiments/competency-live/2026-11-04/controlroom/packet-scientist.json",
+          "identity": "scientist",
+          "private_evidence": [
+            "C-L1: current acknowledgement exercise discloses the expected alarm order before performance.",
+            "C-L2: one delayed unranked diagnosis probe is feasible next week, after the current release decision."
+          ]
+        }
+      ],
+      "budget": 8
+    }
+  ],
+  "overview_interpretation": "Setup cells summarize authored role packets, not measured professional competencies. Value/use-case cells are proposed applications, not observed educational benefits or team-superiority findings."
 }

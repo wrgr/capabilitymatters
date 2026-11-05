@@ -8,11 +8,15 @@ conversations or measured human outcomes.
 
 - `competency-architecture.svg`: Figure 1, with separate deterministic and dynamic
   paths, different evidence classes, a freeze before event release, and evaluation.
-- `controlroom-dialogue-table.svg`: Table 1, actual verbatim dialogue excerpts with
+- `competency-scenario-setup.svg`: Table 1, the three settings, bounded core and
+  consultant competencies, selected private evidence, authority and resources.
+- `controlroom-dialogue-table.svg`: Table 2, actual verbatim dialogue excerpts with
   analytic summaries of the decisions and limits they informed.
 - `controlroom-stress-test.svg`: Figure 2, actual executed outcomes of the exact
   frozen design under easy/medium/hard conditions, with timed errors, receipt and
   record predicates, plus clearly separate sensitivity-probe observations.
+- `competency-value-add.svg`: Table 3, the evidence each contribution produces and
+  proposed uses for LERN, distinguishing applications from measured benefits.
 - `competency-figure-sources.json`: exact quote selections, source hashes, the full
   frozen-artifact hash, authored event text, actual executable metrics, source
   traces, and explicitly interpretive competency summaries.
@@ -20,7 +24,8 @@ conversations or measured human outcomes.
 Rebuild SVGs from the repository root with
 `python3 tools/lifecycle/paper_figures.py`. No package or environment variable is
 required. The renderer rejects changed source bytes, unsupported quotations, a
-different frozen hash or a substituted event. It does not automatically certify
+different frozen hash, substituted event or altered setup evidence. Role-packet
+selections and scenario constraints are checked against retained source bytes. It does not automatically certify
 the semantic accuracy of analytic competency paraphrases. Executable metrics are
 recomputed from retained hash-chained transitions and checked against the figure.
 

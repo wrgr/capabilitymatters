@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / 'tools/lifecycle'))
-from paper_figures import architecture, dialogue_table, stress_figure, verify_sources
+from paper_figures import architecture, dialogue_table, setup_table, stress_figure, value_table, verify_sources
 
 
 class PaperFigureTest(unittest.TestCase):
@@ -19,9 +19,10 @@ class PaperFigureTest(unittest.TestCase):
         self.data = json.loads((ROOT / 'docs/lifecycle/figures/competency-figure-sources.json').read_text())
 
     def test_actual_sources_and_svg(self) -> None:
-        """Accept retained source bytes and render three accessible, valid vector assets."""
+        """Accept retained source bytes and render five accessible, valid publication assets."""
         verify_sources(ROOT, self.data)
-        for content in [architecture(), dialogue_table(self.data), stress_figure(self.data)]:
+        for content in [architecture(), setup_table(self.data), dialogue_table(self.data),
+                        stress_figure(self.data), value_table()]:
             element = ET.fromstring(content)
             self.assertEqual(element.attrib['role'], 'img')
             self.assertIsNotNone(element.find('{http://www.w3.org/2000/svg}desc'))
@@ -31,6 +32,13 @@ class PaperFigureTest(unittest.TestCase):
         changed = copy.deepcopy(self.data)
         changed['dialogue_rows'][0]['quotes'][0] = 'We proved every novice was ready.'
         with self.assertRaisesRegex(ValueError, 'Unsupported quotation'):
+            verify_sources(ROOT, changed)
+
+    def test_forged_scenario_evidence_rejected(self) -> None:
+        """Setup summaries retain the actual private packet selection rather than invented facts."""
+        changed = copy.deepcopy(self.data)
+        changed['setup_rows'][0]['packets'][0]['private_evidence'][0] = 'Everyone is certified.'
+        with self.assertRaisesRegex(ValueError, 'actual role packet'):
             verify_sources(ROOT, changed)
 
     def test_wrong_frozen_identity_rejected(self) -> None:

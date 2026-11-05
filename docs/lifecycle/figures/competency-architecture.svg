@@ -32,7 +32,7 @@
 <text x="50" y="519" font-size="20" fill="#51616D" font-weight="400">Programmed proposals and ranking select an</text>
 <text x="50" y="545" font-size="20" fill="#51616D" font-weight="400">action set within the authored budget.</text>
 <rect x="620" y="458" width="548" height="120" fill="white" stroke="#C9D1D8"/>
-<text x="638" y="489" font-size="23" fill="#172B3A" font-weight="600">Dialogue and declared-permission gate</text>
+<text x="638" y="489" font-size="23" fill="#172B3A" font-weight="600">1. Bounded design mediation</text>
 <text x="638" y="519" font-size="20" fill="#51616D" font-weight="400">Claims, source IDs, authority, budget and exact</text>
 <text x="638" y="545" font-size="20" fill="#51616D" font-weight="400">core endorsements. Gate supplies no solution.</text>
 <rect x="32" y="616" width="548" height="106" fill="white" stroke="#C9D1D8"/>
@@ -58,7 +58,7 @@
 <text x="50" y="875" font-size="20" fill="#51616D" font-weight="400">Fixed action effects, shocks, mitigations and</text>
 <text x="50" y="901" font-size="20" fill="#51616D" font-weight="400">seed produce synthetic indices.</text>
 <rect x="620" y="814" width="548" height="120" fill="white" stroke="#C9D1D8"/>
-<text x="638" y="845" font-size="23" fill="#172B3A" font-weight="600">Clause adapter + executable world</text>
+<text x="638" y="845" font-size="23" fill="#172B3A" font-weight="600">2. Executable deployment tests</text>
 <text x="638" y="875" font-size="20" fill="#51616D" font-weight="400">Hash-bound rules drive timed states, channels</text>
 <text x="638" y="901" font-size="20" fill="#51616D" font-weight="400">and logs; traces yield actual software outcomes.</text>
 <rect x="32" y="970" width="548" height="116" fill="white" stroke="#C9D1D8"/>

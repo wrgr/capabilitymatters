@@ -37,6 +37,15 @@ def verify_sources(root: Path, data: dict) -> None:
     for event, source in zip(data['events'], release['events'], strict=True):
         if (event['difficulty'], event['source_event']) != (source['difficulty'], source['event']):
             raise ValueError('Figure event differs from released condition')
+    for row in data.get('setup_rows', []):
+        for selection in row['packets']:
+            packet = json.loads((root / selection['path']).read_text())
+            if (selection['identity'], selection['private_evidence']) != (packet['identity'], packet['private_evidence']):
+                raise ValueError('Setup evidence differs from actual role packet')
+            if (row['budget'], row['core_ids']) != (packet['public']['budget'], packet['public']['core']):
+                raise ValueError('Setup constraints differ from actual scenario')
+            if row['consultant_id'] not in packet['public']['roster']:
+                raise ValueError('Setup consultant absent from actual roster')
     if 'execution' in data:
         execution = data['execution']
         summary_path = root / execution['summary_path']
@@ -124,7 +133,7 @@ def architecture() -> str:
         'Own private packets; actual public replies. Optional expert participates after a request.')
     box(p, 32, 458, 'Resource-constrained selection',
         'Programmed proposals and ranking select an action set within the authored budget.')
-    box(p, 620, 458, 'Dialogue and declared-permission gate',
+    box(p, 620, 458, '1. Bounded design mediation',
         'Claims, source IDs, authority, budget and exact core endorsements. Gate supplies no solution.')
     box(p, 32, 616, 'Frozen policy artifact',
         'Retain selected actions, owners, costs and a fixture hash.', height=106)
@@ -139,7 +148,7 @@ def architecture() -> str:
     text(p, 50, 773, 'RELEASE EVENTS AFTER FREEZE: apply easy / medium / hard separately; no redesign.', 20, INK, 600)
     box(p, 32, 814, 'Authored surrogate calculations',
         'Fixed action effects, shocks, mitigations and seed produce synthetic indices.')
-    box(p, 620, 814, 'Clause adapter + executable world',
+    box(p, 620, 814, '2. Executable deployment tests',
         'Hash-bound rules drive timed states, channels and logs; traces yield actual software outcomes.')
     box(p, 32, 970, 'Replay and invariant checks',
         'Reproduce outputs; check costs, permissions, frozen hashes and matched event keys.', height=116)
@@ -153,10 +162,10 @@ def architecture() -> str:
 
 def dialogue_table(data: dict) -> str:
     """Render exact message excerpts beside the commitments they informed."""
-    p = start('Table 1. Actual control-room dialogue and consequential decisions', 1142,
+    p = start('Table 2. Actual control-room dialogue and consequential decisions', 1142,
               'Selected verbatim excerpts from a seven-message conversation. Decision summaries are analysis; '
               'the learning scientist refines existing caution rather than originating it.')
-    text(p, 32, 40, 'Table 1. Where the competencies entered the decision', 28, INK, 600)
+    text(p, 32, 40, 'Table 2. Where the competencies entered the decision', 28, INK, 600)
     text(p, 32, 72, 'Control-room example: verbatim excerpts, with analytic decision summaries.', 20, MUTED)
     rect(p, 32, 94, 1136, 46, PALE)
     for x, label in [(48, 'Contribution'), (266, 'Actual dialogue excerpt'), (766, 'Decision / retained limit')]:
@@ -176,6 +185,65 @@ def dialogue_table(data: dict) -> str:
     text(p, 32, 1072, 'O = operator; S = safety/systems engineer; L = learning scientist. Numbers identify actual turns.', 18, MUTED)
     text(p, 32, 1101, 'Full message IDs: controlroom-operator-01, controlroom-safety-01, controlroom-scientist-01,', 17, MUTED)
     text(p, 32, 1126, 'controlroom-operator-02, controlroom-safety-02, controlroom-safety-03. No dialogue was reconstructed.', 17, MUTED)
+    return '\n'.join(p + ['</svg>'])
+
+
+def setup_table(data: dict) -> str:
+    """Make authored teams, private information, boundaries and resources explicit across cases."""
+    p = start('Table 1. Setup of the three dynamic design scenarios', 1120,
+              'Authored professional roles and evidence are separate from observed outcomes. '
+              'Two core model contexts can request one consultant; authority and resources are bounded.')
+    text(p, 32, 40, 'Table 1. Three settings with bounded expertise and consequential constraints', 27, INK, 600)
+    text(p, 32, 72, 'Each case: two independent core contexts; one optional consultant (1 unit); one fresh process reviewer.', 20, MUTED)
+    rect(p, 32, 94, 1136, 46, PALE)
+    for x, label in [(48, 'Setting / competencies'), (428, 'Selected private facts'), (828, 'Authority / resources')]:
+        text(p, x, 124, label, 20, INK, 600)
+    for i, row in enumerate(data['setup_rows']):
+        y = 140 + i * 300
+        rect(p, 32, y, 1136, 300, 'white' if i % 2 == 0 else GRAY)
+        text(p, 48, y + 32, row['label'], 22, ACCENT, 600)
+        a = paragraph(p, 48, y + 66, 346, row['team'], 20)
+        b = paragraph(p, 428, y + 32, 366, row['private_summary'], 20)
+        b = paragraph(p, 428, b + 16, 366, row['refs'], 18, MUTED)
+        c = paragraph(p, 828, y + 32, 310, row['boundary'], 20)
+        c = paragraph(p, 828, c + 12, 310, row['resources'], 20)
+        if max(a, b, c) > y + 292:
+            raise ValueError(f'Setup row overflow: {row["case"]}')
+    text(p, 32, 1072, 'Source: retained scenario and private role packets; text summarizes authored facts and scopes.', 18, MUTED)
+    text(p, 32, 1100, 'Private evidence must be disclosed before others use it. Knowledge controls are instruction-bounded, not erasure.', 18, MUTED)
+    return '\n'.join(p + ['</svg>'])
+
+
+def value_table() -> str:
+    """Connect the instrument's concrete outputs to proposed LERN uses without claiming benefits."""
+    p = start('Table 3. Instrument outputs and their proposed value for LERN', 860,
+              'A map of inspectable evidence, conditional requirements and proposed teaching, research and rehearsal uses. '
+              'Educational effects and team superiority have not been measured.')
+    text(p, 32, 40, 'Table 3. What becomes inspectable, and what LERN can do with it', 28, INK, 600)
+    text(p, 32, 72, 'Uses are proposed applications; evidence consists of actual model dialogue and executed software states.', 20, MUTED)
+    rect(p, 32, 94, 1136, 46, PALE)
+    for x, label in [(48, 'Instrument output'), (346, 'Concrete evidence in this example'), (760, 'Proposed use / needed judgment')]:
+        text(p, x, 124, label, 20, INK, 600)
+    rows = [
+        ('1. Expertise into decisions',
+         'The operator withdraws separate unranked practice after the systems disclosure; the seven-unit compromise retains its learning-evidence limits.',
+         'Teaching: explain how evidence and competing constraints changed the plan. Research: code coverage, utilization and integration.'),
+        ('2. Frozen-design deployment trace',
+         'Medium accepts stale data before a later stop. Hard refuses start. Radio loss after a stop prevents acknowledged handoff.',
+         'Rehearsal: identify unmet demands and dependencies. Distinguish a correct stop, a working handoff and evidence of learning.'),
+        ('Linked competency and coordination requirements',
+         'The check must precede acceptance; a reference must be verified; a recipient must be reachable. Diagnosis and delayed transfer remain unassessed.',
+         'Design review: ask who can supply each function, what authority/resources are required, and what an individual or team must integrate.')]
+    for i, row in enumerate(rows):
+        y = 140 + i * 216
+        rect(p, 32, y, 1136, 216, 'white' if i % 2 == 0 else GRAY)
+        ends = [paragraph(p, x, y + 34, width, value, 21 if col == 0 else 20,
+                          ACCENT if col == 0 else INK, 600 if col == 0 else 400)
+                for col, (x, width, value) in enumerate(zip([48, 346, 760], [264, 380, 378], row, strict=True))]
+        if max(ends) > y + 206:
+            raise ValueError(f'Value table overflow: {row[0]}')
+    text(p, 32, 824, 'Needed functions may be held by an authorized individual or distributed across a team; no team advantage is estimated.', 18, MUTED)
+    text(p, 32, 851, 'Scope: conditional modeled requirements. Human learning gains and operational readiness need separate validation.', 18, MUTED)
     return '\n'.join(p + ['</svg>'])
 
 
@@ -224,7 +292,7 @@ def stress_figure(data: dict) -> str:
 
 
 def main() -> None:
-    """Write the three editable SVG assets after checking all retained figure evidence."""
+    """Write five editable publication assets after checking retained source evidence."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=Path.cwd())
     args = parser.parse_args()
@@ -232,8 +300,10 @@ def main() -> None:
     data = json.loads((folder / 'competency-figure-sources.json').read_text())
     verify_sources(args.root, data)
     for name, content in [('competency-architecture.svg', architecture()),
+                          ('competency-scenario-setup.svg', setup_table(data)),
                           ('controlroom-dialogue-table.svg', dialogue_table(data)),
-                          ('controlroom-stress-test.svg', stress_figure(data))]:
+                          ('controlroom-stress-test.svg', stress_figure(data)),
+                          ('competency-value-add.svg', value_table())]:
         (folder / name).write_text(content + '\n')
 
 
