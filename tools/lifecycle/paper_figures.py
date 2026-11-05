@@ -111,7 +111,7 @@ def box(parts: list[str], x: int, y: int, title: str, body: str,
 
 def architecture() -> str:
     """Show the implemented deterministic and dynamic paths without conflating their outcomes."""
-    p = start('Figure 1. Competency-mediation simulator architecture', 1138,
+    p = start('Figure 1. Design and deployment simulator architecture', 1138,
               'Two distinct implementations connect scenario inputs, design choices, a frozen artifact, '
               'stress events and evaluation. Executable deployment observes software states, not human outcomes.')
     text(p, 32, 40, 'Figure 1. From bounded expertise to testable design commitments', 28, INK, 600)
@@ -133,7 +133,7 @@ def architecture() -> str:
         'Own private packets; actual public replies. Optional expert participates after a request.')
     box(p, 32, 458, 'Resource-constrained selection',
         'Programmed proposals and ranking select an action set within the authored budget.')
-    box(p, 620, 458, '1. Bounded design mediation',
+    box(p, 620, 458, '1. Team design decisions',
         'Claims, source IDs, authority, budget and exact core endorsements. Gate supplies no solution.')
     box(p, 32, 616, 'Frozen policy artifact',
         'Retain selected actions, owners, costs and a fixture hash.', height=106)

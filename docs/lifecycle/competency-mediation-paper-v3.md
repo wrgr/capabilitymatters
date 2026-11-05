@@ -1,12 +1,12 @@
-# Competency Mediation in Learning Engineering: From Expert Dialogue to Executable Deployment Tests
+# How Expertise Shapes Learning Engineering Design
 
-**Working manuscript · revised 4 November 2026.** Authors and affiliations require confirmation.
+**Working manuscript · revised 5 November 2026.** Authors and affiliations require confirmation.
 
 ## Abstract
 
-Who needs to know what when a team designs for learning and work? We describe two tools for examining that question. In the first, model agents receive different evidence, professional responsibilities and decision rights. Their conversations show which contributions change a design. We demonstrate this approach in logistics, public benefits and control-room training. The second tool runs a frozen design in a simulated work system. In the control-room case, checking the display first prevents stale-data acceptance. A second run accepts stale data before checking. A third run stops at the release boundary, leaving the demand unmet. These software runs show where the design depends on cue use, a checked reference and a reachable colleague. The records give instructors, researchers and design teams a way to examine how expertise shapes decisions and what people and systems need to do together.
+Learning engineering teams must determine what people need to learn, what the system must provide, and which competencies the work requires. We present a design simulator that records how model agents with distinct evidence and authority negotiate interventions, and a deployment simulator that tests a frozen design under specified conditions. Cases in logistics, public benefits, and control-room training demonstrate the design method. In the control-room tests, one actor checked the display and prevented stale-data acceptance, another accepted stale data before checking, and a release check blocked an out-of-scope start. Learners can use the cases to become familiar with the learning engineering process by examining a problem, comparing proposals, and interpreting test results. Practitioners can explore how different competencies shape project goals and design decisions, and how those decisions may affect opportunities to learn and the performance of the work system.
 
-**Keywords** · learning engineering, interdisciplinary teams, competency mediation, systems thinking, simulation, workplace learning
+**Keywords** · learning engineering, interdisciplinary teams, professional competencies, systems thinking, simulation, workplace learning
 
 ## 1. Introduction
 
@@ -14,7 +14,7 @@ A utility introduces an AI alarm prioritizer and operators acknowledge alarms fa
 
 Learning research distinguishes performance during practice from retention and transfer (Soderstrom & Bjork, 2015). Systems thinking asks how the work depends on tools, information and the actions of other people (Leveson, 2012). A learning engineer needs both views to decide what people should practice, what the system must provide and what evidence would justify release. **Our thesis is that the work and its conditions should determine which competencies a learning engineering team needs. We can examine how those competencies matter by tracing who changed a design decision and then testing what the design does under stated conditions.**
 
-The learning engineering flower offers a starting vocabulary for assembling a team around a problem (Ali et al., 2025). One person can cover several functions. A team can bring together people who hold different evidence, challenge each other's assumptions and commit resources across areas of responsibility. We distinguish *coverage* (whose expertise and evidence are available), *use* (which contributions enter a decision) and *integration* (how the team resolves tradeoffs and assigns responsibility). We call this work of bringing expertise to bear on decisions *competency mediation*.
+The learning engineering flower offers a starting vocabulary for assembling a team around a problem (Ali et al., 2025). One person can cover several functions. A team can bring together people who hold different evidence, challenge each other's assumptions and commit resources across areas of responsibility. We distinguish *coverage* (whose expertise and evidence are available), *use* (which contributions enter a decision) and *integration* (how the team resolves tradeoffs and assigns responsibility).
 
 We ask two questions:
 
@@ -101,7 +101,7 @@ This case shows what collaboration adds to the initial proposal. The operator br
 
 **Table 3. Applications for learning engineering.** The design record shows what changed in the plan. The deployment record lets readers examine why the plan met or missed a demand. The table connects those records to proposed uses in teaching, research and design review.
 
-An instructor can give learners the dialogue up to the decision, ask them which tradeoff they would make and have them explain the resulting run. Researchers can examine which evidence entered a choice and whether an apparent competency gap depends on the system conditions. Design teams can use a rehearsal to decide what should count as readiness and who must verify each requirement before release. A follow-up study could assess whether working through the cases improves judgment on new problems or after a delay.
+Learners can use the cases to become familiar with the learning engineering process. An instructor can ask them to frame the problem, read the dialogue up to the decision, compare proposals and explain the resulting run. Researchers can examine which evidence entered a choice and whether an apparent competency gap depends on the system conditions. Design teams can use a rehearsal to decide what should count as readiness and who must verify each requirement before release. A follow-up study could assess whether working through the cases improves judgment on new problems or after a delay.
 
 The deployment model was specified after the design froze and tests a small set of operating conditions. The primary easy and medium runs differ in both the event and the actor's response schedule. The matched medium probe isolates the effect of changing that schedule within the software. It leaves the effect of a training change open. The evidence concerns decisions generated by model agents and outcomes produced by programmed actors. Generalizing to professionals requires evidence from their work (Aher et al., 2023). Model reviewers are also subject to evaluation biases (Zheng et al., 2023). The software audit covers the retained inputs and tested counterexamples.
 

@@ -32,7 +32,7 @@
       "overflow": []
     }
   ],
-  "visual_qa": "New setup and value tables visually inspected; final value heading re-inspected after wrapping correction. Existing dialogue/results retain their prior inspection; changed architecture labels and dialogue numbering pass browser bounds checks. All five final browser checks report no exterior text overflow.",
+  "visual_qa": "New setup and value tables visually inspected; final value heading re-inspected after wrapping correction. Existing dialogue/results retain their prior inspection; changed architecture labels and dialogue numbering pass browser bounds checks. All five final browser checks report no exterior text overflow. The revised team design label was inspected in Chrome.",
   "source_fidelity_tests": 7,
   "source_fidelity_result": "pass",
   "full_python_suite": 245,
@@ -43,8 +43,8 @@
   "optimized_python_deployment_tests": 24,
   "evidence_integrity": "No new design-agent or software-deployment episode in this publication revision. Original run JSON, frozen artifacts, executable traces and audited implementation unchanged.",
   "asset_sha256": {
-    "competency-architecture.png": "98d9ae243931e3add30f43b1ce56c3f6a60e4b8ad939f70c2ed5cf768077fa7b",
-    "competency-architecture.svg": "af5a1cda78d5ae3038e140a9d92b65c880f4f86f88befc3dbc5928526efc352b",
+    "competency-architecture.png": "a4882db9566409505b4da8480e727baaf52798679b589a2c77174429af11fc50",
+    "competency-architecture.svg": "76f8e14e919a71e07903a49009fcbfae7320929efec1843131ca88fac0617293",
     "competency-scenario-setup.png": "3e2efa75abcf85ad133cc1bcd6b8f221b2fdf6d57db5f3409b87600cc36cb61c",
     "competency-scenario-setup.svg": "b8c72df6b2f0d2e30c16180251ca5c22e15e91e4a33f272c44c095dd960733f0",
     "competency-value-add.png": "8ef67372619fa1e0af01d1fa86058f3b62831813517fe5ead7f405c916e18364",
