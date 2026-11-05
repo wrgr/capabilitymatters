@@ -1,0 +1,61 @@
+{
+  "description": "Protocol for genuine authenticated model subagents, not authored participant speech.",
+  "study_type": "Sequential feasibility pilot then two case expansions; no causal or factorial claim.",
+  "transport": "Root delivers exact retained messages and performs mechanical freeze/release only. It makes no substantive team decisions and supplies no repair.",
+  "isolation": "fork_turns=none. Read only own packet, own responses, explicitly delivered messages. No repository search, web, other private packets, sealed-events, or evaluator files. Shared filesystem means behavioral isolation, not a sandbox guarantee.",
+  "dialogue": "Speak in natural professional language. Respond to colleagues; ask for missing information; challenge claims when warranted. Do not manufacture agreement or disagreement to satisfy a rubric. Optional experts may be requested; no simulated expert replies.",
+  "boundaries": "Assigned competencies can overlap, but specialist claims outside explicit scope require qualification or consultation. Do not claim invented measurements, policy, validation or signoffs. Role-specific private evidence must be disclosed in dialogue before others may use it.",
+  "turns": "Opening, responsive dialogue, optional consultation, draft, endorsement. Transport may request clarification of missing mechanical fields before freeze, never prescribe an intervention. Infeasibility and dissent remain failures, not repaired by a facilitator.",
+  "freeze": "Team writes draft-intervention.json. Both core agents endorse exact bytes or withhold endorsement. Freeze hash precedes deployment release. All three events apply separately to that same plan; no redesign or cumulative learning across stress levels.",
+  "evaluation": "A fresh independent subagent reads all evidence after freeze, separates process from synthetic result, audits expertise leakage and unsupported specialist claims, and records disagreements and unobserved outcomes. Model family independence is not established.",
+  "provenance": "Runtime-generated agent IDs are retained; inherited model selection and undisclosed resolved ID are reported honestly. No API keys, GitHub Actions, scripted participant speech, hidden repair agent, or real deployment.",
+  "response_contract": {
+    "message_id": "case-actor-turn",
+    "speech": "Natural professional language, generally 150\u2013300 words.",
+    "evidence_disclosed": [
+      "Own private evidence IDs explicitly revealed in speech."
+    ],
+    "claims": [
+      {
+        "claim": "Substantive statement",
+        "basis": [
+          "evidence or public message IDs"
+        ],
+        "competency": "assigned scope or qualified hypothesis"
+      }
+    ],
+    "consult_request": "null or expert role ID plus concrete question",
+    "decision": "proposal, disagreement, commitment, or unresolved; never invent another participant response."
+  },
+  "artifact_contract": {
+    "description": "Team-authored frozen intervention.",
+    "case_id": "case ID",
+    "diagnosis": "Evidence and uncertainty",
+    "actions": [
+      {
+        "id": "unique",
+        "owner": "role ID",
+        "cost": "nonnegative integer units",
+        "action": "operational commitment",
+        "source_messages": [
+          "message IDs"
+        ],
+        "evidence_refs": [
+          "IDs"
+        ],
+        "acceptance_test": "observable criterion"
+      }
+    ],
+    "budget_spent": "sum costs incl consultation",
+    "rejected_alternatives": [
+      "reason"
+    ],
+    "unresolved": [
+      "remaining risk"
+    ],
+    "release_decision": "bounded synthetic release or no release",
+    "signoffs": [
+      "which authority actually approved what"
+    ]
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "description": "Independent hypothetical applications of the identical frozen logistics plan. These are model-reasoned projections, not observed deployments. The event release discloses stress conditions; it does not override the frozen no-release decision. Freeze receipt records core endorsements, while the artifact's earlier pending-signoff text remains unchanged. No scenario supplies the missing operational coverage acceptances, worker roster or a new authorization. No preparation is treated as an executed clinic or operational rollout.",
+  "actor": "ops",
+  "freeze_sha256": "a47c8a7ca86492966a104bef7053ff6f5d35b907e2263358b2a0b51c25d81870",
+  "evidence_kind": "model_reasoned_synthetic_deployment",
+  "events": [
+    {
+      "difficulty": "easy",
+      "supported_actions": [
+        {
+          "action_id": "workflow",
+          "application": "Prepare the handoff aid and identify missing owner/backup acceptance records. The frozen action does not authorize assigning this live override through a deployed procedure."
+        },
+        {
+          "action_id": "audit",
+          "application": "Specify the override's shift, ownership status and unknown information as monitoring fields; analyze only export data actually available, with explicit definitions and denominators."
+        },
+        {
+          "action_id": "consultation",
+          "application": "Retain the existing advice limiting familiar-item evidence; no new specialist consultation occurs."
+        },
+        {
+          "action_id": "brief_practice",
+          "application": "Prepare the two-worker clinic schedule and familiar-example materials; do not run the clinic because release remains withheld."
+        }
+      ],
+      "unmet_demands": [
+        "The live ambiguous override needs an accepted owner. A normal day shift and available assistant do not identify an accepting supervisor or backup.",
+        "The frozen plan's overnight handoff preparation does not establish coverage for this day-shift event.",
+        "Immediate exception handling improvement and independent competence certification are not delivered."
+      ],
+      "plausible_sequence": [
+        "Apply the frozen no-release decision at this event's starting state, independently of other events.",
+        "Within preparation, identify the absent coverage acceptances and preserve the ambiguous override's unresolved ownership as unknown rather than inventing an owner or reason.",
+        "The analyst could proceed with the authorized descriptive audit of available records, reporting comparability limitations; no actual audit output is supplied by this event.",
+        "Keep the clinic and handoff rollout withheld. Assistant availability alone does not satisfy their coverage gates."
+      ],
+      "failures": [
+        "The frozen intervention does not supply an authorized operational mechanism that resolves the live ownership demand, even under the easy condition.",
+        "Preparation and monitoring do not demonstrate improved handling; the available assistant has no authorized new behavior under this plan."
+      ],
+      "unobserved_outcomes": [
+        "Who, if anyone, actually accepted the override or resolved its ambiguity.",
+        "Dispatch decisions, timeliness, routing correctness and consequences.",
+        "Whether a common historical denominator and exception definition can be established.",
+        "Any clinic participation, changed-case performance, independent competence or retention."
+      ]
+    },
+    {
+      "difficulty": "medium",
+      "supported_actions": [
+        {
+          "action_id": "workflow",
+          "application": "Prepare or inspect coverage and handoff requirements, recording that an accepted night-shift owner and backup have not been supplied."
+        },
+        {
+          "action_id": "audit",
+          "application": "Record the export availability delay as a measurement limitation. Specify monitoring fields, retain unknown annotations and defer analysis requiring the delayed export until it is actually available."
+        },
+        {
+          "action_id": "consultation",
+          "application": "Apply the retained limits on familiar-item evidence, with no new expert or assessor allocation."
+        },
+        {
+          "action_id": "brief_practice",
+          "application": "Keep the existing prepared clinic scope; the senior dispatcher's absence prevents delivery and does not authorize a substitute."
+        }
+      ],
+      "unmet_demands": [
+        "The two new night-shift dispatchers have no confirmed participant release, coverage acceptances or clinic assignment under this frozen proposal.",
+        "The senior dispatcher needed for the single clinic is absent.",
+        "The delayed annotation export cannot supply immediate annotation analysis; pre-existing missing reasons remain unrecoverable from that export.",
+        "No accepted live night-shift ownership arrangement or independent competence evidence is established."
+      ],
+      "plausible_sequence": [
+        "Start from the original frozen no-release state, without carrying forward any hypothetical work from the easy event.",
+        "Identify the absent senior dispatcher and unverified night-shift coverage as failed clinic and rollout conditions; neither clinic nor handoff rollout runs.",
+        "The analyst could document the export delay and continue only work supported by records actually available; newly delayed records are not imputed as successful handling.",
+        "Keep the familiar-item and certification limitations explicit. Do not place the two new workers into the clinic merely because its planned size is two."
+      ],
+      "failures": [
+        "The intervention cannot deliver its planned practice at this event because the specified dispatcher is absent, even apart from the standing no-release decision.",
+        "Immediate measurement and targeting are constrained by export delay and historical annotation gaps.",
+        "The frozen plan leaves the arriving workers' operational readiness and live overnight ownership unresolved; it contains no authorized replacement staffing arrangement."
+      ],
+      "unobserved_outcomes": [
+        "The new workers' actual decisions, assistance needs and errors.",
+        "Actual owner acceptance and handling of any night-shift exceptions.",
+        "The delayed export's eventual contents and whether comparable counts become possible.",
+        "Any eventual staffing confirmation or clinic delivery; none is supplied in the event."
+      ]
+    },
+    {
+      "difficulty": "hard",
+      "supported_actions": [
+        {
+          "action_id": "workflow",
+          "application": "Prepare handoff documentation requirements and preserve destination uncertainty and unresolved ownership; the frozen no-release decision still prevents operational rollout."
+        },
+        {
+          "action_id": "audit",
+          "application": "Specify descriptive records of outage conditions, uncertainty, attempted cases and unknown outcomes if available, using explicit denominators. The audit does not provide real-time route verification or an outage control procedure."
+        },
+        {
+          "action_id": "consultation",
+          "application": "Retain the consultation's competence and assessment limits; do not claim outage readiness from familiar-item practice."
+        },
+        {
+          "action_id": "brief_practice",
+          "application": "Retain preparation only. No additional clinic, training time, changed-case assessment or outage exercise is authorized."
+        }
+      ],
+      "unmet_demands": [
+        "A 90-minute assistant outage during the stipulated 40% surge calls for operational continuity that the frozen plan has not funded or rehearsed.",
+        "The apparent urgent job has stale destination data; this plan supplies no verified destination, data-validation mechanism, urgency determination or authorized live resolution.",
+        "No extra staffing or training time is available, and the three unallocated units do not authorize adding the rejected fallback drill.",
+        "Owner and backup acceptance, operational rollout and independent competence remain unestablished."
+      ],
+      "plausible_sequence": [
+        "Apply the same frozen plan afresh; do not carry over imagined clinic learning or owner acceptances from either other scenario.",
+        "Keep operational handoff and clinic release withheld. Document the stated outage, surge and stale-data uncertainty as inputs to preparation or descriptive monitoring where records exist.",
+        "Do not infer a correct route or true urgency from stale data, invent a dispatcher or supervisor response, modify the model, or create an unapproved paper fallback.",
+        "Report that the frozen intervention has no deployed response for the outage and stale-destination demand. Actual dispatch behavior remains unknown."
+      ],
+      "failures": [
+        "The intervention does not furnish a deployable continuity response to the assistant outage or surge.",
+        "It cannot establish the destination's correctness or resolve the apparent urgent job under its authorized actions.",
+        "The practice design, even if prepared, gives no evidence of transfer to this changed outage condition; no practice is executed under the frozen no-release decision."
+      ],
+      "unobserved_outcomes": [
+        "Whether the job was truly urgent, its correct destination and any actual verification.",
+        "Actual routing, overrides, queue development, delivery consequences and worker responses during the outage.",
+        "Whether any existing operational fallback outside this plan exists or was used; none is supplied.",
+        "Worker competence, transfer, retention and any causal effect of the proposed intervention."
+      ]
+    }
+  ]
+}

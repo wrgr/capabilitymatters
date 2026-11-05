@@ -1,0 +1,83 @@
+{
+  "message_id": "logistics-ops-01",
+  "speech": "My operational reading is that the reported increase in exceptions needs investigation, while we can make exception handoffs clearer this week. I am not treating training as the established cause. My private evidence is consequential: supervisors have no agreed overnight override owner (L-O1); each worker has only 15 minutes available this week, with no full-shift shutdown (L-O2); and a senior dispatcher can staff one two-hour exception clinic but cannot cover every shift (L-O3).\n\nI propose a bounded operational package: spend 2 units on workflow ownership, ask you to scope a 2-unit segmented audit, reserve 2 units for brief practice, and spend 1 unit consulting the learning scientist. That totals 7 of 10 units, leaving 3 unallocated pending our discussion. I would name an overnight override owner and handoff route, issue a short job aid, and verify that the owner is identified at each overnight handoff. Practice would stay within each worker's 15-minute limit; the clinic would be one scheduled session, with attendance and uncovered shifts recorded rather than assumed covered. I would withhold any independent-competence certification from this proposed release.\n\nAnalyst, what does your evidence establish about the denominators and where the reported increase occurred, and can you scope that audit within 2 units? I also request the scientist's advice on what the six-item check could support and how to fit useful practice and a changed-case check within our actual time and budget.",
+  "evidence_disclosed": [
+    "L-O1",
+    "L-O2",
+    "L-O3"
+  ],
+  "claims": [
+    {
+      "claim": "Supervisors have no agreed overnight override owner.",
+      "basis": [
+        "L-O1"
+      ],
+      "competency": "shift workflow",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "Only 15 minutes per worker are available this week, with no full-shift shutdown.",
+      "basis": [
+        "L-O2"
+      ],
+      "competency": "staffing",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "A senior dispatcher can staff one two-hour exception clinic but cannot cover every shift.",
+      "basis": [
+        "L-O3"
+      ],
+      "competency": "staffing",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "The reported exception-rate change warrants investigation; training is not established as its cause in the supplied brief.",
+      "basis": [
+        "public.brief"
+      ],
+      "competency": "basic descriptive measurement",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "I propose naming an overnight override owner and handoff route and checking ownership at overnight handoffs.",
+      "basis": [
+        "L-O1"
+      ],
+      "competency": "shift workflow",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "I propose a short job aid and practice bounded by the 15-minute worker allowance, with clinic attendance and uncovered shifts recorded.",
+      "basis": [
+        "L-O1",
+        "L-O2",
+        "L-O3"
+      ],
+      "competency": "job-aid implementation",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The proposed workflow, segmented audit, brief practice and expert fee total 7 units, leaving 3 of the 10-unit budget unallocated; audit scope and practice details remain proposals.",
+      "basis": [
+        "public.cost_reference",
+        "public.brief"
+      ],
+      "competency": "basic descriptive measurement",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "I propose withholding independent-competence certification from the operational release pending discussion and actual specialist advice.",
+      "basis": [
+        "public.brief"
+      ],
+      "competency": "shift workflow",
+      "standing": "role_judgment"
+    }
+  ],
+  "consult_request": {
+    "expert": "scientist",
+    "question": "What, if anything, can the six-item practice check support about independent competence, and what practice and changed-case check would you advise within 15 minutes per worker, one two-hour clinic without all-shift coverage, and the stated project budget? Please state limitations and any additional cost."
+  },
+  "decision": "proposal"
+}

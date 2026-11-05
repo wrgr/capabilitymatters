@@ -1,0 +1,399 @@
+{
+  "description": "Executable deployment contribution: complete changed-file purposes and byte hashes, separate from earlier immutable archive manifests.",
+  "primary_analytic_record": "experiments/competency-live/2026-11-04/controlroom-executable-v3/",
+  "primary_software_episodes": 3,
+  "diagnostic_software_probes": 5,
+  "new_design_agent_conversations": 0,
+  "separate_independent_software_auditor_conversations": 1,
+  "separate_software_auditor_task_turns": 3,
+  "failed_or_conditional_development_versions_retained": 2,
+  "checks": {
+    "python_tests": 244,
+    "node_tests": 12,
+    "deployment_tests_included_in_python_total": 24,
+    "optimized_python_deployment_tests": 24,
+    "source_fidelity_tests_included_in_python_total": 6,
+    "result": "pass",
+    "original_run_json_files_unchanged": 149,
+    "freeze_sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+    "independent_audit": "Scoped pass with explicit limits; no calibration, human outcome or matched individual/team comparison.",
+    "visual_qa": "Updated architecture/result figures inspected, unchanged dialogue retained; all three browser text-bound checks have zero overflow."
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "why": "Document the second contribution and link accepted executable evidence and replay.",
+      "sha256": "190ebc147ae9530d394b09f95ff5ed8bbfc14847bf2761cf8b70792fb4efbd73"
+    },
+    {
+      "path": "docs/lifecycle/competency-mediation-paper-v3.md",
+      "why": "State the two-contribution thesis, observed easy/medium/hard results, conditional competency requirements, individual/team distinction and learning-research/systems-thinking integration.",
+      "sha256": "944882ba633f583b402195d8de23706dc947e15e751902adb7ca9c82aec8cddb"
+    },
+    {
+      "path": "docs/lifecycle/competency-mediation-supplement.md",
+      "why": "Retain failed validation history outside the main scholarly paper.",
+      "sha256": "f7153f235a5464c8acd1a1198ad6866aaf55768ac13e8b1988ac3e06330d4c70"
+    },
+    {
+      "path": "docs/lifecycle/figures/README.md",
+      "why": "Explain actual executable figure evidence and reproduction.",
+      "sha256": "baa2c5176f8d669b3e769a8937eb060e7362ba5af2154879fc7b5589f3a68a33"
+    },
+    {
+      "path": "docs/lifecycle/figures/competency-architecture.png",
+      "why": "Updated publication architecture or executable-results figure; source-checked SVG master or visually verified PNG preview.",
+      "sha256": "2aa98d4bd2b942abc8c940c2802b1275082fa48d0d117fd11a7ebff9502ab4f5"
+    },
+    {
+      "path": "docs/lifecycle/figures/competency-architecture.svg",
+      "why": "Updated publication architecture or executable-results figure; source-checked SVG master or visually verified PNG preview.",
+      "sha256": "520931daf5493e8868e453df1a7415805dfa145b04af39027a3ca7488a29c75c"
+    },
+    {
+      "path": "docs/lifecycle/figures/competency-figure-sources.json",
+      "why": "Bind unchanged dialogue and frozen design to actual episode outcomes and source hashes.",
+      "sha256": "2ea5c1597d961eccb2c6910e2a2c3fe964136aebb260bdda58ff8217ca40cb22"
+    },
+    {
+      "path": "docs/lifecycle/figures/controlroom-stress-test.png",
+      "why": "Updated publication architecture or executable-results figure; source-checked SVG master or visually verified PNG preview.",
+      "sha256": "cbc02e5a8b004484e411fe5488a20c24fe331d5617309fd0608f81579e082cb8"
+    },
+    {
+      "path": "docs/lifecycle/figures/controlroom-stress-test.svg",
+      "why": "Updated publication architecture or executable-results figure; source-checked SVG master or visually verified PNG preview.",
+      "sha256": "96ae7bcf860cdfefe5cf40f76a8bcd2d563fa3bad71208f36c62aed024fd6cde"
+    },
+    {
+      "path": "docs/lifecycle/figures/executable-revision.json",
+      "why": "Record every changed file and its purpose; omit self hash to avoid recursion.",
+      "sha256": null
+    },
+    {
+      "path": "docs/lifecycle/figures/verification.json",
+      "why": "Record 244 Python and 12 Node tests, source fidelity, execution integrity, browser bounds checks and visual inspection.",
+      "sha256": "4519bb6b784ec78101d36fdf1fe80966fb077dac6e03cda9d3b08c9440e0d609"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/competency-dependencies.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Trace-supported conditional functional requirements; no individual/team effect estimate.",
+      "sha256": "c3c49ea2a76786d4835f7610f41ad9e99435521a422f372919711cf121062454"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/easy.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "ffa763b16776602178f2c0ff61abdae834f3e04d5dc3d295f6f05a7c1ef4a42c"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/execution-receipt.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Pre-episode code/model/freeze provenance receipt.",
+      "sha256": "16767b5e97a4c597bee55728ed8b992d5b043a9bf2e515ef2100bcfc1c78d4b9"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/fresh_sensor_control.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "a8ba995eaab7375f69a70fbc7006efecc09af442ffe83b54501de110ab8e4de2"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/hard.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "b70dc03599f84a9140c46b9e9e24685781fbedf97f25b3fb0e8a63ffabb2875d"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/hard_after_start.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "dea2e9dae16b3229d45f4f3b1a4ae491de06aa20d93be040124e3cba30f5a24f"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/implementation/controlroom_contract.py",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Exact executed implementation snapshot for replay.",
+      "sha256": "fb78b7a2e01e23bf109bd9ce9153132abc991b38e04085d32da1aeb19a0b820e"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/implementation/controlroom_results.py",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Exact executed implementation snapshot for replay.",
+      "sha256": "b51b456d06f5db8701942a4e9774afba681e1bc9f42d7232354a43c598317037"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/implementation/controlroom_simulator.py",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Exact executed implementation snapshot for replay.",
+      "sha256": "91fc9a7467e6416b8e5bd858d5f5bce48b4675bb0b263b68dc3f86df52044175"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/implementation/run_controlroom_deployment.py",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Exact executed implementation snapshot for replay.",
+      "sha256": "49105f5d99ffed015b2364dd815ca31b5785d54dd5e9fafd53c38ba29730e59c"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/independent-audit.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Actual independent model software review, findings, replay and stated limits.",
+      "sha256": "106357a61f5b24d06044fe1e4db2608d11e00809196eafa04aeb700e639f3af9"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/medium.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "70656e4be400510ba61d72da64aac70dd1a54b64c47aae5b2b7d5b36aa128052"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/medium_cue_first.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "014809eb1e211114bd741a357dc2ace0b2d6bcd203ae8f82d51efd0e0e7548b3"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/missing_reference.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "52ee354d62ab51496ac48b1a7bff413899b580ca1e8f01e9d1792f1653bac1c4"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/model.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Exact environment-model bytes used for this version.",
+      "sha256": "9b163196536fdbaf137a3e04783095c52a8c37495755bc35528d076ec21e2dfc"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/recipient_unavailable.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "a8840c09c34b8b04df0487c48dbf1aa57463c1466aa4f4e6b2713ad1883f5b75"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v1/summary.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Derived episode index and explicit authored assumptions.",
+      "sha256": "5ac0858e6937f7380016dd16b804fb2f2c7354be01c4af1dc47f51dcd13195ce"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/competency-dependencies.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Trace-supported conditional functional requirements; no individual/team effect estimate.",
+      "sha256": "2578e7b9966e6d71ca401bff218a4972565cec355cfa67349776f074479deb5c"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/easy.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "32d9a4cb4a4e506e9633e8eb28e9d81ccfd713943551a4b7667f07b122e91355"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/execution-receipt.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Pre-episode code/model/freeze provenance receipt.",
+      "sha256": "54efbcfa5457bfc0cb746bbad7002105a8dad8bf04282a3a3b03a282fc45cb6d"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/fresh_sensor_control.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "9a6fa34fdf6f4034c9919b5ed05c33dbc5d4c7ae7f7bf402963e90fcb5c03dd7"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/hard.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "12c3da13a9d0b38836b179b050a2c71d303d6392a244f95c092c79a32b0a87cf"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/hard_after_start.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "c4e964fe2f6ebefc5ab481b01155f0908912cb789a8a842dd67c7f740368c071"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/implementation/controlroom_contract.py",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Exact executed implementation snapshot for replay.",
+      "sha256": "23a7f9e70a996e14eed1badb8703f61058fa4a0b1b949716cd40f96b77bb456a"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/implementation/controlroom_results.py",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Exact executed implementation snapshot for replay.",
+      "sha256": "4384d265988d9b0898e4f0dad0b8e772bb6b895114f4f4c81a89e6282558085b"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/implementation/controlroom_simulator.py",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Exact executed implementation snapshot for replay.",
+      "sha256": "97a206f2981d735a9270aefb7f29286c375c79ab4c379fe2a9bf48cfb63831fb"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/implementation/run_controlroom_deployment.py",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Exact executed implementation snapshot for replay.",
+      "sha256": "2f4e5e42014af47130efd36855a77d9ec767c03b1bec77a2b2a7d3ba3e021e85"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/independent-audit.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Actual independent model software review, findings, replay and stated limits.",
+      "sha256": "d7d6bd3c4868f8728e6d4dbda6112acd8adfce4045b74bc4fdc79c3fae13190a"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/medium.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "41dfa537d5f86a05b7a642f658d9819358bc2efe5dff5839605d38ed5af65a16"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/medium_cue_first.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "3a416606db7c4541ed370cdf4d8c4f294ee04a8c72cca3fabcec5b375fc6f5c5"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/missing_reference.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "a822cf4c78cf2d464a3634cb5c939419487c972ef07016ea533e30b4364ba466"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/model.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Exact environment-model bytes used for this version.",
+      "sha256": "65ab20081c19d47098c1b8a327ca8c84a0a8630e9321be0e84ca877dd593b5c8"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/recipient_unavailable.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "a44a53d2a223cbfda5d60914a2a25410fb672cbc80e1ce65d5ac206d43487192"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v2/summary.json",
+      "why": "Excluded development execution with failed or conditional source-fidelity validation: Derived episode index and explicit authored assumptions.",
+      "sha256": "64870523bae60ae59d8eeb37061c4f876bb1ea5613de51cb25d3031ce0fdf5ed"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/README.md",
+      "why": "Accepted analytic execution: Explain accepted observations, replay, provenance, assumptions, limitations and retained failed versions.",
+      "sha256": "1d37b30889d573882a367286d00c7ecfaf511d36cf47025eb9c3a686d28244cc"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/audit-launch-receipts.json",
+      "why": "Accepted analytic execution: Actual native launch and follow-up receipts for the separate software-auditor context.",
+      "sha256": "070e1ea21512341e28877202023efcb6abc20b50181d7b628732e5071a43fa61"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/competency-dependencies.json",
+      "why": "Accepted analytic execution: Trace-supported conditional functional requirements; no individual/team effect estimate.",
+      "sha256": "b60b4117bcd8f08b09bd3818beb13f13b1b3563808c2f875842a2e9ce4f27109"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/easy.json",
+      "why": "Accepted analytic execution: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "e6baa3e03b270a47d24b070972d9174cbb6601b8f253f6fe6844a067646bb583"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/execution-receipt.json",
+      "why": "Accepted analytic execution: Pre-episode code/model/freeze provenance receipt.",
+      "sha256": "d9878b08b689cbf7ce0701892a915801305e5003ebfabaa9afc72989bead9e18"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/fresh_sensor_control.json",
+      "why": "Accepted analytic execution: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "aaa6922d8d0c8134c01339453770f09b95aaabfb69c1662d168bbc937bf379a6"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/hard.json",
+      "why": "Accepted analytic execution: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "c7c2f06eaa2691305f03a556fcc88aec3d818955326a36501c3bc852a7e0083c"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/hard_after_start.json",
+      "why": "Accepted analytic execution: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "e539e2a8260d3d774bc7c3358058c73b3e1864ee40a8905980b27eb4c5dcd3f4"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/implementation/controlroom_contract.py",
+      "why": "Accepted analytic execution: Exact executed implementation snapshot for replay.",
+      "sha256": "123b03e318c10c96ff3e708e36c079172d2a5853d14ba1daa6c4b714d280ad56"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/implementation/controlroom_results.py",
+      "why": "Accepted analytic execution: Exact executed implementation snapshot for replay.",
+      "sha256": "89b0091a8626ebaaa92eecfd0f390fdc29d265a91740070466971de759987659"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/implementation/controlroom_simulator.py",
+      "why": "Accepted analytic execution: Exact executed implementation snapshot for replay.",
+      "sha256": "ee38188eb48856960f267ff3cd709cf756ff2cb07d3a3b3560bf75015ba2f385"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/implementation/run_controlroom_deployment.py",
+      "why": "Accepted analytic execution: Exact executed implementation snapshot for replay.",
+      "sha256": "5612cc1482e21b5d930323e0e5d68bff357706e6f01016029d3190879dd6b467"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/independent-audit.json",
+      "why": "Accepted analytic execution: Actual independent model software review, findings, replay and stated limits.",
+      "sha256": "52c4639411979d568f5e75ee29f05b9936105f7bd18c08a131fa69387002fce0"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/medium.json",
+      "why": "Accepted analytic execution: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "a8f50efe894c0efcf7f7b5f820cfd1cd732a69c7b0222c3692cd4260d397637c"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/medium_cue_first.json",
+      "why": "Accepted analytic execution: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "e47616898b2fe5f79e3d4a157faf0282d87d0b6dda6e853c8c0bb557309b9fd8"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/missing_reference.json",
+      "why": "Accepted analytic execution: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "419e1969bee09c56865f4eabcba69b9c27c1ffe5023ad0b54e3e1724da15edcf"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/model.json",
+      "why": "Accepted analytic execution: Exact environment-model bytes used for this version.",
+      "sha256": "65ab20081c19d47098c1b8a327ca8c84a0a8630e9321be0e84ca877dd593b5c8"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/recipient_unavailable.json",
+      "why": "Accepted analytic execution: Complete actual episode input, event-by-event state trace and derived outcomes.",
+      "sha256": "686717ef693f575fbe808f9ed6370d9883dd16123af8c46f1a6b2277f21e6a82"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/runtime-transcripts/software-auditor-rollout.json",
+      "why": "Accepted analytic execution: Native public auditor inputs, tool actions and responses; private reasoning is excluded.",
+      "sha256": "c39ea72a0aa25da732ae49606567d69746d6e1ab2379364a87c9641fee1a6140"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/summary.json",
+      "why": "Accepted analytic execution: Derived episode index and explicit authored assumptions.",
+      "sha256": "095b616c4bec3288fbc9b5115a917da184c95602fa060232f248697b733aacc0"
+    },
+    {
+      "path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/verification.json",
+      "why": "Accepted analytic execution: Final hash, trace-chain, outcome, source-snapshot and regression verification.",
+      "sha256": "720f56e6d7f9f975f35e5543178d5db6f6c3f89ad6ade0e0c7f01b1d8fe1f05f"
+    },
+    {
+      "path": "src/data/lifecycle/controlroom-deployment-v1.json",
+      "why": "Versioned explicit retrospective environment model, authored actor policies, inputs, timings, objectives and limitations; original version retained.",
+      "sha256": "9b163196536fdbaf137a3e04783095c52a8c37495755bc35528d076ec21e2dfc"
+    },
+    {
+      "path": "src/data/lifecycle/controlroom-deployment-v2.json",
+      "why": "Versioned explicit retrospective environment model, authored actor policies, inputs, timings, objectives and limitations; original version retained.",
+      "sha256": "65ab20081c19d47098c1b8a327ca8c84a0a8630e9321be0e84ca877dd593b5c8"
+    },
+    {
+      "path": "tools/lifecycle/controlroom_contract.py",
+      "why": "Compile the unchanged frozen clauses, exact endorsements, authority, budget, scope and timing into an explicit bounded execution contract.",
+      "sha256": "123b03e318c10c96ff3e708e36c079172d2a5853d14ba1daa6c4b714d280ad56"
+    },
+    {
+      "path": "tools/lifecycle/controlroom_results.py",
+      "why": "Independently derive full outcome predicates and conditional functional requirements from verified traces.",
+      "sha256": "89b0091a8626ebaaa92eecfd0f390fdc29d265a91740070466971de759987659"
+    },
+    {
+      "path": "tools/lifecycle/controlroom_simulator.py",
+      "why": "Execute discrete events with actual state transitions, participant-owned logs, queue consequences and hash-chained before/after traces.",
+      "sha256": "ee38188eb48856960f267ff3cd709cf756ff2cb07d3a3b3560bf75015ba2f385"
+    },
+    {
+      "path": "tools/lifecycle/paper_figures.py",
+      "why": "Derive publication graphics from source-checked actual dialogue and executable traces.",
+      "sha256": "d18d285c810fd6b880893a8c1dfbb9aeba790f4da0983a546739557d89130055"
+    },
+    {
+      "path": "tools/lifecycle/run_controlroom_deployment.py",
+      "why": "Pin inputs and implementation before execution, snapshot code/model, run episodes, retain failures and support exact replay.",
+      "sha256": "5612cc1482e21b5d930323e0e5d68bff357706e6f01016029d3190879dd6b467"
+    },
+    {
+      "path": "tools/lifecycle/tests/test_controlroom_deployment.py",
+      "why": "Check 24 meaningful source-fidelity, fault, channel, timing, logging, outcome, integrity and counterexample behaviors.",
+      "sha256": "f4269e90bd8b4219e145f2378b5a1ef44534f319dbc79a29b65eab037d0cae08"
+    },
+    {
+      "path": "tools/lifecycle/tests/test_paper_figures.py",
+      "why": "Reject changed quotations, freezes, source events or forged executable outcomes.",
+      "sha256": "543d9e2e721c58f2b6a8779e90459c30c44498946c5fe51c4ee64ea108db776a"
+    }
+  ]
+}

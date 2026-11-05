@@ -1,0 +1,45 @@
+{
+  "message_id": "controlroom-scientist-01",
+  "speech": "The supplied acknowledgement-time improvement supports a narrow statement: acknowledgement became faster in the exercise described. It does not establish readiness for independent diagnosis. C-L1 is relevant here: the current acknowledgement exercise discloses the expected alarm order before performance. In my assessment judgment, performance with that answer cue cannot establish that operators can determine an alarm order or diagnosis independently. The operator's disclosed observation that novices rarely diagnose unranked alarms reinforces the need to leave that ability unestablished; it is not a measured independent-diagnosis result.\n\nC-L2 says one delayed, unranked diagnosis probe is feasible next week, after the current release decision. It therefore cannot supply evidence for readiness at today's decision. Without such a probe, retain explicit uncertainty about diagnosis without the disclosed order, retention after a delay, and transfer beyond the practiced exercise. A successful freshness check or handoff in the proposed rehearsal would remain evidence of those observed actions in that rehearsal, not certification of independent diagnosis or delayed transfer.\n\nIf you later fund that probe, my assessment recommendation is to withhold the expected order and record each operator's diagnosis and explanation separately from acknowledgement speed. Its result would still be limited to the sampled task and delay. This is consultation advice only: I cannot approve simulator safety, establish simulator fidelity, or certify operational readiness. The current release remains for the operator and safety engineer to decide jointly within their authority.",
+  "evidence_disclosed": ["C-L1", "C-L2"],
+  "claims": [
+    {
+      "claim": "Acknowledgement improved in the supplied exercise, but that result does not establish independent diagnosis readiness.",
+      "basis": ["public.brief", "C-L1"],
+      "competency": "independent diagnosis assessment",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The current acknowledgement exercise discloses the expected alarm order before performance.",
+      "basis": ["C-L1"],
+      "competency": "independent diagnosis assessment",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "Cued performance and the operator's reported scarcity of unranked diagnosis leave independent diagnosis unestablished.",
+      "basis": ["C-L1", "controlroom-operator-01"],
+      "competency": "independent diagnosis assessment",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "One delayed unranked diagnosis probe is feasible next week, after the current release decision.",
+      "basis": ["C-L2"],
+      "competency": "practice and delayed-transfer limitations",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "Without the delayed probe, uncued diagnosis, delayed retention, and transfer beyond the practiced exercise remain unestablished; observed rehearsal actions do not certify those abilities.",
+      "basis": ["C-L1", "C-L2", "controlroom-safety-01"],
+      "competency": "practice and delayed-transfer limitations",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "A later funded probe should withhold the expected order and record diagnosis and explanation separately from speed, with conclusions bounded to the sampled task and delay.",
+      "basis": ["C-L1", "C-L2", "public.brief"],
+      "competency": "independent diagnosis assessment",
+      "standing": "role_judgment"
+    }
+  ],
+  "consult_request": null,
+  "decision": "proposal"
+}

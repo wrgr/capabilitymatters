@@ -1,0 +1,140 @@
+{
+  "description": "Independent model-reasoned applications of the same exact frozen seven-unit plan to three released hypothetical conditions. The freeze receipt records both endorsement files; its earlier pending-endorsement wording is preserved in the artifact. No job-aid check, authored-reference check, rehearsal, learner response, handoff or timing result is established by that receipt. Supported actions below are conditional instructions, not observations. No redesign, cross-event learning, additional spending, personnel or consultation is assumed.",
+  "actor": "operator",
+  "freeze_sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+  "evidence_kind": "model_reasoned_synthetic_deployment",
+  "events": [
+    {
+      "difficulty": "easy",
+      "supported_actions": [
+        {
+          "action_id": "timestamp-job-aid",
+          "support": "Conditionally directs attention to the timestamp contradiction and requires a stop for a contradiction even when the prioritizer works; the aid must first be prepared and pass its pre-start check."
+        },
+        {
+          "action_id": "sensor-staleness-rehearsal",
+          "support": "Supplies only the scoped authored-event comparison and local logging, conditional on this event fitting the specified sensor-staleness script and the event reference being prepared and checked; a routine alarm set alone does not establish either condition."
+        },
+        {
+          "action_id": "stop-and-handoff",
+          "support": "Conditionally supports a stop and report to the designated core safety engineer with the frozen handoff fields. It does not establish that a participant detects the contradiction or that receipt occurs."
+        },
+        {
+          "action_id": "completed-scientist-consultation",
+          "support": "Retains the delivered advice limiting any result to observed exercise actions; a plausible response is not independent-diagnosis evidence."
+        }
+      ],
+      "unmet_demands": [
+        "The released easy event does not establish that the routine alarm set is the authorized sensor-staleness script, or that job-aid and reference checks have passed.",
+        "No independent-diagnosis assessment, delayed probe or measured detection result is supplied."
+      ],
+      "plausible_sequence": [
+        "Treat the recorded exact endorsements as a freeze condition already documented, while checking rather than presuming the remaining start conditions.",
+        "If the event is outside the narrowly specified script, or the job aid/reference cannot be prepared and checked, withhold start.",
+        "Only if the event is in scope and all pre-start conditions pass, conduct the same bounded rehearsal. A detected timestamp contradiction invokes the frozen stop rule; working AI ranking does not override it.",
+        "Conditionally report alarm, uncertain last-known values, timestamp, contradiction, AI priority and stopped status to safety; log receipt if it occurs. Remain stopped if handoff is incomplete and end by 20 minutes."
+      ],
+      "failures": [
+        "No observed execution failure can be asserted. Failure to satisfy a start gate would require no start, rather than a claimed successful rehearsal.",
+        "The plan does not resolve whether the novice will notice the cue or independently diagnose the routine alarms."
+      ],
+      "unobserved_outcomes": [
+        "Script eligibility and passed pre-start checks",
+        "Actual cue detection and comparison",
+        "Actual stop, handoff transmission, receipt and local log completeness",
+        "Completion within the 20-minute slot",
+        "Independent diagnosis, retention and transfer"
+      ]
+    },
+    {
+      "difficulty": "medium",
+      "supported_actions": [
+        {
+          "action_id": "timestamp-job-aid",
+          "support": "Provides the same timestamp/current-scripted-state rule; confidence in AI ranking has no exception to the frozen stop triggers."
+        },
+        {
+          "action_id": "sensor-staleness-rehearsal",
+          "support": "Addresses sensor staleness within the narrow scripted scope, conditional on the prepared and checked reference, job-aid gate and existing core participants being able to carry out their commitments."
+        },
+        {
+          "action_id": "stop-and-handoff",
+          "support": "Specifies the core safety engineer as recipient and requires an incomplete or unreceived handoff to remain stopped. It does not assign the busy senior operator a new response duty."
+        },
+        {
+          "action_id": "completed-scientist-consultation",
+          "support": "Keeps independent diagnosis, delayed retention and transfer unestablished; the novice-led event supplies no new assessment evidence."
+        }
+      ],
+      "unmet_demands": [
+        "The senior operator being at another console does not supply extra supervisory capacity; the frozen plan adds no replacement or immediate senior intervention.",
+        "No dedicated unranked practice is funded, and C-O1 gives an existing concern that novices follow AI ranking. This event does not establish that the novice detects the stale sensor.",
+        "The event does not establish preparation/checking, actual safety-recipient availability at the moment of handoff, or completion within the slot."
+      ],
+      "plausible_sequence": [
+        "Apply this event independently with the same package and recorded endorsements. Withhold start if the bounded script or remaining start checks cannot be satisfied; do not divert the senior operator by inventing a new duty.",
+        "If the same script and checks permit start, use the job aid and authored-event reference to compare displayed timestamp and values to the current scripted state.",
+        "If the stale state is recognized as an older state, contradiction or indeterminate match, stop despite the confident ranking and attempt the specified handoff to the core safety engineer.",
+        "If that handoff is incomplete or unreceived, remain stopped and record the unmet criterion if local logging can be performed; terminate within 20 minutes. If the novice misses the cue, this reasoning cannot claim the prescribed response occurred."
+      ],
+      "failures": [
+        "A plausible dependence on confident ranking is an unresolved risk grounded in C-O1, not an observed novice failure.",
+        "The plan cannot guarantee cue recognition or furnish extra supervisory capacity while the senior operator handles another console.",
+        "An unmet start gate or unreceived handoff requires no start or continued stop under the frozen plan; no successful recovery is established."
+      ],
+      "unobserved_outcomes": [
+        "Actual novice attention to ranking versus timestamp evidence",
+        "Passed start checks and scope fit",
+        "Availability and receipt by the committed safety recipient",
+        "Actual stop, logging and 20-minute completion",
+        "Independent diagnosis, retention and transfer"
+      ]
+    },
+    {
+      "difficulty": "hard",
+      "supported_actions": [
+        {
+          "action_id": "timestamp-job-aid",
+          "support": "Preserves the instruction to treat last-known paper values as freshness uncertain; stale paper cannot clear a stop. The aid does not establish current values after AI loss."
+        },
+        {
+          "action_id": "sensor-staleness-rehearsal",
+          "support": "Defines only the sensor-staleness scope and therefore supplies no authorized partial-radio-dropout rehearsal. The known hard scenario cannot be started under this bounded release; if out-of-scope conditions arise during an otherwise permitted exercise, its stop and 20-minute limits remain binding."
+        },
+        {
+          "action_id": "stop-and-handoff",
+          "support": "Conditionally supports stopping and attempting the same handoff to the core safety engineer. With radio dropout and AI loss, successful transmission or receipt is not established; an incomplete handoff remains stopped."
+        },
+        {
+          "action_id": "completed-scientist-consultation",
+          "support": "Retains the limits on readiness claims. It provides no rescue expert, additional advice, safety authority or evidence of transfer to the cascading scenario."
+        }
+      ],
+      "unmet_demands": [
+        "Cascading alerts with partial radio dropout and AI loss exceed the frozen, narrowly scripted sensor-staleness release.",
+        "Partial radio dropout cannot be rehearsed in the installed simulator; the plan has no purchased or supplied replacement capability.",
+        "Stale paper cannot establish freshness or authorize continuation; the plan does not provide a verified current fallback after AI loss.",
+        "Successful communication, handoff receipt and local logging under the combined failures are not established.",
+        "No rescue expert, extra time or additional personnel is available; none is added here."
+      ],
+      "plausible_sequence": [
+        "Apply the frozen scope independently. If this hard scenario is the proposed exercise, withhold start because it includes excluded partial radio dropout and unscoped AI-loss/cascading conditions.",
+        "If these conditions instead arise during a legitimately started bounded exercise, stop rather than continue or extend the script; stale paper cannot clear the stop.",
+        "Attempt only the frozen handoff to the existing safety recipient, reporting unavailable fields as unavailable rather than inventing AI priorities or current values. Do not assume the impaired radio carries it.",
+        "If receipt cannot be established, remain stopped. Record what can actually be logged only if that capability is available, preserve unmet criteria, and terminate within the existing time limit. Do not create a new fallback, expert or rehearsal."
+      ],
+      "failures": [
+        "Coverage failure: the frozen package does not cover the demanded combined radio, AI-loss and cascading-alert scenario.",
+        "A completed handoff or safe continuation cannot be inferred from the existence of a stop procedure; the event supplies no observed transmission or receipt.",
+        "Stopping or withholding start is the supported bounded response, not evidence that the hard scenario was successfully rehearsed or independently diagnosed."
+      ],
+      "unobserved_outcomes": [
+        "Whether a start was attempted or withheld",
+        "Whether any out-of-scope condition emerged after an otherwise permitted start",
+        "Actual detection, stop, communication, receipt and logging",
+        "Behavior under AI loss and cascading alerts",
+        "Any restoration, diagnosis, safety result, completion time or transfer"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "description": "Prospective independent process and result audit, with no authority to repair the intervention.",
+  "created_at": "2026-11-04T21:08:02.523663+00:00",
+  "actor": "evaluator",
+  "stage": "independent_review",
+  "permitted_reads": [
+    "all files within this case directory",
+    "../protocol-v2.json"
+  ],
+  "instruction": "You are a fresh independent model reviewer, not a participant, credentialed professional, or repair agent. Read all retained case files, readable actual invocation tasks, public responses and claim metadata, own-role packets, exact draft/freeze, endorsements, freeze and event-release receipts, projection, launch provenance and runtime transcript exports. Evaluate process and synthetic results separately; do not edit or improve existing evidence. Inspect visible task-file reads, file/tool access, disclosure before reuse, semantic expertise claims (not just labels), authority, resources, actual consultation influence and consequential disagreements. Native bootstrap envelopes are encrypted: retain that limitation without inventing content. If a gate-amendment or rejected operation exists, independently assess whether the changed rule legitimately handles attributed advice or unjustifiably relaxes boundaries; inspect claim text, actual source messages and unchanged draft hash. Write evaluation.json exclusively with description, evaluator_agent=/root/controlroom_evaluator, process_findings citing messages, competency_contributions mapping actual roles to artifact choices, expertise_audit findings with status/evidence/severity, results (one per easy/medium/hard with all axes capability/human_conditions/organizational_performance/resilience rated strong/mixed/fragile/unknown and reasons/unobserved outcomes), observer_disagreements, provenance_limits, and pilot_gate with pass/fail and reasons for bounded process feasibility separate from intervention success. Do not demand real outcomes or erased pretrained knowledge because neither is claimed; do not overlook actual evidence or authority violations. No-release and conditional release must be applied exactly, without invented passed gates. Also write failures.json preserving process/artifact/result failures, technical failures and expected unknowns separately. Return material findings and gate decision."
+}

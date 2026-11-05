@@ -1,0 +1,83 @@
+{
+  "message_id": "logistics-ops-02",
+  "speech": "Your denominator disclosure changes my operational interpretation: I accept your proposed 2-unit audit before using the 11% and 17% figures to judge improvement. I also accept the scientist's advice to use the six items as a practice checkpoint, with independent competence, retention and workforce-wide transfer left unknown.\n\nMy provisional choice is the 9-unit package: workflow 2, audit 2, brief practice 2, changed-case check 2, and the single consultation fee 1. The remaining unit stays unspent; I reject adding the 3-unit fallback drill to this package. I narrow practice to two selected workers in the available clinic. Each gets the scientist's proposed five-minute practice, five-minute uncoached changed case and five-minute feedback sequence. Two sequential slots use 30 minutes of the dispatcher's two-hour clinic and each worker's entire 15-minute allowance. I will select workers only after confirming their attendance; this promises no other shift coverage. The assessor reviews exactly two attempts, as the scientist disclosed.\n\nFor workflow, I would assign overnight override ownership to the on-duty supervisor and require a named acknowledgement at handoff. An unacknowledged owner blocks the bounded operational release; I will not assume supervisory availability. My proposed job-aid criteria are to identify the exception, explain the intended disposition, identify the responsible supervisor and state the escalation route. These are proposed operational criteria, not validated certification criteria.\n\nAnalyst, can your audit fit 2 units, and can we record shift, owner acknowledgement, attempted overrides and annotation presence prospectively without implying recovery of old missing annotations? Please identify any additional collection burden. I propose release only for the two supervised clinic exercises once attendance, ownership and the audit scope are confirmed; otherwise no release.",
+  "evidence_disclosed": [],
+  "claims": [
+    {
+      "claim": "I accept the analyst's 2-unit audit before operational use of the reported exception-rate comparison, given the disclosed denominator change.",
+      "basis": [
+        "logistics-analyst-01",
+        "public.cost_reference"
+      ],
+      "competency": "basic descriptive measurement",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "For job-aid implementation I adopt the scientist's advice to treat the six items as a practice checkpoint and leave independent competence, retention and workforce-wide transfer unknown.",
+      "basis": [
+        "logistics-scientist-01"
+      ],
+      "competency": "job-aid implementation",
+      "standing": "attributed_advice"
+    },
+    {
+      "claim": "Workflow 2, audit 2, brief practice 2, changed-case check 2 and one consultation fee 1 total 9, leaving 1; a further 3-unit fallback drill exceeds the budget.",
+      "basis": [
+        "public.cost_reference",
+        "public.brief",
+        "logistics-scientist-01"
+      ],
+      "competency": "basic descriptive measurement",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "I propose narrowing practice to two confirmed clinic attendees, scheduling two sequential 15-minute slots within the supplied two-hour clinic; other workers and shifts are not promised coverage.",
+      "basis": [
+        "L-O2",
+        "L-O3",
+        "logistics-scientist-01"
+      ],
+      "competency": "staffing",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "I adopt the scientist's proposed five-minute guided practice, five-minute uncoached changed case and five-minute feedback sequence, with the disclosed assessor reviewing exactly two attempts.",
+      "basis": [
+        "logistics-scientist-01"
+      ],
+      "competency": "job-aid implementation",
+      "standing": "attributed_advice"
+    },
+    {
+      "claim": "I propose assigning overnight override ownership to the on-duty supervisor and requiring named acknowledgement; missing acknowledgement blocks the bounded operational release, with availability still requiring confirmation.",
+      "basis": [
+        "L-O1"
+      ],
+      "competency": "shift workflow",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The proposed operational job aid asks workers to identify the exception, explain intended disposition, identify the responsible supervisor and state the escalation route; these proposed criteria carry no certification claim.",
+      "basis": [
+        "L-O1",
+        "logistics-scientist-01"
+      ],
+      "competency": "job-aid implementation",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "I propose release only for two supervised clinic exercises after attendance, ownership and audit scope are confirmed; otherwise no release.",
+      "basis": [
+        "L-O1",
+        "L-O2",
+        "L-O3",
+        "logistics-analyst-01",
+        "logistics-scientist-01"
+      ],
+      "competency": "shift workflow",
+      "standing": "role_judgment"
+    }
+  ],
+  "consult_request": null,
+  "decision": "proposal"
+}

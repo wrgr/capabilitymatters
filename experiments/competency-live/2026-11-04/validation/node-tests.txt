@@ -1,0 +1,22 @@
+Software regression evidence; fixture jobs in this output are not live research participants.
+
+✔ published casebook evidence has exact deterministic replay (3.15725ms)
+✔ every case has scenario-dependent specialist access, finite conditions, and matched events (0.246125ms)
+✔ frozen budgets and specialist authorization are respected (0.295459ms)
+✔ identical treatments stay identical; leadership label alone is not a competence effect (0.152042ms)
+✔ retained casebook is explicitly mechanistic; not a live agentic study (0.164167ms)
+✔ mvp: complete paired study and numeric outcomes (5.460292ms)
+✔ v2: complete paired study and numeric outcomes (13.683334ms)
+✔ consultation remains scenario dependent (4.243583ms)
+✔ study is explicitly labeled mechanistic (3.855875ms)
+✔ case briefing excludes hidden causal truth, action menus and future test events (1.822417ms)
+✔ only own private evidence is exposed; proficiencies are distinct (0.303625ms)
+✔ consultable specialist cannot contribute before invitation (0.4575ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 164.020875

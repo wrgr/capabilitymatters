@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1120" viewBox="0 0 1200 1120" role="img" aria-labelledby="title desc">
+<title id="title">Table 1. Setup of the three dynamic design scenarios</title><desc id="desc">Authored professional roles and evidence are separate from observed outcomes. Two core model contexts can request one consultant; authority and resources are bounded.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#51616D"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif}</style>
+<rect width="1200" height="1120" fill="white"/>
+<text x="32" y="40" font-size="27" fill="#172B3A" font-weight="600">Table 1. Three settings with bounded expertise and consequential constraints</text>
+<text x="32" y="72" font-size="20" fill="#51616D" font-weight="400">Each case: two independent core contexts; one optional consultant (1 unit); one fresh process reviewer.</text>
+<rect x="32" y="94" width="1136" height="46" fill="#EDF4F7" stroke="#C9D1D8"/>
+<text x="48" y="124" font-size="20" fill="#172B3A" font-weight="600">Setting / competencies</text>
+<text x="428" y="124" font-size="20" fill="#172B3A" font-weight="600">Selected private facts</text>
+<text x="828" y="124" font-size="20" fill="#172B3A" font-weight="600">Authority / resources</text>
+<rect x="32" y="140" width="1136" height="300" fill="white" stroke="#C9D1D8"/>
+<text x="48" y="172" font-size="22" fill="#1C5370" font-weight="600">AI-assisted logistics</text>
+<text x="48" y="206" font-size="20" fill="#172B3A" font-weight="400">Core: operations/training lead</text>
+<text x="48" y="232" font-size="20" fill="#172B3A" font-weight="400">(workflow, staffing, job aids);</text>
+<text x="48" y="258" font-size="20" fill="#172B3A" font-weight="400">data analyst (denominators,</text>
+<text x="48" y="284" font-size="20" fill="#172B3A" font-weight="400">missing data, monitoring).</text>
+<text x="48" y="310" font-size="20" fill="#172B3A" font-weight="400">Consultant: workplace learning</text>
+<text x="48" y="336" font-size="20" fill="#172B3A" font-weight="400">scientist (practice, transfer,</text>
+<text x="48" y="362" font-size="20" fill="#172B3A" font-weight="400">assessment limits).</text>
+<text x="428" y="172" font-size="20" fill="#172B3A" font-weight="400">Operations: no agreed overnight</text>
+<text x="428" y="198" font-size="20" fill="#172B3A" font-weight="400">owner. Analyst: pre/post</text>
+<text x="428" y="224" font-size="20" fill="#172B3A" font-weight="400">denominators differ; 38% of night</text>
+<text x="428" y="250" font-size="20" fill="#172B3A" font-weight="400">overrides lack annotations.</text>
+<text x="428" y="276" font-size="20" fill="#172B3A" font-weight="400">Scientist: six practice items</text>
+<text x="428" y="302" font-size="20" fill="#172B3A" font-weight="400">repeat examples; no validated</text>
+<text x="428" y="328" font-size="20" fill="#172B3A" font-weight="400">certification instrument.</text>
+<text x="428" y="370" font-size="18" fill="#51616D" font-weight="400">L-O1–3; L-D1–3; L-S1–2</text>
+<text x="828" y="172" font-size="20" fill="#172B3A" font-weight="400">Operations schedules</text>
+<text x="828" y="198" font-size="20" fill="#172B3A" font-weight="400">practice. Analyst cannot</text>
+<text x="828" y="224" font-size="20" fill="#172B3A" font-weight="400">direct staff or certify</text>
+<text x="828" y="250" font-size="20" fill="#172B3A" font-weight="400">competence. Consultant</text>
+<text x="828" y="276" font-size="20" fill="#172B3A" font-weight="400">advises only.</text>
+<text x="828" y="314" font-size="20" fill="#172B3A" font-weight="400">10 units; 15 minutes per</text>
+<text x="828" y="340" font-size="20" fill="#172B3A" font-weight="400">worker this week. Two-hour</text>
+<text x="828" y="366" font-size="20" fill="#172B3A" font-weight="400">clinic cannot cover all</text>
+<text x="828" y="392" font-size="20" fill="#172B3A" font-weight="400">shifts.</text>
+<rect x="32" y="440" width="1136" height="300" fill="#F5F7F8" stroke="#C9D1D8"/>
+<text x="48" y="472" font-size="22" fill="#1C5370" font-weight="600">Public-benefits service</text>
+<text x="48" y="506" font-size="20" fill="#172B3A" font-weight="400">Core: service director</text>
+<text x="48" y="532" font-size="20" fill="#172B3A" font-weight="400">(staffing, workflow,</text>
+<text x="48" y="558" font-size="20" fill="#172B3A" font-weight="400">escalation); service</text>
+<text x="48" y="584" font-size="20" fill="#172B3A" font-weight="400">designer/policy steward</text>
+<text x="48" y="610" font-size="20" fill="#172B3A" font-weight="400">(interface research, supplied</text>
+<text x="48" y="636" font-size="20" fill="#172B3A" font-weight="400">policy). Consultant: access</text>
+<text x="48" y="662" font-size="20" fill="#172B3A" font-weight="400">practitioner (language access,</text>
+<text x="48" y="688" font-size="20" fill="#172B3A" font-weight="400">participatory testing).</text>
+<text x="428" y="472" font-size="20" fill="#172B3A" font-weight="400">Director: closure incentives;</text>
+<text x="428" y="498" font-size="20" fill="#172B3A" font-weight="400">repeat contacts unlinked. Steward:</text>
+<text x="428" y="524" font-size="20" fill="#172B3A" font-weight="400">ambiguous claims require human</text>
+<text x="428" y="550" font-size="20" fill="#172B3A" font-weight="400">review; completion is not</text>
+<text x="428" y="576" font-size="20" fill="#172B3A" font-weight="400">eligibility. Access practitioner:</text>
+<text x="428" y="602" font-size="20" fill="#172B3A" font-weight="400">restricted interpreting hours;</text>
+<text x="428" y="628" font-size="20" fill="#172B3A" font-weight="400">machine translation untested with</text>
+<text x="428" y="654" font-size="20" fill="#172B3A" font-weight="400">users.</text>
+<text x="428" y="696" font-size="18" fill="#51616D" font-weight="400">B-O1–3; B-H1; B-P1–2; B-A1–2</text>
+<text x="828" y="472" font-size="20" fill="#172B3A" font-weight="400">Director cannot change</text>
+<text x="828" y="498" font-size="20" fill="#172B3A" font-weight="400">eligibility. Steward approves</text>
+<text x="828" y="524" font-size="20" fill="#172B3A" font-weight="400">supplied-rule routing, not</text>
+<text x="828" y="550" font-size="20" fill="#172B3A" font-weight="400">access. Consultant cannot add</text>
+<text x="828" y="576" font-size="20" fill="#172B3A" font-weight="400">interpreting hours.</text>
+<text x="828" y="614" font-size="20" fill="#172B3A" font-weight="400">10 units; one 90-minute</text>
+<text x="828" y="640" font-size="20" fill="#172B3A" font-weight="400">assisted slot daily, covered</text>
+<text x="828" y="666" font-size="20" fill="#172B3A" font-weight="400">by existing staff.</text>
+<rect x="32" y="740" width="1136" height="300" fill="white" stroke="#C9D1D8"/>
+<text x="48" y="772" font-size="22" fill="#1C5370" font-weight="600">Control-room readiness</text>
+<text x="48" y="806" font-size="20" fill="#172B3A" font-weight="400">Core: senior operator/training</text>
+<text x="48" y="832" font-size="20" fill="#172B3A" font-weight="400">lead (alarm cues, practice,</text>
+<text x="48" y="858" font-size="20" fill="#172B3A" font-weight="400">handoff); safety/simulator</text>
+<text x="48" y="884" font-size="20" fill="#172B3A" font-weight="400">engineer (faults, fallback,</text>
+<text x="48" y="910" font-size="20" fill="#172B3A" font-weight="400">logging). Consultant: learning</text>
+<text x="48" y="936" font-size="20" fill="#172B3A" font-weight="400">scientist (diagnosis assessment,</text>
+<text x="48" y="962" font-size="20" fill="#172B3A" font-weight="400">transfer limits).</text>
+<text x="428" y="772" font-size="20" fill="#172B3A" font-weight="400">Operator: novices follow ranking;</text>
+<text x="428" y="798" font-size="20" fill="#172B3A" font-weight="400">timestamp cue absent from aid.</text>
+<text x="428" y="824" font-size="20" fill="#172B3A" font-weight="400">Engineer: no radio-dropout</text>
+<text x="428" y="850" font-size="20" fill="#172B3A" font-weight="400">injection; paper freshness</text>
+<text x="428" y="876" font-size="20" fill="#172B3A" font-weight="400">unmarked. Scientist: assessment</text>
+<text x="428" y="902" font-size="20" fill="#172B3A" font-weight="400">discloses alarm order; delayed</text>
+<text x="428" y="928" font-size="20" fill="#172B3A" font-weight="400">probe follows release.</text>
+<text x="428" y="970" font-size="18" fill="#51616D" font-weight="400">C-O1–3; C-S1–3; C-L1–2</text>
+<text x="828" y="772" font-size="20" fill="#172B3A" font-weight="400">Operator and engineer jointly</text>
+<text x="828" y="798" font-size="20" fill="#172B3A" font-weight="400">approve simulator release;</text>
+<text x="828" y="824" font-size="20" fill="#172B3A" font-weight="400">either may stop. Consultant</text>
+<text x="828" y="850" font-size="20" fill="#172B3A" font-weight="400">cannot certify readiness or</text>
+<text x="828" y="876" font-size="20" fill="#172B3A" font-weight="400">safety.</text>
+<text x="828" y="914" font-size="20" fill="#172B3A" font-weight="400">8 units; 20-minute slot per</text>
+<text x="828" y="940" font-size="20" fill="#172B3A" font-weight="400">operator. No real utility</text>
+<text x="828" y="966" font-size="20" fill="#172B3A" font-weight="400">operation.</text>
+<text x="32" y="1072" font-size="18" fill="#51616D" font-weight="400">Source: retained scenario and private role packets; text summarizes authored facts and scopes.</text>
+<text x="32" y="1100" font-size="18" fill="#51616D" font-weight="400">Private evidence must be disclosed before others use it. Knowledge controls are instruction-bounded, not erasure.</text>
+</svg>

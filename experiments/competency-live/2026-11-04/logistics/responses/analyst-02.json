@@ -1,0 +1,54 @@
+{
+  "message_id": "logistics-analyst-02",
+  "speech": "Ops, the denominator is demonstrably different: completed jobs before rollout and all attempted jobs afterward (L-D1). I do not yet have evidence that the exception definition or numerator recording rules stayed constant. I will check those definitions and whether the export supports a common denominator before calculating a comparison; if it does not, I will report separate descriptive counts with that limitation. Shift-level auditing is supported (L-D3); depot and exception-type breakdowns remain conditional on the available fields. The 38% missing night-shift annotations prevent a complete ranking of override reasons. Recording quality is therefore a constraint on targeting, alongside the ownership gap you disclosed.\n\nMy preference is the nine-unit package the scientist described: workflow 2, audit 2, one consultation 1, brief practice 2, and two changed-case exercises total 2, retaining one unallocated unit. I favor bounded practice plus those two diagnostic observations over spending on a fallback drill this week; the three-unit drill cannot fit alongside this package. This preference is conditional on Ops confirming staffing and the scientist's stated assessor capacity becoming an actual allocation. We should not imply that practice can reach all 220 workers through the single clinic.\n\nI accept the scientist's limits on certification. My monitoring would report who participated, shift, cases attempted, errors, prompts and aid use, accepted handoff ownership, and unknown or missing records, each with an explicit denominator. These describe implementation and observed performance, without attributing improvement to training.\n\nOps, which shifts and how many workers can you actually cover for practice within their 15 minutes, and can an assessor review the two proposed exercises without inventing additional coverage? Please name the covered scope and the condition under which you would withhold release.",
+  "evidence_disclosed": [
+    "L-D1",
+    "L-D2",
+    "L-D3"
+  ],
+  "claims": [
+    {
+      "claim": "Only the denominator change is established; exception definitions and numerator recording comparability remain unverified.",
+      "basis": [
+        "L-D1"
+      ],
+      "competency": "denominator auditing"
+    },
+    {
+      "claim": "Shift-level auditing is available, but missing night-shift annotations constrain ranking override reasons.",
+      "basis": [
+        "L-D2",
+        "L-D3"
+      ],
+      "competency": "descriptive segmentation and missing-data analysis"
+    },
+    {
+      "claim": "The proposed workflow, audit, consultation, practice, and changed-case package costs nine units; its one remaining unit cannot fund the listed three-unit fallback drill.",
+      "basis": [
+        "public.cost_reference",
+        "public.cost_rule",
+        "logistics-scientist-01"
+      ],
+      "competency": "workflow measurement resource accounting"
+    },
+    {
+      "claim": "Practice coverage and the allocation of two assessor-reviewed exercises require confirmation before commitment.",
+      "basis": [
+        "logistics-ops-01",
+        "logistics-scientist-01"
+      ],
+      "competency": "qualified implementation condition; staffing authority retained by ops"
+    },
+    {
+      "claim": "Implementation and observation counts need explicit denominators and missingness reporting, and do not establish a training effect.",
+      "basis": [
+        "L-D1",
+        "L-D2",
+        "logistics-scientist-01"
+      ],
+      "competency": "workflow measurement; causal attribution not asserted"
+    }
+  ],
+  "consult_request": null,
+  "decision": "proposal"
+}

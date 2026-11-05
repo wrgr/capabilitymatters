@@ -1,0 +1,122 @@
+{
+  "description": "Independent failure record. Existing intervention/evidence unchanged; process violations, artifact/result limitations, technical incidents and expected unknowns are distinguished.",
+  "evaluator_agent": "/root/benefits_evaluator",
+  "process_failures": [],
+  "process_assurance_limits": [
+    {
+      "issue": "Encrypted native dispatch content and omitted root/runtime-developer content prevent complete transport and hidden-instruction audit.",
+      "evidence": [
+        "runtime-transcripts/*-rollout.json agent_message records and description"
+      ],
+      "severity": "provenance_limit"
+    },
+    {
+      "issue": "Behavioral isolation on shared filesystem and same recorded model family limit independence; no visible access violation was found.",
+      "evidence": [
+        "../protocol-v2.json",
+        "provenance/*.json",
+        "runtime-transcripts/*-rollout.json turn_contexts"
+      ],
+      "severity": "provenance_limit"
+    }
+  ],
+  "artifact_failures": [
+    {
+      "issue": "No available named authorized reviewer, capacity, handoff or turnaround is established; routing remains a specification and release is withheld.",
+      "evidence": [
+        "benefits-director-03",
+        "frozen-intervention.json unresolved"
+      ],
+      "severity": "material"
+    },
+    {
+      "issue": "Confirmed staff/interpreter schedule and participant recruitment are absent; single 90-minute slot must cover both service and checking. Nine allocated units do not prove feasible delivery.",
+      "evidence": [
+        "benefits-access-01",
+        "frozen-intervention.json bounded-assisted-slot, scoped-participatory-check"
+      ],
+      "severity": "material"
+    },
+    {
+      "issue": "Funded assistance displaces separate wording work while interview-reported confusion persists; no correction of completion messaging is committed.",
+      "evidence": [
+        "benefits-designer-02",
+        "frozen-intervention.json rejected_alternatives"
+      ],
+      "severity": "material"
+    },
+    {
+      "issue": "Missing approved forms and untested language/disability access are unresolved; consultation alone does not establish readiness.",
+      "evidence": [
+        "benefits-access-01",
+        "frozen-intervention.json unresolved"
+      ],
+      "severity": "material"
+    },
+    {
+      "issue": "No operational fault containment, reinstatement or incident-recovery procedure is provided by the frozen no-release artifact.",
+      "evidence": [
+        "frozen-intervention.json withhold-release-and-own-escalation",
+        "deployment.json hard"
+      ],
+      "severity": "material_under_hard_event"
+    }
+  ],
+  "result_failures": [
+    {
+      "difficulty": "easy",
+      "issue": "No released service response or accurate understood live status is supplied; a proposed tracking distinction is insufficient.",
+      "evidence": [
+        "deployment.json easy"
+      ],
+      "observed_real_world_failure": false
+    },
+    {
+      "difficulty": "medium",
+      "issue": "16:30 language explanation, full-slot demand and abandoned-interface recovery lack an available route within frozen constraints.",
+      "evidence": [
+        "deployment.json medium",
+        "sealed-events.json medium"
+      ],
+      "observed_real_world_failure": false
+    },
+    {
+      "difficulty": "hard",
+      "issue": "No executed containment, authorized review, correction of 14 scenario closures, or overnight understandable notice is established.",
+      "evidence": [
+        "deployment.json hard",
+        "sealed-events.json hard"
+      ],
+      "observed_real_world_failure": false
+    }
+  ],
+  "technical_failures": [
+    {
+      "issue": "Access first attempted to write its response using unavailable python executable; exit 127. It retried with python3 successfully. This was an execution failure, not a gate rejection or substantive repair.",
+      "evidence": [
+        "runtime-transcripts/access-rollout.json records 6-9"
+      ],
+      "status": "recovered"
+    },
+    {
+      "issue": "Reviewer inventory command also initially used unavailable python; retry with python3 succeeded without evidence modification.",
+      "evidence": [
+        "independent evaluator tool history"
+      ],
+      "status": "recovered"
+    }
+  ],
+  "expected_unknowns": [
+    "Actual eligibility, resolution, repeat contacts, wait times, applicant comprehension and causal effects for every event.",
+    "Operational reviewer availability and handoff; confirmed service/check schedule; actual recruited users, coverage and walkthrough observations.",
+    "Whether any pause, booking, escalation, linkage, corrected notice, reinstatement, audit or software repair occurs.",
+    "Provider checkpoint, temperature, API-call count, encrypted dispatch contents and hard-isolation assurance.",
+    "No real outcome evidence or erased pretrained knowledge was promised; their absence alone is not a process failure."
+  ],
+  "gate_decision": {
+    "bounded_process_feasibility": "pass",
+    "service_readiness": "fail",
+    "intervention_success": "not_established",
+    "no_release_preserved": true
+  }
+}

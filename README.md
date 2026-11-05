@@ -281,6 +281,55 @@ candidate, with a maximum of 30 review invocations. It retains actual browser
 observations, original responses, failed attempts, raw rubric indices, and reviewer
 disagreement. It does not run the probability sampler or alter historical scores.
 
+## Authenticated competency-mediation examples
+
+The [live example archive](experiments/competency-live/2026-11-04/README.md)
+retains native authenticated Codex subagent conversations for AI-assisted
+logistics, public-benefits service, and control-room readiness. Role-specific
+packets distinguish competencies, private evidence, decision rights and resources.
+Readable phase instructions, claim permissions, exact endorsements, frozen plans,
+three stress projections, independent reviews and failures remain inspectable.
+The [paper](docs/lifecycle/competency-mediation-paper-v3.md) explains the instrument
+and qualitative findings separately from execution receipts. Its LERN framing
+centers an explicit thesis and three uses: professional preparation, research on
+contribution episodes, and organizational design rehearsal. The strongest worked
+example includes [editable publication figures](docs/lifecycle/figures/README.md)
+with exact dialogue, frozen commitments and held-out stress consequences.
+The second contribution now includes an [executable control-room deployment
+record](experiments/competency-live/2026-11-04/controlroom-executable-v3/README.md):
+three primary conditions and five diagnostic probes produce observed software
+transitions, complete handoff packets, participant-owned logs and independently
+derived outcomes. Easy completes containment/handoff, medium accepts one stale
+item before its later stop, and hard obeys the release boundary while leaving
+deployment demand unmet. These are authored, uncalibrated model observations;
+they do not establish human learning, competency levels or team superiority.
+Run `python3 tools/lifecycle/run_controlroom_deployment.py --out /tmp/new-controlroom-run`
+from the repository root using an unused output directory. No model API key,
+package or environment variable is required. Exact code/model snapshots and failed
+validation versions are retained separately; the original frozen intervention is
+unchanged. The paper frames situated competency requirements, individual coverage
+versus collective integration, and the connection between learning research and
+systems thinking as explicit research uses of this design-to-execution chain.
+The main manuscript contains only the deterministic demonstration and three focal
+latest dynamic examples; the [companion appendix](docs/lifecycle/competency-mediation-supplement.md)
+keeps other explorations and development details outside its analysis.
+
+The initial failed pilot is retained. A fresh pilot validates the bounded process
+before case expansion. These are actual model-generated conversations and choices,
+with hypothetical deployment consequences; the older 36-design casebook remains an
+authored-policy fixture with zero live model calls. Knowledge gates control
+acceptable evidence and authority; they do not erase pretrained knowledge or
+provide hard per-agent filesystem isolation. This route uses no API key or GitHub
+Actions model execution and adds no dependency or environment variable.
+
+Run deployment-model tests with
+`python3 -m unittest discover -s tools/lifecycle/tests -p 'test_controlroom_deployment.py'`.
+Run the evidence and knowledge-gate tests with
+`python3 -m unittest discover -s tools/lifecycle/tests -p 'test_*mediation*.py'`.
+The archive describes freeze/release verification and transcript export; model
+conversations require an authenticated native collaboration session and cannot
+be deterministically replayed by the evidence utilities.
+
 ## Problems to Prototypes
 
 `/problems-to-prototypes/` holds 38 evidence-linked briefs across AILE, LXD,

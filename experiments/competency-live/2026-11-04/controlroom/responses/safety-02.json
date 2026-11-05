@@ -1,0 +1,87 @@
+{
+  "message_id": "controlroom-safety-02",
+  "speech": "I support the seven-unit package and accept receiving stopped-scenario handoffs myself. That commitment uses my participation during your existing five-minute handoff segment; it adds no staffed role or separate activity. I will own the three-unit sensor-staleness fault rehearsal and its local logging. Your 3/10/5/2-minute allocation is acceptable for this narrowly scripted exercise, subject to stopping if it cannot be completed within 20 minutes; completion is not established yet.\n\nFor this rehearsal I propose an authored simulator event record in the local console log: I record the injected sensor change and its intended current scripted state, then compare the displayed alarm timestamp and values against that record. This is a reference we prepare within fault rehearsal, not an assertion that an independently verified clock already exists. Freshness passes only when the displayed record can be matched to the current scripted state. A contradiction, an older scripted state, a missing reference, or an indeterminate match triggers stop and handoff. I authorize no numerical age threshold because none is supplied. If the reference cannot be prepared and checked, I withhold release.\n\nThe paper sheet remains last-known information: label its freshness uncertain and do not use it to clear that stop. I accept your proposed handoff fields and will log receipt and stopped status. Partial radio dropouts remain outside coverage.\n\nI retain the scientist's advice: the disclosed expected order prevents the acknowledgement result from establishing independent diagnosis, and diagnosis, delayed retention, and transfer remain unestablished without the proposed probe. That advice supplies no safety approval.\n\nOperator, will you commit to these reference, paper-sheet, and stop conditions in the job aid and procedure? I support preparing the draft on that basis; I have not yet endorsed an exact release artifact.",
+  "evidence_disclosed": [],
+  "claims": [
+    {
+      "claim": "I support the seven-unit package, own the three-unit sensor-staleness fault rehearsal and local logging, and accept handoff receipt during the existing five-minute segment without adding personnel or an activity.",
+      "basis": [
+        "C-S1",
+        "C-S2",
+        "controlroom-safety-01",
+        "controlroom-operator-02",
+        "public.cost_reference"
+      ],
+      "competency": "scenario safety constraints",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The proposed 3/10/5/2-minute allocation is acceptable for a narrowly scripted exercise with a stop if it cannot complete within 20 minutes; completion is not yet established.",
+      "basis": [
+        "controlroom-operator-01",
+        "controlroom-operator-02",
+        "C-S1",
+        "C-S2"
+      ],
+      "competency": "scenario safety constraints",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "I propose preparing an authored simulator event record in the local console log, recording the injected change and intended current scripted state; no independently verified clock is established.",
+      "basis": [
+        "C-S1",
+        "controlroom-operator-02"
+      ],
+      "competency": "fault injection",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Freshness passes only when the displayed timestamp and values match the current scripted state in the prepared event record; contradiction, an older scripted state, missing reference or indeterminate match requires stop and handoff. No numerical age threshold is authorized, and release is withheld if the reference cannot be prepared and checked.",
+      "basis": [
+        "C-S1",
+        "C-S2",
+        "controlroom-operator-02"
+      ],
+      "competency": "scenario safety constraints",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The paper sheet must be labeled freshness uncertain and cannot clear the stop; partial radio dropout coverage remains excluded.",
+      "basis": [
+        "C-S3",
+        "C-S1",
+        "controlroom-safety-01"
+      ],
+      "competency": "fallback system design",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "I accept the proposed handoff fields and commit to logging receipt and stopped status.",
+      "basis": [
+        "C-S1",
+        "controlroom-operator-02"
+      ],
+      "competency": "incident logging",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The scientist advises that disclosed expected order prevents acknowledgement improvement from establishing independent diagnosis, and that diagnosis, delayed retention and transfer remain unestablished without the proposed probe; this is advice, not safety approval.",
+      "basis": [
+        "controlroom-scientist-01"
+      ],
+      "competency": "hypothesis",
+      "standing": "attributed_advice"
+    },
+    {
+      "claim": "I support preparing a draft with these conditions but have not endorsed an exact release artifact.",
+      "basis": [
+        "C-S2",
+        "controlroom-operator-02"
+      ],
+      "competency": "scenario safety constraints",
+      "standing": "role_judgment"
+    }
+  ],
+  "consult_request": null,
+  "decision": "commitment"
+}

@@ -1,0 +1,245 @@
+{
+  "description": "Independent software and method audit of the unchanged controlroom executable v1 implementation and retained results. This audit is not a design-team endorsement, intervention repair, human performance evaluation or empirical competency study.",
+  "auditor_agent": "/root/executable_auditor",
+  "audited_at": "2026-11-05T04:09:00.061667+00:00",
+  "audit_scope": {
+    "source_files": [
+      "tools/lifecycle/controlroom_contract.py",
+      "tools/lifecycle/controlroom_simulator.py",
+      "tools/lifecycle/controlroom_results.py",
+      "tools/lifecycle/run_controlroom_deployment.py",
+      "tools/lifecycle/tests/test_controlroom_deployment.py",
+      "src/data/lifecycle/controlroom-deployment-v1.json"
+    ],
+    "original_evidence_files": [
+      "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json",
+      "experiments/competency-live/2026-11-04/controlroom/freeze-receipt.json",
+      "experiments/competency-live/2026-11-04/controlroom/deployment-release.json",
+      "experiments/competency-live/2026-11-04/controlroom/responses/operator-03.json",
+      "experiments/competency-live/2026-11-04/controlroom/responses/safety-03.json"
+    ],
+    "result_directory": "experiments/competency-live/2026-11-04/controlroom-executable-v1/",
+    "source_or_result_modifications": false,
+    "only_repository_write": "experiments/competency-live/2026-11-04/controlroom-executable-v1/independent-audit.json"
+  },
+  "reviewed_inputs_sha256": {
+    "tools/lifecycle/controlroom_contract.py": "fb78b7a2e01e23bf109bd9ce9153132abc991b38e04085d32da1aeb19a0b820e",
+    "tools/lifecycle/controlroom_simulator.py": "91fc9a7467e6416b8e5bd858d5f5bce48b4675bb0b263b68dc3f86df52044175",
+    "tools/lifecycle/controlroom_results.py": "b51b456d06f5db8701942a4e9774afba681e1bc9f42d7232354a43c598317037",
+    "tools/lifecycle/run_controlroom_deployment.py": "49105f5d99ffed015b2364dd815ca31b5785d54dd5e9fafd53c38ba29730e59c",
+    "tools/lifecycle/tests/test_controlroom_deployment.py": "21e1fce4ef37830b25dedf6e51f57df93326906cea6605ab43049589cc4d174a",
+    "src/data/lifecycle/controlroom-deployment-v1.json": "9b163196536fdbaf137a3e04783095c52a8c37495755bc35528d076ec21e2dfc",
+    "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+    "experiments/competency-live/2026-11-04/controlroom/freeze-receipt.json": "a2b0b0311cef16b0ef5217a148f61d8043825252e31e187b6abd7f29ba9b4230",
+    "experiments/competency-live/2026-11-04/controlroom/deployment-release.json": "47902de1b93c627420b75330b24ab4237b9e6d5c4a2d2747ed55b87c6128df27",
+    "experiments/competency-live/2026-11-04/controlroom/responses/operator-03.json": "ba0b1d162a5028c3a4720290ca6de857ac20c1566128d56a416052c30476842c",
+    "experiments/competency-live/2026-11-04/controlroom/responses/safety-03.json": "c56eca416508c57209ed6784663005d24b40d4efc22508d6a7e977f9b5610920",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v1/competency-dependencies.json": "c3c49ea2a76786d4835f7610f41ad9e99435521a422f372919711cf121062454",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v1/easy.json": "ffa763b16776602178f2c0ff61abdae834f3e04d5dc3d295f6f05a7c1ef4a42c",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v1/execution-receipt.json": "16767b5e97a4c597bee55728ed8b992d5b043a9bf2e515ef2100bcfc1c78d4b9",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v1/fresh_sensor_control.json": "a8ba995eaab7375f69a70fbc7006efecc09af442ffe83b54501de110ab8e4de2",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v1/hard.json": "b70dc03599f84a9140c46b9e9e24685781fbedf97f25b3fb0e8a63ffabb2875d",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v1/hard_after_start.json": "dea2e9dae16b3229d45f4f3b1a4ae491de06aa20d93be040124e3cba30f5a24f",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v1/medium.json": "70656e4be400510ba61d72da64aac70dd1a54b64c47aae5b2b7d5b36aa128052",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v1/medium_cue_first.json": "014809eb1e211114bd741a357dc2ace0b2d6bcd203ae8f82d51efd0e0e7548b3",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v1/missing_reference.json": "52ee354d62ab51496ac48b1a7bff413899b580ca1e8f01e9d1792f1653bac1c4",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v1/model.json": "9b163196536fdbaf137a3e04783095c52a8c37495755bc35528d076ec21e2dfc",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v1/recipient_unavailable.json": "a8840c09c34b8b04df0487c48dbf1aa57463c1466aa4f4e6b2713ad1883f5b75",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v1/summary.json": "5ac0858e6937f7380016dd16b804fb2f2c7354be01c4af1dc47f51dcd13195ce"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "high",
+      "category": "source_fidelity_and_false_success",
+      "title": "Acknowledged handoffs omit the required last-known value and completeness validates only key names",
+      "finding": "The frozen stop-and-handoff clause requires reporting last-known values labeled uncertain. The simulator sends last_known_values_uncertain=true but no last-known value (the retained stale display value is 9). The completeness predicate checks only the set of keys. Retained easy, medium and medium_cue_first therefore report a complete acknowledged handoff despite this omission; easy and medium_cue_first additionally report deployment_demand_fulfilled=true. Those success claims do not establish satisfaction of the frozen handoff clause.",
+      "verification": "Inspected retained handoff and acknowledgement events. An in-memory direct acknowledgement probe with every required key present but all values null, stopped_status=false and last_known_values_uncertain=false still returned handoff_acknowledged and required_fields_complete=true.",
+      "source_refs": [
+        "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json#/actions/1/action",
+        "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json#/actions/1/acceptance_test",
+        "tools/lifecycle/controlroom_contract.py:27",
+        "tools/lifecycle/controlroom_simulator.py:136",
+        "tools/lifecycle/controlroom_simulator.py:148",
+        "tools/lifecycle/controlroom_results.py:42",
+        "experiments/competency-live/2026-11-04/controlroom-executable-v1/easy.json#/trace/7/observation/payload",
+        "experiments/competency-live/2026-11-04/controlroom-executable-v1/easy.json#/trace/8/observation",
+        "experiments/competency-live/2026-11-04/controlroom-executable-v1/medium_cue_first.json#/outcomes"
+      ]
+    },
+    {
+      "id": "F2",
+      "severity": "medium",
+      "category": "scope_guard_and_metric",
+      "title": "Scope compliance is a declaration-dependent guard and the reported boundary metric can be falsely positive",
+      "finding": "The start gate checks declared_features without validating correspondence with actual initial world flags. The release_boundary_obeyed metric only excludes simultaneous withheld and practice_started; it does not establish that a started scenario was in scope. A known initial cascading-alert condition omitted from declared_features passes model validation, starts practice and reports release_boundary_obeyed=true. Its demand outcome remains false because uncovered features are separately recorded. The retained hard scenario itself is correctly withheld because its declaration is accurate; this defect does not overturn that particular observation.",
+      "verification": "In-memory easy perturbation setting only initial.cascading_alerts=true; validate_model and compile_program accepted it; practice_started=true and release_boundary_obeyed=true were returned.",
+      "source_refs": [
+        "tools/lifecycle/controlroom_contract.py:58",
+        "tools/lifecycle/controlroom_simulator.py:68",
+        "tools/lifecycle/controlroom_results.py:54",
+        "src/data/lifecycle/controlroom-deployment-v1.json#/scenarios/2",
+        "experiments/competency-live/2026-11-04/controlroom-executable-v1/hard.json#/trace/0"
+      ]
+    },
+    {
+      "id": "F3",
+      "severity": "medium",
+      "category": "environment_transition_semantics",
+      "title": "An allowed emerging sensor-staleness flag does not change the sensor display",
+      "finding": "Display freshness is selected once from initial.sensor_stale. Environment changes update flags only. An accepted sensor_stale=true change after a fresh start leaves the display equal to scripted truth, yields a freshness pass and current-item acceptance, and reports demand fulfilled. The event schema currently admits a physically inert staleness injection. No retained episode uses a post-start sensor_stale change, so this is a verified engine coverage defect rather than evidence that the retained initial-staleness traces are corrupt.",
+      "verification": "In-memory fresh_sensor_control perturbation adding an environment change at182 with sensor_stale=true; model validation and compilation accepted it; inspection at184 passed, acceptance at186 was current, final sensor_stale=true, display remained {state_id:7,timestamp:100,value:4}, deployment_demand_fulfilled=true.",
+      "source_refs": [
+        "tools/lifecycle/controlroom_simulator.py:34",
+        "tools/lifecycle/controlroom_simulator.py:160",
+        "tools/lifecycle/controlroom_contract.py:61",
+        "src/data/lifecycle/controlroom-deployment-v1.json#/scenarios/7"
+      ]
+    },
+    {
+      "id": "F4",
+      "severity": "medium",
+      "category": "outcome_definition",
+      "title": "Demand fulfillment can ignore an explicitly recorded check-before-acceptance violation",
+      "finding": "The observer bases demand completion on stale acceptance, uncovered features and acknowledgement or acceptance. It does not incorporate protocol_violation or checked_before_acceptance. A fresh record accepted by the ranking_first profile before inspection is marked fulfilled even though the trace explicitly records the violation. This is acceptable only if the metric is described strictly as the authored containment/handoff predicate; it cannot establish full adherence to the frozen procedure or the check-before-acceptance functional requirement claimed in dependency findings. None of the retained fresh-control events exhibits this violation.",
+      "verification": "Changed fresh_sensor_control to the existing ranking_first profile in memory, with model validation and compilation. At186 the accepted item had checked_before_acceptance=false; inspection followed at192; deployment_demand_fulfilled remained true.",
+      "source_refs": [
+        "tools/lifecycle/controlroom_simulator.py:125",
+        "tools/lifecycle/controlroom_results.py:41",
+        "tools/lifecycle/controlroom_results.py:65",
+        "src/data/lifecycle/controlroom-deployment-v1.json#/objectives"
+      ]
+    },
+    {
+      "id": "F5",
+      "severity": "medium",
+      "category": "realization_and_measurement_limits",
+      "title": "Several source obligations remain authored assumptions or observer instrumentation rather than independently exercised work",
+      "finding": "aid_check_passes is an input Boolean copied to aid_checked; the engine does not inspect an independently realized aid or observe the operator identifying its recorded elements. Reference checking is equality against the simulator-owned scripted truth. The trace is useful software logging, but there is no scheduled recording_start event at1080, participant-owned local-log state, or explicit final recording of unmet criteria and receipt. The frozen aid-check and local-logging acceptance tests are therefore not fully independently validated by this adapter. Do not equate its hash-bound source-clause mapping with complete semantic implementation.",
+      "source_refs": [
+        "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json#/actions/0/acceptance_test",
+        "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json#/actions/2/action",
+        "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json#/actions/2/acceptance_test",
+        "tools/lifecycle/controlroom_simulator.py:54",
+        "tools/lifecycle/controlroom_simulator.py:85",
+        "tools/lifecycle/controlroom_simulator.py:91",
+        "tools/lifecycle/controlroom_contract.py:76",
+        "src/data/lifecycle/controlroom-deployment-v1.json#/time_seconds/recording_start"
+      ]
+    },
+    {
+      "id": "F6",
+      "severity": "informational",
+      "category": "retrospective_authored_behavior_and_sensitivity",
+      "title": "Retrospective synthetic profiles explain the contrast; they do not estimate behavior or a training effect",
+      "finding": "Cue-first inspection at184 precedes acceptance at186, while ranking-first inspection at192 follows it. Those authored schedules and the fixed stale display mechanically produce the easy/medium contrast. Difficulty is not itself used as an outcome switch, and medium_cue_first is a useful one-factor sensitivity probe. senior_available is retained metadata with no causal behavioral effect. There are no sampled or calibrated human actors, probabilistic uncertainty estimates, empirical comparison group, independent outcome collection or preregistered model selection. The receipt and model explicitly disclose retrospective construction and these limits; this audit found no evidence of a hidden difficulty-to-outcome lookup.",
+      "source_refs": [
+        "src/data/lifecycle/controlroom-deployment-v1.json#/description",
+        "src/data/lifecycle/controlroom-deployment-v1.json#/behavior_profiles",
+        "src/data/lifecycle/controlroom-deployment-v1.json#/assumptions",
+        "tools/lifecycle/controlroom_simulator.py:60",
+        "tools/lifecycle/controlroom_results.py:27",
+        "experiments/competency-live/2026-11-04/controlroom-executable-v1/execution-receipt.json",
+        "experiments/competency-live/2026-11-04/controlroom-executable-v1/medium.json",
+        "experiments/competency-live/2026-11-04/controlroom-executable-v1/medium_cue_first.json"
+      ]
+    },
+    {
+      "id": "F7",
+      "severity": "informational",
+      "category": "hard_probe_interpretation",
+      "title": "The after-start hard probe tests loss of the handoff channel after an existing stop",
+      "finding": "hard_after_start stops for the initial sensor contradiction at184; the AI/radio/cascade changes occur at190. It demonstrates a dropped one-shot handoff at780 and no invented retry following radio restoration at1085. It does not demonstrate detection, prioritization or containment of emerging cascading alerts or AI loss during active acceptance. The primary hard episode demonstrates declared-scope refusal, not performance on the hard demand. Its containment=true means no stale item was accepted during no-start, not demonstrated operational capability.",
+      "source_refs": [
+        "experiments/competency-live/2026-11-04/controlroom-executable-v1/hard_after_start.json#/trace",
+        "experiments/competency-live/2026-11-04/controlroom-executable-v1/hard.json#/outcomes",
+        "tools/lifecycle/controlroom_results.py:41",
+        "src/data/lifecycle/controlroom-deployment-v1.json#/scenarios/4"
+      ]
+    },
+    {
+      "id": "F8",
+      "severity": "informational",
+      "category": "competency_inference",
+      "title": "Competency labels are interpretive functional mappings rather than measured competencies or team effects",
+      "finding": "The traces support model-specific dependencies on cue timing, reference preparation and channel/recipient availability, subject to F1-F5. Mapping these requirements to learning research, systems engineering and coordination is an authored interpretation. No role competence is independently assessed, no individual performs a matched design, and no team-size or team-versus-individual comparison is executed. The retained dependency artifact correctly disclaims a team effect; stronger empirical competency or team-superiority conclusions would be unwarranted.",
+      "source_refs": [
+        "tools/lifecycle/controlroom_results.py:60",
+        "experiments/competency-live/2026-11-04/controlroom-executable-v1/competency-dependencies.json#/findings",
+        "experiments/competency-live/2026-11-04/controlroom-executable-v1/competency-dependencies.json#/team_vs_individual"
+      ]
+    }
+  ],
+  "actual_verification_performed": [
+    {
+      "check": "Read scope",
+      "result": "Read all five authorized Python files, the complete model, every one of the eleven pre-audit result JSON files, and the five named original frozen/release/endorsement files. No other repository content was used."
+    },
+    {
+      "check": "Unit tests",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s tools/lifecycle/tests -p test_controlroom_deployment.py -v",
+      "result": "15 tests passed; exit code0."
+    },
+    {
+      "check": "Frozen identity, authority and allocation",
+      "result": "Frozen SHA256 equals model, freeze receipt, both actual endorsements and release freeze_sha256. Both endorsement actors are operator and safety, endorsed=true for the exact digest. Frozen action costs sum to7 (of8), and the engine pins practice180, handoff780, handoff-window-end1080 and end1200. Actual preparation/check events30/60/90 precede practice. All retained traces end at1200 with no later transitions. This verifies virtual scheduling and accounting, not measured worker effort or feasibility."
+    },
+    {
+      "check": "Code and model provenance",
+      "result": "The model hash and all four implementation hashes in the pre-execution receipt match the currently audited bytes."
+    },
+    {
+      "check": "Full replay",
+      "temporary_output": "/var/folders/vn/ms168tz176s3h1qxh01bs1m40000gn/T/controlroom-independent-audit-wtgj80p3/replay",
+      "result": "Re-executed execute(root, model_path, new_output_folder). All eight complete episode objects, summary.json and competency-dependencies.json were structurally equal to retained originals. execution-receipt.json matched after removing started_at only. This is exact deterministic data/trace replay; receipt wall-clock time is intentionally different."
+    },
+    {
+      "check": "Trace and observer consistency",
+      "result": "verify_trace accepted every retained episode; independently recomputed outcomes equaled every retained outcomes object. Replayed traces and tail hashes were exactly equal. Hash verification checks event ordering, continuity and final state; it is not an external signature, independent observation or protection against recomputation by an author controlling all files."
+    },
+    {
+      "check": "Executed transitions",
+      "result": "Retained easy stop184, no stale acceptance, handoff sent780, acknowledgement785; medium stale acceptance186, stop192 and acknowledgement785; primary hard withheld at0; missing-reference withheld180; recipient-unavailable unacknowledged785; fresh-control accepted current186. Later acknowledgements do not erase medium stale acceptance. Acknowledgements do not overcome uncovered hard features."
+    },
+    {
+      "check": "Additional in-memory counterexamples",
+      "result": "Executed F2-F4 perturbations with model validation and compilation accepted; tested F1 semantic-null handoff acknowledgement directly; also observed a late cascading-alert flag makes demand false while release_boundary_obeyed remains true. Perturbations were diagnostic only, were not substituted for retained episodes and did not modify model/source/frozen/result files."
+    }
+  ],
+  "gate_decision": {
+    "decision": "fail_for_full_source_fidelity_and_success_claims; pass_for_narrow_deterministic_execution_and_replay",
+    "scope": "The retained artifacts are reproducible outputs of the audited executable synthetic model. They may be retained as software-transition demonstrations with the stated defects and assumptions. They must not be accepted as a complete executable validation of every frozen intervention obligation, a validated deployment-demand success, or empirical competency evidence.",
+    "blocking_findings": [
+      "F1"
+    ],
+    "additional_material_findings": [
+      "F2",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "unchanged_evidence": "No audited source, frozen input, model or retained execution result was repaired or overwritten."
+  },
+  "warranted_conclusions": [
+    "The current code and model deterministically reproduce the retained traces and outcomes; there is no observed branch from difficulty labels to outcomes.",
+    "Within this authored model, checking the stale display before acceptance prevents that one stale acceptance; checking afterward does not erase it.",
+    "The scripted reference and aid flags are preconditions for start; accurately declared unsupported primary hard conditions are refused.",
+    "Modeled recipient or radio unavailability prevents acknowledgement, and restoration after the handoff segment does not produce an invented retry.",
+    "The trace supports only functional software dependencies under the authored assumptions; competency names are interpretations and could be embodied by an authorized individual or distributed across people."
+  ],
+  "unwarranted_conclusions": [
+    "That retained handoff-acknowledged or demand-fulfilled flags prove reporting all required last-known values or full compliance with the frozen acceptance tests.",
+    "That release_boundary_obeyed proves actual scenario scope compliance independent of declarations.",
+    "That this engine validates evolving sensor staleness, compound-fault detection, complete local logging, independently checked aid realization or physical simulator fidelity.",
+    "That easy/medium differences estimate difficulty, novice expertise, learning, intervention efficacy, diagnosis, delayed retention, transfer or utility readiness.",
+    "That a team is required, outperforms an individual, or demonstrated a particular professional competency on the basis of these episodes."
+  ],
+  "limitations": [
+    "This is a bounded audit of the explicitly authorized v1 files, not a broader repository, runtime-provenance or operational-safety audit.",
+    "The simulator is retrospective, uncalibrated, deterministic and deliberately small: one acceptance attempt and one inspection per episode; no empirical workers or utility telemetry.",
+    "World initialization, actor policy and outcome observer are distinct in function but share one trusted Python process. The inspection routine uses display/reference fields rather than hidden future events; reference preparation and checking deliberately use authored scripted truth. There is no separately sandboxed live agent or independent measurement process.",
+    "The retained receipt proves reproducible current-byte consistency, not independently attested chronology of model authorship or preregistration. No earlier model versions or projections outside the allowed inputs were examined.",
+    "F2-F4 are demonstrated accepted-input counterexamples; retained episodes themselves remain internally reproducible. Their external importance depends on intended supported model scope.",
+    "Independent diagnosis and delayed transfer remain unassessed, rather than failed or zero-scored. Human learning_outcome is correctly null."
+  ]
+}

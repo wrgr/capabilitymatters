@@ -1,0 +1,68 @@
+{
+  "message_id": "controlroom-safety-01",
+  "speech": "I interpret the decision as permission for a bounded simulator exercise, with independent-diagnosis readiness still unknown. My safety authority is joint with yours and does not extend to real-utility certification.\n\nThree constraints matter. C-S1 says we can safely simulate sensor staleness and record a local console log, but the radio-link module cannot inject partial dropouts this week. C-S2 requires both operator and safety approval, and either of us can stop a scenario. C-S3 says the offline paper alarm sheet contains last-known values without automatic freshness marking. I therefore cannot treat that sheet as an automatically current fallback or claim that a rehearsal covers partial radio dropouts.\n\nI propose withholding release now while we prepare one bounded package: a timestamp job aid for 1 unit, stop-and-handoff procedure for 2, and a sensor-staleness fault rehearsal with local incident logging for 3. A learning-scientist consultation costs 1, bringing the proposal to 7 of 8 units. No separate unranked practice or delayed probe is included. My proposed release conditions are a demonstrated freshness check, an observable stop and handoff when freshness cannot be established, and our explicit joint approval; partial radio dropout coverage remains excluded and unverified.\n\nOperator, can you describe the handoff and freshness-check steps your team could actually carry out within this scope, including who receives a stopped scenario? I request the scientist's advice on what, if anything, the supplied acknowledgement-time improvement establishes about independent diagnosis, and what limitations we must retain without a delayed probe.",
+  "evidence_disclosed": [
+    "C-S1",
+    "C-S2",
+    "C-S3"
+  ],
+  "claims": [
+    {
+      "claim": "Independent-diagnosis readiness remains unknown; the decision concerns a simulator exercise only.",
+      "basis": [
+        "public.brief"
+      ],
+      "competency": "scenario safety constraints",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Safety release requires both operator and safety approval; either can stop a scenario, and my authority does not extend to real-utility certification.",
+      "basis": [
+        "C-S2",
+        "public.brief"
+      ],
+      "competency": "scenario safety constraints",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "Sensor staleness and a local console log can be simulated safely; partial radio dropouts cannot be injected this week.",
+      "basis": [
+        "C-S1"
+      ],
+      "competency": "fault injection",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "The offline paper alarm sheet has last-known values without automatic freshness marking, so I will not treat it as an automatically current fallback.",
+      "basis": [
+        "C-S3"
+      ],
+      "competency": "fallback system design",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "I propose withholding release pending a demonstrated freshness check, a stop and handoff when freshness cannot be established, and explicit joint approval, with partial radio dropout coverage excluded and unverified.",
+      "basis": [
+        "C-S1",
+        "C-S2",
+        "C-S3"
+      ],
+      "competency": "scenario safety constraints",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The proposed timestamp job aid, stop-and-handoff procedure, fault rehearsal and expert consultation total 7 of 8 units; separate unranked practice and a delayed probe are not included.",
+      "basis": [
+        "public.cost_reference",
+        "public.brief"
+      ],
+      "competency": "scenario safety constraints",
+      "standing": "role_judgment"
+    }
+  ],
+  "consult_request": {
+    "expert": "scientist",
+    "question": "What, if anything, does the supplied acknowledgement-time improvement establish about independent diagnosis, and what limitations must we retain without a delayed probe?"
+  },
+  "decision": "proposal"
+}

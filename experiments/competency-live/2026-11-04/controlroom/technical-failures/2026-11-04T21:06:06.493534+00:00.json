@@ -1,0 +1,11 @@
+{
+  "description": "Failed evidence operation retained without repair.",
+  "operation": "freeze",
+  "arguments": [
+    "experiments/competency-live/2026-11-04/controlroom/draft-intervention.json",
+    "operator-03.json",
+    "safety-03.json"
+  ],
+  "error_type": "AssertionError",
+  "error": "Hypothesis presented as established"
+}

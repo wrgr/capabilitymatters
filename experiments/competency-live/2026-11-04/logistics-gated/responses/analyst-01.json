@@ -1,0 +1,69 @@
+{
+  "message_id": "logistics-analyst-01",
+  "speech": "The increase from 11% to 17% is not yet a like-for-like comparison. My private evidence L-D1 says the rollout changed the denominator from completed jobs to all attempted jobs. I would first audit that definition change before using the reported increase to choose a response. L-D2 also says 38% of night-shift overrides lack annotations and there is no delayed unassisted assessment. L-D3 says our export supports a shift-level audit but cannot recover those missing annotations. I can describe the observable pattern and its missingness; the export cannot tell us what those undocumented overrides contained.\n\nMy consequential proposal is a segmented audit costing 2 units: document both denominator definitions, report shift-level counts and rates only where their definitions are comparable, and show annotation coverage alongside the results. Any comparison that the export cannot support would remain explicitly unresolved. I would reserve another 1 unit for the listed scientist's consultation, leaving 7 of the 10 units for the team's subsequent scoped choices. I would not record independent competence as established from the supplied evidence.\n\nOps, what handoff ownership and shift capacity can you actually commit within this week, and what operational information would help distinguish a workflow problem from a training hypothesis? I also request the scientist's advice on the limitations of using the six-item practice check for independent competence, given that no delayed unassisted assessment exists, and what bounded practice or transfer check they would advise within our remaining budget.",
+  "evidence_disclosed": [
+    "L-D1",
+    "L-D2",
+    "L-D3"
+  ],
+  "claims": [
+    {
+      "claim": "The reported rates use changed denominator definitions and should not yet be treated as a like-for-like comparison.",
+      "basis": [
+        "L-D1",
+        "public.brief"
+      ],
+      "competency": "denominator auditing",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "38% of night-shift overrides lack annotations, and no delayed unassisted assessment exists.",
+      "basis": [
+        "L-D2"
+      ],
+      "competency": "missing-data analysis",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "The available export supports a shift-level audit but cannot recover missing annotations or establish their contents.",
+      "basis": [
+        "L-D3"
+      ],
+      "competency": "missing-data analysis",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "A segmented audit should document denominator definitions, report supported shift-level comparisons, and expose annotation coverage and unresolved comparisons.",
+      "basis": [
+        "L-D1",
+        "L-D2",
+        "L-D3"
+      ],
+      "competency": "descriptive segmentation",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The proposed segmented audit costs 2 units; requesting the listed scientist costs 1, leaving 7 of the 10-unit budget for subsequent scoped choices.",
+      "basis": [
+        "public.cost_reference",
+        "public.brief"
+      ],
+      "competency": "workflow measurement",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Independent competence remains unestablished in this proposed monitoring record; specialist assessment advice is requested rather than supplied.",
+      "basis": [
+        "L-D2",
+        "public.brief"
+      ],
+      "competency": "workflow measurement",
+      "standing": "role_judgment"
+    }
+  ],
+  "consult_request": {
+    "expert": "scientist",
+    "question": "What are the limitations of using the six-item practice check to establish independent competence when no delayed unassisted assessment exists, and what bounded practice or transfer check would you advise within the remaining 7 units after a 2-unit segmented audit and your 1-unit fee?"
+  },
+  "decision": "proposal"
+}

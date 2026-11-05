@@ -1,0 +1,85 @@
+Software regression evidence; fixture jobs in this output are not live research participants.
+
+.....................................................127.0.0.1 - - [04/Nov/2026 15:56:24] "POST /api/experiments/cancel HTTP/1.1" 400 -
+127.0.0.1 - - [04/Nov/2026 15:56:24] "POST /api/experiments/cancel HTTP/1.1" 409 -
+127.0.0.1 - - [04/Nov/2026 15:56:24] "POST /api/experiments/cancel HTTP/1.1" 202 -
+.127.0.0.1 - - [04/Nov/2026 15:56:25] "POST /api/experiments/batches HTTP/1.1" 202 -
+127.0.0.1 - - [04/Nov/2026 15:56:25] "GET /api/experiments/batches/20261104T205625Z-batch-adc10859 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:25] "POST /api/experiments/batches HTTP/1.1" 400 -
+.127.0.0.1 - - [04/Nov/2026 15:56:26] "POST /api/experiments/batches HTTP/1.1" 202 -
+127.0.0.1 - - [04/Nov/2026 15:56:27] "GET /api/experiments/batches/20261104T205626Z-batch-528ddfb9 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:27] "GET /api/runs/20261104T205626Z-experimental-dry-run-be2c438d HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:27] "GET /api/runs/20261104T205626Z-experimental-dry-run-b6c8e7b0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:27] "GET /api/runs/20261104T205626Z-experimental-dry-run-bf58cb04 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:27] "GET /api/runs/20261104T205627Z-experimental-dry-run-351222f6 HTTP/1.1" 200 -
+.127.0.0.1 - - [04/Nov/2026 15:56:27] "GET /api/experiments/catalog HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:27] "POST /api/experiments/resolve HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:27] "POST /api/experiments/runs HTTP/1.1" 202 -
+127.0.0.1 - - [04/Nov/2026 15:56:28] "GET /api/runs/20261104T205627Z-experimental-dry-run-9dce6b28 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:28] "GET /api/experiments/runs HTTP/1.1" 200 -
+.127.0.0.1 - - [04/Nov/2026 15:56:29] "POST /api/experiments/runs HTTP/1.1" 403 -
+127.0.0.1 - - [04/Nov/2026 15:56:29] "POST /api/experiments/resolve HTTP/1.1" 400 -
+127.0.0.1 - - [04/Nov/2026 15:56:29] "POST /api/experiments/runs HTTP/1.1" 400 -
+.127.0.0.1 - - [04/Nov/2026 15:56:29] "POST /api/experiments/presets HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:29] "GET /api/experiments/catalog HTTP/1.1" 200 -
+.127.0.0.1 - - [04/Nov/2026 15:56:30] "GET /api/experiments/scenarios HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:30] "POST /api/experiments/scenarios/apply HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:30] "GET /api/experiments/scorecards/catalog HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:30] "POST /api/experiments/iterations HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:30] "POST /api/experiments/runs HTTP/1.1" 202 -
+127.0.0.1 - - [04/Nov/2026 15:56:30] "POST /api/experiments/scorecards/packets HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:30] "POST /api/experiments/scorecards/template HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:30] "POST /api/experiments/scorecards/freeze HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:30] "POST /api/experiments/scorecards/unblind HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 15:56:30] "POST /api/experiments/scorecards/freeze HTTP/1.1" 400 -
+................................................................................................................................................127.0.0.1 - - [04/Nov/2026 15:56:47] "POST /api/runs HTTP/1.1" 400 -
+127.0.0.1 - - [04/Nov/2026 15:56:47] "POST /api/runs HTTP/1.1" 202 -
+.{"job_id": "review-002", "status": "failed"}
+{"job_id": "review-001", "status": "failed"}
+{"job_id": "review-001", "status": "failed"}
+{"job_id": "review-002", "status": "failed"}
+...{"job_id": "review-002", "status": "accepted"}
+{"job_id": "review-001", "status": "accepted"}
+..{"job_id": "review-001", "status": "accepted"}
+{"job_id": "review-000", "status": "accepted"}
+{"job_id": "review-003", "status": "accepted"}
+{"job_id": "review-002", "status": "accepted"}
+{"job_id": "review-004", "status": "accepted"}
+{"job_id": "review-009", "status": "accepted"}
+{"job_id": "review-005", "status": "accepted"}
+{"job_id": "review-007", "status": "accepted"}
+{"job_id": "review-008", "status": "accepted"}
+{"job_id": "review-006", "status": "accepted"}
+{"job_id": "review-010", "status": "accepted"}
+{"job_id": "review-014", "status": "accepted"}
+{"job_id": "review-011", "status": "accepted"}
+{"job_id": "review-013", "status": "accepted"}
+{"job_id": "review-012", "status": "accepted"}
+{"job_id": "review-017", "status": "accepted"}
+{"job_id": "review-015", "status": "accepted"}
+{"job_id": "review-016", "status": "accepted"}
+{"job_id": "review-019", "status": "accepted"}
+{"job_id": "review-018", "status": "accepted"}
+{"job_id": "review-020", "status": "accepted"}
+{"job_id": "review-021", "status": "accepted"}
+{"job_id": "review-022", "status": "accepted"}
+{"job_id": "review-023", "status": "accepted"}
+{"job_id": "review-024", "status": "accepted"}
+{"job_id": "review-026", "status": "accepted"}
+{"job_id": "review-027", "status": "accepted"}
+{"job_id": "review-028", "status": "accepted"}
+{"job_id": "review-025", "status": "accepted"}
+{"job_id": "review-029", "status": "accepted"}
+.{"job_id": "review-001", "status": "failed"}
+{"job_id": "review-002", "status": "failed"}
+.{"job_id": "review-001", "status": "accepted"}
+{"job_id": "review-002", "status": "accepted"}
+{"job_id": "review-002", "status": "accepted"}
+{"job_id": "review-001", "status": "accepted"}
+.{"job_id": "review-001", "status": "accepted"}
+{"job_id": "review-002", "status": "accepted"}
+.
+----------------------------------------------------------------------
+Ran 213 tests in 30.007s
+
+OK

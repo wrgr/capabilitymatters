@@ -1,0 +1,14 @@
+{
+  "description": "Runtime identity receipt for an actual Codex collaboration subagent.",
+  "actor": "ops",
+  "agent_id": "/root/logistics_ops",
+  "registered_at": "2026-11-04T20:35:59.715768+00:00",
+  "backend": "Codex authenticated collaboration tools",
+  "fork_turns": "none",
+  "model_selection": "inherited parent runtime; no override",
+  "resolved_model_id": null,
+  "model_resolution_limitation": "Collaboration tool exposes agent ID, not a provider model version or sampling settings.",
+  "api_key_used": false,
+  "github_actions_execution": false,
+  "isolation": "Separate conversation; shared filesystem; packet access is instruction-bounded."
+}

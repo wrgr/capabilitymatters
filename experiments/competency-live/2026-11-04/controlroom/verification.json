@@ -1,0 +1,182 @@
+{
+  "description": "Integrity checks, not a certificate of expertise or ecological validity.",
+  "verified_at": "2026-11-04T21:13:31.419745+00:00",
+  "checks": {
+    "freeze_intact": true,
+    "events_precommitted": true,
+    "freeze_before_release": true,
+    "three_levels": true,
+    "all_core_registered": true,
+    "independent_review": true,
+    "deployment_recorded": true,
+    "core_transcripts_retained": true,
+    "events_before_agents": true,
+    "declared_permissions_rechecked": true,
+    "deployment_uses_same_freeze": true,
+    "deployment_has_three_levels": true,
+    "reviewer_is_separate": true
+  },
+  "failures": [],
+  "inventory": [
+    {
+      "path": "deployment-release.json",
+      "sha256": "47902de1b93c627420b75330b24ab4237b9e6d5c4a2d2747ed55b87c6128df27"
+    },
+    {
+      "path": "deployment.json",
+      "sha256": "a121907bc136a692f8388d7ac70fc205014d471d4053c171680b73169fc3e4b8"
+    },
+    {
+      "path": "draft-intervention.json",
+      "sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96"
+    },
+    {
+      "path": "evaluation.json",
+      "sha256": "fe8e8bd41d30099dcdfc5e775964049fc995b533d6387cfccc8c3e2500aee153"
+    },
+    {
+      "path": "failures.json",
+      "sha256": "9634d86e1bbfbbae42ac3ccbef6cdbb45d949462d7f07b24cd70640148f6aae7"
+    },
+    {
+      "path": "freeze-receipt.json",
+      "sha256": "a2b0b0311cef16b0ef5217a148f61d8043825252e31e187b6abd7f29ba9b4230"
+    },
+    {
+      "path": "frozen-intervention.json",
+      "sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96"
+    },
+    {
+      "path": "gate-amendment.json",
+      "sha256": "6f2957319c36dfd4c6b8b64cee845ac19395d2077c28598d7dc640b2967d039d"
+    },
+    {
+      "path": "invocations/deployment.json",
+      "sha256": "79153f76252173867e38d014ec735682e5ab84e621456e3de0d6f439fbc5bec6"
+    },
+    {
+      "path": "invocations/evaluator.json",
+      "sha256": "d52ecabe1a6545978a46438186450872492b03e868993b96acee0d44d254403f"
+    },
+    {
+      "path": "invocations/operator-01.json",
+      "sha256": "6b8593f6775e0ed8d816c10ac91a2fee990a47333f5a0415d3f42e4b9530f3d2"
+    },
+    {
+      "path": "invocations/operator-02.json",
+      "sha256": "a26d2bdf24dd3105658227fd4e38a77d084bcafad429817331122b7ae73c4ce6"
+    },
+    {
+      "path": "invocations/operator-03.json",
+      "sha256": "efa61804724e6f7fbad73ba289a27ce90f2a3770142e5802ebb1194595b2defb"
+    },
+    {
+      "path": "invocations/safety-01.json",
+      "sha256": "a124d24bef77d3776700c0b8f83ff245e720c42ee2767b0abbbb0023aa357989"
+    },
+    {
+      "path": "invocations/safety-02.json",
+      "sha256": "0d9199c12611b443d71c99ca53c1107250cf83c02ff01a939358632fa6f9be31"
+    },
+    {
+      "path": "invocations/safety-03.json",
+      "sha256": "158d01f754752fbe1bd4c9f87105e3c8bd22a3289152f19fdddc89633bade50a"
+    },
+    {
+      "path": "invocations/scientist-01.json",
+      "sha256": "7abfcc93aa2d0913e3144bc87a0861f8328a5940d46981d48c20ead56242f19d"
+    },
+    {
+      "path": "launch-receipts-final.json",
+      "sha256": "9e55784d7609e76a4449a7100244c5f90dcb486f121bcead5fbd437a7289cb54"
+    },
+    {
+      "path": "packet-operator.json",
+      "sha256": "54bfe6ba8ed172fa2dff440fcddf0d7980f1fdaba2765797e9e0ab06b4cd59ff"
+    },
+    {
+      "path": "packet-safety.json",
+      "sha256": "eed4da628d466820e48a0d0cfaea4f24bc61b9fc874cddecc622082cdc8cf556"
+    },
+    {
+      "path": "packet-scientist.json",
+      "sha256": "7d13b26cf0b5d292a4af56e68ef440f380d32dbaf20780518ec0853e91457b0d"
+    },
+    {
+      "path": "provenance/evaluator.json",
+      "sha256": "e89e26ee9fbd878acba06e9d227e791004d8474f21a41463ef35ab2afa77da63"
+    },
+    {
+      "path": "provenance/operator.json",
+      "sha256": "a70a85097add92c2e6060d8d01832cfdf64fc0c867e457ec03543ddd8d0648f0"
+    },
+    {
+      "path": "provenance/safety.json",
+      "sha256": "428839ee887f735dd558e37d67810212a6d9ca3667405217a1fc4e0f198e8a6f"
+    },
+    {
+      "path": "provenance/scientist.json",
+      "sha256": "b2108586d698c7fa907fd578c893006b65532775a5983f4d63f6ede6b6e50383"
+    },
+    {
+      "path": "responses/operator-01.json",
+      "sha256": "b870435fa30e0563fba87484813bae1569c16917c72ec3fbb305510225742570"
+    },
+    {
+      "path": "responses/operator-02.json",
+      "sha256": "134963fb690f4e4a66a906f9832039dedfc157e842dbd6d75b1e96cf5eb94391"
+    },
+    {
+      "path": "responses/operator-03.json",
+      "sha256": "ba0b1d162a5028c3a4720290ca6de857ac20c1566128d56a416052c30476842c"
+    },
+    {
+      "path": "responses/safety-01.json",
+      "sha256": "30ea778277acd2b0126df9edc185d62f3c33a9329c262c17271abcbc482d2e58"
+    },
+    {
+      "path": "responses/safety-02.json",
+      "sha256": "eae745bf04aef9665072c376282149e073487641bc97e7c362144e56325edae0"
+    },
+    {
+      "path": "responses/safety-03.json",
+      "sha256": "c56eca416508c57209ed6784663005d24b40d4efc22508d6a7e977f9b5610920"
+    },
+    {
+      "path": "responses/scientist-01.json",
+      "sha256": "9ae676edacef8fbdcec4ae8315178c659b669120d3cf00243a236965b01007ee"
+    },
+    {
+      "path": "runtime-transcripts/evaluator-rollout.json",
+      "sha256": "9b8bbd2b6d3b111953b25cbc952a79daa70f92a6916a2ece9a01798a5a18476d"
+    },
+    {
+      "path": "runtime-transcripts/operator-rollout.json",
+      "sha256": "3dc64c913206f7fded37b3751880a20342cf0ffdf9a38e30c06da4aede5a6fdf"
+    },
+    {
+      "path": "runtime-transcripts/safety-rollout.json",
+      "sha256": "f371956f49aa35f88bcd67fa27060c3c7d7ac7025b325854552bf8b4afe373bd"
+    },
+    {
+      "path": "runtime-transcripts/scientist-rollout.json",
+      "sha256": "7fc19f0b8d77fe8180cdff58d6a6958a01d549b425e20b62ba6d5b06b741296d"
+    },
+    {
+      "path": "sealed-events.json",
+      "sha256": "42340b03925e082bb1f622ac5e9bb201456326bfa403e92dbabe145fac0210e5"
+    },
+    {
+      "path": "spec.json",
+      "sha256": "a83bf755fd1fef86e2aff490959c6d40e3298d68d0d9f40e3a9f305061f17224"
+    },
+    {
+      "path": "technical-failures/2026-11-04T21:06:06.493534+00:00.json",
+      "sha256": "880d295655873aa2cb91d1d716259b3536413895078bddaaf4d5270f04cc9419"
+    },
+    {
+      "path": "technical-failures/2026-11-04T21:06:06.570585+00:00.json",
+      "sha256": "7a9278b37db24e55c68cca3ae80973ae3ada1c924390d6816410cd2036d69cd4"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "description": "All stress conditions are independent applications of the same frozen plan.",
+  "released_at": "2026-11-04T21:06:06.566313+00:00",
+  "freeze_sha256": "978418fb049e4e19cb6f7d985781048b052a251eebc6a06782faeccee4bca146",
+  "events": [
+    {
+      "difficulty": "easy",
+      "event": "English-speaking applicant submits a complete simple case during staffed hours; status must distinguish submission from determination."
+    },
+    {
+      "difficulty": "medium",
+      "event": "Applicant needing oral explanation in an unsupported language arrives at 16:30; the assisted slot is full and the interface was abandoned."
+    },
+    {
+      "difficulty": "hard",
+      "event": "An overnight software fault closes 14 ambiguous cases as ineligible; the status notice appears final. Interpretation remains unavailable overnight and no extra staff arrive."
+    }
+  ],
+  "no_repair": true,
+  "evidence_kind": "model_reasoned_synthetic_deployment"
+}

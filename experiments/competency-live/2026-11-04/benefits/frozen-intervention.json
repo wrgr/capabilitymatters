@@ -1,0 +1,97 @@
+{
+  "description": "Core-authored bounded fortnight plan with a nine-unit scoped allocation and no deployment release. Acceptance tests describe evidence required, not observed successes. The consultation has occurred; the other scoped work, staffing, recruitment and operational readiness are not asserted complete.",
+  "case_id": "benefits",
+  "diagnosis": "Closure incentives and unlinked repeat contacts obscure resolution (B-O1). Five completed-page interviews report confusion, with abandoned users unobserved (B-H1, disclosed in benefits-designer-01). The designer's supplied fictional rule requires authorized review of ambiguous claims and gives page completion no eligibility meaning; substantive approval and general closure criteria remain unsupplied (benefits-designer-02). Capacity is limited to one existing-staff 90-minute assisted slot daily (B-O2). Access's disclosed interpretation hours, missing approved forms and unchecked machine translation constrain the plan; no access validation or causal improvement is established (benefits-access-01).",
+  "actions": [
+    {
+      "id": "human-review-routing",
+      "owner": "designer",
+      "cost": 2,
+      "action": "Specify the ambiguous-claim referral workflow against the supplied fictional rule. Page completion must confer no eligibility approval and must not itself trigger closure. Preserve an identifiable referral awaiting authorized human review; do not invent approval or general closure criteria, an authorized recipient, or operational capacity.",
+      "source_messages": ["benefits-designer-01", "benefits-director-02", "benefits-designer-02"],
+      "evidence_refs": ["B-P1", "B-P2", "B-O3"],
+      "acceptance_test": "Trace an ambiguous claim through the specification; inspect its routing record and completion-trigger behavior for no approval, no completion-triggered closure and an identifiable pending human-review referral. Record whether a named authorized recipient, capacity and workable handoff are evidenced separately. A specification pass does not establish an operational route; no pass is currently asserted.",
+      "authority_scope": "specified fictional policy application"
+    },
+    {
+      "id": "bounded-assisted-slot",
+      "owner": "director",
+      "cost": 2,
+      "action": "Reserve no more than one 90-minute existing-staff assisted slot per day in the plan. Before any appointment, require confirmed staff and interpreter availability; interpretation-dependent appointments must lie wholly within 10:00–14:00 following access's advice. Count participatory-check time within the same capacity, displacing service time. Record unmet demand; no additional staff, interpreting hours or authorized reviewer is assumed.",
+      "source_messages": ["benefits-director-01", "benefits-access-01", "benefits-director-02", "benefits-designer-02"],
+      "evidence_refs": ["B-O2", "B-A1", "B-A2"],
+      "acceptance_test": "A proposed schedule identifies existing staff, confirmed interpreter availability where needed, service and check time totaling at most 90 minutes daily, and unmet demand. Record any missing confirmation rather than claiming staffed coverage. No confirmed schedule is currently supplied.",
+      "authority_scope": "staff allocation"
+    },
+    {
+      "id": "linked-resolution-tracking",
+      "owner": "director",
+      "cost": 2,
+      "action": "Specify case-linked records for original case, repeat contact, review status and unmet demand, distinguishing page completion, pending review and evidence of resolution. Keep unknown outcomes explicit and make no causal-effect claim.",
+      "source_messages": ["benefits-director-01", "benefits-director-02", "benefits-designer-02"],
+      "evidence_refs": ["B-O1", "B-O2", "B-H1"],
+      "acceptance_test": "Inspect the proposed record structure and trace whether a repeat contact can link to its original case and whether pending or unknown status remains distinguishable from resolution. Do not count an unobserved result as resolved; no outcome improvement is asserted.",
+      "authority_scope": "basic service measurement"
+    },
+    {
+      "id": "scoped-participatory-check",
+      "owner": "designer",
+      "cost": 2,
+      "action": "Plan the observed walkthrough advised by access: understanding the unchanged completion message, requesting review, obtaining requested-language explanation and identifying the next step. Seek affected users of the two languages lacking approved forms and users with relevant disability-access needs. Recruitment is unestablished. Record actual participants, languages, access needs, steps, failures and untested coverage. Coordinate check time with the director's single daily slot. This research does not certify language or disability access, replace approved forms or add unfunded wording work.",
+      "source_messages": ["benefits-access-01", "benefits-director-02", "benefits-designer-02"],
+      "evidence_refs": ["B-A1", "B-A2", "B-H1", "B-O2"],
+      "acceptance_test": "If recruitment and capacity are evidenced, retain observed walkthrough records including incomplete attempts and coverage gaps; otherwise record that the check could not be completed. No recruited participants, completed check, access validation or readiness is currently asserted.",
+      "authority_scope": "interface research"
+    },
+    {
+      "id": "actual-access-consultation",
+      "owner": "access",
+      "cost": 1,
+      "action": "Retain the actual advice delivered in benefits-access-01 and its limits. The fee covers that consultation only; it creates no staffing, interpreting hours, approved translations, eligibility approval or completed validation.",
+      "source_messages": ["benefits-access-01"],
+      "evidence_refs": ["B-A1", "B-A2"],
+      "acceptance_test": "The retained consultant response identifies interpretation-hour constraints, missing forms, the bounded walkthrough recommendation and unresolved coverage. Its existence establishes consultation only, not operational or access readiness.",
+      "authority_scope": "accessible service routes"
+    },
+    {
+      "id": "withhold-release-and-own-escalation",
+      "owner": "director",
+      "cost": 0,
+      "action": "Withhold deployment release of this plan and own escalation of unestablished authorized-review capacity, handoff, staffing and check feasibility. The director's stated authority to pause automated closures remains available, but this no-release artifact does not claim a deployed closure change. This administrative release decision adds no personnel or service capacity and sits within the scoped routing work. Any later release requires a new explicit decision, not automatic activation of this frozen plan.",
+      "source_messages": ["benefits-director-01", "benefits-director-02", "benefits-designer-02"],
+      "evidence_refs": ["B-O2", "B-O3", "B-P1", "B-P2"],
+      "acceptance_test": "Record no release for the frozen artifact. Keep the named authorized reviewer, available capacity and workable handoff unresolved unless supplied evidence actually establishes them. No deployment or live service change is claimed.",
+      "authority_scope": "escalation ownership"
+    }
+  ],
+  "budget_spent": 9,
+  "rejected_alternatives": [
+    "Treating completed interface pages as eligibility approval conflicts with the designer's supplied fictional rule; no such approval is authorized.",
+    "The designer's eight-unit option without a separately funded assisted slot was displaced by the agreed nine-unit scope; a check alone would not create an operational assisted route.",
+    "A separate page-wording change is excluded from this nine-unit allocation. Interview-reported confusion remains a limitation; no wording work is hidden in another line item.",
+    "Universal assistance, extra interpreting hours, replacement translated forms, invented authorized reviewers and comprehensive access validation have no established capacity or authority in the supplied evidence.",
+    "Release on the strength of a routing specification or consultation alone is rejected because operational review availability and readiness remain unestablished."
+  ],
+  "unresolved": [
+    "No named available authorized reviewer, review capacity, workable handoff or review turnaround is established; the director cannot supply evidence of these from the retained material.",
+    "Specific staff and interpreter availability and an achievable service/check schedule remain unconfirmed; the daily 90-minute maximum cannot establish demand coverage.",
+    "Participant recruitment, actual language and disability-access coverage and observed walkthrough results remain unknown.",
+    "Two requested languages lack approved translated forms; oral explanation and unchecked machine translation are not validated replacement forms, per access's actual advice.",
+    "Confusion in the five completed-page interviews is retained without a funded wording change; abandoned users' experience and prevalence remain unknown.",
+    "Substantive eligibility approval and general closure criteria are not supplied; the designer's routing signoff cannot fill those gaps.",
+    "Actual resolution and causal effects are unobserved. The nine-unit figure is the sum of scoped action allocations, including the delivered consultation, not evidence of performed work or real expenditure."
+  ],
+  "release_decision": "no release",
+  "signoffs": [
+    {
+      "actor": "designer",
+      "source_message": "benefits-designer-02",
+      "scope": "Actual policy signoff on the stated narrow routing constraint only: ambiguous claims require authorized human review; page completion confers no eligibility approval and does not itself trigger closure. This is not endorsement of exact draft bytes, eligibility decisions, operational availability or access readiness."
+    },
+    {
+      "actor": "director",
+      "source_message": "benefits-director-03",
+      "scope": "Endorsement of this exact bounded operational allocation and no-release decision, with escalation ownership and all listed limitations; no specialist signoff or colleague byte endorsement is claimed."
+    }
+  ]
+}

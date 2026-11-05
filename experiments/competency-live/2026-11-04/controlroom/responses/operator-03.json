@@ -1,0 +1,78 @@
+{
+  "message_id": "controlroom-operator-03",
+  "actor": "operator",
+  "speech": "I commit to your reference, paper-sheet and stop conditions in the job aid and procedure. I have authored and endorse the exact draft: a seven-unit package, with one unit unused, limited to the scripted sensor-staleness exercise. Your acceptance of handoff receipt and ownership of the rehearsal lets us use the existing core team within the proposed 3/10/5/2-minute allocation; completion remains unobserved.\n\nThe draft requires the prepared, checked event record before practice starts. The aid adopts your match-to-current-scripted-state rule and all four stop triggers. Last-known paper values remain freshness uncertain and cannot clear a stop. I own the aid and stop-and-handoff procedure; your rehearsal and logging commitments are attributed to your actual response. Either of us may stop, and the exercise must end within 20 minutes.\n\nI accept dropping separate unranked practice, while retaining my concern about novices following the AI ranking. With the actual scientist fee included, either unranked practice or the delayed probe would raise this package to nine units. The scientist's limits remain explicit: independent diagnosis, delayed retention and transfer are unestablished. Partial radio dropouts remain outside coverage.\n\nMy choice is conditional bounded simulator release under these gates, not a claim that checks have passed. Your exact endorsement is still required; without it or the checked reference, there is no start. Do you endorse these exact draft bytes and the commitments recorded for you?",
+  "evidence_disclosed": [],
+  "claims": [
+    {
+      "claim": "I commit to the job aid and stop-and-handoff procedure incorporating the safety engineer’s supplied reference, paper-sheet and stop conditions.",
+      "basis": [
+        "C-O2",
+        "controlroom-operator-02",
+        "controlroom-safety-02"
+      ],
+      "competency": "operator handoff",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The seven-unit package includes the completed expert fee, leaves one unit unused, and excludes separate unranked practice and a delayed probe because either addition would raise spending to nine.",
+      "basis": [
+        "public.cost_reference",
+        "controlroom-safety-02",
+        "controlroom-scientist-01"
+      ],
+      "competency": "simulator practice delivery",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The proposed 3/10/5/2-minute allocation uses the existing core participants and accepted safety handoff receipt; completion remains unobserved.",
+      "basis": [
+        "C-O3",
+        "controlroom-operator-02",
+        "controlroom-safety-02"
+      ],
+      "competency": "simulator practice delivery",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The safety engineer requires the checked authored event reference, match to current scripted state, stop triggers, uncertain paper status and exclusion of partial radio dropouts; I adopt these as attributed conditions without claiming sensor or clock validation.",
+      "basis": [
+        "controlroom-safety-02"
+      ],
+      "competency": "hypothesis",
+      "standing": "attributed_advice"
+    },
+    {
+      "claim": "The scientist advises that independent diagnosis, delayed retention and transfer remain unestablished; the consultation is not safety approval.",
+      "basis": [
+        "controlroom-scientist-01"
+      ],
+      "competency": "hypothesis",
+      "standing": "attributed_advice"
+    },
+    {
+      "claim": "I endorse the exact draft bytes and choose only conditional bounded simulator release, with no start absent exact core endorsements and completed pre-start checks; safety’s exact endorsement remains pending.",
+      "basis": [
+        "controlroom-safety-01",
+        "controlroom-safety-02",
+        "controlroom-operator-02"
+      ],
+      "competency": "simulator practice delivery",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Novice reliance on AI ranking remains an unresolved operational concern without dedicated unranked practice.",
+      "basis": [
+        "C-O1",
+        "controlroom-operator-02",
+        "controlroom-safety-02"
+      ],
+      "competency": "alarm workflow",
+      "standing": "role_judgment"
+    }
+  ],
+  "consult_request": null,
+  "decision": "commitment",
+  "endorsed": true,
+  "artifact_sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96"
+}

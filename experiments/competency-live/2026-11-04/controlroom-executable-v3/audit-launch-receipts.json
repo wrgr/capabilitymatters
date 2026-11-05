@@ -1,0 +1,86 @@
+{
+  "description": "Native authenticated software-auditor provenance, separate from the original design-team study.",
+  "events": [
+    {
+      "timestamp": "2026-11-05T04:05:18.596Z",
+      "type": "SubAgentActivity",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "id": "call_afadf0c4d1144ad2bb1508dcea203060",
+      "kind": "started",
+      "agent_thread_id": "01a1a9e1-ee28-7db1-a5e9-659d428c5c56",
+      "agent_path": "/root/executable_auditor"
+    },
+    {
+      "timestamp": "2026-11-05T04:06:53.354Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "call_c8d1fc75021841729c5c8e81df6c7706",
+      "kind": "interacted",
+      "agent_thread_id": "01a1a9e1-ee28-7db1-a5e9-659d428c5c56",
+      "agent_path": "/root/executable_auditor"
+    },
+    {
+      "timestamp": "2026-11-05T04:09:31.488Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "subagent-completed-01a1a9e1-ee84-73a3-9d9d-5d326382e808",
+      "kind": "completed",
+      "agent_thread_id": "01a1a9e1-ee28-7db1-a5e9-659d428c5c56",
+      "agent_path": "/root/executable_auditor"
+    },
+    {
+      "timestamp": "2026-11-05T04:14:38.777Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "call_81cd473619cc4defa1db9fefdce1091e",
+      "kind": "interacted",
+      "agent_thread_id": "01a1a9e1-ee28-7db1-a5e9-659d428c5c56",
+      "agent_path": "/root/executable_auditor"
+    },
+    {
+      "timestamp": "2026-11-05T04:16:46.937Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "call_e48045c735614302904c0f71f4d5ed7f",
+      "kind": "interacted",
+      "agent_thread_id": "01a1a9e1-ee28-7db1-a5e9-659d428c5c56",
+      "agent_path": "/root/executable_auditor"
+    },
+    {
+      "timestamp": "2026-11-05T04:17:55.869Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "subagent-completed-01a1a9ea-7ab9-71d1-b300-e52dae0b1793",
+      "kind": "completed",
+      "agent_thread_id": "01a1a9e1-ee28-7db1-a5e9-659d428c5c56",
+      "agent_path": "/root/executable_auditor"
+    },
+    {
+      "timestamp": "2026-11-05T04:19:21.992Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "call_72ce24663fc9408c9469598fe341f5c7",
+      "kind": "interacted",
+      "agent_thread_id": "01a1a9e1-ee28-7db1-a5e9-659d428c5c56",
+      "agent_path": "/root/executable_auditor"
+    },
+    {
+      "timestamp": "2026-11-05T04:22:44.184Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "subagent-completed-01a1a9ee-cd08-7d62-ba4e-b919bfd58066",
+      "kind": "completed",
+      "agent_thread_id": "01a1a9e1-ee28-7db1-a5e9-659d428c5c56",
+      "agent_path": "/root/executable_auditor"
+    }
+  ],
+  "scope": "One independent software-audit context reviewed three retained implementation versions; no additional design-team episode."
+}
