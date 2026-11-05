@@ -25,3 +25,41 @@ The [historical flower-team paper](../../src/papers/flower-team-study.md), [dyna
 The main paper's selected excerpts are verbatim slices from the [seven-message control-room dialogue](../../experiments/competency-live/2026-11-04/transcripts/controlroom.md). The [figure source manifest](figures/competency-figure-sources.json) records source hashes, exact quotes, interpretation labels, event summaries and the full frozen hash. SVG assets are editable; PNG assets are rendered previews for review. Figure-generation checks reject a changed source file or an unsupported quotation. No new agent episode was executed to produce these editorial figures.
 
 The original research archive and its changed-file manifest remain immutable records of the first committed contribution. Publication-revision changes have their own file-purpose and verification record; they do not rewrite the frozen evidence or its initial inventory.
+
+## E. Executable deployment validation
+
+The main paper now reports actual software execution from
+[the accepted executable record](../../experiments/competency-live/2026-11-04/controlroom-executable-v3/README.md).
+Its analytic set is three primary deployment conditions and five explicitly
+identified diagnostic probes, all using the original frozen intervention. The
+reactive synthetic actors are not new language-model design professionals. One
+additional native model context performed independent software audit over three
+validation turns; it is separate from the design-team conversation counts.
+
+The [v1 audit](../../experiments/competency-live/2026-11-04/controlroom-executable-v1/independent-audit.json)
+rejected source fidelity: an acknowledged handoff lacked the last-known numeric
+value, and several accepted-input perturbations exposed incomplete scope,
+sensor-state, procedural and logging realization. The exact original code/model
+snapshots and all results remain alongside the audit. The
+[v2 audit](../../experiments/competency-live/2026-11-04/controlroom-executable-v2/independent-audit.json)
+confirmed those corrections but found residual pre-start scope and transient-log
+counterexamples plus an unpinned recording boundary. Those results and snapshots
+also remain unchanged. Neither version is pooled with the accepted main results.
+
+The [v3 audit](../../experiments/competency-live/2026-11-04/controlroom-executable-v3/independent-audit.json)
+passes the eight retained episodes and tested counterexamples with explicit
+limits. All original team decisions, budget, release scope and frozen bytes are
+unchanged. Corrections formalize and enforce existing commitments; they do not
+purchase another intervention or silently repair it after exposure to events.
+The audit still cautions that a descriptive terminal label and the local
+unmet-criteria subset are not exhaustive success verdicts; the independent full
+outcomes and complete trace must be read.
+
+The executable world was instantiated retrospectively. Its values and actor
+schedules are authored, uncalibrated assumptions, and the same-medium cue-first
+probe is assumption sensitivity rather than a training-effect experiment. The
+after-start hard probe loses communication after an already detected stop; it
+does not demonstrate diagnosis or detection of emerging compound faults. Full
+snapshots and replay instructions make these distinctions independently
+inspectable. The original written projections are preserved as earlier source
+records and are no longer the main control-room outcome evidence.

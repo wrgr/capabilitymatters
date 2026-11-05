@@ -8,6 +8,8 @@ import textwrap
 from html import escape
 from pathlib import Path
 
+from controlroom_results import outcomes
+
 INK = '#172B3A'
 MUTED = '#51616D'
 LINE = '#C9D1D8'
@@ -35,6 +37,17 @@ def verify_sources(root: Path, data: dict) -> None:
     for event, source in zip(data['events'], release['events'], strict=True):
         if (event['difficulty'], event['source_event']) != (source['difficulty'], source['event']):
             raise ValueError('Figure event differs from released condition')
+    if 'execution' in data:
+        execution = data['execution']
+        summary_path = root / execution['summary_path']
+        summary = json.loads(summary_path.read_text())
+        for key in ['primary_episodes', 'diagnostic_probes']:
+            if execution[key] != summary[key]:
+                raise ValueError('Figure differs from actual executable outcomes')
+            for row in execution[key]:
+                episode = json.loads((summary_path.parent / f'{row["scenario_id"]}.json').read_text())
+                if outcomes(episode) != row['outcomes']:
+                    raise ValueError('Figure outcome differs from recorded transitions')
 
 
 def start(title: str, height: int, description: str) -> list[str]:
@@ -91,12 +104,12 @@ def architecture() -> str:
     """Show the implemented deterministic and dynamic paths without conflating their outcomes."""
     p = start('Figure 1. Competency-mediation simulator architecture', 1138,
               'Two distinct implementations connect scenario inputs, design choices, a frozen artifact, '
-              'withheld stress events and evaluation. Neither path observes real human outcomes.')
+              'stress events and evaluation. Executable deployment observes software states, not human outcomes.')
     text(p, 32, 40, 'Figure 1. From bounded expertise to testable design commitments', 28, INK, 600)
-    text(p, 32, 72, 'Two implementations; distinct configurations and evidence classes.', 20, MUTED)
+    text(p, 32, 72, 'Two evidence paths; executable deployment adds observed software consequences.', 20, MUTED)
     box(p, 32, 94, 'Authored scenario contract',
         'Roles, competency scopes, public evidence, authority and resources; private packets in dynamic mode.', 780, 116, GRAY)
-    box(p, 840, 94, 'Stress events', 'Withheld during dynamic design.', 328, 116, GRAY)
+    box(p, 840, 94, 'Stress events', 'Released after design freeze.', 328, 116, GRAY)
     rect(p, 32, 236, 548, 44, GRAY)
     rect(p, 620, 236, 548, 44, PALE)
     p.append(f'<path d="M422,210 V222 H306 V232 M422,222 H894 V232" '
@@ -104,7 +117,7 @@ def architecture() -> str:
     p.append(f'<path d="M1004,210 H1184 V766 H1172" fill="none" stroke="{MUTED}" '
              'stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>')
     text(p, 50, 265, 'DETERMINISTIC DEMONSTRATION', 20, MUTED, 600)
-    text(p, 638, 265, 'DYNAMIC AGENT EXAMPLES', 20, ACCENT, 600)
+    text(p, 638, 265, 'DYNAMIC DESIGN + EXECUTABLE TEST', 20, ACCENT, 600)
     box(p, 32, 300, 'Authored policy producer',
         'Seeded consultation and action rules; fixed costs and priorities. No live model dialogue.')
     box(p, 620, 300, 'Independent professional contexts',
@@ -126,12 +139,12 @@ def architecture() -> str:
     text(p, 50, 773, 'RELEASE EVENTS AFTER FREEZE: apply easy / medium / hard separately; no redesign.', 20, INK, 600)
     box(p, 32, 814, 'Authored surrogate calculations',
         'Fixed action effects, shocks, mitigations and seed produce synthetic indices.')
-    box(p, 620, 814, 'Model-reasoned stress projections',
-        'Apply the frozen plan: supported actions, conditions, unmet demands and unknown outcomes.')
+    box(p, 620, 814, 'Clause adapter + executable world',
+        'Hash-bound rules drive timed states, channels and logs; traces yield actual software outcomes.')
     box(p, 32, 970, 'Replay and invariant checks',
         'Reproduce outputs; check costs, permissions, frozen hashes and matched event keys.', height=116)
-    box(p, 620, 970, 'Fresh independent model review',
-        'Process and result separately; semantic expertise audit and retained failure records.', height=116)
+    box(p, 620, 970, 'Separate design and execution audits',
+        'Process review, source fidelity, replay and sensitivity checks; retained failures.', height=116)
     for x in [306, 894]:
         arrow(p, x, 934, 960)
     text(p, 32, 1120, 'Audit record: inputs, actual outputs, decisions and failures. Shared filesystem is not hard isolation.', 18, MUTED)
@@ -166,32 +179,47 @@ def dialogue_table(data: dict) -> str:
     return '\n'.join(p + ['</svg>'])
 
 
+def execution_text(row: dict) -> str:
+    """Derive the displayed result directly from the retained executable metrics."""
+    result = row['outcomes']
+    if not result['practice_started']:
+        return 'Scope gate withheld start at 0 s. No practice, acceptance or handoff was exercised.'
+    accepted = result['first_stale_acceptance_at_seconds']
+    first = f'Stale item accepted at {accepted} s. ' if accepted is not None else 'No stale acceptance. '
+    logs = ('Required local records complete.' if result['missing_required_local_records'] == []
+            else 'Required local records incomplete.')
+    return (first + f'Stop at {result["first_stop_at_seconds"]} s; acknowledgement at '
+            f'{result["acknowledgement_at_seconds"]} s. Stale items: {result["stale_items_accepted"]}; '
+            f'procedure violations: {result["protocol_violations"]}. ' + logs)
+
+
 def stress_figure(data: dict) -> str:
-    """Connect one unchanged frozen design to the three actual retained stress projections."""
+    """Connect the unchanged frozen design to three executed state-transition outcomes."""
     p = start('Figure 2. The same frozen intervention under three stress conditions', 1000,
-              'Model-reasoned tests, not observed utility or learner outcomes. The hard event exceeds '
-              'scope and requires no start; missing start checks remain unknown in easy and medium.')
-    text(p, 32, 40, 'Figure 2. What the frozen control-room intervention could support', 28, INK, 600)
-    text(p, 32, 72, 'Model-reasoned stress tests; execution, diagnosis and transfer were not observed.', 20, MUTED)
+              'Actual software simulation observations under authored, uncalibrated actor/environment assumptions. '
+              'Easy completes the procedure, medium accepts stale data, hard is withheld. No human learning is measured.')
+    text(p, 32, 40, 'Figure 2. Executed consequences of the frozen control-room intervention', 28, INK, 600)
+    text(p, 32, 72, 'Observed software states; virtual seconds from session start. Authored behavior is not human calibration.', 20, MUTED)
     rect(p, 32, 94, 1136, 100, PALE)
     text(p, 50, 126, 'ONE FROZEN PLAN: 7 / 8 units committed; 20-minute limit; both core endorsements.', 22, INK, 600)
     text(p, 50, 155, 'Aid 1 + stop/handoff 2 + staleness rehearsal 3 + consultation 1. Unranked practice omitted.', 20)
     text(p, 50, 182, 'SHA-256: ' + data['freeze_sha256'][:16] + '\u2026  |  start requires a checked reference and job aid.', 18, MUTED)
     rect(p, 32, 216, 1136, 46, GRAY)
-    for x, label in [(48, 'Event'), (326, 'Supported response'), (720, 'Revealed limit / independent review')]:
+    for x, label in [(48, 'Event'), (326, 'Observed execution'), (720, 'Success / failure and competency implication')]:
         text(p, x, 246, label, 20, INK, 600)
     for i, event in enumerate(data['events']):
         y = 262 + i * 216
         rect(p, 32, y, 1136, 216, 'white' if i % 2 == 0 else GRAY)
         text(p, 48, y + 32, event['difficulty'].upper(), 21, ACCENT, 600)
         a = paragraph(p, 48, y + 64, 246, event['event'], 20)
-        b = paragraph(p, 326, y + 32, 358, event['supported'], 21)
-        c = paragraph(p, 720, y + 32, 420, event['gap'], 20)
-        c = paragraph(p, 720, c + 12, 420, event['review'], 19, MUTED)
+        row = data['execution']['primary_episodes'][i]
+        b = paragraph(p, 326, y + 32, 358, execution_text(row), 21)
+        c = paragraph(p, 720, y + 32, 420, data['execution_annotations'][event['difficulty']], 20)
         if max(a, b, c) > y + 208:
             raise ValueError(f'Stress row overflow: {event["difficulty"]}')
-    text(p, 32, 946, 'Source: retained deployment and fresh model review for the exact frozen artifact. No repair between events.', 18, MUTED)
-    text(p, 32, 976, 'Ratings concern plan sufficiency; a correct no-start boundary does not establish successful performance.', 18, MUTED)
+    text(p, 32, 940, 'Sensitivity: the same medium event with cue-first behavior accepts 0 stale items; this is not a training effect.', 18, MUTED)
+    text(p, 32, 966, 'After-start radio-loss probe: handoff packet dropped; no acknowledgement. Primary hard remains a no-start test.', 18, MUTED)
+    text(p, 32, 991, 'Source: three primary episodes + five diagnostic probes, exact traces and unchanged frozen hash. Diagnosis unassessed.', 17, MUTED)
     return '\n'.join(p + ['</svg>'])
 
 

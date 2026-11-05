@@ -1,0 +1,963 @@
+{
+  "scenario_id": "hard",
+  "difficulty": "hard",
+  "kind": "primary",
+  "behavior_profile": "cue_first",
+  "freeze_sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+  "input": {
+    "id": "hard",
+    "difficulty": "hard",
+    "kind": "primary",
+    "source_event": "Cascading alerts coincide with partial radio dropout and AI loss. The paper alarm sheet contains stale values; the radio failure was not rehearsable in the installed simulator. No rescue expert or extra time appears.",
+    "declared_features": [
+      "sensor_staleness",
+      "cascading_alerts",
+      "radio_dropout",
+      "ai_loss"
+    ],
+    "behavior_profile": "cue_first",
+    "initial": {
+      "reference_available": true,
+      "reference_correct": true,
+      "aid_check_passes": true,
+      "sensor_stale": true,
+      "ai_available": false,
+      "radio_available": false,
+      "recipient_available": true,
+      "senior_available": true,
+      "cascading_alerts": true
+    },
+    "environment_changes": [
+      {
+        "at": 1085,
+        "set": {
+          "radio_available": true
+        }
+      }
+    ]
+  },
+  "final_state": {
+    "phase": "withheld",
+    "flags": {
+      "reference_available": true,
+      "reference_correct": true,
+      "aid_check_passes": true,
+      "sensor_stale": true,
+      "ai_available": false,
+      "radio_available": true,
+      "recipient_available": true,
+      "senior_available": true,
+      "cascading_alerts": true
+    },
+    "display": {
+      "state_id": 6,
+      "timestamp": 90,
+      "value": 9
+    },
+    "reference": null,
+    "reference_checked": false,
+    "aid_checked": false,
+    "practice_started": false,
+    "withheld": true,
+    "stopped": false,
+    "stop_at": null,
+    "inspection": null,
+    "accepted_items": [],
+    "handoff_payload": null,
+    "handoff_attempted": false,
+    "ack_at": null,
+    "paper_freshness": "uncertain",
+    "paper_cleared_stop": false
+  },
+  "trace": [
+    {
+      "seq": 1,
+      "at_seconds": 0,
+      "event": "scope_gate",
+      "input": {},
+      "observation": {
+        "result": "start_withheld",
+        "excluded_features": [
+          "ai_loss",
+          "cascading_alerts",
+          "radio_dropout"
+        ],
+        "actual_endorsers": [
+          "operator",
+          "safety"
+        ]
+      },
+      "before": {
+        "phase": "preparing",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": false,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "after": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "previous_sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+      "sha256": "77e3c79815f15c6ee56b307fa1fd7b7a86affb45b6d7bfa9a4de15519e367104"
+    },
+    {
+      "seq": 2,
+      "at_seconds": 30,
+      "event": "reference_prepare",
+      "input": {},
+      "observation": {
+        "result": "suppressed_after_withheld_start"
+      },
+      "before": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "after": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "previous_sha256": "77e3c79815f15c6ee56b307fa1fd7b7a86affb45b6d7bfa9a4de15519e367104",
+      "sha256": "fdd4244d8bff763dfdb8c475668f36b2057700d9ceac9a75a7f6f10ea47c52a9"
+    },
+    {
+      "seq": 3,
+      "at_seconds": 60,
+      "event": "reference_check",
+      "input": {},
+      "observation": {
+        "result": "suppressed_after_withheld_start"
+      },
+      "before": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "after": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "previous_sha256": "fdd4244d8bff763dfdb8c475668f36b2057700d9ceac9a75a7f6f10ea47c52a9",
+      "sha256": "01952f760e30bed5532c1eec78bdbac3270af35bf3861a2a30f7ae961b442c30"
+    },
+    {
+      "seq": 4,
+      "at_seconds": 90,
+      "event": "aid_check",
+      "input": {},
+      "observation": {
+        "result": "suppressed_after_withheld_start"
+      },
+      "before": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "after": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "previous_sha256": "01952f760e30bed5532c1eec78bdbac3270af35bf3861a2a30f7ae961b442c30",
+      "sha256": "0161ec182ec2625930eaa82f9fba347857a09823e1cabf29db07700821339d66"
+    },
+    {
+      "seq": 5,
+      "at_seconds": 180,
+      "event": "practice_start",
+      "input": {},
+      "observation": {
+        "result": "suppressed_after_withheld_start"
+      },
+      "before": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "after": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "previous_sha256": "0161ec182ec2625930eaa82f9fba347857a09823e1cabf29db07700821339d66",
+      "sha256": "a51484aa1f824b242c124e52ee925f59e24257bed2bac91d58db843d80531498"
+    },
+    {
+      "seq": 6,
+      "at_seconds": 184,
+      "event": "inspect",
+      "input": {},
+      "observation": {
+        "result": "suppressed_after_withheld_start"
+      },
+      "before": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "after": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "previous_sha256": "a51484aa1f824b242c124e52ee925f59e24257bed2bac91d58db843d80531498",
+      "sha256": "7540f0323f39bc90f0bad3e17c41eb8efc8393f407727dec3c3966385a864ae9"
+    },
+    {
+      "seq": 7,
+      "at_seconds": 186,
+      "event": "accept",
+      "input": {},
+      "observation": {
+        "result": "suppressed_after_withheld_start"
+      },
+      "before": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "after": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "previous_sha256": "7540f0323f39bc90f0bad3e17c41eb8efc8393f407727dec3c3966385a864ae9",
+      "sha256": "96dbbb08022a1868718a8fd1357fdf8c343c43bbb8945ee569e25a42a533f316"
+    },
+    {
+      "seq": 8,
+      "at_seconds": 780,
+      "event": "handoff",
+      "input": {},
+      "observation": {
+        "result": "suppressed_after_withheld_start"
+      },
+      "before": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "after": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "previous_sha256": "96dbbb08022a1868718a8fd1357fdf8c343c43bbb8945ee569e25a42a533f316",
+      "sha256": "10c54a2b30076ad1051676d77fbdc50374b2c6167906318657296ed348a221af"
+    },
+    {
+      "seq": 9,
+      "at_seconds": 800,
+      "event": "paper_check",
+      "input": {},
+      "observation": {
+        "result": "suppressed_after_withheld_start"
+      },
+      "before": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "after": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "previous_sha256": "10c54a2b30076ad1051676d77fbdc50374b2c6167906318657296ed348a221af",
+      "sha256": "2307c2a2d5bf14f0e7373d970d39ee340398699e9f3fca783cedc22d5a7a9271"
+    },
+    {
+      "seq": 10,
+      "at_seconds": 1085,
+      "event": "environment",
+      "input": {
+        "radio_available": true
+      },
+      "observation": {
+        "result": "environment_changed",
+        "changes": {
+          "radio_available": true
+        }
+      },
+      "before": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": false,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "after": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": true,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "previous_sha256": "2307c2a2d5bf14f0e7373d970d39ee340398699e9f3fca783cedc22d5a7a9271",
+      "sha256": "1450d21fa58468a8d9116115847d15d6b0cdecf102decd6e6ea587d9e1ed8dc4"
+    },
+    {
+      "seq": 11,
+      "at_seconds": 1200,
+      "event": "finish",
+      "input": {},
+      "observation": {
+        "result": "withheld",
+        "independent_diagnosis_assessed": false,
+        "delayed_transfer_assessed": false
+      },
+      "before": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": true,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "after": {
+        "phase": "withheld",
+        "flags": {
+          "reference_available": true,
+          "reference_correct": true,
+          "aid_check_passes": true,
+          "sensor_stale": true,
+          "ai_available": false,
+          "radio_available": true,
+          "recipient_available": true,
+          "senior_available": true,
+          "cascading_alerts": true
+        },
+        "display": {
+          "state_id": 6,
+          "timestamp": 90,
+          "value": 9
+        },
+        "reference": null,
+        "reference_checked": false,
+        "aid_checked": false,
+        "practice_started": false,
+        "withheld": true,
+        "stopped": false,
+        "stop_at": null,
+        "inspection": null,
+        "accepted_items": [],
+        "handoff_payload": null,
+        "handoff_attempted": false,
+        "ack_at": null,
+        "paper_freshness": "uncertain",
+        "paper_cleared_stop": false
+      },
+      "previous_sha256": "1450d21fa58468a8d9116115847d15d6b0cdecf102decd6e6ea587d9e1ed8dc4",
+      "sha256": "268547cd9b5596579efa795c345c0cfec49da47646e61cbf24af289278cc6680"
+    }
+  ],
+  "trace_tail_sha256": "268547cd9b5596579efa795c345c0cfec49da47646e61cbf24af289278cc6680",
+  "evidence_kind": "executed_software_simulation",
+  "outcomes": {
+    "practice_started": false,
+    "start_withheld": true,
+    "stale_items_accepted": 0,
+    "first_stale_acceptance_at_seconds": null,
+    "first_stop_at_seconds": null,
+    "stop_latched": false,
+    "handoff_attempted": false,
+    "handoff_acknowledged": false,
+    "acknowledgement_at_seconds": null,
+    "containment_obligation_met": true,
+    "deployment_demand_fulfilled": false,
+    "uncovered_features_encountered": [
+      "ai_loss",
+      "cascading_alerts",
+      "radio_dropout"
+    ],
+    "release_boundary_obeyed": true,
+    "paper_cleared_stop": false,
+    "independent_diagnosis_assessed": false,
+    "delayed_transfer_assessed": false,
+    "human_learning_outcome": null,
+    "terminal_state": "withheld"
+  }
+}

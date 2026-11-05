@@ -1,0 +1,17 @@
+{
+  "description": "Implementation/input receipt written before the first deployment episode.",
+  "adapter_version": "2.0.0",
+  "started_at": "2026-11-05T04:14:20.767453+00:00",
+  "freeze_sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+  "model_sha256": "65ab20081c19d47098c1b8a327ca8c84a0a8630e9321be0e84ca877dd593b5c8",
+  "implementation_sha256": {
+    "controlroom_contract.py": "23a7f9e70a996e14eed1badb8703f61058fa4a0b1b949716cd40f96b77bb456a",
+    "controlroom_simulator.py": "97a206f2981d735a9270aefb7f29286c375c79ab4c379fe2a9bf48cfb63831fb",
+    "controlroom_results.py": "4384d265988d9b0898e4f0dad0b8e772bb6b895114f4f4c81a89e6282558085b",
+    "run_controlroom_deployment.py": "2f4e5e42014af47130efd36855a77d9ec767c03b1bec77a2b2a7d3ba3e021e85"
+  },
+  "model_is_retrospective": true,
+  "new_design_agent_calls": 0,
+  "evidence_kind": "executed_software_simulation",
+  "limitation": "Observed results are executed software-state transitions under authored assumptions; they are not observations of human learning, professional skill or utility performance."
+}

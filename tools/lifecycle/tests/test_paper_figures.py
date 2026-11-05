@@ -47,6 +47,13 @@ class PaperFigureTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'event differs'):
             verify_sources(ROOT, changed)
 
+    def test_forged_executable_outcome_rejected(self) -> None:
+        """A publication figure cannot silently turn an executed failure into success."""
+        changed = copy.deepcopy(self.data)
+        changed['execution']['primary_episodes'][1]['outcomes']['deployment_demand_fulfilled'] = True
+        with self.assertRaisesRegex(ValueError, 'actual executable outcomes'):
+            verify_sources(ROOT, changed)
+
     def test_manuscript_scope(self) -> None:
         """Keep unrelated explorations and development diary material outside the main paper."""
         paper = (ROOT / 'docs/lifecycle/competency-mediation-paper-v3.md').read_text()

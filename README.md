@@ -295,6 +295,21 @@ centers an explicit thesis and three uses: professional preparation, research on
 contribution episodes, and organizational design rehearsal. The strongest worked
 example includes [editable publication figures](docs/lifecycle/figures/README.md)
 with exact dialogue, frozen commitments and held-out stress consequences.
+The second contribution now includes an [executable control-room deployment
+record](experiments/competency-live/2026-11-04/controlroom-executable-v3/README.md):
+three primary conditions and five diagnostic probes produce observed software
+transitions, complete handoff packets, participant-owned logs and independently
+derived outcomes. Easy completes containment/handoff, medium accepts one stale
+item before its later stop, and hard obeys the release boundary while leaving
+deployment demand unmet. These are authored, uncalibrated model observations;
+they do not establish human learning, competency levels or team superiority.
+Run `python3 tools/lifecycle/run_controlroom_deployment.py --out /tmp/new-controlroom-run`
+from the repository root using an unused output directory. No model API key,
+package or environment variable is required. Exact code/model snapshots and failed
+validation versions are retained separately; the original frozen intervention is
+unchanged. The paper frames situated competency requirements, individual coverage
+versus collective integration, and the connection between learning research and
+systems thinking as explicit research uses of this design-to-execution chain.
 The main manuscript contains only the deterministic demonstration and three focal
 latest dynamic examples; the [companion appendix](docs/lifecycle/competency-mediation-supplement.md)
 keeps other explorations and development details outside its analysis.
@@ -307,6 +322,8 @@ acceptable evidence and authority; they do not erase pretrained knowledge or
 provide hard per-agent filesystem isolation. This route uses no API key or GitHub
 Actions model execution and adds no dependency or environment variable.
 
+Run deployment-model tests with
+`python3 -m unittest discover -s tools/lifecycle/tests -p 'test_controlroom_deployment.py'`.
 Run the evidence and knowledge-gate tests with
 `python3 -m unittest discover -s tools/lifecycle/tests -p 'test_*mediation*.py'`.
 The archive describes freeze/release verification and transcript export; model
