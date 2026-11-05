@@ -1,0 +1,125 @@
+{
+  "description": "Source-checked publication figure content from actual retained dialogue and frozen-plan stress projections; interpretive summaries are labeled separately from verbatim excerpts.",
+  "episode": "controlroom",
+  "freeze_sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+  "budget_spent": 7,
+  "budget_available": 8,
+  "dialogue_rows": [
+    {
+      "competency": "Operations and training implementation",
+      "sources": [
+        "operator-01"
+      ],
+      "quotes": [
+        "I propose a provisional five-unit package: add the timestamp cue to the job aid for one unit, establish a stop-and-handoff procedure for two, and deliver unranked practice for two."
+      ],
+      "decision": "Initial proposal: 5 of 8 units. Protect diagnosis practice within a 20-minute slot.",
+      "trace": "O1",
+      "message_ids": [
+        "controlroom-operator-01"
+      ]
+    },
+    {
+      "competency": "Safety and simulator systems",
+      "sources": [
+        "safety-01"
+      ],
+      "quotes": [
+        "the radio-link module cannot inject partial dropouts this week.",
+        "the offline paper alarm sheet contains last-known values without automatic freshness marking."
+      ],
+      "decision": "Propose staleness rehearsal and explicit stop conditions. Exclude radio-dropout coverage; paper cannot establish freshness.",
+      "trace": "S1",
+      "message_ids": [
+        "controlroom-safety-01"
+      ]
+    },
+    {
+      "competency": "Learning science and assessment",
+      "sources": [
+        "scientist-01"
+      ],
+      "quotes": [
+        "It does not establish readiness for independent diagnosis.",
+        "C-L2 says one delayed, unranked diagnosis probe is feasible next week, after the current release decision."
+      ],
+      "decision": "Make the evidence limit specific: disclosed-order speed cannot certify diagnosis; a later probe cannot support today’s release.",
+      "trace": "L1",
+      "message_ids": [
+        "controlroom-scientist-01"
+      ]
+    },
+    {
+      "competency": "Integration under resource constraints",
+      "sources": [
+        "operator-02"
+      ],
+      "quotes": [
+        "Your disclosure changes my choice.",
+        "I withdraw my separate two-unit unranked-practice proposal; adding it would exceed eight units."
+      ],
+      "decision": "Adopt 7 of 8 units: aid 1 + handoff 2 + rehearsal 3 + consultation 1. Dedicated unranked practice is dropped.",
+      "trace": "O2",
+      "message_ids": [
+        "controlroom-operator-02"
+      ]
+    },
+    {
+      "competency": "Joint operational and safety authority",
+      "sources": [
+        "safety-02",
+        "safety-03"
+      ],
+      "quotes": [
+        "I support the seven-unit package and accept receiving stopped-scenario handoffs myself.",
+        "I approve only the conditional simulator release described there."
+      ],
+      "decision": "Name the safety recipient; require checked reference, stop triggers, both endorsements and a 20-minute limit.",
+      "trace": "S2 / S3",
+      "message_ids": [
+        "controlroom-safety-02",
+        "controlroom-safety-03"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "difficulty": "easy",
+      "event": "Working prioritizer; one timestamp contradiction.",
+      "supported": "If in the authorized script and start checks pass: compare, stop on contradiction, and hand off.",
+      "gap": "A routine alarm set is not automatically the authorized script. Detection and handoff were not observed.",
+      "review": "All four axes: mixed.",
+      "source_event": "Simulator prioritizer works; one timestamp contradiction appears in a routine alarm set."
+    },
+    {
+      "difficulty": "medium",
+      "event": "Stale sensor, confident AI ranking, novice lead; senior operator busy.",
+      "supported": "The same freshness and stop rules apply. No extra supervisor or training is added.",
+      "gap": "Unranked practice was dropped. Novice cue recognition and safety-recipient availability remain unknown.",
+      "review": "Capability and human conditions: fragile. Organization and resilience: mixed.",
+      "source_event": "A stale sensor drives a confident ranking while a novice leads; the senior operator is present but handling another console."
+    },
+    {
+      "difficulty": "hard",
+      "event": "Cascading alerts, partial radio dropout, AI loss, stale paper.",
+      "supported": "Withhold start: event exceeds the bounded release. If it emerges after a permitted start, stop.",
+      "gap": "No rehearsable radio failure, verified fresh fallback or demonstrated receipt/recovery.",
+      "review": "Capability, human conditions and resilience: fragile. Organizational boundary handling: mixed.",
+      "source_event": "Cascading alerts coincide with partial radio dropout and AI loss. The paper alarm sheet contains stale values; the radio failure was not rehearsable in the installed simulator. No rescue expert or extra time appears."
+    }
+  ],
+  "evidence_kind": "model_reasoned_synthetic_deployment",
+  "source_hashes": {
+    "experiments/competency-live/2026-11-04/controlroom/deployment-release.json": "47902de1b93c627420b75330b24ab4237b9e6d5c4a2d2747ed55b87c6128df27",
+    "experiments/competency-live/2026-11-04/controlroom/deployment.json": "a121907bc136a692f8388d7ac70fc205014d471d4053c171680b73169fc3e4b8",
+    "experiments/competency-live/2026-11-04/controlroom/evaluation.json": "fe8e8bd41d30099dcdfc5e775964049fc995b533d6387cfccc8c3e2500aee153",
+    "experiments/competency-live/2026-11-04/controlroom/freeze-receipt.json": "a2b0b0311cef16b0ef5217a148f61d8043825252e31e187b6abd7f29ba9b4230",
+    "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+    "experiments/competency-live/2026-11-04/controlroom/responses/operator-01.json": "b870435fa30e0563fba87484813bae1569c16917c72ec3fbb305510225742570",
+    "experiments/competency-live/2026-11-04/controlroom/responses/operator-02.json": "134963fb690f4e4a66a906f9832039dedfc157e842dbd6d75b1e96cf5eb94391",
+    "experiments/competency-live/2026-11-04/controlroom/responses/safety-01.json": "30ea778277acd2b0126df9edc185d62f3c33a9329c262c17271abcbc482d2e58",
+    "experiments/competency-live/2026-11-04/controlroom/responses/safety-02.json": "eae745bf04aef9665072c376282149e073487641bc97e7c362144e56325edae0",
+    "experiments/competency-live/2026-11-04/controlroom/responses/safety-03.json": "c56eca416508c57209ed6784663005d24b40d4efc22508d6a7e977f9b5610920",
+    "experiments/competency-live/2026-11-04/controlroom/responses/scientist-01.json": "9ae676edacef8fbdcec4ae8315178c659b669120d3cf00243a236965b01007ee"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "description": "Actual Chrome rendering and text-bound checks for publication SVG assets.",
+  "checks": [
+    {
+      "figure": "competency-architecture",
+      "width": 1200,
+      "height": 1138,
+      "overflow": []
+    },
+    {
+      "figure": "controlroom-dialogue-table",
+      "width": 1200,
+      "height": 1142,
+      "overflow": []
+    },
+    {
+      "figure": "controlroom-stress-test",
+      "width": 1200,
+      "height": 1000,
+      "overflow": []
+    }
+  ],
+  "visual_qa": "All three rendered figures inspected; no clipped/overlapping rows, text or arrows observed. Final architecture re-inspected after private-input clarification.",
+  "source_fidelity_tests": 5,
+  "source_fidelity_result": "pass",
+  "full_python_suite": 219,
+  "python_result": "pass",
+  "node_fixture_boundary_tests": 12,
+  "node_result": "pass",
+  "evidence_integrity": "Every original run JSON and all four exact frozen artifacts retain their original hashes. No new research agent episode was executed.",
+  "asset_sha256": {
+    "competency-architecture.png": "4625158359dbcc4adb48004e9f7cfa5cdadd6e8a7e4c1ccfdd784ca56b7b9ee6",
+    "competency-architecture.svg": "938b434da77ab9ba527a4cca4b8b3eaf722a537e76cac7426b1f5b18b0ac289b",
+    "controlroom-dialogue-table.png": "20a563d8b970e519a7accca2a51abb8dbca0cb43f6c4bf74cb798a8ce3bf60c6",
+    "controlroom-dialogue-table.svg": "d5e04e88051820345a42ecf7cff013a129ab4f402403345e531d03812dd3b076",
+    "controlroom-stress-test.png": "c02e7a2051e98d4448bfac6ff42d1633c56f764b4e77c522e3c6786b15d0bd84",
+    "controlroom-stress-test.svg": "548d2ee009a050fa6bc292a4f7bdfeb6d1574a1d72232aa24662281d0fe444a1"
+  }
+}

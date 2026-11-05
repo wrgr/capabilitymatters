@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000" role="img" aria-labelledby="title desc">
+<title id="title">Figure 2. The same frozen intervention under three stress conditions</title><desc id="desc">Model-reasoned tests, not observed utility or learner outcomes. The hard event exceeds scope and requires no start; missing start checks remain unknown in easy and medium.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#51616D"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif}</style>
+<rect width="1200" height="1000" fill="white"/>
+<text x="32" y="40" font-size="28" fill="#172B3A" font-weight="600">Figure 2. What the frozen control-room intervention could support</text>
+<text x="32" y="72" font-size="20" fill="#51616D" font-weight="400">Model-reasoned stress tests; execution, diagnosis and transfer were not observed.</text>
+<rect x="32" y="94" width="1136" height="100" fill="#EDF4F7" stroke="#C9D1D8"/>
+<text x="50" y="126" font-size="22" fill="#172B3A" font-weight="600">ONE FROZEN PLAN: 7 / 8 units committed; 20-minute limit; both core endorsements.</text>
+<text x="50" y="155" font-size="20" fill="#172B3A" font-weight="400">Aid 1 + stop/handoff 2 + staleness rehearsal 3 + consultation 1. Unranked practice omitted.</text>
+<text x="50" y="182" font-size="18" fill="#51616D" font-weight="400">SHA-256: 9ea47a59d515e9ca…  |  start requires a checked reference and job aid.</text>
+<rect x="32" y="216" width="1136" height="46" fill="#F5F7F8" stroke="#C9D1D8"/>
+<text x="48" y="246" font-size="20" fill="#172B3A" font-weight="600">Event</text>
+<text x="326" y="246" font-size="20" fill="#172B3A" font-weight="600">Supported response</text>
+<text x="720" y="246" font-size="20" fill="#172B3A" font-weight="600">Revealed limit / independent review</text>
+<rect x="32" y="262" width="1136" height="216" fill="white" stroke="#C9D1D8"/>
+<text x="48" y="294" font-size="21" fill="#1C5370" font-weight="600">EASY</text>
+<text x="48" y="326" font-size="20" fill="#172B3A" font-weight="400">Working prioritizer;</text>
+<text x="48" y="352" font-size="20" fill="#172B3A" font-weight="400">one timestamp</text>
+<text x="48" y="378" font-size="20" fill="#172B3A" font-weight="400">contradiction.</text>
+<text x="326" y="294" font-size="21" fill="#172B3A" font-weight="400">If in the authorized script and</text>
+<text x="326" y="321" font-size="21" fill="#172B3A" font-weight="400">start checks pass: compare, stop</text>
+<text x="326" y="348" font-size="21" fill="#172B3A" font-weight="400">on contradiction, and hand off.</text>
+<text x="720" y="294" font-size="20" fill="#172B3A" font-weight="400">A routine alarm set is not</text>
+<text x="720" y="320" font-size="20" fill="#172B3A" font-weight="400">automatically the authorized script.</text>
+<text x="720" y="346" font-size="20" fill="#172B3A" font-weight="400">Detection and handoff were not</text>
+<text x="720" y="372" font-size="20" fill="#172B3A" font-weight="400">observed.</text>
+<text x="720" y="410" font-size="19" fill="#51616D" font-weight="400">All four axes: mixed.</text>
+<rect x="32" y="478" width="1136" height="216" fill="#F5F7F8" stroke="#C9D1D8"/>
+<text x="48" y="510" font-size="21" fill="#1C5370" font-weight="600">MEDIUM</text>
+<text x="48" y="542" font-size="20" fill="#172B3A" font-weight="400">Stale sensor, confident</text>
+<text x="48" y="568" font-size="20" fill="#172B3A" font-weight="400">AI ranking, novice</text>
+<text x="48" y="594" font-size="20" fill="#172B3A" font-weight="400">lead; senior operator</text>
+<text x="48" y="620" font-size="20" fill="#172B3A" font-weight="400">busy.</text>
+<text x="326" y="510" font-size="21" fill="#172B3A" font-weight="400">The same freshness and stop</text>
+<text x="326" y="537" font-size="21" fill="#172B3A" font-weight="400">rules apply. No extra supervisor</text>
+<text x="326" y="564" font-size="21" fill="#172B3A" font-weight="400">or training is added.</text>
+<text x="720" y="510" font-size="20" fill="#172B3A" font-weight="400">Unranked practice was dropped. Novice</text>
+<text x="720" y="536" font-size="20" fill="#172B3A" font-weight="400">cue recognition and safety-recipient</text>
+<text x="720" y="562" font-size="20" fill="#172B3A" font-weight="400">availability remain unknown.</text>
+<text x="720" y="600" font-size="19" fill="#51616D" font-weight="400">Capability and human conditions: fragile.</text>
+<text x="720" y="625" font-size="19" fill="#51616D" font-weight="400">Organization and resilience: mixed.</text>
+<rect x="32" y="694" width="1136" height="216" fill="white" stroke="#C9D1D8"/>
+<text x="48" y="726" font-size="21" fill="#1C5370" font-weight="600">HARD</text>
+<text x="48" y="758" font-size="20" fill="#172B3A" font-weight="400">Cascading alerts,</text>
+<text x="48" y="784" font-size="20" fill="#172B3A" font-weight="400">partial radio dropout,</text>
+<text x="48" y="810" font-size="20" fill="#172B3A" font-weight="400">AI loss, stale paper.</text>
+<text x="326" y="726" font-size="21" fill="#172B3A" font-weight="400">Withhold start: event exceeds</text>
+<text x="326" y="753" font-size="21" fill="#172B3A" font-weight="400">the bounded release. If it</text>
+<text x="326" y="780" font-size="21" fill="#172B3A" font-weight="400">emerges after a permitted start,</text>
+<text x="326" y="807" font-size="21" fill="#172B3A" font-weight="400">stop.</text>
+<text x="720" y="726" font-size="20" fill="#172B3A" font-weight="400">No rehearsable radio failure, verified</text>
+<text x="720" y="752" font-size="20" fill="#172B3A" font-weight="400">fresh fallback or demonstrated</text>
+<text x="720" y="778" font-size="20" fill="#172B3A" font-weight="400">receipt/recovery.</text>
+<text x="720" y="816" font-size="19" fill="#51616D" font-weight="400">Capability, human conditions and</text>
+<text x="720" y="841" font-size="19" fill="#51616D" font-weight="400">resilience: fragile. Organizational</text>
+<text x="720" y="866" font-size="19" fill="#51616D" font-weight="400">boundary handling: mixed.</text>
+<text x="32" y="946" font-size="18" fill="#51616D" font-weight="400">Source: retained deployment and fresh model review for the exact frozen artifact. No repair between events.</text>
+<text x="32" y="976" font-size="18" fill="#51616D" font-weight="400">Ratings concern plan sufficiency; a correct no-start boundary does not establish successful performance.</text>
+</svg>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1142" viewBox="0 0 1200 1142" role="img" aria-labelledby="title desc">
+<title id="title">Table 1. Actual control-room dialogue and consequential decisions</title><desc id="desc">Selected verbatim excerpts from a seven-message conversation. Decision summaries are analysis; the learning scientist refines existing caution rather than originating it.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#51616D"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif}</style>
+<rect width="1200" height="1142" fill="white"/>
+<text x="32" y="40" font-size="28" fill="#172B3A" font-weight="600">Table 1. Where the competencies entered the decision</text>
+<text x="32" y="72" font-size="20" fill="#51616D" font-weight="400">Control-room example: verbatim excerpts, with analytic decision summaries.</text>
+<rect x="32" y="94" width="1136" height="46" fill="#EDF4F7" stroke="#C9D1D8"/>
+<text x="48" y="124" font-size="21" fill="#172B3A" font-weight="600">Contribution</text>
+<text x="266" y="124" font-size="21" fill="#172B3A" font-weight="600">Actual dialogue excerpt</text>
+<text x="766" y="124" font-size="21" fill="#172B3A" font-weight="600">Decision / retained limit</text>
+<rect x="32" y="140" width="1136" height="180" fill="white" stroke="#C9D1D8"/>
+<text x="48" y="171" font-size="20" fill="#172B3A" font-weight="600">Operations and</text>
+<text x="48" y="197" font-size="20" fill="#172B3A" font-weight="600">training</text>
+<text x="48" y="223" font-size="20" fill="#172B3A" font-weight="600">implementation</text>
+<text x="48" y="261" font-size="19" fill="#1C5370" font-weight="600">O1</text>
+<text x="266" y="170" font-size="21" fill="#172B3A" font-weight="400">“I propose a provisional five-unit</text>
+<text x="266" y="197" font-size="21" fill="#172B3A" font-weight="400">package: add the timestamp cue to the job</text>
+<text x="266" y="224" font-size="21" fill="#172B3A" font-weight="400">aid for one unit, establish a</text>
+<text x="266" y="251" font-size="21" fill="#172B3A" font-weight="400">stop-and-handoff procedure for two, and</text>
+<text x="266" y="278" font-size="21" fill="#172B3A" font-weight="400">deliver unranked practice for two.”</text>
+<text x="766" y="170" font-size="20" fill="#172B3A" font-weight="400">Initial proposal: 5 of 8 units.</text>
+<text x="766" y="196" font-size="20" fill="#172B3A" font-weight="400">Protect diagnosis practice within a</text>
+<text x="766" y="222" font-size="20" fill="#172B3A" font-weight="400">20-minute slot.</text>
+<rect x="32" y="320" width="1136" height="180" fill="#F5F7F8" stroke="#C9D1D8"/>
+<text x="48" y="351" font-size="20" fill="#172B3A" font-weight="600">Safety and</text>
+<text x="48" y="377" font-size="20" fill="#172B3A" font-weight="600">simulator systems</text>
+<text x="48" y="415" font-size="19" fill="#1C5370" font-weight="600">S1</text>
+<text x="266" y="350" font-size="21" fill="#172B3A" font-weight="400">“the radio-link module cannot inject</text>
+<text x="266" y="377" font-size="21" fill="#172B3A" font-weight="400">partial dropouts this week.”</text>
+<text x="266" y="412" font-size="21" fill="#172B3A" font-weight="400">“the offline paper alarm sheet contains</text>
+<text x="266" y="439" font-size="21" fill="#172B3A" font-weight="400">last-known values without automatic</text>
+<text x="266" y="466" font-size="21" fill="#172B3A" font-weight="400">freshness marking.”</text>
+<text x="766" y="350" font-size="20" fill="#172B3A" font-weight="400">Propose staleness rehearsal and</text>
+<text x="766" y="376" font-size="20" fill="#172B3A" font-weight="400">explicit stop conditions. Exclude</text>
+<text x="766" y="402" font-size="20" fill="#172B3A" font-weight="400">radio-dropout coverage; paper</text>
+<text x="766" y="428" font-size="20" fill="#172B3A" font-weight="400">cannot establish freshness.</text>
+<rect x="32" y="500" width="1136" height="180" fill="white" stroke="#C9D1D8"/>
+<text x="48" y="531" font-size="20" fill="#172B3A" font-weight="600">Learning science</text>
+<text x="48" y="557" font-size="20" fill="#172B3A" font-weight="600">and assessment</text>
+<text x="48" y="595" font-size="19" fill="#1C5370" font-weight="600">L1</text>
+<text x="266" y="530" font-size="21" fill="#172B3A" font-weight="400">“It does not establish readiness for</text>
+<text x="266" y="557" font-size="21" fill="#172B3A" font-weight="400">independent diagnosis.”</text>
+<text x="266" y="592" font-size="21" fill="#172B3A" font-weight="400">“C-L2 says one delayed, unranked</text>
+<text x="266" y="619" font-size="21" fill="#172B3A" font-weight="400">diagnosis probe is feasible next week,</text>
+<text x="266" y="646" font-size="21" fill="#172B3A" font-weight="400">after the current release decision.”</text>
+<text x="766" y="530" font-size="20" fill="#172B3A" font-weight="400">Make the evidence limit specific:</text>
+<text x="766" y="556" font-size="20" fill="#172B3A" font-weight="400">disclosed-order speed cannot</text>
+<text x="766" y="582" font-size="20" fill="#172B3A" font-weight="400">certify diagnosis; a later probe</text>
+<text x="766" y="608" font-size="20" fill="#172B3A" font-weight="400">cannot support today’s release.</text>
+<rect x="32" y="680" width="1136" height="180" fill="#F5F7F8" stroke="#C9D1D8"/>
+<text x="48" y="711" font-size="20" fill="#172B3A" font-weight="600">Integration under</text>
+<text x="48" y="737" font-size="20" fill="#172B3A" font-weight="600">resource</text>
+<text x="48" y="763" font-size="20" fill="#172B3A" font-weight="600">constraints</text>
+<text x="48" y="801" font-size="19" fill="#1C5370" font-weight="600">O2</text>
+<text x="266" y="710" font-size="21" fill="#172B3A" font-weight="400">“Your disclosure changes my choice.”</text>
+<text x="266" y="745" font-size="21" fill="#172B3A" font-weight="400">“I withdraw my separate two-unit</text>
+<text x="266" y="772" font-size="21" fill="#172B3A" font-weight="400">unranked-practice proposal; adding it</text>
+<text x="266" y="799" font-size="21" fill="#172B3A" font-weight="400">would exceed eight units.”</text>
+<text x="766" y="710" font-size="20" fill="#172B3A" font-weight="400">Adopt 7 of 8 units: aid 1 + handoff</text>
+<text x="766" y="736" font-size="20" fill="#172B3A" font-weight="400">2 + rehearsal 3 + consultation 1.</text>
+<text x="766" y="762" font-size="20" fill="#172B3A" font-weight="400">Dedicated unranked practice is</text>
+<text x="766" y="788" font-size="20" fill="#172B3A" font-weight="400">dropped.</text>
+<rect x="32" y="860" width="1136" height="180" fill="white" stroke="#C9D1D8"/>
+<text x="48" y="891" font-size="20" fill="#172B3A" font-weight="600">Joint operational</text>
+<text x="48" y="917" font-size="20" fill="#172B3A" font-weight="600">and safety</text>
+<text x="48" y="943" font-size="20" fill="#172B3A" font-weight="600">authority</text>
+<text x="48" y="981" font-size="19" fill="#1C5370" font-weight="600">S2 / S3</text>
+<text x="266" y="890" font-size="21" fill="#172B3A" font-weight="400">“I support the seven-unit package and</text>
+<text x="266" y="917" font-size="21" fill="#172B3A" font-weight="400">accept receiving stopped-scenario</text>
+<text x="266" y="944" font-size="21" fill="#172B3A" font-weight="400">handoffs myself.”</text>
+<text x="266" y="979" font-size="21" fill="#172B3A" font-weight="400">“I approve only the conditional simulator</text>
+<text x="266" y="1006" font-size="21" fill="#172B3A" font-weight="400">release described there.”</text>
+<text x="766" y="890" font-size="20" fill="#172B3A" font-weight="400">Name the safety recipient; require</text>
+<text x="766" y="916" font-size="20" fill="#172B3A" font-weight="400">checked reference, stop triggers,</text>
+<text x="766" y="942" font-size="20" fill="#172B3A" font-weight="400">both endorsements and a 20-minute</text>
+<text x="766" y="968" font-size="20" fill="#172B3A" font-weight="400">limit.</text>
+<text x="32" y="1072" font-size="18" fill="#51616D" font-weight="400">O = operator; S = safety/systems engineer; L = learning scientist. Numbers identify actual turns.</text>
+<text x="32" y="1101" font-size="17" fill="#51616D" font-weight="400">Full message IDs: controlroom-operator-01, controlroom-safety-01, controlroom-scientist-01,</text>
+<text x="32" y="1126" font-size="17" fill="#51616D" font-weight="400">controlroom-operator-02, controlroom-safety-02, controlroom-safety-03. No dialogue was reconstructed.</text>
+</svg>

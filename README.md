@@ -290,7 +290,14 @@ packets distinguish competencies, private evidence, decision rights and resource
 Readable phase instructions, claim permissions, exact endorsements, frozen plans,
 three stress projections, independent reviews and failures remain inspectable.
 The [paper](docs/lifecycle/competency-mediation-paper-v3.md) explains the instrument
-and qualitative findings separately from execution receipts.
+and qualitative findings separately from execution receipts. Its LERN framing
+centers an explicit thesis and three uses: professional preparation, research on
+contribution episodes, and organizational design rehearsal. The strongest worked
+example includes [editable publication figures](docs/lifecycle/figures/README.md)
+with exact dialogue, frozen commitments and held-out stress consequences.
+The main manuscript contains only the deterministic demonstration and three focal
+latest dynamic examples; the [companion appendix](docs/lifecycle/competency-mediation-supplement.md)
+keeps other explorations and development details outside its analysis.
 
 The initial failed pilot is retained. A fresh pilot validates the bounded process
 before case expansion. These are actual model-generated conversations and choices,
