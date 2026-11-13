@@ -68,7 +68,7 @@ it now checks both generated menus, menu descriptions, and the uncluttered homep
 - `public/` — static assets (favicons, the two LENS sheets linked from the
   homepage — `LENS_Overview_Aug2026.pdf` and `LENS_What_You_Will_Do_Aug2026.pdf`
   — and the `capability-matters-casebook-draft.pdf`, the revised reading
-  edition with 48 historical chapters and a closing studio)
+  edition with 51 historical chapters and a closing studio)
 - `slick-sheet/` — print sources for those PDFs: one self-contained HTML file
   each, plus the web fonts they share (see "Print sheets" below)
 
