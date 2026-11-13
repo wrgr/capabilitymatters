@@ -1,0 +1,51 @@
+{
+  "message_id": "logistics-scientist-01",
+  "speech": "Ops and Analyst, the six-item check can provide immediate feedback on those familiar examples, but cannot support certification of independent competence. My evidence is that all six items repeat interface examples; none is a delayed or changed-case test (L-S1). Successful completion would leave transfer, retention, and performance without assistance untested. Record assistance and errors rather than turning a total score into a certification threshold.\n\nI can advise a bounded allocation within the 15 minutes: two minutes to explain the agreed handoff aid, eight minutes of exception practice with feedback, and five minutes for an observation or diagnostic check. The operationally relevant cases must come from Ops, informed by whatever the audit can support; I cannot choose dispatch priorities or assess AI calibration. For the observed cases, ask the worker to explain their decision, identify uncertainty, and use the agreed escalation route, recording prompts and aid use. Those are proposed observations, not a validated pass standard.\n\nMy other evidence is that an assessor can review only two changed-case exercises within this project, and no validated certification instrument is available (L-S2). Scope that work to two exercises total, for example one per selected worker, within their 15-minute allocations. Other workers' practice feedback must not be represented as assessor-reviewed evidence. Confirm assessor and shift capacity before committing. Two observations cannot characterize all 220 workers or establish delayed retention.\n\nThe listed workflow, audit, single consultation, brief practice, and changed-case check would total nine units: 2 + 2 + 1 + 2 + 2. That leaves one unit, insufficient for the three-unit fallback drill. This is advice for your decision, not staffing authorization or certification. Keep any release claim limited to the actual observations and unresolved coverage.",
+  "evidence_disclosed": [
+    "L-S1",
+    "L-S2"
+  ],
+  "claims": [
+    {
+      "claim": "The six repeated-example items support immediate task-specific feedback, not certification of independent competence or evidence of delayed retention and transfer.",
+      "basis": [
+        "L-S1",
+        "logistics-analyst-01"
+      ],
+      "competency": "assessment limitations"
+    },
+    {
+      "claim": "A proposed 2-minute orientation, 8-minute practice, and 5-minute diagnostic observation fits the stated 15-minute worker limit, conditional on operational capacity.",
+      "basis": [
+        "logistics-ops-01"
+      ],
+      "competency": "practice and transfer design"
+    },
+    {
+      "claim": "Assessor review is limited to two changed-case exercises in the project; no validated certification instrument is available.",
+      "basis": [
+        "L-S2"
+      ],
+      "competency": "assessment limitations"
+    },
+    {
+      "claim": "Two changed-case observations cannot characterize independent competence across 220 workers or establish delayed retention.",
+      "basis": [
+        "L-S2",
+        "public.brief"
+      ],
+      "competency": "assessment limitations"
+    },
+    {
+      "claim": "Workflow, segmented audit, one consultation, brief practice, and changed-case check total nine units at listed costs, conditional on confirming scoped capacity.",
+      "basis": [
+        "public.cost_reference",
+        "public.cost_rule",
+        "logistics-ops-01"
+      ],
+      "competency": "qualified resource accounting for practice and assessment advice"
+    }
+  ],
+  "consult_request": null,
+  "decision": "proposal"
+}

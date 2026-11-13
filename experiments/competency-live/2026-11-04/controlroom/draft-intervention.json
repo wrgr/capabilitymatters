@@ -1,0 +1,106 @@
+{
+  "description": "Joint simulator-only intervention proposed through actual operator, safety and scientist dialogue; exact safety endorsement is pending. Acceptance criteria below are prospective and no rehearsal outcome is claimed.",
+  "case_id": "controlroom",
+  "diagnosis": "Acknowledgement times improved in an exercise that disclosed expected alarm order (public brief; C-L1 as disclosed in controlroom-scientist-01). Novices normally follow AI ranking and rarely diagnose unranked alarms (C-O1); experienced operators use a timestamp contradiction cue absent from the job aid (C-O2). The safety engineer reports that sensor staleness and local logging can be simulated, partial radio dropouts cannot be injected this week, and paper fallback values have no automatic freshness marking (C-S1, C-S3 disclosed in controlroom-safety-01). The scientist advises that independent diagnosis, delayed retention and transfer remain unestablished. Only a 20-minute slot is funded (C-O3).",
+  "actions": [
+    {
+      "id": "timestamp-job-aid",
+      "owner": "operator",
+      "cost": 1,
+      "action": "Prepare and brief the timestamp contradiction job aid in the first three minutes. Incorporate the safety engineer’s authored-event reference and stop conditions: display timestamp and values must match the current scripted state in the prepared local console event record; contradiction, an older state, missing reference or indeterminate match triggers stop and handoff. No numerical age threshold is supplied. Label paper-sheet values last-known and freshness uncertain; they cannot clear a stop. These are adopted safety conditions, not operator validation of sensors or clocks.",
+      "source_messages": [
+        "controlroom-operator-01",
+        "controlroom-operator-02",
+        "controlroom-safety-02"
+      ],
+      "evidence_refs": [
+        "C-O2",
+        "C-O3",
+        "C-S1",
+        "C-S3"
+      ],
+      "acceptance_test": "Before rehearsal, the aid contains the reference rule, all four stop triggers, paper-sheet limitation and named safety recipient; operator can identify where each is recorded. Failure withholds start.",
+      "authority_scope": "operational cues"
+    },
+    {
+      "id": "stop-and-handoff",
+      "owner": "operator",
+      "cost": 2,
+      "action": "Use the existing five-minute handoff segment to rehearse stopping and reporting the affected alarm, last-known values labeled uncertain, timestamp, observed contradiction or inability to establish freshness, AI priority and stopped status to the core safety engineer. The safety engineer has accepted receipt and logging during this segment. Either core participant may stop; the paper sheet cannot authorize continuation. Do not add personnel.",
+      "source_messages": [
+        "controlroom-operator-02",
+        "controlroom-safety-01",
+        "controlroom-safety-02"
+      ],
+      "evidence_refs": [
+        "C-O1",
+        "C-O3",
+        "C-S2",
+        "C-S3"
+      ],
+      "acceptance_test": "For a scripted failed freshness check, observe the operator stop and transmit the stated fields; safety engineer acknowledges receipt and logs the stopped status. An incomplete or unreceived handoff remains stopped and is recorded as unmet.",
+      "authority_scope": "operator handoff"
+    },
+    {
+      "id": "sensor-staleness-rehearsal",
+      "owner": "safety",
+      "cost": 3,
+      "action": "Prepare the authored simulator event record in the local console log within the scoped fault-rehearsal work, recording the injected sensor change and intended current scripted state. Prepare and check this reference before starting practice; withhold start if it cannot be prepared and checked. Conduct only the narrowly scripted sensor-staleness rehearsal in the ten-minute segment; compare displayed timestamp and values with that record. Require a match to current scripted state for a freshness pass and stop/handoff for contradiction, older state, missing reference or indeterminate match. Use the final two minutes to record observations and unmet criteria in the local log; log handoff receipt during the existing five-minute segment. End or stop within the total 20 minutes. No independently verified clock, partial radio dropout injection or additional unranked exercise is assumed.",
+      "source_messages": [
+        "controlroom-safety-01",
+        "controlroom-operator-02",
+        "controlroom-safety-02"
+      ],
+      "evidence_refs": [
+        "C-S1",
+        "C-S2",
+        "C-S3",
+        "C-O3"
+      ],
+      "acceptance_test": "Before start, safety confirms a prepared and checked authored-event reference. Local records show the injected change, intended state, displayed comparison and observed pass or stop/handoff; receipt and stopped status are logged when applicable. Any missing or indeterminate reference prevents start or triggers stop; any overrun ends the exercise by 20 minutes. Outcomes and completeness remain unobserved until execution.",
+      "authority_scope": "fault injection"
+    },
+    {
+      "id": "completed-scientist-consultation",
+      "owner": "scientist",
+      "cost": 1,
+      "action": "Account for the actual consultation delivered in controlroom-scientist-01. Retain its advice: acknowledgement improvement with expected order disclosed does not establish independent diagnosis; without a delayed probe, diagnosis, delayed retention and transfer remain unestablished. Advice supplies no safety approval, simulator fidelity validation or operational certification. No further scientist work is assumed.",
+      "source_messages": [
+        "controlroom-safety-01",
+        "controlroom-scientist-01"
+      ],
+      "evidence_refs": [
+        "C-L1",
+        "C-L2",
+        "C-O1"
+      ],
+      "acceptance_test": "The retained scientist response exists and its stated limitations accompany any report of this exercise; the consultation is not recorded as safety signoff or certification.",
+      "authority_scope": "independent diagnosis assessment"
+    }
+  ],
+  "budget_spent": 7,
+  "budget_accounting": "1 timestamp job aid + 2 stop-and-handoff + 3 fault rehearsal including scoped reference preparation/local logging + 1 completed expert fee = 7 of 8; 1 unused. No separate unranked practice or delayed probe is purchased. The operator and safety engineer are the existing core participants; safety receives handoffs during the existing five-minute segment. Capacity is 3 + 10 + 5 + 2 = 20 minutes, with preparation/checking scoped to the purchased activities and no invented personnel or full-day exercise.",
+  "rejected_alternatives": [
+    "Separate unranked practice costs 2; adding it to this seven-unit package would cost 9 and exceed the eight-unit budget. Novice reliance on ranking remains unresolved.",
+    "A delayed unranked probe costs 2, exceeding the one remaining unit; C-L2 also places it next week after the present release decision. No delayed assessment is funded or claimed.",
+    "Partial radio dropout rehearsal is unavailable this week under C-S1; no substitute injection or coverage claim is invented.",
+    "Paper fallback cannot establish freshness or clear a stop; its values are last-known without automatic freshness marking under C-S3.",
+    "Independent-diagnosis or real-utility certification is not supported by the supplied evidence or team authority."
+  ],
+  "unresolved": [
+    "Safety has supported preparation and accepted specified work but has not yet endorsed these exact artifact bytes; release requires its actual exact endorsement as well as the operator endorsement.",
+    "Reference preparation, checks, completion within 20 minutes, successful stop/handoff and observed performance are not yet established. Failure prevents start or triggers stop; no success is presumed.",
+    "The authored event record is a scripted local reference; an independently verified clock and simulator fidelity are not established.",
+    "Independent diagnosis, delayed retention and transfer remain unestablished under the scientist’s advice; no dedicated unranked practice or delayed probe is funded.",
+    "Partial radio dropouts and live utility operation are outside this release; no real-world certification is granted."
+  ],
+  "release_decision": "bounded synthetic release",
+  "release_conditions": [
+    "Simulator only: permission is limited to the specified sensor-staleness exercise after both core participants endorse these exact bytes and the authored reference and job aid pass their pre-start checks.",
+    "If either endorsement or the prepared/checked reference is absent, no exercise starts. Either core participant may stop at any time; all stated freshness, handoff and 20-minute limits bind.",
+    "A successful observed rehearsal, if one occurs, documents only the actions observed in that rehearsal; it does not certify independent diagnosis, delayed transfer or live utility readiness."
+  ],
+  "signoffs": [
+    "operator: endorses this exact authored draft and commits to the operator actions and all stated release conditions; no safety endorsement is represented here."
+  ]
+}

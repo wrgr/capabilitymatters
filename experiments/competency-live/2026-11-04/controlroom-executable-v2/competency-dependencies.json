@@ -1,0 +1,284 @@
+{
+  "description": "Trace-supported functional competency and coordination requirements, not team-versus-individual effects.",
+  "findings": [
+    {
+      "id": "cue_use_and_assessment",
+      "functional_requirement": "A check must be performed before accepting ranked data; a supplied job aid does not demonstrate that behavior.",
+      "competency_implication": "Learning research and assessment define the uncued performance evidence needed; operational design makes the cue usable.",
+      "witnesses": {
+        "medium": {
+          "trace_tail_sha256": "2e6619a933e4ab8236331f6110759516eda19a48c619f9dd63d8649b1b6889cf",
+          "outcomes": {
+            "practice_started": true,
+            "start_withheld": false,
+            "stale_items_accepted": 1,
+            "first_stale_acceptance_at_seconds": 186,
+            "first_stop_at_seconds": 192,
+            "stop_latched": true,
+            "handoff_attempted": true,
+            "handoff_acknowledged": true,
+            "acknowledgement_at_seconds": 785,
+            "containment_obligation_met": false,
+            "deployment_demand_fulfilled": false,
+            "uncovered_features_encountered": [],
+            "protocol_violations": 1,
+            "release_boundary_obeyed": true,
+            "handoff_receipt_locally_logged": true,
+            "local_recording_completed": true,
+            "paper_cleared_stop": false,
+            "independent_diagnosis_assessed": false,
+            "delayed_transfer_assessed": false,
+            "human_learning_outcome": null,
+            "terminal_state": "stopped_with_ack"
+          }
+        },
+        "medium_cue_first": {
+          "trace_tail_sha256": "02ca84bdbee4c6da6cc65cdef3296a6d20cf52e2b7815e8a28fad688644b92f3",
+          "outcomes": {
+            "practice_started": true,
+            "start_withheld": false,
+            "stale_items_accepted": 0,
+            "first_stale_acceptance_at_seconds": null,
+            "first_stop_at_seconds": 184,
+            "stop_latched": true,
+            "handoff_attempted": true,
+            "handoff_acknowledged": true,
+            "acknowledgement_at_seconds": 785,
+            "containment_obligation_met": true,
+            "deployment_demand_fulfilled": true,
+            "uncovered_features_encountered": [],
+            "protocol_violations": 0,
+            "release_boundary_obeyed": true,
+            "handoff_receipt_locally_logged": true,
+            "local_recording_completed": true,
+            "paper_cleared_stop": false,
+            "independent_diagnosis_assessed": false,
+            "delayed_transfer_assessed": false,
+            "human_learning_outcome": null,
+            "terminal_state": "stopped_with_ack"
+          }
+        }
+      },
+      "limitation": "The behavior profile is an authored timing assumption. This comparison is not an effect of training."
+    },
+    {
+      "id": "reference_and_release_engineering",
+      "functional_requirement": "An actual checked reference is a precondition for practice; an absent reference must prevent start.",
+      "competency_implication": "Systems engineering supplies verifiable state/reference rules and release gates.",
+      "witnesses": {
+        "easy": {
+          "trace_tail_sha256": "6b04441571422b7243b5e4d7665fe0488348a0877be0be9aa7990bcf5cab1e2b",
+          "outcomes": {
+            "practice_started": true,
+            "start_withheld": false,
+            "stale_items_accepted": 0,
+            "first_stale_acceptance_at_seconds": null,
+            "first_stop_at_seconds": 184,
+            "stop_latched": true,
+            "handoff_attempted": true,
+            "handoff_acknowledged": true,
+            "acknowledgement_at_seconds": 785,
+            "containment_obligation_met": true,
+            "deployment_demand_fulfilled": true,
+            "uncovered_features_encountered": [],
+            "protocol_violations": 0,
+            "release_boundary_obeyed": true,
+            "handoff_receipt_locally_logged": true,
+            "local_recording_completed": true,
+            "paper_cleared_stop": false,
+            "independent_diagnosis_assessed": false,
+            "delayed_transfer_assessed": false,
+            "human_learning_outcome": null,
+            "terminal_state": "stopped_with_ack"
+          }
+        },
+        "missing_reference": {
+          "trace_tail_sha256": "af095174b0889def43465fbe784ff9d956ee74dbea50a50ea0660fda6ef6eacd",
+          "outcomes": {
+            "practice_started": false,
+            "start_withheld": true,
+            "stale_items_accepted": 0,
+            "first_stale_acceptance_at_seconds": null,
+            "first_stop_at_seconds": null,
+            "stop_latched": false,
+            "handoff_attempted": false,
+            "handoff_acknowledged": false,
+            "acknowledgement_at_seconds": null,
+            "containment_obligation_met": true,
+            "deployment_demand_fulfilled": false,
+            "uncovered_features_encountered": [],
+            "protocol_violations": 0,
+            "release_boundary_obeyed": true,
+            "handoff_receipt_locally_logged": false,
+            "local_recording_completed": false,
+            "paper_cleared_stop": false,
+            "independent_diagnosis_assessed": false,
+            "delayed_transfer_assessed": false,
+            "human_learning_outcome": null,
+            "terminal_state": "withheld"
+          }
+        }
+      },
+      "limitation": "The reference is local scripted truth, not a calibrated or independently verified utility clock."
+    },
+    {
+      "id": "coordination_and_communication",
+      "functional_requirement": "A stopped operator needs a reachable recipient and delivered acknowledgement; naming a team member is insufficient.",
+      "competency_implication": "Operational coordination and systems reliability jointly determine whether the handoff can complete.",
+      "witnesses": {
+        "easy": {
+          "trace_tail_sha256": "6b04441571422b7243b5e4d7665fe0488348a0877be0be9aa7990bcf5cab1e2b",
+          "outcomes": {
+            "practice_started": true,
+            "start_withheld": false,
+            "stale_items_accepted": 0,
+            "first_stale_acceptance_at_seconds": null,
+            "first_stop_at_seconds": 184,
+            "stop_latched": true,
+            "handoff_attempted": true,
+            "handoff_acknowledged": true,
+            "acknowledgement_at_seconds": 785,
+            "containment_obligation_met": true,
+            "deployment_demand_fulfilled": true,
+            "uncovered_features_encountered": [],
+            "protocol_violations": 0,
+            "release_boundary_obeyed": true,
+            "handoff_receipt_locally_logged": true,
+            "local_recording_completed": true,
+            "paper_cleared_stop": false,
+            "independent_diagnosis_assessed": false,
+            "delayed_transfer_assessed": false,
+            "human_learning_outcome": null,
+            "terminal_state": "stopped_with_ack"
+          }
+        },
+        "recipient_unavailable": {
+          "trace_tail_sha256": "c9de8bd4649e8684f841c7cc121acc052bef850f65396e36378d4ae622ebce8c",
+          "outcomes": {
+            "practice_started": true,
+            "start_withheld": false,
+            "stale_items_accepted": 0,
+            "first_stale_acceptance_at_seconds": null,
+            "first_stop_at_seconds": 184,
+            "stop_latched": true,
+            "handoff_attempted": true,
+            "handoff_acknowledged": false,
+            "acknowledgement_at_seconds": null,
+            "containment_obligation_met": true,
+            "deployment_demand_fulfilled": false,
+            "uncovered_features_encountered": [],
+            "protocol_violations": 0,
+            "release_boundary_obeyed": true,
+            "handoff_receipt_locally_logged": false,
+            "local_recording_completed": true,
+            "paper_cleared_stop": false,
+            "independent_diagnosis_assessed": false,
+            "delayed_transfer_assessed": false,
+            "human_learning_outcome": null,
+            "terminal_state": "stopped_without_ack"
+          }
+        },
+        "hard_after_start": {
+          "trace_tail_sha256": "423d4447e66f5f4fa0568b43eda06c5a6a2a97665c6c65d96c3bed859e0aa078",
+          "outcomes": {
+            "practice_started": true,
+            "start_withheld": false,
+            "stale_items_accepted": 0,
+            "first_stale_acceptance_at_seconds": null,
+            "first_stop_at_seconds": 184,
+            "stop_latched": true,
+            "handoff_attempted": true,
+            "handoff_acknowledged": false,
+            "acknowledgement_at_seconds": null,
+            "containment_obligation_met": true,
+            "deployment_demand_fulfilled": false,
+            "uncovered_features_encountered": [
+              "ai_loss",
+              "cascading_alerts",
+              "radio_dropout"
+            ],
+            "protocol_violations": 0,
+            "release_boundary_obeyed": true,
+            "handoff_receipt_locally_logged": false,
+            "local_recording_completed": true,
+            "paper_cleared_stop": false,
+            "independent_diagnosis_assessed": false,
+            "delayed_transfer_assessed": false,
+            "human_learning_outcome": null,
+            "terminal_state": "stopped_without_ack"
+          }
+        }
+      },
+      "limitation": "No retry or replacement communication channel was added to the frozen intervention."
+    },
+    {
+      "id": "scope_and_coverage",
+      "functional_requirement": "Correct refusal can preserve a release boundary while leaving the combined deployment demand unmet.",
+      "competency_implication": "Systems thinking distinguishes component containment, end-to-end capability, unavailable resources and recovery.",
+      "witnesses": {
+        "hard": {
+          "trace_tail_sha256": "134091631f43a77d69ede886b536626579f3950fa05a557246f98b49af5e04ed",
+          "outcomes": {
+            "practice_started": false,
+            "start_withheld": true,
+            "stale_items_accepted": 0,
+            "first_stale_acceptance_at_seconds": null,
+            "first_stop_at_seconds": null,
+            "stop_latched": false,
+            "handoff_attempted": false,
+            "handoff_acknowledged": false,
+            "acknowledgement_at_seconds": null,
+            "containment_obligation_met": true,
+            "deployment_demand_fulfilled": false,
+            "uncovered_features_encountered": [
+              "ai_loss",
+              "cascading_alerts",
+              "radio_dropout"
+            ],
+            "protocol_violations": 0,
+            "release_boundary_obeyed": true,
+            "handoff_receipt_locally_logged": false,
+            "local_recording_completed": false,
+            "paper_cleared_stop": false,
+            "independent_diagnosis_assessed": false,
+            "delayed_transfer_assessed": false,
+            "human_learning_outcome": null,
+            "terminal_state": "withheld"
+          }
+        },
+        "hard_after_start": {
+          "trace_tail_sha256": "423d4447e66f5f4fa0568b43eda06c5a6a2a97665c6c65d96c3bed859e0aa078",
+          "outcomes": {
+            "practice_started": true,
+            "start_withheld": false,
+            "stale_items_accepted": 0,
+            "first_stale_acceptance_at_seconds": null,
+            "first_stop_at_seconds": 184,
+            "stop_latched": true,
+            "handoff_attempted": true,
+            "handoff_acknowledged": false,
+            "acknowledgement_at_seconds": null,
+            "containment_obligation_met": true,
+            "deployment_demand_fulfilled": false,
+            "uncovered_features_encountered": [
+              "ai_loss",
+              "cascading_alerts",
+              "radio_dropout"
+            ],
+            "protocol_violations": 0,
+            "release_boundary_obeyed": true,
+            "handoff_receipt_locally_logged": false,
+            "local_recording_completed": true,
+            "paper_cleared_stop": false,
+            "independent_diagnosis_assessed": false,
+            "delayed_transfer_assessed": false,
+            "human_learning_outcome": null,
+            "terminal_state": "stopped_without_ack"
+          }
+        }
+      },
+      "limitation": "The deployment test environment can impose a radio fault; the intervention still lacks radio-failure rehearsal."
+    }
+  ],
+  "team_vs_individual": "These functions could be distributed across a team or held by an appropriately competent and authorized individual. No matched individual design or team-size effect was tested."
+}

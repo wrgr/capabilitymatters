@@ -1,0 +1,21 @@
+{
+  "description": "All stress conditions are independent applications of the same frozen plan.",
+  "released_at": "2026-11-04T20:54:03.230132+00:00",
+  "freeze_sha256": "67507be5cfccaaecfec8270517710243e83338bf4435a20bce2ba96c47459cf8",
+  "events": [
+    {
+      "difficulty": "easy",
+      "event": "Normal day shift; assistant available; one ambiguous override needs an owner."
+    },
+    {
+      "difficulty": "medium",
+      "event": "Two new night-shift dispatchers arrive; annotation export is delayed 24 hours and the senior dispatcher is absent."
+    },
+    {
+      "difficulty": "hard",
+      "event": "AI assistant unavailable for 90 minutes during a 40% surge; one apparent urgent job has stale destination data. No extra staff or training time arrives."
+    }
+  ],
+  "no_repair": true,
+  "evidence_kind": "model_reasoned_synthetic_deployment"
+}

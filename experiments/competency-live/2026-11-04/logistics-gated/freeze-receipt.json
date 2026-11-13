@@ -1,0 +1,24 @@
+{
+  "description": "Exact team artifact freeze; transport does not repair its content.",
+  "frozen_at": "2026-11-04T20:53:42.491561+00:00",
+  "sha256": "67507be5cfccaaecfec8270517710243e83338bf4435a20bce2ba96c47459cf8",
+  "source": "experiments/competency-live/2026-11-04/logistics-gated/draft-intervention.json",
+  "endorsement_files": [
+    "ops-03.json",
+    "analyst-03.json"
+  ],
+  "knowledge_gate": {
+    "version": 2,
+    "accepted_messages": [
+      "logistics-ops-01",
+      "logistics-analyst-01",
+      "logistics-scientist-01",
+      "logistics-ops-02",
+      "logistics-analyst-02",
+      "logistics-ops-03",
+      "logistics-analyst-03"
+    ],
+    "meaning": "Declared scope and evidence permissions passed; semantic expertise and actual tool access still require independent audit."
+  },
+  "events_sha256": "939844149eed6f1451398145061072f33acafa1b8cfefadcc5950af5fb8dd72e"
+}

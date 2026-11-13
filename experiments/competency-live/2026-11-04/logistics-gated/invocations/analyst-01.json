@@ -1,0 +1,12 @@
+{
+  "description": "Readable pre-dispatch instruction; observed file read can be audited despite encrypted inter-agent transport.",
+  "created_at": "2026-11-04T20:45:16.712597+00:00",
+  "actor": "analyst",
+  "stage": "opening",
+  "permitted_reads": [
+    "experiments/competency-live/2026-11-04/logistics-gated/packet-analyst.json"
+  ],
+  "instruction": "You are analyst, an independent professional participant. Read only your packet in permitted_reads. Follow protocol-v2 and its explicit knowledge gate. Open with your own interpretation, relevant private evidence, one consequential proposal and a question to your core colleague. Do not presume agreement, invent colleague speech, use outside facts as established knowledge, or inspect other files. Write an exclusive public JSON response matching response_contract at experiments/competency-live/2026-11-04/logistics-gated/responses/analyst-01.json, message_id logistics-analyst-01. Claims must use exact competency strings and allowed standing. Return the same natural professional speech. You may request the listed optional expert for a specific question; no expert may be impersonated.",
+  "response_file": "analyst-01.json",
+  "public_inputs": []
+}

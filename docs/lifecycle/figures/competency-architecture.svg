@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1138" viewBox="0 0 1200 1138" role="img" aria-labelledby="title desc">
+<title id="title">Figure 1. Design and deployment simulator architecture</title><desc id="desc">Two distinct implementations connect scenario inputs, design choices, a frozen artifact, stress events and evaluation. Executable deployment observes software states, not human outcomes.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#51616D"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif}</style>
+<rect width="1200" height="1138" fill="white"/>
+<text x="32" y="40" font-size="28" fill="#172B3A" font-weight="600">Figure 1. From bounded expertise to testable design commitments</text>
+<text x="32" y="72" font-size="20" fill="#51616D" font-weight="400">Two evidence paths; executable deployment adds observed software consequences.</text>
+<rect x="32" y="94" width="780" height="116" fill="#F5F7F8" stroke="#C9D1D8"/>
+<text x="50" y="125" font-size="23" fill="#172B3A" font-weight="600">Authored scenario contract</text>
+<text x="50" y="155" font-size="20" fill="#51616D" font-weight="400">Roles, competency scopes, public evidence, authority and resources;</text>
+<text x="50" y="181" font-size="20" fill="#51616D" font-weight="400">private packets in dynamic mode.</text>
+<rect x="840" y="94" width="328" height="116" fill="#F5F7F8" stroke="#C9D1D8"/>
+<text x="858" y="125" font-size="23" fill="#172B3A" font-weight="600">Stress events</text>
+<text x="858" y="155" font-size="20" fill="#51616D" font-weight="400">Released after design</text>
+<text x="858" y="181" font-size="20" fill="#51616D" font-weight="400">freeze.</text>
+<rect x="32" y="236" width="548" height="44" fill="#F5F7F8" stroke="#C9D1D8"/>
+<rect x="620" y="236" width="548" height="44" fill="#EDF4F7" stroke="#C9D1D8"/>
+<path d="M422,210 V222 H306 V232 M422,222 H894 V232" fill="none" stroke="#51616D" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1004,210 H1184 V766 H1172" fill="none" stroke="#51616D" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<text x="50" y="265" font-size="20" fill="#51616D" font-weight="600">DETERMINISTIC DEMONSTRATION</text>
+<text x="638" y="265" font-size="20" fill="#1C5370" font-weight="600">DYNAMIC DESIGN + EXECUTABLE TEST</text>
+<rect x="32" y="300" width="548" height="120" fill="white" stroke="#C9D1D8"/>
+<text x="50" y="331" font-size="23" fill="#172B3A" font-weight="600">Authored policy producer</text>
+<text x="50" y="361" font-size="20" fill="#51616D" font-weight="400">Seeded consultation and action rules; fixed</text>
+<text x="50" y="387" font-size="20" fill="#51616D" font-weight="400">costs and priorities. No live model dialogue.</text>
+<rect x="620" y="300" width="548" height="120" fill="white" stroke="#C9D1D8"/>
+<text x="638" y="331" font-size="23" fill="#172B3A" font-weight="600">Independent professional contexts</text>
+<text x="638" y="361" font-size="20" fill="#51616D" font-weight="400">Own private packets; actual public replies.</text>
+<text x="638" y="387" font-size="20" fill="#51616D" font-weight="400">Optional expert participates after a request.</text>
+<rect x="32" y="458" width="548" height="120" fill="white" stroke="#C9D1D8"/>
+<text x="50" y="489" font-size="23" fill="#172B3A" font-weight="600">Resource-constrained selection</text>
+<text x="50" y="519" font-size="20" fill="#51616D" font-weight="400">Programmed proposals and ranking select an</text>
+<text x="50" y="545" font-size="20" fill="#51616D" font-weight="400">action set within the authored budget.</text>
+<rect x="620" y="458" width="548" height="120" fill="white" stroke="#C9D1D8"/>
+<text x="638" y="489" font-size="23" fill="#172B3A" font-weight="600">1. Team design decisions</text>
+<text x="638" y="519" font-size="20" fill="#51616D" font-weight="400">Claims, source IDs, authority, budget and exact</text>
+<text x="638" y="545" font-size="20" fill="#51616D" font-weight="400">core endorsements. Gate supplies no solution.</text>
+<rect x="32" y="616" width="548" height="106" fill="white" stroke="#C9D1D8"/>
+<text x="50" y="647" font-size="23" fill="#172B3A" font-weight="600">Frozen policy artifact</text>
+<text x="50" y="677" font-size="20" fill="#51616D" font-weight="400">Retain selected actions, owners, costs and a</text>
+<text x="50" y="703" font-size="20" fill="#51616D" font-weight="400">fixture hash.</text>
+<rect x="620" y="616" width="548" height="106" fill="white" stroke="#C9D1D8"/>
+<text x="638" y="647" font-size="23" fill="#172B3A" font-weight="600">Frozen team-authored intervention</text>
+<text x="638" y="677" font-size="20" fill="#51616D" font-weight="400">Retain actions, exclusions and release gates;</text>
+<text x="638" y="703" font-size="20" fill="#51616D" font-weight="400">exact bytes bound by SHA-256.</text>
+<path d="M306,420 V448" fill="none" stroke="#51616D" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M306,578 V606" fill="none" stroke="#51616D" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M306,722 V738" fill="none" stroke="#51616D" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M306,788 V804" fill="none" stroke="#51616D" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M894,420 V448" fill="none" stroke="#51616D" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M894,578 V606" fill="none" stroke="#51616D" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M894,722 V738" fill="none" stroke="#51616D" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M894,788 V804" fill="none" stroke="#51616D" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="32" y="744" width="1136" height="44" fill="#F5F7F8" stroke="#C9D1D8"/>
+<text x="50" y="773" font-size="20" fill="#172B3A" font-weight="600">RELEASE EVENTS AFTER FREEZE: apply easy / medium / hard separately; no redesign.</text>
+<rect x="32" y="814" width="548" height="120" fill="white" stroke="#C9D1D8"/>
+<text x="50" y="845" font-size="23" fill="#172B3A" font-weight="600">Authored surrogate calculations</text>
+<text x="50" y="875" font-size="20" fill="#51616D" font-weight="400">Fixed action effects, shocks, mitigations and</text>
+<text x="50" y="901" font-size="20" fill="#51616D" font-weight="400">seed produce synthetic indices.</text>
+<rect x="620" y="814" width="548" height="120" fill="white" stroke="#C9D1D8"/>
+<text x="638" y="845" font-size="23" fill="#172B3A" font-weight="600">2. Executable deployment tests</text>
+<text x="638" y="875" font-size="20" fill="#51616D" font-weight="400">Hash-bound rules drive timed states, channels</text>
+<text x="638" y="901" font-size="20" fill="#51616D" font-weight="400">and logs; traces yield actual software outcomes.</text>
+<rect x="32" y="970" width="548" height="116" fill="white" stroke="#C9D1D8"/>
+<text x="50" y="1001" font-size="23" fill="#172B3A" font-weight="600">Replay and invariant checks</text>
+<text x="50" y="1031" font-size="20" fill="#51616D" font-weight="400">Reproduce outputs; check costs, permissions,</text>
+<text x="50" y="1057" font-size="20" fill="#51616D" font-weight="400">frozen hashes and matched event keys.</text>
+<rect x="620" y="970" width="548" height="116" fill="white" stroke="#C9D1D8"/>
+<text x="638" y="1001" font-size="23" fill="#172B3A" font-weight="600">Separate design and execution audits</text>
+<text x="638" y="1031" font-size="20" fill="#51616D" font-weight="400">Process review, source fidelity, replay and</text>
+<text x="638" y="1057" font-size="20" fill="#51616D" font-weight="400">sensitivity checks; retained failures.</text>
+<path d="M306,934 V960" fill="none" stroke="#51616D" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M894,934 V960" fill="none" stroke="#51616D" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="32" y="1120" font-size="18" fill="#51616D" font-weight="400">Audit record: inputs, actual outputs, decisions and failures. Shared filesystem is not hard isolation.</text>
+</svg>

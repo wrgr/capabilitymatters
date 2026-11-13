@@ -1,0 +1,17 @@
+{
+  "description": "Readable instruction retained before dispatch; the agent must visibly read it.",
+  "created_at": "2026-11-04T20:51:45.755272+00:00",
+  "actor": "operator",
+  "stage": "dialogue",
+  "response_file": "operator-02.json",
+  "public_inputs": [
+    "safety-01.json",
+    "scientist-01.json"
+  ],
+  "permitted_reads": [
+    "experiments/competency-live/2026-11-04/controlroom/packet-operator.json",
+    "experiments/competency-live/2026-11-04/controlroom/responses/safety-01.json",
+    "experiments/competency-live/2026-11-04/controlroom/responses/scientist-01.json"
+  ],
+  "instruction": "Respond to actual colleague evidence and optional advice. State your consequential provisional choice, reasons, resource commitments, disagreement and unresolved question. Do not imply a colleague has approved your proposal. Read only this invocation, its permitted_reads, your own prior invocation/response files and earlier permitted context. Follow the packet knowledge gate exactly. Write experiments/competency-live/2026-11-04/controlroom/responses/operator-02.json exclusively with message_id controlroom-operator-02. Return the same natural professional speech. Never inspect sealed events or other private packets."
+}

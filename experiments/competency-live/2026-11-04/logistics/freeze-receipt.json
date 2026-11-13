@@ -1,0 +1,11 @@
+{
+  "description": "Exact team artifact freeze; transport does not repair its content.",
+  "frozen_at": "2026-11-04T20:39:56.951121+00:00",
+  "sha256": "a47c8a7ca86492966a104bef7053ff6f5d35b907e2263358b2a0b51c25d81870",
+  "source": "experiments/competency-live/2026-11-04/logistics/draft-intervention.json",
+  "endorsement_files": [
+    "ops-03.json",
+    "analyst-03.json"
+  ],
+  "events_sha256": "afd7b290e7541625ab92421643d91a350c592d314d4ac34d5e00200a1c81dd09"
+}

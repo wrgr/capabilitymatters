@@ -1,0 +1,42 @@
+{
+  "description": "Final publication verification of retained executable evidence, performed after independent audit; does not replace raw results or claim human validation.",
+  "original_run_json_hashes_checked": 149,
+  "original_run_json_unchanged": true,
+  "frozen_sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+  "receipt_and_model_hashes_match": true,
+  "implementation_sources_match_execution_snapshots": true,
+  "independent_audit_reviewed_file_hashes_unchanged": 29,
+  "hash_chains_and_outcomes_recomputed": 8,
+  "primary_episodes": 3,
+  "diagnostic_probes": 5,
+  "full_python_suite": 244,
+  "node_fixture_boundary_tests": 12,
+  "deployment_tests_included_in_python_total": 24,
+  "optimized_python_deployment_tests": 24,
+  "source_fidelity_tests_included_in_python_total": 6,
+  "test_results": "pass",
+  "audit_scope": "No material source-fidelity or replay blocker within the eight retained inputs and tested counterexamples. Partial local summaries and terminal labels are not standalone success verdicts.",
+  "new_design_agent_conversations": 0,
+  "independent_software_auditor_conversations": 1,
+  "independent_software_auditor_task_turns": 3,
+  "previous_failed_validation_versions_retained": [
+    "../controlroom-executable-v1/",
+    "../controlroom-executable-v2/"
+  ],
+  "evidence_sha256": {
+    "audit-launch-receipts.json": "070e1ea21512341e28877202023efcb6abc20b50181d7b628732e5071a43fa61",
+    "competency-dependencies.json": "b60b4117bcd8f08b09bd3818beb13f13b1b3563808c2f875842a2e9ce4f27109",
+    "easy.json": "e6baa3e03b270a47d24b070972d9174cbb6601b8f253f6fe6844a067646bb583",
+    "execution-receipt.json": "d9878b08b689cbf7ce0701892a915801305e5003ebfabaa9afc72989bead9e18",
+    "fresh_sensor_control.json": "aaa6922d8d0c8134c01339453770f09b95aaabfb69c1662d168bbc937bf379a6",
+    "hard.json": "c7c2f06eaa2691305f03a556fcc88aec3d818955326a36501c3bc852a7e0083c",
+    "hard_after_start.json": "e539e2a8260d3d774bc7c3358058c73b3e1864ee40a8905980b27eb4c5dcd3f4",
+    "independent-audit.json": "52c4639411979d568f5e75ee29f05b9936105f7bd18c08a131fa69387002fce0",
+    "medium.json": "a8f50efe894c0efcf7f7b5f820cfd1cd732a69c7b0222c3692cd4260d397637c",
+    "medium_cue_first.json": "e47616898b2fe5f79e3d4a157faf0282d87d0b6dda6e853c8c0bb557309b9fd8",
+    "missing_reference.json": "419e1969bee09c56865f4eabcba69b9c27c1ffe5023ad0b54e3e1724da15edcf",
+    "model.json": "65ab20081c19d47098c1b8a327ca8c84a0a8630e9321be0e84ca877dd593b5c8",
+    "recipient_unavailable.json": "686717ef693f575fbe808f9ed6370d9883dd16123af8c46f1a6b2277f21e6a82",
+    "summary.json": "095b616c4bec3288fbc9b5115a917da184c95602fa060232f248697b733aacc0"
+  }
+}

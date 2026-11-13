@@ -1,0 +1,19 @@
+{
+  "description": "Readable instruction retained before dispatch; the agent must visibly read it.",
+  "created_at": "2026-11-04T20:51:45.752766+00:00",
+  "actor": "designer",
+  "stage": "dialogue",
+  "response_file": "designer-02.json",
+  "public_inputs": [
+    "director-01.json",
+    "director-02.json",
+    "access-01.json"
+  ],
+  "permitted_reads": [
+    "experiments/competency-live/2026-11-04/benefits/packet-designer.json",
+    "experiments/competency-live/2026-11-04/benefits/responses/director-01.json",
+    "experiments/competency-live/2026-11-04/benefits/responses/director-02.json",
+    "experiments/competency-live/2026-11-04/benefits/responses/access-01.json"
+  ],
+  "instruction": "Respond to the actual proposed choice and advice. State your consequential preference, disagreement or conditions, answer the questions and ask for any remaining decision-critical information. Exercise only your own specified authority. Read only this invocation, its permitted_reads, your own prior invocation/response files and earlier permitted context. Follow the packet knowledge gate exactly. Write experiments/competency-live/2026-11-04/benefits/responses/designer-02.json exclusively with message_id benefits-designer-02. Return the same natural professional speech. Never inspect sealed events or other private packets."
+}

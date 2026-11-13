@@ -1,0 +1,151 @@
+{
+  "description": "Independent model-reasoned applications of the same frozen no-release plan to each supplied event. These are conditional responses and limitations, not observed service actions, deployments or outcomes. No event receives learning, extra resources or redesign from another event. The transport's event release is not authorization to deploy the intervention.",
+  "actor": "director",
+  "freeze_sha256": "978418fb049e4e19cb6f7d985781048b052a251eebc6a06782faeccee4bca146",
+  "evidence_kind": "model_reasoned_synthetic_deployment",
+  "events": [
+    {
+      "difficulty": "easy",
+      "supported_actions": [
+        {
+          "action_id": "withhold-release-and-own-escalation",
+          "status": "supported administrative disposition; not an observed action",
+          "response": "Preserve no release. A complete English-language submission during staffed hours does not supply the plan's missing authorized-review capacity, handoff or other readiness evidence, and does not authorize automatic activation."
+        },
+        {
+          "action_id": "linked-resolution-tracking",
+          "status": "conditional specification response; not deployed tracking",
+          "response": "The specified record structure would distinguish submission, pending review, unknown outcome and evidenced resolution. It could represent this submission without calling it a determination; the event does not establish that such a record was created."
+        },
+        {
+          "action_id": "human-review-routing",
+          "status": "conditional specification constraint; no determination or routing observed",
+          "response": "The frozen specification gives page completion no eligibility approval. Its ambiguous-claim referral test is not an asserted workflow for approving every simple case; substantive approval and general closure criteria are not supplied."
+        }
+      ],
+      "unmet_demands": [
+        "The applicant's need for a clear distinction between submission and determination is not shown met in a live status message.",
+        "Actual determination, reviewer availability and resolution remain unestablished, even though the event specifies staffed hours.",
+        "No separate wording change is funded or released."
+      ],
+      "plausible_sequence": [
+        "Start from the supplied complete simple-case submission, independently of the other events.",
+        "Apply the frozen no-release decision; do not treat the favorable arrival conditions as a passed readiness gate.",
+        "Use the existing specification only to describe the required distinction between submission and determination; do not assert an implemented status change or eligibility decision.",
+        "Leave actual handling and outcome unknown."
+      ],
+      "failures": [
+        "The frozen plan supplies no released service response for this event.",
+        "Its unimplemented tracking specification and excluded wording change cannot establish that the applicant sees or understands an accurate status."
+      ],
+      "unobserved_outcomes": [
+        "Actual displayed status, comprehension, routing record, eligibility determination, repeat contacts, resolution and elapsed handling time.",
+        "Any effect of the plan on this applicant; no numerical performance or causal effect is inferred."
+      ]
+    },
+    {
+      "difficulty": "medium",
+      "supported_actions": [
+        {
+          "action_id": "withhold-release-and-own-escalation",
+          "status": "supported administrative disposition and escalation ownership; not an observed escalation",
+          "response": "Keep no release and identify the out-of-hours, full-slot and abandoned-interface demands as unresolved. Ownership of escalation supplies neither an interpreter nor an available appointment."
+        },
+        {
+          "action_id": "bounded-assisted-slot",
+          "status": "conditional capacity constraint; no assistance delivered",
+          "response": "An interpretation-dependent appointment at 16:30 cannot fit wholly within 10:00–14:00. The full slot leaves no supplied spare capacity. The plan cannot extend hours, add staff, overlap check time with service or promise a later appointment without confirmations."
+        },
+        {
+          "action_id": "actual-access-consultation",
+          "status": "actual prior advice retained; no new consultation or validation",
+          "response": "Retain the consultant's limitations on missing forms and unchecked machine translation. The advice does not establish a validated substitute for this unsupported-language need."
+        },
+        {
+          "action_id": "linked-resolution-tracking",
+          "status": "conditional specification response; not observed capture",
+          "response": "The proposed structure could record unmet demand and an unknown or pending outcome if a case or contact is actually captured. An abandoned interface does not establish an identifiable original-case record or a successful linkage."
+        },
+        {
+          "action_id": "scoped-participatory-check",
+          "status": "conditional research proposal; no completed check",
+          "response": "The abandoned experience is relevant to the planned walkthrough, but this event is not evidence of recruited participation or an observed walkthrough. The full slot does not create concurrent check capacity."
+        }
+      ],
+      "unmet_demands": [
+        "Immediate requested-language oral explanation at 16:30.",
+        "An available staffed assisted appointment and a usable route after interface abandonment.",
+        "Validated language coverage, approved replacement forms, a captured case/contact and an established review handoff."
+      ],
+      "plausible_sequence": [
+        "Begin independently with the supplied 16:30 arrival, unsupported-language explanation need, full slot and abandoned interface.",
+        "Retain no release. Compare the demand with the frozen hours and capacity constraints; neither condition supports an appointment at that time.",
+        "Describe unmet demand and the director's escalation responsibility without claiming that assistance, linkage, referral, recruitment or a later booking occurred.",
+        "Leave service access and resolution unknown; make no translation substitution or capacity repair."
+      ],
+      "failures": [
+        "The frozen plan cannot establish an immediate assisted route for this event within its disclosed hours and full capacity.",
+        "No released recovery route or wording change addresses abandonment.",
+        "Consultation and planned checking do not establish a validated language-access response."
+      ],
+      "unobserved_outcomes": [
+        "Whether the applicant receives any explanation, returns, obtains an appointment, requests review or resolves the case.",
+        "Whether a record exists, whether unmet demand is captured, actual language comprehension and any later access assessment.",
+        "No waiting time, resolution rate or effect size is inferred."
+      ]
+    },
+    {
+      "difficulty": "hard",
+      "supported_actions": [
+        {
+          "action_id": "withhold-release-and-own-escalation",
+          "status": "supported administrative disposition and escalation ownership; no live containment observed",
+          "response": "Preserve no release and place the fault, unauthorized-review gap and handoff problem within the director's escalation responsibility. The plan retains pause authority but explicitly does not claim a deployed closure change; this application cannot assert that closures were paused, reversed or repaired."
+        },
+        {
+          "action_id": "human-review-routing",
+          "status": "conditional specification constraint; not an operational remedy",
+          "response": "The event's automatic ineligible closure of ambiguous cases does not satisfy the specified authorized-human-review route. The frozen acceptance test requires an identifiable pending referral and excludes completion-triggered approval or closure; it supplies no authorized recipient, reinstatement procedure, new eligibility decision or software repair."
+        },
+        {
+          "action_id": "bounded-assisted-slot",
+          "status": "conditional capacity constraint; no overnight route",
+          "response": "Unavailable overnight interpretation and no extra staff cannot be overcome by the single daily existing-staff slot. No appointment, explanation or next-day review capacity is established by the event or the plan."
+        },
+        {
+          "action_id": "linked-resolution-tracking",
+          "status": "conditional specification response; no audited record or recovery observed",
+          "response": "If records were actually captured, the planned structure would distinguish fault-closed status from evidence of authorized review and actual resolution. The supplied count of 14 is a scenario input, not a verified tracking result or a count of corrected cases."
+        },
+        {
+          "action_id": "actual-access-consultation",
+          "status": "actual prior advice retained; no overnight expert response",
+          "response": "The prior advice establishes no overnight interpreting hours, approved translated replacement forms or access validation. Do not represent the final-looking notice as comprehensible or validated."
+        }
+      ],
+      "unmet_demands": [
+        "Immediate operational containment of the software fault and correction or review of the 14 supplied ambiguous-case closures.",
+        "A named available authorized reviewer, adequate review capacity and a workable handoff.",
+        "An accurate, understandable status explanation for the final-looking notice, including requested-language support overnight.",
+        "Any reinstatement, eligibility adjudication, software repair or expanded staffing procedure, none of which is supplied by this frozen plan."
+      ],
+      "plausible_sequence": [
+        "Begin independently with the supplied overnight fault, 14 ambiguous cases closed as ineligible, final-looking notice and lack of interpretation or extra staff.",
+        "Keep the same no-release decision; do not convert the stress event into authorization to activate or redesign the intervention.",
+        "Identify the discrepancy between the event and the frozen human-review specification and the director's escalation responsibility, without inventing an actual escalation recipient, pause execution, reversal or software fix.",
+        "Retain the overnight capacity limits and leave case correction, communication and eventual resolution unobserved."
+      ],
+      "failures": [
+        "The no-release artifact provides no observed operational protection against the supplied fault and does not establish that any of the 14 closures is corrected.",
+        "A conforming routing specification cannot substitute for an available authorized reviewer or an incident-recovery procedure.",
+        "The unchanged final-looking notice and absent overnight interpretation remain unmet communication and access demands.",
+        "Escalation ownership and retained pause authority do not themselves demonstrate containment, lawful adjudication under the fictional rule or service recovery."
+      ],
+      "unobserved_outcomes": [
+        "Whether the fault is stopped, the closures are paused or reversed, records are audited, referrals are created or any authorized human review occurs.",
+        "Actual eligibility, corrected notices, applicant comprehension, language access, repeat contacts, later staffing and resolution for any of the 14 cases.",
+        "No recovery count, timing, outcome prediction or causal effect is inferred."
+      ]
+    }
+  ]
+}

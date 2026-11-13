@@ -1,0 +1,298 @@
+{
+  "description": "Executable, uncalibrated discrete-event deployment contract authored after the original design and written projections; no new design-agent episode and no alteration of the frozen intervention.",
+  "model_id": "controlroom-deployment-v1",
+  "frozen_path": "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json",
+  "frozen_sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+  "release_path": "experiments/competency-live/2026-11-04/controlroom/deployment-release.json",
+  "receipt_path": "experiments/competency-live/2026-11-04/controlroom/freeze-receipt.json",
+  "case_path": "experiments/competency-live/2026-11-04/controlroom",
+  "allowed_initial_features": [
+    "sensor_staleness"
+  ],
+  "action_mapping": {
+    "timestamp-job-aid": {
+      "rules": [
+        "aid_check",
+        "compare_display_to_authored_reference",
+        "mark_paper_uncertain"
+      ],
+      "source_clause": "Prepare and brief the timestamp contradiction job aid in the first three minutes. Incorporate the safety engineer\u2019s authored-event reference and stop conditions: display timestamp and values must match the current scripted state in the prepared local console event record; contradiction, an older state, missing reference or indeterminate match triggers stop and handoff. No numerical age threshold is supplied. Label paper-sheet values last-known and freshness uncertain; they cannot clear a stop. These are adopted safety conditions, not operator validation of sensors or clocks."
+    },
+    "stop-and-handoff": {
+      "rules": [
+        "latched_stop",
+        "send_required_fields",
+        "require_acknowledgement"
+      ],
+      "source_clause": "Use the existing five-minute handoff segment to rehearse stopping and reporting the affected alarm, last-known values labeled uncertain, timestamp, observed contradiction or inability to establish freshness, AI priority and stopped status to the core safety engineer. The safety engineer has accepted receipt and logging during this segment. Either core participant may stop; the paper sheet cannot authorize continuation. Do not add personnel."
+    },
+    "sensor-staleness-rehearsal": {
+      "rules": [
+        "prepare_reference",
+        "prestart_check",
+        "sensor_staleness_scope_only",
+        "local_log",
+        "twenty_minute_limit"
+      ],
+      "source_clause": "Prepare the authored simulator event record in the local console log within the scoped fault-rehearsal work, recording the injected sensor change and intended current scripted state. Prepare and check this reference before starting practice; withhold start if it cannot be prepared and checked. Conduct only the narrowly scripted sensor-staleness rehearsal in the ten-minute segment; compare displayed timestamp and values with that record. Require a match to current scripted state for a freshness pass and stop/handoff for contradiction, older state, missing reference or indeterminate match. Use the final two minutes to record observations and unmet criteria in the local log; log handoff receipt during the existing five-minute segment. End or stop within the total 20 minutes. No independently verified clock, partial radio dropout injection or additional unranked exercise is assumed."
+    },
+    "completed-scientist-consultation": {
+      "rules": [
+        "no_diagnosis_certification",
+        "no_delayed_transfer_claim"
+      ],
+      "source_clause": "Account for the actual consultation delivered in controlroom-scientist-01. Retain its advice: acknowledgement improvement with expected order disclosed does not establish independent diagnosis; without a delayed probe, diagnosis, delayed retention and transfer remain unestablished. Advice supplies no safety approval, simulator fidelity validation or operational certification. No further scientist work is assumed."
+    }
+  },
+  "time_seconds": {
+    "reference_prepare": 30,
+    "reference_check": 60,
+    "aid_check": 90,
+    "practice_start": 180,
+    "handoff": 780,
+    "handoff_window_end": 1080,
+    "recording_start": 1080,
+    "end": 1200,
+    "ack_delay": 5
+  },
+  "behavior_profiles": {
+    "cue_first": {
+      "inspect_after_practice_start": 4,
+      "accept_after_practice_start": 6
+    },
+    "ranking_first": {
+      "inspect_after_practice_start": 12,
+      "accept_after_practice_start": 6
+    }
+  },
+  "script_truth": {
+    "state_id": 7,
+    "timestamp": 100,
+    "value": 4
+  },
+  "stale_display": {
+    "state_id": 6,
+    "timestamp": 90,
+    "value": 9
+  },
+  "scenarios": [
+    {
+      "id": "easy",
+      "difficulty": "easy",
+      "kind": "primary",
+      "source_event": "Simulator prioritizer works; one timestamp contradiction appears in a routine alarm set.",
+      "declared_features": [
+        "sensor_staleness"
+      ],
+      "behavior_profile": "cue_first",
+      "initial": {
+        "reference_available": true,
+        "reference_correct": true,
+        "aid_check_passes": true,
+        "sensor_stale": true,
+        "ai_available": true,
+        "radio_available": true,
+        "recipient_available": true,
+        "senior_available": true,
+        "cascading_alerts": false
+      },
+      "environment_changes": []
+    },
+    {
+      "id": "medium",
+      "difficulty": "medium",
+      "kind": "primary",
+      "source_event": "A stale sensor drives a confident ranking while a novice leads; the senior operator is present but handling another console.",
+      "declared_features": [
+        "sensor_staleness"
+      ],
+      "behavior_profile": "ranking_first",
+      "initial": {
+        "reference_available": true,
+        "reference_correct": true,
+        "aid_check_passes": true,
+        "sensor_stale": true,
+        "ai_available": true,
+        "radio_available": true,
+        "recipient_available": true,
+        "senior_available": false,
+        "cascading_alerts": false
+      },
+      "environment_changes": []
+    },
+    {
+      "id": "hard",
+      "difficulty": "hard",
+      "kind": "primary",
+      "source_event": "Cascading alerts coincide with partial radio dropout and AI loss. The paper alarm sheet contains stale values; the radio failure was not rehearsable in the installed simulator. No rescue expert or extra time appears.",
+      "declared_features": [
+        "sensor_staleness",
+        "cascading_alerts",
+        "radio_dropout",
+        "ai_loss"
+      ],
+      "behavior_profile": "cue_first",
+      "initial": {
+        "reference_available": true,
+        "reference_correct": true,
+        "aid_check_passes": true,
+        "sensor_stale": true,
+        "ai_available": false,
+        "radio_available": false,
+        "recipient_available": true,
+        "senior_available": true,
+        "cascading_alerts": true
+      },
+      "environment_changes": [
+        {
+          "at": 1085,
+          "set": {
+            "radio_available": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "medium_cue_first",
+      "difficulty": "medium",
+      "kind": "diagnostic_probe",
+      "source_event": "A stale sensor drives a confident ranking while a novice leads; the senior operator is present but handling another console.",
+      "declared_features": [
+        "sensor_staleness"
+      ],
+      "behavior_profile": "cue_first",
+      "initial": {
+        "reference_available": true,
+        "reference_correct": true,
+        "aid_check_passes": true,
+        "sensor_stale": true,
+        "ai_available": true,
+        "radio_available": true,
+        "recipient_available": true,
+        "senior_available": false,
+        "cascading_alerts": false
+      },
+      "environment_changes": []
+    },
+    {
+      "id": "hard_after_start",
+      "difficulty": "hard",
+      "kind": "diagnostic_probe",
+      "source_event": "Cascading alerts coincide with partial radio dropout and AI loss. The paper alarm sheet contains stale values; the radio failure was not rehearsable in the installed simulator. No rescue expert or extra time appears.",
+      "declared_features": [
+        "sensor_staleness"
+      ],
+      "behavior_profile": "cue_first",
+      "initial": {
+        "reference_available": true,
+        "reference_correct": true,
+        "aid_check_passes": true,
+        "sensor_stale": true,
+        "ai_available": true,
+        "radio_available": true,
+        "recipient_available": true,
+        "senior_available": true,
+        "cascading_alerts": false
+      },
+      "environment_changes": [
+        {
+          "at": 190,
+          "set": {
+            "radio_available": false,
+            "ai_available": false,
+            "cascading_alerts": true
+          }
+        },
+        {
+          "at": 1085,
+          "set": {
+            "radio_available": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "missing_reference",
+      "difficulty": "easy",
+      "kind": "diagnostic_probe",
+      "source_event": "Simulator prioritizer works; one timestamp contradiction appears in a routine alarm set.",
+      "declared_features": [
+        "sensor_staleness"
+      ],
+      "behavior_profile": "cue_first",
+      "initial": {
+        "reference_available": false,
+        "reference_correct": true,
+        "aid_check_passes": true,
+        "sensor_stale": true,
+        "ai_available": true,
+        "radio_available": true,
+        "recipient_available": true,
+        "senior_available": true,
+        "cascading_alerts": false
+      },
+      "environment_changes": []
+    },
+    {
+      "id": "recipient_unavailable",
+      "difficulty": "easy",
+      "kind": "diagnostic_probe",
+      "source_event": "Simulator prioritizer works; one timestamp contradiction appears in a routine alarm set.",
+      "declared_features": [
+        "sensor_staleness"
+      ],
+      "behavior_profile": "cue_first",
+      "initial": {
+        "reference_available": true,
+        "reference_correct": true,
+        "aid_check_passes": true,
+        "sensor_stale": true,
+        "ai_available": true,
+        "radio_available": true,
+        "recipient_available": false,
+        "senior_available": true,
+        "cascading_alerts": false
+      },
+      "environment_changes": []
+    },
+    {
+      "id": "fresh_sensor_control",
+      "difficulty": "easy",
+      "kind": "diagnostic_probe",
+      "source_event": "Simulator prioritizer works; one timestamp contradiction appears in a routine alarm set.",
+      "declared_features": [
+        "sensor_staleness"
+      ],
+      "behavior_profile": "cue_first",
+      "initial": {
+        "reference_available": true,
+        "reference_correct": true,
+        "aid_check_passes": true,
+        "sensor_stale": false,
+        "ai_available": true,
+        "radio_available": true,
+        "recipient_available": true,
+        "senior_available": true,
+        "cascading_alerts": false
+      },
+      "environment_changes": []
+    }
+  ],
+  "assumptions": [
+    "All event timings, sensor values, actor response profiles and channel availability are authored simulation assumptions, not estimates from workers or utility telemetry.",
+    "Primary easy uses cue-first behavior and medium uses ranking-first behavior; condition and behavior are confounded. The same-medium cue-first probe checks dependence on that assumption, not an effect of training.",
+    "A job aid supplies a procedure, not a physical interlock or guaranteed cue detection. An actor can accept an item before checking; the engine records the resulting stale-data acceptance.",
+    "Reference preparation and checks occur within the existing three-minute briefing/preparation segment; no additional time or staff is added.",
+    "The executable deployment environment can impose failures outside the intervention training simulator capability. This does not add radio-dropout rehearsal or a fallback to the frozen intervention.",
+    "Known hard conditions fail the start scope gate. The separate after-start hard probe tests the already-frozen rule for failures emerging after a legitimate start.",
+    "The five-minute handoff segment is minute 13 through 18. The actor attempts once in this segment; no retry protocol or additional communication channel is purchased. Radio restoration after that segment does not invent a successful retry.",
+    "Independent diagnosis and delayed transfer are not administered because the frozen plan did not fund the needed exercise/probe. They remain unassessed, not zero-scored."
+  ],
+  "objectives": {
+    "containment": "No stale-data acceptance occurs and any required stop remains latched.",
+    "handoff": "When a discrepancy is detected in a started exercise, required fields are sent and acknowledged within the frozen handoff segment.",
+    "deployment_demand": "An in-scope exercise completes those containment and handoff obligations. A justified no-start preserves release compliance but leaves the deployment demand unfulfilled.",
+    "diagnosis": "No outcome is claimed without an independently administered diagnosis assessment."
+  },
+  "interpretation": "Observed results are executed software-state transitions under authored assumptions; they are not observations of human learning, professional skill or utility performance."
+}

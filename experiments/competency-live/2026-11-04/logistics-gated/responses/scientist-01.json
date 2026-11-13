@@ -1,0 +1,51 @@
+{
+  "message_id": "logistics-scientist-01",
+  "speech": "The six-item check cannot support independent-competence certification on the supplied evidence. My evidence L-S1 says its items repeat interface examples; they provide neither delayed nor changed-case evidence. Use them as a practice checkpoint to identify difficulties with those examples. Analyst's disclosure that no delayed unassisted assessment exists further limits the readiness claim. L-S2 says an assessor can review two changed-case exercises within this project, and no validated certification instrument is available. Those two exercises can inform subsequent practice; they cannot establish readiness for 220 workers or all shifts.\n\nI advise reserving 2 units for brief practice and 2 for a bounded changed-case check. For two selected workers, propose a 15-minute sequence: five minutes of guided practice, five minutes attempting one unfamiliar exception case without coaching, then five minutes of feedback. The assessor would review exactly those two attempts. Record assistance, the worker's explanation of the decision and escalation, and unresolved difficulties; any operational correctness criteria need Ops' confirmation. This is a proposed time allocation, not demonstrated feasibility. For other workers, brief practice must remain within their 15-minute allowance and actual staffing; I cannot assume the single clinic reaches every shift.\n\nTogether with the proposed 2-unit workflow work, 2-unit audit and my single 1-unit consultation fee, this design totals 9 units, leaving 1. The 3-unit paper fallback drill does not fit alongside that package. Ops must decide staffing, selection and operational release. Independent competence, delayed retention and workforce-wide transfer remain unknown; I provide assessment advice, not certification or operational authorization.",
+  "evidence_disclosed": ["L-S1", "L-S2"],
+  "claims": [
+    {
+      "claim": "The six practice items repeat interface examples and are neither a delayed nor changed-case test.",
+      "basis": ["L-S1"],
+      "competency": "assessment limitations",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "The six-item check can serve as a practice checkpoint for those examples but does not establish independent competence, delayed retention or workforce-wide transfer.",
+      "basis": ["L-S1", "logistics-analyst-01", "public.brief"],
+      "competency": "assessment limitations",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "An assessor can review two changed-case exercises within this project; no validated certification instrument is available.",
+      "basis": ["L-S2"],
+      "competency": "assessment limitations",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "I recommend two changed-case attempts from two selected workers, each using five minutes of guided practice, five minutes of an unfamiliar case without coaching, and five minutes of feedback, with the assessor reviewing exactly two attempts; staffing, selection, operational criteria and feasibility need Ops' confirmation.",
+      "basis": ["L-S2", "logistics-ops-01"],
+      "competency": "practice and transfer design",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Record assistance, decision and escalation explanations, and unresolved difficulties to inform subsequent practice; the two exercises cannot establish readiness for all workers or shifts.",
+      "basis": ["L-S2", "public.brief", "logistics-ops-01"],
+      "competency": "assessment limitations",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Brief practice for other workers must fit the disclosed 15-minute allowance and actual staffing; coverage by the single clinic cannot be assumed.",
+      "basis": ["logistics-ops-01"],
+      "competency": "practice and transfer design",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "The recommended practice and changed-case check cost 2 units each; adding the proposed workflow work, audit and a single consultation fee totals 9 of 10 units, leaving 1 and excluding the 3-unit paper fallback drill from that package.",
+      "basis": ["public.cost_reference", "logistics-ops-01", "logistics-analyst-01"],
+      "competency": "practice and transfer design",
+      "standing": "role_judgment"
+    }
+  ],
+  "consult_request": null,
+  "decision": "proposal"
+}

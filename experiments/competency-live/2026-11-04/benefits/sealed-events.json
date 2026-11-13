@@ -1,0 +1,18 @@
+{
+  "description": "Prospectively authored stress events, withheld until intervention freeze.",
+  "created_at": "2026-11-04T20:45:16.715733+00:00",
+  "events": [
+    {
+      "difficulty": "easy",
+      "event": "English-speaking applicant submits a complete simple case during staffed hours; status must distinguish submission from determination."
+    },
+    {
+      "difficulty": "medium",
+      "event": "Applicant needing oral explanation in an unsupported language arrives at 16:30; the assisted slot is full and the interface was abandoned."
+    },
+    {
+      "difficulty": "hard",
+      "event": "An overnight software fault closes 14 ambiguous cases as ineligible; the status notice appears final. Interpretation remains unavailable overnight and no extra staff arrive."
+    }
+  ]
+}

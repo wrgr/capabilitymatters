@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860" role="img" aria-labelledby="title desc">
+<title id="title">Table 3. Instrument outputs and their proposed value for LERN</title><desc id="desc">A map of inspectable evidence, conditional requirements and proposed teaching, research and rehearsal uses. Educational effects and team superiority have not been measured.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#51616D"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif}</style>
+<rect width="1200" height="860" fill="white"/>
+<text x="32" y="40" font-size="28" fill="#172B3A" font-weight="600">Table 3. What becomes inspectable, and what LERN can do with it</text>
+<text x="32" y="72" font-size="20" fill="#51616D" font-weight="400">Uses are proposed applications; evidence consists of actual model dialogue and executed software states.</text>
+<rect x="32" y="94" width="1136" height="46" fill="#EDF4F7" stroke="#C9D1D8"/>
+<text x="48" y="124" font-size="20" fill="#172B3A" font-weight="600">Instrument output</text>
+<text x="346" y="124" font-size="20" fill="#172B3A" font-weight="600">Concrete evidence in this example</text>
+<text x="760" y="124" font-size="20" fill="#172B3A" font-weight="600">Proposed use / needed judgment</text>
+<rect x="32" y="140" width="1136" height="216" fill="white" stroke="#C9D1D8"/>
+<text x="48" y="174" font-size="21" fill="#1C5370" font-weight="600">1. Expertise into</text>
+<text x="48" y="201" font-size="21" fill="#1C5370" font-weight="600">decisions</text>
+<text x="346" y="174" font-size="20" fill="#172B3A" font-weight="400">The operator withdraws separate</text>
+<text x="346" y="200" font-size="20" fill="#172B3A" font-weight="400">unranked practice after the systems</text>
+<text x="346" y="226" font-size="20" fill="#172B3A" font-weight="400">disclosure; the seven-unit</text>
+<text x="346" y="252" font-size="20" fill="#172B3A" font-weight="400">compromise retains its</text>
+<text x="346" y="278" font-size="20" fill="#172B3A" font-weight="400">learning-evidence limits.</text>
+<text x="760" y="174" font-size="20" fill="#172B3A" font-weight="400">Teaching: explain how evidence and</text>
+<text x="760" y="200" font-size="20" fill="#172B3A" font-weight="400">competing constraints changed the</text>
+<text x="760" y="226" font-size="20" fill="#172B3A" font-weight="400">plan. Research: code coverage,</text>
+<text x="760" y="252" font-size="20" fill="#172B3A" font-weight="400">utilization and integration.</text>
+<rect x="32" y="356" width="1136" height="216" fill="#F5F7F8" stroke="#C9D1D8"/>
+<text x="48" y="390" font-size="21" fill="#1C5370" font-weight="600">2. Frozen-design</text>
+<text x="48" y="417" font-size="21" fill="#1C5370" font-weight="600">deployment trace</text>
+<text x="346" y="390" font-size="20" fill="#172B3A" font-weight="400">Medium accepts stale data before a</text>
+<text x="346" y="416" font-size="20" fill="#172B3A" font-weight="400">later stop. Hard refuses start.</text>
+<text x="346" y="442" font-size="20" fill="#172B3A" font-weight="400">Radio loss after a stop prevents</text>
+<text x="346" y="468" font-size="20" fill="#172B3A" font-weight="400">acknowledged handoff.</text>
+<text x="760" y="390" font-size="20" fill="#172B3A" font-weight="400">Rehearsal: identify unmet demands</text>
+<text x="760" y="416" font-size="20" fill="#172B3A" font-weight="400">and dependencies. Distinguish a</text>
+<text x="760" y="442" font-size="20" fill="#172B3A" font-weight="400">correct stop, a working handoff and</text>
+<text x="760" y="468" font-size="20" fill="#172B3A" font-weight="400">evidence of learning.</text>
+<rect x="32" y="572" width="1136" height="216" fill="white" stroke="#C9D1D8"/>
+<text x="48" y="606" font-size="21" fill="#1C5370" font-weight="600">Linked competency and</text>
+<text x="48" y="633" font-size="21" fill="#1C5370" font-weight="600">coordination</text>
+<text x="48" y="660" font-size="21" fill="#1C5370" font-weight="600">requirements</text>
+<text x="346" y="606" font-size="20" fill="#172B3A" font-weight="400">The check must precede acceptance;</text>
+<text x="346" y="632" font-size="20" fill="#172B3A" font-weight="400">a reference must be verified; a</text>
+<text x="346" y="658" font-size="20" fill="#172B3A" font-weight="400">recipient must be reachable.</text>
+<text x="346" y="684" font-size="20" fill="#172B3A" font-weight="400">Diagnosis and delayed transfer</text>
+<text x="346" y="710" font-size="20" fill="#172B3A" font-weight="400">remain unassessed.</text>
+<text x="760" y="606" font-size="20" fill="#172B3A" font-weight="400">Design review: ask who can supply</text>
+<text x="760" y="632" font-size="20" fill="#172B3A" font-weight="400">each function, what</text>
+<text x="760" y="658" font-size="20" fill="#172B3A" font-weight="400">authority/resources are required,</text>
+<text x="760" y="684" font-size="20" fill="#172B3A" font-weight="400">and what an individual or team must</text>
+<text x="760" y="710" font-size="20" fill="#172B3A" font-weight="400">integrate.</text>
+<text x="32" y="824" font-size="18" fill="#51616D" font-weight="400">Needed functions may be held by an authorized individual or distributed across a team; no team advantage is estimated.</text>
+<text x="32" y="851" font-size="18" fill="#51616D" font-weight="400">Scope: conditional modeled requirements. Human learning gains and operational readiness need separate validation.</text>
+</svg>

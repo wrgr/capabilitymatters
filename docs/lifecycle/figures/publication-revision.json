@@ -1,0 +1,94 @@
+{
+  "description": "Publication revision: changed-file purposes and verified provenance, separate from the immutable first research archive.",
+  "main_manuscript_scope": [
+    "Deterministic competency-mediation demonstration",
+    "Focal latest logistics, benefits and control-room dynamic examples"
+  ],
+  "new_research_agent_executions": 0,
+  "checks": {
+    "python_tests": 219,
+    "node_tests": 12,
+    "source_fidelity_tests_included_in_python_total": 5,
+    "source_fidelity_result": "pass",
+    "links": "all manuscript and supplement relative links resolve",
+    "run_integrity": "all original run JSON and four exact freezes unchanged",
+    "visual_qa": "three SVG/PNG figures rendered and inspected; zero exterior text overflow"
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "why": "Link the focused LERN manuscript, editable figures and separate companion appendix.",
+      "sha256": "031419361b32f58b99b57798ed153ca257238022a9657d0baa47f88b014c0645"
+    },
+    {
+      "path": "docs/lifecycle/competency-mediation-paper-v3.md",
+      "why": "State the thesis and use cases; present actual control-room dialogue, commitments and tests; retain only the deterministic demonstration and three focal dynamic runs.",
+      "sha256": "0a96907ec5990c690113990b49d7c5d5528e9616cd33f7e5dd005da541d8aa7d"
+    },
+    {
+      "path": "docs/lifecycle/competency-mediation-supplement.md",
+      "why": "Keep development records and unrelated historical explorations outside the main manuscript.",
+      "sha256": "a3109bbd84a448856583e4506c2b17020a96c7f8b0e6fb08ad4ae6847f688404"
+    },
+    {
+      "path": "docs/lifecycle/figures/README.md",
+      "why": "Explain figure contents, regeneration and evidence limits.",
+      "sha256": "b0e13415c3fbf06f516f98fe487a8492c8be0233b79789d593b05b85ab67bcae"
+    },
+    {
+      "path": "docs/lifecycle/figures/competency-architecture.png",
+      "why": "Provide a visually verified high-resolution preview for the paper and chat.",
+      "sha256": "4625158359dbcc4adb48004e9f7cfa5cdadd6e8a7e4c1ccfdd784ca56b7b9ee6"
+    },
+    {
+      "path": "docs/lifecycle/figures/competency-architecture.svg",
+      "why": "Provide an editable publication master with selectable text and accessible description.",
+      "sha256": "938b434da77ab9ba527a4cca4b8b3eaf722a537e76cac7426b1f5b18b0ac289b"
+    },
+    {
+      "path": "docs/lifecycle/figures/competency-figure-sources.json",
+      "why": "Bind every selected quotation and held-out event to unchanged retained source bytes.",
+      "sha256": "def711f9870c1dd90f0672ff5c488ed02f711353773dc5c9e527132c1a4005c6"
+    },
+    {
+      "path": "docs/lifecycle/figures/controlroom-dialogue-table.png",
+      "why": "Provide a visually verified high-resolution preview for the paper and chat.",
+      "sha256": "20a563d8b970e519a7accca2a51abb8dbca0cb43f6c4bf74cb798a8ce3bf60c6"
+    },
+    {
+      "path": "docs/lifecycle/figures/controlroom-dialogue-table.svg",
+      "why": "Provide an editable publication master with selectable text and accessible description.",
+      "sha256": "d5e04e88051820345a42ecf7cff013a129ab4f402403345e531d03812dd3b076"
+    },
+    {
+      "path": "docs/lifecycle/figures/controlroom-stress-test.png",
+      "why": "Provide a visually verified high-resolution preview for the paper and chat.",
+      "sha256": "c02e7a2051e98d4448bfac6ff42d1633c56f764b4e77c522e3c6786b15d0bd84"
+    },
+    {
+      "path": "docs/lifecycle/figures/controlroom-stress-test.svg",
+      "why": "Provide an editable publication master with selectable text and accessible description.",
+      "sha256": "548d2ee009a050fa6bc292a4f7bdfeb6d1574a1d72232aa24662281d0fe444a1"
+    },
+    {
+      "path": "docs/lifecycle/figures/publication-revision.json",
+      "why": "Record all publication-revision paths, purposes and verification outcomes; self hash omitted.",
+      "sha256": null
+    },
+    {
+      "path": "docs/lifecycle/figures/verification.json",
+      "why": "Retain actual browser bounds checks, visual inspection, source integrity and regression results.",
+      "sha256": "97b5ca8ede88ea8375087fe842b6c07c72dbed8b9adf9a2b08034864ff903cb9"
+    },
+    {
+      "path": "tools/lifecycle/paper_figures.py",
+      "why": "Render publication figures from source-checked dialogue and frozen intervention evidence.",
+      "sha256": "9e9424fac99ce1ce8c17c3d32ecf805932d8c5aec5d8d45502b0f38143acca6e"
+    },
+    {
+      "path": "tools/lifecycle/tests/test_paper_figures.py",
+      "why": "Protect publication quotations, frozen identity and event provenance against accidental alteration.",
+      "sha256": "0208ff1ad7ac4d353165508de929640da5660f9ad449a0be68ff517e8b09ad44"
+    }
+  ]
+}

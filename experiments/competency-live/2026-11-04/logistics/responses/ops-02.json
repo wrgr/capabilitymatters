@@ -1,0 +1,56 @@
+{
+  "message_id": "logistics-ops-02",
+  "speech": "Your denominator finding changes our interpretation materially: we should stop using 11% versus 17% as evidence of deterioration. I support your two-unit audit, including a visible unknown category for the 38% of night-shift overrides without annotations. We cannot reconstruct their reasons from this export or assume they were handled successfully.\n\nTo answer your questions, I have no evidence ranking exception types by operational consequence. I will not invent that ranking. The ownership answer is narrower: supervisors have no agreed overnight override owner (L-O1); I cannot identify a consistently accepted current owner.\n\nMy provisional operational choice is to spend the two workflow units on an explicit overnight handoff procedure. Before a participating shift uses it, I will require a named supervisor to accept override ownership and a named backup to accept unresolved handoffs. The handoff record will identify the case, owner, unresolved status and next action; unknown reasons remain marked unknown. This is a prospective record, not a repair of the historical export. If accepted coverage cannot be established, I will withhold release of this procedure on that shift and record the coverage gap. No new personnel are assumed.\n\nPlease specify the minimum monitoring fields your audit needs within that procedure's scope, and say whether comparable historical counts can actually be produced. I retain the 15-minute total per worker and one two-hour clinic limits. We have provisionally allocated 5 units including the single scientist consultation; I am holding the remaining 5 until that advice arrives, with practice and checking still undecided. The six-item check will not trigger certification under my authority.",
+  "evidence_disclosed": [
+    "L-O1",
+    "L-O2",
+    "L-O3"
+  ],
+  "claims": [
+    {
+      "claim": "The reported exception rates cannot support a direct deterioration comparison because their denominators changed.",
+      "basis": [
+        "logistics-analyst-01",
+        "L-D1"
+      ],
+      "competency": "basic descriptive measurement informed by analyst denominator audit"
+    },
+    {
+      "claim": "Historical night-shift overrides have an unrecoverable annotation gap and must retain an unknown category.",
+      "basis": [
+        "logistics-analyst-01",
+        "L-D2",
+        "L-D3"
+      ],
+      "competency": "workflow implementation informed by analyst missing-data evidence"
+    },
+    {
+      "claim": "Current evidence does not identify an agreed overnight override owner or rank exception types by consequence.",
+      "basis": [
+        "L-O1",
+        "logistics-analyst-01"
+      ],
+      "competency": "shift workflow; limits of available operational evidence"
+    },
+    {
+      "claim": "Workflow, audit, and one consultation provisionally allocate 5 units, leaving 5 units; practice and checking remain undecided.",
+      "basis": [
+        "public.budget",
+        "public.cost_reference",
+        "logistics-ops-01",
+        "logistics-analyst-01"
+      ],
+      "competency": "workplace implementation resource planning"
+    },
+    {
+      "claim": "Available implementation capacity remains 15 minutes per worker and one two-hour senior-dispatcher clinic.",
+      "basis": [
+        "L-O2",
+        "L-O3"
+      ],
+      "competency": "staffing and practice scheduling"
+    }
+  ],
+  "consult_request": null,
+  "decision": "commitment: allocate 2 units to the conditional overnight handoff procedure; release requires accepted named owner and backup coverage on each participating shift; reserve practice decisions pending scientist advice"
+}

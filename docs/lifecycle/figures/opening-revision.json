@@ -1,0 +1,91 @@
+{
+  "description": "Focused abstract/introduction and publication table revision; prior evidence and earlier revision manifests remain unchanged.",
+  "new_design_agent_conversations": 0,
+  "new_deployment_episodes": 0,
+  "checks": {
+    "full_python_suite": 245,
+    "source_fidelity_tests_included_in_python_total": 7,
+    "result": "pass",
+    "publication_assets": 5,
+    "browser_overflow": [],
+    "manuscript_relative_links": "all resolve",
+    "original_execution_sources": "unchanged from audited commit 8285fc0"
+  },
+  "files": [
+    {
+      "path": "docs/lifecycle/competency-mediation-paper-v3.md",
+      "why": "Sharpen abstract and introduction around thesis, two contributions, competencies, team mechanisms and LERN use cases; integrate setup/value tables and consistent numbering.",
+      "sha256": "84e2c0cba01ab908f2272db9f5a6dc33ea4787bbc6c152d9612f5ecb08b1fa5d"
+    },
+    {
+      "path": "docs/lifecycle/figures/README.md",
+      "why": "Describe five publication assets, source checks and evidence limits.",
+      "sha256": "a7bbd00079d357d2b17c946af350f9e3896b118487c018d599a263c9f99036d1"
+    },
+    {
+      "path": "docs/lifecycle/figures/competency-architecture.png",
+      "why": "Editable publication table/figure master or rendered preview, explaining setup, two contributions, actual dialogue and proposed value with consistent numbering.",
+      "sha256": "98d9ae243931e3add30f43b1ce56c3f6a60e4b8ad939f70c2ed5cf768077fa7b"
+    },
+    {
+      "path": "docs/lifecycle/figures/competency-architecture.svg",
+      "why": "Editable publication table/figure master or rendered preview, explaining setup, two contributions, actual dialogue and proposed value with consistent numbering.",
+      "sha256": "af5a1cda78d5ae3038e140a9d92b65c880f4f86f88befc3dbc5928526efc352b"
+    },
+    {
+      "path": "docs/lifecycle/figures/competency-figure-sources.json",
+      "why": "Bind three setup rows to nine actual role packets, exact private evidence and scenario constraints.",
+      "sha256": "c8e0c821674f62e70caa887cff6b72a6abc53c201d048f350de95a46ac8620cd"
+    },
+    {
+      "path": "docs/lifecycle/figures/competency-scenario-setup.png",
+      "why": "Editable publication table/figure master or rendered preview, explaining setup, two contributions, actual dialogue and proposed value with consistent numbering.",
+      "sha256": "3e2efa75abcf85ad133cc1bcd6b8f221b2fdf6d57db5f3409b87600cc36cb61c"
+    },
+    {
+      "path": "docs/lifecycle/figures/competency-scenario-setup.svg",
+      "why": "Editable publication table/figure master or rendered preview, explaining setup, two contributions, actual dialogue and proposed value with consistent numbering.",
+      "sha256": "b8c72df6b2f0d2e30c16180251ca5c22e15e91e4a33f272c44c095dd960733f0"
+    },
+    {
+      "path": "docs/lifecycle/figures/competency-value-add.png",
+      "why": "Editable publication table/figure master or rendered preview, explaining setup, two contributions, actual dialogue and proposed value with consistent numbering.",
+      "sha256": "8ef67372619fa1e0af01d1fa86058f3b62831813517fe5ead7f405c916e18364"
+    },
+    {
+      "path": "docs/lifecycle/figures/competency-value-add.svg",
+      "why": "Editable publication table/figure master or rendered preview, explaining setup, two contributions, actual dialogue and proposed value with consistent numbering.",
+      "sha256": "7180e339054733ace32eebca799a9fbc99d4c3c4d0fc0cabce890c799c945045"
+    },
+    {
+      "path": "docs/lifecycle/figures/controlroom-dialogue-table.png",
+      "why": "Editable publication table/figure master or rendered preview, explaining setup, two contributions, actual dialogue and proposed value with consistent numbering.",
+      "sha256": "d58fe27183ff1f83512079eb6fa6b336f3de62e186d1367bdd92c0eda1af9d77"
+    },
+    {
+      "path": "docs/lifecycle/figures/controlroom-dialogue-table.svg",
+      "why": "Editable publication table/figure master or rendered preview, explaining setup, two contributions, actual dialogue and proposed value with consistent numbering.",
+      "sha256": "e619194f89dc930401dce860da21910b3cb1119ddc7ceb6578bb2fc17291816b"
+    },
+    {
+      "path": "docs/lifecycle/figures/opening-revision.json",
+      "why": "Inventory all changed paths and byte hashes; self hash omitted.",
+      "sha256": null
+    },
+    {
+      "path": "docs/lifecycle/figures/verification.json",
+      "why": "Record five browser bounds checks, table visual inspection, seven source checks and 245 passing Python tests.",
+      "sha256": "f3aefe658d75643e3deffdbc1c7c54cbc1695939794aedaebaaf08e28d4b81b3"
+    },
+    {
+      "path": "tools/lifecycle/paper_figures.py",
+      "why": "Render source-checked setup and value tables, label two architecture contributions and renumber actual dialogue as Table 2.",
+      "sha256": "7e9eea5a265c0d321908ec998c93c33c48652dadc5c6802701dd38bfda8ccd12"
+    },
+    {
+      "path": "tools/lifecycle/tests/test_paper_figures.py",
+      "why": "Verify all five SVG assets and reject forged private setup evidence.",
+      "sha256": "1315130126365c76275eed6e8e1fbbc7b2d56376ee31362e51feed0a0faa7944"
+    }
+  ]
+}

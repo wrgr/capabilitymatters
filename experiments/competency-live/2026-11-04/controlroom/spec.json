@@ -1,0 +1,171 @@
+{
+  "description": "Case design retained for independent audit; not delivered wholesale to participants.",
+  "case_id": "controlroom",
+  "brief": "A fictional utility trains a control-room team with an AI alert prioritizer in a simulator only. Acknowledgement times improved; sponsor asks whether this certifies readiness for independent diagnosis. Make a bounded simulator release decision with no live utility operation. Only supplied scenario safety rules are authoritative.",
+  "budget": 8,
+  "core": [
+    "operator",
+    "safety"
+  ],
+  "roster": {
+    "operator": {
+      "profession": "Senior control-room operator and training implementation lead",
+      "competencies": [
+        "alarm workflow",
+        "operator handoff",
+        "simulator practice delivery",
+        "operational cues"
+      ],
+      "excluded_specialist_scope": [
+        "safety certification",
+        "learning-science validity",
+        "sensor engineering"
+      ],
+      "authority": "May propose operational procedure and practice; cannot approve safety release alone.",
+      "availability": "core"
+    },
+    "safety": {
+      "profession": "Safety and simulator systems engineer",
+      "competencies": [
+        "scenario safety constraints",
+        "fault injection",
+        "fallback system design",
+        "incident logging"
+      ],
+      "excluded_specialist_scope": [
+        "learning-transfer validity",
+        "real-utility certification"
+      ],
+      "authority": "May approve or withhold simulator safety release jointly with operator; no real-world certification authority.",
+      "availability": "core"
+    },
+    "scientist": {
+      "profession": "Consultable learning scientist",
+      "competencies": [
+        "independent diagnosis assessment",
+        "practice and delayed-transfer limitations"
+      ],
+      "excluded_specialist_scope": [
+        "utility safety",
+        "simulator fidelity"
+      ],
+      "authority": "Advice only; cannot certify operational readiness or override safety engineer.",
+      "availability": "optional; fee 1 unit"
+    }
+  },
+  "cost_reference": {
+    "timestamp_job_aid": 1,
+    "stop_and_handoff": 2,
+    "unranked_practice": 2,
+    "fault_rehearsal": 3,
+    "delayed_probe": 2,
+    "expert_fee": 1
+  },
+  "cost_rule": "Costs cover scoped project work. Combine or narrow activities only with explicit accounting and realistic capacity. Expert fee counts. No cost-free invented personnel or specialist signoff.",
+  "roles": {
+    "operator": {
+      "profession": "Senior control-room operator and training implementation lead",
+      "competencies": [
+        "alarm workflow",
+        "operator handoff",
+        "simulator practice delivery",
+        "operational cues"
+      ],
+      "excluded_specialist_scope": [
+        "safety certification",
+        "learning-science validity",
+        "sensor engineering"
+      ],
+      "authority": "May propose operational procedure and practice; cannot approve safety release alone.",
+      "availability": "core",
+      "private_evidence": [
+        "C-O1: novices normally follow AI ranking and rarely diagnose unranked alarms.",
+        "C-O2: experienced operators use a timestamp contradiction cue that is missing from the job aid.",
+        "C-O3: only a 20-minute simulator slot per operator is funded; no full-day exercise."
+      ],
+      "knowledge_gate": {
+        "scope_rule": "Every claim names competency exactly from your roster competencies, or hypothesis. No specialist claim gains authority through confident wording.",
+        "claim_standing": [
+          "supplied_fact",
+          "role_judgment",
+          "attributed_advice",
+          "hypothesis"
+        ],
+        "basis_rule": "Every claim cites your supplied evidence ID, public brief, cost reference, or an actually delivered prior message ID. A private fact of another role can be used only after its public disclosure.",
+        "attributed_advice_rule": "Outside your own competency, repeat only actual consulted advice, citing the consultant message and keeping its limitations; no independent specialist signoff.",
+        "hypothesis_rule": "Unsupplied external general knowledge must be labeled hypothesis. It cannot substitute for specialist authority, supplied organizational facts, capacity, validation or approval.",
+        "action_gate": "Freeze mechanically checks response claim scopes/bases, disclosed evidence, real source messages, exact core endorsements and budget. Semantic misuse remains subject to independent audit; this is not a knowledge eraser.",
+        "hard_limit": "Filesystem/tool separation is instruction-bounded in this runtime; no claim of hard sandbox isolation. The executable gate controls artifact acceptance, not latent model knowledge.",
+        "unknowns": "If the evidence does not establish readiness, coverage, validity or eligibility, leave it unknown. A no-release decision is a consequential permitted outcome."
+      }
+    },
+    "safety": {
+      "profession": "Safety and simulator systems engineer",
+      "competencies": [
+        "scenario safety constraints",
+        "fault injection",
+        "fallback system design",
+        "incident logging"
+      ],
+      "excluded_specialist_scope": [
+        "learning-transfer validity",
+        "real-utility certification"
+      ],
+      "authority": "May approve or withhold simulator safety release jointly with operator; no real-world certification authority.",
+      "availability": "core",
+      "private_evidence": [
+        "C-S1: sensor staleness and a local console log can be simulated safely; the radio-link module cannot inject partial dropouts this week.",
+        "C-S2: fictional release rule requires operator AND safety approval; either can stop a scenario.",
+        "C-S3: offline paper alarm sheet has last-known values without automatic freshness marking."
+      ],
+      "knowledge_gate": {
+        "scope_rule": "Every claim names competency exactly from your roster competencies, or hypothesis. No specialist claim gains authority through confident wording.",
+        "claim_standing": [
+          "supplied_fact",
+          "role_judgment",
+          "attributed_advice",
+          "hypothesis"
+        ],
+        "basis_rule": "Every claim cites your supplied evidence ID, public brief, cost reference, or an actually delivered prior message ID. A private fact of another role can be used only after its public disclosure.",
+        "attributed_advice_rule": "Outside your own competency, repeat only actual consulted advice, citing the consultant message and keeping its limitations; no independent specialist signoff.",
+        "hypothesis_rule": "Unsupplied external general knowledge must be labeled hypothesis. It cannot substitute for specialist authority, supplied organizational facts, capacity, validation or approval.",
+        "action_gate": "Freeze mechanically checks response claim scopes/bases, disclosed evidence, real source messages, exact core endorsements and budget. Semantic misuse remains subject to independent audit; this is not a knowledge eraser.",
+        "hard_limit": "Filesystem/tool separation is instruction-bounded in this runtime; no claim of hard sandbox isolation. The executable gate controls artifact acceptance, not latent model knowledge.",
+        "unknowns": "If the evidence does not establish readiness, coverage, validity or eligibility, leave it unknown. A no-release decision is a consequential permitted outcome."
+      }
+    },
+    "scientist": {
+      "profession": "Consultable learning scientist",
+      "competencies": [
+        "independent diagnosis assessment",
+        "practice and delayed-transfer limitations"
+      ],
+      "excluded_specialist_scope": [
+        "utility safety",
+        "simulator fidelity"
+      ],
+      "authority": "Advice only; cannot certify operational readiness or override safety engineer.",
+      "availability": "optional; fee 1 unit",
+      "private_evidence": [
+        "C-L1: current acknowledgement exercise discloses the expected alarm order before performance.",
+        "C-L2: one delayed unranked diagnosis probe is feasible next week, after the current release decision."
+      ],
+      "knowledge_gate": {
+        "scope_rule": "Every claim names competency exactly from your roster competencies, or hypothesis. No specialist claim gains authority through confident wording.",
+        "claim_standing": [
+          "supplied_fact",
+          "role_judgment",
+          "attributed_advice",
+          "hypothesis"
+        ],
+        "basis_rule": "Every claim cites your supplied evidence ID, public brief, cost reference, or an actually delivered prior message ID. A private fact of another role can be used only after its public disclosure.",
+        "attributed_advice_rule": "Outside your own competency, repeat only actual consulted advice, citing the consultant message and keeping its limitations; no independent specialist signoff.",
+        "hypothesis_rule": "Unsupplied external general knowledge must be labeled hypothesis. It cannot substitute for specialist authority, supplied organizational facts, capacity, validation or approval.",
+        "action_gate": "Freeze mechanically checks response claim scopes/bases, disclosed evidence, real source messages, exact core endorsements and budget. Semantic misuse remains subject to independent audit; this is not a knowledge eraser.",
+        "hard_limit": "Filesystem/tool separation is instruction-bounded in this runtime; no claim of hard sandbox isolation. The executable gate controls artifact acceptance, not latent model knowledge.",
+        "unknowns": "If the evidence does not establish readiness, coverage, validity or eligibility, leave it unknown. A no-release decision is a consequential permitted outcome."
+      }
+    }
+  },
+  "knowledge_gate_version": 2
+}

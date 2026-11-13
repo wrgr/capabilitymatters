@@ -1,0 +1,38 @@
+{
+  "description": "Pilot process validation checkpoint retained before any benefits or control-room subagent launch.",
+  "validated_at": "2026-11-04T20:58:53.256051+00:00",
+  "initial_pilot_gate": {
+    "decision": "fail",
+    "scope": "End-to-end instrument feasibility with auditable dispatched prompts and protocol-conforming retained artifact; separate from intervention success.",
+    "reasons": [
+      "Observed authenticated role dialogue, consultation, exact-byte endorsements, consistent freeze/release hashes and three independent synthetic applications demonstrate substantial execution feasibility.",
+      "Encrypted task bodies prevent required exact dispatched-prompt audit and verification of facilitator neutrality or explicit file-read authorization.",
+      "Frozen artifact omits required description and retains superseded pending-signoff text; external endorsement verifies acceptance but does not repair the artifact."
+    ],
+    "intervention_success": "not established; no operational rollout or clinic is authorized, all worker/organizational outcomes remain unobserved, and each stress event exposes unmet demands. No release remains controlling."
+  },
+  "gated_pilot_gate": {
+    "decision": "pass",
+    "reasons": [
+      "Prospective readable instructions, role packets and public responses are retained, with visible participant invocation reads.",
+      "Responsive dialogue exposes private evidence before reuse and produces consequential budget, coverage and no-release choices.",
+      "Both core roles endorse matching exact bytes; recomputed frozen and sealed-event hashes match receipts and freeze precedes release.",
+      "Three separately reasoned projections apply the same immutable plan and respect no release without redesign.",
+      "This fresh independent audit records semantic, artifact, process and outcome limits without intervention repair."
+    ],
+    "intervention_success": "Not demonstrated. The retained plan permits audit and preparation only and does not meet immediate live demands in any event. Gate pass concerns the bounded example, not operational efficacy or general protocol validation."
+  },
+  "integrity": {
+    "freeze_intact": true,
+    "events_precommitted": true,
+    "freeze_before_release": true,
+    "three_levels": true,
+    "all_core_registered": true,
+    "independent_review": true,
+    "deployment_recorded": true,
+    "deployment_uses_same_freeze": true,
+    "deployment_has_three_levels": true,
+    "reviewer_is_separate": true
+  },
+  "scope": "Feasible auditable synthetic example, not evidence of successful operational release or true knowledge isolation."
+}

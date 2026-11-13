@@ -1,0 +1,255 @@
+{
+  "description": "Independent re-audit of unchanged executable v2 corrections, retained results and prior v1 findings. Software and method validation only; no intervention redesign, repair, operational certification or empirical competency assessment.",
+  "auditor_agent": "/root/executable_auditor",
+  "audited_at": "2026-11-05T04:17:41.071007+00:00",
+  "reviewed_inputs_sha256": {
+    "tools/lifecycle/controlroom_contract.py": "23a7f9e70a996e14eed1badb8703f61058fa4a0b1b949716cd40f96b77bb456a",
+    "tools/lifecycle/controlroom_simulator.py": "97a206f2981d735a9270aefb7f29286c375c79ab4c379fe2a9bf48cfb63831fb",
+    "tools/lifecycle/controlroom_results.py": "4384d265988d9b0898e4f0dad0b8e772bb6b895114f4f4c81a89e6282558085b",
+    "tools/lifecycle/run_controlroom_deployment.py": "2f4e5e42014af47130efd36855a77d9ec767c03b1bec77a2b2a7d3ba3e021e85",
+    "tools/lifecycle/tests/test_controlroom_deployment.py": "8240ca38fd570d108f24de8c87a9239ca6aedfdc2a4e37e559c219039043722e",
+    "src/data/lifecycle/controlroom-deployment-v2.json": "65ab20081c19d47098c1b8a327ca8c84a0a8630e9321be0e84ca877dd593b5c8",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v1/independent-audit.json": "106357a61f5b24d06044fe1e4db2608d11e00809196eafa04aeb700e639f3af9",
+    "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+    "experiments/competency-live/2026-11-04/controlroom/freeze-receipt.json": "a2b0b0311cef16b0ef5217a148f61d8043825252e31e187b6abd7f29ba9b4230",
+    "experiments/competency-live/2026-11-04/controlroom/deployment-release.json": "47902de1b93c627420b75330b24ab4237b9e6d5c4a2d2747ed55b87c6128df27",
+    "experiments/competency-live/2026-11-04/controlroom/responses/operator-03.json": "ba0b1d162a5028c3a4720290ca6de857ac20c1566128d56a416052c30476842c",
+    "experiments/competency-live/2026-11-04/controlroom/responses/safety-03.json": "c56eca416508c57209ed6784663005d24b40d4efc22508d6a7e977f9b5610920",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/competency-dependencies.json": "2578e7b9966e6d71ca401bff218a4972565cec355cfa67349776f074479deb5c",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/easy.json": "32d9a4cb4a4e506e9633e8eb28e9d81ccfd713943551a4b7667f07b122e91355",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/execution-receipt.json": "54efbcfa5457bfc0cb746bbad7002105a8dad8bf04282a3a3b03a282fc45cb6d",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/fresh_sensor_control.json": "9a6fa34fdf6f4034c9919b5ed05c33dbc5d4c7ae7f7bf402963e90fcb5c03dd7",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/hard.json": "12c3da13a9d0b38836b179b050a2c71d303d6392a244f95c092c79a32b0a87cf",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/hard_after_start.json": "c4e964fe2f6ebefc5ab481b01155f0908912cb789a8a842dd67c7f740368c071",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/implementation/controlroom_contract.py": "23a7f9e70a996e14eed1badb8703f61058fa4a0b1b949716cd40f96b77bb456a",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/implementation/controlroom_results.py": "4384d265988d9b0898e4f0dad0b8e772bb6b895114f4f4c81a89e6282558085b",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/implementation/controlroom_simulator.py": "97a206f2981d735a9270aefb7f29286c375c79ab4c379fe2a9bf48cfb63831fb",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/implementation/run_controlroom_deployment.py": "2f4e5e42014af47130efd36855a77d9ec767c03b1bec77a2b2a7d3ba3e021e85",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/medium.json": "41dfa537d5f86a05b7a642f658d9819358bc2efe5dff5839605d38ed5af65a16",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/medium_cue_first.json": "3a416606db7c4541ed370cdf4d8c4f294ee04a8c72cca3fabcec5b375fc6f5c5",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/missing_reference.json": "a822cf4c78cf2d464a3634cb5c939419487c972ef07016ea533e30b4364ba466",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/model.json": "65ab20081c19d47098c1b8a327ca8c84a0a8630e9321be0e84ca877dd593b5c8",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/recipient_unavailable.json": "a44a53d2a223cbfda5d60914a2a25410fb672cbc80e1ce65d5ac206d43487192",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v2/summary.json": "64870523bae60ae59d8eeb37061c4f876bb1ea5613de51cb25d3031ce0fdf5ed"
+  },
+  "original_findings_reassessment": [
+    {
+      "prior_id": "F1",
+      "status": "original_counterexample_resolved",
+      "verification": "Retained acknowledged handoffs now carry actual last_known_values={value:9,freshness:uncertain}, timestamp90, alarm-A, contradiction, AI priority and stopped_status=true. handoff_complete rejects null packets, missing values, Boolean and infinite values, non-uncertain freshness, stopped_status=false and contradiction=current. Direct receiver probes for null/missing-value/non-uncertain/not-stopped packets return handoff_unacknowledged and required_fields_complete=false. The actual sender uses the current displayed value; receiver checks semantic validity rather than independently measuring the originating sensor."
+    },
+    {
+      "prior_id": "F2",
+      "status": "initial_counterexample_resolved_but_prestart_transition_gap_remains",
+      "verification": "An undeclared initial cascading_alerts=true now withholds start and demand=false. An unsupported feature appearing between the time0 scope gate and practice_start is not rechecked at start; see R1. A new cascading-alert fault after inspection but before acceptance is recorded in accepted_items.out_of_scope_features and release_boundary_obeyed=false."
+    },
+    {
+      "prior_id": "F3",
+      "status": "original_counterexample_resolved",
+      "verification": "Fresh-control sensor_stale=true at182 changes display to {state_id:6,timestamp:90,value:9}; inspection184 detects contradiction and stops. A change after inspection at185 invalidates the inspection snapshot, produces a stale unchecked acceptance at186 and demand=false. The engine does not invent another inspection or claim that error was contained."
+    },
+    {
+      "prior_id": "F4",
+      "status": "original_counterexample_resolved",
+      "verification": "Fresh-control ranking_first accepts a current item before inspection, records protocol_violations=1 and demand=false. Its terminal phase still says completed_current_record_path; that label must not be used as an all-obligations success indicator."
+    },
+    {
+      "prior_id": "F5",
+      "status": "substantially_realized_but_logging_completeness_gap_remains",
+      "verification": "The aid is inspectable structured content; the check separately validates its comparator, four stop triggers, safety recipient, paper rule and synthetic actor identification. Broken aid or operator_can_locate_aid_elements=false blocks start. Participant-owned local_log is separate from the audit trace. Initial logger loss prevents a checked local reference and blocks start. Retained started episodes execute recording_start1080 and final_observations1200, with receipt logs where acknowledgements occurred. Transient missing comparison records can still pass demand fulfillment; see R2. Identification and task duration remain authored actor assumptions, not measured human abilities."
+    }
+  ],
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "medium",
+      "category": "scope_and_false_compliance",
+      "title": "Scope is not rechecked at the actual practice start",
+      "finding": "_scope_gate runs at0. _practice_start at180 checks only cached reference_checked and aid_checked. An allowed cascading_alerts=true event at170 therefore permits an already-out-of-scope exercise to start. The actor stops at184, and demand fulfillment correctly remains false, but release_boundary_obeyed incorrectly remains true because the observer derives known_invalid_start from initial inputs and sees no unsupported accepted item. This leaves a residual false-compliance path beyond the repaired initial-flag counterexample.",
+      "actual_probe": {
+        "scenario": "easy",
+        "only_change": "environment_changes=[{at:170,set:{cascading_alerts:true}}]",
+        "compile_program_accepted": true,
+        "practice_started": true,
+        "start_at_seconds": 180,
+        "stop_at_seconds": 184,
+        "release_boundary_obeyed": true,
+        "deployment_demand_fulfilled": false
+      },
+      "retained_result_impact": "No retained v2 episode includes a prestart environmental fault; the defect does not contradict their deterministic replay.",
+      "source_refs": [
+        "tools/lifecycle/controlroom_simulator.py:63",
+        "tools/lifecycle/controlroom_simulator.py:80",
+        "tools/lifecycle/controlroom_simulator.py:131",
+        "tools/lifecycle/controlroom_results.py:50",
+        "tools/lifecycle/controlroom_results.py:64",
+        "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json#/release_conditions/0"
+      ]
+    },
+    {
+      "id": "R2",
+      "severity": "high",
+      "category": "logging_and_false_success",
+      "title": "Transient logger loss can omit mandatory comparison records while demand is reported fulfilled",
+      "finding": "The final success predicate requires a receipt log and recording_completed but never requires the frozen comparison/pass-or-stop records. _inspect and _stop ignore failure from _local_record. With local logging unavailable183 through184 and restored185, the inspection and stop still occur, but their local records disappear. The later receipt and final record succeed, and deployment_demand_fulfilled=true. The final record does not contain the missing displayed comparison and labels both recorded unmet criteria false. Thus recording completion is still not equivalent to satisfying the frozen local-record acceptance test.",
+      "actual_probe": {
+        "scenario": "easy",
+        "only_change": "environment_changes=[{at:183,set:{local_log_available:false}},{at:185,set:{local_log_available:true}}]",
+        "compile_program_accepted": true,
+        "local_log_kinds": [
+          "script_reference",
+          "reference_check",
+          "aid_check",
+          "handoff_receipt",
+          "final_observations"
+        ],
+        "missing_required_kinds": [
+          "freshness_comparison",
+          "stop"
+        ],
+        "handoff_acknowledged": true,
+        "local_recording_completed": true,
+        "deployment_demand_fulfilled": true
+      },
+      "retained_result_impact": "The retained eight episodes have no such transient outage; their expected comparison records are present. This is a demonstrated accepted-input false success, not a claim that their stored logs were altered.",
+      "source_refs": [
+        "tools/lifecycle/controlroom_simulator.py:89",
+        "tools/lifecycle/controlroom_simulator.py:148",
+        "tools/lifecycle/controlroom_simulator.py:141",
+        "tools/lifecycle/controlroom_simulator.py:218",
+        "tools/lifecycle/controlroom_results.py:46",
+        "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json#/actions/2/acceptance_test"
+      ]
+    },
+    {
+      "id": "R3",
+      "severity": "medium",
+      "category": "time_contract_validation",
+      "title": "The final recording boundary is scheduled but not pinned by model validation",
+      "finding": "validate_model pins practice_start, handoff, handoff_window_end and end, but omits recording_start. A model differing only by recording_start=1000 compiles and reports successful completion, although the recording segment begins during the frozen handoff allocation rather than at1080. The retained v2 model correctly specifies1080. This limits claims that the adapter rejects every change to the frozen3/10/5/2 allocation.",
+      "actual_probe": {
+        "scenario": "easy",
+        "only_change": "time_seconds.recording_start=1000",
+        "compile_program_accepted": true,
+        "deployment_demand_fulfilled": true
+      },
+      "source_refs": [
+        "tools/lifecycle/controlroom_contract.py:49",
+        "tools/lifecycle/controlroom_simulator.py:75",
+        "tools/lifecycle/controlroom_simulator.py:213",
+        "src/data/lifecycle/controlroom-deployment-v2.json#/time_seconds",
+        "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json#/budget_accounting"
+      ]
+    },
+    {
+      "id": "R4",
+      "severity": "low",
+      "category": "recording_interpretation",
+      "title": "Final unmet-criteria summary covers fewer obligations than the outcome observer",
+      "finding": "final_observations.unmet_criteria records only handoff and stale_acceptance. The unchecked-current probe correctly fails demand with protocol_violations=1, yet its final record reports both listed unmet criteria false. The prestart out-of-scope probe also omits scope failure from that summary, and R2 omits missing records. This makes the local unmet-criteria summary incomplete; readers must not equate an all-false pair with all obligations satisfied. Accepted-items details retain the unchecked flag, so that particular violation can still be reconstructed.",
+      "source_refs": [
+        "tools/lifecycle/controlroom_simulator.py:221",
+        "tools/lifecycle/controlroom_results.py:47",
+        "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json#/actions/2/action"
+      ]
+    },
+    {
+      "id": "R5",
+      "severity": "informational",
+      "category": "retrospective_assumptions_and_inference",
+      "title": "Executed state transitions remain conditional on authored policies and retrospective model construction",
+      "finding": "No branch on difficulty or preset outcome lookup was found. The easy/medium contrast is generated by authored inspect184 versus inspect192 schedules around acceptance186; it does not estimate a difficulty or training effect. The medium_cue_first probe usefully exposes that dependence. senior_available has no causal role beyond retained metadata. The model and receipt openly identify retrospective construction. No calibration, empirical human action, preregistered parameter selection, matched individual design or independent outcome measurement exists. Competency mappings are interpretations of software functional dependencies, not measured professional capabilities or a team effect.",
+      "source_refs": [
+        "src/data/lifecycle/controlroom-deployment-v2.json#/behavior_profiles",
+        "src/data/lifecycle/controlroom-deployment-v2.json#/assumptions",
+        "experiments/competency-live/2026-11-04/controlroom-executable-v2/execution-receipt.json",
+        "experiments/competency-live/2026-11-04/controlroom-executable-v2/competency-dependencies.json"
+      ]
+    },
+    {
+      "id": "R6",
+      "severity": "informational",
+      "category": "hard_probe_scope",
+      "title": "hard_after_start remains a stopped actor losing its communication channel",
+      "finding": "The initial sensor discrepancy stops the actor at184, before the compound fault at190. The retained probe demonstrates a dropped handoff at780, no acknowledgement, and no invented retry after radio restoration1085. It does not demonstrate detection or containment of emerging compound faults by an actively accepting operator. The primary hard episode demonstrates scope refusal, not hard-demand capability. No-start containment=true is vacuous non-acceptance, not successful operational performance.",
+      "source_refs": [
+        "experiments/competency-live/2026-11-04/controlroom-executable-v2/hard_after_start.json#/trace",
+        "experiments/competency-live/2026-11-04/controlroom-executable-v2/hard.json#/outcomes"
+      ]
+    }
+  ],
+  "actual_verification_performed": [
+    {
+      "check": "Read scope",
+      "result": "Read the current four modules and deployment tests, the complete v2 model, all16 retained v2 files including implementation snapshots, prior v1 independent audit, and the five named original frozen/release/endorsement files. No source, model, frozen input or retained result was modified."
+    },
+    {
+      "check": "Tests",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s tools/lifecycle/tests -p test_controlroom_deployment.py -v",
+      "result": "21 tests passed; exit code0."
+    },
+    {
+      "check": "Frozen source, authority and budget",
+      "result": "compile_program succeeds against the original exact digest9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96, actual operator/safety exact-byte endorsements and unchanged primary event descriptions. Frozen costs sum to7 of8. The retained model allocates180/780/1080/1200 with reference preparation/check30/60 and aid check90; recording begins1080 and finishes1200. This establishes virtual timing/accounting, not real worker workload feasibility."
+    },
+    {
+      "check": "Hashes and snapshots",
+      "result": "All four current implementation hashes match both the pre-execution receipt and retained implementation snapshots. model.json bytes equal the source v2 model and match the receipt model hash."
+    },
+    {
+      "check": "Complete replay",
+      "temporary_output": "/tmp/controlroom-v2-audit-_64v5lco/replay",
+      "result": "Reexecuted execute(root,model_path,new_output_folder). All eight episode files, summary, dependency findings, model snapshot and four implementation snapshots match retained bytes exactly. The receipt matches structurally after removing started_at only."
+    },
+    {
+      "check": "Trace and metrics",
+      "result": "Every retained trace passes verify_trace; recomputed outcomes equal retained outcomes. Retained easy and medium_cue_first stop184 with value9 handoff780 and acknowledgement785; medium retains stale acceptance186 despite stop192 and acknowledgement785; hard is withheld; missing reference is withheld; recipient unavailable prevents acknowledgement; current control accepts current186. All retained started episodes contain participant-owned reference, aid, comparison and final records, with stop/receipt records where applicable."
+    },
+    {
+      "check": "F1-F5 independent counterexamples",
+      "result": "Executed initial undeclared cascade, emerging staleness182, current ranking_first, initially unavailable logger, broken aid and actor-identification failure; verified corrected behavior described in reassessment. Tested sender numeric payload and helper/receiver rejection of semantically invalid payloads."
+    },
+    {
+      "check": "Additional perturbations",
+      "result": "Executed R1 prestart cascade170, R2 logger outage183-185, R3 recording_start1000, staleness185 after inspection and cascade185 before acceptance. All model perturbations compiled; none were persisted into source/model/results. New postinspection staleness records one stale unchecked acceptance and demand=false; postinspection cascade records release_boundary_obeyed=false."
+    }
+  ],
+  "gate_decision": {
+    "decision": "conditional_pass_for_retained_v2_execution_and_named_original_counterexamples; fail_for_unqualified_source_faithfulness_across_supported_transitions",
+    "scope": "The retained v2 episodes are genuine reproducible software transitions and correct the original handoff omission, initial-scope, emerging-staleness, unchecked-current and basic aid/log-realization examples. Retained easy/cue-first successes are internally supported for their actual declared inputs. R1-R3 prevent certifying the general adapter as fully enforcing the frozen release/logging/time obligations for all inputs its validator accepts. R2 demonstrates an additional false success; R1 demonstrates false scope compliance.",
+    "blocking_findings_for_general_gate": [
+      "R1",
+      "R2",
+      "R3"
+    ],
+    "does_not_authorize": [
+      "human learning or professional competency claims",
+      "team-versus-individual effects",
+      "independent diagnosis, retention or transfer claims",
+      "real utility operation or certification"
+    ],
+    "no_repair": "Only this audit artifact was written in the repository, using exclusive creation."
+  },
+  "warranted_conclusions": [
+    "Current code/model and retained snapshots reproduce every v2 episode exactly, with trace continuity and metrics consistency.",
+    "Within the retained synthetic inputs, early visible-field checking suppresses the stale acceptance, late checking preserves the recorded error, and handoff acknowledgement requires a semantically valid packet and available modeled channel/recipient.",
+    "The original v1 handoff omission is corrected, and explicit aid content, synthetic identification and participant logging are now executed rather than represented solely by an aid_check_passes flag or external audit trace.",
+    "Functional dependencies on timing, reference realization and communication availability are illustrated conditionally; competency labels remain interpretive."
+  ],
+  "unwarranted_conclusions": [
+    "All accepted environmental transitions obey the release boundary, all fulfilled demands contain complete required logs, or model validation pins every frozen time boundary.",
+    "An all-false local unmet_criteria pair or terminal completed_current_record_path establishes procedure success.",
+    "The hard_after_start probe demonstrates active detection of emerging compound faults.",
+    "The model establishes human performance, intervention effectiveness, diagnosis, delayed learning, transfer, live utility readiness or team superiority."
+  ],
+  "limitations": [
+    "The audit is confined to explicitly authorized v2 files, the prior audit and original named evidence; it is not an operational safety certification or a broader repository review.",
+    "World, actor and oracle have functionally different code paths but share one trusted Python process. Inspection uses visible display/reference fields; reference checking deliberately compares with simulator-authored truth. There is no blinded independent human or agent assessor.",
+    "The profiles are deterministic authored schedules with one inspection and one acceptance attempt; no unobserved repeats, retries, recovery procedure or additional personnel should be inferred.",
+    "Receiver checks semantic validity, not external sensor accuracy; local scripted truth is not an independently verified utility clock.",
+    "Explicit actor-identification and logger-availability flags remain authored realization assumptions. Two minutes of virtual recording is not measured human effort.",
+    "Hash-chain continuity and deterministic replay do not independently attest preregistration, chronology or authenticity against an author able to recompute all files.",
+    "R1-R3 are accepted-input counterexamples outside the eight retained episode inputs. They bound general validation claims without alleging that retained episode records were tampered with.",
+    "Human learning_outcome remains null; independent diagnosis and delayed transfer remain unassessed rather than failed."
+  ]
+}

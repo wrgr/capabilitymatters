@@ -1,0 +1,358 @@
+{
+  "description": "Independent audit of the retained logistics-gated bounded example. Process feasibility is evaluated separately from intervention sufficiency and unobserved real outcomes. No intervention or existing evidence was changed.",
+  "evaluator_agent": "/root/logistics_gated_evaluator",
+  "process_findings": [
+    {
+      "finding": "Observable substantive instructions and actual input access are retained. Every participant stage visibly reads its prospective invocation, then permitted case inputs before writing its response. The readable invocation files contain the substantive task and constraints even though native inter-agent payloads are encrypted.",
+      "citations": [
+        "invocations/ops-01.json",
+        "invocations/ops-02.json",
+        "invocations/ops-03.json",
+        "invocations/deployment.json",
+        "runtime-transcripts/ops-rollout.json records[2,4,10,12,18,20,26,28]",
+        "runtime-transcripts/analyst-rollout.json records[2,4,10,12,18,20]",
+        "runtime-transcripts/scientist-rollout.json records[2,4]"
+      ]
+    },
+    {
+      "finding": "Private facts were publicly disclosed before cross-role reuse: Ops disclosed L-O1/O2/O3 in its opening, analyst disclosed L-D1/D2/D3 in its opening, and the requested scientist disclosed L-S1/S2 after reading both openings. Later responses cite delivered messages and maintain limitations. No premature private-evidence reuse was found in the retained dialogue.",
+      "citations": [
+        "logistics-ops-01",
+        "logistics-analyst-01",
+        "logistics-scientist-01",
+        "logistics-ops-02",
+        "logistics-analyst-02",
+        "invocations/scientist-01.json",
+        "invocations/ops-02.json",
+        "invocations/analyst-02.json"
+      ]
+    },
+    {
+      "finding": "Dialogue changes choices rather than merely repeating positions. The denominator disclosure changes Ops interpretation; scientist advice changes the 7-unit opening into a 9-unit two-worker package; analyst questions new recording burden; Ops assigns a bounded recorder allowance but acknowledges unconfirmed prerequisites and chooses no release. Analyst endorses that choice without assuming operational authority.",
+      "citations": [
+        "logistics-ops-01",
+        "logistics-analyst-01",
+        "logistics-scientist-01",
+        "logistics-ops-02",
+        "logistics-analyst-02",
+        "logistics-ops-03",
+        "logistics-analyst-03"
+      ]
+    },
+    {
+      "finding": "Both core agents endorse the exact same artifact bytes. Recomputed draft/frozen SHA-256 equals both endorsement hashes and the freeze receipt. Freeze at 20:53:42.491561 UTC precedes event release at 20:54:03.230132 UTC. Recomputed sealed-event hash matches the receipt. Deployment cites the frozen hash and applies all three events independently without repairing the plan.",
+      "citations": [
+        "responses/ops-03.json",
+        "responses/analyst-03.json",
+        "draft-intervention.json",
+        "frozen-intervention.json",
+        "freeze-receipt.json",
+        "sealed-events.json",
+        "deployment-release.json",
+        "deployment.json"
+      ],
+      "verified_sha256": "67507be5cfccaaecfec8270517710243e83338bf4435a20bce2ba96c47459cf8"
+    },
+    {
+      "finding": "The frozen decision is no release. Only audit and preparation are authorized. All projections preserve that decision and add no fallback, staffing, new expert or assumed attendance. A withheld release is a consequential process outcome, while immediate exception-handling demands remain unmet.",
+      "citations": [
+        "logistics-ops-03",
+        "logistics-analyst-03",
+        "frozen-intervention.json release_decision and signoffs",
+        "deployment.json events[easy,medium,hard]"
+      ]
+    },
+    {
+      "finding": "Costs sum to 9 of 10 units: workflow 2, audit 2, practice 2, changed cases 2, consultation 1. The fallback drill would make 12 and is excluded. The 50-minute clinic assignment fits the supplied 120-minute capacity and 15-minute worker allowance numerically, but attendance, booking and execution feasibility are not demonstrated. The field budget_spent is explicitly scoped commitments, not measured expenditure.",
+      "citations": [
+        "spec.json cost_reference and cost_rule",
+        "logistics-scientist-01",
+        "logistics-analyst-02",
+        "logistics-ops-03",
+        "frozen-intervention.json actions and budget_spent",
+        "logistics-analyst-03"
+      ]
+    },
+    {
+      "finding": "Observed participant tools are bounded shell reads, hash calculation and writes to their assigned response/draft/deployment paths; scientist uses apply_patch to add its response. No repository search, web access, other-role private packet read, evaluator-file read or pre-release sealed-event read appears in the supplied exports. This is positive evidence about exported calls, not proof of a hard access sandbox or hidden-prompt absence.",
+      "citations": [
+        "runtime-transcripts/ops-rollout.json all custom_tool_call records",
+        "runtime-transcripts/analyst-rollout.json all custom_tool_call records",
+        "runtime-transcripts/scientist-rollout.json all custom_tool_call records",
+        "provenance/ops.json",
+        "provenance/analyst.json",
+        "provenance/scientist.json"
+      ]
+    }
+  ],
+  "competency_contributions": {
+    "ops": {
+      "competencies_used": [
+        "shift workflow",
+        "staffing",
+        "job-aid implementation",
+        "basic descriptive measurement"
+      ],
+      "actual_choices": [
+        "Made owner acknowledgement a prerequisite rather than assumed coverage.",
+        "Narrowed practice to two workers, retained the scientist sequence and assigned 30 minutes plus up to 20 minutes of recording within the known clinic.",
+        "Chose no release when attendance, acknowledgement and assessor scheduling were unconfirmed.",
+        "Excluded the fallback drill and retained a 9-unit package."
+      ],
+      "citations": [
+        "logistics-ops-01",
+        "logistics-ops-02",
+        "logistics-ops-03"
+      ]
+    },
+    "analyst": {
+      "competencies_used": [
+        "denominator auditing",
+        "descriptive segmentation",
+        "missing-data analysis",
+        "workflow measurement"
+      ],
+      "actual_choices": [
+        "Prevented an unsupported like-for-like interpretation of 11% versus 17%.",
+        "Committed only to supported existing-export analysis and explicit missingness.",
+        "Challenged prospective-field availability and unfunded collection work, prompting a bounded recording assignment.",
+        "Recommended no release and endorsed exact bytes only in analytical capacity."
+      ],
+      "citations": [
+        "logistics-analyst-01",
+        "logistics-analyst-02",
+        "logistics-analyst-03"
+      ]
+    },
+    "scientist": {
+      "competencies_used": [
+        "practice and transfer design",
+        "assessment limitations"
+      ],
+      "actual_choices": [
+        "Rejected certification from repeated six-item examples.",
+        "Proposed a bounded 5/5/5-minute practice, unfamiliar-case attempt and feedback sequence for exactly two workers.",
+        "Disclosed two assessor reviews and lack of a validated certification instrument.",
+        "Left staffing, operational criteria and release to Ops; no independent competence, retention or workforce-wide transfer claim."
+      ],
+      "citations": [
+        "logistics-scientist-01"
+      ]
+    }
+  },
+  "expertise_audit": [
+    {
+      "status": "supported",
+      "evidence": [
+        "logistics-analyst-01 claims on denominator definitions and missingness",
+        "logistics-ops-02 opening",
+        "frozen-intervention.json diagnosis"
+      ],
+      "severity": "none",
+      "finding": "Descriptive interpretation stayed within supplied evidence; no causal inference, AI-model diagnosis or invented shift-specific increase was asserted."
+    },
+    {
+      "status": "supported_with_limits",
+      "evidence": [
+        "logistics-scientist-01",
+        "logistics-ops-02 attributed_advice claims",
+        "logistics-analyst-02 attributed_advice claim",
+        "logistics-ops-03",
+        "logistics-analyst-03"
+      ],
+      "severity": "none",
+      "finding": "Assessment statements are supplied specialist advice and subsequently attributed. Initial core-agent abstentions from declaring competence are cautious authority limits, not unsupported validity signoffs. No semantic specialist overreach was established merely because core agents declined to certify."
+    },
+    {
+      "status": "supported_with_limits",
+      "evidence": [
+        "logistics-ops-03 staffing claim",
+        "frozen-intervention.json brief_practice and changed_case_check"
+      ],
+      "severity": "low",
+      "finding": "The recorder and 20-minute allowance are an explicit operational assignment using disclosed capacity, not an invented additional worker. Numerical fit does not demonstrate feasibility; the artifact correctly leaves it unconfirmed and withholds execution."
+    },
+    {
+      "status": "no_material_overreach_found",
+      "evidence": [
+        "all seven responses claims and speech",
+        "frozen-intervention.json authority_scope fields",
+        "freeze-receipt.json knowledge_gate"
+      ],
+      "severity": "none",
+      "finding": "Declared permissions passed and substantive audit found no material specialist claim laundered through an allowed competency label. Combined action wording spans several competencies owned by Ops or attributes actual scientist advice. Mechanical acceptance still supplies no general guarantee against semantic misuse."
+    },
+    {
+      "status": "artifact_record_ambiguity",
+      "evidence": [
+        "frozen-intervention.json description, unresolved final entry and signoffs",
+        "responses/analyst-03.json",
+        "freeze-receipt.json"
+      ],
+      "severity": "low",
+      "finding": "Frozen text still says analyst exact-byte endorsement is pending at authorship and includes only Ops in signoffs. The later matching analyst endorsement and receipt resolve actual freeze validity; the standalone artifact is incomplete as a final endorsement record. This is retained rather than repaired."
+    },
+    {
+      "status": "observed_access_conforms",
+      "evidence": [
+        "runtime-transcripts/ops-rollout.json",
+        "runtime-transcripts/analyst-rollout.json",
+        "runtime-transcripts/scientist-rollout.json"
+      ],
+      "severity": "none",
+      "finding": "Exported calls show only stage-permitted inputs and assigned output writes. No hard isolation or erased pretrained knowledge is inferred."
+    }
+  ],
+  "results": [
+    {
+      "difficulty": "easy",
+      "evidence_kind": "model_reasoned_synthetic_deployment",
+      "rating_basis": "Plan sufficiency under the frozen no-release decision; these are not measured outcomes. Capability is unknown where no assessment occurred.",
+      "release_applied": "no release; audit and preparation only",
+      "axes": {
+        "capability": {
+          "rating": "unknown",
+          "reason": "No clinic or changed-case attempt is released; assistant availability and an ambiguous override establish no worker competence, retention or transfer."
+        },
+        "human_conditions": {
+          "rating": "mixed",
+          "reason": "Preparation respects the stated worker-time and staffing limits, but no attendance, acknowledgement or experienced burden is observed; the live ambiguity remains unsupported by this intervention."
+        },
+        "organizational_performance": {
+          "rating": "fragile",
+          "reason": "The plan prepares overnight ownership but provides no released acknowledged day-shift owner for the live override. Audit outputs and improvement are unobserved."
+        },
+        "resilience": {
+          "rating": "fragile",
+          "reason": "Normal conditions still do not satisfy release prerequisites or supply an authorized route for the immediate ownership demand."
+        }
+      },
+      "unobserved_outcomes": [
+        "Whether the override is resolved through pre-existing operations outside this plan.",
+        "Actual ownership acknowledgement, audit outputs, clinic attendance or assessor booking.",
+        "Exception rates, delays, operational correctness, competence, retention and transfer."
+      ],
+      "citations": [
+        "deployment.json events[easy]",
+        "frozen-intervention.json release_decision and actions",
+        "deployment-release.json"
+      ]
+    },
+    {
+      "difficulty": "medium",
+      "evidence_kind": "model_reasoned_synthetic_deployment",
+      "rating_basis": "Plan sufficiency under the frozen no-release decision; these are not measured outcomes. Capability is unknown where no assessment occurred.",
+      "release_applied": "no release; audit and preparation only",
+      "axes": {
+        "capability": {
+          "rating": "unknown",
+          "reason": "The two new dispatchers have no measured prior competence or delivered practice; their arrival does not establish attendance or exercise results."
+        },
+        "human_conditions": {
+          "rating": "fragile",
+          "reason": "The assigned senior dispatcher is absent, with no authorized substitute; new workers face immediate demands while support remains preparation only. Actual workload and distress are unobserved."
+        },
+        "organizational_performance": {
+          "rating": "fragile",
+          "reason": "The 24-hour export delay limits annotation-dependent audit work; unreleased clinic preparation supplies no demonstrated night-shift onboarding or coverage."
+        },
+        "resilience": {
+          "rating": "fragile",
+          "reason": "The frozen design depends on one supplied implementer and available export material. It contains no authorized replacement or way to resolve those simultaneous constraints."
+        }
+      },
+      "unobserved_outcomes": [
+        "What the delayed export ultimately contains or when a usable audit is completed.",
+        "The new dispatchers' prior skill, actual errors, assistance needs or later performance.",
+        "Any acknowledgement, substitute staffing, assessor booking, practice delivery or operational resolution outside the frozen plan.",
+        "Competence, retention, transfer and measured improvement."
+      ],
+      "citations": [
+        "deployment.json events[medium]",
+        "frozen-intervention.json release_decision and actions",
+        "deployment-release.json"
+      ]
+    },
+    {
+      "difficulty": "hard",
+      "evidence_kind": "model_reasoned_synthetic_deployment",
+      "rating_basis": "Plan sufficiency under the frozen no-release decision; these are not measured outcomes. Capability is unknown where no assessment occurred.",
+      "release_applied": "no release; audit and preparation only",
+      "axes": {
+        "capability": {
+          "rating": "unknown",
+          "reason": "No released practice or unassisted changed-case evidence exists; stale data and loss of AI do not establish how workers would decide."
+        },
+        "human_conditions": {
+          "rating": "fragile",
+          "reason": "A 40% surge and 90-minute outage create demands without extra staffing or time, while the bounded intervention supplies no released support. Actual exposure, burden and harm remain unobserved."
+        },
+        "organizational_performance": {
+          "rating": "fragile",
+          "reason": "The plan supplies neither continuity for the outage/surge nor verified destination data or a released stale-data procedure. Correct disposition, backlog and throughput remain unknown."
+        },
+        "resilience": {
+          "rating": "fragile",
+          "reason": "Fallback was excluded and the remaining unit cannot fund its 3-unit scope. The frozen plan adds no outage response, resources or authorized live-case resolution."
+        }
+      },
+      "unobserved_outcomes": [
+        "Actual job urgency, the correct destination, any dispatch disposition and downstream harm or successful resolution.",
+        "Backlog, throughput, response times, worker decisions and any pre-existing operational fallback outside this plan.",
+        "Assistant restoration, actual export availability and audit completion.",
+        "Competence, retention, transfer and causal effects."
+      ],
+      "citations": [
+        "deployment.json events[hard]",
+        "frozen-intervention.json release_decision and actions",
+        "deployment-release.json"
+      ]
+    }
+  ],
+  "observer_disagreements": [
+    {
+      "issue": "No release does not equal successful intervention.",
+      "position": "I agree with the projection that withholding unsupported release is faithful to the frozen decision. I separately judge that this leaves immediate operational demands unmet, including the easy event.",
+      "citations": [
+        "deployment.json events[easy,medium,hard]",
+        "frozen-intervention.json release_decision"
+      ]
+    },
+    {
+      "issue": "Do not convert plan gaps into observed harm.",
+      "position": "Absent released ownership, clinic coverage and fallback are supported plan limitations. Actual mistakes, delays, distress or downstream harm are unknown because no real deployment or outcome measurement occurred.",
+      "citations": [
+        "deployment.json failures and unobserved_outcomes"
+      ]
+    },
+    {
+      "issue": "Frozen endorsement text versus receipt.",
+      "position": "The standalone frozen artifact has stale authorship-time endorsement language, but the actual analyst endorsement is present and hash-matching; this does not invalidate the endorsed freeze.",
+      "citations": [
+        "frozen-intervention.json unresolved",
+        "responses/analyst-03.json",
+        "freeze-receipt.json"
+      ]
+    }
+  ],
+  "provenance_limits": [
+    "This is a model-generated feasibility example with fictional organizations and model-reasoned synthetic projections; it establishes no real worker outcomes, professional credentials, causal effect or general superiority of the protocol.",
+    "Participant runtime exports record gpt-6.1-sol with high effort, actual agent paths and native thread IDs. Provenance receipts initially leave resolved_model_id null; later runtime context supplies the runtime model label, not provider checkpoint or temperature.",
+    "Native inter-agent task envelopes contain encrypted_content. I did not infer their hidden content. Readable prospective invocation files and observed tool outputs establish visible substantive instructions, but do not establish that encrypted envelopes contained no additional instruction.",
+    "Exports exclude private reasoning, runtime developer instructions and account passthrough identifiers. Their source hashes are retained but original external runtime files were outside permitted reads and not independently rehashed here.",
+    "Shared filesystem access is instruction-bounded. Exported tool calls support observed compliance; they do not establish a hard sandbox or absence of latent pretrained knowledge.",
+    "The evaluator is fresh relative to participant conversations but model-family independence and professional expertise are not established. This evaluation reads only case files and ../protocol-v2.json.",
+    "The deployment is authored by the Ops participant; it is not an independent measured test. This independent audit can inspect consistency and limits, not transform those projections into empirical results."
+  ],
+  "pilot_gate": {
+    "decision": "pass",
+    "reasons": [
+      "Prospective readable instructions, role packets and public responses are retained, with visible participant invocation reads.",
+      "Responsive dialogue exposes private evidence before reuse and produces consequential budget, coverage and no-release choices.",
+      "Both core roles endorse matching exact bytes; recomputed frozen and sealed-event hashes match receipts and freeze precedes release.",
+      "Three separately reasoned projections apply the same immutable plan and respect no release without redesign.",
+      "This fresh independent audit records semantic, artifact, process and outcome limits without intervention repair."
+    ],
+    "intervention_success": "Not demonstrated. The retained plan permits audit and preparation only and does not meet immediate live demands in any event. Gate pass concerns the bounded example, not operational efficacy or general protocol validation."
+  }
+}

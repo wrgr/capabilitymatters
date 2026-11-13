@@ -1,0 +1,17 @@
+{
+  "description": "Readable instruction retained before dispatch; the agent must visibly read it.",
+  "created_at": "2026-11-04T20:51:45.754669+00:00",
+  "actor": "scientist",
+  "stage": "consultation",
+  "response_file": "scientist-01.json",
+  "public_inputs": [
+    "operator-01.json",
+    "safety-01.json"
+  ],
+  "permitted_reads": [
+    "experiments/competency-live/2026-11-04/controlroom/packet-scientist.json",
+    "experiments/competency-live/2026-11-04/controlroom/responses/operator-01.json",
+    "experiments/competency-live/2026-11-04/controlroom/responses/safety-01.json"
+  ],
+  "instruction": "You are the requested optional consultant. Answer only the actual public consultation questions using your packet evidence and specialist competencies. Disclose relevant own facts and preserve authority, capacity, and uncertainty limits. Consultation costs one unit once; you cannot decide for the core roles. Read only this invocation, its permitted_reads, your own prior invocation/response files and earlier permitted context. Follow the packet knowledge gate exactly. Write experiments/competency-live/2026-11-04/controlroom/responses/scientist-01.json exclusively with message_id controlroom-scientist-01. Return the same natural professional speech. Never inspect sealed events or other private packets."
+}

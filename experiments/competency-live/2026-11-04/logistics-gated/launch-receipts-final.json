@@ -1,0 +1,185 @@
+{
+  "description": "Native runtime launch, interaction, completion receipts for this team and its reviewer.",
+  "events": [
+    {
+      "timestamp": "2026-11-04T20:46:07.033Z",
+      "type": "SubAgentActivity",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "id": "call_9a1781ac41d749f5852860f08eaa609b",
+      "kind": "started",
+      "agent_thread_id": "01a1a84f-d668-75b3-9dcb-407c6369475e",
+      "agent_path": "/root/logistics_gated_ops"
+    },
+    {
+      "timestamp": "2026-11-04T20:46:11.339Z",
+      "type": "SubAgentActivity",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "id": "call_336e22717188480d86facad566539edc",
+      "kind": "started",
+      "agent_thread_id": "01a1a84f-e72d-7653-92b0-b2683c0b9a47",
+      "agent_path": "/root/logistics_gated_analyst"
+    },
+    {
+      "timestamp": "2026-11-04T20:46:49.679Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "subagent-completed-01a1a84f-e78b-78f1-8be8-1591a882134e",
+      "kind": "completed",
+      "agent_thread_id": "01a1a84f-e72d-7653-92b0-b2683c0b9a47",
+      "agent_path": "/root/logistics_gated_analyst"
+    },
+    {
+      "timestamp": "2026-11-04T20:46:55.905Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "subagent-completed-01a1a84f-d6b9-7f93-8bde-d06792a6a46b",
+      "kind": "completed",
+      "agent_thread_id": "01a1a84f-d668-75b3-9dcb-407c6369475e",
+      "agent_path": "/root/logistics_gated_ops"
+    },
+    {
+      "timestamp": "2026-11-04T20:47:36.829Z",
+      "type": "SubAgentActivity",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "id": "call_8915b7102404401ba66e69bcc33896f8",
+      "kind": "started",
+      "agent_thread_id": "01a1a851-351b-7720-80f2-d547bb71a672",
+      "agent_path": "/root/logistics_gated_scientist"
+    },
+    {
+      "timestamp": "2026-11-04T20:48:22.640Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "subagent-completed-01a1a851-357d-79c1-b832-2c66a2716f48",
+      "kind": "completed",
+      "agent_thread_id": "01a1a851-351b-7720-80f2-d547bb71a672",
+      "agent_path": "/root/logistics_gated_scientist"
+    },
+    {
+      "timestamp": "2026-11-04T20:48:28.056Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "call_7a8af4f73e834a66b37355c7dfa4f4b2",
+      "kind": "interacted",
+      "agent_thread_id": "01a1a84f-d668-75b3-9dcb-407c6369475e",
+      "agent_path": "/root/logistics_gated_ops"
+    },
+    {
+      "timestamp": "2026-11-04T20:49:19.096Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "call_3fd64d3e82b049c9a12276b42a318c54",
+      "kind": "interacted",
+      "agent_thread_id": "01a1a84f-e72d-7653-92b0-b2683c0b9a47",
+      "agent_path": "/root/logistics_gated_analyst"
+    },
+    {
+      "timestamp": "2026-11-04T20:49:22.923Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "subagent-completed-01a1a851-fd98-7690-92ba-72a315e795bd",
+      "kind": "completed",
+      "agent_thread_id": "01a1a84f-d668-75b3-9dcb-407c6369475e",
+      "agent_path": "/root/logistics_gated_ops"
+    },
+    {
+      "timestamp": "2026-11-04T20:49:59.656Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "subagent-completed-01a1a852-c4f8-7071-94fd-317a6ada8a29",
+      "kind": "completed",
+      "agent_thread_id": "01a1a84f-e72d-7653-92b0-b2683c0b9a47",
+      "agent_path": "/root/logistics_gated_analyst"
+    },
+    {
+      "timestamp": "2026-11-04T20:51:08.815Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "call_1f6a5b0db26c4bf5aec44ba0b8b6d3dd",
+      "kind": "interacted",
+      "agent_thread_id": "01a1a84f-d668-75b3-9dcb-407c6369475e",
+      "agent_path": "/root/logistics_gated_ops"
+    },
+    {
+      "timestamp": "2026-11-04T20:52:43.109Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "subagent-completed-01a1a854-718e-7131-9b5f-e6676148fbe0",
+      "kind": "completed",
+      "agent_thread_id": "01a1a84f-d668-75b3-9dcb-407c6369475e",
+      "agent_path": "/root/logistics_gated_ops"
+    },
+    {
+      "timestamp": "2026-11-04T20:52:49.682Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "call_28ca035b9ce94df69d706e17bfa8001c",
+      "kind": "interacted",
+      "agent_thread_id": "01a1a84f-e72d-7653-92b0-b2683c0b9a47",
+      "agent_path": "/root/logistics_gated_analyst"
+    },
+    {
+      "timestamp": "2026-11-04T20:53:26.981Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "subagent-completed-01a1a855-fb91-7ff3-8fee-ca927416eac4",
+      "kind": "completed",
+      "agent_thread_id": "01a1a84f-e72d-7653-92b0-b2683c0b9a47",
+      "agent_path": "/root/logistics_gated_analyst"
+    },
+    {
+      "timestamp": "2026-11-04T20:54:19.726Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "call_8da84186578f4c5a8ce17bf43f12902d",
+      "kind": "interacted",
+      "agent_thread_id": "01a1a84f-d668-75b3-9dcb-407c6369475e",
+      "agent_path": "/root/logistics_gated_ops"
+    },
+    {
+      "timestamp": "2026-11-04T20:55:18.044Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "subagent-completed-01a1a857-5b4e-7253-982d-5ca3af5cc8d2",
+      "kind": "completed",
+      "agent_thread_id": "01a1a84f-d668-75b3-9dcb-407c6369475e",
+      "agent_path": "/root/logistics_gated_ops"
+    },
+    {
+      "timestamp": "2026-11-04T20:55:55.683Z",
+      "type": "SubAgentActivity",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "id": "call_c1fbb63b9c204c28af6c6f417b3ecef7",
+      "kind": "started",
+      "agent_thread_id": "01a1a858-d161-7812-8cfb-5596ba4c5e38",
+      "agent_path": "/root/logistics_gated_evaluator"
+    },
+    {
+      "timestamp": "2026-11-04T20:58:41.285Z",
+      "type": "SubAgentActivity",
+      "model": null,
+      "reasoning_effort": null,
+      "id": "subagent-completed-01a1a858-d222-76a2-8a6e-88d079f28d29",
+      "kind": "completed",
+      "agent_thread_id": "01a1a858-d161-7812-8cfb-5596ba4c5e38",
+      "agent_path": "/root/logistics_gated_evaluator"
+    }
+  ]
+}

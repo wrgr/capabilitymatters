@@ -1,0 +1,137 @@
+{
+  "description": "Independent failure ledger preserving observed defects, artifact coverage limits, conditional synthetic vulnerabilities and expected unknowns separately. No retained evidence or intervention was repaired.",
+  "evaluator_agent": "/root/controlroom_evaluator",
+  "process_failures": [
+    {
+      "status": "observed_and_retained",
+      "severity": "low",
+      "failure": "Initial freeze rejected actual attributed-advice claims under hypothesis scope; bounded process required a disclosed validator amendment before acceptance. Original gate implementation did not pass unchanged.",
+      "evidence": [
+        "technical-failures/2026-11-04T21:06:06.493534+00:00.json",
+        "gate-amendment.json"
+      ],
+      "disposition": "Amendment semantically legitimate for actual claims; draft/freeze hash unchanged. General implementation/test claim not independently attested."
+    },
+    {
+      "status": "observed_and_retained",
+      "severity": "low",
+      "failure": "Reveal attempted after rejected freeze without a receipt.",
+      "evidence": [
+        "technical-failures/2026-11-04T21:06:06.570585+00:00.json",
+        "gate-amendment.json"
+      ],
+      "disposition": "Operation failed closed; retained evidence shows no resulting early deployment-release or participant event read."
+    }
+  ],
+  "artifact_failures": [
+    {
+      "status": "coverage_gap",
+      "severity": "material",
+      "failure": "Dedicated unranked diagnosis practice and delayed probe omitted under selected package and current timing; ranking reliance and readiness evidence remain unresolved.",
+      "evidence": [
+        "controlroom-operator-02",
+        "controlroom-scientist-01",
+        "frozen-intervention.json rejected_alternatives"
+      ]
+    },
+    {
+      "status": "coverage_gap",
+      "severity": "material",
+      "failure": "Partial radio dropout, AI-loss/cascading combinations, independently verified clock and verified fresh fallback are not provided by the narrow plan.",
+      "evidence": [
+        "controlroom-safety-01",
+        "controlroom-safety-02",
+        "frozen-intervention.json unresolved and release_conditions"
+      ]
+    },
+    {
+      "status": "conditional_capacity_limit",
+      "severity": "moderate",
+      "failure": "Twenty-minute allocation and scoped reference preparation are endorsed proposals without demonstrated completion; named recipient does not prove availability in stressed events.",
+      "evidence": [
+        "controlroom-operator-02",
+        "controlroom-safety-02",
+        "frozen-intervention.json budget_accounting and acceptance tests"
+      ],
+      "disposition": "Failure to meet a required check prevents start or requires stop; no hidden capacity repair is inferred."
+    }
+  ],
+  "result_failures": [
+    {
+      "difficulty": "easy",
+      "status": "conditional_vulnerability_not_observed_execution_failure",
+      "failure": "Scope fit and remaining start checks are not established; no actual cue detection, handoff or independent diagnosis result.",
+      "evidence": [
+        "deployment.json easy"
+      ]
+    },
+    {
+      "difficulty": "medium",
+      "status": "conditional_vulnerability_not_observed_execution_failure",
+      "failure": "Confident ranking with novice leadership and occupied senior exposes cue-recognition/supervision vulnerability; stop and receipt cannot be assumed.",
+      "evidence": [
+        "deployment.json medium",
+        "controlroom-operator-01 C-O1"
+      ]
+    },
+    {
+      "difficulty": "hard",
+      "status": "synthetic_coverage_failure",
+      "failure": "Demanded combined failure scenario exceeds frozen release and installed simulator capability. Supported outcome is no start, or stop if excluded conditions emerge; continuation, receipt and recovery are unsupported.",
+      "evidence": [
+        "deployment.json hard",
+        "deployment-release.json hard",
+        "frozen-intervention.json release_conditions"
+      ]
+    }
+  ],
+  "technical_failures": [
+    {
+      "status": "observed",
+      "operation": "operator-01 response write shell invocation",
+      "error": "python executable unavailable; exit 127",
+      "evidence": [
+        "runtime-transcripts/operator-rollout.json records 6-9"
+      ],
+      "disposition": "Subsequent python3 exclusive write succeeded; no substantive colleague repair observed."
+    },
+    {
+      "status": "observed",
+      "operation": "safety-01 response write shell invocation",
+      "error": "python executable unavailable; exit 127",
+      "evidence": [
+        "runtime-transcripts/safety-rollout.json records 6-9"
+      ],
+      "disposition": "Subsequent python3 exclusive write succeeded."
+    },
+    {
+      "status": "observed",
+      "operation": "freeze",
+      "error": "AssertionError: Hypothesis presented as established",
+      "evidence": [
+        "technical-failures/2026-11-04T21:06:06.493534+00:00.json"
+      ],
+      "disposition": "Disclosed metadata amendment; unchanged artifact subsequently frozen."
+    },
+    {
+      "status": "observed",
+      "operation": "reveal",
+      "error": "FileNotFoundError: missing freeze-receipt.json",
+      "evidence": [
+        "technical-failures/2026-11-04T21:06:06.570585+00:00.json"
+      ],
+      "disposition": "Failed closed; successful release recorded only after freeze."
+    }
+  ],
+  "expected_unknowns": [
+    "Real or synthetic simulator execution observations: preparation/checking, script fit, detection, stop, handoff, receipt, logs and timing.",
+    "Independent diagnosis, delayed retention, transfer, live utility performance and real-world certification; none is claimed as achieved.",
+    "Whether novice ranking dependence produces failure in these specific events; it remains a grounded risk, not an observation.",
+    "Full encrypted bootstrap content, omitted runtime instructions and complete root transport transcript.",
+    "Hard sandbox isolation, erased pretrained knowledge and model-family independence; not claimed or demanded.",
+    "Provider checkpoint, sampling temperature, API response IDs and exact API call counts.",
+    "Independent amended-validator implementation and regression-test verification within permitted evidence.",
+    "Causal or comparative effectiveness, package optimality and necessity of consultant influence; this is a sequential bounded feasibility pilot."
+  ],
+  "gate_decision": "pass for bounded process feasibility; intervention success unestablished"
+}

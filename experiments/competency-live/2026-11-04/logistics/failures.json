@@ -1,0 +1,193 @@
+{
+  "description": "Observed logistics pilot failures, plan shortfalls and unknowns retained without repair. Experiment/instrument defects are separated from expected absence of real deployment outcomes.",
+  "evaluator_agent": "/root/logistics_evaluator",
+  "case_id": "logistics",
+  "experiment_failures": [
+    {
+      "id": "L-F1",
+      "kind": "provenance_audit_failure",
+      "severity": "high",
+      "finding": "Eight exact runtime dispatch bodies are encrypted; cannot inspect actual prompt content, all explicit delivery authorizations or substantive facilitator influence.",
+      "evidence": [
+        "runtime-transcripts/ops-rollout.json agent_message records 1/7/13/19",
+        "runtime-transcripts/analyst-rollout.json agent_message records 1/7/13",
+        "runtime-transcripts/scientist-rollout.json agent_message record 1"
+      ]
+    },
+    {
+      "id": "L-F2",
+      "kind": "artifact_contract_failure",
+      "severity": "low",
+      "finding": "Required description absent in draft and frozen artifact.",
+      "evidence": [
+        "protocol.json artifact_contract",
+        "logistics-ops-03",
+        "frozen-intervention.json"
+      ]
+    },
+    {
+      "id": "L-F3",
+      "kind": "artifact_state_inconsistency",
+      "severity": "low",
+      "finding": "Frozen unresolved/signoffs retain pending analyst endorsement after external exact-byte endorsement. External receipt establishes real acceptance; artifact alone remains stale.",
+      "evidence": [
+        "logistics-analyst-03",
+        "freeze-receipt.json",
+        "frozen-intervention.json"
+      ]
+    },
+    {
+      "id": "L-F4",
+      "kind": "audit_input_instability",
+      "severity": "medium",
+      "finding": "Initially inventoried analyst.json and scientist.json auxiliary transcripts disappeared before evaluation read. Exact rollout exports remain present. Removal cause is not inferred.",
+      "evidence": [
+        "Evaluator initial inventory",
+        "Evaluator FileNotFoundError for runtime-transcripts/analyst.json"
+      ]
+    }
+  ],
+  "plan_and_synthetic_result_failures": [
+    {
+      "id": "L-F5",
+      "kind": "unmet_operational_goal",
+      "finding": "No release of handoff or clinic; no actual shift, roster, owner/backup acceptance or worker release. Improvement within one week is not delivered or established.",
+      "evidence": [
+        "logistics-ops-03",
+        "logistics-analyst-03",
+        "frozen-intervention.json"
+      ]
+    },
+    {
+      "id": "L-F6",
+      "kind": "measurement_limit",
+      "finding": "11% and 17% denominators differ; exception definitions/numerators comparability unverified; 38% missing night override annotations unrecoverable from export; supported common historical rates remain unknown.",
+      "evidence": [
+        "logistics-analyst-01",
+        "logistics-analyst-02"
+      ]
+    },
+    {
+      "id": "L-F7",
+      "kind": "assessment_and_scope_limit",
+      "finding": "Only familiar-example two-worker preparation is retained. No actual clinic, changed-case assessor allocation, delayed unassisted assessment, validated instrument, workforce coverage, certification, transfer or retention evidence. Actual six-item content is absent from case files.",
+      "evidence": [
+        "logistics-scientist-01",
+        "logistics-ops-03",
+        "frozen-intervention.json"
+      ]
+    },
+    {
+      "id": "L-F8",
+      "kind": "continuity_limit",
+      "finding": "Fallback drill not funded or staffed; three unallocated units do not authorize it. No outage continuity, stale-data verification or model change is supplied.",
+      "evidence": [
+        "logistics-ops-03",
+        "frozen-intervention.json",
+        "deployment.json hard"
+      ]
+    }
+  ],
+  "scenario_details": [
+    {
+      "difficulty": "easy",
+      "classification": "synthetic plan shortfalls, not observed operational harm",
+      "failures": [
+        "The frozen intervention does not supply an authorized operational mechanism that resolves the live ownership demand, even under the easy condition.",
+        "Preparation and monitoring do not demonstrate improved handling; the available assistant has no authorized new behavior under this plan."
+      ],
+      "unmet_demands": [
+        "The live ambiguous override needs an accepted owner. A normal day shift and available assistant do not identify an accepting supervisor or backup.",
+        "The frozen plan's overnight handoff preparation does not establish coverage for this day-shift event.",
+        "Immediate exception handling improvement and independent competence certification are not delivered."
+      ],
+      "unknowns": [
+        "Who, if anyone, actually accepted the override or resolved its ambiguity.",
+        "Dispatch decisions, timeliness, routing correctness and consequences.",
+        "Whether a common historical denominator and exception definition can be established.",
+        "Any clinic participation, changed-case performance, independent competence or retention."
+      ]
+    },
+    {
+      "difficulty": "medium",
+      "classification": "synthetic plan shortfalls, not observed operational harm",
+      "failures": [
+        "The intervention cannot deliver its planned practice at this event because the specified dispatcher is absent, even apart from the standing no-release decision.",
+        "Immediate measurement and targeting are constrained by export delay and historical annotation gaps.",
+        "The frozen plan leaves the arriving workers' operational readiness and live overnight ownership unresolved; it contains no authorized replacement staffing arrangement."
+      ],
+      "unmet_demands": [
+        "The two new night-shift dispatchers have no confirmed participant release, coverage acceptances or clinic assignment under this frozen proposal.",
+        "The senior dispatcher needed for the single clinic is absent.",
+        "The delayed annotation export cannot supply immediate annotation analysis; pre-existing missing reasons remain unrecoverable from that export.",
+        "No accepted live night-shift ownership arrangement or independent competence evidence is established."
+      ],
+      "unknowns": [
+        "The new workers' actual decisions, assistance needs and errors.",
+        "Actual owner acceptance and handling of any night-shift exceptions.",
+        "The delayed export's eventual contents and whether comparable counts become possible.",
+        "Any eventual staffing confirmation or clinic delivery; none is supplied in the event."
+      ]
+    },
+    {
+      "difficulty": "hard",
+      "classification": "synthetic plan shortfalls, not observed operational harm",
+      "failures": [
+        "The intervention does not furnish a deployable continuity response to the assistant outage or surge.",
+        "It cannot establish the destination's correctness or resolve the apparent urgent job under its authorized actions.",
+        "The practice design, even if prepared, gives no evidence of transfer to this changed outage condition; no practice is executed under the frozen no-release decision."
+      ],
+      "unmet_demands": [
+        "A 90-minute assistant outage during the stipulated 40% surge calls for operational continuity that the frozen plan has not funded or rehearsed.",
+        "The apparent urgent job has stale destination data; this plan supplies no verified destination, data-validation mechanism, urgency determination or authorized live resolution.",
+        "No extra staffing or training time is available, and the three unallocated units do not authorize adding the rejected fallback drill.",
+        "Owner and backup acceptance, operational rollout and independent competence remain unestablished."
+      ],
+      "unknowns": [
+        "Whether the job was truly urgent, its correct destination and any actual verification.",
+        "Actual routing, overrides, queue development, delivery consequences and worker responses during the outage.",
+        "Whether any existing operational fallback outside this plan exists or was used; none is supplied.",
+        "Worker competence, transfer, retention and any causal effect of the proposed intervention."
+      ]
+    }
+  ],
+  "expected_missing_outcomes": {
+    "classification": "Expected given fictional synthetic method and controlling no-release choice; not evidence of zero errors, successful handling or experiment misconduct.",
+    "items": [
+      "Actual dispatch decisions, routing correctness, timeliness, queues and consequences",
+      "Actual worker readiness, errors, assistance, independent competence, transfer and retention",
+      "Actual clinic attendance, owner acceptance, staffing confirmation or handoff implementation",
+      "Actual audit output, delayed export contents and valid common historical comparison",
+      "Causal AI or training effect; real deployment success or failure"
+    ]
+  },
+  "invalid_tool_actions": {
+    "participants": [],
+    "participant_assessment": "No failed or clearly invalid participant tool action observed in retained exact rollouts. All recorded shell outputs show success. Explicit colleague-read authorization cannot be verified because dispatch bodies are encrypted.",
+    "evaluator_tooling_issues": [
+      {
+        "action": "Initial read using python",
+        "result": "Shell exit 127: python command unavailable; recovered with python3.",
+        "classification": "Evaluator tooling error, not participant failure"
+      },
+      {
+        "action": "Read runtime-transcripts/analyst.json after initial inventory",
+        "result": "FileNotFoundError; file absent on later inventory.",
+        "classification": "Evaluator failed read and unstable audit input; no modification performed"
+      }
+    ]
+  },
+  "unresolved_provenance": [
+    "No proof of behavioral or filesystem isolation despite no observed leakage",
+    "Encrypted dispatch payloads and omitted runtime developer instructions",
+    "No immutable attestation of parent freeze/release execution",
+    "Runtime labels gpt-6.1-sol/high do not establish checkpoint identity, sampling settings or model-family independence",
+    "Participant-authored synthetic application is not independent real-world outcome evidence"
+  ],
+  "unsupported_specialist_claims": {
+    "status": "none_observed_in_visible_dialogue_and_artifacts",
+    "qualification": "Task payloads and omitted instructions cannot be evaluated; resource/item availability remains conditional rather than validated."
+  },
+  "controlling_release_decision": "no release; audit and preparation only",
+  "pilot_gate": "fail for fully auditable end-to-end instrument feasibility; substantial execution chain observed, intervention success separately unestablished"
+}

@@ -1,0 +1,418 @@
+{
+  "description": "Independent audit of retained controlroom case evidence. Process feasibility is judged separately from model-reasoned synthetic intervention coverage; no participant evidence or frozen artifact was changed.",
+  "evaluator_agent": "/root/controlroom_evaluator",
+  "process_findings": [
+    {
+      "finding": "Visible task execution follows the retained prospective invocation files and behavioral read boundaries. Every participant turn starts by reading its invocation; subsequent reads are own packet, delivered public messages, or explicitly authorized draft/deployment files. No visible repository search, web use, other private packet read, sealed-event read before release, or evaluator-file access occurs.",
+      "evidence": [
+        "runtime-transcripts/operator-rollout.json records 2,4,12,14,20,22,28,30",
+        "runtime-transcripts/safety-rollout.json records 2,4,12,14,20,22,24",
+        "runtime-transcripts/scientist-rollout.json records 2,4",
+        "invocations/operator-01.json through operator-03.json",
+        "invocations/safety-01.json through safety-03.json",
+        "invocations/scientist-01.json",
+        "invocations/deployment.json"
+      ],
+      "qualification": "Visible compliance supports instruction-bounded separation; encrypted bootstrap messages and omitted runtime instructions prevent a complete content audit."
+    },
+    {
+      "finding": "Private facts were publicly disclosed before cross-role reuse. Operator revealed C-O1/O2/O3 in operator-01, safety revealed C-S1/S2/S3 in safety-01, and scientist revealed C-L1/L2 in scientist-01. Consultant read the actual opening messages; operator-02 and safety-02 visibly read the delivered consultant response before adopting its limitations.",
+      "evidence": [
+        "controlroom-operator-01",
+        "controlroom-safety-01",
+        "controlroom-scientist-01",
+        "controlroom-operator-02",
+        "controlroom-safety-02",
+        "runtime-transcripts/operator-rollout.json records 14-15",
+        "runtime-transcripts/safety-rollout.json records 14-15",
+        "runtime-transcripts/scientist-rollout.json records 4-5"
+      ]
+    },
+    {
+      "finding": "Dialogue materially changes the artifact. Operator initially proposes dedicated unranked practice; safety prioritizes sensor-staleness rehearsal and uncertain-paper safeguards. Operator withdraws the separate practice after safety disclosure and budget accounting, requests a concrete freshness reference and recipient, and safety supplies a proposed authored-event reference plus personal handoff receipt. Final draft incorporates those choices while preserving lost practice coverage.",
+      "evidence": [
+        "controlroom-operator-01",
+        "controlroom-safety-01",
+        "controlroom-operator-02",
+        "controlroom-safety-02",
+        "controlroom-operator-03",
+        "frozen-intervention.json actions timestamp-job-aid, stop-and-handoff, sensor-staleness-rehearsal and rejected_alternatives"
+      ]
+    },
+    {
+      "finding": "Consultation is actual delivered work, not impersonated expert speech. Safety requests a specific assessment interpretation; scientist contributes previously undisclosed cueing and next-week probe facts. These constrain reporting and readiness claims, and the one-unit fee is included. Both core actors already treated readiness as unknown before consultation; evidence does not establish that consultation caused their initial caution or was necessary to the package choice.",
+      "evidence": [
+        "controlroom-safety-01 consult_request",
+        "controlroom-scientist-01",
+        "controlroom-operator-02",
+        "controlroom-safety-02",
+        "frozen-intervention.json completed-scientist-consultation"
+      ]
+    },
+    {
+      "finding": "The seven-unit package accounts for 1 job aid + 2 handoff + 3 scoped fault rehearsal/reference/logging + 1 actual consultation, leaving one unit. Both core participants explicitly accept their work; no extra staff, clock validation, radio-injection capability or further scientist time is invented. The 3/10/5/2 minute allocation sums to 20; preparation/checking is scoped project work but its duration and completion are not demonstrated. Capacity is an endorsed conditional proposal, not verified delivery.",
+      "evidence": [
+        "public.cost_reference in own-role packets",
+        "C-O3 disclosed in controlroom-operator-01",
+        "controlroom-operator-02",
+        "controlroom-safety-02",
+        "controlroom-safety-03",
+        "frozen-intervention.json budget_accounting and acceptance tests"
+      ]
+    },
+    {
+      "finding": "Exact-byte joint endorsement and freeze precede event release. Independently recomputed draft and frozen SHA-256 both equal 9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96, matching both actual endorsement responses and the freeze receipt. Sealed-events SHA-256 equals receipt value 42340b03925e082bb1f622ac5e9bb201456326bfa403e92dbabe145fac0210e5. Freeze is recorded at 21:07:12.525448 UTC, release at 21:07:23.174262 UTC. Pending-safety wording remains an honest draft-stage statement resolved by the separate actual safety-03 endorsement; it does not show a missing endorsement or an execution check passed.",
+      "evidence": [
+        "controlroom-operator-03",
+        "controlroom-safety-03",
+        "draft-intervention.json",
+        "frozen-intervention.json",
+        "freeze-receipt.json",
+        "sealed-events.json",
+        "deployment-release.json",
+        "runtime-transcripts/safety-rollout.json records 22,24,25"
+      ]
+    },
+    {
+      "finding": "The rejected freeze is preserved, followed by an exposed metadata-gate amendment and successful freeze of unchanged bytes. The affected claims actually attribute delivered safety/scientist/operator messages, preserve their limits, and do not assert independent specialist authority. Allowing competency=hypothesis with standing=attributed_advice and delivered-message basis legitimately accommodates the protocol attribution rule. This is a post-rejection gate change, so the original gate did fail; the amendment is not evidence that the original implementation passed. Actual amended validator code and test output lie outside the permitted evidence; the ten-test statement is retained as an amendment claim rather than independently verified.",
+      "evidence": [
+        "technical-failures/2026-11-04T21:06:06.493534+00:00.json",
+        "gate-amendment.json",
+        "controlroom-operator-02 claims 5-6",
+        "controlroom-operator-03 claims 4-5",
+        "controlroom-safety-02 claim 7",
+        "controlroom-safety-03 claims 5-6",
+        "controlroom-safety-01",
+        "controlroom-scientist-01",
+        "controlroom-safety-02",
+        "controlroom-operator-03",
+        "../protocol-v2.json knowledge_gate.attributed_advice_rule",
+        "freeze-receipt.json"
+      ]
+    },
+    {
+      "finding": "The premature reveal attempt failed on missing freeze receipt, with no retained event-release artifact at that stage; the later successful release follows freeze. There is no visible participant exposure to events before freeze. Root transport operations are represented by receipts/failure records and participant-facing exports rather than a complete root transcript, limiting independent verification of unrecorded transport behavior.",
+      "evidence": [
+        "technical-failures/2026-11-04T21:06:06.570585+00:00.json",
+        "gate-amendment.json",
+        "freeze-receipt.json",
+        "deployment-release.json",
+        "runtime-transcripts/operator-rollout.json records 28-31"
+      ]
+    },
+    {
+      "finding": "Deployment applies the same hash independently at all stress levels and preserves the release conditions. Easy and medium have conditional actions only; script fit and reference/job-aid checks are not invented. Hard requires no start as a known out-of-scope scenario, or stop if excluded conditions emerge after a permitted start. No successful handoff, detection, recovery or transfer is claimed.",
+      "evidence": [
+        "invocations/deployment.json",
+        "deployment.json all events",
+        "frozen-intervention.json release_conditions",
+        "runtime-transcripts/operator-rollout.json records 28-34"
+      ]
+    }
+  ],
+  "competency_contributions": [
+    {
+      "role": "operator",
+      "actual_competencies": [
+        "alarm workflow",
+        "operational cues",
+        "operator handoff",
+        "simulator practice delivery"
+      ],
+      "artifact_choices": [
+        "timestamp-job-aid anchored to experienced timestamp contradiction cue",
+        "stop-and-handoff fields and named recipient request",
+        "20-minute delivery allocation",
+        "explicit retained novice ranking reliance and withdrawal of separate unranked practice"
+      ],
+      "evidence": [
+        "controlroom-operator-01",
+        "controlroom-operator-02",
+        "controlroom-operator-03"
+      ]
+    },
+    {
+      "role": "safety",
+      "actual_competencies": [
+        "scenario safety constraints",
+        "fault injection",
+        "fallback system design",
+        "incident logging"
+      ],
+      "artifact_choices": [
+        "joint endorsement and either-party stop authority",
+        "sensor-staleness rehearsal with proposed authored-event reference and four stop triggers",
+        "paper values uncertain and unable to clear stop",
+        "explicit radio-dropout exclusion",
+        "accepted handoff receipt and local logging"
+      ],
+      "evidence": [
+        "controlroom-safety-01",
+        "controlroom-safety-02",
+        "controlroom-safety-03"
+      ]
+    },
+    {
+      "role": "scientist",
+      "actual_competencies": [
+        "independent diagnosis assessment",
+        "practice and delayed-transfer limitations"
+      ],
+      "artifact_choices": [
+        "completed-scientist-consultation action and actual fee",
+        "expected-order cue limits acknowledgement result",
+        "uncued diagnosis, delayed retention and transfer remain unestablished",
+        "next-week probe excluded from current readiness evidence and not silently funded"
+      ],
+      "evidence": [
+        "controlroom-scientist-01",
+        "controlroom-operator-02",
+        "controlroom-safety-02",
+        "frozen-intervention.json diagnosis, unresolved and rejected_alternatives"
+      ],
+      "influence_limit": "Reporting and inference limits are visible; no causal necessity or safety-signoff influence is established."
+    }
+  ],
+  "expertise_audit": [
+    {
+      "status": "supported_with_visibility_limit",
+      "severity": "none observed",
+      "finding": "Own evidence and delivered-message attribution are respected in visible accesses and claim content; no observed private-evidence leakage or outside-tool fact import.",
+      "evidence": [
+        "runtime-transcripts/operator-rollout.json",
+        "runtime-transcripts/safety-rollout.json",
+        "runtime-transcripts/scientist-rollout.json",
+        "responses/*.json"
+      ]
+    },
+    {
+      "status": "supported",
+      "severity": "none observed",
+      "finding": "Operator initial independent-readiness uncertainty is labeled hypothesis rather than claimed learning-science validation. Later assessment statements are explicitly attributed to actual scientist-01 advice. Safety initial unknown-readiness boundary is conservative simulator scope, not a specialist validity result.",
+      "evidence": [
+        "controlroom-operator-01 final claim",
+        "controlroom-safety-01 first claim and consult_request",
+        "controlroom-operator-02 claims 5-6",
+        "controlroom-safety-02 claim 7",
+        "controlroom-scientist-01"
+      ]
+    },
+    {
+      "status": "supported",
+      "severity": "none observed",
+      "finding": "The authored event record and freshness criterion are safety-owned proposed simulator design commitments grounded in supplied staleness/logging capacity, not supplied facts or sensor/clock validation. Operator adopts the engineer conditions without independent sensor expertise. No numerical freshness threshold is invented.",
+      "evidence": [
+        "controlroom-safety-02 speech and claims 3-5",
+        "controlroom-operator-03 claim 4",
+        "frozen-intervention.json timestamp-job-aid and sensor-staleness-rehearsal"
+      ]
+    },
+    {
+      "status": "supported",
+      "severity": "none observed",
+      "finding": "Scientist remains within assessment advice, explicitly disclaims safety/fidelity/readiness certification, and does not promise an unpurchased probe. Core endorsements exercise only bounded joint simulator authority.",
+      "evidence": [
+        "controlroom-scientist-01",
+        "controlroom-operator-03",
+        "controlroom-safety-03",
+        "frozen-intervention.json release_conditions"
+      ]
+    },
+    {
+      "status": "legitimate_amendment_with_implementation_limit",
+      "severity": "low technical/process defect, no observed substantive authority violation",
+      "finding": "Original freeze rejects cautious attributed-advice metadata. Actual claim semantics justify accepting it: the operator repeats actual safety conditions and scientist limits; safety repeats actual scientist limits and operator concern. Hypothesis scope does not promote these into own specialist authority. Merely citing any message would not establish semantic legitimacy generally; the amendment does not replace this audit.",
+      "evidence": [
+        "gate-amendment.json",
+        "technical-failures/2026-11-04T21:06:06.493534+00:00.json",
+        "controlroom-operator-02",
+        "controlroom-operator-03",
+        "controlroom-safety-02",
+        "controlroom-safety-03",
+        "controlroom-scientist-01",
+        "../protocol-v2.json"
+      ]
+    },
+    {
+      "status": "expected_unknown",
+      "severity": "limitation",
+      "finding": "Cannot establish erased pretrained knowledge, hard tool isolation, encrypted bootstrap contents or model-family independence. None is established by compliant claim labels or this semantic audit.",
+      "evidence": [
+        "../protocol-v2.json isolation and knowledge_gate.hard_limit",
+        "provenance/operator.json",
+        "provenance/safety.json",
+        "provenance/scientist.json",
+        "runtime-transcripts/*-rollout.json agent_message records and turn_contexts"
+      ]
+    }
+  ],
+  "results": [
+    {
+      "difficulty": "easy",
+      "evidence_kind": "model_reasoned_synthetic_deployment",
+      "capability": {
+        "rating": "mixed",
+        "reason": "Job aid directly addresses the timestamp contradiction and conditional comparison/stop, but no dedicated uncued diagnosis practice or diagnosis assessment is funded. Independent capability remains unknown."
+      },
+      "human_conditions": {
+        "rating": "mixed",
+        "reason": "Named cue, recipient and 20-minute allocation support a bounded attempt; attention, timing and actual handoff behavior are unobserved."
+      },
+      "organizational_performance": {
+        "rating": "mixed",
+        "reason": "Budget and exact joint approval are documented. Routine alarm event is not automatically eligible for the narrow sensor-staleness script, and remaining start gates must be checked."
+      },
+      "resilience": {
+        "rating": "mixed",
+        "reason": "Stop and uncertain-paper rules conditionally contain a detected contradiction; successful detection, handoff and recovery are unestablished."
+      },
+      "unobserved_outcomes": [
+        "script eligibility",
+        "job-aid and reference preparation/checks",
+        "actual detection, diagnosis, stop, receipt and logging",
+        "20-minute completion",
+        "retention and transfer"
+      ],
+      "evidence": [
+        "deployment.json easy",
+        "frozen-intervention.json timestamp-job-aid, stop-and-handoff, sensor-staleness-rehearsal, release_conditions"
+      ]
+    },
+    {
+      "difficulty": "medium",
+      "evidence_kind": "model_reasoned_synthetic_deployment",
+      "capability": {
+        "rating": "fragile",
+        "reason": "Staleness procedure is relevant, but confident ranking and disclosed novice dependence threaten cue recognition; separate unranked practice is omitted. No novice success or failure is observed."
+      },
+      "human_conditions": {
+        "rating": "fragile",
+        "reason": "Senior operator is occupied at another console; plan purchases no replacement supervision. Safety recipient commitment exists but availability and receipt in this event are unobserved."
+      },
+      "organizational_performance": {
+        "rating": "mixed",
+        "reason": "Same budget, scope, approvals and no-start/stop gates apply without adding duties to the busy senior. A completed exercise or handoff is not established."
+      },
+      "resilience": {
+        "rating": "mixed",
+        "reason": "If staleness is detected the plan supports stopping despite AI confidence and remaining stopped after unreceived handoff. Cue dependence and unobserved communication prevent stronger recovery claims."
+      },
+      "unobserved_outcomes": [
+        "remaining start gates and script fit",
+        "novice attention and detection under confident AI ranking",
+        "safety-recipient availability and actual receipt",
+        "stop, logging and completion",
+        "independent diagnosis, retention and transfer"
+      ],
+      "evidence": [
+        "deployment.json medium",
+        "deployment-release.json medium",
+        "controlroom-operator-01 C-O1",
+        "frozen-intervention.json rejected_alternatives and acceptance tests"
+      ]
+    },
+    {
+      "difficulty": "hard",
+      "evidence_kind": "model_reasoned_synthetic_deployment",
+      "capability": {
+        "rating": "fragile",
+        "reason": "Combined cascading alerts, partial radio dropout and AI loss exceed the funded narrow exercise; no current-value fallback or independent diagnosis evidence exists."
+      },
+      "human_conditions": {
+        "rating": "fragile",
+        "reason": "Combined failures impose unsupported communication and diagnostic demands; no rescue expert, additional participant or time is available."
+      },
+      "organizational_performance": {
+        "rating": "mixed",
+        "reason": "The bounded release supplies a defensible no-start decision for this known out-of-scope event. It cannot deliver the demanded combined rehearsal or restoration; refusal is containment, not successful operational performance."
+      },
+      "resilience": {
+        "rating": "fragile",
+        "reason": "Stopping/withholding start and refusing stale paper are supported boundaries. The plan has no rehearsable radio failure, verified fresh fallback or demonstrated recovery/receipt under combined failure."
+      },
+      "unobserved_outcomes": [
+        "actual start withheld or attempted",
+        "any detection, stop, communication, receipt and logging",
+        "behavior under AI loss and cascading alerts",
+        "restoration, diagnosis, safety result, timing and transfer"
+      ],
+      "evidence": [
+        "deployment.json hard",
+        "deployment-release.json hard",
+        "controlroom-safety-01 C-S1/C-S3",
+        "frozen-intervention.json release_conditions and exclusions"
+      ]
+    }
+  ],
+  "observer_disagreements": [
+    {
+      "issue": "Process feasibility versus intervention success",
+      "judgment": "I accept bounded process feasibility while rejecting any inference of readiness certification or successful stress-event execution. The retained deployment makes no such success claim.",
+      "evidence": [
+        "deployment.json",
+        "controlroom-scientist-01",
+        "freeze-receipt.json"
+      ]
+    },
+    {
+      "issue": "Practice versus safety rehearsal",
+      "judgment": "There is consequential divergence in initial packages and a visible operator concession, not evidence of a persistent veto or independent conflict manufactured by the reviewer. Dropping unranked practice is a resource tradeoff with unresolved capability cost, not proof that the chosen package is optimal.",
+      "evidence": [
+        "controlroom-operator-01",
+        "controlroom-safety-01",
+        "controlroom-operator-02",
+        "controlroom-operator-03"
+      ]
+    },
+    {
+      "issue": "Validator test claim",
+      "judgment": "I accept the amendment semantics for the actual retained claims and unchanged hash. I cannot independently attest to its general implementation or ten-test claim from permitted case evidence alone.",
+      "evidence": [
+        "gate-amendment.json",
+        "responses/*.json",
+        "draft-intervention.json",
+        "frozen-intervention.json"
+      ]
+    },
+    {
+      "issue": "Pending-safety wording in frozen artifact",
+      "judgment": "Separate exact-byte safety endorsement resolves the authoring-stage pending statement; I do not count that wording as absent joint authority. Neither endorsement satisfies the prospective execution checks.",
+      "evidence": [
+        "frozen-intervention.json unresolved/signoffs",
+        "controlroom-safety-03",
+        "freeze-receipt.json"
+      ]
+    }
+  ],
+  "provenance_limits": [
+    "Reviewed all 35 retained case JSON files available before creating these two review outputs, plus ../protocol-v2.json. No validator source or evidence outside that permission set was inspected.",
+    "Participant exports contain encrypted native inter-agent task envelopes. Readable invocation files and their visible reads provide operational task evidence; encrypted content, runtime developer instructions and private reasoning are not independently inspectable.",
+    "Root transport has no complete retained rollout in this case. Receipts and failure records support ordering but cannot prove absence of unrecorded root actions or undeclared file accesses.",
+    "All retained participant runtime turn contexts report gpt-6.1-sol with high effort. Provenance receipts honestly retain null launch-resolved model IDs; runtime labels do not attest to provider checkpoint, sampling temperature or model-family independence.",
+    "Runtime identity receipts were registered/exported after the corresponding participant turns, not prospective cryptographic launch attestations. Their agent paths and separate runtime thread IDs corroborate actual separate conversations; shared filesystem remains instruction-bounded.",
+    "Task turns and internal continuations are not provider API call counts. No provider API response IDs are exposed; no credentialed human professional is represented.",
+    "Deployment is participant-authored model reasoning about independent hypothetical events, not a simulator run or independent empirical outcome measurement. All real behavior, readiness, transfer and organizational outcomes remain unobserved.",
+    "Gate amendment records tests as passed but no test output or validator source is retained within permitted evidence. The unchanged draft/frozen hash and actual claim/source semantics were independently checked."
+  ],
+  "pilot_gate": {
+    "decision": "pass",
+    "scope": "Bounded process feasibility only, with retained implementation defect and provenance limits; not intervention success or readiness certification.",
+    "reasons": [
+      "Actual separate participant conversations visibly read their retained tasks and role-limited evidence.",
+      "Disclosures precede reuse; core disagreements influence choices; delivered consultation has visible bounded influence and real accounting.",
+      "No material semantic expertise or authority violation is observed in permitted evidence.",
+      "Actual core endorsements bind identical frozen bytes before stress-event release.",
+      "Post-rejection amendment legitimately handles existing attributed advice; it preserves rejected operations and unchanged intervention rather than repairs team choices.",
+      "Projection keeps the same plan, unpassed execution gates, no-start/stop boundaries and hard coverage failure without invented resources or outcomes."
+    ],
+    "intervention_success": {
+      "status": "unestablished",
+      "reason": "No execution is observed, independent diagnosis/retention/transfer are unestablished, medium cue dependence remains, and hard combined-failure coverage is absent."
+    },
+    "conditions_on_interpretation": [
+      "Pass does not assert the original validator worked without correction.",
+      "Pass applies only to visible behavioral compliance, not hard isolation or complete bootstrap/root-transcript visibility.",
+      "Easy/medium remain conditional with no presumed preparation/check success; hard cannot start as the proposed exercise under this release."
+    ]
+  }
+}

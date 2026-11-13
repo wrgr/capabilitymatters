@@ -1,0 +1,24 @@
+{
+  "description": "Exact team artifact freeze; transport does not repair its content.",
+  "frozen_at": "2026-11-04T21:06:06.494328+00:00",
+  "sha256": "978418fb049e4e19cb6f7d985781048b052a251eebc6a06782faeccee4bca146",
+  "source": "experiments/competency-live/2026-11-04/benefits/draft-intervention.json",
+  "endorsement_files": [
+    "director-03.json",
+    "designer-03.json"
+  ],
+  "knowledge_gate": {
+    "version": 2,
+    "accepted_messages": [
+      "benefits-director-01",
+      "benefits-designer-01",
+      "benefits-access-01",
+      "benefits-director-02",
+      "benefits-designer-02",
+      "benefits-director-03",
+      "benefits-designer-03"
+    ],
+    "meaning": "Declared scope and evidence permissions passed; semantic expertise and actual tool access still require independent audit."
+  },
+  "events_sha256": "1319aa62c2c49592156413b251f2b9e4f76f915efc161f09dd3a898aaabad6c3"
+}

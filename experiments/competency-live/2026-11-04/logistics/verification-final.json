@@ -1,0 +1,133 @@
+{
+  "description": "Integrity checks, not a certificate of expertise or ecological validity.",
+  "verified_at": "2026-11-04T21:14:05.350348+00:00",
+  "checks": {
+    "freeze_intact": true,
+    "events_precommitted": true,
+    "freeze_before_release": true,
+    "three_levels": true,
+    "all_core_registered": true,
+    "independent_review": true,
+    "deployment_recorded": true,
+    "core_transcripts_retained": true,
+    "events_before_agents": true,
+    "deployment_uses_same_freeze": true,
+    "deployment_has_three_levels": true,
+    "reviewer_is_separate": true
+  },
+  "failures": [],
+  "inventory": [
+    {
+      "path": "deployment-release.json",
+      "sha256": "e7db9820f2c43fe3277763eafe813e3a74078ea67fb2102f8785a7e5e511dc1c"
+    },
+    {
+      "path": "deployment.json",
+      "sha256": "e233878e13779c9ed322e707b7b612997a7dc3854839ea2bc5e494e61f3f6db9"
+    },
+    {
+      "path": "draft-intervention.json",
+      "sha256": "a47c8a7ca86492966a104bef7053ff6f5d35b907e2263358b2a0b51c25d81870"
+    },
+    {
+      "path": "evaluation.json",
+      "sha256": "59e2436bf28a9a7e29ab55b430c609f96f5a6fc39845bea2e9bebd058d6fb350"
+    },
+    {
+      "path": "failures.json",
+      "sha256": "5d82954f3e17ee93ff3b9f04e4419973da33052a4e96a30aaa37fb67ebf17009"
+    },
+    {
+      "path": "freeze-receipt.json",
+      "sha256": "6c50c0ced151bb909d49bb53a4fd58ef37f39f9d7ba3c6fe9111070e4839bb14"
+    },
+    {
+      "path": "frozen-intervention.json",
+      "sha256": "a47c8a7ca86492966a104bef7053ff6f5d35b907e2263358b2a0b51c25d81870"
+    },
+    {
+      "path": "launch-receipts.json",
+      "sha256": "34971a2d4e630155b68fe14ec31dbbf1a137f1aa23b3e7060a4f6ac8729e97db"
+    },
+    {
+      "path": "packet-analyst.json",
+      "sha256": "bfcfd3b6c32a92a6afdedc5056cb0ad67dfe658a33db46e9ecc3f1840f98c64b"
+    },
+    {
+      "path": "packet-ops.json",
+      "sha256": "87fce3fc38617233f38a96f76d30a472196c1626e735cfaa546ae2cb13d654ef"
+    },
+    {
+      "path": "packet-scientist.json",
+      "sha256": "da2cd1f438b94600b6d9b7bd6fbbcd1044cc3f4742c79b936a3565373bf308d5"
+    },
+    {
+      "path": "provenance/analyst.json",
+      "sha256": "0cbed578eb58a8f08e78a5c1a652f01b560982fc469a416130e02565d994f491"
+    },
+    {
+      "path": "provenance/evaluator.json",
+      "sha256": "c9a298ba48b9ccd52ec125c3525dab1810732c93c1476160e4b2ac3c4be5b2fd"
+    },
+    {
+      "path": "provenance/ops.json",
+      "sha256": "39f0c57043f6b2045590bdc45df49a1672756e640563c640bef1924b9ee86280"
+    },
+    {
+      "path": "provenance/scientist.json",
+      "sha256": "ed5ea618ec23be908cee033f19fee6a6cb609a116247ca7736bc8ed5cd2922d7"
+    },
+    {
+      "path": "responses/analyst-01.json",
+      "sha256": "5063e2a7f12daa8735ca971cb2b51cb0c122a6fc50e6cf69e358f7e77d66d41d"
+    },
+    {
+      "path": "responses/analyst-02.json",
+      "sha256": "7608d218a436d8c6b8b53fea8e09e1232a96915c5bd130e0ad8c1271a76d5a0c"
+    },
+    {
+      "path": "responses/analyst-03.json",
+      "sha256": "123fd2a2094952e75abf1ed940decdc00695929a5383d55e8a80ae5a5d496a9e"
+    },
+    {
+      "path": "responses/ops-01.json",
+      "sha256": "d70b765772123b1f598e99a8167334ab687d202d8509db6e68e40d92a5512ac1"
+    },
+    {
+      "path": "responses/ops-02.json",
+      "sha256": "4e7dc5146d3e4f6e7c72993f850e04b93815fab5c2c91be94af95222f962a4b3"
+    },
+    {
+      "path": "responses/ops-03.json",
+      "sha256": "6b8ec6177a78bac7f300ba1772dbc4baae42074a789e1de9488300b7166e847a"
+    },
+    {
+      "path": "responses/scientist-01.json",
+      "sha256": "78e48b85673be37eafbd863b772f8e932da869ac43b93f6b7264c1bf30fe9b10"
+    },
+    {
+      "path": "runtime-transcripts/analyst-rollout.json",
+      "sha256": "ba62dc07cb09b9e30318fbd6af510ed9d087f23a02d1d199d652b357c267720a"
+    },
+    {
+      "path": "runtime-transcripts/evaluator-rollout.json",
+      "sha256": "1bbe6ce7f8b4ee8c4cba7030bbe85ec0facf5b33c8ca956ef006860b367f858b"
+    },
+    {
+      "path": "runtime-transcripts/ops-rollout.json",
+      "sha256": "8864025175c50d938a5082cdb3513fb2f396bf3be3c62f7eb583a51c0a4cb1f9"
+    },
+    {
+      "path": "runtime-transcripts/scientist-rollout.json",
+      "sha256": "3e1f8b2ca60fde4397abcdbc6715b9c1942eaee70453060ad334ed809a2d5179"
+    },
+    {
+      "path": "sealed-events.json",
+      "sha256": "afd7b290e7541625ab92421643d91a350c592d314d4ac34d5e00200a1c81dd09"
+    },
+    {
+      "path": "spec.json",
+      "sha256": "ad663f94fec941190cb3780c950fda345fee0a05264443aa306ce89a596a40d8"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "message_id": "benefits-access-01",
+  "speech": "My evidence B-A1 is that phone interpretation is available only 10:00–14:00 and two requested languages lack approved translated forms. B-A2 is that assisted applicants may need oral explanation; machine translation alone has not been checked with affected users. These are constraints on both proposals, not a basis to certify either route.\n\nFor the two-unit participatory check, I advise a narrow, observed walkthrough: can an affected applicant understand the completion message, request human review, obtain an explanation in their requested language, and identify the next step? Seek affected users of the two languages lacking forms and users with relevant disability-access needs; their availability and participation are not established. Record which users, languages, access needs, steps and failures were actually examined, including inability to complete the walkthrough. A small check cannot establish comprehensive language or disability access.\n\nFor the director's assisted-route option, place any interpretation-dependent appointment wholly within 10:00–14:00 and retain the single 90-minute daily limit. The director must confirm staff and interpreter availability for specific appointments and account for check time within capacity; do not assume checking and serving applicants can occur simultaneously. Missing approved forms remain a gap: oral explanation or machine translation must not be represented as validated replacement forms.\n\nFor the designer's option without the separately funded assisted slot, the check may expose barriers, but cannot promise an operational assisted route. Neither my one-unit consultation nor the two-unit check creates interpreting hours, approved translations, additional staff or completed validation. If participant recruitment or coverage cannot be arranged within existing capacity and those costs, readiness stays unresolved. I advise withholding access-readiness claims until observed evidence supports the specifically tested route. I cannot approve eligibility, decide either core role's allocation, or predict resolution improvement.",
+  "evidence_disclosed": [
+    "B-A1",
+    "B-A2"
+  ],
+  "claims": [
+    {
+      "claim": "Phone interpretation is available only 10:00–14:00; two requested languages lack approved translated forms.",
+      "basis": [
+        "B-A1"
+      ],
+      "competency": "language-access evaluation",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "Assisted applicants may need oral explanation, and machine translation alone has not been checked with affected users.",
+      "basis": [
+        "B-A2"
+      ],
+      "competency": "language-access evaluation",
+      "standing": "supplied_fact"
+    },
+    {
+      "claim": "Advise a bounded observed walkthrough with affected language and disability-access users, recording actual participation, coverage, steps and barriers; recruitment and comprehensive validation remain unestablished.",
+      "basis": [
+        "B-A1",
+        "B-A2",
+        "benefits-director-01",
+        "benefits-designer-01",
+        "public.cost_reference"
+      ],
+      "competency": "participatory testing",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Interpretation-dependent appointments should fit wholly within supplied interpretation hours and the disclosed daily slot; the director must confirm specific staff and interpreter availability and allocate check time without assumed concurrent service.",
+      "basis": [
+        "B-A1",
+        "benefits-director-01"
+      ],
+      "competency": "accessible service routes",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Oral explanation or unchecked machine translation cannot be represented as a validated replacement for the missing approved forms.",
+      "basis": [
+        "B-A1",
+        "B-A2"
+      ],
+      "competency": "language-access evaluation",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Without the separately funded assisted slot, a participatory check does not establish an operational assisted route; consultation and checking do not establish additional capacity, approved translations or completed access validation.",
+      "basis": [
+        "B-A1",
+        "B-A2",
+        "benefits-designer-01",
+        "benefits-director-01",
+        "public.cost_reference"
+      ],
+      "competency": "accessible service routes",
+      "standing": "role_judgment"
+    },
+    {
+      "claim": "Withhold access-readiness claims until observed evidence supports the specifically tested route; inability to arrange recruitment or coverage leaves readiness unresolved.",
+      "basis": [
+        "B-A1",
+        "B-A2",
+        "benefits-director-01",
+        "benefits-designer-01"
+      ],
+      "competency": "language-access evaluation",
+      "standing": "role_judgment"
+    }
+  ],
+  "consult_request": null,
+  "decision": "proposal"
+}

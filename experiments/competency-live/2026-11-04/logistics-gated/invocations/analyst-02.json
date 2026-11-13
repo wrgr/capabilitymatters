@@ -1,0 +1,19 @@
+{
+  "description": "Readable instruction retained before dispatch; the agent must visibly read it.",
+  "created_at": "2026-11-04T20:47:32.494387+00:00",
+  "actor": "analyst",
+  "stage": "dialogue",
+  "response_file": "analyst-02.json",
+  "public_inputs": [
+    "ops-01.json",
+    "ops-02.json",
+    "scientist-01.json"
+  ],
+  "permitted_reads": [
+    "experiments/competency-live/2026-11-04/logistics-gated/packet-analyst.json",
+    "experiments/competency-live/2026-11-04/logistics-gated/responses/ops-01.json",
+    "experiments/competency-live/2026-11-04/logistics-gated/responses/ops-02.json",
+    "experiments/competency-live/2026-11-04/logistics-gated/responses/scientist-01.json"
+  ],
+  "instruction": "Respond to Ops actual choice and the scientist advice. State your consequential preference, any disagreement, evidence limitations, and release conditions. Answer the questions and ask for any remaining decision-critical information. Read only this invocation, its permitted_reads, your own prior invocation/response files and earlier permitted context. Follow the packet knowledge gate exactly. Write experiments/competency-live/2026-11-04/logistics-gated/responses/analyst-02.json exclusively with message_id logistics-analyst-02. Return the same natural professional speech. Never inspect sealed events or other private packets."
+}

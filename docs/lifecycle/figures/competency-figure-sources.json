@@ -1,0 +1,536 @@
+{
+  "description": "Verbatim dynamic dialogue and actual executed software-state outcomes for the unchanged frozen control-room intervention; analytic competency mappings are explicitly interpretive.",
+  "episode": "controlroom",
+  "freeze_sha256": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+  "budget_spent": 7,
+  "budget_available": 8,
+  "dialogue_rows": [
+    {
+      "competency": "Operations and training implementation",
+      "sources": [
+        "operator-01"
+      ],
+      "quotes": [
+        "I propose a provisional five-unit package: add the timestamp cue to the job aid for one unit, establish a stop-and-handoff procedure for two, and deliver unranked practice for two."
+      ],
+      "decision": "Initial proposal: 5 of 8 units. Protect diagnosis practice within a 20-minute slot.",
+      "trace": "O1",
+      "message_ids": [
+        "controlroom-operator-01"
+      ]
+    },
+    {
+      "competency": "Safety and simulator systems",
+      "sources": [
+        "safety-01"
+      ],
+      "quotes": [
+        "the radio-link module cannot inject partial dropouts this week.",
+        "the offline paper alarm sheet contains last-known values without automatic freshness marking."
+      ],
+      "decision": "Propose staleness rehearsal and explicit stop conditions. Exclude radio-dropout coverage; paper cannot establish freshness.",
+      "trace": "S1",
+      "message_ids": [
+        "controlroom-safety-01"
+      ]
+    },
+    {
+      "competency": "Learning science and assessment",
+      "sources": [
+        "scientist-01"
+      ],
+      "quotes": [
+        "It does not establish readiness for independent diagnosis.",
+        "C-L2 says one delayed, unranked diagnosis probe is feasible next week, after the current release decision."
+      ],
+      "decision": "Make the evidence limit specific: disclosed-order speed cannot certify diagnosis; a later probe cannot support today’s release.",
+      "trace": "L1",
+      "message_ids": [
+        "controlroom-scientist-01"
+      ]
+    },
+    {
+      "competency": "Integration under resource constraints",
+      "sources": [
+        "operator-02"
+      ],
+      "quotes": [
+        "Your disclosure changes my choice.",
+        "I withdraw my separate two-unit unranked-practice proposal; adding it would exceed eight units."
+      ],
+      "decision": "Adopt 7 of 8 units: aid 1 + handoff 2 + rehearsal 3 + consultation 1. Dedicated unranked practice is dropped.",
+      "trace": "O2",
+      "message_ids": [
+        "controlroom-operator-02"
+      ]
+    },
+    {
+      "competency": "Joint operational and safety authority",
+      "sources": [
+        "safety-02",
+        "safety-03"
+      ],
+      "quotes": [
+        "I support the seven-unit package and accept receiving stopped-scenario handoffs myself.",
+        "I approve only the conditional simulator release described there."
+      ],
+      "decision": "Name the safety recipient; require checked reference, stop triggers, both endorsements and a 20-minute limit.",
+      "trace": "S2 / S3",
+      "message_ids": [
+        "controlroom-safety-02",
+        "controlroom-safety-03"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "difficulty": "easy",
+      "event": "Working prioritizer; one timestamp contradiction.",
+      "source_event": "Simulator prioritizer works; one timestamp contradiction appears in a routine alarm set."
+    },
+    {
+      "difficulty": "medium",
+      "event": "Stale sensor, confident AI ranking, novice lead; senior operator busy.",
+      "source_event": "A stale sensor drives a confident ranking while a novice leads; the senior operator is present but handling another console."
+    },
+    {
+      "difficulty": "hard",
+      "event": "Cascading alerts, partial radio dropout, AI loss, stale paper.",
+      "source_event": "Cascading alerts coincide with partial radio dropout and AI loss. The paper alarm sheet contains stale values; the radio failure was not rehearsable in the installed simulator. No rescue expert or extra time appears."
+    }
+  ],
+  "evidence_kind": "executed_software_simulation",
+  "source_hashes": {
+    "experiments/competency-live/2026-11-04/controlroom/deployment-release.json": "47902de1b93c627420b75330b24ab4237b9e6d5c4a2d2747ed55b87c6128df27",
+    "experiments/competency-live/2026-11-04/controlroom/freeze-receipt.json": "a2b0b0311cef16b0ef5217a148f61d8043825252e31e187b6abd7f29ba9b4230",
+    "experiments/competency-live/2026-11-04/controlroom/frozen-intervention.json": "9ea47a59d515e9ca1cf22611fc6c2e6d440ce8aadf561432b9d74d4031a8ee96",
+    "experiments/competency-live/2026-11-04/controlroom/responses/operator-01.json": "b870435fa30e0563fba87484813bae1569c16917c72ec3fbb305510225742570",
+    "experiments/competency-live/2026-11-04/controlroom/responses/operator-02.json": "134963fb690f4e4a66a906f9832039dedfc157e842dbd6d75b1e96cf5eb94391",
+    "experiments/competency-live/2026-11-04/controlroom/responses/safety-01.json": "30ea778277acd2b0126df9edc185d62f3c33a9329c262c17271abcbc482d2e58",
+    "experiments/competency-live/2026-11-04/controlroom/responses/safety-02.json": "eae745bf04aef9665072c376282149e073487641bc97e7c362144e56325edae0",
+    "experiments/competency-live/2026-11-04/controlroom/responses/safety-03.json": "c56eca416508c57209ed6784663005d24b40d4efc22508d6a7e977f9b5610920",
+    "experiments/competency-live/2026-11-04/controlroom/responses/scientist-01.json": "9ae676edacef8fbdcec4ae8315178c659b669120d3cf00243a236965b01007ee",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/summary.json": "095b616c4bec3288fbc9b5115a917da184c95602fa060232f248697b733aacc0",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/competency-dependencies.json": "b60b4117bcd8f08b09bd3818beb13f13b1b3563808c2f875842a2e9ce4f27109",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/model.json": "65ab20081c19d47098c1b8a327ca8c84a0a8630e9321be0e84ca877dd593b5c8",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/medium.json": "a8f50efe894c0efcf7f7b5f820cfd1cd732a69c7b0222c3692cd4260d397637c",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/hard_after_start.json": "e539e2a8260d3d774bc7c3358058c73b3e1864ee40a8905980b27eb4c5dcd3f4",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/execution-receipt.json": "d9878b08b689cbf7ce0701892a915801305e5003ebfabaa9afc72989bead9e18",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/easy.json": "e6baa3e03b270a47d24b070972d9174cbb6601b8f253f6fe6844a067646bb583",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/hard.json": "c7c2f06eaa2691305f03a556fcc88aec3d818955326a36501c3bc852a7e0083c",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/recipient_unavailable.json": "686717ef693f575fbe808f9ed6370d9883dd16123af8c46f1a6b2277f21e6a82",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/fresh_sensor_control.json": "aaa6922d8d0c8134c01339453770f09b95aaabfb69c1662d168bbc937bf379a6",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/medium_cue_first.json": "e47616898b2fe5f79e3d4a157faf0282d87d0b6dda6e853c8c0bb557309b9fd8",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/missing_reference.json": "419e1969bee09c56865f4eabcba69b9c27c1ffe5023ad0b54e3e1724da15edcf",
+    "experiments/competency-live/2026-11-04/controlroom-executable-v3/independent-audit.json": "52c4639411979d568f5e75ee29f05b9936105f7bd18c08a131fa69387002fce0",
+    "experiments/competency-live/2026-11-04/logistics-gated/packet-ops.json": "5f02dcf4068afc969be8cf1897c1f9ff39642c19e9b4f9d956997ab913a69050",
+    "experiments/competency-live/2026-11-04/logistics-gated/packet-analyst.json": "cbc8464b145b957e2f56133bf94c415ee8a80fcb5a5dcecfff87bbc54d6c4591",
+    "experiments/competency-live/2026-11-04/logistics-gated/packet-scientist.json": "96f7cf74962d15d7a5f5bfb4451632bc385cc5e02f27c859cce9f1603eebf169",
+    "experiments/competency-live/2026-11-04/benefits/packet-director.json": "5a2f2c39aadcdcd3048e2635bdd886ff999a16ca4d470c0b12e6726997ef4241",
+    "experiments/competency-live/2026-11-04/benefits/packet-designer.json": "f1610946aeb9fa2a921dbc7dac8fc0529598dc3b33ebdcec08bda7582fff4d57",
+    "experiments/competency-live/2026-11-04/benefits/packet-access.json": "0ec7a1760992b55e9a26ed3d085db1b0abc15af5ae9d44ce99d1cccae74b7964",
+    "experiments/competency-live/2026-11-04/controlroom/packet-operator.json": "54bfe6ba8ed172fa2dff440fcddf0d7980f1fdaba2765797e9e0ab06b4cd59ff",
+    "experiments/competency-live/2026-11-04/controlroom/packet-safety.json": "eed4da628d466820e48a0d0cfaea4f24bc61b9fc874cddecc622082cdc8cf556",
+    "experiments/competency-live/2026-11-04/controlroom/packet-scientist.json": "7d13b26cf0b5d292a4af56e68ef440f380d32dbaf20780518ec0853e91457b0d"
+  },
+  "execution": {
+    "summary_path": "experiments/competency-live/2026-11-04/controlroom-executable-v3/summary.json",
+    "primary_episodes": [
+      {
+        "scenario_id": "easy",
+        "difficulty": "easy",
+        "kind": "primary",
+        "behavior_profile": "cue_first",
+        "trace_tail_sha256": "d8345ae5e462b969851fb03c3ddb242b8e1bd8874b7ca86808ceea27d1b60cdb",
+        "outcomes": {
+          "practice_started": true,
+          "start_withheld": false,
+          "stale_items_accepted": 0,
+          "first_stale_acceptance_at_seconds": null,
+          "first_stop_at_seconds": 184,
+          "stop_latched": true,
+          "handoff_attempted": true,
+          "handoff_acknowledged": true,
+          "acknowledgement_at_seconds": 785,
+          "containment_obligation_met": true,
+          "deployment_demand_fulfilled": true,
+          "uncovered_features_encountered": [],
+          "protocol_violations": 0,
+          "release_boundary_obeyed": true,
+          "handoff_receipt_locally_logged": true,
+          "local_recording_completed": true,
+          "missing_required_local_records": [],
+          "paper_cleared_stop": false,
+          "independent_diagnosis_assessed": false,
+          "delayed_transfer_assessed": false,
+          "human_learning_outcome": null,
+          "terminal_state": "stopped_with_ack"
+        }
+      },
+      {
+        "scenario_id": "medium",
+        "difficulty": "medium",
+        "kind": "primary",
+        "behavior_profile": "ranking_first",
+        "trace_tail_sha256": "9c9def4d14dd25167516b13b95e8766780d1a3ed45ad318d5e6b79dcb36757ff",
+        "outcomes": {
+          "practice_started": true,
+          "start_withheld": false,
+          "stale_items_accepted": 1,
+          "first_stale_acceptance_at_seconds": 186,
+          "first_stop_at_seconds": 192,
+          "stop_latched": true,
+          "handoff_attempted": true,
+          "handoff_acknowledged": true,
+          "acknowledgement_at_seconds": 785,
+          "containment_obligation_met": false,
+          "deployment_demand_fulfilled": false,
+          "uncovered_features_encountered": [],
+          "protocol_violations": 1,
+          "release_boundary_obeyed": true,
+          "handoff_receipt_locally_logged": true,
+          "local_recording_completed": true,
+          "missing_required_local_records": [],
+          "paper_cleared_stop": false,
+          "independent_diagnosis_assessed": false,
+          "delayed_transfer_assessed": false,
+          "human_learning_outcome": null,
+          "terminal_state": "stopped_with_ack"
+        }
+      },
+      {
+        "scenario_id": "hard",
+        "difficulty": "hard",
+        "kind": "primary",
+        "behavior_profile": "cue_first",
+        "trace_tail_sha256": "134091631f43a77d69ede886b536626579f3950fa05a557246f98b49af5e04ed",
+        "outcomes": {
+          "practice_started": false,
+          "start_withheld": true,
+          "stale_items_accepted": 0,
+          "first_stale_acceptance_at_seconds": null,
+          "first_stop_at_seconds": null,
+          "stop_latched": false,
+          "handoff_attempted": false,
+          "handoff_acknowledged": false,
+          "acknowledgement_at_seconds": null,
+          "containment_obligation_met": true,
+          "deployment_demand_fulfilled": false,
+          "uncovered_features_encountered": [
+            "ai_loss",
+            "cascading_alerts",
+            "radio_dropout"
+          ],
+          "protocol_violations": 0,
+          "release_boundary_obeyed": true,
+          "handoff_receipt_locally_logged": false,
+          "local_recording_completed": false,
+          "missing_required_local_records": null,
+          "paper_cleared_stop": false,
+          "independent_diagnosis_assessed": false,
+          "delayed_transfer_assessed": false,
+          "human_learning_outcome": null,
+          "terminal_state": "withheld"
+        }
+      }
+    ],
+    "diagnostic_probes": [
+      {
+        "scenario_id": "medium_cue_first",
+        "difficulty": "medium",
+        "kind": "diagnostic_probe",
+        "behavior_profile": "cue_first",
+        "trace_tail_sha256": "e3ee4170e61caee588d6274a5351878bdf1955178a109086aaa760ec7cab2d9b",
+        "outcomes": {
+          "practice_started": true,
+          "start_withheld": false,
+          "stale_items_accepted": 0,
+          "first_stale_acceptance_at_seconds": null,
+          "first_stop_at_seconds": 184,
+          "stop_latched": true,
+          "handoff_attempted": true,
+          "handoff_acknowledged": true,
+          "acknowledgement_at_seconds": 785,
+          "containment_obligation_met": true,
+          "deployment_demand_fulfilled": true,
+          "uncovered_features_encountered": [],
+          "protocol_violations": 0,
+          "release_boundary_obeyed": true,
+          "handoff_receipt_locally_logged": true,
+          "local_recording_completed": true,
+          "missing_required_local_records": [],
+          "paper_cleared_stop": false,
+          "independent_diagnosis_assessed": false,
+          "delayed_transfer_assessed": false,
+          "human_learning_outcome": null,
+          "terminal_state": "stopped_with_ack"
+        }
+      },
+      {
+        "scenario_id": "hard_after_start",
+        "difficulty": "hard",
+        "kind": "diagnostic_probe",
+        "behavior_profile": "cue_first",
+        "trace_tail_sha256": "30bacaa1b6625e0a745875ef89f88e620d29d1d9f67992bdfcfb649b5ae3c8c4",
+        "outcomes": {
+          "practice_started": true,
+          "start_withheld": false,
+          "stale_items_accepted": 0,
+          "first_stale_acceptance_at_seconds": null,
+          "first_stop_at_seconds": 184,
+          "stop_latched": true,
+          "handoff_attempted": true,
+          "handoff_acknowledged": false,
+          "acknowledgement_at_seconds": null,
+          "containment_obligation_met": true,
+          "deployment_demand_fulfilled": false,
+          "uncovered_features_encountered": [
+            "ai_loss",
+            "cascading_alerts",
+            "radio_dropout"
+          ],
+          "protocol_violations": 0,
+          "release_boundary_obeyed": true,
+          "handoff_receipt_locally_logged": false,
+          "local_recording_completed": true,
+          "missing_required_local_records": [],
+          "paper_cleared_stop": false,
+          "independent_diagnosis_assessed": false,
+          "delayed_transfer_assessed": false,
+          "human_learning_outcome": null,
+          "terminal_state": "stopped_without_ack"
+        }
+      },
+      {
+        "scenario_id": "missing_reference",
+        "difficulty": "easy",
+        "kind": "diagnostic_probe",
+        "behavior_profile": "cue_first",
+        "trace_tail_sha256": "bd8daa604ed20ada8a681920f39bfdbfdd11a61df3f7af00431eccf60eeef9b8",
+        "outcomes": {
+          "practice_started": false,
+          "start_withheld": true,
+          "stale_items_accepted": 0,
+          "first_stale_acceptance_at_seconds": null,
+          "first_stop_at_seconds": null,
+          "stop_latched": false,
+          "handoff_attempted": false,
+          "handoff_acknowledged": false,
+          "acknowledgement_at_seconds": null,
+          "containment_obligation_met": true,
+          "deployment_demand_fulfilled": false,
+          "uncovered_features_encountered": [],
+          "protocol_violations": 0,
+          "release_boundary_obeyed": true,
+          "handoff_receipt_locally_logged": false,
+          "local_recording_completed": false,
+          "missing_required_local_records": null,
+          "paper_cleared_stop": false,
+          "independent_diagnosis_assessed": false,
+          "delayed_transfer_assessed": false,
+          "human_learning_outcome": null,
+          "terminal_state": "withheld"
+        }
+      },
+      {
+        "scenario_id": "recipient_unavailable",
+        "difficulty": "easy",
+        "kind": "diagnostic_probe",
+        "behavior_profile": "cue_first",
+        "trace_tail_sha256": "42b2a3d43b8c6e1e56fb4161807728050b9bbbb7a624c54d7ee3a97b505c93b2",
+        "outcomes": {
+          "practice_started": true,
+          "start_withheld": false,
+          "stale_items_accepted": 0,
+          "first_stale_acceptance_at_seconds": null,
+          "first_stop_at_seconds": 184,
+          "stop_latched": true,
+          "handoff_attempted": true,
+          "handoff_acknowledged": false,
+          "acknowledgement_at_seconds": null,
+          "containment_obligation_met": true,
+          "deployment_demand_fulfilled": false,
+          "uncovered_features_encountered": [],
+          "protocol_violations": 0,
+          "release_boundary_obeyed": true,
+          "handoff_receipt_locally_logged": false,
+          "local_recording_completed": true,
+          "missing_required_local_records": [],
+          "paper_cleared_stop": false,
+          "independent_diagnosis_assessed": false,
+          "delayed_transfer_assessed": false,
+          "human_learning_outcome": null,
+          "terminal_state": "stopped_without_ack"
+        }
+      },
+      {
+        "scenario_id": "fresh_sensor_control",
+        "difficulty": "easy",
+        "kind": "diagnostic_probe",
+        "behavior_profile": "cue_first",
+        "trace_tail_sha256": "7563d878409e2fa0aaaefcd97f86d3c48b97dc6564f712a5bfdca76d611bbd36",
+        "outcomes": {
+          "practice_started": true,
+          "start_withheld": false,
+          "stale_items_accepted": 0,
+          "first_stale_acceptance_at_seconds": null,
+          "first_stop_at_seconds": null,
+          "stop_latched": false,
+          "handoff_attempted": false,
+          "handoff_acknowledged": false,
+          "acknowledgement_at_seconds": null,
+          "containment_obligation_met": true,
+          "deployment_demand_fulfilled": true,
+          "uncovered_features_encountered": [],
+          "protocol_violations": 0,
+          "release_boundary_obeyed": true,
+          "handoff_receipt_locally_logged": false,
+          "local_recording_completed": true,
+          "missing_required_local_records": [],
+          "paper_cleared_stop": false,
+          "independent_diagnosis_assessed": false,
+          "delayed_transfer_assessed": false,
+          "human_learning_outcome": null,
+          "terminal_state": "completed_current_record_path"
+        }
+      }
+    ]
+  },
+  "execution_annotations": {
+    "easy": "Procedure completed in this model: no stale acceptance, complete receipt and all required local records. Diagnosis remains unassessed.",
+    "medium": "Later receipt cannot erase the stale acceptance. A supplied aid did not ensure timely cue use under the authored actor policy.",
+    "hard": "Release boundary held; deployment demand unmet. No hard-fault rehearsal or diagnosis performance was exercised."
+  },
+  "setup_rows": [
+    {
+      "case": "logistics-gated",
+      "label": "AI-assisted logistics",
+      "core_ids": [
+        "ops",
+        "analyst"
+      ],
+      "consultant_id": "scientist",
+      "team": "Core: operations/training lead (workflow, staffing, job aids); data analyst (denominators, missing data, monitoring). Consultant: workplace learning scientist (practice, transfer, assessment limits).",
+      "private_summary": "Operations: no agreed overnight owner. Analyst: pre/post denominators differ; 38% of night overrides lack annotations. Scientist: six practice items repeat examples; no validated certification instrument.",
+      "boundary": "Operations schedules practice. Analyst cannot direct staff or certify competence. Consultant advises only.",
+      "resources": "10 units; 15 minutes per worker this week. Two-hour clinic cannot cover all shifts.",
+      "refs": "L-O1–3; L-D1–3; L-S1–2",
+      "packets": [
+        {
+          "path": "experiments/competency-live/2026-11-04/logistics-gated/packet-ops.json",
+          "identity": "ops",
+          "private_evidence": [
+            "L-O1: supervisors have no agreed overnight override owner.",
+            "L-O2: only 15 minutes per worker are available this week; no full-shift shutdown.",
+            "L-O3: a senior dispatcher can staff one two-hour exception clinic, but cannot cover every shift."
+          ]
+        },
+        {
+          "path": "experiments/competency-live/2026-11-04/logistics-gated/packet-analyst.json",
+          "identity": "analyst",
+          "private_evidence": [
+            "L-D1: rollout changed the exception denominator from completed jobs to all attempted jobs.",
+            "L-D2: 38% of night-shift overrides lack annotations; no delayed unassisted assessment exists.",
+            "L-D3: available export allows shift-level audit, but cannot recover the missing annotations."
+          ]
+        },
+        {
+          "path": "experiments/competency-live/2026-11-04/logistics-gated/packet-scientist.json",
+          "identity": "scientist",
+          "private_evidence": [
+            "L-S1: the six practice items repeat interface examples; they are not a delayed or changed-case test.",
+            "L-S2: an assessor can review two changed-case exercises within this project; no validated certification instrument is available."
+          ]
+        }
+      ],
+      "budget": 10
+    },
+    {
+      "case": "benefits",
+      "label": "Public-benefits service",
+      "core_ids": [
+        "director",
+        "designer"
+      ],
+      "consultant_id": "access",
+      "team": "Core: service director (staffing, workflow, escalation); service designer/policy steward (interface research, supplied policy). Consultant: access practitioner (language access, participatory testing).",
+      "private_summary": "Director: closure incentives; repeat contacts unlinked. Steward: ambiguous claims require human review; completion is not eligibility. Access practitioner: restricted interpreting hours; machine translation untested with users.",
+      "boundary": "Director cannot change eligibility. Steward approves supplied-rule routing, not access. Consultant cannot add interpreting hours.",
+      "resources": "10 units; one 90-minute assisted slot daily, covered by existing staff.",
+      "refs": "B-O1–3; B-H1; B-P1–2; B-A1–2",
+      "packets": [
+        {
+          "path": "experiments/competency-live/2026-11-04/benefits/packet-director.json",
+          "identity": "director",
+          "private_evidence": [
+            "B-O1: incentives reward closures; repeat contacts are not linked to original cases.",
+            "B-O2: only one 90-minute assisted-service slot per day is possible, and existing staff must cover it.",
+            "B-O3: director may pause automated closures but may not change eligibility criteria."
+          ]
+        },
+        {
+          "path": "experiments/competency-live/2026-11-04/benefits/packet-designer.json",
+          "identity": "designer",
+          "private_evidence": [
+            "B-H1: five completed-page interviews report confusion about whether a claim was resolved; abandoned users were not interviewed.",
+            "B-P1: fictional local rule requires authorized human review of ambiguous claims; page completion has no eligibility meaning.",
+            "B-P2: this steward may approve routing and wording against that supplied rule, but cannot invent eligibility rules."
+          ]
+        },
+        {
+          "path": "experiments/competency-live/2026-11-04/benefits/packet-access.json",
+          "identity": "access",
+          "private_evidence": [
+            "B-A1: phone interpretation is available only 10:00–14:00; two requested languages lack approved translated forms.",
+            "B-A2: assisted applicants may need oral explanation; machine translation alone has not been checked with affected users."
+          ]
+        }
+      ],
+      "budget": 9
+    },
+    {
+      "case": "controlroom",
+      "label": "Control-room readiness",
+      "core_ids": [
+        "operator",
+        "safety"
+      ],
+      "consultant_id": "scientist",
+      "team": "Core: senior operator/training lead (alarm cues, practice, handoff); safety/simulator engineer (faults, fallback, logging). Consultant: learning scientist (diagnosis assessment, transfer limits).",
+      "private_summary": "Operator: novices follow ranking; timestamp cue absent from aid. Engineer: no radio-dropout injection; paper freshness unmarked. Scientist: assessment discloses alarm order; delayed probe follows release.",
+      "boundary": "Operator and engineer jointly approve simulator release; either may stop. Consultant cannot certify readiness or safety.",
+      "resources": "8 units; 20-minute slot per operator. No real utility operation.",
+      "refs": "C-O1–3; C-S1–3; C-L1–2",
+      "packets": [
+        {
+          "path": "experiments/competency-live/2026-11-04/controlroom/packet-operator.json",
+          "identity": "operator",
+          "private_evidence": [
+            "C-O1: novices normally follow AI ranking and rarely diagnose unranked alarms.",
+            "C-O2: experienced operators use a timestamp contradiction cue that is missing from the job aid.",
+            "C-O3: only a 20-minute simulator slot per operator is funded; no full-day exercise."
+          ]
+        },
+        {
+          "path": "experiments/competency-live/2026-11-04/controlroom/packet-safety.json",
+          "identity": "safety",
+          "private_evidence": [
+            "C-S1: sensor staleness and a local console log can be simulated safely; the radio-link module cannot inject partial dropouts this week.",
+            "C-S2: fictional release rule requires operator AND safety approval; either can stop a scenario.",
+            "C-S3: offline paper alarm sheet has last-known values without automatic freshness marking."
+          ]
+        },
+        {
+          "path": "experiments/competency-live/2026-11-04/controlroom/packet-scientist.json",
+          "identity": "scientist",
+          "private_evidence": [
+            "C-L1: current acknowledgement exercise discloses the expected alarm order before performance.",
+            "C-L2: one delayed unranked diagnosis probe is feasible next week, after the current release decision."
+          ]
+        }
+      ],
+      "budget": 8
+    }
+  ],
+  "overview_interpretation": "Setup cells summarize authored role packets, not measured professional competencies. Value/use-case cells are proposed applications, not observed educational benefits or team-superiority findings."
+}

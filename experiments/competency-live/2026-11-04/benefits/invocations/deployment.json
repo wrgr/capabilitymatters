@@ -1,0 +1,12 @@
+{
+  "description": "Prospective deployment task applying an exact frozen artifact without repair.",
+  "created_at": "2026-11-04T21:07:23.219082+00:00",
+  "actor": "director",
+  "stage": "deployment",
+  "permitted_reads": [
+    "frozen-intervention.json",
+    "freeze-receipt.json",
+    "deployment-release.json"
+  ],
+  "instruction": "Read the three permitted files within this case directory and your own previously permitted context. Apply the SAME frozen plan separately to each released easy/medium/hard event. Preserve its actual release decision and conditions; do not assume gates passed, repair the plan, or invent capacity, experts, observations, approvals or numerical performance. Write deployment.json exclusively with description, actor, freeze_sha256, evidence_kind=model_reasoned_synthetic_deployment and events: difficulty, supported_actions citing exact action IDs, unmet_demands, plausible_sequence, failures, unobserved_outcomes. Distinguish a supported conditional response from an observed action. Return a brief account."
+}

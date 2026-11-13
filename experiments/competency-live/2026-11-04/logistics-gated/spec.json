@@ -1,0 +1,171 @@
+{
+  "description": "Case design retained for independent audit; not delivered wholesale to participants.",
+  "case_id": "logistics",
+  "brief": "AI-assisted logistics at three fictional depots: 220 dispatch workers; reported exception rate changed from 11% to 17% after AI rollout; faster routine routing. Sponsor asks whether a six-item practice check can certify independent competence. Improve exception handling within one week without assuming training is the cause.",
+  "budget": 10,
+  "core": [
+    "ops",
+    "analyst"
+  ],
+  "roster": {
+    "ops": {
+      "profession": "Dispatch operations and workplace-training implementation lead",
+      "competencies": [
+        "shift workflow",
+        "staffing",
+        "job-aid implementation",
+        "basic descriptive measurement"
+      ],
+      "excluded_specialist_scope": [
+        "causal inference",
+        "learning-science assessment validity",
+        "model engineering"
+      ],
+      "authority": "May change handoff ownership and schedule practice; cannot alter AI model or certify assessment validity.",
+      "availability": "core"
+    },
+    "analyst": {
+      "profession": "Operational data analyst",
+      "competencies": [
+        "denominator auditing",
+        "descriptive segmentation",
+        "missing-data analysis",
+        "workflow measurement"
+      ],
+      "excluded_specialist_scope": [
+        "learning-science validity",
+        "operational release authority"
+      ],
+      "authority": "May specify monitoring and analysis; cannot order staff or declare independent competence.",
+      "availability": "core"
+    },
+    "scientist": {
+      "profession": "Consultable workplace learning scientist",
+      "competencies": [
+        "practice and transfer design",
+        "assessment limitations"
+      ],
+      "excluded_specialist_scope": [
+        "dispatch operations",
+        "AI calibration"
+      ],
+      "authority": "Advice only; cannot schedule staff or certify competence from this evidence.",
+      "availability": "optional; fee 1 unit"
+    }
+  },
+  "cost_reference": {
+    "workflow": 2,
+    "segmented_audit": 2,
+    "brief_practice": 2,
+    "changed_case_check": 2,
+    "paper_fallback_drill": 3,
+    "expert_fee": 1
+  },
+  "cost_rule": "Costs cover scoped project work. Combine or narrow activities only with explicit accounting and realistic capacity. Expert fee counts. No cost-free invented personnel or specialist signoff.",
+  "roles": {
+    "ops": {
+      "profession": "Dispatch operations and workplace-training implementation lead",
+      "competencies": [
+        "shift workflow",
+        "staffing",
+        "job-aid implementation",
+        "basic descriptive measurement"
+      ],
+      "excluded_specialist_scope": [
+        "causal inference",
+        "learning-science assessment validity",
+        "model engineering"
+      ],
+      "authority": "May change handoff ownership and schedule practice; cannot alter AI model or certify assessment validity.",
+      "availability": "core",
+      "private_evidence": [
+        "L-O1: supervisors have no agreed overnight override owner.",
+        "L-O2: only 15 minutes per worker are available this week; no full-shift shutdown.",
+        "L-O3: a senior dispatcher can staff one two-hour exception clinic, but cannot cover every shift."
+      ],
+      "knowledge_gate": {
+        "scope_rule": "Every claim names competency exactly from your roster competencies, or hypothesis. No specialist claim gains authority through confident wording.",
+        "claim_standing": [
+          "supplied_fact",
+          "role_judgment",
+          "attributed_advice",
+          "hypothesis"
+        ],
+        "basis_rule": "Every claim cites your supplied evidence ID, public brief, cost reference, or an actually delivered prior message ID. A private fact of another role can be used only after its public disclosure.",
+        "attributed_advice_rule": "Outside your own competency, repeat only actual consulted advice, citing the consultant message and keeping its limitations; no independent specialist signoff.",
+        "hypothesis_rule": "Unsupplied external general knowledge must be labeled hypothesis. It cannot substitute for specialist authority, supplied organizational facts, capacity, validation or approval.",
+        "action_gate": "Freeze mechanically checks response claim scopes/bases, disclosed evidence, real source messages, exact core endorsements and budget. Semantic misuse remains subject to independent audit; this is not a knowledge eraser.",
+        "hard_limit": "Filesystem/tool separation is instruction-bounded in this runtime; no claim of hard sandbox isolation. The executable gate controls artifact acceptance, not latent model knowledge.",
+        "unknowns": "If the evidence does not establish readiness, coverage, validity or eligibility, leave it unknown. A no-release decision is a consequential permitted outcome."
+      }
+    },
+    "analyst": {
+      "profession": "Operational data analyst",
+      "competencies": [
+        "denominator auditing",
+        "descriptive segmentation",
+        "missing-data analysis",
+        "workflow measurement"
+      ],
+      "excluded_specialist_scope": [
+        "learning-science validity",
+        "operational release authority"
+      ],
+      "authority": "May specify monitoring and analysis; cannot order staff or declare independent competence.",
+      "availability": "core",
+      "private_evidence": [
+        "L-D1: rollout changed the exception denominator from completed jobs to all attempted jobs.",
+        "L-D2: 38% of night-shift overrides lack annotations; no delayed unassisted assessment exists.",
+        "L-D3: available export allows shift-level audit, but cannot recover the missing annotations."
+      ],
+      "knowledge_gate": {
+        "scope_rule": "Every claim names competency exactly from your roster competencies, or hypothesis. No specialist claim gains authority through confident wording.",
+        "claim_standing": [
+          "supplied_fact",
+          "role_judgment",
+          "attributed_advice",
+          "hypothesis"
+        ],
+        "basis_rule": "Every claim cites your supplied evidence ID, public brief, cost reference, or an actually delivered prior message ID. A private fact of another role can be used only after its public disclosure.",
+        "attributed_advice_rule": "Outside your own competency, repeat only actual consulted advice, citing the consultant message and keeping its limitations; no independent specialist signoff.",
+        "hypothesis_rule": "Unsupplied external general knowledge must be labeled hypothesis. It cannot substitute for specialist authority, supplied organizational facts, capacity, validation or approval.",
+        "action_gate": "Freeze mechanically checks response claim scopes/bases, disclosed evidence, real source messages, exact core endorsements and budget. Semantic misuse remains subject to independent audit; this is not a knowledge eraser.",
+        "hard_limit": "Filesystem/tool separation is instruction-bounded in this runtime; no claim of hard sandbox isolation. The executable gate controls artifact acceptance, not latent model knowledge.",
+        "unknowns": "If the evidence does not establish readiness, coverage, validity or eligibility, leave it unknown. A no-release decision is a consequential permitted outcome."
+      }
+    },
+    "scientist": {
+      "profession": "Consultable workplace learning scientist",
+      "competencies": [
+        "practice and transfer design",
+        "assessment limitations"
+      ],
+      "excluded_specialist_scope": [
+        "dispatch operations",
+        "AI calibration"
+      ],
+      "authority": "Advice only; cannot schedule staff or certify competence from this evidence.",
+      "availability": "optional; fee 1 unit",
+      "private_evidence": [
+        "L-S1: the six practice items repeat interface examples; they are not a delayed or changed-case test.",
+        "L-S2: an assessor can review two changed-case exercises within this project; no validated certification instrument is available."
+      ],
+      "knowledge_gate": {
+        "scope_rule": "Every claim names competency exactly from your roster competencies, or hypothesis. No specialist claim gains authority through confident wording.",
+        "claim_standing": [
+          "supplied_fact",
+          "role_judgment",
+          "attributed_advice",
+          "hypothesis"
+        ],
+        "basis_rule": "Every claim cites your supplied evidence ID, public brief, cost reference, or an actually delivered prior message ID. A private fact of another role can be used only after its public disclosure.",
+        "attributed_advice_rule": "Outside your own competency, repeat only actual consulted advice, citing the consultant message and keeping its limitations; no independent specialist signoff.",
+        "hypothesis_rule": "Unsupplied external general knowledge must be labeled hypothesis. It cannot substitute for specialist authority, supplied organizational facts, capacity, validation or approval.",
+        "action_gate": "Freeze mechanically checks response claim scopes/bases, disclosed evidence, real source messages, exact core endorsements and budget. Semantic misuse remains subject to independent audit; this is not a knowledge eraser.",
+        "hard_limit": "Filesystem/tool separation is instruction-bounded in this runtime; no claim of hard sandbox isolation. The executable gate controls artifact acceptance, not latent model knowledge.",
+        "unknowns": "If the evidence does not establish readiness, coverage, validity or eligibility, leave it unknown. A no-release decision is a consequential permitted outcome."
+      }
+    }
+  },
+  "knowledge_gate_version": 2
+}

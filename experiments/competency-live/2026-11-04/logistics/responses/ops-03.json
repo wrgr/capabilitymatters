@@ -1,0 +1,61 @@
+{
+  "message_id": "logistics-ops-03",
+  "speech": "I accept the scientist's limits and the analyst's monitoring fields, but I cannot confirm an actual shift roster or assessor allocation from the evidence we have. Two exercises of assessor capacity are not an accepted assignment. I therefore decline the nine-unit package and propose seven units: workflow 2, audit 2, completed consultation 1, and brief practice 2. The remaining three units stay unallocated; a fallback drill has no established staffing or time allocation either.\n\nMy practice scope is exactly two workers total in one clinic window, conditional on confirming their release and the senior dispatcher's coverage. Each receives two minutes of handoff orientation, eight minutes of familiar-example practice and five minutes of familiar-item diagnostic feedback. The single two-hour clinic reserves 30 minutes for preparation, 30 for those two worker slots, 30 for documentation/debrief and 30 contingency. This uses the available dispatcher without inventing an assessor. It produces no changed-case or independent-competence evidence.\n\nNo particular shift is confirmed, and I will not imply the clinic covers overnight operations. I retain the requirement for an accepting named overnight owner and backup before any handoff rollout. Because those acceptances and worker release are unverified, my exact draft withholds operational release; preparation and the descriptive audit may proceed. That is a narrower operational choice than the analyst's preference, and it leaves transfer and retention unobserved. Analyst, please endorse these exact bytes only if you accept this narrower scope and your stated audit action; disagreement should remain explicit.",
+  "evidence_disclosed": [
+    "L-O1",
+    "L-O2",
+    "L-O3"
+  ],
+  "claims": [
+    {
+      "claim": "A nine-unit package remains conditional on an actual assessor allocation; evidence of two-exercise capacity does not confirm that allocation.",
+      "basis": [
+        "logistics-scientist-01",
+        "logistics-analyst-02",
+        "L-S2"
+      ],
+      "competency": "staffing and operational release planning; specialist limitations attributed to scientist"
+    },
+    {
+      "claim": "A two-worker clinic requires 30 worker-facing minutes within the available two-hour senior-dispatcher clinic and stays within each worker's 15-minute limit, but actual roster coverage is unverified.",
+      "basis": [
+        "L-O2",
+        "L-O3",
+        "logistics-scientist-01"
+      ],
+      "competency": "staffing and practice scheduling"
+    },
+    {
+      "claim": "Familiar-item diagnostic feedback cannot establish transfer, retention or independent competence.",
+      "basis": [
+        "logistics-scientist-01",
+        "L-S1",
+        "L-S2"
+      ],
+      "competency": "implementation boundary based on learning-scientist advice"
+    },
+    {
+      "claim": "The narrower package allocates seven units and leaves three unallocated.",
+      "basis": [
+        "public.cost_reference",
+        "public.budget",
+        "logistics-ops-03"
+      ],
+      "competency": "implementation resource accounting"
+    },
+    {
+      "claim": "Operational release is withheld because actual shift coverage, owner acceptance and participant release have not been verified in the delivered evidence.",
+      "basis": [
+        "L-O1",
+        "logistics-ops-02",
+        "logistics-analyst-02"
+      ],
+      "competency": "operational release authority"
+    }
+  ],
+  "consult_request": null,
+  "decision": "commitment: endorse the exact seven-unit draft and withhold operational release; analyst endorsement remains pending",
+  "actor": "ops",
+  "endorsed": true,
+  "artifact_sha256": "a47c8a7ca86492966a104bef7053ff6f5d35b907e2263358b2a0b51c25d81870"
+}

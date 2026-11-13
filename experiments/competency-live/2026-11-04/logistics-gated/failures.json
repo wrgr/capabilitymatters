@@ -1,0 +1,104 @@
+{
+  "description": "Independent failure record. Existing evidence and intervention remain unchanged. Plan/process limitations and technical errors are separated from expected unknown outcomes.",
+  "evaluator_agent": "/root/logistics_gated_evaluator",
+  "artifact_failures": [
+    {
+      "id": "L-AF1",
+      "severity": "low",
+      "failure": "Standalone frozen artifact retains authorship-time analyst-endorsement-pending language and only Ops signoff.",
+      "evidence": [
+        "frozen-intervention.json description, unresolved and signoffs"
+      ],
+      "qualification": "Matching later analyst endorsement and freeze receipt establish actual endorsed freeze; no freeze failure inferred."
+    },
+    {
+      "id": "L-AF2",
+      "severity": "material",
+      "failure": "No-release artifact does not supply a released route for immediate live exception handling, day-shift ownership, night onboarding or outage/stale-data continuity.",
+      "evidence": [
+        "frozen-intervention.json actions and release_decision",
+        "deployment.json events[easy,medium,hard]"
+      ],
+      "qualification": "A permitted consequential choice and intervention-sufficiency limitation, not proof of observed errors or an invalid example."
+    }
+  ],
+  "process_failures": [],
+  "process_limitations": [
+    {
+      "limitation": "Encrypted native envelopes and omitted private reasoning/developer instructions prevent a complete hidden-instruction audit.",
+      "evidence": [
+        "runtime-transcripts/ops-rollout.json records[1,9,17,25]",
+        "runtime-transcripts/analyst-rollout.json records[1,9,17]",
+        "runtime-transcripts/scientist-rollout.json records[1]"
+      ],
+      "qualification": "All substantive retained invocations were visibly read. This limitation is not a fabricated process violation."
+    },
+    {
+      "limitation": "Behavioral separation in a shared filesystem does not establish hard access isolation or knowledge erasure.",
+      "evidence": [
+        "provenance/ops.json",
+        "provenance/analyst.json",
+        "provenance/scientist.json",
+        "../protocol-v2.json knowledge_gate"
+      ]
+    }
+  ],
+  "result_failures": [
+    {
+      "difficulty": "easy",
+      "failure": "Immediate ambiguous day-shift override lacks an established released owner under this plan.",
+      "evidence": [
+        "deployment.json events[easy]"
+      ],
+      "kind": "projected unmet demand"
+    },
+    {
+      "difficulty": "medium",
+      "failure": "Absent assigned implementer and delayed annotation export defeat timely clinic execution and affected audit findings; no demonstrated coverage for new dispatchers.",
+      "evidence": [
+        "deployment.json events[medium]"
+      ],
+      "kind": "projected unmet demands"
+    },
+    {
+      "difficulty": "hard",
+      "failure": "No released continuity response or stale-destination resolution is supplied during outage/surge; excluded fallback cannot be added without redesign.",
+      "evidence": [
+        "deployment.json events[hard]"
+      ],
+      "kind": "projected unmet demands"
+    },
+    {
+      "difficulty": "all",
+      "failure": "Improved exception handling within the requested week is not demonstrated by preparation and audit commitments.",
+      "evidence": [
+        "logistics-ops-03",
+        "logistics-analyst-03",
+        "deployment.json"
+      ],
+      "kind": "intervention result not achieved in retained evidence; no causal estimate"
+    }
+  ],
+  "technical_errors": [],
+  "technical_verification": {
+    "draft_and_frozen_sha256": "67507be5cfccaaecfec8270517710243e83338bf4435a20bce2ba96c47459cf8",
+    "matches_both_endorsements_and_receipt": true,
+    "sealed_events_hash_matches_receipt": true,
+    "cost_sum": 9,
+    "observed_tool_error_count": 0,
+    "qualification": "No participant technical error appears in the exported call/output records. Root external runtime actions beyond supplied receipts are not independently reconstructed."
+  },
+  "semantic_overreach": {
+    "status": "no material specialist overreach found in retained dialogue or artifact",
+    "qualification": "Mechanical permission acceptance is not semantic validation generally. Cautious abstentions, bounded operational proposals and attributed scientist advice were assessed in context."
+  },
+  "expected_unknown_outcomes": [
+    "Actual worker competence, delayed retention and workforce-wide transfer.",
+    "Actual audit completion, field availability and annotation values.",
+    "Attendance, supervisor acknowledgement, assessor scheduling and completed exercises.",
+    "Real errors, exceptions, dispatch correctness, delays, throughput, harm, worker burden and causal effects.",
+    "Pre-existing operational responses outside the frozen intervention."
+  ],
+  "gate_decision": "pass",
+  "intervention_repair_performed": false
+}
