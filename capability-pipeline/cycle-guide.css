@@ -1,0 +1,21 @@
+/* Present eight compact step cards and a shared modal explanation for the circle. */
+.step-legend { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+.cycle-card { display: flex; gap: .75rem; text-align: left; background: var(--surface); color: var(--ink); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; font: inherit; cursor: pointer; }
+.cycle-card-number { color: var(--accent); font-weight: 700; }
+.cycle-card strong, .cycle-card span span { display: block; }
+.cycle-card strong { margin-bottom: .3rem; }
+.cycle-card span span { color: var(--ink-muted); font-size: .9rem; line-height: 1.5; }
+.cycle-card:hover { border-color: var(--accent); }
+.cycle-card:focus-visible, .step-node:focus-visible, .refine-node:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+.step-node[role=button], .refine-node[role=button] { cursor: pointer; }
+.step-node:hover circle, .step-node:focus-visible circle, .refine-node:hover circle { stroke: var(--accent); stroke-width: 5; }
+.deployment-return { fill: none; }
+.deployment-label { font: 600 16px var(--font-body); fill: var(--accent); }
+#cycle-step-dialog { width: min(38rem, calc(100% - 2rem)); max-height: calc(100% - 3rem); overflow-y: auto; border: 2px solid var(--accent); border-radius: 12px; padding: 1.5rem; background: var(--surface); color: var(--ink); }
+#cycle-step-dialog::backdrop { background: #132a26aa; }
+#cycle-step-dialog h2 { margin: .5rem 0 .75rem; }
+#cycle-step-dialog h3 { font-size: 1rem; margin: 1rem 0 .35rem; }
+#cycle-step-dialog p { color: var(--ink-muted); line-height: 1.6; margin: 0; }
+#cycle-step-dialog form { text-align: right; }
+.cycle-close { font: inherit; padding: .5rem .8rem; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); border-radius: 6px; cursor: pointer; min-height: 44px; }
+@media (max-width: 540px) { .step-legend { grid-template-columns: minmax(0, 1fr); } }

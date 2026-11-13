@@ -1,0 +1,49 @@
+/* Shared resource guidance uses native disclosure semantics and each host's palette. */
+details.resource-about {
+  --resource-bg: var(--bg, #fefdf8);
+  --resource-ink: var(--ink, #1a1d1a);
+  --resource-accent: var(--accent-2, #2c5f6f);
+  box-sizing: border-box;
+  position: static;
+  width: 100%;
+  min-width: 0;
+  margin: 1.25rem 0;
+  padding: 0;
+  border: 1px solid var(--border, #d6d5cd);
+  border-radius: 5px;
+  background: var(--resource-bg);
+  color: var(--resource-ink);
+  font: 1rem/1.6 var(--sans, system-ui, sans-serif);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+details.resource-about > summary {
+  display: list-item;
+  min-height: 44px;
+  margin: 0;
+  padding: .85rem 1rem;
+  color: var(--resource-ink);
+  font: 600 1rem/1.6 var(--sans, system-ui, sans-serif);
+  cursor: pointer;
+  list-style: disclosure-closed inside;
+}
+details.resource-about[open] > summary { list-style-type: disclosure-open; border-bottom: 1px solid var(--border, #d6d5cd); }
+details.resource-about > summary::after { content: none; }
+.resource-about .resource-about-hint { font-weight: 400; }
+details.resource-about .resource-about-body { padding: 1rem; }
+details.resource-about .resource-about-body > section { display: block; padding: 0; margin: 0 0 1.25rem; border: 0; background: transparent; }
+details.resource-about .resource-about-body > section:last-child { margin-bottom: 0; }
+details.resource-about .resource-about-body :is(h2,h3) { margin: 0 0 .5rem; padding: 0; color: var(--resource-ink); font: 700 1.05rem/1.5 var(--sans, system-ui, sans-serif); letter-spacing: normal; text-transform: none; }
+details.resource-about .resource-about-body p { max-width: 70ch; margin: 0; color: var(--resource-ink); font: inherit; }
+details.resource-about .resource-about-body ol, details.resource-about .resource-about-body ul { display: block; margin: .5rem 0 0; padding: 0 0 0 1.5rem; list-style: decimal; }
+details.resource-about .resource-about-body ul { list-style: disc; }
+details.resource-about .resource-about-body li { display: list-item; margin: .4rem 0; padding: 0; color: var(--resource-ink); font: inherit; }
+details.resource-about .resource-about-body a { color: var(--resource-accent); text-decoration: underline; text-underline-offset: .18em; border: 0; font: inherit; }
+details.resource-about > summary:focus-visible, details.resource-about .resource-about-body a:focus-visible { outline: 3px solid var(--resource-accent); outline-offset: 3px; border-radius: 2px; }
+/* The case explorer supplies its own light/dark accent token. */
+[data-resource-theme="pipeline"] .resource-about { --resource-accent: var(--accent); }
+@media (max-width: 40rem) { .resource-about .resource-about-hint { display: none; } }
+@media (forced-colors: active) {
+  details.resource-about { border-color: CanvasText; }
+  details.resource-about > summary:focus-visible, details.resource-about .resource-about-body a:focus-visible { outline-color: Highlight; }
+}

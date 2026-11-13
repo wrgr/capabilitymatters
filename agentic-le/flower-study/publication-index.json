@@ -1,0 +1,1215 @@
+{
+  "schema_version": 1,
+  "kind": "flower_study_publication_index",
+  "prepared_at_utc": "2026-11-02T18:06:17.044978+00:00",
+  "batch_id": "20261102T161159Z-batch-5fafaf52",
+  "batch_manifest_sha256": "aa7ab34a4c1192b128b85816f7b8c7940851a5bf7f95907e91ae37c7d2b09660",
+  "batch_status": "completed",
+  "planned_candidates": 15,
+  "generation_status_counts": {
+    "completed": 15
+  },
+  "results_summary_hash": "b968b0227c75cbe8bcde0b686ffb0295731b33f4aa49270f7f7c06888fb94c24",
+  "results_file_sha256": "4dcf441617402e23fe9f87fec7dc267c2bde525d32e982700652f21098c18dbc",
+  "record_selection": "explicit_final_evaluation_selection",
+  "selection_rule_version": "verified-terminal-evaluation-selection-v1",
+  "evaluation_manifest_hash": "9787faf44df95e95ded7b8a27a55fc7bf9388768918fc5f64d23751ee6f28f16",
+  "evaluation_manifest_sha256": "d416c51834f87feaa1ac961aabbcc686b46f9669b1b16760a2aea76f5a5801f9",
+  "record_origin_counts": {
+    "primary_snapshot_exact_bytes": 13,
+    "complete_jsonl_extension": 1
+  },
+  "browser_summary": {
+    "source_sha256": "0c96e040bd19887be93ba6b8909c7f66127f8d4fca15e9357ac3a0114d93a399",
+    "common_protocol_sha256": "3c48309a11fad67377e3540ffc913b19e476f4a7c8af6b000c9c184cb10f956e",
+    "harness_freeze_sha256": "7d834923c02b859b2350ca44aa8f6ad0f70fbcbed6c43f20a0d23076bdc7811d",
+    "declared_generic_qa_roots": [
+      "study/qa/results",
+      "study/qa/derived-results"
+    ],
+    "functional": {
+      "automated_axe_incomplete_rule_occurrences": 0,
+      "automated_axe_unknown_viewports": 0,
+      "automated_axe_violation_rule_occurrences": 0,
+      "bound_candidates": 14,
+      "common_check_states": {
+        "F1": {
+          "observed": 14
+        },
+        "F2": {
+          "observed": 14
+        },
+        "F3": {
+          "observed": 14
+        },
+        "F4": {
+          "observed": 14
+        },
+        "F5": {
+          "observed": 14
+        }
+      },
+      "complete_initial_check_viewports": 42,
+      "feedback_comparison_count": 40,
+      "feedback_literal_changed": 17,
+      "feedback_literal_unchanged": 23,
+      "feedback_literal_unknown": 0,
+      "initial_overflow_unknown_viewports": 0,
+      "initial_overflow_viewports": 0,
+      "observed_flow_count": 70,
+      "recorded_viewports": 42,
+      "report_state_counts": {
+        "bound": 14,
+        "excluded_from_evaluation": 1
+      },
+      "runtime_errors_dropped": 0,
+      "runtime_errors_retained": 0
+    },
+    "generic": {
+      "automated_axe_incomplete_rule_occurrences": 0,
+      "automated_axe_unknown_viewports": 0,
+      "automated_axe_violation_rule_occurrences": 0,
+      "bound_candidates": 14,
+      "complete_initial_check_viewports": 42,
+      "initial_overflow_unknown_viewports": 0,
+      "initial_overflow_viewports": 0,
+      "recorded_viewports": 42,
+      "report_state_counts": {
+        "bound": 14,
+        "excluded_from_evaluation": 1
+      },
+      "runtime_errors_dropped": 0,
+      "runtime_errors_retained": 0
+    },
+    "scope_limits": [
+      "Observed browser flows are not measured learning, transfer, field performance, usability with people, or complete accessibility conformance.",
+      "Initial DOM overflow and axe findings describe the initial state only; runtime events cover the recorded viewport session.",
+      "Generic and functional reports rerun initial checks independently and must not be added as independent candidates.",
+      "Literal feedback differences/equality are descriptive. Unchanged feedback is not automatically a defect, particularly when the recorded choice/input did not change.",
+      "F1/F2 input actions are compared by recorded order, without inferring which feedback paragraph evaluates which input.",
+      "No model ratings, reviewer assignment mappings, synthetic outcomes, simulations, or fixture results are used."
+    ]
+  },
+  "audit": {
+    "source_sha256": "b476955ad4c5300cd5bee415e215600a798577bbd13cd6783b53b17cd714b4e5",
+    "notes_file_sha256": "da2f3a8cd648759aae14d6b461eadd61f566ac73ea0666ebeec70c877336d8f2",
+    "notes": [
+      "Primary journal hash chains verified for 15 of 15 executed runs.",
+      "Generation retained 588 accepted responses from 588 requests; 0 were rejected and 0 remain unresolved.",
+      "Recorded instruction checks: 0 accepted-response schema violations, 0 prompt-assignment violations, and 0 calls with provenance errors.",
+      "Complete provider receipts cover 560 of 588 terminal generation calls. 28 calls have receipt gaps; available totals do not establish complete token or tool-use evidence for those calls.",
+      "Separately retained raw event-log copies have discrepancies for 5 runs. Original records are preserved without repair.",
+      "Model review retained 26 accepted and 2 failed attempts. Invalid attempts remain unknown; no replacement rating is selected."
+    ]
+  },
+  "candidates": [
+    {
+      "item_id": "domain-withdrawn-explicit-r01",
+      "condition": "domain-withdrawn-explicit",
+      "replicate": 1,
+      "status": "completed",
+      "run_id": "20261102T161513Z-experimental-codex-ee7bb7a0",
+      "planned_calls": 40,
+      "build": {
+        "file": "builds/domain-withdrawn-explicit-r01.txt",
+        "sha256": "813aa90fbebc24769f0028a3ad7072da819c8f9494bad1a91d7502c9b234c7b0",
+        "content_hash": "6ba7dd4f38bfa230c625176e1fd65f64db3f040f5d2f6c68e5e88313b149067b",
+        "run_head_hash": "353375ee56fb9739e38314c5dfbd344916fab3763398426832f1e1b0571df6d2",
+        "title": "Build candidate: Supporting difficult feedback conversations",
+        "generated_at_utc": "2026-11-02T16:34:22.443738+00:00",
+        "build_seq": 64,
+        "journal_view": {
+          "record_origin": "primary_snapshot_exact_bytes",
+          "journal_sha256": "8a51a06047d45d3600ceb0f3595405897d837d52f4022a3414813f6d26c00c35",
+          "provenance_sha256": "60b57eaeb0f5f40075c0ed188207756a93de23595c16987bfbb31a8a34df86ea",
+          "provenance_hash": "1d6a77ba0568256d2e7e9be40ab5de41d60747bfd7245fbe14e352e1f0f873de",
+          "original_primary_sha256": "8a51a06047d45d3600ceb0f3595405897d837d52f4022a3414813f6d26c00c35",
+          "original_event_log_sha256": "0296cc0d66ff04eae779c56ea6b41c7dcdeeff056fa2fa1c665d8798c0c62234",
+          "archived_batch_sha256": "a9f2d3df3367be4841edacf6692cdf4612edff5911559f160a065f21cd7cb971",
+          "discrepancies": {
+            "primary_matches_batch_head": true,
+            "primary_is_jsonl_prefix": true,
+            "jsonl_missing_primary_sequences": [],
+            "jsonl_extension_sequences": []
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/results",
+        "generic_report_sha256": "519b4b4664917a72cac13b0ccf5353c239d65142c95593809b546be72d1c0e4e",
+        "generic_observations_sha256": "70efef6400c687399371502619acc6d76a609b782a9c33461a485ba65a0ff10e",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "171673b0e724fde8c114050a6147cf293ba507f739e5c92c358b75bdaa4373fb",
+        "source_observations_sha256": "3a6efcf29da2367e88242a71cf3bbaf8302b465192fbd2483e8f78fa50a1b736",
+        "executed_protocol_sha256": "c98f5e7cd94478fe7c6a99868e94d8937553a25955bf434463a810e44519c332",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    },
+    {
+      "item_id": "member-removed-explicit-r01",
+      "condition": "member-removed-explicit",
+      "replicate": 1,
+      "status": "completed",
+      "run_id": "20261102T161513Z-experimental-codex-034a00f2",
+      "planned_calls": 36,
+      "build": {
+        "file": "builds/member-removed-explicit-r01.txt",
+        "sha256": "9c93f6aeb6601fc726bb6175b288614b2dc1cfcbb0b27ae8e5da782b111b3e34",
+        "content_hash": "7feaf92295b109185484086a73d358c0ea7ecf8c654ad13bd1285c3811c55372",
+        "run_head_hash": "3a06c3b7d1dcafb99b5620bee21034ebf96650cd5a76dbd94040f69c4bdd7951",
+        "title": "Build record: fictional feedback practice candidate",
+        "generated_at_utc": "2026-11-02T16:30:05.198185+00:00",
+        "build_seq": 61,
+        "journal_view": {
+          "record_origin": "primary_snapshot_exact_bytes",
+          "journal_sha256": "311dc7ef3e7c1c783ced9ee01290be6ce7a97fa980d4b2e8a5482b21d68daf84",
+          "provenance_sha256": "38c4e79cdee6cb1037070c43a64fbf00b9ad33e6ef117ada6111db0a3e50e3f9",
+          "provenance_hash": "8d52dfe4a97b8fd0ad46ee838aa4012a0d07a5d25d8d34181b17cfcd0fce2ec9",
+          "original_primary_sha256": "311dc7ef3e7c1c783ced9ee01290be6ce7a97fa980d4b2e8a5482b21d68daf84",
+          "original_event_log_sha256": "2d6aa414510e95a3c4a4962f709a7373e1471d804c7a75828bef6540c6f9e9b0",
+          "archived_batch_sha256": "a9f2d3df3367be4841edacf6692cdf4612edff5911559f160a065f21cd7cb971",
+          "discrepancies": {
+            "primary_matches_batch_head": true,
+            "primary_is_jsonl_prefix": true,
+            "jsonl_missing_primary_sequences": [],
+            "jsonl_extension_sequences": []
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/results",
+        "generic_report_sha256": "3caeae3092e8fcc7247f7f9e436cf610fa329252f4e38c8be4f2a563459b7cc8",
+        "generic_observations_sha256": "159af9756a94aeb091bd4594acef731f6b98704b3b22e8aae89d93d44bdc5ead",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "21222614afa7aeaf4ebfea2aa23182cf8ba6b144bf5c4a5f2f64d2d27fb0c90b",
+        "source_observations_sha256": "70af0b9088b8264324153f961ca96e506f42d25c83c7d98cd7035265356d0cc9",
+        "executed_protocol_sha256": "cf9f1538c817a45d27713b19cde6394c644b5f79b589324cd589b63a3ed32449",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    },
+    {
+      "item_id": "domain-omitted-explicit-r01",
+      "condition": "domain-omitted-explicit",
+      "replicate": 1,
+      "status": "completed",
+      "run_id": "20261102T161513Z-experimental-codex-c955c6d0",
+      "planned_calls": 40,
+      "build": {
+        "file": "builds/domain-omitted-explicit-r01.txt",
+        "sha256": "457cc0411c96af07f27d609e82d696e9bc5a9b6821b952c5e624aeb6bac6c3b7",
+        "content_hash": "0631c580d8483530ad09b1dfc27bce780e7b71ad594c0601f0be161442d7e980",
+        "run_head_hash": "f5cef94ed77b3a481c22a3480a520ff498bb77d900c33ca7f8995e5f98a89974",
+        "title": "Build record: fictional feedback-conversation practice candidate",
+        "generated_at_utc": "2026-11-02T16:32:58.623918+00:00",
+        "build_seq": 70,
+        "journal_view": {
+          "record_origin": "primary_snapshot_exact_bytes",
+          "journal_sha256": "d05ef21bb630a37508c7102dc5cce2087ebdeeccbb971c3e054bf607f727d9d2",
+          "provenance_sha256": "abcbc9445a5fcac6326e7fc02ee705ed9b7cdd607b7f032cf45228a82677b328",
+          "provenance_hash": "cc2d6a307660176bc9415859099a51b7167504fcae5b566e26ce1b9c67b7ac5c",
+          "original_primary_sha256": "d05ef21bb630a37508c7102dc5cce2087ebdeeccbb971c3e054bf607f727d9d2",
+          "original_event_log_sha256": "f545151e831609933910c0f0f726a5cdd68b07649039e11a93c27a23db9dc74a",
+          "archived_batch_sha256": "a9f2d3df3367be4841edacf6692cdf4612edff5911559f160a065f21cd7cb971",
+          "discrepancies": {
+            "primary_matches_batch_head": true,
+            "primary_is_jsonl_prefix": false,
+            "jsonl_missing_primary_sequences": [
+              104
+            ],
+            "jsonl_extension_sequences": []
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/results",
+        "generic_report_sha256": "0832a4ccb8ee6be4460b772ac7205f0ef879d34896184cbf65e870f6fe3bd381",
+        "generic_observations_sha256": "b83b01f881e42b608fda7ac4cc6b969edc68b3c75757371af9249bd29c71e28d",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "b274d0f60176a593d977470e3c5e4380cb69582b7b21d706b744a7e723a7f496",
+        "source_observations_sha256": "859f689d9f91170981b42f1373a3cb3a39589cf6403f5cfdfbc8f4da6cdf6c78",
+        "executed_protocol_sha256": "a592fc0e5bd3b847d20a946c0913a5fa5653e02befda9e296535d323e442c2c2",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    },
+    {
+      "item_id": "full-team-explicit-r01",
+      "condition": "full-team-explicit",
+      "replicate": 1,
+      "status": "completed",
+      "run_id": "20261102T161513Z-experimental-codex-1bfc019d",
+      "planned_calls": 40,
+      "build": {
+        "file": "builds/full-team-explicit-r01.txt",
+        "sha256": "81e2e913d75f8d190a0beb87f13454d6f2623645777fbea0bb13383ad62da6a6",
+        "content_hash": "e549f4403aa96735f9c385b49860f6e9b057e50c55e8b69e2c75aab7627fd2a5",
+        "run_head_hash": "c573488c3771e0e159919b4cee044c0edfd63e676ff55e50ef213c9b1042d53c",
+        "title": "Build record: fictional feedback-conversation practice candidate",
+        "generated_at_utc": "2026-11-02T16:36:23.666985+00:00",
+        "build_seq": 65,
+        "journal_view": {
+          "record_origin": "primary_snapshot_exact_bytes",
+          "journal_sha256": "1f188e644832dc706bffa66279627cefd3545cecae43c67c7e6cd92513185916",
+          "provenance_sha256": "d4f51788f50a6b472cf9a737225133d57cc47e12688d6dfeceda0e8acfeb6f2a",
+          "provenance_hash": "c1df3da34a764274dc3b5f2bc9e2fe97060c8eb16ff6cc76ca194593497d0c8c",
+          "original_primary_sha256": "1f188e644832dc706bffa66279627cefd3545cecae43c67c7e6cd92513185916",
+          "original_event_log_sha256": "c24b354cb02085873e6c370ef782cb380f913e452bd22d41dee5c63e804c14e2",
+          "archived_batch_sha256": "a9f2d3df3367be4841edacf6692cdf4612edff5911559f160a065f21cd7cb971",
+          "discrepancies": {
+            "primary_matches_batch_head": true,
+            "primary_is_jsonl_prefix": true,
+            "jsonl_missing_primary_sequences": [],
+            "jsonl_extension_sequences": []
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/results",
+        "generic_report_sha256": "aa486787494563e83b4fffb48ab7c99eadd63d010e082f8f73df08de53465b91",
+        "generic_observations_sha256": "7e4b17e9901d7373ab31936be4097e50e3c2e9614e771ce8d1f81e8b6a8d56f1",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "6cbe9d3a8e3621394a59bf78f72f2a922d1ad9bec6811a61c384fc5b4c687e4d",
+        "source_observations_sha256": "8e61530cbd826d25c47842035bfe0f1fb2840c2661e736b47d38b5e4b8ff26b2",
+        "executed_protocol_sha256": "ffbeccc2aed83d0f387ee6f909a1601d68f1105c5f10e2fdde8ae91ff5193a1b",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    },
+    {
+      "item_id": "individual-explicit-r01",
+      "condition": "individual-explicit",
+      "replicate": 1,
+      "status": "completed",
+      "run_id": "20261102T161513Z-experimental-codex-4b122658",
+      "planned_calls": 40,
+      "build": {
+        "file": "builds/individual-explicit-r01.txt",
+        "sha256": "b54f28970ab1434f99e23f87883d41e85e8bdb6f7b0af2d7301b2ccc374baac4",
+        "content_hash": "4bef6dcf7973c97597a60d414d315d2c4c626cda85139db2fe5437afc4595cd1",
+        "run_head_hash": "13b06fce889676fe33b1112b8f6f6e9fe9a33bd878ddb32170e207e9384887f8",
+        "title": "Build record — fictional feedback-conversation practice candidate",
+        "generated_at_utc": "2026-11-02T16:32:55.679631+00:00",
+        "build_seq": 65,
+        "journal_view": {
+          "record_origin": "primary_snapshot_exact_bytes",
+          "journal_sha256": "8e44f3a49722c44726a47b0c6426a8a2f92d5ed6a1161105c627763afbdd11d8",
+          "provenance_sha256": "e13f5bca32f2a2818717289fa45c725c907ce25bc36b5c722a7b65282692dd45",
+          "provenance_hash": "fb2e8f5f1f47317a4dc5bbc02aa9caf091eba6fafb5aa5aa59e44508fd7864cf",
+          "original_primary_sha256": "8e44f3a49722c44726a47b0c6426a8a2f92d5ed6a1161105c627763afbdd11d8",
+          "original_event_log_sha256": "dafcc88bc69903b96ee2c8676bc6e873315ce28895db3f6f48443d4ee68628c4",
+          "archived_batch_sha256": "a9f2d3df3367be4841edacf6692cdf4612edff5911559f160a065f21cd7cb971",
+          "discrepancies": {
+            "primary_matches_batch_head": true,
+            "primary_is_jsonl_prefix": true,
+            "jsonl_missing_primary_sequences": [],
+            "jsonl_extension_sequences": []
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/results",
+        "generic_report_sha256": "5a7ccc0796f1e0830a101fecc4993bbbf71fcf39ae5d3216283f4fbb92d5422c",
+        "generic_observations_sha256": "de4908daf5c81372d892686ddfea1b38c9d427a7a4cbf28a265ae360b4bcd8b5",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "f68e27d5796d78f21266db86248df3e8db1da9fef36ef3ef160975eb730beeba",
+        "source_observations_sha256": "442aa67f58fe4b381d0020d488a31762b0f14ba67452e5286d6dd032c4a60774",
+        "executed_protocol_sha256": "235dc6ff4bd433bcc8499700d9ef118d974832cf62c96ad4a79d7c6dad394ebb",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    },
+    {
+      "item_id": "domain-omitted-explicit-r02",
+      "condition": "domain-omitted-explicit",
+      "replicate": 2,
+      "status": "completed",
+      "run_id": "20261102T165421Z-experimental-codex-682fb5ae",
+      "planned_calls": 40,
+      "build": {
+        "file": "builds/domain-omitted-explicit-r02.txt",
+        "sha256": "1d62e6b5cff70db4fb856e2b24fd49abac12b2688a7b914f84d58a359583dde7",
+        "content_hash": "4e97b5b080f6d7c6cd6a8709fdcbe0efcb3005eb37382f54e7188ddf586dd8de",
+        "run_head_hash": "413c3db398b6f3977c386be9882f59095c70c8f8e0b81e4c2ff99be114c5a8ec",
+        "title": "Build record: fictional feedback conversation practice candidate",
+        "generated_at_utc": "2026-11-02T17:08:33.885664+00:00",
+        "build_seq": 63,
+        "journal_view": {
+          "record_origin": "complete_jsonl_extension",
+          "journal_sha256": "61b8b5bb95479016e72c1ce4001d4f6112589d3e7ad495637e977c6c925d074a",
+          "provenance_sha256": "0b00e3a4b3f4d4e1de6de2cdf06c09631f7f824add65453f46609f7f7adbbe6d",
+          "provenance_hash": "f5a658414af385e4bc1bb3310a8e99e38c5d92a60cf27ed3bfb9be92cd00a8d7",
+          "original_primary_sha256": "3a263044c0615b84daf2f2e6e7b67f5f258d1870112724279db768581865572e",
+          "original_event_log_sha256": "cb51c4ec20997369049edfb4d430e5b8f18e8586634d5d624537a4733d17f986",
+          "archived_batch_sha256": "a9f2d3df3367be4841edacf6692cdf4612edff5911559f160a065f21cd7cb971",
+          "discrepancies": {
+            "primary_matches_batch_head": false,
+            "primary_is_jsonl_prefix": true,
+            "jsonl_missing_primary_sequences": [],
+            "jsonl_extension_sequences": [
+              126
+            ]
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/derived-results",
+        "generic_report_sha256": "7a77fe06f1f51bfc9612f74476f4e615af623f1882a814fab84f3282130c853d",
+        "generic_observations_sha256": "b3cac04722565d88765b40f9257f3f719c4c2ea54dde9c93641227c8b448e47c",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "a1ca5b312394e355d497afa13df5432685a5e1a54197a57c526020f80cd82c41",
+        "source_observations_sha256": "f7af2c50abbcad16f07380e5e6af3bbf1e06b59754b9fd73619cce90344e2344",
+        "executed_protocol_sha256": "30a76bb2097643a0cbc7edc4dfb342575887c8a836edc1b585f7da44dcf60f4b",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    },
+    {
+      "item_id": "domain-withdrawn-explicit-r02",
+      "condition": "domain-withdrawn-explicit",
+      "replicate": 2,
+      "status": "completed",
+      "run_id": "20261102T165421Z-experimental-codex-9503dc46",
+      "planned_calls": 40,
+      "build": {
+        "file": "builds/domain-withdrawn-explicit-r02.txt",
+        "sha256": "b84d8571a5b1df96ef720c9b522823979302528e56af4b4d67e0fb167bbb408e",
+        "content_hash": "42576b50e7eedde81c30beebfda8a60d1a3ab82755c9470c6030e103fe8fbe83",
+        "run_head_hash": "f0ca54717d97e70673da63927c8e141e332fd3e5dea00fd6253282df1e45a2c0",
+        "title": "Build record: fictional feedback-conversation practice candidate",
+        "generated_at_utc": "2026-11-02T17:08:09.582456+00:00",
+        "build_seq": 63,
+        "journal_view": {
+          "record_origin": "primary_snapshot_exact_bytes",
+          "journal_sha256": "61d7fe90e049c3fadd86711ca78e9d3c88eba9d3c53862d8668f5a5ec8a6c41c",
+          "provenance_sha256": "8fd624741135b60245c2b335d70c24bd34f60e66437e8b8e80d50678f952992a",
+          "provenance_hash": "b762c89d029c079f9a3b000529efe94e6f350dc9c8e6ec5efe02b86fed7d7f0c",
+          "original_primary_sha256": "61d7fe90e049c3fadd86711ca78e9d3c88eba9d3c53862d8668f5a5ec8a6c41c",
+          "original_event_log_sha256": "ffabaf10cf653e63055ee5cfbb0f8fc144e4c051fd1a6357aa8069a941d822c6",
+          "archived_batch_sha256": "a9f2d3df3367be4841edacf6692cdf4612edff5911559f160a065f21cd7cb971",
+          "discrepancies": {
+            "primary_matches_batch_head": true,
+            "primary_is_jsonl_prefix": true,
+            "jsonl_missing_primary_sequences": [],
+            "jsonl_extension_sequences": []
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/results",
+        "generic_report_sha256": "1d2cfd70e7dc1127a25f9dbd6ccbcd5fd31167916f95d3f1ca36700c81794be4",
+        "generic_observations_sha256": "357f88545bf5b23ab37677d1dc844235c8b4066c4c46fa984c9c814e869c7605",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "3a0d61a859ba9ab719b80b401c2a329dd12622e6113b8cbaa0ae325865936f87",
+        "source_observations_sha256": "f0cef149b7e5edb2bb74ab55e5d713e91a6df53df2d2fc624c75eb6fa5f24cfe",
+        "executed_protocol_sha256": "9206488b5d4a647e4d780bd5ceb98503e28df4b3867b4fd9bcca6b4b7e8f809c",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    },
+    {
+      "item_id": "individual-explicit-r02",
+      "condition": "individual-explicit",
+      "replicate": 2,
+      "status": "completed",
+      "run_id": "20261102T165421Z-experimental-codex-5a11965f",
+      "planned_calls": 40,
+      "build": {
+        "file": "builds/individual-explicit-r02.txt",
+        "sha256": "84db24df85eb9ea94e75991de23cfb3735eb4b796bdadd39d189c5d4742c4598",
+        "content_hash": "e897b9d2af950f437dc28f5f37f4ccb12e82520def5047755c1496fe95d09428",
+        "run_head_hash": "9fc60a24c07e07c72504dc2eca7f1f671c03cd781137abe40bffc0cf0fca7ed4",
+        "title": "Build record: fictional feedback practice candidate",
+        "generated_at_utc": "2026-11-02T17:08:52.684591+00:00",
+        "build_seq": 67,
+        "journal_view": {
+          "record_origin": "primary_snapshot_exact_bytes",
+          "journal_sha256": "b0c27aac3c56669574d582f4dd3e5df2ce524d22a2f01daaca2a6ff4dc33f3f3",
+          "provenance_sha256": "705d681e0d4fc4641da7cad6cd4b95e50e11f796a0f0be2f2734c33eee08cf63",
+          "provenance_hash": "a63e8b5137acd82d45e7d1e390db0e85b5351c38d3826dffc82344f77cc51111",
+          "original_primary_sha256": "b0c27aac3c56669574d582f4dd3e5df2ce524d22a2f01daaca2a6ff4dc33f3f3",
+          "original_event_log_sha256": "5442143acd0b026af6e0ec1a0ab102e95d527be3e1c1109336001bcc71990880",
+          "archived_batch_sha256": "a9f2d3df3367be4841edacf6692cdf4612edff5911559f160a065f21cd7cb971",
+          "discrepancies": {
+            "primary_matches_batch_head": true,
+            "primary_is_jsonl_prefix": false,
+            "jsonl_missing_primary_sequences": [
+              118,
+              119
+            ],
+            "jsonl_extension_sequences": []
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/results",
+        "generic_report_sha256": "feb78d170d74e75fefa16a34bf15d3ae88add12ed9747b6eaa2a44cebd802f2f",
+        "generic_observations_sha256": "07504ff6bf5facdb8baa40c6a881615cec6f6d6e45079fadae5ec7d64bc8d819",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "b3c4822cb8a6f2a4cea8621363418882406fda9e6989c9c1feed1eb106e2741a",
+        "source_observations_sha256": "feb16215d5e98aede0c580ef1a64efc9670ee28496cd780267c1af2f364b2945",
+        "executed_protocol_sha256": "1b7e76cd4500b01647c7c758ac9a3530f20a9fd002af8202bbd7d69ece9338df",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    },
+    {
+      "item_id": "member-removed-explicit-r02",
+      "condition": "member-removed-explicit",
+      "replicate": 2,
+      "status": "completed",
+      "run_id": "20261102T165421Z-experimental-codex-a3a0b3b6",
+      "planned_calls": 36,
+      "build": {
+        "file": "builds/member-removed-explicit-r02.txt",
+        "sha256": "6a47a14e4ce3bc5e55e7b22a6a71b45c84c0a886212d91c136947743a276e2af",
+        "content_hash": "386b6b38d2977b771be95ce0dadb58fd9abc8239b649fe13b4ca8b6c7cada8e1",
+        "run_head_hash": "f742ee96753315c97ed5f13c20dc21f5c7861169245a0bbb138cba34ac4bc09e",
+        "title": "Build record: fictional feedback-conversation practice candidate",
+        "generated_at_utc": "2026-11-02T17:09:59.423851+00:00",
+        "build_seq": 63,
+        "journal_view": {
+          "record_origin": "primary_snapshot_exact_bytes",
+          "journal_sha256": "7ee48f07b9c4aa9f8ce75787538e8fec200d110c2dc91a95eba0ec9789c7a361",
+          "provenance_sha256": "a0a2e3e40b514820a1537aa8ef46c1dea3502aa1d2b910e08f371a60228dbfc2",
+          "provenance_hash": "1be680146b8791c4e938d8e7a12f1b73cfa6ca88018b7c09fb8dae1373f106e4",
+          "original_primary_sha256": "7ee48f07b9c4aa9f8ce75787538e8fec200d110c2dc91a95eba0ec9789c7a361",
+          "original_event_log_sha256": "1608ee3b814236b8248d598742a245f51c9289681e8c10500ee33da7f8dee645",
+          "archived_batch_sha256": "a9f2d3df3367be4841edacf6692cdf4612edff5911559f160a065f21cd7cb971",
+          "discrepancies": {
+            "primary_matches_batch_head": true,
+            "primary_is_jsonl_prefix": false,
+            "jsonl_missing_primary_sequences": [
+              98,
+              99,
+              100,
+              101
+            ],
+            "jsonl_extension_sequences": []
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/results",
+        "generic_report_sha256": "ccfb02c481bf0e7c37ef0ea52eba644d8ce3c4671a5c73551cdb20b65915b7c6",
+        "generic_observations_sha256": "836554c2d18ac9acd2a5a3b9cea8401079cefa96f09d13bb598c1cef972541c0",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "ced7dca0d68fed489e07734683d0fcf99825657106a45c91f70474659f6d5040",
+        "source_observations_sha256": "d4800339d57e9a5978c1e18f590f47c613fa011686ec876bf998fc9d338460dc",
+        "executed_protocol_sha256": "e0dc0abc3fe8d0187cb1e81457cbe9edb8901caf815abe83350db8b86a33344b",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    },
+    {
+      "item_id": "full-team-explicit-r02",
+      "condition": "full-team-explicit",
+      "replicate": 2,
+      "status": "completed",
+      "run_id": "20261102T165421Z-experimental-codex-925627e6",
+      "planned_calls": 40,
+      "build": {
+        "file": "builds/full-team-explicit-r02.txt",
+        "sha256": "964100a9d6b32d6dc334f9902b11961ea1f0ca536fb2c9fa9837dfed1b1f6b81",
+        "content_hash": "3d6409b456b9b4b5cf1c6049ca4d4342366e16fd366057cdacb6c8ddbea3ad53",
+        "run_head_hash": "edeb9bdb3aac95232dc461c15b90ae8600c4a0b44c0634031d2adf4497cb922a",
+        "title": "Build record: fictional feedback practice candidate",
+        "generated_at_utc": "2026-11-02T17:09:26.358358+00:00",
+        "build_seq": 64,
+        "journal_view": {
+          "record_origin": "primary_snapshot_exact_bytes",
+          "journal_sha256": "f375495845cdedb6fc302fdb750f065dc226756ce5d0b621d21a41dee39bbcc7",
+          "provenance_sha256": "32a9eb22139bc5dc2fb4b59a1e185ff68394df78c9b54f7644883e409361a602",
+          "provenance_hash": "6990a9e97c5dad5eaec3dae34b1e651e18bbfe7a4bce0cda20e7bb06dcb91fb0",
+          "original_primary_sha256": "f375495845cdedb6fc302fdb750f065dc226756ce5d0b621d21a41dee39bbcc7",
+          "original_event_log_sha256": "6f3490a71ec4ceb9dfc2831b69cf415903eb4363497df42335a1b7b911099c1b",
+          "archived_batch_sha256": "a9f2d3df3367be4841edacf6692cdf4612edff5911559f160a065f21cd7cb971",
+          "discrepancies": {
+            "primary_matches_batch_head": true,
+            "primary_is_jsonl_prefix": true,
+            "jsonl_missing_primary_sequences": [],
+            "jsonl_extension_sequences": []
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/results",
+        "generic_report_sha256": "d2afc073f9bd73d329d96f0798b95e6365c22233ceae2df5ee354b6fae1874f1",
+        "generic_observations_sha256": "9a1489ea6b5b78b38bf83d502c8f2fa0d08638e1aa47c6c0a3acbf1b8335d902",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "82f3b408c635889a7bbf82a146b12675e1dd3e22021e6a942a7f16d99cbbd2ee",
+        "source_observations_sha256": "89b25275c1c7c71d567c20d32a5106009b56c4e63546d9d58106720e7166c70a",
+        "executed_protocol_sha256": "c6eae4952cfd445a7b0f1d605a7fc9662d7a91da801b0f1eafb7eaf380b77947",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    },
+    {
+      "item_id": "domain-omitted-explicit-r03",
+      "condition": "domain-omitted-explicit",
+      "replicate": 3,
+      "status": "completed",
+      "run_id": "20261102T172436Z-experimental-codex-8acf4085",
+      "planned_calls": 40,
+      "build": {
+        "file": "builds/domain-omitted-explicit-r03.txt",
+        "sha256": "805950764ca674aec82c9ec39662fb1f067aa98f00c40fb51890cc793b8244c5",
+        "content_hash": "f298e5a95aebdb95e4446b62aff9457576db246c5edfcae54a0a05385cf35b80",
+        "run_head_hash": "aeb1fd362fa9daf53953e7b65474416b6a4b517227695fc072487c70c14d100e",
+        "title": "Build record: fictional handoff practice candidate",
+        "generated_at_utc": "2026-11-02T17:40:40.907199+00:00",
+        "build_seq": 62,
+        "journal_view": {
+          "record_origin": "primary_snapshot_exact_bytes",
+          "journal_sha256": "42d81cef0e1896f1f065a2455f35463ac88fa4b7bdade51dc0734b7aef8785f2",
+          "provenance_sha256": "3761b5c10b0cfd0042ca98483ff4d5f06c744f8ca39391943424dc17e73f786e",
+          "provenance_hash": "afa4ac2f04c54da347dd56069c26f98b8cc27d510c35de878976742e9018c450",
+          "original_primary_sha256": "42d81cef0e1896f1f065a2455f35463ac88fa4b7bdade51dc0734b7aef8785f2",
+          "original_event_log_sha256": "22800f916c1f7c5d2dbd2906fc59009de4192a2172924b9c1d1d054dad4577fb",
+          "archived_batch_sha256": "aa7ab34a4c1192b128b85816f7b8c7940851a5bf7f95907e91ae37c7d2b09660",
+          "discrepancies": {
+            "primary_matches_batch_head": true,
+            "primary_is_jsonl_prefix": true,
+            "jsonl_missing_primary_sequences": [],
+            "jsonl_extension_sequences": []
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/results",
+        "generic_report_sha256": "960793a38c79982d9f5e3e534aaee25f6eb70f434805f6c399aea5447912b6f5",
+        "generic_observations_sha256": "1f23c4024bfd60ca784f377cbc17987e1aed9a8aedc12424e40ae057c6a4e83c",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "55c82491e98e3c4f3c1f4b2fa0e1393fe39a98a5ddb87ca4aea346619a28e9b9",
+        "source_observations_sha256": "5218d2f9e802736d2a49ef4918950cae61f8bd79d0e966fcd5fd853507bfacb3",
+        "executed_protocol_sha256": "9f72be679916fb6f93355ba92ce48fb10e5ef80851d02cc5133c8068321bd34e",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    },
+    {
+      "item_id": "domain-withdrawn-explicit-r03",
+      "condition": "domain-withdrawn-explicit",
+      "replicate": 3,
+      "status": "completed",
+      "run_id": "20261102T172436Z-experimental-codex-329e9a09",
+      "planned_calls": 40,
+      "build": null,
+      "browser": {
+        "status": "excluded_from_evaluation",
+        "generic_status": "excluded_from_evaluation",
+        "generic_qa_root": null,
+        "generic_report_sha256": null,
+        "generic_observations_sha256": null,
+        "checks": [],
+        "issues": [],
+        "initial_check_viewports": 0,
+        "source_report_sha256": null,
+        "source_observations_sha256": null,
+        "executed_protocol_sha256": null,
+        "harness_sha256": null
+      },
+      "review_eligibility": "excluded",
+      "evaluation_status": "excluded_unverifiable_terminal_record",
+      "exclusion": {
+        "run_id": "20261102T172436Z-experimental-codex-329e9a09",
+        "item_id": "domain-withdrawn-explicit-r03",
+        "condition": "domain-withdrawn-explicit",
+        "replicate": 3,
+        "generation_status": "completed",
+        "evaluation_status": "excluded_unverifiable_terminal_record",
+        "reason": "Raw JSONL extension is not completed at the exact batch head",
+        "run_head_hash": "8bda6e238dc250b1ca4a2f70036e2b0024bd20165e69cb7aa02bfb5d76367588",
+        "exclusion_hash": "bae32c14598722eca56ca05c20b50eba9f68019dc1ede2c0fc8fc5b47452e01f",
+        "exclusion_file": "evaluation-records/exclusions/20261102T172436Z-experimental-codex-329e9a09/exclusion.json",
+        "exclusion_sha256": "a5015eedb45dc7d45c8987b3bfd78bac32dcfa4ee15d508f5a8190b836141071"
+      }
+    },
+    {
+      "item_id": "full-team-explicit-r03",
+      "condition": "full-team-explicit",
+      "replicate": 3,
+      "status": "completed",
+      "run_id": "20261102T172436Z-experimental-codex-313801d1",
+      "planned_calls": 40,
+      "build": {
+        "file": "builds/full-team-explicit-r03.txt",
+        "sha256": "00b4f310b4b5312be7b62405a56df11d9a94b5ca89c1f15171c8985f125c222a",
+        "content_hash": "fa0a240e16dcf93744ce576d370a93e171973d9d834ae6cd7643a9814d0e04d8",
+        "run_head_hash": "6bbe32c384345f3c4bc54d21aa1d63444a92721a62fb966057c27913ef46d151",
+        "title": "Build record: fictional feedback-conversation practice candidate",
+        "generated_at_utc": "2026-11-02T17:40:01.729819+00:00",
+        "build_seq": 60,
+        "journal_view": {
+          "record_origin": "primary_snapshot_exact_bytes",
+          "journal_sha256": "9b6b4840630788f146838d803daf4855e197e307b65963a0663e834a3735d8f0",
+          "provenance_sha256": "2340c515613e9925afd1831c13fe88f7a0ef94d74d9cee929e5b8f6fb108ac39",
+          "provenance_hash": "65723eca0feea0cae1d021e58f9f3792f909e0dd1a02e3adcba180e8d3d45af4",
+          "original_primary_sha256": "9b6b4840630788f146838d803daf4855e197e307b65963a0663e834a3735d8f0",
+          "original_event_log_sha256": "90b428c52ba7953987cfedb845ea62756a7e34bda0ce47218349998c1e225b69",
+          "archived_batch_sha256": "aa7ab34a4c1192b128b85816f7b8c7940851a5bf7f95907e91ae37c7d2b09660",
+          "discrepancies": {
+            "primary_matches_batch_head": true,
+            "primary_is_jsonl_prefix": true,
+            "jsonl_missing_primary_sequences": [],
+            "jsonl_extension_sequences": []
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/results",
+        "generic_report_sha256": "fdf114345e32d6e010afade39582786b4849fdff236f8440677c09348635e01f",
+        "generic_observations_sha256": "77eaab1a6dbfa19dca3a137686e2b821c00c21d544b57eba44d24b81e3abe35d",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "4b38b03aa265d6ec007a270987888f2ac82c4e5df016ef1db0e65e26d8d4d21a",
+        "source_observations_sha256": "9e5c549ac0c23e16594718bc125c1fbbbbba64f0f245c1a21e3b423d9de31cd7",
+        "executed_protocol_sha256": "84b49d0ae8f47f376c158085916e1c08645309c17b8c6248c19d48a044619640",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    },
+    {
+      "item_id": "individual-explicit-r03",
+      "condition": "individual-explicit",
+      "replicate": 3,
+      "status": "completed",
+      "run_id": "20261102T172436Z-experimental-codex-aa32b2d6",
+      "planned_calls": 40,
+      "build": {
+        "file": "builds/individual-explicit-r03.txt",
+        "sha256": "5638eb684eb07cfab133e289fb97e5c1c85aeb090b389d3af740d9fccd98a545",
+        "content_hash": "dadd23aaa08faef02dda0045eb420dedb33de20a80227075a78f803544729519",
+        "run_head_hash": "26b5a21410203647ed1e0b8abb1154c2737f22740513fe74b647a52325dbf6aa",
+        "title": "Build record: fictional feedback-conversation practice candidate",
+        "generated_at_utc": "2026-11-02T17:39:09.686198+00:00",
+        "build_seq": 59,
+        "journal_view": {
+          "record_origin": "primary_snapshot_exact_bytes",
+          "journal_sha256": "e1ff692e1c0a979d3f4379062ee53fbdfe4bf9bc1a6fc90367f092bbb365af0f",
+          "provenance_sha256": "815a90c167b1f2ffefa69c33ad7e8a5996143aa0989031153aab08a5a5443978",
+          "provenance_hash": "2b949bc878b7b97077841ad507896bbf5b02aea57b790f86f73d1623a7208287",
+          "original_primary_sha256": "e1ff692e1c0a979d3f4379062ee53fbdfe4bf9bc1a6fc90367f092bbb365af0f",
+          "original_event_log_sha256": "bce232d9504cb86678382318b922e5c1d776ca9b2b861c3614aee9b0b2269758",
+          "archived_batch_sha256": "aa7ab34a4c1192b128b85816f7b8c7940851a5bf7f95907e91ae37c7d2b09660",
+          "discrepancies": {
+            "primary_matches_batch_head": true,
+            "primary_is_jsonl_prefix": true,
+            "jsonl_missing_primary_sequences": [],
+            "jsonl_extension_sequences": []
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/results",
+        "generic_report_sha256": "4ff3d4e5d291fa2a5ab8319cf0018f11f44a1a3d041c558ceb57efb14bee07e1",
+        "generic_observations_sha256": "3beaca56faa2eb9c5a722a5f33fef7192fb30c142f1d1c3bf741d981f953373f",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "6622b9082b8399d4a5f7f912319e420ea4b4948a98d32f2da3fbaaf9c645c58a",
+        "source_observations_sha256": "f8dd3d2f6ad1123c6f6f47bd5bd55efecff73fd623d9d5fced3eefe203b6c7e0",
+        "executed_protocol_sha256": "399d02af2be4255582b95b0ab358ada645277663ec70ae41bb9685ab73df9dd2",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    },
+    {
+      "item_id": "member-removed-explicit-r03",
+      "condition": "member-removed-explicit",
+      "replicate": 3,
+      "status": "completed",
+      "run_id": "20261102T172436Z-experimental-codex-0d3f1789",
+      "planned_calls": 36,
+      "build": {
+        "file": "builds/member-removed-explicit-r03.txt",
+        "sha256": "54fe55995ac854a9240a4b529170d48956ca16d246618676feba7196f432ff8e",
+        "content_hash": "f7e3fe4b3b01195b78422f5d2c14a085a2a9a93e8384757b543cd9057324eac4",
+        "run_head_hash": "f2844a7ebaa726cabb6f3098df8112654ae6ff6a88ce8cf614d6269017090625",
+        "title": "Build record: fictional feedback conversation practice candidate",
+        "generated_at_utc": "2026-11-02T17:38:49.108383+00:00",
+        "build_seq": 65,
+        "journal_view": {
+          "record_origin": "primary_snapshot_exact_bytes",
+          "journal_sha256": "d7930b04088426fb91a1ef9b760c78f3349f5b0ffd3d26e2425097f5dc1baa72",
+          "provenance_sha256": "03e8c24e1381ae2db9ab207bd8e84e53c2e1d54ad936b3e1f7b36f1ab7be4a07",
+          "provenance_hash": "1b8a36d10d3e999891492c411eb62620ffe5ee9592b812da7c952993fbebc856",
+          "original_primary_sha256": "d7930b04088426fb91a1ef9b760c78f3349f5b0ffd3d26e2425097f5dc1baa72",
+          "original_event_log_sha256": "02309941d18062c771e1ad1c2d60699e19551ecebe1a26d7d22a8768c28ec684",
+          "archived_batch_sha256": "aa7ab34a4c1192b128b85816f7b8c7940851a5bf7f95907e91ae37c7d2b09660",
+          "discrepancies": {
+            "primary_matches_batch_head": true,
+            "primary_is_jsonl_prefix": true,
+            "jsonl_missing_primary_sequences": [],
+            "jsonl_extension_sequences": []
+          }
+        }
+      },
+      "browser": {
+        "status": "bound",
+        "generic_status": "bound",
+        "generic_qa_root": "study/qa/results",
+        "generic_report_sha256": "a70728d5a8f153dda55c8ccb0c175a45ae0f86892468b43fd8041562c7a9c6de",
+        "generic_observations_sha256": "8e0835ec3e5ee250eb11f1f6df2d01f26d08dd797cf23b4337b17e3fc04198ca",
+        "checks": [
+          {
+            "check_id": "F1",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F2",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F3",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F4",
+            "status": "observed",
+            "observed_flow": true
+          },
+          {
+            "check_id": "F5",
+            "status": "observed",
+            "observed_flow": true
+          }
+        ],
+        "issues": [],
+        "initial_check_viewports": 3,
+        "source_report_sha256": "9232699b32635e74fcfde4673b09380b4a771d8e0c1b995c265c95901fbff10a",
+        "source_observations_sha256": "9f030fd37500ded3d5cf3eeaf4afd870d5f15f959ac6ee943a587becda541c20",
+        "executed_protocol_sha256": "8e6343a03eaf26960d0f588420270bdf9497acfd563e93c7bccebb25d17807b9",
+        "harness_sha256": "a5de3e6b0caf498f9560f62f2634d0ff23f664854e6c130d2d4b12775c1fb618"
+      },
+      "review_eligibility": "included",
+      "evaluation_status": "included_verified_terminal_record",
+      "exclusion": null
+    }
+  ],
+  "figure": {
+    "file": "flower-study-results.png",
+    "sha256": "3dce2e70fccd807e401c4b9cde91ee16a51a85cc2b478e47c93cee2aee659d1e",
+    "source_summary_hash": "b968b0227c75cbe8bcde0b686ffb0295731b33f4aa49270f7f7c06888fb94c24",
+    "source_freeze_hash": "6ee9d57e50b636d0c3a63795a4f214ec6880bf949a5d78e4fab9657126a7c5b9",
+    "alt": "Candidate indices and descriptive condition means for human flourishing support, system performance, and learning. The preceding table provides the condition summaries and known counts.",
+    "caption": "Artifact evidence indices for five flower-aligned configurations. Each point is one generated candidate, averaged across two complete same-model reviews. Diamonds show descriptive condition means. Right-hand counts identify available candidate indices out of three planned repetitions; missing ratings are not treated as zero. AME means Assessment, Measurement, Evaluation. The indices do not measure observed human flourishing, system performance in deployment, or human learning gains."
+  }
+}

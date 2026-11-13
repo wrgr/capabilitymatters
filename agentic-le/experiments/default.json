@@ -1,0 +1,324 @@
+{
+  "schema_version": 2,
+  "id": "flower-workforce-baseline",
+  "name": "Flower framework team baseline",
+  "seed": {
+    "title": "Supporting difficult feedback conversations",
+    "idea": "A fictional service team requests a small browser-based resource to support difficult feedback conversations for new team leads. Its supplied brief describes recurring misunderstandings after conversations.",
+    "domain": "Fictional workforce learning and first-time team leadership",
+    "people": "New team leads, colleagues, supervisors, and a learning coordinator in a fictional service organization",
+    "constraints": "Use fictional examples only. Do not collect identifiable employee records or produce employee rankings. The proposed resource must be usable on shared laptops."
+  },
+  "team": [
+    {
+      "id": "coordinator",
+      "name": "Coordinator",
+      "role": "Stage coordinator",
+      "competencies": [],
+      "stages": [],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "decision",
+      "available": true,
+      "persona_ref": null
+    },
+    {
+      "id": "member-1",
+      "name": "Contributor 1",
+      "role": "Team contributor",
+      "competencies": [
+        "learning_sciences"
+      ],
+      "stages": [
+        "understand",
+        "design",
+        "evaluate",
+        "refine"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "flower-learning-sciences",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "member-2",
+      "name": "Contributor 2",
+      "role": "Team contributor",
+      "competencies": [
+        "learning_experience_design"
+      ],
+      "stages": [
+        "understand",
+        "design",
+        "build",
+        "refine"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "flower-learning-experience-design",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "member-3",
+      "name": "Contributor 3",
+      "role": "Team contributor",
+      "competencies": [
+        "data_science"
+      ],
+      "stages": [
+        "model",
+        "instrument",
+        "evaluate",
+        "refine"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "flower-data-science",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "member-4",
+      "name": "Contributor 4",
+      "role": "Team contributor",
+      "competencies": [
+        "assessment_measurement_evaluation"
+      ],
+      "stages": [
+        "model",
+        "instrument",
+        "evaluate",
+        "refine"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "flower-assessment-measurement-evaluation",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "member-5",
+      "name": "Contributor 5",
+      "role": "Team contributor",
+      "competencies": [
+        "learning_environment_engineering"
+      ],
+      "stages": [
+        "understand",
+        "model",
+        "build",
+        "deploy"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "flower-learning-environment-engineering",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "member-6",
+      "name": "Contributor 6",
+      "role": "Team contributor",
+      "competencies": [
+        "software_engineering"
+      ],
+      "stages": [
+        "build",
+        "instrument",
+        "deploy",
+        "evaluate"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "flower-software-engineering",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "member-7",
+      "name": "Contributor 7",
+      "role": "Team contributor",
+      "competencies": [
+        "subject_matter_expertise"
+      ],
+      "stages": [
+        "understand",
+        "model",
+        "design",
+        "deploy"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "flower-subject-matter-expertise",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "member-8",
+      "name": "Contributor 8",
+      "role": "Team contributor",
+      "competencies": [
+        "education_training_professionals"
+      ],
+      "stages": [
+        "design",
+        "build",
+        "instrument",
+        "deploy"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "advisory",
+      "available": true,
+      "persona_ref": {
+        "id": "flower-education-training-professionals",
+        "version": "1.0.0"
+      }
+    }
+  ],
+  "integration": {
+    "mode": "explicit",
+    "coordinator": "coordinator"
+  },
+  "omit_competencies": [],
+  "environment": {
+    "time_pressure": "standard",
+    "resources": "One facilitator, shared laptops, and twenty minutes of protected practice time per participant.",
+    "constraints": [
+      "The proposed resource is needed in four weeks."
+    ]
+  },
+  "challenges": [
+    {
+      "id": "practice-time-withdrawn",
+      "stage": "design",
+      "description": "The organization withdraws protected practice time. The implementation date remains unchanged.",
+      "simulation_effects": {
+        "available_minutes": 5
+      }
+    }
+  ],
+  "execution": {
+    "provider": "dry-run",
+    "model": "",
+    "through": "refine",
+    "repetitions": 3,
+    "max_calls": 40,
+    "max_output_chars": 48000
+  },
+  "participation": {
+    "mode": "team",
+    "individual": {
+      "id": "individual",
+      "name": "Individual contributor",
+      "role": "Project contributor",
+      "competencies": [
+        "learning_sciences",
+        "learning_experience_design",
+        "data_science",
+        "assessment_measurement_evaluation",
+        "learning_environment_engineering",
+        "software_engineering",
+        "subject_matter_expertise",
+        "education_training_professionals"
+      ],
+      "stages": [
+        "understand",
+        "model",
+        "design",
+        "build",
+        "instrument",
+        "deploy",
+        "evaluate",
+        "refine"
+      ],
+      "behavior": {
+        "challenge": "balanced",
+        "revision": "open",
+        "communication": "concise"
+      },
+      "authority": "decision",
+      "available": true,
+      "persona_ref": {
+        "id": "flower-generalist",
+        "version": "1.0.0"
+      }
+    },
+    "allocation": "matched_slots"
+  },
+  "outcomes": {
+    "enabled": false,
+    "model_id": "declared-design-v1",
+    "seed": 2026,
+    "cohort_size": 100,
+    "conditions": {
+      "available_minutes": 20,
+      "support_capacity_minutes": 200,
+      "digital_access": 0.9
+    },
+    "assumptions": {
+      "baseline_success": 0.35,
+      "practice_gain_per_minute": 0.02,
+      "feedback_gain": 0.2,
+      "revision_gain": 0.1,
+      "transfer_penalty": 0.1,
+      "offline_recovery": 0.8
+    },
+    "criteria": {
+      "learner_success_min": 0.6,
+      "max_burden_minutes": 20,
+      "system_completion_min": 0.8
+    }
+  },
+  "framework": "learning-engineering-flower-v1"
+}

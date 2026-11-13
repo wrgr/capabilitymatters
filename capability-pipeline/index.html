@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- Hosts the Capability Pipeline case explorer and branching simulation. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Worked cases and simulation — The Capability Pipeline</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f1f3ee;color:#182420;font:1rem system-ui,sans-serif}
+header{padding:16px 24px;border-bottom:1px solid #cfd6c8;background:#fff}h1{font:600 1.5rem Georgia,serif;margin:0 0 12px}nav{display:flex;gap:10px;flex-wrap:wrap}button{font:inherit;min-height:44px;border:1px solid #1c6e66;border-radius:8px;padding:9px 16px;background:white;color:#1c6e66;cursor:pointer}button[aria-selected=true]{background:#1c6e66;color:white}button:focus-visible{outline:3px solid #a3650f;outline-offset:3px}p{margin:10px 0 0;font-size:.875rem;color:#55645c}iframe{display:block;width:100%;height:calc(100vh - 220px);min-height:600px;border:0;background:white}iframe[hidden]{display:none}@media(max-width:600px){header{padding:12px}iframe{height:78vh}}
+header>nav[aria-label="Primary"]{margin-bottom:1rem;gap:.4rem 1rem;font-size:.875rem}header>nav[aria-label="Primary"] a{color:#1c6e66;padding:.35rem .15rem;text-underline-offset:.2em}header>nav[aria-label="Primary"] a[aria-current]{font-weight:700}header>nav[aria-label="Primary"] a:focus-visible{outline:3px solid #a3650f;outline-offset:3px}
+</style><link rel="stylesheet" href="/accessibility/shared.css"><script src="/accessibility/preferences.js"></script><link rel="stylesheet" href="/resource-about.css"></head><body><nav aria-label="Learning support" style="display:flex;flex-wrap:wrap;gap:1rem;padding:.7rem 1rem;background:#fefdf8;font:14px/1.5 system-ui;color:#1a1d1a"><a style="color:#2c5f6f;text-decoration:underline" href="/guides/capability-pipeline/">Learning guide &amp; reflection</a><a style="color:#2c5f6f;text-decoration:underline" href="/learning-map/">Learning map</a></nav><a class="skip" href="#pipeline-main">Skip to activity</a>
+<header><p><a href="/">← Capability Matters</a></p><nav aria-label="Primary"><a href="/">Motivation</a><a href="/approach/">Approach</a><a href="/show-your-work/">Working Paper</a><a href="/case-studies/">Case Studies</a><a href="/experiments/">Experiments</a><a href="/problems-to-prototypes/">Prototypes</a></nav><h1>The Capability Pipeline</h1><!-- resource-about:start --><details class="resource-about" data-resource-about="pipeline">
+<summary>About this resource<span class="resource-about-hint"> · How to use it · Learning engineering connections</span></summary>
+<div class="resource-about-body">
+<section><h2>What is this resource?</h2><p>A paired resource: five worked cases present seven numbered steps—Understand, Map, Design, Build, Instrument, Experiment and Evaluate—with 8. Refine at the center throughout. A companion fictional branching simulation lets you compare strategies and consequences.</p></section>
+<section><h2>How should I use it?</h2><ol><li>Choose Explore five cases to study a case, find its turning point, or predict before revealing the explanation.</li><li>Choose Choose your own adventure to make a strategy decision, inspect the outcomes and compare a revised branch. The direct links below open each view.</li><li>Explain which evidence would justify returning to an earlier stage. Treat the scenario probabilities as editable teaching assumptions.</li></ol></section>
+<section><h2>How does this connect to LENS and learning engineering?</h2><p>LENS treats capability as an interaction between people and the conditions for action. The cycle connects problem framing, design and measurement: an upstream choice determines what later evaluation can observe. Revisit assumptions when results conflict with a plan rather than treating the cycle as a completion checklist.</p><ul class="resource-about-links"><li><a href="/capability-pipeline/cases.html">Five-case explorer</a></li><li><a href="/capability-pipeline/simulation.html">Branching simulation</a></li><li><a href="/show-your-work/">LENS: capabilities and conditions</a></li><li><a href="https://lecommons.org/">Learning Engineering Commons</a></li></ul></section>
+</div></details><!-- resource-about:end -->
+<p id="activity-note">Five worked cases with why / teaching points. Study, Find the turn, or Predict first; source narratives retained, with historical claims not independently rechecked.</p><nav role="tablist" aria-label="Activities">
+<button id="case-tab" role="tab" aria-selected="true" aria-controls="cases">Explore five cases</button>
+<button id="sim-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="simulation">Choose your own adventure</button>
+</nav></header>
+<main id="pipeline-main" tabindex="-1"><iframe id="cases" role="tabpanel" aria-labelledby="case-tab" title="Original five-case explorer" src="cases.html?v=experiment-20261019"></iframe>
+<iframe id="simulation" role="tabpanel" aria-labelledby="sim-tab" title="Editable branching simulation" hidden src="simulation.html?v=a11y-20261013"></iframe>
+</main><script>
+(function(){
+const items=[['case-tab','cases'],['sim-tab','simulation']];
+function select(i){items.forEach(([b,f],j)=>{document.getElementById(b).setAttribute('aria-selected',String(i===j));document.getElementById(b).tabIndex=i===j?0:-1;document.getElementById(f).hidden=i!==j;});document.getElementById('activity-note').textContent=i===0?'Five worked cases with why / teaching points. Study, Find the turn, or Predict first; source narratives retained, with historical claims not independently rechecked.':'Fictional adventure with decision guidance before choices and reflection afterward. Edit steps, inspect outcomes, revise and compare branches; probabilities are teaching assumptions.';}
+items.forEach(([b,frame],i)=>document.getElementById(b).addEventListener('click',()=>{select(i);history.replaceState(null,'','#'+frame)}));
+document.querySelector('[role=tablist]').addEventListener('keydown',event=>{const current=items.findIndex(([id])=>id===event.target.id);if(current<0||!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?1:1-current;document.getElementById(items[next][0]).click();document.getElementById(items[next][0]).focus();});
+function restoreTab(){select(location.hash==='#simulation'?1:0)}
+window.addEventListener('hashchange',restoreTab);
+restoreTab();
+})();
+</script></body></html>
