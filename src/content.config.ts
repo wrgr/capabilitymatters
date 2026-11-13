@@ -37,6 +37,12 @@ const caseStudySchema = z.object({
   outcome: z.enum(["fail", "success"]),
   // Casebook `kind`: "failure" | "intervention" | "frontier".
   kind: z.enum(["failure", "intervention", "frontier"]),
+  // The teaching role is independent of the reported outcome or case kind.
+  teachingRole: z.enum(["intervention", "possible-response", "capability-design", "diagnosis", "comparison"]),
+  sources: z.array(z.object({
+    title: z.string().trim().min(1),
+    url: z.url({ protocol: /^https$/ }),
+  })).min(1),
   year: z.string(),
   domains: z.array(z.string()).default([]),
   // One-line consequence line (casebook `impact`).
@@ -59,11 +65,8 @@ const caseStudySchema = z.object({
   // Disclosures — carried verbatim from the book; rendered prominently.
   coi: z.string().optional(),
   evidenceFlag: z.string().optional(),
-  // Rival causal readings the record supports and no study adjudicates
-  // (casebook `competing-readings`), and the one-sentence failure boundary of
-  // the mechanism the case teaches (casebook `scope-limit`). Both are set only
-  // where the book sets them; both are load-bearing and must reach the reader
-  // and the AI prompt unsoftened.
+  // Material disagreements and limits must reach the page and AI prompt
+  // without losing what the source does and does not support.
   competingReadings: z.array(z.string()).default([]),
   scopeLimit: z.string().optional(),
   // Provenance + ordering.

@@ -54,7 +54,8 @@ it now checks both generated menus, menu descriptions, and the uncluttered homep
   *Capability Matters: A Casebook* (one failure + one success per topical part). Each
   file's frontmatter carries the salient fields faithfully from the book (impact, "In
   brief" summary, five-beat spine, Learning-Engineering-Lens pair, the three anchors,
-  and any COI / evidence-tier disclosure, competing readings, or scope limit); the
+  and any COI / evidence-tier disclosure, competing readings, or scope limit).
+  Each case also has a teaching role and direct links to evidence; the
   MDX body is the site-voice lead. Rendered via the `LensBar` and `Disclosure`
   components in `src/components/`.
 
@@ -63,18 +64,39 @@ it now checks both generated menus, menu descriptions, and the uncluttered homep
   scope limit — must reach both the page and the `AskAI` prompt unsoftened; and when a
   casebook revision pass corrects a fact, the site-voice lead beside the frontmatter is
   corrected in the same pass. The objective tier is **LEO** (LENS Educational
-  Objective), per `lens_program/2_*` v2.3; `CLO` now names the course tier below it.
+  Objective); `CLO` names the course tier below it.
 - `public/` — static assets (favicons, the two LENS sheets linked from the
   homepage — `LENS_Overview_Aug2026.pdf` and `LENS_What_You_Will_Do_Aug2026.pdf`
-  — and the `capability-matters-casebook-draft.pdf`, the casebook's 48-case
-  reading edition, offered for download under the case examples; CC BY-ND 4.0)
+  — and the `capability-matters-casebook-draft.pdf`, the revised reading
+  edition with 48 historical chapters and a closing studio)
 - `slick-sheet/` — print sources for those PDFs: one self-contained HTML file
   each, plus the web fonts they share (see "Print sheets" below)
+
+## November 2026 casebook revision
+
+The teaching role describes the evidence separately from the reported outcome.
+Cases can document learning engineering, show where it could directly address
+a documented failure, demonstrate capability design, support a diagnosis, or
+serve as a comparison. Proposed responses name a task and a test. They do not
+claim that the intervention was tried or would have prevented the event.
+
+Changes that materially affect how to teach the cases:
+
+- **Healthcare (1, 5, 6, 19, 20, 26):** Therac-25 separates interlocks, actionable feedback and cross-site incident learning. Epic and TREWS concern different models, methods and outcomes. The pain-assessment study does not demonstrate a national causal pathway. Keystone reports a bundle and a median, with weaker causal evidence from the comparison rollout. Pulse oximetry separates subgroup measurement error from evaluation of a mitigation.
+- **Education and workforce (45, 49, 53, 60, 61, 67, 68, 72, 77, 80, 93, 95):** I-PASS joins the reading edition as a documented handoff intervention. Tennessee pre-K is a test of a particular program and cohort. Ofqual uses entries as its denominator and the higher-of rule at reversal. inBloom's closure does not establish that the technology worked at scale. Houston EVAAS distinguishes judicial findings and settlement; reading instruction separates primary study results from journalistic attribution. Cognitive Tutor evaluates a curriculum package. CIRCUIT and PBIS retain evaluation and institutional limits. ASSISTments' later outcome does not establish measured persistence across both grades. Hybrid tutoring's usage and progress measures are not external achievement; Georgia State advising does not isolate analytics; SkillsFuture numbers are tied to their survey year and question.
+- **Aviation and defense (97, 102, 112, 117, 119, 120, 124, 129, 130, 131, 133, 137, 141):** MAX presents the material investigation disagreements; Air France 447 treats stall recovery practice as one part of the system. Saturn V is now NASA Apollo Knowledge Recovery, about documented familiarization and F-1 work. CRM team practice and CAST safety results are separate. ASRS and terrain-warning claims have narrower scopes. The Navy restored initial classroom/simulator instruction before the destroyer collisions; Patriot and Mark 14 distinguish technical failures from testing and response gaps. Vincennes distinguishes correct data from wrong-track reports. Petrov's action is documented; a prevented nuclear retaliation is not. Nuclear Navy and Digital Tutor retain evidence of qualification and assessed performance without attributing the whole outcome to training.
+- **Industry and disaster (143, 144, 148, 152, 155, 157, 161, 163, 164, 167, 173, 176, 179):** Knight Capital distinguishes initial and final losses and tests readiness separately from safeguards. The INL turbine-control upgrade joins the reading edition and Kodak remains a strategy comparison in the expanded edition. Wells Fargo, TSB and Texas City distinguish governance, measures and what staff could do. Andon adds workers' accounts; AI coding separates task speed from learning. Deepwater and Grenfell distinguish the functions of procedures, authority and technical barriers. Katrina centers what the Pam exercise did and did not transfer. SUBSAFE bounds loss counts and training attribution. Tylenol distinguishes recall scope from motive; the JHU dashboard distinguishes access to data from demonstrated use or learning.
+- **Algorithms and governance (184, 185, 187, 191, 194, 196, 199, 203, 205):** Horizon separates prosecutions, convictions and quashings and specifies the missing dispute path. Air Canada distinguishes the tribunal's reasoning from the airline's stated position. COMPAS distinguishes fairness metrics, methodology and use. Robodebt ties counts to populations. X-Road is a transition comparison. Lending fairness stays within its counterfactual; Waymo's audits do not resolve every safety or transparency objection; NYC distinguishes potential compliance instances from findings of violations. The closing chapter is a prospective studio, outside the historical case count.
+
+The web pages and their AI prompts carry teaching roles, source links and the
+limits that affect interpretation. The main PDF was regenerated from the
+revised Typst manuscript; the five website cases outside the reading edition
+were also updated in the expanded-edition source.
 
 ## About this resource
 
 Resource pages use a shared native `<details>` disclosure, collapsed by default,
-between the introduction and activity. It provides resource-specific descriptions,
+directly beneath the title, before the introduction and activity. It provides resource-specific descriptions,
 use steps, and conceptual connections to LENS and learning engineering. The summary
 supports Enter/Space, links stay out of the tab order while closed, and the shared
 stylesheet supplies visible focus, mobile text wrapping and forced-color support.

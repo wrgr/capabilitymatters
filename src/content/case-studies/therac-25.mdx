@@ -7,58 +7,49 @@ kind: "failure"
 year: "1985 – 1987"
 domains: ["healthcare", "tech"]
 impact: >-
-  Six known massive radiation overdoses; at least three deaths; canonical
-  case in software safety engineering
+  Six known massive radiation overdoses. Three patients died from complications attributed to
+  the overdoses.
 summary: >-
-  The Therac-25, a radiation-therapy machine, massively overdosed at least
-  six patients between 1985 and 1987, killing at least three. Its
-  predecessors used hardware interlocks to stop the high-energy beam from
-  firing without its target in place; judging the interlocks not worth
-  duplicating and trusting software over hardware, the Therac-25 removed
-  them and relied on software — adapted from the older machines and never
-  engineered for safety — to keep the beam modes separated. At least two
-  distinct software defects drove the overdoses — a data-entry race
-  condition behind the cryptic "Malfunction 54" deaths at Tyler, and a
-  counter overflow that silently skipped a collimator check in the fatal
-  Yakima accident — either of which could fire the full beam with no target
-  in place. Leveson and Turner's 1993 investigation, the founding case of
-  software-safety engineering, found a systemic failure: a safeguard removed
-  with nothing put in its place. The lesson — a safeguard you delete does
-  not remove the hazard; it relocates it to whatever you failed to build.
+  Therac-25’s design did not carry forward some of the independent hardware safeguards used in
+  earlier machines. Leveson and Turner describe two established software defects: a fast-edit
+  race condition in two Tyler events and a counter overflow in the fatal January 1987 Yakima
+  event. In Tyler, the console displayed an apparent underdose, the manual did not explain the
+  fault code, and the system allowed a one-key retry. Three of the six accidents lack definitive
+  technical explanations. The corrective action plan combined hardware, interface and reporting
+  changes.
 beats:
-  - "Hardware interlocks dropped — judged not worth duplicating, software trusted instead; safety case migrated silently into software"
-  - "Two software defects — a race condition and a counter overflow — fired the full beam with no target"
-  - "Manufacturer denied harm; Leveson and Turner found systemic, not single-bug, failure"
-  - "Interlock was the safety case; nothing took its load when removed"
-  - "The canonical case of software-safety engineering; deleted safeguards relocate hazard to whatever replaces them"
+  - "Earlier independent safeguards were only partly carried forward"
+  - "Two Tyler events involved a fast-edit race condition"
+  - "A distinct counter overflow caused the fatal January 1987 Yakima event"
+  - "In Tyler, the interface showed an apparent underdose and permitted a retry"
+  - "Hardware, interface and reporting changes arrived together"
 leInsight: >-
-  Therac-25 is the moment when removing the human safety margin became
-  visible as a design choice. The hardware interlock was not redundant — it
-  was the safety case. When it was removed, no equivalent capability was put
-  in its place. The operator was retained in the system but stripped of the
-  ability to detect what it was doing wrong. Capability engineering would
-  have asked, before removing the interlock, what function takes its load?
+  A therapist’s ability to detect and respond to danger depended on truthful feedback, a usable
+  stop and reliable incident escalation. The machine also needed an independent safeguard that
+  worked within the hazard’s timescale. These are separate requirements.
 lensApproach: >-
-  LENS frames Therac-25 as a Design-Out failure made visible through
-  Interface and Governance pathologies. Studio projects in LEN 5 ask
-  students to produce capability-load diagrams tracing every safety function
-  to a hardware backstop, a software check, or a trained operator action
-  with the information needed to perform it. LEN 7 examines incident
-  reporting as governance.
+  Use the Tyler record to propose and test a therapist’s ability to interpret a discrepant
+  reading, choose a safe stop and report the incident. Vary cryptic codes and monitor failures
+  in a simulator and assess unfamiliar faults. Test independent beam inhibition separately. The
+  historical record cannot show whether that proposed practice would have changed the outcome.
 lensAnchor: "D3/PT3"
 inducedAnchor: "3.1"
 leoAnchor: "LEO-3"
+
+scopeLimit: >-
+  The six cases are a documented lower bound. Three incidents lack definitive technical
+  explanations, and the corrective action plan changed several safeguards together.
+competingReadings:
+  - "Independent interlocks could prevent a hazardous exposure. Truthful monitoring and an appropriate stop could have prevented a repeat after the first exposure. The corrective action plan changed both."
+  - "Another reading emphasizes reporting and escalation. Connecting earlier incidents across sites might have changed the response, but the available record cannot establish the effect of that counterfactual."
+
 sourceCase: 1
 order: 1
-teaser: "A deleted safeguard didn't remove the hazard — it relocated it onto an operator who couldn't see it coming."
+teaser: "A false underdose reading and a one-key retry left a therapist without a dependable way to recognize the hazard."
+teachingRole: "possible-response"
+sources:
+  - title: "Leveson and Turner, investigation and corrective action"
+    url: "https://www.cs.columbia.edu/~junfeng/08fa-e6998/sched/readings/therac25.pdf"
 ---
 
-A radiation-therapy machine killed at least three patients, and every proximate
-cause investigators found was a line of code. But the deeper failure was a
-decision no one had flagged as a safety decision: a hardware interlock — the one
-thing standing between a typing error and a lethal dose — was deleted, its job
-handed to software, and nothing was built to take its place. That is the casebook's first
-principle in its starkest form. Systems don't fail because the technology
-breaks; they fail because someone could no longer do what the system required of
-them — and here the operator was kept in the loop while being stripped of any
-way to see what the machine was doing wrong.
+A therapist correcting a prescription quickly exposed a software defect. The console then showed an apparent underdose and allowed a retry, even though the patient had already received a massive overdose. The Tyler record gives us a specific question to test in simulation: what information and authority would let a therapist recognize a dangerous discrepancy, stop treatment and report it? A separate test would verify that the machine independently prevents an unsafe exposure.

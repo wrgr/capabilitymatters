@@ -9,6 +9,7 @@ import LensBar from "../../components/LensBar.astro";
 import Disclosure from "../../components/Disclosure.astro";
 import AskAI from "../../components/AskAI.astro";
 import CaseIcon from "../../components/CaseIcon.astro";
+import { CASE_ROLES } from "../../lib/lens";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -23,6 +24,7 @@ const { entry } = Astro.props;
 const d = entry.data;
 const { Content } = await render(entry);
 const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
+const teachingRole = CASE_ROLES[d.teachingRole];
 ---
 
 <Base title={`${d.title} · LENS Case Studies`} active="case-studies">
@@ -50,8 +52,7 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
     </div>
 
     <p class="impact"><strong>Impact.</strong> {d.impact}</p>
-
-
+    <p class="teaching-role"><strong>{teachingRole.label}.</strong> {teachingRole.description}</p>
 
     <div class="ask-row">
       <AskAI
@@ -68,6 +69,8 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
         summary={d.summary}
         competingReadings={d.competingReadings}
         scopeLimit={d.scopeLimit}
+        teachingRole={d.teachingRole}
+        sources={d.sources}
         variant="button"
       />
       <span class="ask-note">Opens a new chat prefilled with this case — explore it in your own context.</span>
@@ -116,9 +119,8 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
       <section class="contested">
         <h2>Competing readings</h2>
         <p class="contested-note">
-          Rival explanations the record supports and no study adjudicates. They
-          are listed, not ranked — each one implies a different thing to check
-          before carrying the lesson somewhere else.
+          Compare what the sources agree on, where their findings differ, and
+          how each interpretation would change what you test or design.
         </p>
         <ul>
           {d.competingReadings.map((r) => <li>{r}</li>)}
@@ -132,6 +134,13 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
         <p>{d.scopeLimit}</p>
       </section>
     )}
+
+    <section class="sources">
+      <h2>Sources and evidence</h2>
+      <ul>
+        {d.sources.map(({ title, url }) => <li><a href={url}>{title}</a></li>)}
+      </ul>
+    </section>
 
     <footer class="case-foot">
       <span>Case {d.sourceCase} in <em>Capability Matters: A Casebook</em>.</span>
@@ -191,6 +200,8 @@ const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
     max-width: none;
   }
   .impact strong { color: var(--accent); }
+  .teaching-role { color: var(--ink-soft); margin: 0 0 1rem; }
+  .sources li { margin-block: 0.45rem; overflow-wrap: anywhere; }
 
   .ask-row {
     display: flex;

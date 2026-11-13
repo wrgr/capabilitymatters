@@ -9,6 +9,7 @@ import FoundationCheck from "../../components/FoundationCheck.astro";
 import Base from "../../layouts/Base.astro";
 import AskAI from "../../components/AskAI.astro";
 import CaseIcon from "../../components/CaseIcon.astro";
+import { CASE_ROLES } from "../../lib/lens";
 import { getCollection } from "astro:content";
 
 const cases = (await getCollection("case-studies", (c) => !c.data.draft)).sort(
@@ -25,9 +26,7 @@ for (const c of cases) {
 const grouped = [...parts.entries()].sort((a, b) => a[0] - b[0]);
 const base = import.meta.env.BASE_URL;
 
-// Downloadable draft of the full reading edition (the 48-case main volume),
-// offered under the case examples below. Draft status and the CC BY-ND licence
-// are stated at the download so reuse terms travel with the file.
+// The main reading edition contains 48 historical chapters and a closing studio.
 const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
 ---
 
@@ -43,15 +42,17 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
         connection: 'Contrasting cases support conditional judgment about human and system performance. LENS asks which capability, information, authority or support changed what people could do; a historical association alone does not establish that a proposed intervention will work elsewhere.',
       }} />
       <p class="subhead">
-        Documented examples of human capability and system performance, paired by
-        domain to compare what failed with what worked. Each case connects the
-        record to learning engineering, with sources and limits on interpretation.
+        Compare what people could do, what the system made possible, and what
+        mattered to the people affected. Some cases document learning engineering.
+        Others show where it could directly address a failure, or help you
+        distinguish a capability problem from a technical or governance problem.
       </p>
       <p class="grounding">
         <strong>{cases.length} selected cases across {grouped.length} domains.</strong>
-        Drawn from <em>Capability Matters: A Casebook</em>. The full 48-case reading
-        edition is available below as a working draft.
+        Drawn from <em>Capability Matters: A Casebook</em>. Download the revised
+        reading edition below.
       </p>
+      <p class="grounding"><a href="#why-lens-uses-a-casebook">Read the memo: Why LENS uses a casebook</a>.</p>
       <p class="grounding">To try a teaching simulation, visit <a href={base + "experiments/"}>Experiments</a>.
         To develop and test an intervention, explore <a href={base + "problems-to-prototypes/"}>Prototypes</a>.</p>
 
@@ -81,6 +82,7 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
                   <a class="stretched" href={base + "case-studies/" + c.id + "/"}>{c.data.title}</a>
                 </h3>
                 <span class="year">{c.data.year}</span>
+                <span class="case-role">{CASE_ROLES[c.data.teachingRole].label}</span>
                 <p>{c.data.teaser}</p>
                 <div class="card-foot">
                   <span class="more">Read the case →</span>
@@ -98,6 +100,8 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
                     summary={c.data.summary}
                     competingReadings={c.data.competingReadings}
                     scopeLimit={c.data.scopeLimit}
+                    teachingRole={c.data.teachingRole}
+                    sources={c.data.sources}
                     variant="icon"
                   />
                 </div>
@@ -109,19 +113,26 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
 
     {cases.length === 0 && <p class="empty">No case studies yet — check back soon.</p>}
 
+    <section id="why-lens-uses-a-casebook" aria-labelledby="casebook-memo-title">
+      <h2 id="casebook-memo-title">Why LENS uses a casebook</h2>
+      <p>The casebook puts the argument of <a href={base + "show-your-work/"}>Capability Matters</a> into practice. What people can accomplish depends on what they know and can do, and on what the system makes possible. The cases ask where a gap came from, what could change it, and what evidence would justify acting. Ask who benefits, who carries the burden, and who has the authority to act or contest a decision.</p>
+      <p>I-PASS shows how resident practice, faculty feedback, and a structured handoff work together. In the INL turbine-control case, operators used a simulator to expose interface problems before formal validation. Failure cases let readers design and test a response to a documented gap while keeping the proposed response distinct from what happened.</p>
+      <p>The <a href={base + "approach/"}>LENS approach</a> moves from Understand through Map, Design, Build, Instrument, Experiment, and Evaluate, then returns to Understand. Refine throughout. Pick a case, define the work, map what people and systems must provide, and specify a result that would make you revise the design.</p>
+    </section>
+
     <aside class="casebook-download">
       <div class="cb-eyebrow">Draft · feedback welcome</div>
       <h2>Read the whole casebook</h2>
       <p>
         The fourteen cases above are a selection. The full reading edition of
-        <em>Capability Matters: A Casebook</em> — forty-eight cases across all
-        seven parts — is available here as a working draft. It's still in
-        review, and feedback is genuinely welcome: what's unclear, what reads
-        wrong, what's missing.
+        <em>Capability Matters: A Casebook</em> includes forty-eight historical
+        chapters across seven parts and a closing studio. The November 2026
+        revision distinguishes documented interventions from proposed responses
+        and updates source attributions, contested findings and evidence limits.
       </p>
       <div class="cb-actions">
         <a class="cb-btn" href={CASEBOOK_PDF_URL} target="_blank" rel="noopener">
-          Download the draft (PDF, ~3&nbsp;MB)
+          Download the revised draft (PDF)
         </a>
         <a
           class="cb-feedback"
@@ -131,13 +142,7 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
         </a>
       </div>
       <p class="cb-license">
-        Licensed under
-        <a
-          href="https://creativecommons.org/licenses/by-nd/4.0/"
-          target="_blank"
-          rel="license noopener"
-        >CC&nbsp;BY-ND&nbsp;4.0</a>: share it freely with attribution, no
-        derivatives.
+        See the draft’s colophon for copyright and reuse information.
       </p>
     </aside>
   </div>
@@ -213,6 +218,7 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
   .card.fail .tag { color: #7a2222; }
   .card.success .tag { color: #1f5c3a; }
   .card-head { display: flex; align-items: center; gap: 0.7rem; }
+  .case-role { color: var(--muted); font-family: var(--sans); font-size: 0.8rem; }
   /* Icon tile picks up the card's outcome hue so the family still reads
      fail/success at a glance, without a second coat of color on the glyph. */
   .card.fail :global(.case-icon) { color: #a33; }

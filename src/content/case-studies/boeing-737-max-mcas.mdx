@@ -7,66 +7,43 @@ kind: "failure"
 year: "2018 – 2019"
 domains: ["aviation"]
 impact: >-
-  346 killed across two crashes — Lion Air 610 and Ethiopian Airlines 302;
-  20-month worldwide grounding; ~$20B direct cost; FAA delegated-authority
-  reform under the Aircraft Certification, Safety, and Accountability Act
-  (2020)
+  346 killed in the Lion Air 610 and Ethiopian Airlines 302 crashes. The FAA grounded the fleet for twenty months and required changes to flight controls and pilot preparation.
 summary: >-
-  The Boeing 737 MAX was a re-engined 737 meant to fly without new pilot
-  training — the commercial promise that sold it against the Airbus A320neo.
-  Its bigger, forward-mounted engines changed the jet's pitch behavior, so
-  Boeing added software (MCAS) to mask the difference, then kept it out of
-  the manuals and training and let it fire repeatedly on a single angle-of-
-  attack sensor. When that sensor failed on Lion Air 610 (October 2018),
-  MCAS forced the nose down against a crew never told it existed; four
-  months later, on Ethiopian 302, a crew warned of the symptom but not the
-  system ran Boeing's cutout procedure and still could not recover; 346
-  people died and the fleet was grounded for twenty months. Five major
-  investigations — the NTSB-supported KNKT (Lion Air) and EAIB (Ethiopian)
-  reports, the US House Transportation Committee final report, the DOT
-  Inspector General review, and the multinational Joint Authorities
-  Technical Review (JATR) — converged on the same mechanism: an MCAS that
-  could fire the nose down on a single failing sensor, waved through an FAA
-  delegated-authority regime in which Boeing reviewed much of its own safety
-  judgment. The House Transportation Committee's report went further,
-  documenting the training omission as a cost-driven commercial choice —
-  Boeing had promised Southwest a $1-million-per-plane rebate if simulator
-  training proved necessary. The MAX is the book's inverse case: human
-  capability engineered out of a system to save the price of sustaining it,
-  with the elision underwritten by a certification process that did not have
-  the independence to catch it.
+  A single erroneous angle-of-attack input could cause the 737 MAX’s Maneuvering Characteristics Augmentation System (MCAS) to command repeated nose-down trim. Boeing sought to avoid simulator differences training, and original training and manuals did not explain MCAS. Indonesia’s KNKT identified nine contributing factors in Lion Air 610, including design assumptions, maintenance and crew workload. Ethiopia’s EAIB, the U.S. NTSB and France’s BEA agreed that MCAS contributed to Ethiopian 302 but differed on aspects of the sensor failure and the treatment of crew actions. FAA return to service required flight-control changes, revised procedures and simulator training.
 beats:
-  - "Re-engined 737 sold on no new pilot training; MCAS hid the handling change"
-  - "Single-sensor MCAS forced two jets down, killing 346 across both crashes"
-  - "Internal records show training omission was deliberate; certification was largely delegated to Boeing itself"
-  - "Training absence was a contract deliverable, not an oversight; pilots engineered out"
-  - "Twenty-month grounding; MCAS redesigned, simulator training required, FAA oversight tightened"
+  - "Boeing sought a common type rating without simulator differences training"
+  - "Erroneous sensor input triggered repeated nose-down commands in two fatal crashes"
+  - "Investigators agreed on MCAS but differed on trigger and crew response in ET302"
+  - "Certification assumed timely crew diagnosis amid concurrent alerts and trim commands"
+  - "FAA return to service combined flight-control changes, procedures and simulator training"
 leInsight: >-
-  The 737 MAX is the documentary record of a design choice to remove human
-  capability to avoid the regulatory and commercial cost of sustaining it.
-  The pilots were not undertrained by accident — they were undertrained as a
-  requirement. The omission of training was a contract deliverable. Once
-  that is understood, the accident becomes legible as an engineering
-  decision rather than a training failure.
+  Certification depended on crews recognizing the problem and responding within seconds despite concurrent warnings and repeated trim commands. That capability needs evidence from representative crews operating the whole system under realistic conditions.
 lensApproach: >-
-  The 737 MAX is the canonical engineered-out-capability failure (induced
-  1.1; LENS D1+D3/PT4). LENS uses it in Domain 1 (Systems Analysis) for the
-  LEO-1 work of decomposing system performance requirements into measurable
-  human-capability requirements: the elided pilot-training requirement is
-  the traceable artifact a capability-requirements analysis would have
-  surfaced before the omission could become a contract deliverable. LENS
-  uses it in Domain 5 (Navigating Sociotechnical Constraints; LEO-5) for the
-  delegated-authority regulatory regime in which Boeing reviewed its own
-  most consequential safety judgments — the case is the governance
-  counterpart to Therac-25 (Case 1) at the safeguard-removed-with-nothing-
-  in-its-place layer, and pairs with Patriot/Dhahran (Case 129) at the layer
-  of design assumptions that do not travel with a change of context.
+  The historical response combined sensor cross-checks, reduced MCAS authority, revised procedures and simulator practice. A LENS exercise would compare flight-control and preparation designs under simultaneous failure cues. Assess diagnosis, coordinated action and recovery margin, then use those results to review certification assumptions and readiness.
 lensAnchor: "D1+D5/PT4"
 inducedAnchor: "1.1"
 leoAnchor: "LEO-1, LEO-5"
 sourceCase: 97
 order: 5
-teaser: "346 people died because pilot training was engineered out of a jet to protect a commercial promise."
+teaser: >-
+  Two crashes exposed the need to test pilot response against the actual behavior of the MAX under simultaneous failures.
+competingReadings:
+  - "The EAIB attributed the erroneous angle-of-attack signal in Ethiopian 302 to an electrical failure. The NTSB judged a foreign-object impact, likely a bird, to be the most likely cause."
+  - "The NTSB and BEA agreed on MCAS’s contribution and called for fuller analysis of crew actions and preparation, including the period before MCAS activated."
+scopeLimit: >-
+  The accident investigations do not isolate how either crew would have performed with different training, alerts, or flight controls.
+teachingRole: "possible-response"
+sources:
+  - title: "House final report, training and Southwest contract"
+    url: "https://www.govinfo.gov/content/pkg/GOVPUB-Y4_T68_2-PURL-gpo144993/pdf/GOVPUB-Y4_T68_2-PURL-gpo144993.pdf"
+  - title: "KNKT Lion Air final report"
+    url: "https://knkt.go.id/Repo/Files/Laporan/Penerbangan/2018/KNKT.18.10.33.04-Final-Report.pdf"
+  - title: "NTSB response to EAIB final report"
+    url: "https://www-s.ntsb.gov/investigations/Documents/Response%20to%20EAIB%20final%20report.pdf"
+  - title: "BEA observations and EAIB investigation record"
+    url: "https://bea.aero/les-enquetes/evenements-notifies/detail/accident-du-boeing-737-immatricule-et-avj-et-exploite-par-ethiopian-airlines-survenu-le-10-03-2019-pres-de-bishoftu-enquete-menee-par-eaib-ethiopie/"
 ---
 
-The 737 MAX is Therac-25 written at the scale of an airline fleet. To sell the jet without costly new pilot training, Boeing masked its changed handling with software — MCAS — then left it out of the manuals and let it fire on a single failing sensor. When that sensor failed on Lion Air 610, MCAS pushed the nose down against a crew never told the system existed. Four months later, on Ethiopian 302, a crew warned of the symptom but not the system ran Boeing's own cutout procedure and still could not recover. 346 people died. Five investigations converged on the mechanism, and the House Transportation Committee's went to the motive: the training omission wasn't an oversight but a cost-driven commercial choice — human capability removed to avoid the cost of sustaining it, waved through by a certification regime too close to Boeing to catch it.
+The 737 MAX depended on crews recognizing and responding to uncommanded trim under pressure. Boeing treated avoiding simulator differences training as a design objective, and original manuals and training did not explain MCAS. In both accidents an erroneous angle-of-attack signal could trigger repeated nose-down trim. Indonesia’s investigators identified nine factors in the Lion Air crash. Ethiopia’s investigators, the NTSB and France’s BEA agreed on MCAS’s contribution to Ethiopian 302, but the NTSB disputed the electrical explanation for the sensor fault and both outside agencies called for fuller treatment of crew performance.
+
+The FAA’s response changed what the aircraft would do as well as what crews were told and trained to do. A realistic simulator assessment can test the combined response, including whether crews can diagnose and act amid multiple alerts within the available time. The investigations cannot establish the effect simulator training alone would have had on either flight.

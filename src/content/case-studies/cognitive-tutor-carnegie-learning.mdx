@@ -7,52 +7,45 @@ kind: "intervention"
 year: "1990s – present"
 domains: ["education"]
 impact: >-
-  Randomized controlled trials showed learning gains; RAND RCT found a
-  significant Algebra I gain in year two (~0.2 SD, high school; no year-one
-  effect); used by more than 500,000 students in about 2,600 school
-  districts as of August 2008
+  A school-level randomized trial found a high-school Algebra I gain of about 0.21 standard
+  deviations in the second year, with no significant first-year effect. The second-year
+  middle-school estimate was not statistically significant.
 summary: >-
-  Carnegie Learning's Cognitive Tutor, built from John Anderson's ACT-R
-  cognitive architecture at Carnegie Mellon, carries one of the largest
-  randomized evidence bases of any intelligent tutoring system in education.
-  It uses Bayesian knowledge tracing to model each student's mastery and
-  adapts instruction accordingly, and a RAND Corporation randomized trial
-  found a statistically significant positive effect on Algebra I achievement
-  — about 0.21 SD for high school students in the second year of use, with
-  no significant effect in year one and a middle-school estimate that did
-  not reach significance. The system is a learning-engineering success in
-  the discipline's own terms — learning science to engineered software to
-  randomized-trial evidence to deployment reaching more than 500,000
-  students in about 2,600 school districts. Its limitations are instructive:
-  it works best in well-defined domains like algebra and less well in ill-
-  structured ones, making it the canonical evidence that the pipeline
-  delivers for problems that fit it — leaving open whether the same
-  discipline can deliver where problems do not.
+  Carnegie Learning’s Cognitive Tutor applies cognitive models and Bayesian knowledge tracing to
+  guide algebra practice. In the RAND evaluation, 54 high schools and 68 middle schools were
+  assigned to the blended curriculum package or to continue their existing algebra curriculum.
+  The high-school effect was positive in year two, with no significant first-year effect and no
+  significant second-year middle-school effect. The trial tested the curriculum, software and
+  its implementation as a package. It did not isolate knowledge tracing, establish long-term
+  retention, or explain why the second-year high-school result differed.
 beats:
-  - "Earlier tutoring systems rested on intuition about learning rather than validated theory or controlled trials"
-  - "Carnegie Learning built Cognitive Tutor from Anderson's ACT-R architecture with Bayesian knowledge tracing"
-  - "A decomposable skill model, mastery measurement, and an adaptive interface concentrate practice where weakness sits"
-  - "RAND's multi-site RCT found a significant Algebra I gain in year two for high schoolers (~0.2 SD), with no first-year effect; reached about 2,600 school districts"
-  - "Pipeline works for tractable, decomposable problems; ill-structured operational domains remain the open frontier"
+  - "Cognitive modeling gave the developers a way to specify component algebra skills."
+  - "Step-level observations inform a mastery estimate and guide practice."
+  - "Teachers and students use the software as part of a blended curriculum."
+  - "Schools were randomized to the package or existing curriculum."
+  - "The high-school benefit appeared in year two; the mechanism behind the timing remains open."
 leInsight: >-
-  Cognitive Tutor is the canonical evidence that the learning- engineering
-  process exists, works, and produces measurable benefits at scale — when
-  the problem is tractable. It is also the canonical case for what
-  tractability looks like: well-defined domain, decomposable skill model,
-  instrumentable interface, rigorous evaluation. The frontier for the
-  discipline is whether the same pipeline can deliver in the operational,
-  ill-structured domains where capability matters most.
+  Connect a model of learning to feedback, a curriculum and an outcome test. The result supports
+  the tested package under the conditions studied.
 lensApproach: >-
-  LENS uses Cognitive Tutor in LEN 1 as the foundational LE-process
-  exemplar, in LEN 4 as the canonical case for Bayesian knowledge tracing as
-  a measurement instrument, and in LEN 9 as a technical case for model-based
-  adaptive instruction.
+  In LEN 1 and LEN 4, map how task evidence becomes a mastery estimate, then design an
+  independent transfer probe. In LEN 9, test an alternative adaptation strategy without changing
+  the rest of the package.
 lensAnchor: "D2/PT5"
 inducedAnchor: "2.3"
 leoAnchor: "LEO-2"
 sourceCase: 67
 order: 4
-teaser: "Cognitive science turned into software that watches a student think — and a generation of evidence that it works."
+teaser: "An algebra tutor used a model of mastery to guide practice. A school-level trial shows what the full curriculum achieved."
+scopeLimit: >-
+  The trial did not isolate the tutoring algorithm, establish durable transfer, or validate the
+  approach outside the tested Algebra I settings.
+teachingRole: "intervention"
+sources:
+  - title: "IES study record: design, sample and results"
+    url: "https://ies.ed.gov/use-work/awards/effectiveness-cognitive-tutor-algebra-one-implemented-scale"
+  - title: "Study team's analysis of mastery logs"
+    url: "https://arxiv.org/abs/1802.08616"
 ---
 
-Cognitive Tutor is what learning engineering looks like when the science makes it all the way to the classroom. Built on a cognitive model of how students actually solve problems, it tracks each learner's step-by-step reasoning and intervenes where the model predicts they'll struggle. Decades of randomized trials — including a large RAND study — have measured its effect rather than asserted it. It is a standing example of the discipline's core commitment: not 'engaging' or 'innovative,' but instrumented, evaluated, and improved on evidence.
+Cognitive Tutor makes a learning hypothesis testable. Its software offers feedback and practice based on a model of algebra skills, while teachers implement the curriculum. In a large randomized evaluation, high schools assigned to the package performed better in year two. The study did not isolate the contribution of the software or show that the same approach works for every subject.

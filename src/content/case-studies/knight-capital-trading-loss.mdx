@@ -7,47 +7,48 @@ kind: "failure"
 year: "2012"
 domains: ["tech"]
 impact: >-
-  $440M loss in 45 minutes; firm forced to seek emergency capital and was
-  effectively acquired within months
+  About 45 minutes of erroneous orders led to roughly $460 million in ultimate losses. Knight’s
+  initial disclosure estimated $440 million; its third-quarter update reported $461.1 million in
+  related pretax losses.
 summary: >-
-  On 1 August 2012 Knight Capital, a major U.S. market maker, deployed new
-  order-routing software to seven of its eight servers and missed the
-  eighth. The new code reused a flag that, on the eighth server's old
-  software, reactivated long-dead "Power Peg" code never removed from the
-  repository. At the opening bell it fired millions of unintended orders; in
-  about 45 minutes Knight lost roughly $440 million — more than the firm was
-  worth — and was effectively acquired within months. The SEC found Knight
-  had no procedure to verify the deployment across all servers and no
-  controls to halt the runaway orders. The capability designed out was
-  deployment verification; the dead code was technical debt that exercised
-  its option at the worst possible moment.
+  On August 1, 2012, new order-routing code was deployed to seven of Knight Capital’s eight
+  servers. A reused flag activated dormant Power Peg code on the eighth. The SEC found that
+  Knight lacked a verification procedure to catch the missed server and had inadequate
+  market-access controls. An internal system sent 97 messages before the market opened; these
+  were not designed as operational alerts. The router sent unintended orders for about 45
+  minutes. The SEC reported more than $460 million in ultimate losses, and Knight later reported
+  $461.1 million in related pretax losses.
 beats:
-  - "Major market maker prepared routine update for the NYSE Retail Liquidity Program launch."
-  - "Eighth server missed the update; a reused flag woke dormant Power Peg code."
-  - "SEC found no deployment verification, no consistency check, and no controls to halt orders."
-  - "Designed-out capability was deployment verification; dead code was a standing option on failure."
-  - "Case became canonical for deployment as engineering deliverable and sharpened market-access controls."
+  - "One of eight order-routing servers missed the deployment."
+  - "A reused flag activated dormant software on the unpatched server."
+  - "Pre-open messages did not serve as actionable alerts."
+  - "The router placed erroneous orders for roughly 45 minutes."
+  - "Knight’s later filing reported $461.1 million in related pretax losses."
 leInsight: >-
-  Knight Capital is the financial-industry version of Mars Climate Orbiter
-  (Case 98): a small, unspecified boundary inside a large system that took
-  the institution down. The capability that was missing was deployment
-  verification. The dead code was the proximate trigger; the absent
-  procedure was the cause.
+  Deployment staff needed a way to verify every server. Trade operations staff needed an
+  actionable signal, authority and a feasible stop path. Automatic limits and deployment
+  validation carry safety functions that people cannot reliably perform at trading speed.
 lensApproach: >-
-  Knight Capital is the canonical change-control-and-disclosure governance
-  case (induced 5.4; LENS D1/PT3). LENS uses it in LEN 5 to teach
-  deployment-as-capability — students design the deployment deliverable that
-  would have caught the eighth server — and in LEN 9 for the technical-debt
-  argument: every line of dead code carries an option on a future failure.
-  Adjacent to Mars Climate Orbiter (Case 98) at the small- boundary-no-owner
-  layer and to Regulation SCI as the institutional response that codified
-  the missing controls.
+  Seed a missed server in a release exercise. Test whether staff can identify and quarantine it
+  before opening, then test the alert, automatic exposure limit and authorized stop path against
+  a runaway-order scenario.
 lensAnchor: "D1/PT3"
-inducedAnchor: "7.1"
+inducedAnchor: "5.4"
 leoAnchor: "LEO-1, LEO-4"
 sourceCase: 143
 order: 9
-teaser: "$440 million gone in 45 minutes — from a deployment nobody had the capability to catch in time."
+teaser: "One server missed the update. The signals and controls that could have contained the loss failed."
+scopeLimit: >-
+  The SEC documented several failed controls. The record does not isolate one cause or show that
+  staff practice alone could control a trading system at operational speed.
+teachingRole: "possible-response"
+sources:
+  - title: "SEC administrative order, ¶¶14–20"
+    url: "https://www.sec.gov/litigation/admin/2013/34-70694.pdf"
+  - title: "Knight's initial August disclosure"
+    url: "https://www.sec.gov/Archives/edgar/data/1060749/000119312512332176/d391111dex991.htm"
+  - title: "Knight's third-quarter update"
+    url: "https://www.sec.gov/Archives/edgar/data/1060749/000119312512425350/d425406dex991.htm"
 ---
 
-Knight Capital lost $440 million in 45 minutes on a summer morning in 2012, and no market crashed to cause it. A botched software deployment reactivated dead code on one of eight servers, and the firm's people had no way to see what was happening or stop it fast enough. Within days it needed an emergency rescue financing, and within months it was gone as an independent firm. It is a compact study in a system that ran faster than the humans nominally in control of it could perceive — automation without the capability to supervise it.
+A rollout left one Knight Capital server running older code. A reused flag activated a dormant order routine there, and the router sent unintended orders for about 45 minutes. The record shows both a deployment check that was missing and a signal that was already there: personnel received automated messages before the open, but they were not designed as operational alerts.

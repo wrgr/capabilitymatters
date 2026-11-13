@@ -12,7 +12,7 @@
 //
 // `variant="icon"` is the compact card control; `variant="button"` is the
 // labelled control for the detail page.
-import { primaryCompetency } from "../lib/lens";
+import { CASE_ROLES, primaryCompetency, type CaseRole } from "../lib/lens";
 
 interface Props {
   title: string;
@@ -37,12 +37,14 @@ interface Props {
   competingReadings?: string[];
   /** One sentence on what the case does not show. */
   scopeLimit?: string;
+  teachingRole: CaseRole;
+  sources: { title: string; url: string }[];
   variant?: "icon" | "button";
 }
 
 const {
   title, year, domains, outcome, impact, summary, leInsight, lensApproach,
-  lensAnchor, coi, evidenceFlag, competingReadings = [], scopeLimit,
+  lensAnchor, coi, evidenceFlag, competingReadings = [], scopeLimit, teachingRole, sources,
   variant = "icon",
 } = Astro.props;
 
@@ -60,9 +62,11 @@ const dossierExtras = [
     ? `\n• EVIDENCE TIER: ${evidenceFlag} — source confidence flagged; future validation ongoing. Weigh claims accordingly.`
     : "",
   competingReadings.length
-    ? `\n• COMPETING READINGS (rival explanations the record supports and no study adjudicates — do not pick a winner as though the evidence settles it):\n${competingReadings.map((r) => `  – ${r}`).join("\n")}`
+    ? `\n• COMPETING READINGS (weigh the evidence; do not pick a winner when the record cannot distinguish the readings):\n${competingReadings.map((r) => `  – ${r}`).join("\n")}`
     : "",
   scopeLimit ? `\n• SCOPE LIMIT (what this case does not show — do not generalize the lesson past this boundary): ${scopeLimit}` : "",
+  `\n• TEACHING ROLE: ${CASE_ROLES[teachingRole].label}. ${CASE_ROLES[teachingRole].description}`,
+  `\n• SOURCES:\n${sources.map(({ title, url }) => `  – ${title}: ${url}`).join("\n")}`,
 ].join("");
 
 // Engineered prompt. Structure: role + framing, a labelled case dossier so the
@@ -71,10 +75,10 @@ const dossierExtras = [
 // uncertainty, don't overclaim — but don't nitpick wording) and a Socratic
 // close that pushes transfer to the reader's own work.
 const prompt = [
-  `You are a rigorous, Socratic tutor in Learning Engineering for Next-Generation Systems (LENS) — the discipline that treats human capability as an engineered parameter of a complex system, extending learning engineering beyond the classroom. Your stance: systems rarely fail because the technology breaks; they fail or succeed on what people can actually do inside them.`,
+  `You are a rigorous, Socratic tutor in Learning Engineering for Next-Generation Systems (LENS). Ask how people's knowledge, judgment and opportunities to act interact with the system. Consider technical, organizational and learning explanations and who bears the consequences.`,
   `I'm studying this case from the LENS casebook "Capability Matters". Ground yourself in these specifics rather than your own recollection. If a material fact here is wrong — one that would change the lesson — flag it; but don't nitpick exact wording, and treat a fair paraphrase as fine. Debating the causation, mechanism, and interpretation of this case is squarely in scope and welcome. Where the dossier hedges a claim, keep the hedge: don't restate a qualified finding as a settled one.`,
   `• CASE: ${title} (${year}) — ${outcomeWord}\n• DOMAIN: ${domains.join(", ")}\n• WHAT HAPPENED: ${impact}\n• LENS COMPETENCY IN PLAY: ${competency} (${lensAnchor})\n• THE BOOK'S LEARNING-ENGINEERING READING: ${leInsight}\n• HOW LENS TEACHES IT: ${lensApproach}${dossierExtras}`,
-  `Please help me learn from it:\n1. Explain the core capability lesson in plain terms — what someone could or couldn't do inside the system, and why that, more than the technology alone, was decisive.\n2. Name the precise mechanism of the ${outcome === "fail" ? "failure" : "success"} — the specific chain by which what people could or couldn't do produced the outcome. Distinguish the mechanism the evidence actually supports from the folk version of this case that gets repeated.\n3. Where the causation is genuinely contested — competing explanations, confounders, an uncertain counterfactual — set out the rival readings and say what evidence would separate them, rather than flattening to one. Flag what's uncertain in the record and don't overclaim beyond what it supports.\n4. Connect the lesson to the "${competency}" competency, and to how you would design for it or gather decision-grade evidence that it holds.\n5. Close by asking me one sharp question that helps me map this lesson onto a system I actually work on — one that respects the scope limit above rather than over-transferring the lesson.`,
+  `Please help me learn from it:\n1. Identify who needed to do what, under which conditions and for whose benefit.\n2. Explain the mechanism the evidence supports and distinguish output, supported performance, learning and causal impact.\n3. Weigh competing findings by source and method. Say what remains unresolved and what evidence would change the interpretation.\n4. Connect the lesson to "${competency}". If learning engineering could directly address a failure, propose a test and distinguish it from a historical intervention or a proven prevention.\n5. Ask one question that helps me apply the lesson within its evidence limits.`,
   `Be concrete and specific to this case; prefer its particulars over generic best-practice advice.`,
 ].join("\n\n");
 

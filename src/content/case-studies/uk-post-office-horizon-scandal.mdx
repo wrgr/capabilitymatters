@@ -4,52 +4,60 @@ part: "Algorithms, Governance & Public Systems"
 partNumber: 7
 outcome: "fail"
 kind: "failure"
+
 year: "1999 – 2015"
 domains: ["tech", "gov"]
 impact: >-
-  more than 900 sub-postmasters wrongfully convicted; 236 imprisoned on the
-  figure given in Parliament; 13 suicides the inquiry could not rule out as
-  Horizon-caused; described as the most widespread miscarriage of justice in
-  UK history
+  More than 900 prosecutions in the CCRC’s account. In Hamilton, the Court of Appeal quashed 39
+  of 42 convictions. Further quashings followed through legislation.
 summary: >-
-  The UK Post Office's Horizon accounting system, built by Fujitsu and
-  rolled out in 1999, generated phantom shortfalls in sub-postmasters'
-  branch ledgers. Rather than accept the software was at fault, the Post
-  Office prosecuted them for theft and false accounting — about 700 cases
-  itself, its Horizon evidence driving roughly 280 more prosecutions by
-  other bodies, more than 900 wrongful convictions in all; people were
-  imprisoned, bankrupted, and driven to suicide, in what is now called the
-  most widespread miscarriage of justice in UK history. Internal documents
-  showed engineers had known about Horizon bugs throughout. Convictions
-  began to be quashed in December 2020, and a public inquiry continues. The
-  failure ran through the prosecutor and the courts: each accepted "the
-  computer said so" as authoritative because no actor had the standing or
-  expertise to challenge it. Horizon is the book's case for institutional
-  deference to a flawed algorithm.
+  The UK Post Office used Horizon to account for branch transactions. Defects could create
+  apparent shortfalls, which subpostmasters struggled to contest. The Post Office and other
+  authorities brought more than 900 prosecutions in the CCRC’s account. The courts found serious
+  failures to investigate and disclose evidence. In Hamilton, 39 of 42 convictions were quashed.
+  Inquiry Volume 1 documented severe human harms and examined redress, including the possibility
+  that Horizon contributed to deaths by suicide.
 beats:
-  - "Sub-postmasters bore personal liability for shortfalls reported by Fujitsu's Horizon accounting system from 1999"
-  - "Phantom shortfalls drove more than 900 wrongful convictions for theft, fraud and false accounting; imprisonment, bankruptcy, and suicides followed"
-  - "Released documents showed engineers knew Horizon could err; convictions began being quashed in December 2020"
-  - "No regulator, prosecutor, or court had standing to interrogate Fujitsu's claim of reliability"
-  - "Parliament exonerated convictions and opened compensation schemes; the public inquiry continues its work"
+  - "Subpostmasters had to reconcile cash and stock before the next trading period."
+  - "Horizon could produce apparent shortfalls and could not record a dispute."
+  - "More than 900 prosecutions were brought in the CCRC’s account."
+  - "Hamilton quashed 39 of 42 convictions and distinguished cases with different evidence."
+  - "Legislative quashings and redress schemes followed."
 leInsight: >-
-  Horizon is the canonical case for institutional deference to automated
-  systems whose internal evidence was already known to be flawed. The
-  capability gap was at every layer that took the software's output as
-  authoritative — including the courts. "The computer said so" became, for
-  two decades, an institutionally sufficient basis for criminal prosecution.
+  An accounting discrepancy becomes dangerous when the operator cannot record and investigate a
+  dispute and the institution can treat the output as sufficient evidence. The historical record
+  documents a failure of disclosure and usable challenge paths.
 lensApproach: >-
-  LENS uses Horizon in LEN 7 as the canonical example of institutional
-  deference to algorithmic output and in LEN 2 for the most extensive multi-
-  decade automation-bias case in the dataset. Studio projects examine what
-  evidentiary architecture would require interrogating automated output
-  before acting on it.
+  Prototype a dispute record and an independent verification gate. Ask branch operators to
+  reconcile realistic discrepancies and investigators to test alternative causes with incomplete
+  evidence. Observe whether users can preserve a dispute while continuing work, and whether
+  reviewers can identify and halt an unsupported action. This is a testable learning engineering
+  response to the documented failure.
+competingReadings:
+  - "The Post Office defended Horizon as robust. The High Court found substantial problems in earlier versions while finding a newer version relatively robust. Hamilton distinguished prosecutions where Horizon data was essential from cases supported independently."
+scopeLimit: >-
+  The appeal judgment and statutory criteria are specific to their jurisdictions and cases.
+  Neither the prosecution count nor the technical findings establish the outcome of every
+  individual prosecution.
+
 lensAnchor: "D3/PT6"
 inducedAnchor: "3.2"
 leoAnchor: "LEO-3"
 sourceCase: 184
 order: 13
-teaser: "For two decades, 'the computer said so' was enough to imprison innocent people. No one could challenge it."
+teaser: "Horizon could show a shortfall that did not exist, and branch operators could not record a dispute in the system."
+teachingRole: "possible-response"
+sources:
+  - title: "CCRC account of more than 900 prosecutions"
+    url: "https://ccrc.gov.uk/news/the-ccrc-and-post-office-horizon-cases/"
+  - title: "Hamilton and others judgment"
+    url: "https://www.judiciary.uk/judgments/hamilton-others-v-post-office-limited/"
+  - title: "Horizon System Offences Act 2024"
+    url: "https://www.legislation.gov.uk/ukpga/2024/14/enacted"
+  - title: "Horizon Inquiry Volume 1, human impact and redress"
+    url: "https://www.postofficehorizoninquiry.org.uk/sites/default/files/2025-07/Post%20Office%20Horizon%20IT%20Inquiry%20Final%20Report%20Volume%201.pdf"
+  - title: "Bates v Post Office, Horizon Issues §§969–978, 1021–1024"
+    url: "https://www.judiciary.uk/wp-content/uploads/2019/12/bates-v-post-office-judgment.pdf"
 ---
 
-The Post Office's Horizon system invented shortfalls that weren't there, and rather than doubt the software, the institution and, on its evidence, other prosecutors pursued the people it accused — more than 900 wrongful convictions over two decades (about 700 prosecuted by the Post Office itself, its evidence driving roughly 280 more), 236 people imprisoned on the figure given in Parliament, and thirteen suicides the public inquiry could not rule out as Horizon-caused — what is now called the widest miscarriage of justice in British history. Engineers knew about the bugs the whole time. The failure ran through the prosecutors and the courts, each treating 'the computer said so' as authoritative because no one had the standing or expertise to challenge it. Horizon is the book's case for what institutional deference to a flawed algorithm actually costs.
+Subpostmasters could call a helpline about a discrepancy, but Horizon could not record the dispute. Branches had to complete a trading statement to open for the next period. When the Post Office and other authorities prosecuted branch operators, investigations and disclosures often failed to account for software errors. In Hamilton, the Court of Appeal quashed 39 of 42 convictions. Later legislation quashed convictions that met specified criteria.

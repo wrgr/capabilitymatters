@@ -7,6 +7,7 @@ and a load-bearing caveat reaching the page but not the AI prompt that carries
 the same case off-site. These pin both.
 """
 
+import re
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent
@@ -66,6 +67,8 @@ def test_ask_ai_prompt_carries_every_caveat() -> None:
         "EVIDENCE TIER",
         "COMPETING READINGS",
         "SCOPE LIMIT",
+        "TEACHING ROLE",
+        "SOURCES:",
     ):
         assert marker in ask, f"AI prompt dossier is missing {marker}"
     assert "do not pick a winner" in ask, "prompt lets the tutor adjudicate rivals"
@@ -76,8 +79,22 @@ def test_ask_ai_is_passed_the_caveats_everywhere_it_appears() -> None:
     """Both AskAI call sites pass the fields, so the card prompt isn't thinner."""
     for page in ("pages/case-studies/index.astro", "pages/case-studies/[slug].astro"):
         markup = _read(page)
-        for prop in ("competingReadings=", "scopeLimit=", "summary=", "coi="):
+        for prop in ("competingReadings=", "scopeLimit=", "summary=", "coi=", "teachingRole=", "sources="):
             assert prop in markup, f"{page} does not pass {prop} to AskAI"
+
+
+def test_cases_have_evidence_links_and_separate_teaching_roles() -> None:
+    """Discover every case and require evidence links and a teaching role."""
+    detail = _read("pages/case-studies/[slug].astro")
+    assert "<h2>Sources and evidence</h2>" in detail
+    assert "d.sources.map" in detail
+    for mdx in CASES.glob("*.mdx"):
+        frontmatter = mdx.read_text(encoding="utf-8").split("\n---\n", 1)[0]
+        roles = re.findall(r"^teachingRole: (.+)$", frontmatter, re.MULTILINE)
+        links = re.findall(r"^sources:", frontmatter, re.MULTILINE)
+        assert len(roles) == len(links) == 1, f"{mdx.name}: missing or duplicate evidence fields"
+        if roles[0].strip("\"'") == "possible-response":
+            assert "scopeLimit:" in frontmatter, f"{mdx.name}: proposed response needs a scope limit"
 
 
 def test_leads_match_the_corrected_mechanisms() -> None:
@@ -102,5 +119,6 @@ if __name__ == "__main__":
     test_competing_readings_and_scope_limit_render()
     test_ask_ai_prompt_carries_every_caveat()
     test_ask_ai_is_passed_the_caveats_everywhere_it_appears()
+    test_cases_have_evidence_links_and_separate_teaching_roles()
     test_leads_match_the_corrected_mechanisms()
     print("case-study sync OK")
