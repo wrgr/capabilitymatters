@@ -1,7 +1,7 @@
 ---
 import ResourceAbout from "../../components/ResourceAbout.astro";
 // Case-study detail page. One route per case in the collection; the structured
-// salient fields render in a fixed order so all 14 cases read consistently,
+// salient fields render in a fixed order so the cases read consistently,
 // with the MDX body (site-voice narrative) rendered in the lead slot.
 import FoundationCheck from "../../components/FoundationCheck.astro";
 import Base from "../../layouts/Base.astro";
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const d = entry.data;
 const { Content } = await render(entry);
-const outcomeLabel = d.outcome === "fail" ? "What failed" : "What worked";
+const outcomeLabel = d.outcome === "fail" ? "What failed" : d.teachingRole === "capability-design" ? "Capability in practice" : "What worked";
 const teachingRole = CASE_ROLES[d.teachingRole];
 ---
 

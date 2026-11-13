@@ -16,7 +16,7 @@ const cases = (await getCollection("case-studies", (c) => !c.data.draft)).sort(
   (a, b) => a.data.order - b.data.order,
 );
 
-// Group into parts, preserving order; each part holds its fail + success pair.
+// Group into parts, preserving order; each part holds related cases.
 const parts = new Map<number, { name: string; entries: typeof cases }>();
 for (const c of cases) {
   const p = parts.get(c.data.partNumber) ?? { name: c.data.part, entries: [] };
@@ -37,8 +37,8 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
       <div class="eyebrow">Case Studies</div>
       <h1>Case Studies: What happened, and what can we learn?</h1>
 <ResourceAbout resource="case-library" content={{
-        what: 'A source-linked collection of documented cases, paired by domain to compare failures and successful interventions. Each case preserves its evidence qualifications and scope limits.',
-        how: ['Choose a domain and read both cases in the pair. Compare the system conditions, actions and outcomes before drawing a lesson.', 'Follow the sources and disclosures, then propose a new context where the explanation might fail. The linked casebook provides the wider reading edition.'],
+        what: 'A source-linked collection of documented cases, grouped by domain to compare failures, interventions and capability designs. Each case preserves its evidence qualifications and scope limits.',
+        how: ['Choose a domain and read two cases. Compare the system conditions, actions and outcomes before drawing a lesson.', 'Follow the sources and disclosures, then propose a new context where the explanation might fail. The linked casebook provides the wider reading edition.'],
         connection: 'Contrasting cases support conditional judgment about human and system performance. LENS asks which capability, information, authority or support changed what people could do; a historical association alone does not establish that a proposed intervention will work elsewhere.',
       }} />
       <p class="subhead">
@@ -59,7 +59,7 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
     </div>
   </header>
 
-  <aside class="container" aria-label="Learning orientation"><p><a href="/learning-map/">Find your path through the site</a>. For a first reading, compare one paired case: what did people need to do, how did the system support or constrain them, and what evidence supports your explanation?</p></aside>
+  <aside class="container" aria-label="Learning orientation"><p><a href="/learning-map/">Find your path through the site</a>. For a first reading, compare two cases from one domain: what did people need to do, how did the system support or constrain them, and what evidence supports your explanation?</p></aside>
   <div class="container">
     <FoundationCheck context="case" />
     <p><strong>How to read the cards:</strong> “What failed” and “What worked” describe the reported outcome in the case, not a judgment of the people involved. Paired cases invite comparison; they do not establish that one factor caused an outcome. Competency tags identify the LENS practices exercised, while topic domains identify the setting. Open a case to examine its sources and limits.</p>
@@ -71,12 +71,12 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
         </h2>
         <div class="pair">
           {part.entries
-            .sort((a, b) => (a.data.outcome === "fail" ? -1 : 1))
+            .sort((a, b) => Number(a.data.outcome === "success") - Number(b.data.outcome === "success") || a.data.order - b.data.order)
             .map((c) => (
               <article class={`card ${c.data.outcome}`}>
                 <div class="card-head">
                   <CaseIcon slug={c.id} label={c.data.title} size={44} />
-                  <span class="tag">{c.data.outcome === "fail" ? "What failed" : "What worked"}</span>
+                  <span class="tag">{c.data.outcome === "fail" ? "What failed" : c.data.teachingRole === "capability-design" ? "Capability in practice" : "What worked"}</span>
                 </div>
                 <h3>
                   <a class="stretched" href={base + "case-studies/" + c.id + "/"}>{c.data.title}</a>
@@ -116,7 +116,7 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
     <section id="why-lens-uses-a-casebook" aria-labelledby="casebook-memo-title">
       <h2 id="casebook-memo-title">Why LENS uses a casebook</h2>
       <p>The casebook puts the argument of <a href={base + "show-your-work/"}>Capability Matters</a> into practice. What people can accomplish depends on what they know and can do, and on what the system makes possible. The cases ask where a gap came from, what could change it, and what evidence would justify acting. Ask who benefits, who carries the burden, and who has the authority to act or contest a decision.</p>
-      <p>I-PASS shows how resident practice, faculty feedback, and a structured handoff work together. In the INL turbine-control case, operators used a simulator to expose interface problems before formal validation. Failure cases let readers design and test a response to a documented gap while keeping the proposed response distinct from what happened.</p>
+      <p><a href={base + "case-studies/i-pass-handoff-bundle/"}>I-PASS</a> shows how resident practice, faculty feedback, and a structured handoff work together. In the <a href={base + "case-studies/inl-turbine-control-upgrade/"}>INL turbine-control case</a>, operators used a simulator to expose interface problems before formal validation. Failure cases let readers design and test a response to a documented gap while keeping the proposed response distinct from what happened.</p>
       <p>The <a href={base + "approach/"}>LENS approach</a> moves from Understand through Map, Design, Build, Instrument, Experiment, and Evaluate, then returns to Understand. Refine throughout. Pick a case, define the work, map what people and systems must provide, and specify a result that would make you revise the design.</p>
     </section>
 
@@ -124,7 +124,7 @@ const CASEBOOK_PDF_URL = base + "capability-matters-casebook-draft.pdf";
       <div class="cb-eyebrow">Draft · feedback welcome</div>
       <h2>Read the whole casebook</h2>
       <p>
-        The fourteen cases above are a selection. The full reading edition of
+        The {cases.length} cases above are a selection. The full reading edition of
         <em>Capability Matters: A Casebook</em> includes forty-eight historical
         chapters across seven parts and a closing studio. The November 2026
         revision distinguishes documented interventions from proposed responses
